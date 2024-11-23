@@ -48,9 +48,8 @@ We will not typically accept pull requests that implement new timelines, or room
 ## Why we reject Enhancement/Feature requests
 We may reject Enhancement/Feature requests for many reasons, but they usually boil down to one of three: project bloat, project scope, and feasibility.
 
-Project bloat is an issue that occurs when a project has too many options and/or features and becomes overwhelming and/or uncohesive. This was an issue in the past when we added a massive amount of toggleable features via the modifiers.ini file, and we have worked to reduce this for some time.
+Project bloat is an issue that occurs when a project has too many options and/or features and becomes overwhelming and/or uncohesive. I already have issues with managing every little feature and toggleable option.
 
 Project scope is the set of overarching goals for a project and the boundaries it should stay within. When something is "outside of project scope," it means that it does not fall within the project's goals. Enhancements/Features that are outside of project scope could create feature bloat, cause a project to lose its focus, or provide a large waste of time.
 
 Feasibility is a balance of the effort required to implement an Enhancement/Feature versus the benefit of implementing said Enhancement/Feature. Some ideas are really cool and would fit within project scope, but simply aren't worth the time and effort to implement. This is less of a concern now that the project is open source and can have more contributors, but is still always worth keeping in mind.
-## List of Notable Rejected Enhancement/Feature Requests

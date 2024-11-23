@@ -1,0 +1,8 @@
+/// GameObjectB1_init()
+
+
+
+
+
+
+

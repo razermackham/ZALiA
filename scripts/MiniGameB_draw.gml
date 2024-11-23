@@ -1,0 +1,8 @@
+/// MiniGameB_draw()
+
+
+//
+
+
+
+

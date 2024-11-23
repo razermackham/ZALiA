@@ -40,13 +40,11 @@ Enums and variables used as constants should use UPPER_CASE.
 
 Sprites, sounds, backgrounds/tilesets, shaders, fonts, and objects should all hold to a camelCase format with an appropriate prefix:
 ```
-spr_SpriteName, snd_SoundName, mus_MusicName, bgr_BackgroundName, ts_TilesetName, shd_ShaderName, font_FontName, obj_ObjectName, rm_RoomName
+snd_SoundName, mus_MusicName, bgr_BackgroundName, ts_TilesetName, shd_ShaderName, font_FontName, obj_ObjectName
 ```
-We will not typically accept pull requests that implement new timelines, shaders, fonts, or rooms. Here's why:
+We will not typically accept pull requests that implement new timelines, or rooms, and maybe several other things like just adding a font. Here's why:
 * Timelines are too integrated with GML Drag 'n' Drop and can be easily replicated with proper state machines. Two currently exist, but they will eventually be replaced.
 * Shaders are difficult to provide quality control for thanks to differences in evaluation on various GPU models. The palette swap shader currently utilized already has issues with various GPUs (or lack thereof), and providing support for more would require a low cost/benefit ratio. Shaders can also cause significant performance drops on Linux and Android devices.
-* Fonts are already plentiful in ZALiA. Additional characters for localization support aside, it has what it needs for every situation/scale, and we seek to maintain visual consistency within the project.
-* New rooms are almost always outside of project scope.
 ## Why we reject Enhancement/Feature requests
 We may reject Enhancement/Feature requests for many reasons, but they usually boil down to one of three: project bloat, project scope, and feasibility.
 

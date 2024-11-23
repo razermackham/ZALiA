@@ -10,12 +10,14 @@ There are many ways of formatting code (particularly in regard to indentation an
 
 Moving forward, we will be holding to a fairly strict set of formatting rules in an attempt to remedy this and will deny pull requests until their formatting is fixed, even if they are otherwise excellent contributions. On a related note, pull requests that simply change existing formatting for consistency's sake are more than welcome.
 
-We generally hold to the Allman Style of code indentation and bracketing, with a slight modification for if/else readability. It looks like this:
+I generally think the more open bracketing is more readable overall. This may just be a consequense of coding in GMS 1 code editor for so long.
 ```
-if (codeFormatIsGood) {
+if (codeFormatIsGood)
+{
     show_debug_message("YOU SAVED HYRULE!");
 } 
-else {
+else
+{
     show_debug_message("I AM ERROR");
 }
 ```
@@ -23,11 +25,11 @@ Please comment your code thoroughly. We don't need a breakdown of every single l
 
 Comments should always be in English and generally follow proper grammar and sentence structuring norms. Other contributors must be able to understand what you are saying.
 
-Comment lines should not be unecessarily long. Rule of thumb: if you have to scroll to read them, you're doing it wrong. Multiline comments should be used instead:
+Comment lines should not be unecessarily long. Rule of thumb: if you have to scroll horizontally to read them, you're doing it wrong. Multiline comments should be used instead:
 ```
 /*
-    Please don't make me ask you to modify your pull request for readability.
-    It's not that hard, and saves the next programmer a lot of trouble :)
+    Actually using the /**/ comments is kinda annoying to turn on and off.
+    I wish there was a simple toggle for it :)
 */
 ```
 In keeping with GM:S conventions, all functions/methods should use snake_case.

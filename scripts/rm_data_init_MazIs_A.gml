@@ -307,7 +307,7 @@ data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 //   --------------------------  0A  --------------------------- 
 //    Outside. Shoals.
 rm_num  = $0A;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'064', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND, dk_SceneMusicThemeException+"01");
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'016', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND, dk_SceneMusicThemeException+"01");
 
 
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 

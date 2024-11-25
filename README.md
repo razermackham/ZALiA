@@ -18,7 +18,7 @@ Additionally, it would be most helpful if you joined the [Zelda Again: Link is A
 # Disclaimer(s)
 A warning that much of this code is messy, uses unusual solutions, and does not hold to our established formatting style - this is a result of HoverBat's disorganization, and his nature as a bat.
 
-I'm still new the world of sharing source code and working with a community on a project. I'm not quite sure what to do next, but I'm sure there's [plenty TODO](https://github.com/search?q=repo%3AZA-LiA%2FZALiA%20todo&type=code).
+I'm still new the world of sharing source code and working with a community on a project. I'm not quite sure what to do next, but I'm sure there's plenty [TODO](https://github.com/search?q=repo%3AZA-LiA%2FZALiA%20todo&type=code).
 
 
 # Requirements

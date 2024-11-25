@@ -1,6 +1,8 @@
 /// OptionsMenu_InputConfig_update()
 
 
+// TODO: Add a keyboard controls re-binding system.
+
 switch(InputConfigState)
 {
     // ====================================================================

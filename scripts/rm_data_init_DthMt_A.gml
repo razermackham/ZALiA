@@ -306,7 +306,7 @@ row3=row0+$0F; y3=row3<<3;
 data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  $32<<3,y3,  STR_Treasure+STR_Map+"01"); // MAGIC PIECE
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
 
 
 
@@ -434,7 +434,7 @@ data_spawn(rm+STR_PRIO,ItmE0,$1,  $0B<<3,y3); // Magic Jar (Full)
 //data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $0B<<3,(row3+$02)<<3,  STR_Treasure+STR_Map+"01"); // HEART PIECE
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+STR_JAR,rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+STR_JAR,rm);
 
 
 
@@ -594,7 +594,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '13'+EXL0_); // RG
 data_spawn(rm+STR_PRIO,ItmE0,$1,  $12<<3,y3); // Magic Jar (Full)
 
 
-data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00"+STR_JAR,rm);
+//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00"+STR_JAR,rm);
 
 
 

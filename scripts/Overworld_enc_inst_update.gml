@@ -82,6 +82,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
         dg_enc_inst[#_i,4] = 0; // move dir y (1, -1)
         
         
+        // TODO: Fix OG overworld enemy update code. 2024/11/24: Using my own code which does not match the OG behavior.
         switch(_UpdateMovementDir_VER)
         {
             case 1:{ // =============================================================

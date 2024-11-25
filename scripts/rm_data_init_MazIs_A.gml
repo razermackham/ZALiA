@@ -262,7 +262,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$16,  0);        // 
 data_spawn(rm+STR_PRIO,ItmE0,$1,  $200,$90); // Magic Jar (Full)
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+STR_JAR,rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+STR_JAR,rm);
 
 
 

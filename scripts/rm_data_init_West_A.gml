@@ -849,7 +849,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '19'+EXL0_); // RG
 data_spawn(rm+STR_PRIO,ItmF0,$1,  $12<<3,(row3+$02)<<3); // PBag v1 50
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1867,7 +1867,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,ItmE0,$1,  ($1A<<3)+3,y3); // Magic Jar (Full)
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+STR_JAR,rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+STR_JAR,rm);
 
 
 

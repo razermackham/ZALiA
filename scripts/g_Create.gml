@@ -6,6 +6,22 @@
 if (DEV) sdm(" g_Create()");
 
 
+// TODO: Rename abbreviated game objects names to a full name. Example: IronKunckle enemy is currently named "IrKnA".
+/*
+TODO: Assign all globally used variables to `global` instead of the persistant objects they're currently assigned to.
+Many variables I use globally are variables "persistant" objects.
+I did this so that accessing them was less characters and to associate them with what they're realated to.
+Example: g.torch_lighting_method, f.game_completed_count
+*/
+/*
+TODO: Downgrade or upgrade graphic detail of scenes so it's consitant across all scenes.
+Either reduce the detail of non-OG scenes and any OG scenes that had detail added, 
+or add detail to mainly OG scenes to be consistant with detailed scenes.
+*/
+
+
+
+
 // ---------------------------------------------------
 /*  -----  variable naming key  ------
 

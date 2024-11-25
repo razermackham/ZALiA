@@ -6,9 +6,9 @@ if(!g.exit_enter) exit; // !!!!!!!!!!!!!!!!!!!!!!!
 
 with(g.pc)
 {
-    spawn_x = val(g.dm_rm[?g.exit_enter.exitName+STR_Spawn_x]) <<3;
-    spawn_y = val(g.dm_rm[?g.exit_enter.exitName+STR_Spawn_y]) <<3;
-    /*
+    //spawn_x = val(g.dm_rm[?g.exit_enter.exitName+STR_Spawn_x]) <<3;
+    //spawn_y = val(g.dm_rm[?g.exit_enter.exitName+STR_Spawn_y]) <<3;
+    ///*
     var                            _scene_name = g.rm_name;
     if (global.SceneRando_enabled) _scene_name = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name);
     
@@ -16,7 +16,7 @@ with(g.pc)
     
     spawn_x = val(g.dm_rm[?_EXIT_NAME+STR_Spawn_x]) <<3;
     spawn_y = val(g.dm_rm[?_EXIT_NAME+STR_Spawn_y]) <<3;
-    */
+    //*/
     
     if (g.mod_PC_CUCCO_1 
     &&  g.CuccoSpell2_Active 

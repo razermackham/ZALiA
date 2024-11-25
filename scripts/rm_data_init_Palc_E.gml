@@ -77,7 +77,7 @@ g.dm_rm[?get_dk_dungeon_entrance(_DUNGEON_NUM)] = exit_name_l0;
 data_spawn(rm+STR_PRIO,ItmF0,$4,  $5A<<3,(row0+$04)<<3); // PBag v4: 200 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm, STR_JUMP);
+//data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm, STR_JUMP);
 
 
 
@@ -468,7 +468,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0C'+EXL0_); // RG
 data_spawn(rm+STR_PRIO,ItmF0,$4,  $0C<<3,(row0+$0F)<<3); // PBag v4: 200
 
 
-data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_01",rm, STR_GLOVE+STR_JUMP+STR_STABDOWN+STR_STABUP);
+//data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_01",rm, STR_GLOVE+STR_JUMP+STR_STABDOWN+STR_STABUP);
 
 
 
@@ -512,7 +512,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0D'+EXL0_); // RG
 data_spawn(rm+STR_PRIO,ItmF0,$4,  $4E<<3,(row0+$0D)<<3); // PBag v4: 200
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm, STR_JUMP);
+//data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm, STR_JUMP);
 
 
 
@@ -749,7 +749,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '11'+EXR0_); // LF
 data_spawn(rm+STR_PRIO,ItmF0,$5,  $30<<3,(row0+$0F)<<3); // PBag v5: 250
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm, STR_JUMP);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm, STR_JUMP);
 
 
 

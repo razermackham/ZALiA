@@ -1,4 +1,4 @@
-# What is This?
+# What is this?
 This repository is the **ZALiA** GameMaker:Studio project including most, if not all, of its contents. 
 
 If you're just looking for the game to play, it can be downloaded [here](https://hoverbat.itch.io/ziiaol).

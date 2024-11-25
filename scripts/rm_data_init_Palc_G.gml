@@ -454,7 +454,8 @@ data_spawn(rm+STR_PRXM,FokuA,$1,  $22<<3,(row0+$0B)<<3); // Fokkeru  1
 data_spawn(rm+STR_PRXM,FokuA,$1,  $50<<3,(row0+$0F)<<3); // Fokkeru  1
 
 
-data_exit(EXU0,etA0,0,  $00,row_e0,  $30,ROWS5,  $10,row_e4,  '2D'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA0,0,  $04,row_e0,  $28,ROWS5,  $10,row_e4,  '2D'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA0,0,  $00,row_e0,  $30,ROWS5,  $10,row_e4,  '2D'+EXD0_); // UP  0, Pit up 
 data_exit(EXD0,etA1,1,  $00,row_e2,  clms0,ROWS5,  $4F,row_e3,  '55'+EXU0_); // DWN 0, Pit down 
 data_pit(exit_name_d0,0,2);
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0A'+EXR0_); // LFT 0, 
@@ -1172,7 +1173,8 @@ clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '1C'+EXD0_); // UP  0, Elevator up  
 data_Elev(EXU0_, clm3,row0+$15); // Elevator UP $80, 
 clm3=$6A; clms3=$20-(clm3&$1F); clm4=clm3+(clms3>>1);
-data_exit(EXU1,etA4,0,  clm3,row_e0,  clms3,ROWS5,  clm4,row_e4,  '4E'+EXD0_); // UP  0, Pit up 
+data_exit(EXU1,etA4,0,  $66,row_e0,  $1A,ROWS5,  $6C,row_e4,  '4E'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU1,etA4,0,  clm3,row_e0,  clms3,ROWS5,  clm4,row_e4,  '4E'+EXD0_); // UP  0, Pit up 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '20'+EXL0_); // RGT 0, 
 
 
@@ -1683,7 +1685,8 @@ clm5  = $40;
 clms5 = $20;
 clm6  = clm5+(clms5>>1)-1;
 rows3 = $10;
-data_exit(EXU0,etA4,0,  $40,row_e0,  $20,rows3,  clm6,row_e4,  '29'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA4,0,  $40,row_e0,  $20,rows3,  $4F,row_e4,  '29'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA4,0,  $40,row_e0,  $20,rows3,  clm6,row_e4,  '29'+EXD0_); // UP  0, Pit up 
 data_exit(EXD0,etA1,1,  clm3,row_e2,  clms3,rows3,  clm3+$07,row_e3,  '0B'+EXU0_); // DWN 0, Pit down 
 data_exit(EXD1,etA1,1,  clm4,row_e2,  clms4,rows3,  clm4+$09,row_e3,  '30'+EXU0_); // DWN 1, Pit down 
 data_pit(exit_name_d1, 0,2);
@@ -2784,7 +2787,8 @@ data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
 data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
 
 
-data_exit(EXU0,etA4,0,  $20,row_e0,  $20,ROWS5,  $30,row_e4,  '49'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA4,0,  $04,row_e0,  $70,ROWS5,  $30,row_e4,  '49'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA4,0,  $20,row_e0,  $20,ROWS5,  $30,row_e4,  '49'+EXD0_); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$16,  '18'+EXR0_); // LFT 0, 
 
 

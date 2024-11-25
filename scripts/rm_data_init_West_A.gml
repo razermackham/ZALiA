@@ -608,7 +608,7 @@ data_spawn(rm+STR_PRXM,LowdA,$1,  $3E<<3,y5); // Lowder  1
 data_spawn(rm+STR_PRXM,LowdA,$1,  $42<<3,y5); // Lowder  1 
 
 
-data_exit(EXU0,etA0,0,  $20,row_e0,  CLMS5,ROWS5,  $2F,row_e4,  0); // UP  0, Pit up 
+data_exit(EXU0,etA0,0,  $2C,row_e0,  $08,ROWS5,  $2F,row_e4,  0); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '13'+EXL0_); // RGT 0, 
 
@@ -2857,7 +2857,7 @@ data_spawn(rm+STR_PRXM,Myu_A,$1,  $20<<3,y4); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $40<<3,y4); // Myu  1 
 
 
-data_exit(EXU0,etA0,0,  $00,row_e0,  clms0,ROWS5,  $2B,row_e4,  '24'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA0,0,  $26,row_e0,  $0A,ROWS5,  $2B,row_e4,  '24'+EXD0_); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld
 
 
@@ -3910,7 +3910,9 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $0C<<3,(row0+$0F)<<3); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $20<<3,(row0+$17)<<3); // Bot  1 
 
 
-data_exit(EXU0,etA0,0,  $08,-$0F,  $04,ROWS5,  $0A,$02,  'F5'+EXD0_); // UP  0, Pit up 
+clm3=$08; clms3=clms0-clm3; clm4=clm3+$02;
+data_exit(EXU0,etA0,0,  clm3,-$0F,  clms3,ROWS5,  clm4,$02,  'F5'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA0,0,  clm3,-$0F,  $04,ROWS5,  clm4,$02,  'F5'+EXD0_); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,$29,  'F7'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,$37,  0); // RGT 0,  to Overworld
 
@@ -4021,7 +4023,9 @@ data_spawn(rm+STR_PRIO,BlazA,$2,  ($2C<<3)+4,$56<<3); // Blaze v2
 data_spawn(rm+STR_PRIO,BlazA,$2,  ($28<<3)+4,$1F<<3); // Blaze v2
 
 
-data_exit(EXU0,etA0,0,  CLM0,-$0F,  clms1,ROWS5,  $0F,$02,  'F6'+EXD0_); // UP  0, Pit up 
+clm3=$06; clms3=clms0-clm3; clm4=$0F;
+data_exit(EXU0,etA0,0,  clm3,-$0F,  clms3,ROWS5,  clm4,$02,  'F6'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA0,0,  CLM0,-$0F,  clms1,ROWS5,  $0F,$02,  'F6'+EXD0_); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,$1C,  'FA'+EXR1_); // LFT 0, 
 
 _clm=$21+clm0; _clm2=clms0-$04;

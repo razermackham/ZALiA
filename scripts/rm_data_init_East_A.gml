@@ -2340,7 +2340,8 @@ data_spawn(rm+STR_PRXM,OctoA,$1,  $0E<<3,(row0+$10)<<3); // Octorok  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $34<<3,(row0+$0C)<<3); // Myu  1 
 
 
-data_exit(EXU0,etA0,0,  -$20,row_e0,  clms1,ROWS5,  $2D,row_e4,  '2A'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA0,0,  $2A,row_e0,  $0A,ROWS5,  $2D,row_e4,  '2A'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA0,0,  -$20,row_e0,  clms1,ROWS5,  $2D,row_e4,  '2A'+EXD0_); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$10,  '51'+EXR0_); // LFT 0, 
 
 
@@ -2454,7 +2455,8 @@ data_spawn(rm+STR_PRXM,Wheep,$1,  $0F<<3,$69<<3,  STR_Palette+hex_str(_pi)); // 
 data_spawn(rm+STR_PRXM,Wheep,$1,  $16<<3,$6E<<3,  STR_Palette+hex_str(_pi)); // Wheep
 
 
-data_exit(EXU0,etA0,0,  $00,-$0F,  clms0,ROWS5,  $12,$02,  area_TA+'19'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA0,0,  $11,-$0F,  $04,ROWS5,  $12,$02,  area_TA+'19'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA0,0,  $00,-$0F,  clms0,ROWS5,  $12,$02,  area_TA+'19'+EXD0_); // UP  0, Pit up 
 row3  = $40;
 rows3 = PAGE_ROWS;
 row4  = row3+rows3;
@@ -2539,7 +2541,8 @@ data_spawn(rm+STR_PRXM,Wheep,$1,  $1D<<3,$57<<3,  STR_Palette+hex_str(_pi)); // 
 
 
 clms3 =  PAGE_CLMS;
-data_exit(EXU0,etA0,0,  $00,-$0F,  clms0,ROWS5,  $1F,$02,  '56'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA0,0,  $1A,-$0F,  $0C,ROWS5,  $1F,$02,  '56'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA0,0,  $00,-$0F,  clms0,ROWS5,  $1F,$02,  '56'+EXD0_); // UP  0, Pit up 
 clm3 = -PAGE_CLMS;
 data_exit(EXD0,etA0,1,  clm3,row0+$1F,  clms1,ROWS5,  $1F,row_e3,  '58'+EXU0_); // DWN 0, Pit down 
 
@@ -2570,8 +2573,8 @@ data_spawn(rm+STR_PRXM,Myu_A,$1,  $30<<3,(row0+$0E)<<3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $60<<3,(row0+$0E)<<3); // Myu  1 
 
 
-data_exit(EXU0,etA0,0,  $00,row_e0,  clms0,ROWS5,  $25,row_e4,  '57'+EXD0_); // UP  0, Pit up 
-//data_exit(EXU0,etA0,0,  $00,-$0F,  clms0,ROWS5,  $1B,$02,  '57'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA0,0,  $08,row_e0,  $6C,ROWS5,  $25,row_e4,  '57'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA0,0,  $00,row_e0,  clms0,ROWS5,  $25,row_e4,  '57'+EXD0_); // UP  0, Pit up 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$09,  '59'+EXL0_); // RGT 0, 
 
 

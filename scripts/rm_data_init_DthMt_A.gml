@@ -837,7 +837,8 @@ row3=row0+$16; y3=row3<<3; y4=(row3+$01)<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,(row0+$0B)<<3); // v1: Light w/ CANDLE or FIRE
 
 
-data_exit(EXU0,etA0,0,  -$20,row_e0,  clms1,ROWS5,  $2F,row_e4,  0); // UP  0, Pit up to Overworld
+data_exit(EXU0,etA0,0,  $2C,row_e0,  $08,ROWS5,  $2F,row_e4,  0); // UP  0, Pit up to Overworld
+//data_exit(EXU0,etA0,0,  -$20,row_e0,  clms1,ROWS5,  $2F,row_e4,  0); // UP  0, Pit up to Overworld
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0A,  0); // LFT 0, to Overworld
 //data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0A,  '25'+EXR0_); // LFT 0, 
 
@@ -1004,7 +1005,8 @@ data_spawn(rm+STR_PRXM,Myu_A,$1,  $4E<<3,(row0+$0E)<<3); // Myu  1
 data_spawn(rm+STR_PRXM,DeelA,$1,  $38<<3,(row0+$08)<<3,  STR_Distance+hex_str($0E<<3)); // Deeler  1 
 
 
-data_exit(EXU0,etA0,0,  $00,row_e0,  clms0,ROWS5,  $0F,row_e4,  '20'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA0,0,  $0C,row_e0,  $08,ROWS5,  $0F,row_e4,  '20'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA0,0,  $00,row_e0,  clms0,ROWS5,  $0F,row_e4,  '20'+EXD0_); // UP  0, Pit up 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0A,  '22'+EXL0_); // RGT 0, 
 
 
@@ -1370,9 +1372,8 @@ y3  = (row0+$14)<<3;
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $55<<3,y3); // Myu  1 
 
 
-clm3 = $40;
-row5 = -PAGE_ROWS;
-data_exit(EXU0,etA0,0,  clm3,row0-$0F,  PAGE_CLMS,ROWS5,  clm3+$0F,row0+$02,  0); // UP  0, Pit up, to Overworld
+data_exit(EXU0,etA0,0,  $4C,row_e0,  $08,ROWS5,  $4F,row_e4,  0); // UP  0, Pit up, to Overworld
+//data_exit(EXU0,etA0,0,  $40,row_e0,  PAGE_CLMS,ROWS5,  $4F,row_e4,  0); // UP  0, Pit up, to Overworld
 data_exit(EXL0,etA0,1,  CLM2,-PAGE_ROWS,  CLMS2,rows1,  CLM3,row0+$12,  '30'+EXR0_); // LFT 0, 
 
 

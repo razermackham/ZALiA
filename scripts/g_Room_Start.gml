@@ -1307,13 +1307,13 @@ if (_ROOM_A
 
 if (_ROOM_A)
 {
-    var _X_PREV = pc.x;
-    var _Y_PREV = pc.y;
+    var _X = pc.x;
+    var _Y = pc.y;
     set_pc_spawn_xy(); // update_explored_data() && rm_set_cam_1a() need this
     set_xy(pc, pc.spawn_x+PC_W_,pc.spawn_y+PC_H_);
     
     update_explored_data();
-    set_xy(pc, _X_PREV,_Y_PREV); // idk if this is necessary.
+    set_xy(pc, _X,_Y); // idk if this is necessary.
 }
 
 
@@ -1613,7 +1613,7 @@ if (_ROOM_A
                     _xl1 = val(g.dm_rm[?exitName+STR_Spawn_x])<<3; // pc spawn xl. right exit
                     _yt1 = val(g.dm_rm[?exitName+STR_Spawn_y])<<3; // pc spawn yt. right exit
                 }
-                else if (side&$2)
+                else
                 {
                     _xl2 = val(g.dm_rm[?exitName+STR_Spawn_x])<<3; // pc spawn xl. right exit
                     _yt2 = val(g.dm_rm[?exitName+STR_Spawn_y])<<3; // pc spawn yt. right exit
@@ -1845,7 +1845,6 @@ if (_ROOM_B1)
     if(!instance_exists(    TitleScreen))
     {   instance_create(0,0,TitleScreen);  }
     
-    // TODO: Check if these props are supposed to be reset when coming from somewhere other than the app start.
     with(TitleScreen)
     {
         x = HOME_X;

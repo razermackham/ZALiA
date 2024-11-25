@@ -519,8 +519,10 @@ data_spawn(rm+STR_PRIO,SpStA,$1,  $65<<3,(row0+$10)<<3); // SpawnByStab 1
 data_spawn(rm+STR_PRIO,Ganon2,$1,  (clms0+$01)<<3,(row0+$05)<<3);
 //STR_Arena+'_x'+hex_str(rm_w>>1)
 
-clm3=$70;  row3=row0+$17;
-data_exit(EXU0,etA4,0,  clm3,row_e0,  clms0-clm3,$10,  clm3+$02,row_e4,  '1C'+EXD0_); // UP  0, Pit up 
+clm3=$70;
+row3=row0+$17;
+data_exit(EXU0,etA4,0,  $78,row_e0,  $0C,$10,  $7A,row_e4,  '1C'+EXD0_); // UP  0, Pit up 
+//data_exit(EXU0,etA4,0,  clm3,row_e0,  clms0-clm3,$10,  clm3+$02,row_e4,  '1C'+EXD0_); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  rm_num_+EXU0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '21'+EXL0_); // RGT 0, 
 

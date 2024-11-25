@@ -779,6 +779,7 @@ if (true) // testing
                     _scene_name1 = dl_list1[|_j];
                     _scene_name2 = dl_list2[|_j];
                     dm_save_data[?dk_SceneRando+STR_Scene+STR_Randomized+_scene_name1] = _scene_name2;
+                    //if (string_pos(STR_Pit+"8",_val1)) sdm(""); sdm(_scene_name1+" - "+_scene_name2);
                 }
             }
         }

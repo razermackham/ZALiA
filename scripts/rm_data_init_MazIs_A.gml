@@ -127,7 +127,8 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_MI+'
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,(row0+$0B)<<3); // v1: Light w/ CANDLE or FIRE
 
 
-data_exit(EXU0,etA0,0,  $1E,row_e0,  CLMS5,ROWS5,  $2D,$02,  0); // UP  0, Pit up, to Overworld 
+data_exit(EXU0,etA0,0,  $26,row_e0,  $08,ROWS5,  $2D,$02,  0); // UP  0, Pit up, to Overworld 
+//data_exit(EXU0,etA0,0,  $1E,row_e0,  CLMS5,ROWS5,  $2D,$02,  0); // UP  0, Pit up, to Overworld 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0A,  0); // LFT 0, to Overworld 
 
 
@@ -154,7 +155,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $38<<3,(row0+$17)<<3); // v1: Light w/ CANDLE
 data_spawn(rm+STR_PRXM,GeruA,$2,  $50<<3,(row0+$16)<<3); // Geru  2
 
 
-data_exit(EXU0,etA0,0,  $2A,row_e0,  $0C,ROWS5,  $2F,row_e4,  0); // UP  0, Pit up to Overworld
+data_exit(EXU0,etA0,0,  $2C,row_e0,  $08,ROWS5,  $2F,row_e4,  0); // UP  0, Pit up to Overworld
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0A,  0); // LFT 0, to Overworld
 
 

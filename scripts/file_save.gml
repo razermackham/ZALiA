@@ -48,6 +48,8 @@ if(!_WILL_ELIMINATE)
 
 
 
+_dm_save_data[?"_App_Version"] = "ZALiA version: "+GM_version;
+_dm_save_data[?"_DateTimeOfSave"] = date_current_datetime();
 //                                                                              // 
 _dm_save_data[?f.SDNAME_saveCreated]            = _SAVE_IS_CREATED_STATE;
 _dm_save_data[?f.SDNAME_save_name]              = _SAVE_NAME;
@@ -90,7 +92,6 @@ if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations])
 //                                                                              // 
 //                                                                              // 
 //                                                                              // 
-_dm_save_data[?"_DateTimeOfSave"] = date_current_datetime();
 
 
 if (file_exists(_FILE_NAME))

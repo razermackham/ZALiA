@@ -174,6 +174,18 @@ dev_draw_app_paused_icon();
 
 dev_draw_app_frame_count();
 
+
+if (keyboard_check(vk_f8))
+{
+    var _TEXT = "V-"+GM_version;
+    var _XL = viewXL()+8;
+    var _YT = viewYT()+8;
+    var _PAD = $1;
+    draw_sprite_(spr_1x1_WHT,0, _XL,_YT, -1, (string_length(_TEXT)<<8)+(_PAD<<1), 8+(_PAD<<1), c_black);
+    draw_text_(_XL+_PAD,_YT+_PAD, _TEXT);
+}
+
+
 // Trying to set up a system to flip through previews of rooms
 //preview_scene();
 

@@ -23,3 +23,4 @@ I'm still new the world of sharing source code and working with a community on a
 
 # Requirements
 * **GameMaker:Studio 1.4.9999** - the IDE for editing and compiling this project.
+  * If you don't have a copy of GameMaker:Studio 1.4.9999, I've been told [Undertale Mod Tool](https://github.com/UnderminersTeam/UndertaleModTool) can be used though I'm not familiar with it.

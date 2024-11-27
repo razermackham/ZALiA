@@ -27,10 +27,10 @@ I'm still new the world of sharing source code and working with a community on a
 * If you can't get a copy of GameMaker:Studio 1.4.9999, I've been told [Undertale Mod Tool](https://github.com/UnderminersTeam/UndertaleModTool) can be used though I'm not familiar with it.
 
 # Player Skins
-Because there are many player skins, this means ~3800 additional sprites. So they're not in the way of dev time, I have removed all but the default skin.
+There are ~3800 additional sprites due to the player skins. I have removed all but the default skin so that all the extras are not in the way during development.
 
-If you would like to include any of the extra skins:
+When it's time to release the project, or if you would like to include any of the extra skins during development:
 1. Download [this](https://drive.google.com/file/d/1CqalzaXPOK8w75XwTWi7Jii7BWXYEMlj/view?usp=sharing) folder and unzip. It contains all the player skin gmx files and the image files that go with them.
 2. In **GameMaker:Studio** > In the assets tree > In the **Sprites** folder > Right click on the **player_character** folder > Click **Add Existing Sprite**.
-3. In the window that pops up, navigate to the **individual_sprites_format** folder inside the downloaded skins folder > Select which skins you want (Do not select **spr_PCSkin_KazunobuShimizu_Link01.sprite.gmx** as it is the default already in the project)
+3. In the window that pops up, navigate to the **individual_sprites_format** folder inside the downloaded skins folder > Select the gmx files of which skins you want (Do not select **spr_PCSkin_KazunobuShimizu_Link01.sprite.gmx** as it's the default skin already in the project)
 4. In **GameMaker:Studio** > In the **GameObjectA_init** script > Find the comment `// UNCOMMENT WHICH SKINS YOU WILL USE HERE` > Uncomment which skins you're going to use.

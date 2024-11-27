@@ -9,7 +9,7 @@ NPC_draw_door();
 if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-// Added indicator on NPCs that give hints
+// Draw "?" over head of NPC that has an undescovered hint
 if (1 
 &&  has_rando_hint )
 {

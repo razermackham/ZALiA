@@ -920,11 +920,9 @@ data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent
 //data_sound(mus_SteelCrescent_Dungeon_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Dungeon_Intro);
 data_sound(mus_SteelCrescent2_Dungeon2,_VOL_STCR5, _theme,dk_SteelCrescent2);
 //data_sound(mus_SteelCrescent2_Dungeon_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Dungeon_Intro);
-//data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent3);
 data_sound(mus_SteelCrescent3_Dungeon_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Dungeon_Intro);
-//data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent4);
 data_sound(mus_SteelCrescent4_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Dungeon_Intro);
-//data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent5);
+data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent5);
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
 data_sound(mus_Wyng1_Dungeon01,          _VOL_WYNG1, _theme,dk_Wyng);
 //                                                                                                                  //
@@ -941,12 +939,9 @@ data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent
 //data_sound(mus_SteelCrescent_Dungeon_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Dungeon_Intro);
 data_sound(mus_SteelCrescent2_Dungeon2,_VOL_STCR5, _theme,dk_SteelCrescent2);
 //data_sound(mus_SteelCrescent2_Dungeon_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Dungeon_Intro);
-//data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent3);
 data_sound(mus_SteelCrescent3_Dungeon_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Dungeon_Intro);
-//data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent4);
 data_sound(mus_SteelCrescent4_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Dungeon_Intro);
-data_sound(mus_SteelCrescent5_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent5, mus_SteelCrescent5_Dungeon_Intro);
-//data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent5);
+data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent5);
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
 data_sound(mus_Wyng1_Dungeon01,          _VOL_WYNG1, _theme,dk_Wyng);
 //                                                                                                                  //
@@ -963,12 +958,9 @@ data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent
 //data_sound(mus_SteelCrescent_Dungeon_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Dungeon_Intro);
 data_sound(mus_SteelCrescent2_Dungeon2,_VOL_STCR5, _theme,dk_SteelCrescent2);
 //data_sound(mus_SteelCrescent2_Dungeon_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Dungeon_Intro);
-//data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent3);
 data_sound(mus_SteelCrescent3_Dungeon_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Dungeon_Intro);
-//data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent4);
 data_sound(mus_SteelCrescent4_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Dungeon_Intro);
-data_sound(mus_SteelCrescent5_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent5, mus_SteelCrescent5_Dungeon_Intro);
-//data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent5);
+data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent5);
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
 data_sound(mus_Wyng1_Dungeon01,          _VOL_WYNG1, _theme,dk_Wyng);
 //                                                                                                                  //

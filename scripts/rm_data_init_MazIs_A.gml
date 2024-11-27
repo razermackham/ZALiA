@@ -333,509 +333,335 @@ data_spawn(rm+STR_PRIO,ItmG0,$1,  $2A<<3,y3,  STR_Treasure+STR_Map+"02"); // Ext
 
 //   --------------------------  0B  --------------------------- 
 //    
-rm_num      = $0B; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $0B; 
+
 
 
 //   --------------------------  0C  --------------------------- 
 //    
-rm_num      = $0C; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $0C; 
+
 
 
 //   --------------------------  0D  --------------------------- 
 //    
-rm_num      = $0D; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $0D; 
+
 
 
 //   --------------------------  0E  --------------------------- 
 //    
-rm_num      = $0E; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $0E; 
+
 
 
 //   --------------------------  0F  --------------------------- 
 //    
-rm_num      = $0F; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $0F; 
+
 
 
 //   --------------------------  10  --------------------------- 
 //    
-rm_num      = $10; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $10; 
+
 
 
 //   --------------------------  11  --------------------------- 
 //    
-rm_num      = $11; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $11; 
+
 
 
 //   --------------------------  12  --------------------------- 
 //    
-rm_num      = $12; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $12; 
+
 
 
 //   --------------------------  13  --------------------------- 
 //    
-rm_num      = $13; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $13; 
+
 
 
 //   --------------------------  14  --------------------------- 
 //    
-rm_num      = $14; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $14; 
+
 
 
 //   --------------------------  15  --------------------------- 
 //    
-rm_num      = $15; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $15; 
+
 
 
 //   --------------------------  16  --------------------------- 
 //    
-rm_num      = $16; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $16; 
+
 
 
 //   --------------------------  17  --------------------------- 
 //    
-rm_num      = $17; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $17; 
+
 
 
 //   --------------------------  18  --------------------------- 
 //    
-rm_num      = $18; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $18; 
+
 
 
 //   --------------------------  19  --------------------------- 
 //    
-rm_num      = $19; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $19; 
+
 
 
 //   --------------------------  1A  --------------------------- 
 //    
-rm_num      = $1A; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $1A; 
+
 
 
 //   --------------------------  1B  --------------------------- 
 //    
-rm_num      = $1B; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $1B; 
+
 
 
 //   --------------------------  1C  --------------------------- 
 //    
-rm_num      = $1C; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $1C; 
+
 
 
 //   --------------------------  1D  --------------------------- 
 //    
-rm_num      = $1D; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $1D; 
+
 
 
 //   --------------------------  1E  --------------------------- 
 //    
-rm_num      = $1E; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $1E; 
+
 
 
 //   --------------------------  1F  --------------------------- 
 //    
-rm_num      = $1F; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $1F; 
+
 
 
 //   --------------------------  20  --------------------------- 
 //    
-rm_num      = $20; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $20; 
+
 
 
 //   --------------------------  21  --------------------------- 
 //    
-rm_num      = $21; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $21; 
+
 
 
 //   --------------------------  22  --------------------------- 
-//    Outside. 
+//    
 rm_num  = $22;
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'001', STR_ow_axis+'01', STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND);
-
-
-data_NIAO_1a(rm_name+STR_NIAO+'0',  $0000,  1,Cloud_1_init);
-data_spawn(rm+STR_PRXM,OctoA,$2,  $20<<3,(row0+$14)<<3); // Octorok  2
-data_spawn(rm+STR_PRXM,OctoA,$2,  $4C<<3,(row0+$10)<<3); // Octorok  2
-data_spawn(rm+STR_PRXM,OctoA,$2,  $5C<<3,(row0+$10)<<3); // Octorok  2
-data_spawn(rm+STR_PRXM,TektA,$1,  $62<<3,(row0+$0C)<<3); // Tektite  1
-
-
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$16,  0); // LFT 0, to Overworld
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0A,  0); // RGT 0, to Overworld
-*/
-
-
-
-
-
-
 
 
 //   --------------------------  23  --------------------------- 
-//    Outside. 
+//    
 rm_num  = $23;
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'001', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND);
-
-
-data_NIAO_1a(rm_name + STR_NIAO + '0', $0000, 1, Cloud_1_init); //   
-data_spawn(rm+STR_PRXM,ZoraA,$1,  $2E<<3,(row0+$12)<<3); // $AE: Zora  1
-data_spawn(rm+STR_PRXM,TektA,$1,  $40<<3,(row0+$10)<<3); // $AB: Tektite  1
-data_spawn(rm+STR_PRXM,TektA,$1,  $68<<3,(row0+$0C)<<3); // $AB: Tektite  1
-
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$16,  0);        // LFT 0, to Overworld  
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$0A,  0);        // RGT 0, to Overworld  
-*/
-
-
-
-
-
 
 
 //   --------------------------  24  --------------------------- 
-//   CAVE.      MAGIC 3 
+//    
 rm_num  = $24;
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_MI+'002', STR_ow_axis+'01', STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND);
-
-
-data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,(row0+$0B)<<3); // v1: Light w/ CANDLE or FIRE
-
-
-data_exit(EXU0,etA0,0,  $1E,row_e0,  CLMS5,ROWS5,  $2D,$02,  0); // UP  0, Pit up, to Overworld 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0A,  0); // LFT 0, to Overworld 
-
-
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  ($34<<3)-2,(row0+$18)<<3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
-*/
-
-
-
-
-
-
 
 
 //   --------------------------  25  --------------------------- 
-//   CAVE.      CHILD 
+//    
 rm_num  = $25;
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_MI+'003', STR_ow_axis+'01', STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND);
-
-
-data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,(row0+$0B)<<3); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $38<<3,(row0+$17)<<3); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,GeruA,$2,  $50<<3,(row0+$16)<<3); // Geru  2
-
-
-data_exit(EXU0,etA0,0,  $2A,row_e0,  $0C,ROWS5,  $2F,row_e4,  0); // UP  0, Pit up to Overworld
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0A,  0); // LFT 0, to Overworld
-
-
-data_spawn(rm+STR_PRIO,ItmC4,$1,  ($77<<3)-3,(row0+$16)<<3); // CHILD
-*/
-
-
-
-
-
-
 
 
 //   --------------------------  26  --------------------------- 
 //    
-rm_num      = $26; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $26; 
+
 
 
 //   --------------------------  27  --------------------------- 
 //    
-rm_num      = $27; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $27; 
+
 
 
 //   --------------------------  28  --------------------------- 
 //    
-rm_num      = $28; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $28; 
+
 
 
 //   --------------------------  29  --------------------------- 
 //    
-rm_num      = $29; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $29; 
+
 
 
 //   --------------------------  2A  --------------------------- 
 //    
-rm_num      = $2A; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $2A; 
+
 
 
 //   --------------------------  2B  --------------------------- 
 //    
-rm_num      = $2B; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $2B; 
+
 
 
 //   --------------------------  2C  --------------------------- 
 //    
-rm_num      = $2C; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $2C; 
+
 
 
 //   --------------------------  2D  --------------------------- 
 //    
-rm_num      = $2D; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $2D; 
+
 
 
 //   --------------------------  2E  --------------------------- 
 //    
-rm_num      = $2E; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $2E; 
+
 
 
 //   --------------------------  2F  --------------------------- 
-//    Outside. 
+//    
 rm_num  = $2F;
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'000', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND);
-
-
-data_NIAO_1a(rm_name + STR_NIAO + '0', $0000, 1, Cloud_1_init); //   
-data_spawn(rm+STR_PRXM,ZoraA,$1,  $200,$B0); // $AE: Zora  1
-data_spawn(rm+STR_PRXM,ZoraA,$1,  $240,$B0); // $AE: Zora  1
-data_spawn(rm+STR_PRXM,TektA,$1,  $320,$B0); // $AB: Tektite  1
-
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$16,  0);        // LFT 0, to Overworld  
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$16,  0);        // RGT 0, to Overworld  
-*/
-
-
-
-
-
 
 
 //   --------------------------  30  --------------------------- 
-//    Outside. 
+//    
 rm_num  = $30; 
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'006', STR_ow_axis+'01', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND);
-
-
-data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
-data_spawn(rm+STR_PRXM,Moa_A,$1,  $12<<3,(row0+$06)<<3); // Moa  1 
-data_spawn(rm+STR_PRXM,Moa_A,$1,  $40<<3,(row0+$0A)<<3); // Moa  1 
-data_spawn(rm+STR_PRXM,Moa_A,$1,  $6E<<3,(row0+$10)<<3); // Moa  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $0C<<3,(row0+$08)<<3); // Bot  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $4E<<3,(row0+$10)<<3); // Bot  1 
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $62<<3,(row0+$12)<<3); // Bot  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $24<<3,(row0+$16)<<3); // Bot  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $30<<3,(row0+$16)<<3); // Bot  1
-
-
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$06,  0); // LFT 0, to Overworld 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$14,  0); // RGT 0, to Overworld 
-
-
-data_spawn(rm+STR_PRIO,Kakusu010,$1,  $10<<3,(row0+$16)<<3,  STR_Treasure+STR_Map+"02"); // Hiding in Ra statue. Invisible & Still until damaged.
-*/
-
-
-
-
-
 
 
 //   --------------------------  31  --------------------------- 
-//    Outside. 
+//    
 rm_num  = $31;
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'004', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND);
-
-
-data_NIAO_1a(rm_name + STR_NIAO + '0', $0000, 1, Cloud_1_init); // $30
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $A0,$80); // $8E: Bot  1
-data_spawn(rm+STR_PRXM,ZoraA,$1,  $180,$B0); // $AE: Zora  1
-data_spawn(rm+STR_PRXM,ZoraA,$1,  $1A0,$B0); // $AE: Zora  1
-data_spawn(rm+STR_PRXM,TektA,$1,  $300,$B0); // $AB: Tektite  1
-
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$16,  0);        // LFT 0, to Overworld  
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$16,  0);        // RGT 0, to Overworld  
-*/
-
-
-
-
-
 
 
 //   --------------------------  32  --------------------------- 
-//    Outside. 
+//    
 rm_num  = $32;
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'004', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND);
-
-
-data_NIAO_1a(rm_name + STR_NIAO + '0', $0000, 1, Cloud_1_init); // $30
-data_spawn(rm+STR_PRXM,OctoA,$1,  $D0,$60); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,TektA,$1,  $F0,$70); // $AB: Tektite  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $2A0,$80); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,TektA,$1,  $2D0,$90); // $AB: Tektite  1
-
-
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$16,  0);        // LFT 0, to Overworld  
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$16,  0);        // RGT 0, to Overworld  
-
-
-data_spawn(rm+STR_PRIO,ItmE0,$1,  $200,$90); // Magic Jar (Full)
-*/
-
-
-
-
-
 
 
 //   --------------------------  33  --------------------------- 
-//    Outside. 
+//    
 rm_num  = $33;
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'000', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND);
-
-
-data_NIAO_1a(rm_name + STR_NIAO + '0', $0000, 1, Cloud_1_init); //  $2F
-data_spawn(rm+STR_PRXM,ZoraA,$1,  $A0,$B0); // $AE: Zora  1
-data_spawn(rm+STR_PRXM,ZoraA,$1,  $240,$B0); // $AE: Zora  1
-data_spawn(rm+STR_PRXM,ZoraA,$1,  $280,$B0); // $AE: Zora  1
-
-
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$16,  0);        // LFT 0, to Overworld  
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$16,  0);        // RGT 0, to Overworld  
-*/
-
-
-
-
-
 
 
 //   --------------------------  34  --------------------------- 
 //    
-rm_num      = $34; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $34; 
+
 
 
 //   --------------------------  35  --------------------------- 
 //    
-rm_num      = $35; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $35; 
+
 
 
 //   --------------------------  36  --------------------------- 
 //    
-rm_num      = $36; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $36; 
+
 
 
 //   --------------------------  37  --------------------------- 
 //    
-rm_num      = $37; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $37; 
+
 
 
 //   --------------------------  38  --------------------------- 
 //    
-rm_num      = $38; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $38; 
+
 
 
 //   --------------------------  39  --------------------------- 
 //    
-rm_num      = $39; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $39; 
+
 
 
 //   --------------------------  3A  --------------------------- 
 //    
-rm_num      = $3A; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $3A; 
+
 
 
 //   --------------------------  3B  --------------------------- 
 //    
-rm_num      = $3B; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $3B; 
+
 
 
 //   --------------------------  3C  --------------------------- 
 //    
-rm_num      = $3C; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $3C; 
+
 
 
 //   --------------------------  3D  --------------------------- 
 //    
-rm_num      = $3D; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $3D; 
+
 
 
 //   --------------------------  3E  --------------------------- 
 //    
-rm_num      = $3E; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $3E; 
+
 
 
 //   --------------------------  3F  --------------------------- 
 //    
-rm_num      = $3F; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $3F; 
 
+
+
+// ----------------------------------------------------------
+mus0 = STR_Dungeon+"01";
 
 //   --------------------------  40  --------------------------- 
-//    Water shoals next to Palace 4
+//    Extra scene rando scene. Field, moai statue with doorway mouth, 2 sections wide room
 rm_num  = $40;
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'064', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_MAZE_ISLAND);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'064');
 
 
+row3=row0+$17; y3=row3<<3;
+row4=row3-$02; y4=row4<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$18,  0); // LFT 0, to Overworld 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$18,  0); // RGT 0, to Overworld 
+clm3=$1F;
+data_exit(EXM0,etB0,1,  clm3,row4,  $03,ROWS2,  clm3-1,row4,  0); // MID 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
 
 
-y3=(row0+$0E)<<3;
-data_spawn(rm+STR_PRIO,ItmG0,$1,  $2A<<3,y3,  STR_Treasure+STR_Map+"02"); // Extra Life Doll 
-//data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  $2A<<3,y3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
-*/
+data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+
 
 
 
@@ -844,196 +670,800 @@ data_spawn(rm+STR_PRIO,ItmG0,$1,  $2A<<3,y3,  STR_Treasure+STR_Map+"02"); // Ext
 
 
 //   --------------------------  41  --------------------------- 
-//    
-rm_num      = $41; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Field, moai statue with doorway mouth, 4 sections wide room
+rm_num  = $41;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'065');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row3-$02; y4=row4<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
+
+
+clm3=$3F;
+data_exit(EXM0,etB0,1,  clm3,row4,  $02,ROWS2,  clm3-1,row4,  0); // MID 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  42  --------------------------- 
-//    
-rm_num      = $42; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Field and water, moai statue with doorway mouth, 2 sections wide room
+rm_num  = $42;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'066');
+
+
+row3=row0+$16; y3=row3<<3;
+row4=row0+$19; y4=row4<<3;
+row5=row3-$02; y5=row5<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
+
+
+clm3=$1F;
+data_exit(EXM0,etB0,1,  clm3,row5,  $03,ROWS2,  clm3-1,row5,  0); // MID 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row4,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  43  --------------------------- 
-//    
-rm_num      = $43; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Field, Ruins with doorway, 2 sections wide room
+rm_num  = $43;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'067');
+
+
+row3=row0+$16; y3=row3<<3;
+row4=row3-$03; y4=row4<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
+
+
+clm3=$1F;
+data_exit(EXM0,etB0,1,  clm3,row4,  $02,ROWS2,  clm3-1,row4,  0); // MID 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  44  --------------------------- 
-//    
-rm_num      = $44; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, flat floor, 9 pillars, curtains
+rm_num  = $44;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'068');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+clm3=$10; x3=(clm3<<3)+4; clms3=$0A; clms4=$20;
+data_spawn(rm+STR_PRIO,TorchA,$1,  x3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+x3+=clms3<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  x3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+x3+=clms4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  x3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+x3+=clms3<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  x3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+x3+=clms4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  x3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+x3+=clms3<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  x3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  45  --------------------------- 
-//    
-rm_num      = $45; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, very small corner room with down elevator and right exit
+rm_num  = $45;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'069');
+
+
+row3=row0+$14; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($35<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$2E; // Elevator center clm
+data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  0); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row0+$13);                                          // Elevator DW $40, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  46  --------------------------- 
-//    
-rm_num      = $46; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, very small corner room with down elevator and left exit
+rm_num  = $46;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'070');
+
+
+row3=row0+$14; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($09<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$12; // Elevator center clm
+data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  0); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row0+$13);                                          // Elevator DW $40, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+
+
+data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  47  --------------------------- 
-//    
-rm_num      = $47; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, very small corner room with up elevator and right exit
+rm_num  = $47;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'071');
+
+
+row3=row0+$0A; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($35<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$2E; // Elevator center clm
+data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  0); // UP  0, Elevator up 
+data_Elev(EXU0_, clm3,row0+$08);                                          // Elevator UP $80, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  48  --------------------------- 
-//    
-rm_num      = $48; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, very small corner room with up elevator and left exit
+rm_num  = $48;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'072');
+
+
+row3=row0+$0A; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($09<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$12; // Elevator center clm
+data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  0); // UP  0, Elevator up 
+data_Elev(EXU0_, clm3,row0+$08);                                          // Elevator UP $80, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+
+
+data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  49  --------------------------- 
-//    
-rm_num      = $49; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. 
+rm_num  = $49;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'073');
+
+
+row3=row0+$16; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $37<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$10; // Elevator center clm
+data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  0); // UP  0, Elevator up 
+data_Elev(EXU0_, clm3,row0+$12);                                          // Elevator UP $80, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  4A  --------------------------- 
-//    
-rm_num      = $4A; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon entrance, in the style of the triforce barrier ruins
+rm_num  = $46;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Color+COLOR2_, STR_Tile+area_MI+'074');
+
+
+row3=row0+$17; y3=row3<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
+
+
+clm3=$70; // Elevator center clm
+data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  0); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row0+$13);                                          // Elevator DW $40, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+
+
+data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  4B  --------------------------- 
-//    
-rm_num      = $4B; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Cave, Water, has a "walk across short gaps" section
+rm_num  = $48;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'075');
+
+
+row3=row0+$08; y3=row3<<3;
+row4=row0+$13; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($4C<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$50; // Elevator center clm
+data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  0); // UP  0, Elevator up 
+data_Elev(EXU0_, clm3,row0+$10);                                          // Elevator UP $80, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+
+
+data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  4C  --------------------------- 
-//    
-rm_num      = $4C; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Cave, Left Exit, Elev Down Exit, 4 section-wide room
+rm_num  = $48;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'076');
+
+
+row3=row0+$0A; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($4C<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$50; // Elevator center clm
+data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  0); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row0+$13);                                          // Elevator DW $40, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+
+
+data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  4D  --------------------------- 
-//    
-rm_num      = $4D; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Water, Long Drop from Pit Up. The scene used for the evil wizard video
+rm_num  = $4D;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'077');
+
+
+row3=row0+$19; y3=row3<<3;
+row4=$55; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($08<<3)+4,(row4+$03)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXU0,etA4,0,  $20,row_e0,  $10,ROWS5,  $27,row_e4,  0); // UP  0, Pit up 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+
+
+data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01"+STR_Pit+"8",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  4E  --------------------------- 
-//    
-rm_num      = $4E; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Beach, Water, Basic beach scene
+rm_num  = $4E;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'078');
+
+
+row3=row0+$18; y3=row3<<3;
+row4=row3-$04; y4=row4<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  4F  --------------------------- 
-//    
-rm_num      = $4F; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Bridge, Water, All bridge, 4 section-wide room
+rm_num  = $4F;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'079');
+
+
+row3=row0+$09; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  50  --------------------------- 
-//    
-rm_num      = $50; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Cave, Basic cave, 2 section-wide room
+rm_num  = $50;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'080');
+
+
+row3=row0+$16; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $09<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $36<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  51  --------------------------- 
-//    
-rm_num      = $51; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Cave, Water, Old underground VOD tunnels scene
+rm_num  = $51;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'081');
+
+
+row3=row0+$12; y3=row3<<3;
+row4=row0+$10; y4=row4<<3;
+//data_spawn(rm+STR_PRIO,TorchA,$1,  $09<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  $36<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  52  --------------------------- 
-//    
-rm_num      = $52; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Cave, Water, Old underground VOD tunnels scene
+rm_num  = $52;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'082');
+
+
+row3=row0+$12; y3=row3<<3;
+row4=row0+$0E; y4=row4<<3;
+//data_spawn(rm+STR_PRIO,TorchA,$1,  $09<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  $36<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  53  --------------------------- 
-//    
-rm_num      = $53; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Cave, Water, Old underground VOD tunnels scene
+rm_num  = $53;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'083');
+
+
+row3=row0+$12; y3=row3<<3;
+row4=row0+$08; y4=row4<<3;
+//data_spawn(rm+STR_PRIO,TorchA,$1,  $09<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  $36<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  54  --------------------------- 
-//    
-rm_num      = $54; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Water, Similar to P5's skulls on top of pillars scene
+rm_num  = $54;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'084');
+
+
+row3=row0+$12; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $04<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $5B<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  55  --------------------------- 
-//    
-rm_num      = $55; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Option to take high or low path
+rm_num  = $55;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'085');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($27<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($4F<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($57<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  56  --------------------------- 
-//    
-rm_num      = $56; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Stairs, 2 section-wide room
+rm_num  = $56;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'086');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row0-$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($0D<<3)+4,row3<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  $36<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  57  --------------------------- 
-//    
-rm_num      = $57; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Stairs on both ends
+rm_num  = $57;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'087');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($0D<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($71<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  58  --------------------------- 
-//    
-rm_num      = $58; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Pillars, Flat ground except for 4 1x2 block solids
+rm_num  = $58;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'088');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $77<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  59  --------------------------- 
-//    
-rm_num      = $59; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Water, Flat ground with several pitfalls
+rm_num  = $59;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'089');
+
+
+row3=row0+$10; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $09<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $76<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  5A  --------------------------- 
-//    
-rm_num      = $5A; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Field, Rocky ground, Flat ground, Some bgr bushes
+rm_num  = $5A;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'090');
+
+
+row3=row0+$17; y3=row3<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  5B  --------------------------- 
-//    
-rm_num      = $5B; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Mtn Pass
+rm_num  = $5B;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'091');
+
+
+row3=$37; y3=row3<<3;
+row4=$2F; y4=row4<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  5C  --------------------------- 
-//    
-rm_num      = $5C; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Mtn Pass
+rm_num  = $5C;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'092');
+
+
+row3=$37; y3=row3<<3;
+row4=$2F; y4=row4<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  5D  --------------------------- 
-//    
-rm_num      = $5D; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. River Cave
+rm_num  = $5D;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'093');
+
+
+row3=$38; y3=row3<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  5E  --------------------------- 
-//    
-rm_num      = $5E; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Rock, Water
+rm_num  = $5E;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'094');
+
+
+row3=$31; y3=row3<<3;
+row4=$2F; y4=row4<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  5F  --------------------------- 
-//    
-rm_num      = $5F; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Rock, Water, River side
+rm_num  = $5F;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'095');
+
+
+row3=$33; y3=row3<<3;
+row4=$38; y4=row4<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
 
 
 
 
 //   --------------------------  60  --------------------------- 
-//    
+//    Extra scene rando scene. Field, Ruins
 rm_num  = $60;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'096');
+
+
+row3=row0+$17; y3=row3<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
 
 
 
@@ -1042,8 +1472,21 @@ rm_num  = $60;
 
 
 //   --------------------------  61  --------------------------- 
-//    
+//    Extra scene rando scene. Rock, Ruins like ones at triforce barrier
 rm_num  = $61;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'097');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row0+$0F; y4=row4<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
 
 
 
@@ -1052,183 +1495,439 @@ rm_num  = $61;
 
 
 //   --------------------------  62  --------------------------- 
-//    
-rm_num      = $62; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Field, Water, Ruins
+rm_num  = $62;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'098');
+
+
+row3=row0+$19; y3=row3<<3;
+row4=row0+$16; y4=row4<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
 
 
 //   --------------------------  63  --------------------------- 
-//    
-rm_num      = $63; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Rock, Water
+rm_num  = $63;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'099');
+
+
+row3=row0+$10; y3=row3<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  64  --------------------------- 
-//    
-rm_num      = $64; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Rock, Water
+rm_num  = $64;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'100');
+
+
+row3=row0+$08; y3=row3<<3;
+row4=row0+$10; y4=row4<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  65  --------------------------- 
-//    
-rm_num      = $65; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Rock, Water
+rm_num  = $65;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'101');
+
+
+row3=row0+$10; y3=row3<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  66  --------------------------- 
-//    
-rm_num      = $66; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Rock, Water
+rm_num  = $66;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'102');
+
+
+row3=row0+$04; y3=row3<<3;
+row4=row0+$08; y4=row4<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  67  --------------------------- 
-//    
-rm_num      = $67; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. 
+rm_num  = $67;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'103');
+
+
+row3=row0-$04; y3=row3<<3;
+row4=row0+$06; y4=row4<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  68  --------------------------- 
-//    
-rm_num      = $68; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. 
+rm_num  = $68;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'104');
+
+
+row3=row0+$12; y3=row3<<3;
+row4=row0+$14; y4=row4<<3;
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  69  --------------------------- 
-//    
-rm_num      = $69; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Water, Water pitfalls, Collapsable floors, Need jump to get across
+rm_num  = $69;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'105');
+
+
+row3=row0+$10; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0E<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $71<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
+
+
+
+
+
+
 
 
 //   --------------------------  6A  --------------------------- 
-//    
-rm_num      = $6A; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Water, Need cucco to duck under low submerged wall
+rm_num  = $6A;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'106');
+
+
+row3=row0+$18; y3=row3<<3;
+row4=row0+$16; y4=row4<<3;
+clm3=$0C; clms3=$10; _a=0;
+data_spawn(rm+STR_PRIO,TorchA,$1,  (clm3+(clms3*_a++))<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  (clm3+(clms3*_a++))<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  (clm3+(clms3*_a++))<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_FAIRY);
+
+
+
+
+
+
 
 
 //   --------------------------  6B  --------------------------- 
-//    
-rm_num      = $6B; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Cave, Water, Need cucco to duck under low submerged wall
+rm_num  = $6B;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'107');
+
+
+row3=row0+$19; y3=row3<<3;
+row4=row0+$17; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $18<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_FAIRY);
+
+
+
+
+
+
 
 
 //   --------------------------  6C  --------------------------- 
-//    
-rm_num      = $6C; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Cave, Water, Need JUMP + cucco to get across pitfall
+rm_num  = $6C;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'108');
+
+
+row3=row0+$0C; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0E<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $71<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP+STR_FAIRY);
+
+
+
+
+
+
 
 
 //   --------------------------  6D  --------------------------- 
-//    
-rm_num      = $6D; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Previous used scene with hole on west side of Death Mtn
+rm_num  = $6D;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'109');
+
+
+row3=row0+$16; y3=row3<<3;
+
+
+data_exit(EXD0,etA1,1,  $1C,row_e2,  $04,ROWS5,  $33,row_e3,  0); // DWN 0, Pit down 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00"+STR_Pit+"4",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  6E  --------------------------- 
-//    
-rm_num      = $6E; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Up+Down Elevator, 4-Way Exits
+rm_num  = $6E;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'110');
+
+
+row3=row0+$10; y3=row3<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($1C<<3)+4,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($22<<3)+4,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$20; // Elevator center clm
+data_exit(EXU0,etC0,1,  clm3-$04,row_e0,  CLMS4,ROWS5,  clm3-$01,row_e1,  0); // UP  0, Elevator up  
+data_exit(EXD0,etC0,1,  clm3-$04,row_e2,  CLMS4,ROWS5,  clm3-$01,row_e3,  0); // DWN 0, Elevator down 
+data_Elev(EXD0_+EXU0_,  clm3,row0+$0D);                                       // Elevator DW $40, UP $80, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+
+
+data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_01",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  6F  --------------------------- 
-//    
-rm_num      = $6F; 
-rm_name     = area + hex_str(rm_num); 
+//    Extra scene rando scene. Dungeon, Down Elev on left, Up Elev on right
+rm_num  = $6F;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_MI+'111');
+
+
+row3=row0+$10; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+clm3=$0F; clms3=$10; _a=0;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+(clms3*_a++))<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+(clms3*_a++))<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+(clms3*_a++))<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$0A; clm4=$36; // Elevator center clm
+data_exit(EXU0,etC0,1,  clm4-$04,row_e0,  CLMS4,ROWS5,  clm4-$01,row_e1,  0); // UP  0, Elevator up  
+data_Elev(EXU0_, clm4,row0+$0C);                                              // Elevator UP $80, 
+data_exit(EXD0,etC0,1,  clm3-$04,row_e2,  CLMS4,ROWS5,  clm3-$01,row_e3,  0); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row0+$0F);                                              // Elevator DW $40, UP $80, 
+
+
+data_rando_scene01("_00"+"_00"+"_00"+"_01"+"_01",rm);
+
+
+
+
+
+
 
 
 //   --------------------------  70  --------------------------- 
 //    
-rm_num      = $70; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $70; 
+
 
 
 //   --------------------------  71  --------------------------- 
 //    
-rm_num      = $71; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $71; 
+
 
 
 //   --------------------------  72  --------------------------- 
 //    
-rm_num      = $72; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $72; 
+
 
 
 //   --------------------------  73  --------------------------- 
 //    
-rm_num      = $73; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $73; 
+
 
 
 //   --------------------------  74  --------------------------- 
 //    
-rm_num      = $74; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $74; 
+
 
 
 //   --------------------------  75  --------------------------- 
 //    
-rm_num      = $75; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $75; 
+
 
 
 //   --------------------------  76  --------------------------- 
 //    
-rm_num      = $76; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $76; 
+
 
 
 //   --------------------------  77  --------------------------- 
 //    
-rm_num      = $77; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $77; 
+
 
 
 //   --------------------------  78  --------------------------- 
 //    
-rm_num      = $78; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $78; 
+
 
 
 //   --------------------------  79  --------------------------- 
 //    
-rm_num      = $79; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $79; 
+
 
 
 //   --------------------------  7A  --------------------------- 
 //    
-rm_num      = $7A; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $7A; 
+
 
 
 //   --------------------------  7B  --------------------------- 
 //    
-rm_num      = $7B; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $7B; 
+
 
 
 //   --------------------------  7C  --------------------------- 
 //    
-rm_num      = $7C; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $7C; 
+
 
 
 //   --------------------------  7D  --------------------------- 
 //    
-rm_num      = $7D; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $7D; 
+
 
 
 //   --------------------------  7E  --------------------------- 
 //    
-rm_num      = $7E; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $7E; 
+
 
 
 //   --------------------------  7F  --------------------------- 
 //    
-rm_num      = $7F; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $7F; 
+
 
 
 
@@ -1674,308 +2373,308 @@ data_Elev(0,  clm6,$4F); // Elevator confined w/in scene. Doesn't go to an exit.
 
 //   --------------------------  8D  --------------------------- 
 //    
-rm_num      = $8D; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $8D; 
+
 
 
 //   --------------------------  8E  --------------------------- 
 //    
-rm_num      = $8E; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $8E; 
+
 
 
 //   --------------------------  8F  --------------------------- 
 //    
-rm_num      = $8F; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $8F; 
+
 
 
 //   --------------------------  90  --------------------------- 
 //    
-rm_num      = $90; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $90; 
+
 
 
 //   --------------------------  91  --------------------------- 
 //    
-rm_num      = $91; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $91; 
+
 
 
 //   --------------------------  92  --------------------------- 
 //    
-rm_num      = $92; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $92; 
+
 
 
 //   --------------------------  93  --------------------------- 
 //    
-rm_num      = $93; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $93; 
+
 
 
 //   --------------------------  94  --------------------------- 
 //    
-rm_num      = $94; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $94; 
+
 
 
 //   --------------------------  95  --------------------------- 
 //    
-rm_num      = $95; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $95; 
+
 
 
 //   --------------------------  96  --------------------------- 
 //    
-rm_num      = $96; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $96; 
+
 
 
 //   --------------------------  97  --------------------------- 
 //    
-rm_num      = $97; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $97; 
+
 
 
 //   --------------------------  98  --------------------------- 
 //    
-rm_num      = $98; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $98; 
+
 
 
 //   --------------------------  99  --------------------------- 
 //    
-rm_num      = $99; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $99; 
+
 
 
 //   --------------------------  9A  --------------------------- 
 //    
-rm_num      = $9A; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $9A; 
+
 
 
 //   --------------------------  9B  --------------------------- 
 //    
-rm_num      = $9B; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $9B; 
+
 
 
 //   --------------------------  9C  --------------------------- 
 //    
-rm_num      = $9C; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $9C; 
+
 
 
 //   --------------------------  9D  --------------------------- 
 //    
-rm_num      = $9D; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $9D; 
+
 
 
 //   --------------------------  9E  --------------------------- 
 //    
-rm_num      = $9E; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $9E; 
+
 
 
 //   --------------------------  9F  --------------------------- 
 //    
-rm_num      = $9F; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $9F; 
+
 
 
 //   --------------------------  A0  --------------------------- 
 //    
-rm_num      = $A0; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $A0; 
+
 
 
 //   --------------------------  A1  --------------------------- 
 //    
-rm_num      = $A1; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $A1; 
+
 
 
 //   --------------------------  A2  --------------------------- 
 //    
-rm_num      = $A2; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $A2; 
+
 
 
 //   --------------------------  A3  --------------------------- 
 //    
-rm_num      = $A3; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $A3; 
+
 
 
 //   --------------------------  A4  --------------------------- 
 //    
-rm_num      = $A4; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $A4; 
+
 
 
 //   --------------------------  A5  --------------------------- 
 //    
-rm_num      = $A5; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $A5; 
+
 
 
 //   --------------------------  A6  --------------------------- 
 //    
-rm_num      = $A6; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $A6; 
+
 
 
 //   --------------------------  A7  --------------------------- 
 //    
-rm_num      = $A7; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $A7; 
+
 
 
 //   --------------------------  A8  --------------------------- 
 //    
-rm_num      = $A8; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $A8; 
+
 
 
 //   --------------------------  A9  --------------------------- 
 //    
-rm_num      = $A9; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $A9; 
+
 
 
 //   --------------------------  AA  --------------------------- 
 //    
-rm_num      = $AA; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $AA; 
+
 
 
 //   --------------------------  AB  --------------------------- 
 //    
-rm_num      = $AB; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $AB; 
+
 
 
 //   --------------------------  AC  --------------------------- 
 //    
-rm_num      = $AC; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $AC; 
+
 
 
 //   --------------------------  AD  --------------------------- 
 //    
-rm_num      = $AD; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $AD; 
+
 
 
 //   --------------------------  AE  --------------------------- 
 //    
-rm_num      = $AE; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $AE; 
+
 
 
 //   --------------------------  AF  --------------------------- 
 //    
-rm_num      = $AF; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $AF; 
+
 
 
 //   --------------------------  B0  --------------------------- 
 //    
-rm_num      = $B0; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $B0; 
+
 
 
 //   --------------------------  B1  --------------------------- 
 //    
-rm_num      = $B1; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $B1; 
+
 
 
 //   --------------------------  B2  --------------------------- 
 //    
-rm_num      = $B2; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $B2; 
+
 
 
 //   --------------------------  B3  --------------------------- 
 //    
-rm_num      = $B3; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $B3; 
+
 
 
 //   --------------------------  B4  --------------------------- 
 //    
-rm_num      = $B4; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $B4; 
+
 
 
 //   --------------------------  B5  --------------------------- 
 //    
-rm_num      = $B5; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $B5; 
+
 
 
 //   --------------------------  B6  --------------------------- 
 //    
-rm_num      = $B6; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $B6; 
+
 
 
 //   --------------------------  B7  --------------------------- 
 //    
-rm_num      = $B7; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $B7; 
+
 
 
 //   --------------------------  B8  --------------------------- 
 //    
-rm_num      = $B8; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $B8; 
+
 
 
 //   --------------------------  B9  --------------------------- 
 //    
-rm_num      = $B9; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $B9; 
+
 
 
 //   --------------------------  BA  --------------------------- 
 //    
-rm_num      = $BA; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $BA; 
+
 
 
 //   --------------------------  BB  --------------------------- 
 //    
-rm_num      = $BB; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $BB; 
+
 
 
 //   --------------------------  BC  --------------------------- 
 //    
-rm_num      = $BC; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $BC; 
+
 
 
 //   --------------------------  BD  --------------------------- 
 //    
-rm_num      = $BD; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $BD; 
+
 
 
 //   --------------------------  BE  --------------------------- 
 //    
-rm_num      = $BE; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $BE; 
+
 
 
 //   --------------------------  BF  --------------------------- 
 //    
-rm_num      = $BF; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $BF; 
+
 
 
 //   --------------------------  C0  --------------------------- 
@@ -2006,9 +2705,9 @@ data_exit(EXM0,etB0,0,  clm3,row4,  $02,ROWS2,  clm3-1,row4,  rm_num_+EXM0_); //
 
 //   --------------------------  C1  --------------------------- 
 //    Testing: 
-rm_num      = $C1; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $C1; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2017,9 +2716,9 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  C2  --------------------------- 
 //    Testing: 
-rm_num      = $C2; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $C2; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2028,9 +2727,9 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  C3  --------------------------- 
 //    Testing: 
-rm_num      = $C3; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $C3; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2039,9 +2738,9 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  C4  --------------------------- 
 //    Testing: 
-rm_num      = $C4; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $C4; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2050,9 +2749,9 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  C5  --------------------------- 
 //    Testing: 
-rm_num      = $C5; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $C5; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2061,9 +2760,9 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  C6  --------------------------- 
 //    Testing: 
-rm_num      = $C6; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $C6; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2072,9 +2771,9 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  C7  --------------------------- 
 //    Testing: 
-rm_num      = $C7; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $C7; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2083,9 +2782,9 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  C8  --------------------------- 
 //    Testing: 
-rm_num      = $C8; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $C8; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2094,9 +2793,9 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  C9  --------------------------- 
 //    Testing: 
-rm_num      = $C9; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $C9; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2105,9 +2804,9 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  CA  --------------------------- 
 //    Testing: 
-rm_num      = $CA; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $CA; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2116,9 +2815,9 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  CB  --------------------------- 
 //    Testing: 
-rm_num      = $CB; 
-rm_num_     = hex_str(rm_num);
-rm_name     = area +  rm_num_;
+rm_num  = $CB; 
+
+
 
 // set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'255', STR_ow_axis+'00');
 // _w = rm_get_wh(rm_name,0);
@@ -2127,140 +2826,140 @@ rm_name     = area +  rm_num_;
 
 //   --------------------------  CC  --------------------------- 
 //    Testing: Dungeon entrance idea 1
-rm_num      = $CC; 
-rm_num_     = hex_str(rm_num);
+rm_num  = $CC; 
+
 
 
 //   --------------------------  CD  --------------------------- 
 //    Testing: Stone Heads outside rm idea 1a
-rm_num      = $CD; 
-rm_num_     = hex_str(rm_num);
+rm_num  = $CD; 
+
 
 
 //   --------------------------  CE  --------------------------- 
 //    Testing: Stone Heads Dungeon rm idea 1a
-rm_num      = $CE; 
-rm_num_     = hex_str(rm_num);
+rm_num  = $CE; 
+
 
 
 //   --------------------------  CF  --------------------------- 
 //    Testing: Scenery idea, 1 page rm w/ sign
-rm_num      = $CF; 
-rm_num_     = hex_str(rm_num);
+rm_num  = $CF; 
+
 
 
 //   --------------------------  D0  --------------------------- 
 //    Testing: Outside, vertical, rocky & palace style
-rm_num      = $D0; 
-rm_num_     = hex_str(rm_num);
+rm_num  = $D0; 
+
 
 
 //   --------------------------  D1  --------------------------- 
 //    Testing: Long bridge 1
-rm_num      = $D1; 
-rm_num_     = hex_str(rm_num);
+rm_num  = $D1; 
+
 
 
 //   --------------------------  D2  --------------------------- 
 //    Testing: Desert rm w/ Palace 1 bricks
-rm_num      = $D2;
-rm_num_     = hex_str(rm_num);
+rm_num  = $D2;
+
 
 
 //   --------------------------  D3  --------------------------- 
 //    Testing: SMB world 1-1
-rm_num      = $D3; 
-rm_num_     = hex_str(rm_num);
+rm_num  = $D3; 
+
 
 
 //   --------------------------  D4  --------------------------- 
 //    Testing: Sky Palace rm 000_01
-rm_num      = $D4; 
-rm_num_     = hex_str(rm_num);
+rm_num  = $D4; 
+
 
 
 //   --------------------------  D5  --------------------------- 
 //    Testing: Bubble cling to walls test 1
-rm_num      = $D5; 
-rm_num_     = hex_str(rm_num);
+rm_num  = $D5; 
+
 
 
 //   --------------------------  D6  --------------------------- 
 //   Poison bubble trap on path to HEART 1  
-rm_num      = $D6;  
-rm_name     = area + hex_str(rm_num);  
+rm_num  = $D6;  
+ 
 
 
 //   --------------------------  D7  --------------------------- 
 //    Testing: Small rm test 1
-rm_num      = $D7; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $D7; 
+
 
 
 //   --------------------------  D8  --------------------------- 
 //     Testing: Cucco long float test 1
-rm_num      = $D8;  
-rm_name     = area + hex_str(rm_num);
+rm_num  = $D8;  
+
 
 
 //   --------------------------  D9  --------------------------- 
 //    Testing: scs testing 1
-rm_num      = $D9; 
-rm_name     = area + hex_str(rm_num);
+rm_num  = $D9; 
+
 
 
 //   --------------------------  DA  --------------------------- 
 //    Testing: TonnA test 1
-rm_num      = $DA; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $DA; 
+
 
 
 //   --------------------------  DB  --------------------------- 
 //    Testing: Challenge_LightTorchesA test 1
-rm_num      = $DB; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $DB; 
+
 
 
 //   --------------------------  DC  --------------------------- 
 //    Testing: TorchA test 1
-rm_num      = $DC; 
-rm_name     = area + hex_str(rm_num);
+rm_num  = $DC; 
+
 
 
 //   --------------------------  DD  --------------------------- 
 //    Testing: Tyell test 1 & Challenge_DefeatAllA test 2
-rm_num      = $DD; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $DD; 
+
 
 
 //   --------------------------  DE  --------------------------- 
 //    Testing: Challenge_DefeatAllA test 1
-rm_num      = $DE; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $DE; 
+
 
 
 //   --------------------------  DF  --------------------------- 
 //    Testing: Teleporting Kakusu test 1
-rm_num      = $DF; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $DF; 
+
 
 
 //   --------------------------  E0  --------------------------- 
 //    Testing: Cucco 1 tile-high tunnel test 1
-rm_num      = $E0; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $E0; 
+
 
 
 //   --------------------------  E1  --------------------------- 
 //    Testing: Snaraa test 1
-rm_num      = $E1; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $E1; 
+
 
 
 //   --------------------------  E2  --------------------------- 
 //    Testing: Platforms (Circle movement) test 1
-rm_num      = $E2; 
-rm_name     = area + hex_str(rm_num); 
+rm_num  = $E2; 
+
 
 
 //   --------------------------  E3  --------------------------- 

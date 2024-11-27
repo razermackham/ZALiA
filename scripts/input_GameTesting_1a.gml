@@ -239,19 +239,6 @@ if (DEV) // The following is for making these debug tools more accessable to me.
 
 
 
-/*
-if (g.anarkhyaOverworld_MAIN 
-&&  keyboard_check_pressed(vk_f7) )
-{
-    if (g.room_type=="A")
-    {
-            g.anarkhyaOverworld_use = !g.anarkhyaOverworld_use;
-        if (g.anarkhyaOverworld_use) aud_play_sound(snd_Z1_Boss_Roar_1a);
-        else                         aud_play_sound(snd_NikoTengoku_Jingle01);
-    }
-}
-*/
-
 
 
 

@@ -221,7 +221,7 @@ data_spawn(rm+STR_PRIO,LoDoA,$1,  $25<<3,(row0+$15)<<3); // LockedDoor
 //data_spawn(rm+STR_PRIO,LoDoA,$1,  $22<<3,(row0+$15)<<3); // 
 
 
-data_exit(EXU0,etA4,0,  $04,row_e0,  $78,ROWS5,  $2F,row_e4,  'FD'+EXD0_); // UP  0, Pit up  
+data_exit(EXU0,etA4,0,  $04,row_e0,  $78,ROWS5,  $2F,row_e4,  'FD'+EXD0_); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '04'+EXR0_); // LFT 0,  
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '06'+EXL0_); // RGT 0,  
 

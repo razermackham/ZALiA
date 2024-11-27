@@ -17,6 +17,14 @@ ds_list_add(_dl1,STR_STABDOWN,STR_STABUP);
 var _EXIT_DATA  = argument[_a++];
 var _SCENE_NAME = argument[_a++];
 
+
+if (string_pos(Area_MazIs,_SCENE_NAME) 
+&&  str_hex(string_copy(_SCENE_NAME, RmName_LEN-1, 2))>=$40 )
+{   // Uncomment this to NOT use the extra Scene Rando scenes
+    //exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
 var                    _conditions = undefined;
 if (argument_count>_a) _conditions = argument[_a++];
 if(!is_undefined(_conditions))

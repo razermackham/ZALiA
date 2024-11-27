@@ -9,6 +9,18 @@ NPC_draw_door();
 if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
+// Added indicator on NPCs that give hints
+if (1 
+&&  has_rando_hint )
+{
+    var _NUM = val(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey+STR_Hint+STR_Num]);
+    if (_NUM 
+    &&  is_undefined(g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_NUM)+STR_Dialogue]) )
+    {
+        draw_text_(x-4, yt-6, "?");
+    }
+}
+
 
 
 if (sprite_datakey==STR_Zant)

@@ -459,7 +459,28 @@ if(!is_undefined(                                dialogue_datakey)
 
 
 
-//if (global.Halloween1_enabled) dialogue_datakey = val(g.DIALOGUE_WINDOW.dm_dialogue[?STR_Halloween+dialogue_datakey], dialogue_datakey);
+if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
+&&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
+{
+    _val = dialogue_datakey;
+    if (is_ancestor(object_index,Zelda))
+    {
+        _val = STR_Zelda+STR_Hint;
+        if(!is_undefined(f.dm_rando[?_val+STR_Dialogue]))
+        {
+            has_rando_hint = true;
+        }
+    }
+    else if(!is_undefined(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey]))
+    {
+        has_rando_hint = true;
+    }
+}
+//f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey]
+//_num = val(f.dm_rando[?STR_Rando+STR_Hint+_RANDO_HINT_DIALOGUE_DK+STR_Hint+STR_Num]);
+//var _dialogue = g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Dialogue];
+//dialogue = val(f.dm_rando[?STR_Zelda+STR_Hint+STR_Dialogue]);
+//has_rando_hint = true;
 
 
 

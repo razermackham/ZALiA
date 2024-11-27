@@ -12,14 +12,16 @@ Please read our [license](LICENSE) before distributing, modifying, contributing 
 # Contributing
 Please read our [Contribution Guidelines](CONTRIBUTING.md) before opening any issues or creating pull requests.
 
-Additionally, it would be most helpful if you joined the [Zelda Again: Link is Adventuresome Discord server](https://discord.gg/Z4H2RhwP4p) if you plan on contributing to the project.
+Additionally, it would be most helpful if you joined the [Zelda Again: Link is Adventuresome Discord server](https://discord.gg/Z4H2RhwP4p) if you plan on contributing to the project. You can find some development files there such as my notes on what a specific RAM address is used for and a text file of dissected assembly.
 
 
 # Disclaimer(s)
 A warning that much of this code is messy, uses unusual solutions, and does not hold to our established formatting style - this is a result of HoverBat's disorganization, and his nature as a bat.
 
-I'm still new the world of sharing source code and working with a community on a project. I'm not quite sure what to do next, but I'm sure there's plenty to do, like making a TODO.
+I'm still new the world of sharing source code and working with a community on a project. I'm not quite sure what to do next, but I'm sure there's plenty [TODO](https://github.com/search?q=repo%3AZA-LiA%2FZALiA%20todo&type=code).
 
 
 # Requirements
 * **GameMaker:Studio 1.4.9999** - the IDE for editing and compiling this project.
+  * Someone informed me you can still get [**GameMaker:Studio 1.4.9999**](http://store.yoyogames.com/downloads/gm-studio/release-notes-studio.html). If you have trouble trusting links: Go to GameMaker's official home page (I've been told you need a YoYo account and license number, but typing gibberish into the license field works) > Click on Blog at the top > Scroll down to find the search bar > Search **1.4.9999** > Click on search result: **GAMEMAKER:STUDIO 1.4.9999 RELEASED**
+* If you can't get a copy of GameMaker:Studio 1.4.9999, I've been told [Undertale Mod Tool](https://github.com/UnderminersTeam/UndertaleModTool) can be used though I'm not familiar with it.

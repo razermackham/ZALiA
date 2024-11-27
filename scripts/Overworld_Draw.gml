@@ -329,23 +329,32 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
         
         with(g.pc)
         {
-            if (Skin_image==spr_PCSkins_Full01)
-            //if (sprite_get_width(Skin_image)<=Spritesheet_W)
+            _idx = val(dm_skins[?STR_Current+STR_Idx]);
+            if(!val(dm_skins[?hex_str(_idx)+"_source_is_file"]))
             {
-                _idx = val(dm_skins[?STR_Current+STR_Idx]);
-                var _dk = val(dm_skins[?hex_str(_idx)+STR_Datakey]);
-                _dk += STR_Overworld+hex_str(other.pc_sprite_idx&$F);
-                _w = dm_skins[?_dk+'_w'];
-                if(!is_undefined(_w))
+                switch(PCSkins_SYS_VER)
                 {
-                    _h   = val(dm_skins[?_dk+'_h']);
-                    _xl2 = val(dm_skins[?_dk+STR_Placed+'_xl']); // relative to spr_PCSkins_Full01
-                    _yt2 = val(dm_skins[?_dk+STR_Placed+'_yt']); // relative to spr_PCSkins_Full01
-                    _xl1 = _x - (_w>>1);
-                    _yt1 = _y - (_h>>1);
-                    draw_sprite_part_(Skin_image,0, _xl2,_yt2, _w,_h, _xl1,_yt1, PI_PC_1);
+                    case 1:{
+                    draw_sprite_(Skin_image,$60|(other.pc_sprite_idx&$F), _x,_y, PI_PC_1);
+                    break;}
+                    
+                    
+                    
+                    case 2:{
+                    var _dk = val(dm_skins[?hex_str(_idx)+STR_Datakey]);
+                    _dk += STR_Overworld+hex_str(other.pc_sprite_idx&$F);
+                    _w = dm_skins[?_dk+'_w'];
+                    if(!is_undefined(_w))
+                    {
+                        _h   = val(dm_skins[?_dk+'_h']);
+                        _xl2 = val(dm_skins[?_dk+STR_Placed+'_xl']); // relative to spr_PCSkins_Full01
+                        _yt2 = val(dm_skins[?_dk+STR_Placed+'_yt']); // relative to spr_PCSkins_Full01
+                        _xl1 = _x - (_w>>1);
+                        _yt1 = _y - (_h>>1);
+                        draw_sprite_part_(Skin_image,0, _xl2,_yt2, _w,_h, _xl1,_yt1, PI_PC_1);
+                    }
+                    break;}
                 }
-                //draw_sprite_(Skin_image,$60|(pc_sprite_idx&$F), _x,_y, PI_PC_1);
             }
             else
             {

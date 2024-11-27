@@ -1,5 +1,4 @@
-/// PC_init_add_spritesheet(sprite asset, character name, creator, *palette)
-// PC_init_add_spritesheet(sprite asset, character name, creator, *palette, *source is local)
+/// PC_init_add_spritesheet(sprite asset, character name, creator, *palette, *source is file)
 
 
 var _val;
@@ -29,13 +28,13 @@ if (argument_count>_a)
         dm_skins[?hex_str(_IDX)+STR_Palette] = _val;
     }
 }
-/*
+
 if (argument_count>_a)
 {
     _val = argument[_a++];
-    dm_skins[?hex_str(_IDX)+"_is_local"] = sign(_val);
+    //dm_skins[?sprite_get_name(_SPRITE)+"_source_is_file"] = sign(_val);
+    dm_skins[?hex_str(_IDX)+"_source_is_file"] = sign(_val);
 }
-*/
 
 
 

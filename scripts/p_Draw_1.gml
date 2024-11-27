@@ -126,77 +126,66 @@ if (_C1&$3)
 // ------------------------------------------------------------------------
 if (_C1&$4) // On 1st frame after app start
 {
-    // PC SpriteSheet Colors
-    // The palette colors for the custom pc sprites are in the 
-    // top left of the $FF(bottom-right) box of the sprite sheet.
-    // The palettes are displayed as 3 rows of 3 4x4 squares, 
-    // with each row separated by 1 pixel.
-    var _j,_k, _idx, _val, _count;
-    var _datakey;
-    var _palette = "";
-    //var _SUB_IMAGE_INDEX = $3F;
-    //var _SUB_IMAGE_INDEX = $BF;
-    var _SUB_IMAGE_INDEX = $FF;
-    _w = g.pc.Spritesheet_W;
-    _h = g.pc.Spritesheet_H;
-    _surf = surface_create(_w,_h);
-    surface_set_target(_surf);
-    
-    //sdm("");
-    _count = val(g.pc.dm_skins[?STR_Set+STR_Count]);
-    for(_i=0; _i<_count; _i++)
+    with(g.pc)
     {
-        _datakey =   val(g.pc.dm_skins[?hex_str(_i)+STR_Datakey], STR_undefined);
-        _sprite  =       g.pc.dm_skins[?_datakey   +STR_Sprite];
-        if (is_undefined(g.pc.dm_skins[?_datakey   +STR_Palette])  // setting the palette in GameObjectA_init() overrides setting it here
-        &&  is_undefined(g.pc.dm_skins[?hex_str(_i)+STR_Palette]) 
-        && !is_undefined(_sprite) )
+        // PC SpriteSheet Colors
+        // The palette colors for the custom pc sprites are in the 
+        // top left of the $FF(bottom-right) box of the sprite sheet.
+        // g.pc.PCSkins_SYS_VER==1: colors are in sub image $3F.
+        // The palettes are displayed as 3 rows of 3 4x4 squares, 
+        // with each row separated by 1 pixel.
+        var _j,_k, _idx, _val, _count;
+        var _datakey;
+        var _palette = "";
+        _surf = surface_create(Spritesheet_W,Spritesheet_H);
+        surface_set_target(_surf);
+        
+        //sdm("");
+                     _count = val(dm_skins[?STR_Set+STR_Count]);
+        for(_i=0; _i<_count; _i++)
         {
-            _x = 0;
-            _y = 0;
-            _ts_x = _w * ((_SUB_IMAGE_INDEX>>0)&$F);
-            _ts_y = _h * ((_SUB_IMAGE_INDEX>>4)&$F);
-            draw_sprite_part(_sprite,0, _ts_x,_ts_y, _w,_h, _x,_y);
-            /*
-            if (sprite_get_width(_sprite)>_w)
+            _datakey =   val(dm_skins[?hex_str(_i)+STR_Datakey], STR_undefined);
+            _sprite  =       dm_skins[?_datakey   +STR_Sprite];
+            if (is_undefined(dm_skins[?_datakey   +STR_Palette])  // setting the palette in GameObjectA_init() overrides setting it here
+            &&  is_undefined(dm_skins[?hex_str(_i)+STR_Palette]) )
             {
-                _ts_x = _w * ((_SUB_IMAGE_INDEX>>0)&$F);
-                _ts_y = _h * ((_SUB_IMAGE_INDEX>>4)&$F);
-                draw_sprite_part(_sprite,0, _ts_x,_ts_y, _w,_h, _x,_y);
-            }
-            else
-            {
-                _x += _w>>1;
-                _y += _h>>1;
-                draw_sprite_(_sprite,_SUB_IMAGE_INDEX, _x,_y);
-            }
-            */
-            
-            
-            _palette = "";
-            for(_j=0; _j<3; _j++) // each palette
-            {
-                _y=_j*5;
-                for(_k=0; _k<3; _k++) // each palette color
+                if (val(dm_skins[?hex_str(_i)+"_source_is_file"]))
                 {
-                    _x=_k*4;
-                    _val  = surface_getpixel(_surf,_x,_y); // get the pixel color
-                    _idx  = ds_list_find_index(dl_COLOR,_val);
-                    _idx &= $FF;
-                    if(!_k) _palette += p.CI_BLK1_;
-                    //if(!_k) _palette += hex_str(_idx); // sword color
-                    _palette += hex_str(_idx);
-                    //sdm("$"+hex_str(_val));
+                    if (is_undefined(_sprite)) continue;//_i
+                    draw_sprite_part(_sprite,0, $F0,$F0, Spritesheet_W,Spritesheet_H, 0,0);
                 }
+                else
+                {
+                    if (PCSkins_SYS_VER==2) continue;//_i
+                    draw_sprite_(_sprite,$3F, Spritesheet_W>>1,Spritesheet_H>>1);
+                }
+                
+                
+                _palette = "";
+                for(_j=0; _j<3; _j++) // each palette
+                {
+                    _y=_j*5;
+                    for(_k=0; _k<3; _k++) // each palette color
+                    {
+                        _x=_k*4;
+                        _val  = surface_getpixel(_surf,_x,_y); // get the pixel color
+                        _idx  = ds_list_find_index(p.dl_COLOR,_val);
+                        _idx &= $FF;
+                        if(!_k) _palette += p.CI_BLK1_;
+                        //if(!_k) _palette += hex_str(_idx); // sword color
+                        _palette += hex_str(_idx);
+                        //sdm("$"+hex_str(_val));
+                    }
+                }
+                //sdm("");
+                
+                dm_skins[?_datakey+STR_Palette] = _palette;
             }
-            //sdm("");
-            
-            g.pc.dm_skins[?_datakey+STR_Palette] = _palette;
         }
+        
+        surface_reset_target();
+        surface_free(_surf);
     }
-    
-    surface_reset_target();
-    surface_free(_surf);
 }
 
 

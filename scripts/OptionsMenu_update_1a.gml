@@ -138,7 +138,7 @@ switch(MainOption)
                 dm_skins[?STR_Current+STR_Idx] = _Skin_IDX;
                 
                 var _DK    = val(dm_skins[?hex_str(_Skin_IDX)+STR_Datakey], STR_undefined);
-                Skin_image = val(dm_skins[?_DK+STR_Sprite], spr_PCSkins_Full01);
+                Skin_image = val(dm_skins[?_DK+STR_Sprite], PCSkin_DEFAULT_SPRITE);
                 
                 save_game_pref();
                 

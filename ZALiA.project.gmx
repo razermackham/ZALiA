@@ -11181,7 +11181,7 @@
       <sprite>sprites\spr_Stone_Crystal_Slot_1a</sprite>
     </sprites>
     <sprites name="player_character">
-      <sprite>sprites\spr_PCSkins_Full01</sprite>
+      <sprite>sprites\spr_PCSkin_KazunobuShimizu_Link01</sprite>
     </sprites>
     <sprites name="rising_xp_text">
       <sprite>sprites\spr_Rising_XP_text_0</sprite>

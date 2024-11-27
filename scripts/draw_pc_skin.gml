@@ -38,90 +38,131 @@ with(g.pc)
     
     
     
-    if (Skin_image==spr_PCSkins_Full01)
+    if(!val(dm_skins[?hex_str(val(dm_skins[?STR_Current+STR_Idx]))+"_source_is_file"]))
     {
-        /*
-        _dk1 = 'Link-Kazunobu Shimizu'; // ------------------------------------
-        _skin_idx++;
-        dm_skins[?hex_str(_skin_idx)+STR_Datakey] = _dk1;
-        dm_skins[?hex_str(_skin_idx)+STR_Name]    = 'Link';
-        dm_skins[?hex_str(_skin_idx)+STR_Creator] = 'Kazunobu Shimizu';
-        dm_skins[?hex_str(_skin_idx)+STR_Palette] = '0D362A18'+'0D361618'+'0D36112D';
-                  _dk2 = _dk1+'_Shield0100';
-        dm_skins[?_dk2+STR_Placed+'_xl'] = $07E0;
-        dm_skins[?_dk2+STR_Placed+'_yt'] = $0122;
-        dm_skins[?_dk2+'_xoff']          = $25;
-        dm_skins[?_dk2+'_yoff']          = $14;
-        dm_skins[?_dk2+'_w']             = $03;
-        dm_skins[?_dk2+'_h']             = $0E;
-                  _dk2 = _dk1+'_Shield0101';
-        dm_skins[?_dk2+STR_Placed+'_xl'] = $05BD;
-        dm_skins[?_dk2+STR_Placed+'_yt'] = $0132;
-        dm_skins[?_dk2+'_xoff']          = $25;
-        dm_skins[?_dk2+'_yoff']          = $20;
-        dm_skins[?_dk2+'_w']             = $03;
-        dm_skins[?_dk2+'_h']             = $0D;
-        */
-        var _i, _xl1,_xl2, _yt1,_yt2, _xoff,_yoff, _count;
-        var  _w,_h, _dist;
-        var _dk1;
-        var _dl1 = ds_list_create();
-        
-        _i   = val(dm_skins[?STR_Current+STR_Idx]);
-        _dk1 = val(dm_skins[?hex_str(_i)+STR_Datakey]);
-        
-        // Shield
-        if(!_USE_DISGUISE) ds_list_add(_dl1, _dk1+STR_Shield+hex_str(_SHIELD_LEVEL)+hex_str(_BEHAVIOR));
-        
-        // Body
-        if (_USE_DISGUISE) ds_list_add(_dl1, _dk1+STR_Disguise+STR_Body+hex_str(_BEHAVIOR));
-        else               ds_list_add(_dl1, _dk1+STR_Body+"01"+hex_str(_BEHAVIOR));
-        
-        // Head
-        if (_USE_DISGUISE) ds_list_add(_dl1, _dk1+STR_Disguise+STR_Head+hex_str(1+(disguise_idx&$1))+hex_str(_BEHAVIOR mod 5));
-        
-        // Sword
-        ds_list_add(_dl1, _dk1+STR_Sword+hex_str(_SWORD_LEVEL)+hex_str(_BEHAVIOR));
-        
-        
-        
-        pal_swap_set(p.palette_image, _PALIDX, false);
-        _count = ds_list_size(_dl1);
-        for(_i=0; _i<_count; _i++)
+        switch(PCSkins_SYS_VER)
         {
-            _dk1 = _dl1[|_i];
-            _w = dm_skins[?_dk1+'_w'];
-            if(!is_undefined(_w))
+            case 1:{
+            var _val, _sub_image_index;
+            
+            pal_swap_set(p.palette_image, _PALIDX, false);
+            // Shield
+            if(!_USE_DISGUISE)
             {
-                _h    = val(dm_skins[?_dk1+'_h']);
-                _xl2  = val(dm_skins[?_dk1+STR_Placed+'_xl']); // relative to spr_PCSkins_Full01
-                _yt2  = val(dm_skins[?_dk1+STR_Placed+'_yt']); // relative to spr_PCSkins_Full01
-                
-                _xl1  = _X - (Spritesheet_W>>1);
-                _xoff = val(dm_skins[?_dk1+'_xoff']);
-                if(!_X_SCALE)
-                {
-                    _dist  =(Spritesheet_W>>1) - _xoff;
-                    _xoff  = Spritesheet_W>>1;
-                    _xoff += _dist*(-_X_SCALE);
-                }
-                _xl1 += _xoff;
-                
-                _yt1  = _Y - (Spritesheet_H>>1);
-                _yoff = val(dm_skins[?_dk1+'_yoff']);
-                if(!_Y_SCALE)
-                {
-                    _dist  =(Spritesheet_H>>1) - _yoff;
-                    _yoff  = Spritesheet_H>>1;
-                    _yoff += _dist*(-_Y_SCALE);
-                }
-                _yt1 += _yoff;
-                draw_sprite_part_(Skin_image,0, _xl2,_yt2, _w,_h, _xl1,_yt1, -1, _X_SCALE,_Y_SCALE, _COLOR);
+                _val = _SHIELD_LEVEL;
+                _sub_image_index = (val(dm_skins[?STR_Row+STR_Shield+hex_str(_val)]) * $10) + _BEHAVIOR;
+                draw_sprite_(Skin_image,_sub_image_index, _X,_Y, -1, _X_SCALE,_Y_SCALE, _COLOR,1, _ROTATION);
             }
+            
+            // Body
+            _val = 1 + sign(_USE_DISGUISE);
+            _sub_image_index = (val(dm_skins[?STR_Row+STR_Body+hex_str(_val)]) * $10) + _BEHAVIOR;
+            draw_sprite_(Skin_image,_sub_image_index, _X,_Y, -1, _X_SCALE,_Y_SCALE, _COLOR,1, _ROTATION);
+            
+            // Head
+            if (_USE_DISGUISE)
+            {
+                _val = $5 + (disguise_idx*$5);
+                _sub_image_index = (val(dm_skins[?STR_Row+STR_Body+"02"]) * $10) + _val + _BEHAVIOR;
+                draw_sprite_(Skin_image,_sub_image_index, _X,_Y, -1, _X_SCALE,_Y_SCALE, _COLOR,1, _ROTATION);
+            }
+            
+            // Sword
+            _val = _SWORD_LEVEL;
+            _sub_image_index = (val(dm_skins[?STR_Row+STR_Sword+hex_str(_val)]) * $10) + _BEHAVIOR;
+            draw_sprite_(Skin_image,_sub_image_index, _X,_Y, -1, _X_SCALE,_Y_SCALE, _COLOR,1, _ROTATION);
+            
+            pal_swap_reset();
+            break;}
+            
+            
+            
+            
+            case 2:{ // Giant sprite off all pc skin sprites
+            /*
+            _dk1 = 'Link-Kazunobu Shimizu'; // ------------------------------------
+            _skin_idx++;
+            dm_skins[?hex_str(_skin_idx)+STR_Datakey] = _dk1;
+            dm_skins[?hex_str(_skin_idx)+STR_Name]    = 'Link';
+            dm_skins[?hex_str(_skin_idx)+STR_Creator] = 'Kazunobu Shimizu';
+            dm_skins[?hex_str(_skin_idx)+STR_Palette] = '0D362A18'+'0D361618'+'0D36112D';
+                      _dk2 = _dk1+'_Shield0100';
+            dm_skins[?_dk2+STR_Placed+'_xl'] = $07E0;
+            dm_skins[?_dk2+STR_Placed+'_yt'] = $0122;
+            dm_skins[?_dk2+'_xoff']          = $25;
+            dm_skins[?_dk2+'_yoff']          = $14;
+            dm_skins[?_dk2+'_w']             = $03;
+            dm_skins[?_dk2+'_h']             = $0E;
+                      _dk2 = _dk1+'_Shield0101';
+            dm_skins[?_dk2+STR_Placed+'_xl'] = $05BD;
+            dm_skins[?_dk2+STR_Placed+'_yt'] = $0132;
+            dm_skins[?_dk2+'_xoff']          = $25;
+            dm_skins[?_dk2+'_yoff']          = $20;
+            dm_skins[?_dk2+'_w']             = $03;
+            dm_skins[?_dk2+'_h']             = $0D;
+            */
+            var _i, _xl1,_xl2, _yt1,_yt2, _xoff,_yoff, _count;
+            var  _w,_h, _dist;
+            var _dk1;
+            var _dl1 = ds_list_create();
+            
+            _i   = val(dm_skins[?STR_Current+STR_Idx]);
+            _dk1 = val(dm_skins[?hex_str(_i)+STR_Datakey]);
+            
+            // Shield
+            if(!_USE_DISGUISE) ds_list_add(_dl1, _dk1+STR_Shield+hex_str(_SHIELD_LEVEL)+hex_str(_BEHAVIOR));
+            
+            // Body
+            if (_USE_DISGUISE) ds_list_add(_dl1, _dk1+STR_Disguise+STR_Body+hex_str(_BEHAVIOR));
+            else               ds_list_add(_dl1, _dk1+STR_Body+"01"+hex_str(_BEHAVIOR));
+            
+            // Head
+            if (_USE_DISGUISE) ds_list_add(_dl1, _dk1+STR_Disguise+STR_Head+hex_str(1+(disguise_idx&$1))+hex_str(_BEHAVIOR mod 5));
+            
+            // Sword
+            ds_list_add(_dl1, _dk1+STR_Sword+hex_str(_SWORD_LEVEL)+hex_str(_BEHAVIOR));
+            
+            
+            
+            pal_swap_set(p.palette_image, _PALIDX, false);
+            _count = ds_list_size(_dl1);
+            for(_i=0; _i<_count; _i++)
+            {
+                _dk1 = _dl1[|_i];
+                _w = dm_skins[?_dk1+'_w'];
+                if(!is_undefined(_w))
+                {
+                    _h    = val(dm_skins[?_dk1+'_h']);
+                    _xl2  = val(dm_skins[?_dk1+STR_Placed+'_xl']); // relative to spr_PCSkins_Full01
+                    _yt2  = val(dm_skins[?_dk1+STR_Placed+'_yt']); // relative to spr_PCSkins_Full01
+                    
+                    _xl1  = _X - (Spritesheet_W>>1);
+                    _xoff = val(dm_skins[?_dk1+'_xoff']);
+                    if(!_X_SCALE)
+                    {
+                        _dist  =(Spritesheet_W>>1) - _xoff;
+                        _xoff  = Spritesheet_W>>1;
+                        _xoff += _dist*(-_X_SCALE);
+                    }
+                    _xl1 += _xoff;
+                    
+                    _yt1  = _Y - (Spritesheet_H>>1);
+                    _yoff = val(dm_skins[?_dk1+'_yoff']);
+                    if(!_Y_SCALE)
+                    {
+                        _dist  =(Spritesheet_H>>1) - _yoff;
+                        _yoff  = Spritesheet_H>>1;
+                        _yoff += _dist*(-_Y_SCALE);
+                    }
+                    _yt1 += _yoff;
+                    draw_sprite_part_(Skin_image,0, _xl2,_yt2, _w,_h, _xl1,_yt1, -1, _X_SCALE,_Y_SCALE, _COLOR);
+                }
+            }
+            pal_swap_reset();
+            
+            ds_list_destroy(_dl1); _dl1=undefined;
+            break;}
         }
-        pal_swap_reset();
-        
-        ds_list_destroy(_dl1); _dl1=undefined;
     }
     else
     {

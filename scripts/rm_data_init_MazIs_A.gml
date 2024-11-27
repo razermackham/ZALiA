@@ -641,6 +641,8 @@ rm_num  = $3F;
 
 
 // ----------------------------------------------------------
+// The following $40-$7F are so Scene Rando has more scenes
+// TODO: Add enemies to extra Scene Rando scenes
 mus0 = STR_Dungeon+"01";
 
 //   --------------------------  40  --------------------------- 

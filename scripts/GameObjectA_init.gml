@@ -127,6 +127,8 @@ switch(PCSkins_SYS_VER)
     
     PCSkin_DEFAULT_SPRITE = spr_PCSkin_KazunobuShimizu_Link01;
     PC_init_add_spritesheet(spr_PCSkin_KazunobuShimizu_Link01,               "Link",                "Kazunobu Shimizu");
+    
+    // UNCOMMENT WHICH SKINS YOU WILL USE HERE
     /*
     PC_init_add_spritesheet(spr_PCSkin_Broomietunes_GamelonZelda01,          "Gamelon Zelda",       "Broomietunes");
     PC_init_add_spritesheet(spr_PCSkin_Broomietunes_MikeJones01,             "Mike Jones",          "Broomietunes");

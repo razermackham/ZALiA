@@ -4,6 +4,15 @@
 var _InputConfirm_pressed2 = InputConfirm_pressed || Input.pressedH;
 
 
+if (InputBack_pressed 
+||  (RandoOTHER_MAIN_cursor==RandoOTHER_MAIN_cursor_BACK && InputConfirm_pressed) )
+{
+    aud_play_sound(get_audio_theme_track(BACK_SOUND_THEME1));
+    RandoState = RandoState_MAIN;
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
 
 if (input_select_pressed 
 ||  Input.pressedV )

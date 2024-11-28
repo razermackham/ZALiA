@@ -10,6 +10,7 @@ var _val;
 
 // -------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------
+/*
 if (InputBack_pressed 
 ||  (RandoOTHER_MAIN_cursor==RandoOTHER_MAIN_cursor_BACK && InputConfirm_pressed) )
 {
@@ -17,6 +18,7 @@ if (InputBack_pressed
     RandoState = RandoState_MAIN;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
+*/
 
 
 switch(RandoOTHER_state){

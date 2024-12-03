@@ -9,6 +9,12 @@ var _layer_count, _layer_name, _layer, _tile_count, _tile_data, _tsrc, _tsrc_fou
 var _dl_tsrc  = ds_list_create();
 var _dl_tsrc1 = ds_list_create();
 
+///* // Solid color tiles in ts_Man_made_1a_XXX
+var _TS_NAME = "Man_made_1a_BRW";
+//var _TS_NAME = "Man_made_1a";
+ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04);
+//*/
+
 /* // Lone stone texture using full green
 var _TS_NAME = "Man_made_6a";
 ds_list_add(_dl_tsrc,$7E);
@@ -23,7 +29,7 @@ ds_list_add(_dl_tsrc,$40,$41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E
 ds_list_add(_dl_tsrc,$AA,$AB,$AC,$AD);
 */
 
-///* // Old dungeon tileset
+/* // Old dungeon tileset
 var _TS_NAME = "Man_made_4a";
 ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08);
 ds_list_add(_dl_tsrc,$20);
@@ -36,7 +42,7 @@ ds_list_add(_dl_tsrc,$A0,$A1,$A2,$A3,$A4,$A5);
 ds_list_add(_dl_tsrc,$B0,$B1);
 ds_list_add(_dl_tsrc,$C0,$C1,$C2,$C3,$C4,$C5,$C6,$C7,$C8,$C9);
 ds_list_add(_dl_tsrc,$D6,$D7,$D8,$D9);
-//*/
+*/
 
 repeat(2) sdm("");
 

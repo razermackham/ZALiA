@@ -3145,7 +3145,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  rm_num_+EXR0_); //
 
 
 //   --------------------------  E9  --------------------------- 
-//    Super Mario Bros 1, 1-1 rendition
+//    Super Mario Bros 1, 1-1 rendition. SMB1_000.tmx
 rm_num  = $E9;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'222', STR_ow_axis+'00');
 

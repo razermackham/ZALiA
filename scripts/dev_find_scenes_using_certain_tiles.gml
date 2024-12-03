@@ -9,10 +9,23 @@ var _layer_count, _layer_name, _layer, _tile_count, _tile_data, _tsrc, _tsrc_fou
 var _dl_tsrc  = ds_list_create();
 var _dl_tsrc1 = ds_list_create();
 
-///* // Duplicate tiles in ts_Man_made_7a_WRB
+///* // Recheck the moved tiles in ts_Man_made_1a
+var _TS_NAME = "Man_made_1a";
+ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09);
+ds_list_add(_dl_tsrc,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$1A,$1B,$1C,$1D,$1E,$1F);
+ds_list_add(_dl_tsrc,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$2A,$2B,$2C,$2D,$2E,$2F);
+ds_list_add(_dl_tsrc,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39,$3A,$3B,$3C,$3D,$3E,$3F);
+ds_list_add(_dl_tsrc,$40,$41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F);
+ds_list_add(_dl_tsrc,$50,$51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F);
+ds_list_add(_dl_tsrc,$60,$61,$62,$63,$64,$65,$66,$67,$68,$69);
+ds_list_add(_dl_tsrc,$70,$71,$72,$73,$74,$75,$76,$77,$78,$79);
+ds_list_add(_dl_tsrc,$80,$81,$82,$83,$84,$85,$86,$87);
+//*/
+
+/* // Duplicate tiles in ts_Man_made_7a_WRB
 var _TS_NAME = "Man_made_7a_WRB";
 ds_list_add(_dl_tsrc,$A0,$A1,$B0,$B1);
-//*/
+*/
 
 /* // Torch top tile in ts_Man_made_1a_WRB
 var _TS_NAME = "Man_made_1a_WRB";
@@ -70,13 +83,28 @@ var _TS_NAME = "Man_made_1a";
 ds_list_add(_dl_tsrc,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$1A,$1B,$1C,$1D,$1E,$1F);
 */
 
-/* // Pillar tiles in ts_Man_made_2a
-var _TS_NAME = "Man_made_2a";
-ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0A,$0B,$0C,$0D,$0E,$0F);
-ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0B);
-ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0A,$0B,$0C,$0D);
+/* // Other pillar tiles in ts_Man_made_2a_WRB
+var _TS_NAME = "Man_made_2a_WRB";
+ds_list_add(_dl_tsrc,$0A,$0B,$0C,$0D,$0E,$0F);
+ds_list_add(_dl_tsrc,$1B);
+ds_list_add(_dl_tsrc,$2A,$2B,$2C,$2D);
+ds_list_add(_dl_tsrc,$4A,$4B,$4C,$4D,$4E,$4F);
+*/
+/* // Pillar tiles in ts_Man_made_2a_WRB
+var _TS_NAME = "Man_made_2a_WRB";
 ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09);
+ds_list_add(_dl_tsrc,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19);
+ds_list_add(_dl_tsrc,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29);
+ds_list_add(_dl_tsrc,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39);
+ds_list_add(_dl_tsrc,$40,$41,$42,$43,$44,$45,$46,$47,$48,$49);
+*/
+/* // Pillar tiles in ts_Man_made_2a_WRB
+var _TS_NAME = "Man_made_2a_WRB";
 ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0A,$0B,$0C,$0D,$0E,$0F);
+ds_list_add(_dl_tsrc,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$1B);
+ds_list_add(_dl_tsrc,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$2A,$2B,$2C,$2D);
+ds_list_add(_dl_tsrc,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39);
+ds_list_add(_dl_tsrc,$40,$41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F);
 */
 
 /* // Spike tiles in ts_Man_made_5a

@@ -14941,7 +14941,7 @@
     </rooms>
   </rooms>
   <constants number="1049">
-    <constant name="DEV">false</constant>
+    <constant name="DEV">true</constant>
     <constant name="USE_FRAME_DELAY">1</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>

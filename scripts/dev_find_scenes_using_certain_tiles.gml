@@ -9,11 +9,25 @@ var _layer_count, _layer_name, _layer, _tile_count, _tile_data, _tsrc, _tsrc_fou
 var _dl_tsrc  = ds_list_create();
 var _dl_tsrc1 = ds_list_create();
 
-///* // Spike tiles in ts_Man_made_5a
+///* // North Castle structure tiles in ts_Man_made_1a
+var _TS_NAME = "Man_made_1a";
+ds_list_add(_dl_tsrc,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$1A,$1B,$1C,$1D,$1E,$1F);
+//*/
+
+/* // Pillar tiles in ts_Man_made_2a
+var _TS_NAME = "Man_made_2a";
+ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0A,$0B,$0C,$0D,$0E,$0F);
+ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0B);
+ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0A,$0B,$0C,$0D);
+ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09);
+ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0A,$0B,$0C,$0D,$0E,$0F);
+*/
+
+/* // Spike tiles in ts_Man_made_5a
 var _TS_NAME = "Man_made_5a";
 ds_list_add(_dl_tsrc,$E0,$E1,$E2,$E3,$E4,$E5,$E6,$E7,$E8);
 ds_list_add(_dl_tsrc,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8);
-//*/
+*/
 
 /* // Dungeon window tiles in ts_Man_made_5a
 var _TS_NAME = "Man_made_5a";

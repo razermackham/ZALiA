@@ -3124,7 +3124,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  rm_num_+EXR0_); //
 
 
 //   --------------------------  E8  --------------------------- 
-//    Testing: Vertical challenge. Stab wall in middle of jump and use pushback to get to higher level
+//    Testing: Vertical challenge. Stab wall in middle of jump and use pushback to get to higher level. CHAL_VerticalClimb_007.tmx
 rm_num  = $E8;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'221', STR_View+'02', STR_ow_axis+'00');
 
@@ -3727,7 +3727,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,$34,  'FA'+EXL0_); // RGT
 //  =====================================================================================
 //  =====================================================================================
 //   --------------------------  FC  --------------------------- 
-//    Scenery art. Like inside North Palace
+//    Scenery art. Like inside North Palace. PalaceRoom_003.tmx
 rm_num  = $FC;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'242', STR_ow_axis+'00');
 

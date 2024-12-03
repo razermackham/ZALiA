@@ -3772,7 +3772,7 @@ data_exit(EXR0,etA0,1,  clm2,row3,  CLMS2,rows1,  clmA,row4,  0); // RGT 0, to O
 
 
 //   --------------------------  FE  --------------------------- 
-//    Testing: Bounceable object 'Blooby'
+//    Testing: Bounceable object 'Blooby'. CHAL_VerticalClimb_008.tmx
 rm_num  = $FE;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+p.CI_TEL4_, STR_Tile+area_MI+'254', STR_View+'02', STR_ow_axis+'00', STR_show_ow_pos+'00');
 

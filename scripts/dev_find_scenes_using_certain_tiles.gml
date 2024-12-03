@@ -9,11 +9,32 @@ var _layer_count, _layer_name, _layer, _tile_count, _tile_data, _tsrc, _tsrc_fou
 var _dl_tsrc  = ds_list_create();
 var _dl_tsrc1 = ds_list_create();
 
-///* // Solid color tiles in ts_Man_made_1a_XXX
+///* // Spike tiles in ts_Man_made_5a
+var _TS_NAME = "Man_made_5a";
+ds_list_add(_dl_tsrc,$E0,$E1,$E2,$E3,$E4,$E5,$E6,$E7,$E8);
+ds_list_add(_dl_tsrc,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8);
+//*/
+
+/* // Dungeon window tiles in ts_Man_made_5a
+var _TS_NAME = "Man_made_5a";
+ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05);
+ds_list_add(_dl_tsrc,$10,$11,$12,$13,$14,$15);
+ds_list_add(_dl_tsrc,$20,$21,$22,$23,$24,$25);
+ds_list_add(_dl_tsrc,$30,$31,$32,$33,$34,$35);
+ds_list_add(_dl_tsrc,$40,$41,$42,$43,$44,$45);
+ds_list_add(_dl_tsrc,$50,$51,$52,$53,$54,$55);
+*/
+
+/* // Fountain statue tiles in ts_Man_made_3a
+var _TS_NAME = "Man_made_3a";
+ds_list_add(_dl_tsrc,$D0,$D1,$E0,$E1,$F0,$F1);
+*/
+
+/* // Solid color tiles in ts_Man_made_1a_XXX
 var _TS_NAME = "Man_made_1a_BRW";
 //var _TS_NAME = "Man_made_1a";
 ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04);
-//*/
+*/
 
 /* // Lone stone texture using full green
 var _TS_NAME = "Man_made_6a";

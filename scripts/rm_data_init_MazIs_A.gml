@@ -12,7 +12,7 @@ var _ow_axis = 0;
 
 
 
-var _MapAreaName_MAZE_ISLAND        = "MAZE ISLAND";
+var _MapAreaName_MAZE_ISLAND = "MAZE ISLAND";
 
 
 

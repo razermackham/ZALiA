@@ -2162,46 +2162,17 @@ data_spawn(rm+STR_PRIO,ItmF0,$A,  $24<<3,(row0+$13)<<3); // PBag $A: 1000
 // $6: Moving '02'_LFT or '04'_DWN
 g.overworld.dm_data[?hex_str(g.OWRC_DNGN_GRET1)+'02'+STR_Exit] = exit_name_r0; // EXR0, RGT 0
 g.overworld.dm_data[?hex_str(g.OWRC_DNGN_GRET1)+'04'+STR_Exit] = exit_name_r0; // EXR0, RGT 0
-/*
+
+
+
+
+
+
+
+
 //   --------------------------  3C  --------------------------- 
-//    Fast-travel to Town
+//    
 rm_num  = $3C;
-set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_PG+'068', STR_ow_axis+hex_str(ow_axis));
-
-
-data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init);
-data_NIAO_1a(rm+STR_NIAO+'1',  $0000,  3,StarSky_1_init);
-
-row3=row0+$17; y3=row3<<3;
-row4=row0+$03; y4=row4<<3;
-//row4=row3+$01; y4=row4<<3;
-//data_spawn(rm+STR_PRIO,TorchA,$1,  $37<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-//data_spawn(rm+STR_PRIO,TorchA,$1,  $77<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,SpStA,$2,  $0E<<3,(row0+$11)<<3); // SpawnByStab  2
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $0C<<3,y4); // Bot  1
-data_spawn(rm+STR_PRXM,Bot_A,$2,  $10<<3,y4); // Bot  2
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $1A<<3,y4); // Bot  1
-
-
-clm3=$36; clms3=$03;
-data_exit(EXM0,etB3,1,  clm3,row3,  clms3,ROWS2,  clm3-1,row3,  area_TA+'54'+EXM1_); // MID 0, Fast-travel to Town
-row4    = row0+$07;
-row5    = row4-$06;
-row6    = row0+$13;
-rows3   = row4-ROW0;
-rows4   = (rows0-row4) + PAGE_ROWS;
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows3,  CLM3,row5,  '3B'+EXR0_); // LFT 0, 
-data_exit(EXL1,etA0,1,  CLM2,row4,  CLMS2,rows4,  CLM3,row6,  '3B'+EXR1_); // LFT 1, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
-
-
-data_spawn(rm+STR_PRIO,ItmF0,$A,  $24<<3,(row0+$13)<<3); // PBag $A: 1000
-
-
-g.dm_rm[?dk_AlternateEntrance+dungeon_name+"_PC"+STR_Overworld+STR_Direction] = $6; // $6: Moving $2_LFT | $4_DWN
-g.dm_rm[?dk_AlternateEntrance+dungeon_name+STR_RmName]                        = rm_name;
-g.dm_rm[?dk_AlternateEntrance+dungeon_name+STR_Exit_name]                     = exit_name_r0; // EXR0, RGT 0
-*/
 
 
 

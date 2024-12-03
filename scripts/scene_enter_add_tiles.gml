@@ -172,7 +172,7 @@ with(g.burnable_mgr)
 
 
 
-_ts_name = background_get_name(ts_Man_made_1a_WRB);
+//_ts_name = background_get_name(ts_Man_made_1a_WRB);
 
 var _dl_tile;
 

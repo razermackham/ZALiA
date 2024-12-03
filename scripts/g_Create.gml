@@ -730,7 +730,7 @@ _ts=ts_Man_made_1a_BRW;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_
 _ts=ts_Man_made_2a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 _ts=ts_Man_made_3a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 _ts=ts_Man_made_4a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Man_made_5a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
+//_ts=ts_Man_made_5a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 _ts=ts_Man_made_6a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 _ts=ts_Man_made_7a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 _ts=ts_Man_made_8a_HMS;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);

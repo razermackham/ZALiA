@@ -3166,7 +3166,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  rm_num_+EXR0_); //
 
 
 //   --------------------------  EA  --------------------------- 
-//    Testing: Horizontal moving platform
+//    Testing: Horizontal moving platform. Dungeon_Room_043.tmx
 rm_num  = $EA;
 set_rm_data(area+hex_str(rm_num), MUS_DUNGEON1, STR_Tile+area_MI+'223', STR_ow_axis+'00');
 
@@ -3332,7 +3332,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //   --------------------------  F0  --------------------------- 
-//     Testing Small Dungeon Room 2
+//     Testing Small Dungeon Room 2. Dungeon_Room_027.tmx
 rm_num  = $F0;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'228', STR_ow_axis+'00', STR_show_ow_pos+'00');
 
@@ -3370,7 +3370,7 @@ data_exit(EXM1,etB0,1,  clm4,row3,  CLMS2,ROWS2,  clm4-1,row3,  0); // MID 1, to
 
 
 //   --------------------------  F1  --------------------------- 
-//     Testing Small Dungeon Room 1
+//     Testing Small Dungeon Room 1. Dungeon_Room_026.tmx
 rm_num  = $F1;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'229', STR_ow_axis+'00', STR_show_ow_pos+'00');
 

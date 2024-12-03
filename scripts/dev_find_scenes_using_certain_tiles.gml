@@ -3,7 +3,7 @@
 
 //if (keyboard_check_pressed(vk_f7))
 var _i,_j,_k,_m, _count, _str, _area;
-var _dl_ts_data, _dm_ts_data, _dl_tile, _dl_layer_data, _dm_layer_data, _file, _file_name, _file_data;
+var _dl_ts_data, _dm_ts_data, _dl_tile, _dl_layer_data, _dm_layer_data, _file, _file_name,_file_name1, _file_data;
 var _dm_ts_info = ds_map_create();
 var _layer_count, _layer_name, _layer, _tile_count, _tile_data, _tsrc, _tsrc_found, _ts_idx;
 var _dl_tsrc  = ds_list_create();
@@ -14,13 +14,28 @@ var _TS_NAME = "Man_made_6a";
 ds_list_add(_dl_tsrc,$7E);
 */
 
-///* // Stonehenge and Crystal Holder tiles in ts_Man_made_6a_WRB
+/* // Stonehenge and Crystal Holder tiles in ts_Man_made_6a_WRB
 var _TS_NAME = "Man_made_1a";
 ds_list_add(_dl_tsrc,$08,$09);
 ds_list_add(_dl_tsrc,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$2A,$2B,$2C,$2D,$2E,$2F);
 ds_list_add(_dl_tsrc,$3C,$3D,$3E,$3F);
 ds_list_add(_dl_tsrc,$40,$41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F);
 ds_list_add(_dl_tsrc,$AA,$AB,$AC,$AD);
+*/
+
+///* // Old dungeon tileset
+var _TS_NAME = "Man_made_4a";
+ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08);
+ds_list_add(_dl_tsrc,$20);
+ds_list_add(_dl_tsrc,$40,$41,$42,$43,$44,$45);
+ds_list_add(_dl_tsrc,$50,$51);
+ds_list_add(_dl_tsrc,$60,$61,$62,$63,$64,$65);
+ds_list_add(_dl_tsrc,$70,$71);
+ds_list_add(_dl_tsrc,$80,$81,$82,$83,$84,$85);
+ds_list_add(_dl_tsrc,$A0,$A1,$A2,$A3,$A4,$A5);
+ds_list_add(_dl_tsrc,$B0,$B1);
+ds_list_add(_dl_tsrc,$C0,$C1,$C2,$C3,$C4,$C5,$C6,$C7,$C8,$C9);
+ds_list_add(_dl_tsrc,$D6,$D7,$D8,$D9);
 //*/
 
 repeat(2) sdm("");
@@ -33,15 +48,22 @@ for(_i=0; _i<_COUNT1; _i++) // Each area
     {   // file name example:  "rm_tile_data/PalcA/PalcA_003.json"
         _file_has_ts = false;
         
+        _file_name1  = string_lettersdigits(_area);
+        _file_name1 += "_";
+        _file_name1 += string_repeat("0",_j<100);
+        _file_name1 += string_repeat("0",_j<10);
+        _file_name1 += string(_j);
+        
         _file_name  = "rm_tile_data";
         _file_name += "/";
         _file_name += string_lettersdigits(_area);
         _file_name += "/";
-        _file_name += string_lettersdigits(_area);
-        _file_name += "_";
-        _file_name += string_repeat("0",_j<100);
-        _file_name += string_repeat("0",_j<10);
-        _file_name += string(_j);
+        _file_name += _file_name1;
+        //_file_name += string_lettersdigits(_area);
+        //_file_name += "_";
+        //_file_name += string_repeat("0",_j<100);
+        //_file_name += string_repeat("0",_j<10);
+        //_file_name += string(_j);
         _file_name += ".json";
         if(!file_exists(_file_name)) continue;//_j. to next file
         
@@ -116,7 +138,9 @@ for(_i=0; _i<_COUNT1; _i++) // Each area
             _count = ds_list_size(_dl_tsrc1);
         if (_count)
         {
-            _str = _file_name+": ";
+            ds_list_sort(_dl_tsrc1,true);
+            
+            _str = _file_name1+": ";
             for(_k=0; _k<_count; _k++) // Each found tsrc
             {
                 _str += "$"+hex_str(_dl_tsrc1[|_k])+", ";

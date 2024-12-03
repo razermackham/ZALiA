@@ -197,7 +197,8 @@ switch(sub_state)
                 _y =((Door_yt>>3) + (DoorBlocks_count<<1)) + (_i>1);
                 _x = _x<<3;
                 _y = _y<<3;
-                tile_change_1a(DEPTH_BG3, _x,_y, ts_Man_made_1a_WRB, $34+_i, TID_SOLID1);
+                tile_change_1a(DEPTH_BG3, _x,_y, ts_DungeonH01, $EE+((_i>$1)<<4)+(_i&$1), TID_SOLID1);
+                //tile_change_1a(DEPTH_BG3, _x,_y, ts_Man_made_1a_WRB, $34+_i, TID_SOLID1);
             }
             
             DoorBlocks_count++;

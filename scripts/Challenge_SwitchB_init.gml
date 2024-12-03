@@ -59,7 +59,8 @@ switch(ver)
     Blocks_COUNT_X = 2;
     Blocks_COUNT_Y = 2;
     Blocks_DEPTH   = DEPTH_BG4;
-    Blocks_TSRC    = "30"+"31"+"32"+"33";
+    Blocks_TSRC    = "EE"+"EF"+"FE"+"FF";
+    //Blocks_TSRC    = "30"+"31"+"32"+"33";
     Blocks_SND_CHANGE = get_audio_theme_track(dk_BlockBreak);
     Challenge_SwitchB_update_1a(!complete);
     break;}//case 2

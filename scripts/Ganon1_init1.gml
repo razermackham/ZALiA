@@ -156,8 +156,10 @@ Door_yt          =(GROUND_Y>>3)-$06;
 Door_yt          = find_row_solid(TID_SOLID1, (Door_xl>>3)+1, (GROUND_Y>>3)-1, -1, $FF,Door_yt);
 Door_yt          =(Door_yt+1)<<3;
 Door_DEPTH       = DEPTH_BG3;
-Door_TS          = ts_Man_made_1a_WRB;
-Door_TSRC        = $34; // $34, $35, $36, $37
+Door_TS          = ts_DungeonH01;
+Door_TSRC        = $EE; // $EE, $EF, $FE, $FF
+//Door_TS          = ts_Man_made_1a_WRB;
+//Door_TSRC        = $34; // $34, $35, $36, $37
 DoorBlocks_COUNT =(GROUND_Y-Door_yt)>>4; // 
 DoorBlocks_count = 0; // number placed so far
 

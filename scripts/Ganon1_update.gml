@@ -354,11 +354,12 @@ switch(sub_state)
             var _i, _x,_y;
             for(_i=0; _i<4; _i++)
             {
-                _x = (Door_xl>>3) + (_i&1);
-                _y =((Door_yt>>3) + (DoorBlocks_count<<1)) + (_i>1);
+                _x = (Door_xl>>3) + (_i&$1);
+                _y =((Door_yt>>3) + (DoorBlocks_count<<1)) + (_i>$1);
                 _x = _x<<3;
                 _y = _y<<3;
-                tile_change_1a(Door_DEPTH, _x,_y, Door_TS, Door_TSRC+_i, TID_SOLID1);
+                tile_change_1a(Door_DEPTH, _x,_y, Door_TS, Door_TSRC+((_i>$1)<<4)+(_i&$1), TID_SOLID1);
+                //tile_change_1a(Door_DEPTH, _x,_y, Door_TS, Door_TSRC+_i, TID_SOLID1);
             }
             
             DoorBlocks_count++;

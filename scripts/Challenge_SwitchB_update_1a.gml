@@ -6,7 +6,8 @@ var _i,_j,_k, _x,_y, _tsrc;
 if (argument0)
 {
     var _SOLID   = TID_SOLID1;
-    var _TILESET = ts_Man_made_1a_WRB;
+    var _TILESET = ts_DungeonA01;
+    //var _TILESET = ts_Man_made_1a_WRB;
 }
 else
 {

@@ -2965,7 +2965,7 @@ rm_num  = $E2;
 
 
 //   --------------------------  E3  --------------------------- 
-//    Testing: Eyenocc
+//    Testing: Eyenocc. DownstabChallenge_000.tmx
 rm_num  = $E3;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'218', STR_ow_axis+'00');
 
@@ -3394,7 +3394,7 @@ data_exit(EXM0,etB0,1,  clm4,row3,  CLMS2,ROWS2,  clm4+1,row3,  0); // MID 0, to
 
 
 //   --------------------------  F2  --------------------------- 
-//    .
+//     Big square room with 4-way long firerope in center. Dungeon_Room_022.tmx
 rm_num  = $F2;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'01', STR_Tile+area_MI+'232', STR_ow_axis+'00', STR_show_ow_pos+'00');
 

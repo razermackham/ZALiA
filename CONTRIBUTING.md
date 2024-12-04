@@ -6,11 +6,11 @@ We hope not to excercise this right, but recognize that any open-source project 
 
 Unless a potential contributor is acting maliciously, we will attempt to provide notice of why their contributions have been denied.
 ## Code Formatting
-There are many ways of formatting code (particularly in regard to indentation and brackets), and it is helpful for projects to hold to a given format for consistency and clarity. Unfortunately, HoverBat is a bat.. who is a self-taught programmer, that is terrible with words.
+There are many ways of formatting code (particularly in regard to indentation and brackets), and it is helpful for projects to hold to a given format for consistency and clarity. Unfortunately, HoverBat is a bat.. who is a self-taught programmer that can't help but code in his own style. Therefor much of the code format isn't standardized.
 
-Moving forward, we will be holding to a fairly strict set of formatting rules in an attempt to remedy this and will deny pull requests until their formatting is fixed, even if they are otherwise excellent contributions. On a related note, pull requests that simply change existing formatting for consistency's sake are more than welcome.
+Moving forward, we will be holding to a fairly strict set of formatting rules(or at least trying to..) in an attempt to remedy this and *may* deny pull requests until their formatting is fixed. On a related note, pull requests that simply change existing formatting for consistency's sake are more than welcome.
 
-I generally think the more open bracketing is more readable overall. This may just be a consequense of coding in GMS 1 code editor for so long.
+I guess it depends on what the coder is used to, but I strongly feel open bracketing is more readable overall. This may just be a consequense of coding in GMS 1 code editor for so long.
 ```
 if (codeFormatIsGood)
 {
@@ -40,9 +40,14 @@ Local variables must start with an underscore: `var _localVar`
 
 Enums and variables used as constants should use UPPER_CASE.
 
-Sprites, sounds, backgrounds/tilesets, shaders, fonts, and objects should all hold to a camelCase format with an appropriate prefix:
+Sprites, surfaces, sounds, backgrounds/tilesets, shaders, fonts, and objects should all hold to a camelCase format with an appropriate prefix:
 ```
-snd_SoundName, mus_MusicName, bgr_BackgroundName, ts_TilesetName, shd_ShaderName, font_FontName, obj_ObjectName
+sprSpriteName, srfSurfaceName, sndSoundName, musMusicName, bgrBackgroundName, tsTilesetName, shdShaderName, fntFontName, objObjectName
+```
+
+**Data Structures** should all hold to a camelCase format with an appropriate prefix:
+```
+dl_ListName, dm_MapName, dg_GridName, ds_StackName, dq_QueueName, dp_PriorityName
 ```
 We will not typically accept pull requests that implement new timelines, or rooms, and maybe several other things like just adding a font. Here's why:
 * Timelines are too integrated with GML Drag 'n' Drop and can be easily replicated with proper state machines. Two currently exist, but they will eventually be replaced.

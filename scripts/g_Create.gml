@@ -715,11 +715,11 @@ _ts=ts_tile_marker_1a_16x16; dm_tileset[?background_get_name(_ts)]=_ts; ds_list_
 _ts=ts_SOLID_COLORS;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 //                                                                                  //
 _ts=ts_Natural_1a_WRB;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Natural_1a_WBR;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Natural_1a_RWB;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Natural_1a_RBW;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Natural_1a_BWR;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Natural_1a_BRW;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
+//_ts=ts_Natural_1a_WBR;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
+//_ts=ts_Natural_1a_RWB;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
+//_ts=ts_Natural_1a_RBW;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
+//_ts=ts_Natural_1a_BWR;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
+//_ts=ts_Natural_1a_BRW;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 _ts=ts_Natural_2a_WRB;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 _ts=ts_Natural_4a_HMS;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 _ts=ts_Cave01;               dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);

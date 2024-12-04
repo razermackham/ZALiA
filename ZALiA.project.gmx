@@ -10634,8 +10634,6 @@
     </sounds>
     <sounds name="mus">
       <sound>sound\mus_gain</sound>
-      <sound>sound\mus_Title_Intro_1a</sound>
-      <sound>sound\mus_Title_Body_1a</sound>
       <sound>sound\mus_Overworld_Intro_1a</sound>
       <sound>sound\mus_Overworld_Body_1a</sound>
       <sound>sound\mus_Town_Intro_1a</sound>
@@ -10667,6 +10665,10 @@
       <sound>sound\mus_Wake_Zelda_1a</sound>
       <sound>sound\mus_End_Credits_1a</sound>
       <sound>sound\mus_Fall_Scene_1a</sound>
+    </sounds>
+    <sounds name="ZeldaII_NES">
+      <sound>sound\mus_Title_Intro_1a</sound>
+      <sound>sound\mus_Title_Body_1a</sound>
     </sounds>
     <sounds name="ZeldaII_FDS">
       <sound>sound\mus_ZeldaII_FDS_Title_Intro</sound>

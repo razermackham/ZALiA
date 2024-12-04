@@ -11978,13 +11978,7 @@
     <backgrounds name="tilesets">
       <backgrounds name="natural">
         <background>background\ts_Natural_1a_WRB</background>
-        <background>background\ts_Natural_1a_WBR</background>
-        <background>background\ts_Natural_1a_RBW</background>
-        <background>background\ts_Natural_1a_RWB</background>
-        <background>background\ts_Natural_1a_BWR</background>
-        <background>background\ts_Natural_1a_BRW</background>
         <background>background\ts_Natural_2a_WRB</background>
-        <background>background\ts_Natural_3a_WRB</background>
         <background>background\ts_Natural_4a_HMS</background>
         <background>background\ts_Cave01</background>
       </backgrounds>
@@ -12011,6 +12005,7 @@
         <background>background\ts_DungeonAlt03</background>
         <background>background\ts_DungeonAlt04</background>
         <background>background\ts_DungeonAlt05</background>
+        <background>background\ts_DungeonAlt06</background>
       </backgrounds>
       <backgrounds name="other">
         <background>background\ts_Menu01</background>

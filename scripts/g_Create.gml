@@ -748,6 +748,7 @@ _ts=ts_DungeonAlt02;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_
 _ts=ts_DungeonAlt03;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 _ts=ts_DungeonAlt04;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 _ts=ts_DungeonAlt05;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
+_ts=ts_DungeonAlt06;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 //                                                                                  //
 //_ts=ts_Anim_1;               dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
 //_ts=ts_Animation030101;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);

@@ -116,7 +116,6 @@ if (g.mod_ANIMATE_LIQUID)
         
         
             _dir = g.dg_anim_liquid[#_i,2];
-        //
         if (_dir&$3)
         {
                 g.dg_anim_liquid[#_i,3]++;
@@ -150,7 +149,6 @@ if (g.mod_CLOUD_MOVEMENT)
         
         
             _dir = g.dg_anim_clouds[#_i,2];
-        //
         if (_dir&$3)
         {
                 g.dg_anim_clouds[#_i,3]++;

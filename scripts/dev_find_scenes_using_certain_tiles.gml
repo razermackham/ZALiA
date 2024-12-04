@@ -9,7 +9,14 @@ var _layer_count, _layer_name, _layer, _tile_count, _tile_data, _tsrc, _tsrc_fou
 var _dl_tsrc  = ds_list_create();
 var _dl_tsrc1 = ds_list_create();
 
-///* // Recheck the moved tiles in ts_Man_made_1a
+///* // Outside town room connector tiles in ts_Man_made_1a
+var _TS_NAME = "Man_made_1a";
+ds_list_add(_dl_tsrc,$D0,$D1,$D2,$D3);
+//ds_list_add(_dl_tsrc,$D4,$D5,$D6,$D7);
+//ds_list_add(_dl_tsrc,$D0,$D1,$D2,$D3,$D4,$D5,$D6,$D7);
+//*/
+
+/* // Recheck the moved tiles in ts_Man_made_1a
 var _TS_NAME = "Man_made_1a";
 ds_list_add(_dl_tsrc,$00,$01,$02,$03,$04,$05,$06,$07,$08,$09);
 ds_list_add(_dl_tsrc,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$1A,$1B,$1C,$1D,$1E,$1F);
@@ -20,7 +27,7 @@ ds_list_add(_dl_tsrc,$50,$51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E
 ds_list_add(_dl_tsrc,$60,$61,$62,$63,$64,$65,$66,$67,$68,$69);
 ds_list_add(_dl_tsrc,$70,$71,$72,$73,$74,$75,$76,$77,$78,$79);
 ds_list_add(_dl_tsrc,$80,$81,$82,$83,$84,$85,$86,$87);
-//*/
+*/
 
 /* // Duplicate tiles in ts_Man_made_7a_WRB
 var _TS_NAME = "Man_made_7a_WRB";

@@ -683,7 +683,7 @@ data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); //
 
 
 clm3=$3F;
-data_exit(EXM0,etB0,1,  clm3,row4,  $02,ROWS2,  clm3-1,row4,  0); // MID 0, 
+data_exit(EXM0,etB0,1,  clm3,row4,  $03,ROWS2,  clm3-1,row4,  0); // MID 0, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
 

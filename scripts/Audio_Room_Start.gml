@@ -123,9 +123,7 @@ if (g.coming_from==g.coming_from_FILE
 ||  g.coming_from==g.coming_from_CONT )
 {
     var _dl = ds_list_create();
-    ds_list_add(_dl,mus_Wyng1_MazeIsland_Body,mus_Wyng1_OldKasuto_Body,mus_Z1_Dungeon_Triangle_1a,mus_Castlevania2_BloodyTears_Body,mus_Castlevania2_Town_Body);
-    if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl,mus_IsabelleChiming_OldKasuto01);
-    else                                  ds_list_add(_dl,mus_IsabelleChiming_OldKasuto);
+    ds_list_copy(_dl,global.dl_Halloween_TOWN_MUSIC);
     ds_list_shuffle(_dl);
     var _SIZE = ds_list_size(_dl);
     

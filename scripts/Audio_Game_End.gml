@@ -48,6 +48,12 @@ if (_exists) _exists =       ds_exists(      dl_AUDIO_SETS, ds_type_list);
 if (_exists)                 ds_list_destroy(dl_AUDIO_SETS);
 if (_exists)                                 dl_AUDIO_SETS = undefined;
 
+    _exists=variable_instance_exists(id,"global.dl_Halloween_TOWN_MUSIC");
+if (_exists) _exists = !is_undefined(    global.dl_Halloween_TOWN_MUSIC);
+if (_exists) _exists = ds_exists(        global.dl_Halloween_TOWN_MUSIC,ds_type_list);
+if (_exists)           ds_list_destroy(  global.dl_Halloween_TOWN_MUSIC);
+if (_exists)                             global.dl_Halloween_TOWN_MUSIC=undefined;
+
 
 
 

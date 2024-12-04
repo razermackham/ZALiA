@@ -41,7 +41,7 @@ testing_num = 0;
 // that this is actually a GameMaker bug and the only solution is to 
 // set the sound asset to uncompressed. Unfortunately, this means 
 // greater file size for the app.
-UseNewLoopSystem_IsabelleChiming = false;
+//UseNewLoopSystem_IsabelleChiming = false;
 
 
 
@@ -226,24 +226,23 @@ audio_group_load(audiogroup_mus);
 SND_NONE = snd_0; // snd_0: 1 frame of dead air
 
 
-
 _theme=dk_GannonLaugh;
 dm[?_theme+STR_Description] = "GAME OVER LAUGH";
 data_sound(snd_Laugh_Ganon_1a,                1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_GanonLaugh,        1, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index(""); if (_val!=-1){data_sound(snd_NikoTengoku_GanonLaugh,        1, _theme,dk_Nikos8BitStereo);}
 //data_sound(snd_NikoTengoku_GanonLaugh,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
 
 _theme=STR_PC+STR_Damage;
 dm[?_theme+STR_Description] = "PLAYER DAMAGE";
 data_sound(snd_Grunt_PC_1a,                1, _theme,STR_Default);
-data_sound(snd_ZeldaII_FDS_PCDamage,       1, _theme,_set_ZELDA2_FDS);
-data_sound(snd_NikoTengoku_PCGrunt,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_ZeldaII_FDS_PCDamage"); if (_val!=-1){data_sound(_val,       1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("snd_NikoTengoku_PCGrunt"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 
 
 _theme=STR_Stab;
 dm[?_theme+STR_Description] = "STAB";
 data_sound(snd_Sword_Stab_1a,                  1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_PCSwordStab,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_NikoTengoku_PCSwordStab"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(snd_Z1_Stab01,                      1, _theme,_set_ZELDA1);
 
 _theme=STR_Sword+STR_Beam;
@@ -279,9 +278,9 @@ data_sound(snd_Strike_Solid_1a,               .6, _theme,STR_Default);
 _theme=STR_PC+STR_Death;
 dm[?_theme+STR_Description] = "PLAYER DEATH";
 data_sound(snd_Death_PC_1a,                1, _theme,STR_Default);
-data_sound(snd_ZeldaII_FDS_PCDeath,       .8, _theme,_set_ZELDA2_FDS);
-data_sound(snd_NikoTengoku_PCDeath,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
-data_sound(snd_Wyng1_PlayerDeath,   _VOL_WYNG1,_theme,dk_Wyng);
+_val=asset_get_index("snd_ZeldaII_FDS_PCDeath"); if (_val!=-1){data_sound(_val,       .8, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("snd_NikoTengoku_PCDeath"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("snd_Wyng1_PlayerDeath"); if (_val!=-1){data_sound(_val,   _VOL_WYNG1,_theme,dk_Wyng);}
 data_sound(snd_Castlevania2_PCDeath,       1, _theme,dk_Castlevania2);
 
 
@@ -293,8 +292,8 @@ data_sound(snd_Death_Enemy_1a,1, _theme,STR_Default);
 _theme=STR_Boss+STR_Explode;
 dm[?_theme+STR_Description] = "BOSS EXPLODE";
 data_sound(snd_Boss_Explode_1a,                1, _theme,STR_Default);
-data_sound(snd_ZeldaII_FDS_BossExplode,       .8, _theme,_set_ZELDA2_FDS);
-data_sound(snd_NikoTengoku_BossExplode,        1, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_ZeldaII_FDS_BossExplode"); if (_val!=-1){data_sound(_val,       .8, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("snd_NikoTengoku_BossExplode"); if (_val!=-1){data_sound(_val,        1, _theme,dk_Nikos8BitStereo);}
 //data_sound(snd_NikoTengoku_BossExplode,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
 
 
@@ -320,9 +319,9 @@ data_sound(snd_Crumble_Bridge_1a,1, _theme,STR_Default);
 _theme=dk_ItemDrop;
 dm[?_theme+STR_Description] = "ITEM DROP";
 data_sound(snd_Item_Drop_1a,                1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_ItemDrop,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_NikoTengoku_ItemDrop"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 //data_sound(snd_Z1_RevealItem,           1, _theme,_set_ZELDA1);
-data_sound(snd_Wyng1_ItemDrop,   _VOL_WYNG1,_theme,dk_Wyng);
+_val=asset_get_index("snd_Wyng1_ItemDrop"); if (_val!=-1){data_sound(_val,   _VOL_WYNG1,_theme,dk_Wyng);}
 
 _theme=dk_ElevatorMove;
 dm[?_theme+STR_Description] = "ELEVATOR";
@@ -338,15 +337,15 @@ data_sound(snd_Raise_Barrier_1a,                1, _theme,STR_Default);
 _theme=STR_Open+STR_LockedDoor;
 dm[?_theme+STR_Description] = "LOCKED DOOR OPENING";
 data_sound(snd_Lock_Open_1a,               1, _theme,STR_Default); // A shortened ver of 'boss explosion'
-data_sound(snd_ZeldaII_FDS_OpenLockedDoor,.8, _theme,_set_ZELDA2_FDS);
+_val=asset_get_index("snd_ZeldaII_FDS_OpenLockedDoor"); if (_val!=-1){data_sound(_val,.8, _theme,_set_ZELDA2_FDS);}
 
 
 _theme=STR_Cast+STR_Spell;
 dm[?_theme+STR_Description] = "CAST SPELL";
 data_sound(snd_Cast_Spell_1a,                1, _theme,STR_Default);
-data_sound(snd_ZeldaII_FDS_CastSpell,       .8, _theme,_set_ZELDA2_FDS);
-data_sound(snd_NikoTengoku_CastSpell,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
-data_sound(snd_Wyng1_CastSpell,   _VOL_WYNG1,_theme,dk_Wyng);
+_val=asset_get_index("snd_ZeldaII_FDS_CastSpell"); if (_val!=-1){data_sound(_val,       .8, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("snd_NikoTengoku_CastSpell"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("snd_Wyng1_CastSpell"); if (_val!=-1){data_sound(_val,   _VOL_WYNG1,_theme,dk_Wyng);}
 
 
 
@@ -354,36 +353,36 @@ _theme=STR_Flute;
 dm[?_theme+STR_Description] = "FLUTE";
 data_sound(snd_Flute_Item_1a,               1,  _theme,STR_Default);
 data_sound(snd_Z1_Flute,                    1,  _theme,_set_ZELDA1);
-data_sound(snd_ZeldaII_FDS_Flute,           1,  _theme,_set_ZELDA2_FDS);
-data_sound(snd_NikoTengoku_Flute,   _VOL_NIKO,  _theme,dk_Nikos8BitStereo);
-data_sound(snd_SteelCrescent_Flute, _VOL_STCR,  _theme,dk_SteelCrescent);
-data_sound(snd_SteelCrescent2_Flute,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(snd_Wyng1_Flute1,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("snd_ZeldaII_FDS_Flute"); if (_val!=-1){data_sound(_val,           1,  _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("snd_NikoTengoku_Flute"); if (_val!=-1){data_sound(_val,   _VOL_NIKO,  _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("snd_SteelCrescent_Flute"); if (_val!=-1){data_sound(_val, _VOL_STCR,  _theme,dk_SteelCrescent);}
+_val=asset_get_index("snd_SteelCrescent2_Flute"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("snd_Wyng1_Flute1"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 
 _theme=STR_Warp+STR_Flute;
 dm[?_theme+STR_Description] = "WARP FLUTE";
 data_sound(snd_MagicalKeyHouse,                    1, _theme,STR_Default);
 data_sound(snd_Z1_Secret,                          1, _theme,_set_ZELDA1);
-data_sound(snd_NikoTengoku_MagicalKeyHouse,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
-data_sound(snd_SteelCrescent2_WarpFlute,  _VOL_STCR2, _theme,dk_SteelCrescent);
-data_sound(snd_SteelCrescent2_WarpFlute,  _VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(snd_Wyng1_Flute2,   _VOL_WYNG1,_theme,dk_Wyng);
+_val=asset_get_index("snd_NikoTengoku_MagicalKeyHouse"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("snd_SteelCrescent2_WarpFlute"); if (_val!=-1){data_sound(_val,  _VOL_STCR2, _theme,dk_SteelCrescent);}
+_val=asset_get_index("snd_SteelCrescent2_WarpFlute"); if (_val!=-1){data_sound(_val,  _VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("snd_Wyng1_Flute2"); if (_val!=-1){data_sound(_val,   _VOL_WYNG1,_theme,dk_Wyng);}
 
 
 
 _theme=dk_LowHPBeep;
 dm[?_theme+STR_Description] = "LOW HP BEEP";
 data_sound(snd_Beep_Low_HP_1a_1,             1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_LowHPBeep,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
-data_sound(snd_Wyng1_LowHPBeep,   _VOL_WYNG1,_theme,dk_Wyng);
+_val=asset_get_index("snd_NikoTengoku_LowHPBeep"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("snd_Wyng1_LowHPBeep"); if (_val!=-1){data_sound(_val,   _VOL_WYNG1,_theme,dk_Wyng);}
 
 
 
 _theme=dk_OpenGUI;
 dm[?_theme+STR_Description] = "OPEN MENU";
 data_sound(snd_GUI_Open_1a,                 1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_OpenMenu,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
-data_sound(snd_Wyng1_OpenMenu,   _VOL_WYNG1,_theme,dk_Wyng);
+_val=asset_get_index("snd_NikoTengoku_OpenMenu"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("snd_Wyng1_OpenMenu"); if (_val!=-1){data_sound(_val,   _VOL_WYNG1,_theme,dk_Wyng);}
 
 _theme=dk_CursorSpellMenu; // Spell menu cursor move
 dm[?_theme+STR_Description] = "SPELL MENU CURSOR";
@@ -392,12 +391,12 @@ data_sound(snd_Cursor_Move_1a,1, _theme,STR_Default);
 _theme=dk_CursorFileSelect; // File Select cursor move
 dm[?_theme+STR_Description] = "FILE SELECT CURSOR";
 data_sound(snd_Cursor_Move_2a,                      1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_CursorFileSelect,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_NikoTengoku_CursorFileSelect"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 
 _theme=dk_CursorRegisterName; // In REGISTER NAME, moving cursor to diff char
 dm[?_theme+STR_Description] = "REGISTER NAME CURSOR";
 data_sound(snd_Cursor_Move_3a,                     1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_CursorNameEntry,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_NikoTengoku_CursorNameEntry"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 
 _theme=dk_TypeChar; // TODO: Fix type sound.
 dm[?_theme+STR_Description] = "TYPE CHARACTER";
@@ -406,13 +405,13 @@ data_sound(snd_Type_Char_1a,1, _theme,STR_Default);
 _theme=dk_ChooseChar; // Choose a char in FileSelect 'REGISTER YOUR NAME'
 dm[?_theme+STR_Description] = "CHOOSE CHARACTER";
 data_sound(snd_Choose_Char_1a,                 1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_InputLetter,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
-data_sound(snd_Wyng1_MenuSelect1,   _VOL_WYNG1,_theme,dk_Wyng);
+_val=asset_get_index("snd_NikoTengoku_InputLetter"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("snd_Wyng1_MenuSelect1"); if (_val!=-1){data_sound(_val,   _VOL_WYNG1,_theme,dk_Wyng);}
 
 _theme=dk_EliminateFile;
 dm[?_theme+STR_Description] = "ELIMINATE FILE";
 data_sound(snd_Eliminate_file_1a,                1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_EliminateFile,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_NikoTengoku_EliminateFile"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 
 
 
@@ -420,10 +419,10 @@ _theme=dk_FallScene+STR_Sound;
 dm[?_theme+STR_Description] = "FALL SCENE";
 //dm[?dk_SceneMusicThemeException+"02"+_theme] = true;
 data_sound(snd_FallScene01,                  1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_FallScene,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_NikoTengoku_FallScene"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 //sdm("snd_FallScene01 length: "+string(audio_sound_length(snd_FallScene01))); // 2.01
 //sdm("snd_NikoTengoku_FallScene length: "+string(audio_sound_length(snd_NikoTengoku_FallScene))); // 2.96
-data_sound(snd_Wyng1_FallScene,   _VOL_WYNG1,_theme,dk_Wyng);
+_val=asset_get_index("snd_Wyng1_FallScene"); if (_val!=-1){data_sound(_val,   _VOL_WYNG1,_theme,dk_Wyng);}
 
 
 _theme=STR_Encounter+STR_Enter;
@@ -431,7 +430,7 @@ dm[?dk_SceneMusicThemeException+"02"+_theme] = true;
 dm[?_theme+STR_Description] = "ENTER ENCOUNTER";
 data_sound(snd_Encounter_Enter_1a,                1, _theme,STR_Default);
 //data_sound(snd_NikoTengoku_EncounterEnter,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
-data_sound(snd_ZeldaII_FDS_EncounterEnter,       .8, _theme,_set_ZELDA2_FDS);
+_val=asset_get_index("snd_ZeldaII_FDS_EncounterEnter"); if (_val!=-1){data_sound(_val,       .8, _theme,_set_ZELDA2_FDS);}
 //data_sound(snd_Wyng1_EncounterEnter, _VOL_WYNG2, _theme,dk_Wyng);
 
 _theme=STR_Encounter+STR_Leave;
@@ -448,9 +447,9 @@ data_sound(snd_Encounter_Leave_1a,                1, _theme,STR_Default);
 _theme=STR_Fairy+STR_Greeting;
 dm[?_theme+STR_Description] = "FAIRY GREETING";
 data_sound(snd_Anounce_Fairy_1a,                 1, _theme,STR_Default);
-data_sound(snd_ZeldaII_FDS_FairyGreeting,        1, _theme,_set_ZELDA2_FDS);
-data_sound(snd_NikoTengoku_FairyGreeting,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
-data_sound(snd_Wyng1_FairyGreeting,       _VOL_WYNG1,_theme,dk_Wyng);
+_val=asset_get_index("snd_ZeldaII_FDS_FairyGreeting"); if (_val!=-1){data_sound(_val,        1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("snd_NikoTengoku_FairyGreeting"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("snd_Wyng1_FairyGreeting"); if (_val!=-1){data_sound(_val,       _VOL_WYNG1,_theme,dk_Wyng);}
 
 
 
@@ -459,7 +458,7 @@ _theme=dk_MagicalKeyHouse;
 dm[?_theme+STR_Description] = "REVEAL SECRET HOUSE";
 data_sound(snd_MagicalKeyHouse,                    1, _theme,STR_Default);
 data_sound(snd_Z1_Secret,                          1, _theme,_set_ZELDA1);
-data_sound(snd_NikoTengoku_MagicalKeyHouse,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_NikoTengoku_MagicalKeyHouse"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 
 
 
@@ -476,18 +475,18 @@ data_sound(snd_Cursor_Move_1a,1, _theme,STR_Default);
 _theme=dk_FairyFly;
 dm[?_theme+STR_Description] = "FAIRY FLYING";
 data_sound(snd_Item_Drop_1a,                1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_ItemDrop,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_NikoTengoku_ItemDrop"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 
 _theme=dk_ZeldaTalk;
 dm[?_theme+STR_Description] = "ZELDA TALKING";
 data_sound(snd_Item_Drop_1a,                1, _theme,STR_Default);
-data_sound(snd_NikoTengoku_ItemDrop,_VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("snd_NikoTengoku_ItemDrop"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 
 _theme=dk_StabItem;
 dm[?_theme+STR_Description] = "STAB ITEM";
 data_sound(snd_Sword_Beam_1a, .6, _theme,STR_Default);
 //data_sound(snd_NikoTengoku_SwordBeam,.4, _theme,dk_Nikos8BitStereo);
-data_sound(snd_Wyng1_PickUpKey,   _VOL_WYNG1,_theme,dk_Wyng);
+_val=asset_get_index("snd_Wyng1_PickUpKey"); if (_val!=-1){data_sound(_val,   _VOL_WYNG1,_theme,dk_Wyng);}
 
 
 _theme="_SpikeTrap"; // SpikeTrap hit solid
@@ -501,7 +500,7 @@ _theme=STR_Secret; // Z1 'Secret Found' music
 dm[?_theme+STR_Description] = "SECRET JINGLE";
 data_sound(snd_Z1_Secret,   1, _theme,STR_Default);
 //data_sound(snd_Z1_Secret,   1, _theme,_set_ZELDA1);
-data_sound(snd_Wyng1_SecretJingle, 1, _theme,dk_Wyng);
+_val=asset_get_index("snd_Wyng1_SecretJingle"); if (_val!=-1){data_sound(_val, 1, _theme,dk_Wyng);}
 
 
 
@@ -601,94 +600,89 @@ _prefix = "OVERWORLD: ";
 _theme=STR_Overworld+STR_Standard;
 dm[?_theme+STR_Description] = _prefix+"NORMAL";
 data_sound(mus_Overworld_Body_1a,                   .9, _theme,STR_Default,        mus_Overworld_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Overworld,               .9, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Overworld_Intro);
-data_sound(mus_NikoTengoku_Overworld_Body,   _VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Overworld_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Overworld"); if (_val!=-1){data_sound(_val,               .9, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Overworld_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Overworld_Body"); if (_val!=-1){data_sound(_val,   _VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Overworld_Intro")));}
 data_sound(mus_Z1_Overworld_Body,                    1, _theme,_set_ZELDA1,        mus_Z1_Overworld_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_OverworldStandard01, _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Overworld,    _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Overworld_Intro);
-data_sound(mus_SteelCrescent_Overworld_Body, _VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Overworld_Intro);
-data_sound(mus_SteelCrescent2_Overworld_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Overworld_Intro);
-data_sound(mus_SteelCrescent3_Overworld_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Overworld_Intro);
-data_sound(mus_SteelCrescent4_Overworld_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Overworld_Intro);
-data_sound(mus_SteelCrescent5_Overworld_Body,_VOL_STCR5, _theme,dk_SteelCrescent5, mus_SteelCrescent5_Overworld_Intro);
-data_sound(mus_Wyng1_Overworld01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Overworld"); if (_val!=-1){data_sound(_val,    _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Overworld_Body"); if (_val!=-1){data_sound(_val, _VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Overworld_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Overworld_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Overworld_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4, max(0,asset_get_index("mus_SteelCrescent4_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Overworld_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5, max(0,asset_get_index("mus_SteelCrescent5_Overworld_Intro")));}
+_val=asset_get_index("mus_Wyng1_Overworld01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 
 _theme=STR_Overworld+dk_DeathMountain; // Death Mtn
 dm[?_theme+STR_Description] = _prefix+"DEATH MOUNTAIN";
 data_sound(mus_Overworld_Body_1a,                        .9, _theme,STR_Default,        mus_Overworld_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Overworld,                    .9, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Overworld_Intro);
-data_sound(mus_NikoTengoku_Overworld_Body,        _VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Overworld_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Overworld"); if (_val!=-1){data_sound(_val,                    .9, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Overworld_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Overworld_Body"); if (_val!=-1){data_sound(_val,        _VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Overworld_Intro")));}
 data_sound(mus_Z1_Overworld_Body,                         1, _theme,_set_ZELDA1,        mus_Z1_Overworld_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_OverworldDeathMountain01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Overworld_DeathMtn,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Overworld_DeathMtn_Intro);
-data_sound(mus_SteelCrescent_DeathMountain,       _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_DeathMountain,     _VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_DeathMountain,     _VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_DeathMountain,     _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_DeathMountain,     _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_DeathMountain01,              _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_DeathMountain"); if (_val!=-1){data_sound(_val,       _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_DeathMountain"); if (_val!=-1){data_sound(_val,     _VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_DeathMountain"); if (_val!=-1){data_sound(_val,     _VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_DeathMountain"); if (_val!=-1){data_sound(_val,     _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_DeathMountain"); if (_val!=-1){data_sound(_val,     _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_DeathMountain01"); if (_val!=-1){data_sound(_val,              _VOL_WYNG1, _theme,dk_Wyng);}
 
 _theme=STR_Overworld+dk_MazeIsland; // Maze Isl
 dm[?_theme+STR_Description] = _prefix+"MAZE ISLAND";
 data_sound(mus_Overworld_Body_1a,                       .9, _theme,STR_Default,        mus_Overworld_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Overworld,                   .9, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Overworld_Intro);
-data_sound(mus_NikoTengoku_Overworld_Body,       _VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Overworld_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Overworld"); if (_val!=-1){data_sound(_val,                   .9, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Overworld_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Overworld_Body"); if (_val!=-1){data_sound(_val,       _VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Overworld_Intro")));}
 data_sound(mus_Z1_Overworld_Body,                        1, _theme,_set_ZELDA1,        mus_Z1_Overworld_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_OverworldMazeIsland01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Overworld_MazeIsl,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Overworld_MazeIsl_Intro);
-data_sound(mus_SteelCrescent_MazeIsland,_VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_MazeIsland,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_MazeIsland,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_MazeIsland,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_MazeIsland_Body,_VOL_STCR5, _theme,dk_SteelCrescent5, mus_SteelCrescent5_MazeIsland_Intro);
-data_sound(mus_Wyng1_MazeIsland_Body,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_MazeIsland"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_MazeIsland"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_MazeIsland"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_MazeIsland"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_MazeIsland_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5, max(0,asset_get_index("mus_SteelCrescent5_MazeIsland_Intro")));}
+_val=asset_get_index("mus_Wyng1_MazeIsland_Body"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 
 _theme=STR_Overworld+dk_ValleyOfDeath; // Valley of Death
 dm[?_theme+STR_Description] = _prefix+"VALLEY OF DEATH";
 data_sound(mus_Overworld_Body_1a,                        .9, _theme,STR_Default,        mus_Overworld_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Overworld,                    .9, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Overworld_Intro);
-data_sound(mus_NikoTengoku_Overworld_Body,        _VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Overworld_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Overworld"); if (_val!=-1){data_sound(_val,                    .9, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Overworld_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Overworld_Body"); if (_val!=-1){data_sound(_val,        _VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Overworld_Intro")));}
 data_sound(mus_Z1_Overworld_Body,                         1, _theme,_set_ZELDA1,        mus_Z1_Overworld_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_OverworldDeathMountain01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Overworld_DeathMtn,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Overworld_DeathMtn_Intro);
-data_sound(mus_SteelCrescent_DeathMountain, _VOL_STCR,  _theme,dk_SteelCrescent); // 2024/09/07. SteelCrescent says, "change Kupardour's death Valley track back to Death Mountain"
-//data_sound(mus_SteelCrescent_ValleyOfDeath, _VOL_STCR,  _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_DeathMountain,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_DeathMountain,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_DeathMountain,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_DeathMountain,     _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_MazeIsland_Body,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_DeathMountain"); if (_val!=-1){data_sound(_val, _VOL_STCR,  _theme,dk_SteelCrescent);} // 2024/09/07. SteelCrescent says, "change Kupardour's death Valley track back to Death Mountain"
+//data_sound_valmus_SteelCrescent_ValleyOfDeath, _VOL_STCR,  _theme,dk_SteelCrescent);
+_val=asset_get_index("mus_SteelCrescent2_DeathMountain"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_DeathMountain"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_DeathMountain"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_DeathMountain"); if (_val!=-1){data_sound(_val,     _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_MazeIsland_Body"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 
 _theme=STR_Overworld+STR_Dragmire; // Dragmire
 dm[?_theme+STR_Description] = _prefix+"DRAGMIRE";
 data_sound(mus_Overworld_Body_1a,                       .9, _theme,STR_Default,        mus_Overworld_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Overworld,                   .9, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Overworld_Intro);
-data_sound(mus_NikoTengoku_Overworld_Body,       _VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Overworld_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Overworld"); if (_val!=-1){data_sound(_val,                   .9, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Overworld_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Overworld_Body"); if (_val!=-1){data_sound(_val,       _VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Overworld_Intro")));}
 data_sound(mus_Z1_Overworld_Body,                        1, _theme,_set_ZELDA1,        mus_Z1_Overworld_Intro);
-data_sound(mus_IsabelleChiming_Overworld_Dragmire_Body,_VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_Dragmire,_VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_Dragmire,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_Dragmire,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_Dragmire,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_Dragmire,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_MazeIsland_Body,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Overworld_Dragmire_Body"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_Dragmire"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Dragmire"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_Dragmire"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_Dragmire"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_Dragmire"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_MazeIsland_Body"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 
 _theme=STR_Overworld+STR_Makarrha; // Makarrha (Sword Island)
 dm[?_theme+STR_Description] = _prefix+"MAKARRHA";
 //_theme=SwordIsl_Name; // Makarrha (Sword Island)
 //dm[?_theme+STR_Description] = _prefix+string_upper(SwordIsl_Name);
 data_sound(mus_Overworld_Body_1a,                       .9,  _theme,STR_Default,        mus_Overworld_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Overworld,                   .9,  _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Overworld_Intro);
-data_sound(mus_NikoTengoku_Overworld_Body,       _VOL_NIKO,  _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Overworld_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Overworld"); if (_val!=-1){data_sound(_val,                   .9,  _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Overworld_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Overworld_Body"); if (_val!=-1){data_sound(_val,       _VOL_NIKO,  _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Overworld_Intro")));}
 data_sound(mus_Z1_Overworld_Body,                        1,  _theme,_set_ZELDA1,        mus_Z1_Overworld_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_OverworldMazeIsland01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Overworld_MazeIsl,_VOL_CHIM,  _theme,dk_IsabelleChiming, mus_IsabelleChiming_Overworld_MazeIsl_Intro);
-data_sound(mus_SteelCrescent_Makarrha,           _VOL_STCR,  _theme,dk_SteelCrescent,   mus_SteelCrescent_Makarrha_Intro);
-data_sound(mus_SteelCrescent2_SwordIsland,       _VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_MazeIsland,        _VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_MazeIsland,        _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_SwordIsland,       _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_MazeIsland_Body,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl"); if (_val!=-1){data_sound(_val,_VOL_CHIM,  _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Makarrha"); if (_val!=-1){data_sound(_val,           _VOL_STCR,  _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Makarrha_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_SwordIsland"); if (_val!=-1){data_sound(_val,       _VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_MazeIsland"); if (_val!=-1){data_sound(_val,        _VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_MazeIsland"); if (_val!=-1){data_sound(_val,        _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_SwordIsland"); if (_val!=-1){data_sound(_val,       _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_MazeIsland_Body"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 
 
 
@@ -703,144 +697,135 @@ _town_name = STR_Rauru;
 _theme = _town_name;
 dm[?_theme+STR_Description] = _prefix+string(val(g.dm_town[?STR_Town+STR_Num+_town_name]))+":"+string_upper(string_replace_all(_town_name,"_"," "));
 data_sound(mus_Town_Body_1a,                    1,  _theme,STR_Default,        mus_Town_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Town,                1,  _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Town_Intro);
-data_sound(mus_NikoTengoku_Town_Body,   _VOL_NIKO,  _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Town_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Town01,  _VOL_CHIM,  _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Town,    _VOL_CHIM,  _theme,dk_IsabelleChiming, mus_IsabelleChiming_Town_Intro);
-data_sound(mus_SteelCrescent_Town_Body, _VOL_STCR,  _theme,dk_SteelCrescent,   mus_SteelCrescent_Town_Intro);
-data_sound(mus_SteelCrescent2_Town_Body,_VOL_STCR2, _theme,dk_SteelCrescent2,  mus_SteelCrescent2_Town_Intro);
-data_sound(mus_SteelCrescent3_Town_Body,_VOL_STCR3, _theme,dk_SteelCrescent3,  mus_SteelCrescent3_Town_Intro);
-data_sound(mus_SteelCrescent4_Town_Body,_VOL_STCR4, _theme,dk_SteelCrescent4,  mus_SteelCrescent4_Town_Intro);
-data_sound(mus_SteelCrescent5_Town_Body,_VOL_STCR5, _theme,dk_SteelCrescent5,  mus_SteelCrescent5_Town_Intro);
-data_sound(mus_Wyng1_Town01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){data_sound(_val,                1,  _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Town_Body"); if (_val!=-1){data_sound(_val,   _VOL_NIKO,  _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Town_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){data_sound(_val,    _VOL_CHIM,  _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){data_sound(_val, _VOL_STCR,  _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2,  max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3,  max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4,  max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5,  max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 data_sound(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
 //                                                                                                                  //
 _town_name = STR_Ruto;
 _theme = _town_name;
 dm[?_theme+STR_Description] = _prefix+string(val(g.dm_town[?STR_Town+STR_Num+_town_name]))+":"+string_upper(string_replace_all(_town_name,"_"," "));
 data_sound(mus_Town_Body_1a,                 1, _theme,STR_Default,        mus_Town_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Town,             1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Town_Intro);
-data_sound(mus_NikoTengoku_Town_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Town_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Town01,  _VOL_CHIM,  _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Town, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Town_Intro);
-data_sound(mus_SteelCrescent_Town_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Town_Intro);
-data_sound(mus_SteelCrescent2_Town_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Town_Intro);
-data_sound(mus_SteelCrescent3_Town_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Town_Intro);
-data_sound(mus_SteelCrescent4_Town_Body,_VOL_STCR4, _theme,dk_SteelCrescent4,  mus_SteelCrescent4_Town_Intro);
-data_sound(mus_SteelCrescent5_Town_Body,_VOL_STCR5, _theme,dk_SteelCrescent5,  mus_SteelCrescent5_Town_Intro);
-data_sound(mus_Wyng1_Town01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){data_sound(_val,             1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Town_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4,  max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5,  max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 data_sound(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
 //                                                                                                                  //
 _town_name = STR_Saria;
 _theme = _town_name;
 dm[?_theme+STR_Description] = _prefix+string(val(g.dm_town[?STR_Town+STR_Num+_town_name]))+":"+string_upper(string_replace_all(_town_name,"_"," "));
 data_sound(mus_Town_Body_1a,                 1, _theme,STR_Default,        mus_Town_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Town,             1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Town_Intro);
-data_sound(mus_NikoTengoku_Town_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Town_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Town01,  _VOL_CHIM,  _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Town, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Town_Intro);
-data_sound(mus_SteelCrescent_Town_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Town_Intro);
-data_sound(mus_SteelCrescent2_Town_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Town_Intro);
-data_sound(mus_SteelCrescent3_Town_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Town_Intro);
-data_sound(mus_SteelCrescent4_Town_Body,_VOL_STCR4, _theme,dk_SteelCrescent4,  mus_SteelCrescent4_Town_Intro);
-data_sound(mus_SteelCrescent5_Town_Body,_VOL_STCR5, _theme,dk_SteelCrescent5,  mus_SteelCrescent5_Town_Intro);
-data_sound(mus_Wyng1_Town01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){data_sound(_val,             1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Town_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4,  max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5,  max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 data_sound(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
 //                                                                                                                  //
 _town_name = STR_Mido;
 _theme = _town_name;
 dm[?_theme+STR_Description] = _prefix+string(val(g.dm_town[?STR_Town+STR_Num+_town_name]))+":"+string_upper(string_replace_all(_town_name,"_"," "));
 data_sound(mus_Town_Body_1a,                 1, _theme,STR_Default,        mus_Town_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Town,             1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Town_Intro);
-data_sound(mus_NikoTengoku_Town_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Town_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Town01,  _VOL_CHIM,  _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Town, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Town_Intro);
-data_sound(mus_SteelCrescent_Town_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Town_Intro);
-data_sound(mus_SteelCrescent2_Town_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Town_Intro);
-data_sound(mus_SteelCrescent3_Town_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Town_Intro);
-data_sound(mus_SteelCrescent4_Town_Body,_VOL_STCR4, _theme,dk_SteelCrescent4,  mus_SteelCrescent4_Town_Intro);
-data_sound(mus_SteelCrescent5_Town_Body,_VOL_STCR5, _theme,dk_SteelCrescent5,  mus_SteelCrescent5_Town_Intro);
-data_sound(mus_Wyng1_Town01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){data_sound(_val,             1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Town_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4,  max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5,  max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 data_sound(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
 //                                                                                                                  //
 _town_name = STR_Nabooru;
 _theme = _town_name;
 dm[?_theme+STR_Description] = _prefix+string(val(g.dm_town[?STR_Town+STR_Num+_town_name]))+":"+string_upper(string_replace_all(_town_name,"_"," "));
 data_sound(mus_Town_Body_1a,                 1, _theme,STR_Default,        mus_Town_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Town,             1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Town_Intro);
-data_sound(mus_NikoTengoku_Town_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Town_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Town01,  _VOL_CHIM,  _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Town, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Town_Intro);
-data_sound(mus_SteelCrescent_Town_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Town_Intro);
-data_sound(mus_SteelCrescent2_Town_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Town_Intro);
-data_sound(mus_SteelCrescent3_Town_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Town_Intro);
-data_sound(mus_SteelCrescent4_Town_Body,_VOL_STCR4, _theme,dk_SteelCrescent4,  mus_SteelCrescent4_Town_Intro);
-data_sound(mus_SteelCrescent5_Town_Body,_VOL_STCR5, _theme,dk_SteelCrescent5,  mus_SteelCrescent5_Town_Intro);
-data_sound(mus_Wyng1_Town01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){data_sound(_val,             1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Town_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4,  max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5,  max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 data_sound(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
 //                                                                                                                  //
 _town_name = STR_Darunia;
 _theme = _town_name;
 dm[?_theme+STR_Description] = _prefix+string(val(g.dm_town[?STR_Town+STR_Num+_town_name]))+":"+string_upper(string_replace_all(_town_name,"_"," "));
 data_sound(mus_Town_Body_1a,                 1, _theme,STR_Default,        mus_Town_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Town,             1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Town_Intro);
-data_sound(mus_NikoTengoku_Town_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Town_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Town01,  _VOL_CHIM,  _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Town, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Town_Intro);
-data_sound(mus_SteelCrescent_Town_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Town_Intro);
-data_sound(mus_SteelCrescent2_Town_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Town_Intro);
-data_sound(mus_SteelCrescent3_Town_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Town_Intro);
-data_sound(mus_SteelCrescent4_Town_Body,_VOL_STCR4, _theme,dk_SteelCrescent4,  mus_SteelCrescent4_Town_Intro);
-data_sound(mus_SteelCrescent5_Town_Body,_VOL_STCR5, _theme,dk_SteelCrescent5,  mus_SteelCrescent5_Town_Intro);
-data_sound(mus_Wyng1_Town01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){data_sound(_val,             1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Town_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4,  max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5,  max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 data_sound(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
 //                                                                                                                  //
 _town_name = STR_New_Kasuto;
 _theme = _town_name;
 dm[?_theme+STR_Description] = _prefix+string(val(g.dm_town[?STR_Town+STR_Num+_town_name]))+":"+string_upper(string_replace_all(_town_name,"_"," "));
 data_sound(mus_Town_Body_1a,                 1, _theme,STR_Default,        mus_Town_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Town,             1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Town_Intro);
-data_sound(mus_NikoTengoku_Town_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Town_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Town01,  _VOL_CHIM,  _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Town, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Town_Intro);
-data_sound(mus_SteelCrescent_Town_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Town_Intro);
-data_sound(mus_SteelCrescent2_Town_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Town_Intro);
-data_sound(mus_SteelCrescent3_Town_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Town_Intro);
-data_sound(mus_SteelCrescent4_Town_Body,_VOL_STCR4, _theme,dk_SteelCrescent4,  mus_SteelCrescent4_Town_Intro);
-data_sound(mus_SteelCrescent5_Town_Body,_VOL_STCR5, _theme,dk_SteelCrescent5,  mus_SteelCrescent5_Town_Intro);
-data_sound(mus_Wyng1_Town01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){data_sound(_val,             1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Town_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4,  max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5,  max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 data_sound(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
 //                                                                                                                  //
 _town_name = STR_Old_Kasuto;
 _theme = _town_name;
 dm[?_theme+STR_Description] = _prefix+string(val(g.dm_town[?STR_Town+STR_Num+_town_name]))+":"+string_upper(string_replace_all(_town_name,"_"," "));
 data_sound(mus_House_1a,                         1, _theme,STR_Default);
-data_sound(mus_ZeldaII_FDS_Town,                 1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Town_Intro);
-data_sound(mus_NikoTengoku_House,        _VOL_NIKO, _theme,dk_Nikos8BitStereo);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_OldKasuto01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_OldKasuto,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_OldKasuto_Intro);
-data_sound(mus_SteelCrescent_OldKasuto,  _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_OldKasuto,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_OldKasuto,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_House,    _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_House,    _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_OldKasuto_Body,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){data_sound(_val,                 1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_House"); if (_val!=-1){data_sound(_val,        _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("mus_IsabelleChiming_OldKasuto"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_OldKasuto_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_OldKasuto"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_OldKasuto"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_OldKasuto"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_House"); if (_val!=-1){data_sound(_val,    _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_House"); if (_val!=-1){data_sound(_val,    _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_OldKasuto_Body"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 data_sound(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
 //                                                                                                                  //
 _town_name = STR_Bulblin;
 _theme = _town_name;
 dm[?_theme+STR_Description] = _prefix+string(val(g.dm_town[?STR_Town+STR_Num+_town_name]))+":"+string_upper(string_replace_all(_town_name,"_"," "));
 data_sound(mus_Town_Body_1a,                 1, _theme,STR_Default,        mus_Town_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Town,             1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Town_Intro);
-data_sound(mus_NikoTengoku_Town_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Town_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Town01,  _VOL_CHIM,  _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Town, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Town_Intro);
-data_sound(mus_SteelCrescent_Town_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Town_Intro);
-data_sound(mus_SteelCrescent2_Town_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Town_Intro);
-data_sound(mus_SteelCrescent3_Town_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Town_Intro);
-data_sound(mus_SteelCrescent4_Town_Body,_VOL_STCR4, _theme,dk_SteelCrescent4,  mus_SteelCrescent4_Town_Intro);
-data_sound(mus_SteelCrescent5_Town_Body,_VOL_STCR5, _theme,dk_SteelCrescent5,  mus_SteelCrescent5_Town_Intro);
-data_sound(mus_Wyng1_Bulblin01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){data_sound(_val,             1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Town_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4,  max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5,  max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_Wyng1_Bulblin01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 data_sound(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
 //                                                                                                                  //
 
@@ -860,143 +845,129 @@ _prefix = "DUNGEON ";
 _theme=STR_Dungeon+hex_str(++_a);
 dm[?_theme+STR_Description] = _prefix+string(_a)+": PARAPA PALACE";
 data_sound(mus_Palace_Body_1a,                   1, _theme,STR_Default,        mus_Palace_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Dungeon,              1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Dungeon_Intro);
-data_sound(mus_NikoTengoku_Dungeon1_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Dungeon1_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Dungeon"); if (_val!=-1){data_sound(_val,              1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Dungeon_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Dungeon1_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Dungeon1_Intro")));}
 data_sound(mus_Z1_Dungeon_Body_1a,               1, _theme,_set_ZELDA1);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_ParapaPalace01, _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Dungeon1, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Dungeon1_Intro);
-data_sound(mus_SteelCrescent_Dungeon_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Dungeon_Intro);
-data_sound(mus_SteelCrescent2_Dungeon_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Dungeon_Intro);
-data_sound(mus_SteelCrescent3_Dungeon_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Dungeon_Intro);
-data_sound(mus_SteelCrescent4_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Dungeon_Intro);
-data_sound(mus_SteelCrescent5_Dungeon_Body,_VOL_STCR5, _theme,dk_SteelCrescent5, mus_SteelCrescent5_Dungeon_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon1"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Dungeon1_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5, max(0,asset_get_index("mus_SteelCrescent5_Dungeon_Intro")));}
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
-data_sound(mus_Wyng1_Dungeon01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 // Midoro Palace                                                                                                    //
 _theme=STR_Dungeon+hex_str(++_a);
 dm[?_theme+STR_Description] = _prefix+string(_a)+": MIDORO PALACE";
 data_sound(mus_Palace_Body_1a,                   1, _theme,STR_Default,        mus_Palace_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Dungeon,              1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Dungeon_Intro);
-data_sound(mus_NikoTengoku_Dungeon1_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Dungeon1_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Dungeon"); if (_val!=-1){data_sound(_val,              1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Dungeon_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Dungeon1_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Dungeon1_Intro")));}
 data_sound(mus_Z1_Dungeon_Body_1a,               1, _theme,_set_ZELDA1);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_MidoroPalace01, _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Dungeon2, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Dungeon2_Intro);
-data_sound(mus_SteelCrescent_Dungeon_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Dungeon_Intro);
-data_sound(mus_SteelCrescent2_Dungeon_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Dungeon_Intro);
-data_sound(mus_SteelCrescent3_Dungeon_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Dungeon_Intro);
-data_sound(mus_SteelCrescent4_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Dungeon_Intro);
-data_sound(mus_SteelCrescent5_Dungeon_Body,_VOL_STCR5, _theme,dk_SteelCrescent5, mus_SteelCrescent5_Dungeon_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon2"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Dungeon2_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5, max(0,asset_get_index("mus_SteelCrescent5_Dungeon_Intro")));}
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
-data_sound(mus_Wyng1_Dungeon01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 // Island Palace                                                                                                    //
 _theme=STR_Dungeon+hex_str(++_a);
 dm[?_theme+STR_Description] = _prefix+string(_a)+": ISLAND PALACE";
 data_sound(mus_Palace_Body_1a,                   1, _theme,STR_Default,        mus_Palace_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Dungeon,              1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Dungeon_Intro);
-data_sound(mus_NikoTengoku_Dungeon1_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Dungeon1_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Dungeon"); if (_val!=-1){data_sound(_val,              1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Dungeon_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Dungeon1_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Dungeon1_Intro")));}
 data_sound(mus_Z1_Dungeon_Body_1a,               1, _theme,_set_ZELDA1);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_IslandPalace01, _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Dungeon3, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Dungeon3_Intro);
-data_sound(mus_SteelCrescent_Dungeon_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Dungeon_Intro);
-data_sound(mus_SteelCrescent2_Dungeon_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Dungeon_Intro);
-data_sound(mus_SteelCrescent3_Dungeon_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Dungeon_Intro);
-data_sound(mus_SteelCrescent4_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Dungeon_Intro);
-data_sound(mus_SteelCrescent5_Dungeon_Body,_VOL_STCR5, _theme,dk_SteelCrescent5, mus_SteelCrescent5_Dungeon_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon3"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Dungeon3_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5, max(0,asset_get_index("mus_SteelCrescent5_Dungeon_Intro")));}
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
-data_sound(mus_Wyng1_Dungeon01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 // Maze Island Palace                                                                                               //
 _theme=STR_Dungeon+hex_str(++_a);
 dm[?_theme+STR_Description] = _prefix+string(_a)+": MAZE ISLAND PALACE";
 data_sound(mus_Palace_Body_1a,                   1, _theme,STR_Default,        mus_Palace_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Dungeon,              1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Dungeon_Intro);
-data_sound(mus_NikoTengoku_Dungeon1_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Dungeon1_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Dungeon"); if (_val!=-1){data_sound(_val,              1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Dungeon_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Dungeon1_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Dungeon1_Intro")));}
 data_sound(mus_Z1_Dungeon_Body_1a,               1, _theme,_set_ZELDA1);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_MazeIslandPalace01, _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Dungeon4, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Dungeon4_Intro);
-data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent);
-//data_sound(mus_SteelCrescent_Dungeon_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Dungeon_Intro);
-data_sound(mus_SteelCrescent2_Dungeon2,_VOL_STCR5, _theme,dk_SteelCrescent2);
-//data_sound(mus_SteelCrescent2_Dungeon_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Dungeon_Intro);
-data_sound(mus_SteelCrescent3_Dungeon_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Dungeon_Intro);
-data_sound(mus_SteelCrescent4_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Dungeon_Intro);
-data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent5);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon4"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Dungeon4_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon2"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
-data_sound(mus_Wyng1_Dungeon01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 // Palace on the Sea                                                                                                //
 _theme=STR_Dungeon+hex_str(++_a);
 dm[?_theme+STR_Description] = _prefix+string(_a)+": PALACE ON THE SEA";
 data_sound(mus_Palace_Body_1a,                   1, _theme,STR_Default,        mus_Palace_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Dungeon,              1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Dungeon_Intro);
-data_sound(mus_NikoTengoku_Dungeon1_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Dungeon1_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Dungeon"); if (_val!=-1){data_sound(_val,              1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Dungeon_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Dungeon1_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Dungeon1_Intro")));}
 data_sound(mus_Z1_Dungeon_Body_1a,               1, _theme,_set_ZELDA1);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_PalaceOnTheSea01, _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Dungeon5, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Dungeon5_Intro);
-data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent);
-//data_sound(mus_SteelCrescent_Dungeon_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Dungeon_Intro);
-data_sound(mus_SteelCrescent2_Dungeon2,_VOL_STCR5, _theme,dk_SteelCrescent2);
-//data_sound(mus_SteelCrescent2_Dungeon_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Dungeon_Intro);
-data_sound(mus_SteelCrescent3_Dungeon_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Dungeon_Intro);
-data_sound(mus_SteelCrescent4_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Dungeon_Intro);
-data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent5);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon5"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Dungeon5_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon2"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
-data_sound(mus_Wyng1_Dungeon01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 // Three-Eye-Rock Palace                                                                                            //
 _theme=STR_Dungeon+hex_str(++_a);
 dm[?_theme+STR_Description] = _prefix+string(_a)+": HIDDEN PALACE";
 data_sound(mus_Palace_Body_1a,                   1, _theme,STR_Default,        mus_Palace_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Dungeon,              1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Dungeon_Intro);
-data_sound(mus_NikoTengoku_Dungeon1_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Dungeon1_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Dungeon"); if (_val!=-1){data_sound(_val,              1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Dungeon_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Dungeon1_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Dungeon1_Intro")));}
 data_sound(mus_Z1_Dungeon_Body_1a,               1, _theme,_set_ZELDA1);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_HiddenPalace01, _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Dungeon6, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Dungeon6_Intro);
-data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent);
-//data_sound(mus_SteelCrescent_Dungeon_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_Dungeon_Intro);
-data_sound(mus_SteelCrescent2_Dungeon2,_VOL_STCR5, _theme,dk_SteelCrescent2);
-//data_sound(mus_SteelCrescent2_Dungeon_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Dungeon_Intro);
-data_sound(mus_SteelCrescent3_Dungeon_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Dungeon_Intro);
-data_sound(mus_SteelCrescent4_Dungeon_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Dungeon_Intro);
-data_sound(mus_SteelCrescent5_DungeonTheme02,_VOL_STCR5, _theme,dk_SteelCrescent5);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon6"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Dungeon6_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon2"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
-data_sound(mus_Wyng1_Dungeon01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 // Great Palace                                                                                                     //
 _theme=STR_Dungeon+hex_str(++_a);
 dm[?_theme+STR_Description] = _prefix+string(_a)+": GREAT PALACE";
 data_sound(mus_Great_Palace_Body_1a,             1, _theme,STR_Default,        mus_Great_Palace_Intro_1a);
-//data_sound(mus_ZeldaII_FDS_Dungeon,      1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Dungeon_Intro);
-data_sound(mus_NikoTengoku_Dungeon2_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Dungeon2_Intro);
+//data_sound_valmus_ZeldaII_FDS_Dungeon,      1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Dungeon_Intro")));
+_val=asset_get_index("mus_NikoTengoku_Dungeon2_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Dungeon2_Intro")));}
 data_sound(mus_Z1_Dungeon2,                      1, _theme,_set_ZELDA1);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_GreatPalace01, _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Dungeon7, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Dungeon7_Intro);
-data_sound(mus_SteelCrescent_GreatPalace_Body,_VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_GreatPalace_Intro);
-data_sound(mus_SteelCrescent2_GreatPalace_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_GreatPalace_Intro);
-data_sound(mus_SteelCrescent3_GreatPalace_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_GreatPalace_Intro);
-data_sound(mus_SteelCrescent4_GreatPalace_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_GreatPalace_Intro);
-data_sound(mus_SteelCrescent5_GreatPalace_Body,_VOL_STCR5, _theme,dk_SteelCrescent5, mus_SteelCrescent5_GreatPalace_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon7"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Dungeon7_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_GreatPalace_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_GreatPalace_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_GreatPalace_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_GreatPalace_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4, max(0,asset_get_index("mus_SteelCrescent4_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_GreatPalace_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5, max(0,asset_get_index("mus_SteelCrescent5_GreatPalace_Intro")));}
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
-data_sound(mus_Wyng1_GreatPalace01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_Wyng1_GreatPalace01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 // Dragmire Tower                                                                                                   //
 _theme=STR_Dungeon+hex_str(++_a);
 dm[?_theme+STR_Description] = _prefix+string(_a)+": DRAGMIRE TOWER";
 data_sound(mus_Broomietunes_DragmireTower,       1, _theme,STR_Default);
-data_sound(mus_ZeldaII_FDS_Dungeon,              1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Dungeon_Intro);
-data_sound(mus_NikoTengoku_Dungeon2_Body,_VOL_NIKO, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Dungeon2_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Dungeon"); if (_val!=-1){data_sound(_val,              1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Dungeon_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Dungeon2_Body"); if (_val!=-1){data_sound(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Dungeon2_Intro")));}
 data_sound(mus_Z1_Dungeon2,                      1, _theme,_set_ZELDA1);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_DragmireTower01, _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_DragmireTower_Body, _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_DragmireTower_Intro);
-data_sound(mus_SteelCrescent_DragmireTower,_VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_DragmireTower,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_DragmireTower,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_DragmireTower,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_DragmireTower,_VOL_STCR5, _theme,dk_SteelCrescent5);
+_val=asset_get_index("mus_IsabelleChiming_DragmireTower_Body"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_DragmireTower_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_DragmireTower"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_DragmireTower"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_DragmireTower"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_DragmireTower"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_DragmireTower"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
 data_sound(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
-data_sound(mus_Wyng1_DragmireTower01,          _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_Wyng1_DragmireTower01"); if (_val!=-1){data_sound(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 //                                                                                                                  //
 //                                                                                                                  //
@@ -1011,84 +982,78 @@ data_sound(mus_Wyng1_DragmireTower01,          _VOL_WYNG1, _theme,dk_Wyng);
 _theme=STR_Boss+"01"; // Normal boss music
 dm[?_theme+STR_Description] = "BOSS: REGULAR";
 data_sound(mus_Boss_Battle_1a,              1, _theme,STR_Default);
-data_sound(mus_ZeldaII_FDS_Boss,            1, _theme,_set_ZELDA2_FDS);
-data_sound(mus_NikoTengoku_Boss1,   _VOL_NIKO, _theme,dk_Nikos8BitStereo);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_BossBattle01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Boss,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Boss_Intro);
-data_sound(mus_SteelCrescent_Boss,  _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_Boss,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_Boss,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_Boss,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_Boss,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_BossBattle01,     _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Boss"); if (_val!=-1){data_sound(_val,            1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("mus_NikoTengoku_Boss1"); if (_val!=-1){data_sound(_val,   _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("mus_IsabelleChiming_Boss"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Boss_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Boss"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Boss"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_Boss"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_Boss"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_Boss"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_BossBattle01"); if (_val!=-1){data_sound(_val,     _VOL_WYNG1, _theme,dk_Wyng);}
 //data_sound(mus_Wyng1_Boss1_Body,     _VOL_WYNG1, _theme,dk_Wyng, mus_Wyng1_Boss1_Intro);
 //                                                                                                                  //
 _theme=dk_ThunderBird;
 dm[?_theme+STR_Description] = "BOSS: THUNDERBIRD";
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Thunderbird01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_ThunderBird,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_ThunderBird_Intro);
-data_sound(mus_SteelCrescent_Thunderbird,  _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_Thunderbird,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_Thunderbird,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_Thunderbird,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_Thunderbird,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_Thunderbird01,     _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_ThunderBird"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_ThunderBird_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Thunderbird"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Thunderbird"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_Thunderbird"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_Thunderbird"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_Thunderbird"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_Thunderbird01"); if (_val!=-1){data_sound(_val,     _VOL_WYNG1, _theme,dk_Wyng);}
 //data_sound(mus_Wyng1_Thunderbird_Body,     _VOL_WYNG1, _theme,dk_Wyng, mus_Wyng1_Thunderbird_Intro);
 //                                                                                                                  //
 _theme=dk_ShadowBoss+"01"; // Dark Lonk 1st Quest
 dm[?_theme+STR_Description] = "BOSS: SHADOW LINK (1ST QUEST)";
 data_sound(mus_Broomietunes_darklink_Body,        1, _theme,STR_Default,        mus_Broomietunes_darklink_Intro); // Broomietunes: Evil Blood - Body
 //data_sound(mus_Shadow_Link_1a,                    1, _theme,STR_Default);
-data_sound(mus_NikoTengoku_Boss2,         _VOL_NIKO, _theme,dk_Nikos8BitStereo);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_ShadowBoss01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_ShadowBoss,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_ShadowBoss_Intro);
-data_sound(mus_SteelCrescent_DarkLink,    _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_ShadowBoss,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_ShadowBoss,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_ShadowBoss,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_ShadowBoss,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_ShadowBoss_Body,       _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_NikoTengoku_Boss2"); if (_val!=-1){data_sound(_val,         _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("mus_IsabelleChiming_ShadowBoss"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_ShadowBoss_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_DarkLink"); if (_val!=-1){data_sound(_val,    _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_ShadowBoss"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_ShadowBoss"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_ShadowBoss"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_ShadowBoss"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_ShadowBoss_Body"); if (_val!=-1){data_sound(_val,       _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 _theme=dk_ShadowBoss+"02"; // Dark Lonk 2nd Quest
 dm[?_theme+STR_Description] = "BOSS: SHADOW LINK (2ND QUEST)";
 data_sound(mus_Broomietunes_darklink_Body,        1, _theme,STR_Default,        mus_Broomietunes_darklink_Intro); // Broomietunes: Evil Blood - Body
-data_sound(mus_NikoTengoku_Boss2,         _VOL_NIKO, _theme,dk_Nikos8BitStereo);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_EvilHeart01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_EvilHeart_Body,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_EvilHeart_Intro);
-data_sound(mus_SteelCrescent_DarkLink,    _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_ShadowBoss,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_ShadowBoss,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_ShadowBoss,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_ShadowBoss,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_ShadowBoss_Body,       _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_NikoTengoku_Boss2"); if (_val!=-1){data_sound(_val,         _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("mus_IsabelleChiming_EvilHeart_Body"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_EvilHeart_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_DarkLink"); if (_val!=-1){data_sound(_val,    _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_ShadowBoss"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_ShadowBoss"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_ShadowBoss"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_ShadowBoss"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_ShadowBoss_Body"); if (_val!=-1){data_sound(_val,       _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 _theme=STR_Ganon+"1"; // Ganon1
 dm[?_theme+STR_Description] = "BOSS A1"; // no spoiler generalization
 data_sound(mus_Boss_Battle_1a,                        1, _theme,STR_Default);
-data_sound(mus_ZeldaII_FDS_Boss,                      1, _theme,_set_ZELDA2_FDS);
-data_sound(mus_NikoTengoku_Boss1,             _VOL_NIKO, _theme,dk_Nikos8BitStereo);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_BossBattle01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Boss,          _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Boss_Intro);
-data_sound(mus_SteelCrescent_Ganon01,         _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_Ganon01_Body,   _VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Ganon01_Intro);
-data_sound(mus_SteelCrescent3_Ganon1And2_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Ganon1And2_Intro);
-data_sound(mus_SteelCrescent4_Ganon01,        _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_Ganon01,        _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_BossBattle01,     _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_Boss"); if (_val!=-1){data_sound(_val,                      1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("mus_NikoTengoku_Boss1"); if (_val!=-1){data_sound(_val,             _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("mus_IsabelleChiming_Boss"); if (_val!=-1){data_sound(_val,          _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Boss_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Ganon01"); if (_val!=-1){data_sound(_val,         _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Ganon01_Body"); if (_val!=-1){data_sound(_val,   _VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Ganon01_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Ganon1And2_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Ganon1And2_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Ganon01"); if (_val!=-1){data_sound(_val,        _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_Ganon01"); if (_val!=-1){data_sound(_val,        _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_BossBattle01"); if (_val!=-1){data_sound(_val,     _VOL_WYNG1, _theme,dk_Wyng);}
 //data_sound(mus_Wyng1_Boss1_Body,     _VOL_WYNG1, _theme,dk_Wyng, mus_Wyng1_Boss1_Intro);
 //                                                                                                                  //
 _theme=STR_Ganon+"2"; // Ganon2
 dm[?_theme+STR_Description] = "BOSS A2"; // no spoiler generalization
 data_sound(mus_Shadow_Link_1a,                        1, _theme,STR_Default);
-data_sound(mus_NikoTengoku_Boss2,             _VOL_NIKO, _theme,dk_Nikos8BitStereo);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_ShadowBoss01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_ShadowBoss,    _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_ShadowBoss_Intro);
-data_sound(mus_SteelCrescent_Ganon01,         _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_Ganon01_Body,   _VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Ganon01_Intro);
-data_sound(mus_SteelCrescent3_Ganon1And2_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Ganon1And2_Intro);
-data_sound(mus_SteelCrescent4_Ganon01,        _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_Ganon01,        _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_BossBattle01,     _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_NikoTengoku_Boss2"); if (_val!=-1){data_sound(_val,             _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("mus_IsabelleChiming_ShadowBoss"); if (_val!=-1){data_sound(_val,    _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_ShadowBoss_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Ganon01"); if (_val!=-1){data_sound(_val,         _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Ganon01_Body"); if (_val!=-1){data_sound(_val,   _VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Ganon01_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Ganon1And2_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Ganon1And2_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Ganon01"); if (_val!=-1){data_sound(_val,        _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_Ganon01"); if (_val!=-1){data_sound(_val,        _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_BossBattle01"); if (_val!=-1){data_sound(_val,     _VOL_WYNG1, _theme,dk_Wyng);}
 //data_sound(mus_Wyng1_Boss1_Body,     _VOL_WYNG1, _theme,dk_Wyng, mus_Wyng1_Boss1_Intro);
 //                                                                                                                  //
 _theme=STR_Ganon+"3"; // Ganon3
@@ -1096,14 +1061,13 @@ dm[?_theme+STR_Description] = "BOSS A3"; // no spoiler generalization
 //dm[?_theme+STR_Description] = "BOSS: GANON, FINAL FORM";
 data_sound(mus_Ganon_Battle1_Body,             1, _theme,STR_Default,        mus_Ganon_Battle1_Intro); // Broomietunes: ALttP final battle rendition - Body
 //data_sound(mus_IsabelleChiming_Ganon3,        _VOL_CHIM,  _theme,dk_Nikos8BitStereo, mus_IsabelleChiming_Ganon3_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_GanonFinalForm01, _VOL_CHIM,  _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Ganon3,        _VOL_CHIM,  _theme,dk_IsabelleChiming, mus_IsabelleChiming_Ganon3_Intro);
-data_sound(mus_SteelCrescent_Ganon_FinalPhase,_VOL_STCR,  _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_Ganon02,        _VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_GanonPhase03,   _VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_Ganon03,        _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_Ganon03,        _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_Ganon01,       _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Ganon3"); if (_val!=-1){data_sound(_val,        _VOL_CHIM,  _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Ganon3_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Ganon_FinalPhase"); if (_val!=-1){data_sound(_val,_VOL_STCR,  _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Ganon02"); if (_val!=-1){data_sound(_val,        _VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_GanonPhase03"); if (_val!=-1){data_sound(_val,   _VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_Ganon03"); if (_val!=-1){data_sound(_val,        _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_Ganon03"); if (_val!=-1){data_sound(_val,        _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_Ganon01"); if (_val!=-1){data_sound(_val,       _VOL_WYNG1, _theme,dk_Wyng);}
 //data_sound(mus_Wyng1_ShadowBoss_Body,       _VOL_WYNG1, _theme,dk_Wyng);
 //                                                                                                                  //
 //                                                                                                                  //
@@ -1116,87 +1080,80 @@ data_sound(mus_Wyng1_Ganon01,       _VOL_WYNG1, _theme,dk_Wyng);
 _theme=STR_Title;
 dm[?_theme+STR_Description] = "TITLE";
 data_sound(mus_Title_Body_1a,                     1, _theme,STR_Default,        mus_Title_Intro_1a);
-data_sound(mus_ZeldaII_FDS_Title,                 1, _theme,_set_ZELDA2_FDS,    mus_ZeldaII_FDS_Title_Intro);
-data_sound(mus_NikoTengoku_Title_Body,           .7, _theme,dk_Nikos8BitStereo, mus_NikoTengoku_Title_Intro);
+_val=asset_get_index("mus_ZeldaII_FDS_Title"); if (_val!=-1){data_sound(_val,                 1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Title_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Title_Body"); if (_val!=-1){data_sound(_val,           .7, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Title_Intro")));}
 data_sound(mus_Z1_Title,                          1, _theme,_set_ZELDA1);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Title01,   _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Title,     _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Title_Intro_1);
-data_sound(mus_SteelCrescent_Title_Body,  _VOL_STCR, _theme,dk_SteelCrescent, mus_SteelCrescent_Title_Intro);
-data_sound(mus_SteelCrescent2_Title_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Title_Intro);
-data_sound(mus_SteelCrescent3_Title_Body,_VOL_STCR3, _theme,dk_SteelCrescent3, mus_SteelCrescent3_Title_Intro);
-data_sound(mus_SteelCrescent4_Title_Body,_VOL_STCR4, _theme,dk_SteelCrescent4, mus_SteelCrescent4_Title_Intro);
-data_sound(mus_SteelCrescent5_Title_Body,_VOL_STCR5, _theme,dk_SteelCrescent5, mus_SteelCrescent5_Title_Intro);
-data_sound(mus_Wyng1_Title01,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Title"); if (_val!=-1){data_sound(_val,     _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Title_Intro_1")));}
+_val=asset_get_index("mus_SteelCrescent_Title_Body"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent, max(0,asset_get_index("mus_SteelCrescent_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Title_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Title_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Title_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4, max(0,asset_get_index("mus_SteelCrescent4_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Title_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5, max(0,asset_get_index("mus_SteelCrescent5_Title_Intro")));}
+_val=asset_get_index("mus_Wyng1_Title01"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //data_sound(mus_Wyng1_Title_Body,  _VOL_WYNG1, _theme,dk_Wyng, mus_Wyng1_Title_Intro);
 data_sound(mus_Castlevania2_GameStart,            1, _theme,dk_Castlevania2);
 //                                                                                                                  //
 _theme=dk_FileSelect;
 dm[?_theme+STR_Description] = "FILE SELECT";
-data_sound(mus_Broomietunes_FileSelect01,         1, _theme,STR_Default);
-//if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_FileSelect01_1,_VOL_CHIM, _theme,dk_IsabelleChiming);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_FileSelect01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_FileSelect,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_FileSelect_Intro);
-data_sound(mus_SteelCrescent_FileSelect,max(_VOL_STCR,.8), _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_FileSelect,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_FileSelect,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_FileSelect,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_FileSelect,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_FileSelect_Body,  _VOL_WYNG1, _theme,dk_Wyng);
-data_sound(mus_Castlevania2_GameStart,            1, _theme,dk_Castlevania2);
+_val=asset_get_index("mus_Broomietunes_FileSelect01"); if (_val!=-1){data_sound(_val,1, _theme,STR_Default);}
+_val=asset_get_index("mus_IsabelleChiming_FileSelect"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_FileSelect_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_FileSelect"); if (_val!=-1){data_sound(_val,max(_VOL_STCR,.8), _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_FileSelect"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_FileSelect"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_FileSelect"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_FileSelect"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_FileSelect_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
+_val=asset_get_index("mus_Castlevania2_GameStart"); if (_val!=-1){data_sound(_val,            1, _theme,dk_Castlevania2);}
 //                                                                                                                  //
 _theme=dk_ContinueSave;
 dm[?_theme+STR_Description] = "CONTINUE/SAVE";
 data_sound(mus_Z1_GameOver_1a,                      1, _theme,STR_Default);
 data_sound(mus_Z1_GameOver_1a,                      1, _theme,_set_ZELDA1);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_ContinueSave01, _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_GameOver,    _VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_GameOver_Intro);
-data_sound(mus_SteelCrescent_ContinueSave,  _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_ContinueSave,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent2_ContinueSave,_VOL_STCR2, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent2_ContinueSave,_VOL_STCR2, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent2_ContinueSave,_VOL_STCR2, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_ContinueSave_Body,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_GameOver"); if (_val!=-1){data_sound(_val,    _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_GameOver_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_ContinueSave"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_ContinueSave"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent2_ContinueSave"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent2_ContinueSave"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent2_ContinueSave"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_ContinueSave_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 _theme=STR_House+"01";
 dm[?_theme+STR_Description] = "IN HOUSE";
 data_sound(mus_House_1a,                       1, _theme,STR_Default);
-data_sound(mus_ZeldaII_FDS_House,              1, _theme,_set_ZELDA2_FDS);
-data_sound(mus_NikoTengoku_House,      _VOL_NIKO, _theme,dk_Nikos8BitStereo);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_House01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_InDoors,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_InDoors_Intro);
-data_sound(mus_SteelCrescent_House,    _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_House_1, _VOL_STCR2, _theme,dk_SteelCrescent2);
-//data_sound(mus_SteelCrescent2_House,  _VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_House,   _VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_House,   _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_House,   _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_House_Body,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_ZeldaII_FDS_House"); if (_val!=-1){data_sound(_val,              1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("mus_NikoTengoku_House"); if (_val!=-1){data_sound(_val,      _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("mus_IsabelleChiming_InDoors"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_InDoors_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_House"); if (_val!=-1){data_sound(_val,    _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_House_1"); if (_val!=-1){data_sound(_val, _VOL_STCR2, _theme,dk_SteelCrescent2);}
+//data_sound_valmus_SteelCrescent2_House,  _VOL_STCR2, _theme,dk_SteelCrescent2);
+_val=asset_get_index("mus_SteelCrescent3_House"); if (_val!=-1){data_sound(_val,   _VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_House"); if (_val!=-1){data_sound(_val,   _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_House"); if (_val!=-1){data_sound(_val,   _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_House_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 _theme=STR_Basement+"01";
 dm[?_theme+STR_Description] = "FAST TRAVEL TUNNELS";
 data_sound(mus_House_1a_Triangle_1a,                   1, _theme,STR_Default);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Basement01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_FastTravel_Body,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_FastTravel_Intro);
-data_sound(mus_SteelCrescent_FastTravelTunnels,_VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_TravelTunnels,  _VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent2_TravelTunnels,  _VOL_STCR2, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_TravelTunnels,  _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_TravelTunnels,  _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_FastTravelTunnels_Body,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_FastTravel_Body"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_FastTravel_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_FastTravelTunnels"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_TravelTunnels"); if (_val!=-1){data_sound(_val,  _VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent2_TravelTunnels"); if (_val!=-1){data_sound(_val,  _VOL_STCR2, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_TravelTunnels"); if (_val!=-1){data_sound(_val,  _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_TravelTunnels"); if (_val!=-1){data_sound(_val,  _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_FastTravelTunnels_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 //                                                                                                                  //
 //                                                                                                                  //
 _theme=dk_Minigame+"01";
 dm[?_theme+STR_Description] = "MINIGAME";
 data_sound(mus_Minigame1,                            1, _theme,STR_Default,        mus_Minigame1_Intro);
-if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_Minigame01,   _VOL_CHIM, _theme,dk_IsabelleChiming);
-else data_sound(mus_IsabelleChiming_Minigame_Body,_VOL_CHIM, _theme,dk_IsabelleChiming, mus_IsabelleChiming_Minigame_Intro);
-data_sound(mus_SteelCrescent_MiniGame_Body,  _VOL_STCR, _theme,dk_SteelCrescent,   mus_SteelCrescent_MiniGame_Intro);
-data_sound(mus_SteelCrescent2_Minigame_Body,_VOL_STCR2, _theme,dk_SteelCrescent2, mus_SteelCrescent2_Minigame_Intro);
-data_sound(mus_SteelCrescent2_Minigame_Body,_VOL_STCR2, _theme,dk_SteelCrescent3, mus_SteelCrescent2_Minigame_Intro);
-data_sound(mus_SteelCrescent4_MiniGame,     _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_MiniGame,     _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_Minigame_Body,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Minigame_Body"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Minigame_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_MiniGame_Body"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_MiniGame_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Minigame_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Minigame_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Minigame_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent2_Minigame_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_MiniGame"); if (_val!=-1){data_sound(_val,     _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_MiniGame"); if (_val!=-1){data_sound(_val,     _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_Minigame_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 //                                                                                                                  //
 //                                                                                                                  //
@@ -1208,26 +1165,25 @@ for(_i=1; _i<=2; _i++)
     _theme=STR_Battle+hex_str(_i);
     dm[?_theme+STR_Description] = "BATTLE "+string(_i);
     data_sound(mus_Battle_Main_1a,                  1, _theme,STR_Default);
-    data_sound(mus_ZeldaII_FDS_Battle,              1, _theme,_set_ZELDA2_FDS);
+    _val=asset_get_index("mus_ZeldaII_FDS_Battle"); if (_val!=-1){data_sound(_val,              1, _theme,_set_ZELDA2_FDS);}
     switch(_i){
     case  1:{
-    data_sound(mus_NikoTengoku_Battle1,   .9, _theme,dk_Nikos8BitStereo);
-    data_sound(mus_NikoTengoku_Battle1_2, .6, _theme,STR_Other);
-    data_sound(mus_IsabelleChiming_Battle,  _VOL_CHIM, _theme,dk_IsabelleChiming);
-    data_sound(mus_Wyng1_Battle1_Body,  _VOL_WYNG1, _theme,dk_Wyng);
+    _val=asset_get_index("mus_NikoTengoku_Battle1"); if (_val!=-1){data_sound(_val,   .9, _theme,dk_Nikos8BitStereo);}
+    _val=asset_get_index("mus_NikoTengoku_Battle1_2"); if (_val!=-1){data_sound(_val, .6, _theme,STR_Other);}
+    _val=asset_get_index("mus_IsabelleChiming_Battle"); if (_val!=-1){data_sound(_val,  _VOL_CHIM, _theme,dk_IsabelleChiming);}
+    _val=asset_get_index("mus_Wyng1_Battle1_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
     break;}
     case  2:{
-    data_sound(mus_NikoTengoku_Battle1_2, .6, _theme,dk_Nikos8BitStereo);
-    if (UseNewLoopSystem_IsabelleChiming) data_sound(mus_IsabelleChiming_BattleJPN01, _VOL_CHIM, _theme,dk_IsabelleChiming2);
-    else data_sound(mus_IsabelleChiming_BattleJPN_Body, _VOL_CHIM, _theme,dk_IsabelleChiming2, mus_IsabelleChiming_BattleJPN_Intro);
-    data_sound(mus_Wyng1_Battle2_Body,  _VOL_WYNG1, _theme,dk_Wyng);
+    _val=asset_get_index("mus_NikoTengoku_Battle1_2"); if (_val!=-1){data_sound(_val, .6, _theme,dk_Nikos8BitStereo);}
+    _val=asset_get_index("mus_IsabelleChiming_BattleJPN_Body"); if (_val!=-1){data_sound(_val, _VOL_CHIM, _theme,dk_IsabelleChiming2, max(0,asset_get_index("mus_IsabelleChiming_BattleJPN_Intro")));}
+    _val=asset_get_index("mus_Wyng1_Battle2_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
     break;} // unused battle theme variation that's fuller with reverb
     }
-    data_sound(mus_SteelCrescent_Battle,    _VOL_STCR, _theme,dk_SteelCrescent);
-    data_sound(mus_SteelCrescent2_Battle,  _VOL_STCR2, _theme,dk_SteelCrescent2);
-    data_sound(mus_SteelCrescent3_Battle,  _VOL_STCR3, _theme,dk_SteelCrescent3);
-    data_sound(mus_SteelCrescent4_Battle,  _VOL_STCR4, _theme,dk_SteelCrescent4);
-    data_sound(mus_SteelCrescent5_Battle,  _VOL_STCR5, _theme,dk_SteelCrescent5);
+    _val=asset_get_index("mus_SteelCrescent_Battle"); if (_val!=-1){data_sound(_val,    _VOL_STCR, _theme,dk_SteelCrescent);}
+    _val=asset_get_index("mus_SteelCrescent2_Battle"); if (_val!=-1){data_sound(_val,  _VOL_STCR2, _theme,dk_SteelCrescent2);}
+    _val=asset_get_index("mus_SteelCrescent3_Battle"); if (_val!=-1){data_sound(_val,  _VOL_STCR3, _theme,dk_SteelCrescent3);}
+    _val=asset_get_index("mus_SteelCrescent4_Battle"); if (_val!=-1){data_sound(_val,  _VOL_STCR4, _theme,dk_SteelCrescent4);}
+    _val=asset_get_index("mus_SteelCrescent5_Battle"); if (_val!=-1){data_sound(_val,  _VOL_STCR5, _theme,dk_SteelCrescent5);}
     data_sound(mus_Castlevania2_BloodyTears_Body, 1, _theme,dk_Castlevania2, mus_Castlevania2_BloodyTears_Intro);
 }
 
@@ -1235,8 +1191,8 @@ for(_i=1; _i<=2; _i++)
 _theme=STR_Cave+"01";
 dm[?_theme+STR_Description] = "CAVE";
 data_sound(mus_Battle_Main_1a,                1, _theme,STR_Default);
-data_sound(mus_NikoTengoku_Battle1,          .8, _theme,dk_Nikos8BitStereo);
-data_sound(mus_IsabelleChiming_Battle,_VOL_CHIM, _theme,dk_IsabelleChiming);
+_val=asset_get_index("mus_NikoTengoku_Battle1"); if (_val!=-1){                                                data_sound(_val,          .8, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("mus_IsabelleChiming_Battle"); if (_val!=-1){                                                data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming);}
 //data_sound(mus_Castlevania2_BloodyTears_Body, 1, _theme,dk_Castlevania2, mus_Castlevania2_BloodyTears_Intro);
 */
 //                                                                                                                  //
@@ -1246,54 +1202,54 @@ data_sound(mus_IsabelleChiming_Battle,_VOL_CHIM, _theme,dk_IsabelleChiming);
 _theme=dk_PlaceCrystal;
 dm[?_theme+STR_Description] = "PLACE CRYSTAL";
 data_sound(mus_PlaceCrystal01,                      1, _theme,STR_Default);
-data_sound(mus_NikoTengoku_PlaceCrystal,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);
-data_sound(mus_IsabelleChiming_DungeonClear,_VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_PalaceClear,   _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_DungeonClear,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent2_DungeonClear,_VOL_STCR2, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_DungeonClear,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_DungeonClear,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_DungeonClear_Body,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_NikoTengoku_PlaceCrystal"); if (_val!=-1){data_sound(_val,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
+_val=asset_get_index("mus_IsabelleChiming_DungeonClear"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_PalaceClear"); if (_val!=-1){data_sound(_val,   _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_DungeonClear"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent2_DungeonClear"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_DungeonClear"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_DungeonClear"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_DungeonClear_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 // Win Game; Hold triforce, defeated Ganon.  length: about $108 frames
 _theme=dk_GameClear;
 dm[?_theme+STR_Description] = "GAME CLEAR";
 data_sound(mus_Victory_Fanfare_1a,               1, _theme,STR_Default);
-data_sound(mus_NikoTengoku_GameClear,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("mus_NikoTengoku_GameClear"); if (_val!=-1){data_sound(_val,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(mus_Z1_GameClear,                     1, _theme,_set_ZELDA1);
-data_sound(mus_IsabelleChiming_GameClear,_VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_GameClear_PirateVer,_VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_GameClear,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent2_GameClear,_VOL_STCR2, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_GameClear,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_GameClear,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_GameClear_Body,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_GameClear"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_GameClear_PirateVer"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_GameClear"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent2_GameClear"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_GameClear"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_GameClear"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_GameClear_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 _theme=dk_WakeZelda; // For 1st Quest
 dm[?_theme+STR_Description] = "WAKE ZELDA - 1ST QUEST";
 data_sound(mus_Wake_Zelda_1a,                      1, _theme,STR_Default);
-data_sound(mus_NikoTengoku_WakeZelda,      _VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("mus_NikoTengoku_WakeZelda"); if (_val!=-1){data_sound(_val,      _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(mus_Z1_GameOver_1a,                     1, _theme,_set_ZELDA1);
 //data_sound(mus_Z1_Credits_Intro,                 1, _theme,_set_ZELDA1);
-data_sound(mus_IsabelleChiming_WakeZelda,  _VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_Credits_Intro,_VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_WakeZelda,  _VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_WakeZelda,  _VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_WakeZelda,  _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_Wyng1_PrincessZeldaQuest1_Body,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_WakeZelda"); if (_val!=-1){data_sound(_val,  _VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_Credits_Intro"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_WakeZelda"); if (_val!=-1){data_sound(_val,  _VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_WakeZelda"); if (_val!=-1){data_sound(_val,  _VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_WakeZelda"); if (_val!=-1){data_sound(_val,  _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_Wyng1_PrincessZeldaQuest1_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 _theme=dk_WakeZelda+"2"; // For 2nd Quest
 dm[?_theme+STR_Description] = "WAKE ZELDA - 2ND QUEST";
 data_sound(mus_Wake_Zelda_1a,                      1, _theme,STR_Default);
-data_sound(mus_NikoTengoku_WakeZelda,      _VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("mus_NikoTengoku_WakeZelda"); if (_val!=-1){data_sound(_val,      _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(mus_Z1_GameOver_1a,                     1, _theme,_set_ZELDA1);
 //data_sound(mus_Z1_Credits_Intro,                 1, _theme,_set_ZELDA1);
-data_sound(mus_IsabelleChiming_WakeZelda,  _VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_Credits_Intro,_VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_WakeZelda,  _VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_WakeZelda,  _VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_WakeZelda,  _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_Wyng1_PrincessZeldaQuest2_Body,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_WakeZelda"); if (_val!=-1){data_sound(_val,  _VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_Credits_Intro"); if (_val!=-1){data_sound(_val,_VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_WakeZelda"); if (_val!=-1){data_sound(_val,  _VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_WakeZelda"); if (_val!=-1){data_sound(_val,  _VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_WakeZelda"); if (_val!=-1){data_sound(_val,  _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_Wyng1_PrincessZeldaQuest2_Body"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 // The credits scene's theme is dk_WakeZelda, so the credits track 
 // is triggered by Cutscene_GameEnd_1B_update() when "THE END" text is 
@@ -1301,15 +1257,15 @@ data_sound(mus_Wyng1_PrincessZeldaQuest2_Body,  _VOL_WYNG1, _theme,dk_Wyng);
 _theme=dk_Credits;
 dm[?_theme+STR_Description] = "CREDITS";
 data_sound(mus_End_Credits_1a,                      1, _theme,STR_Default);
-data_sound(mus_NikoTengoku_EndCredits,      _VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("mus_NikoTengoku_EndCredits"); if (_val!=-1){data_sound(_val,      _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(mus_Z1_Credits_Body,                     1, _theme,_set_ZELDA1, mus_Z1_Credits_Intro);
-data_sound(mus_IsabelleChiming_Credits,     _VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_Credits_Body,  _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_Credits_Body,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent3_Credits_Body,_VOL_STCR3, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_Credits,     _VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_Credits,     _VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_Credits,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Credits"); if (_val!=-1){data_sound(_val,     _VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_Credits_Body"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Credits_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent3_Credits_Body"); if (_val!=-1){data_sound(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_Credits"); if (_val!=-1){data_sound(_val,     _VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_Credits"); if (_val!=-1){data_sound(_val,     _VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_Credits"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                                                  //
 //                                                                                                                  //
 //                                                                                                                  //
@@ -1317,91 +1273,91 @@ _theme=dk_GetSpell;
 dm[?_theme+STR_Description] = "GET SPELL";
 dm[?dk_SceneMusicThemeException+"02"+_theme] = true;
 data_sound(mus_Get_Spell_1a,                    1, _theme,STR_Default); // same as mus_Level_Up_1a
-data_sound(mus_ZeldaII_FDS_GetSpell,            1, _theme,_set_ZELDA2_FDS);
-data_sound(mus_NikoTengoku_GetSpell,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("mus_ZeldaII_FDS_GetSpell"); if (_val!=-1){data_sound(_val,            1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("mus_NikoTengoku_GetSpell"); if (_val!=-1){data_sound(_val,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(mus_Z1_Get_Item_1a,                  1, _theme,_set_ZELDA1);
-data_sound(mus_IsabelleChiming_GetSpell,_VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_GetSpell,  _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_GetSpell,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent2_GetSpell,_VOL_STCR2, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_GetSpell,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_GetSpell,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_GetSpell,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_GetSpell"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_GetSpell"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_GetSpell"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent2_GetSpell"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_GetSpell"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_GetSpell"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_GetSpell"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                      //
 _theme=dk_SaveGame; // Same as Get Spell. When saving w/ NPC
 dm[?_theme+STR_Description] = "SAVE GAME";
 dm[?dk_SceneMusicThemeException+"02"+_theme] = true;
 data_sound(mus_SaveGame_Default,                1, _theme,STR_Default); // same as mus_Get_Spell_1a
-data_sound(mus_ZeldaII_FDS_SaveGame,            1, _theme,_set_ZELDA2_FDS);
-data_sound(mus_NikoTengoku_SaveGame,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("mus_ZeldaII_FDS_SaveGame"); if (_val!=-1){data_sound(_val,            1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("mus_NikoTengoku_SaveGame"); if (_val!=-1){data_sound(_val,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(mus_Z1_Get_Item_1a,                  1, _theme,_set_ZELDA1);
-data_sound(mus_IsabelleChiming_SaveGame,_VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_SaveGame,  _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_SaveGame,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent2_SaveGame,_VOL_STCR2, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_GetSpell,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_GetSpell,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_GetSpell,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_SaveGame"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_SaveGame"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_SaveGame"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent2_SaveGame"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_GetSpell"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_GetSpell"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_GetSpell"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                      //
 _theme=dk_LevelUp;
 dm[?_theme+STR_Description] = "LEVEL UP";
 dm[?dk_SceneMusicThemeException+"02"+_theme] = true;
 data_sound(mus_Level_Up_1a,                    1, _theme,STR_Default); // same as mus_Level_Up_1a
-data_sound(mus_ZeldaII_FDS_LevelUp,            1, _theme,_set_ZELDA2_FDS);
-data_sound(mus_NikoTengoku_LevelUp,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("mus_ZeldaII_FDS_LevelUp"); if (_val!=-1){data_sound(_val,            1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("mus_NikoTengoku_LevelUp"); if (_val!=-1){data_sound(_val,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(mus_Z1_Get_Item_1a,                 1, _theme,_set_ZELDA1);
-data_sound(mus_IsabelleChiming_LevelUp,_VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_LevelUp,  _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_LevelUp,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent2_LevelUp,_VOL_STCR2, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_LevelUp,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_LevelUp,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_LevelUp,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_LevelUp"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_LevelUp"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_LevelUp"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent2_LevelUp"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_LevelUp"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_LevelUp"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_LevelUp"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                      //
 _theme=dk_Fanfare; // Same as Level Up. Reveal NewKasuto, P6, RiverDevil, ScroblinDoor
 dm[?_theme+STR_Description] = "FANFARE";
 dm[?dk_SceneMusicThemeException+"02"+_theme] = true;
 data_sound(mus_Fanfare01,                        1, _theme,STR_Default); // same as mus_Level_Up_1a
-data_sound(mus_ZeldaII_FDS_Fanfare01,            1, _theme,_set_ZELDA2_FDS);
-data_sound(mus_NikoTengoku_Fanfare01,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("mus_ZeldaII_FDS_Fanfare01"); if (_val!=-1){data_sound(_val,            1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("mus_NikoTengoku_Fanfare01"); if (_val!=-1){data_sound(_val,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(mus_Z1_ShowTriforce,                  1, _theme,_set_ZELDA1);
-data_sound(mus_IsabelleChiming_Fanfare01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_Fanfare01,  _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_Fanfare,  _VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent2_Fanfare,  _VOL_STCR2, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_LevelUp,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_LevelUp,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_LevelUp,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_Fanfare01"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_Fanfare01"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_Fanfare"); if (_val!=-1){data_sound(_val,  _VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent2_Fanfare"); if (_val!=-1){data_sound(_val,  _VOL_STCR2, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_LevelUp"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_LevelUp"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_LevelUp"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                      //
 _theme=dk_GetItem+"01"; // Same as Level Up. Hold item over head (major items, quest items, completed containers), RemoveBarrier2
 dm[?_theme+STR_Description] = "GET ITEM 1";
 dm[?dk_SceneMusicThemeException+"02"+_theme] = true;
 data_sound(mus_GetItem01,                        1, _theme,STR_Default); // same as mus_Level_Up_1a
-data_sound(mus_ZeldaII_FDS_GetItem,              1, _theme,_set_ZELDA2_FDS);
-data_sound(mus_NikoTengoku_GetItem01,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("mus_ZeldaII_FDS_GetItem"); if (_val!=-1){data_sound(_val,              1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("mus_NikoTengoku_GetItem01"); if (_val!=-1){data_sound(_val,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(mus_Z1_Get_Item_1a,                   1, _theme,_set_ZELDA1);
-data_sound(mus_IsabelleChiming_GetItem01,_VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_GetItem01,  _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_GetItem01,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent2_GetItem01,_VOL_STCR2, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_LevelUp,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_LevelUp,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_CompleteContainer,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_GetItem01"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_GetItem01"); if (_val!=-1){data_sound(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_GetItem01"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent2_GetItem01"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_LevelUp"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_LevelUp"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_CompleteContainer"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                      //
 _theme=dk_GetItem+"02"; // Same as Get Spell.  // Hold item over head (incomplete container, 1up doll)
 dm[?_theme+STR_Description] = "GET ITEM 2";
 dm[?dk_SceneMusicThemeException+"02"+_theme] = true;
 data_sound(mus_GetItem02,                        1, _theme,STR_Default); // same as mus_Get_Spell_1a
-data_sound(mus_ZeldaII_FDS_GetItem2,             1, _theme,_set_ZELDA2_FDS);
-data_sound(mus_NikoTengoku_GetItem02,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);
+_val=asset_get_index("mus_ZeldaII_FDS_GetItem2"); if (_val!=-1){data_sound(_val,             1, _theme,_set_ZELDA2_FDS);}
+_val=asset_get_index("mus_NikoTengoku_GetItem02"); if (_val!=-1){data_sound(_val,    _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 data_sound(mus_Z1_Get_Item_1a,                   1, _theme,_set_ZELDA1);
-data_sound(mus_IsabelleChiming_GetItem02,_VOL_CHIM, _theme,dk_IsabelleChiming);
-data_sound(mus_SteelCrescent_GetItem,    _VOL_STCR, _theme,dk_SteelCrescent);
-data_sound(mus_SteelCrescent2_GetItem02,_VOL_STCR2, _theme,dk_SteelCrescent2);
-data_sound(mus_SteelCrescent2_GetItem02,_VOL_STCR2, _theme,dk_SteelCrescent3);
-data_sound(mus_SteelCrescent4_GetSpell,_VOL_STCR4, _theme,dk_SteelCrescent4);
-data_sound(mus_SteelCrescent5_GetSpell,_VOL_STCR5, _theme,dk_SteelCrescent5);
-data_sound(mus_Wyng1_GetSpell,  _VOL_WYNG1, _theme,dk_Wyng);
+_val=asset_get_index("mus_IsabelleChiming_GetItem02"); if (_val!=-1){data_sound(_val,_VOL_CHIM, _theme,dk_IsabelleChiming);}
+_val=asset_get_index("mus_SteelCrescent_GetItem"); if (_val!=-1){data_sound(_val,    _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent2_GetItem02"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
+_val=asset_get_index("mus_SteelCrescent2_GetItem02"); if (_val!=-1){data_sound(_val,_VOL_STCR2, _theme,dk_SteelCrescent3);}
+_val=asset_get_index("mus_SteelCrescent4_GetSpell"); if (_val!=-1){data_sound(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
+_val=asset_get_index("mus_SteelCrescent5_GetSpell"); if (_val!=-1){data_sound(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
+_val=asset_get_index("mus_Wyng1_GetSpell"); if (_val!=-1){data_sound(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 //                                                                                      //
 //                                                                                      //
 //                                                                                      //
@@ -1410,6 +1366,22 @@ MUS_Z1_DNGN1_SQUARES       = data_sound(mus_Z1_Dungeon_Square1_Square2_1a);
 MUS_Z1_DNGN1_TRIANGLE      = data_sound(mus_Z1_Dungeon_Triangle_1a);
 MUS_Z1_DNGN1_TRIANGLE_PART = data_sound(mus_Z1_Dungeon_Part1_Triangle_1a);
 MUS_Z1_DNGN1_INTRO         = MUS_Z1_DNGN1_SQUARES;
+
+
+
+
+global.dl_Halloween_TOWN_MUSIC = ds_list_create();
+_val=asset_get_index("mus_Wyng1_MazeIsland_Body"); if (_val!=-1){ds_list_add(global.dl_Halloween_TOWN_MUSIC,_val);}
+_val=asset_get_index("mus_IsabelleChiming_OldKasuto"); if (_val!=-1){ds_list_add(global.dl_Halloween_TOWN_MUSIC,_val);}
+_val=asset_get_index("mus_Wyng1_OldKasuto_Body"); if (_val!=-1){ds_list_add(global.dl_Halloween_TOWN_MUSIC,_val);}
+ds_list_add(global.dl_Halloween_TOWN_MUSIC,mus_Z1_Dungeon_Triangle_1a);
+ds_list_add(global.dl_Halloween_TOWN_MUSIC,mus_Castlevania2_BloodyTears_Body);
+ds_list_add(global.dl_Halloween_TOWN_MUSIC,mus_Castlevania2_Town_Body);
+
+
+
+
+_val=asset_get_index("mus_Wyng1_Credits"); if (_val!=-1){dm[?audio_get_name(_val)+STR_Loop] = false;} // Wyng says the credits track should NOT loop
 
 
 
@@ -1555,331 +1527,291 @@ var _dl1 = ds_list_create();
 var _dl2 = ds_list_create();
 
 // IsabelleChiming
-ds_list_add(_dl2,mus_IsabelleChiming_Overworld_Dragmire_Body);
+_val=asset_get_index("mus_IsabelleChiming_Overworld_Dragmire_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_OverworldStandard01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_Overworld, mus_IsabelleChiming_Overworld_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_OverworldStandard01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Overworld, mus_IsabelleChiming_Overworld_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Overworld"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Overworld"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_OverworldDeathMountain01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_Overworld_DeathMtn, mus_IsabelleChiming_Overworld_DeathMtn_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_OverworldDeathMountain01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Overworld_DeathMtn, mus_IsabelleChiming_Overworld_DeathMtn_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_OverworldMazeIsland01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_Overworld_MazeIsl, mus_IsabelleChiming_Overworld_MazeIsl_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_OverworldMazeIsland01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Overworld_MazeIsl, mus_IsabelleChiming_Overworld_MazeIsl_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_ParapaPalace01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_Dungeon1, mus_IsabelleChiming_Dungeon1_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_ParapaPalace01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Dungeon1, mus_IsabelleChiming_Dungeon1_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon1"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon1_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon1"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon1_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_MidoroPalace01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_Dungeon2, mus_IsabelleChiming_Dungeon2_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_MidoroPalace01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Dungeon2, mus_IsabelleChiming_Dungeon2_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon2"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon2_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon2"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon2_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_IslandPalace01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_Dungeon3, mus_IsabelleChiming_Dungeon3_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_IslandPalace01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Dungeon3, mus_IsabelleChiming_Dungeon3_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon3"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon3_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon3"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon3_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_MazeIslandPalace01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_Dungeon4, mus_IsabelleChiming_Dungeon4_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_MazeIslandPalace01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Dungeon4, mus_IsabelleChiming_Dungeon4_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon4"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon4_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon4"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon4_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_PalaceOnTheSea01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_Dungeon5, mus_IsabelleChiming_Dungeon5_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_PalaceOnTheSea01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Dungeon5, mus_IsabelleChiming_Dungeon5_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon5"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon5_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon5"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon5_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_HiddenPalace01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_Dungeon6, mus_IsabelleChiming_Dungeon6_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_HiddenPalace01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Dungeon6, mus_IsabelleChiming_Dungeon6_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon6"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon6_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon6"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon6_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_GreatPalace01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_Dungeon7, mus_IsabelleChiming_Dungeon7_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_GreatPalace01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Dungeon7, mus_IsabelleChiming_Dungeon7_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Dungeon7"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon7_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon7"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon7_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_DragmireTower01);
-else                                  ds_list_add(_dl1,mus_IsabelleChiming_DragmireTower_Body, mus_IsabelleChiming_DragmireTower_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_DragmireTower01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_DragmireTower_Body, mus_IsabelleChiming_DragmireTower_Intro);
+_val=asset_get_index("mus_IsabelleChiming_DragmireTower_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_DragmireTower_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_DragmireTower_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_DragmireTower_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_BossBattle01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Boss, mus_IsabelleChiming_Boss_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Boss"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Boss_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_Thunderbird01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_ThunderBird, mus_IsabelleChiming_ThunderBird_Intro);
+_val=asset_get_index("mus_IsabelleChiming_ThunderBird"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_ThunderBird_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_ShadowBoss01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_ShadowBoss, mus_IsabelleChiming_ShadowBoss_Intro);
+_val=asset_get_index("mus_IsabelleChiming_ShadowBoss"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_ShadowBoss_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_EvilHeart01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_EvilHeart_Body, mus_IsabelleChiming_EvilHeart_Intro);
+_val=asset_get_index("mus_IsabelleChiming_EvilHeart_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_EvilHeart_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_GanonFinalForm01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Ganon3, mus_IsabelleChiming_Ganon3_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Ganon3"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Ganon3_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_BattleJPN01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_BattleJPN_Body, mus_IsabelleChiming_BattleJPN_Intro);
+_val=asset_get_index("mus_IsabelleChiming_BattleJPN_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_BattleJPN_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_Title01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Title, mus_IsabelleChiming_Title_Intro_1);
+_val=asset_get_index("mus_IsabelleChiming_Title"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Title_Intro_1")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_FileSelect01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_FileSelect, mus_IsabelleChiming_FileSelect_Intro);
+_val=asset_get_index("mus_IsabelleChiming_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_FileSelect_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_ContinueSave01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_GameOver, mus_IsabelleChiming_GameOver_Intro);
+_val=asset_get_index("mus_IsabelleChiming_GameOver"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_GameOver_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_House01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_InDoors, mus_IsabelleChiming_InDoors_Intro);
+_val=asset_get_index("mus_IsabelleChiming_InDoors"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_InDoors_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_Basement01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_FastTravel_Body, mus_IsabelleChiming_FastTravel_Intro);
+_val=asset_get_index("mus_IsabelleChiming_FastTravel_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_FastTravel_Intro")));}
 
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_Minigame01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Minigame_Body, mus_IsabelleChiming_Minigame_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Minigame_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Minigame_Intro")));}
 
-//if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_Town01);
-//else                                  ds_list_add(_dl1,mus_IsabelleChiming_Town, mus_IsabelleChiming_Town_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_Town01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_Town, mus_IsabelleChiming_Town_Intro);
+_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
 
-//if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl1,mus_IsabelleChiming_OldKasuto01);
-//else                                  ds_list_add(_dl1,mus_IsabelleChiming_OldKasuto, mus_IsabelleChiming_OldKasuto_Intro);
-if (UseNewLoopSystem_IsabelleChiming) ds_list_add(_dl2,mus_IsabelleChiming_OldKasuto01);
-else                                  ds_list_add(_dl2,mus_IsabelleChiming_OldKasuto, mus_IsabelleChiming_OldKasuto_Intro);
+_val=asset_get_index("mus_IsabelleChiming_OldKasuto"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_OldKasuto_Intro")));}
 
-ds_list_add(_dl2,mus_IsabelleChiming_WakeZelda);
-ds_list_add(_dl2,mus_IsabelleChiming_Credits);
+_val=asset_get_index("mus_IsabelleChiming_WakeZelda"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_IsabelleChiming_Credits"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
 
 
 
 // SteelCrescent
-ds_list_add(_dl1,mus_SteelCrescent_Overworld_Body, mus_SteelCrescent_Overworld_Intro);
-ds_list_add(_dl1,mus_SteelCrescent2_Overworld_Body, mus_SteelCrescent2_Overworld_Intro);
-ds_list_add(_dl1,mus_SteelCrescent3_Overworld_Body, mus_SteelCrescent3_Overworld_Intro);
-ds_list_add(_dl1,mus_SteelCrescent4_Overworld_Body, mus_SteelCrescent4_Overworld_Intro);
-ds_list_add(_dl1,mus_SteelCrescent5_Overworld_Body, mus_SteelCrescent5_Overworld_Intro);
-ds_list_add(_dl2,mus_SteelCrescent_Overworld_Body, mus_SteelCrescent_Overworld_Intro);
-ds_list_add(_dl2,mus_SteelCrescent2_Overworld_Body, mus_SteelCrescent2_Overworld_Intro);
-ds_list_add(_dl2,mus_SteelCrescent3_Overworld_Body, mus_SteelCrescent3_Overworld_Intro);
-ds_list_add(_dl2,mus_SteelCrescent4_Overworld_Body, mus_SteelCrescent4_Overworld_Intro);
-ds_list_add(_dl2,mus_SteelCrescent5_Overworld_Body, mus_SteelCrescent5_Overworld_Intro);
+_val=asset_get_index("mus_SteelCrescent_Overworld_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Overworld_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Overworld_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Overworld_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Overworld_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Overworld_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Overworld_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Overworld_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Overworld_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Overworld_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Overworld_Intro")));}
 
-ds_list_add(_dl1,mus_SteelCrescent_DeathMountain);
-ds_list_add(_dl1,mus_SteelCrescent2_DeathMountain);
-ds_list_add(_dl1,mus_SteelCrescent3_DeathMountain);
-ds_list_add(_dl1,mus_SteelCrescent4_DeathMountain);
-ds_list_add(_dl1,mus_SteelCrescent5_DeathMountain);
-ds_list_add(_dl2,mus_SteelCrescent_DeathMountain);
-ds_list_add(_dl2,mus_SteelCrescent2_DeathMountain);
-ds_list_add(_dl2,mus_SteelCrescent3_DeathMountain);
-ds_list_add(_dl2,mus_SteelCrescent4_DeathMountain);
-ds_list_add(_dl2,mus_SteelCrescent5_DeathMountain);
+_val=asset_get_index("mus_SteelCrescent_DeathMountain"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_DeathMountain"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent3_DeathMountain"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent4_DeathMountain"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent5_DeathMountain"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent_DeathMountain"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_DeathMountain"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_DeathMountain"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_DeathMountain"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_DeathMountain"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl1,mus_SteelCrescent_MazeIsland);
-ds_list_add(_dl1,mus_SteelCrescent2_MazeIsland);
-ds_list_add(_dl1,mus_SteelCrescent3_MazeIsland);
-ds_list_add(_dl1,mus_SteelCrescent4_MazeIsland);
-ds_list_add(_dl1,mus_SteelCrescent5_MazeIsland_Body, mus_SteelCrescent5_MazeIsland_Intro);
-ds_list_add(_dl2,mus_SteelCrescent_MazeIsland);
-ds_list_add(_dl2,mus_SteelCrescent2_MazeIsland);
-ds_list_add(_dl2,mus_SteelCrescent3_MazeIsland);
-ds_list_add(_dl2,mus_SteelCrescent4_MazeIsland);
-ds_list_add(_dl2,mus_SteelCrescent5_MazeIsland_Body, mus_SteelCrescent5_MazeIsland_Intro);
+_val=asset_get_index("mus_SteelCrescent_MazeIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_MazeIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent3_MazeIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent4_MazeIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent5_MazeIsland_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_MazeIsland_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_MazeIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_MazeIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_MazeIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_MazeIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_MazeIsland_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_MazeIsland_Intro")));}
 
-ds_list_add(_dl1,mus_SteelCrescent_Dragmire);
-ds_list_add(_dl1,mus_SteelCrescent2_Dragmire);
-ds_list_add(_dl1,mus_SteelCrescent3_Dragmire);
-ds_list_add(_dl1,mus_SteelCrescent4_Dragmire);
-ds_list_add(_dl1,mus_SteelCrescent5_Dragmire);
-ds_list_add(_dl2,mus_SteelCrescent_Dragmire);
-ds_list_add(_dl2,mus_SteelCrescent2_Dragmire);
-ds_list_add(_dl2,mus_SteelCrescent3_Dragmire);
-ds_list_add(_dl2,mus_SteelCrescent4_Dragmire);
-ds_list_add(_dl2,mus_SteelCrescent5_Dragmire);
+_val=asset_get_index("mus_SteelCrescent_Dragmire"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Dragmire"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Dragmire"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Dragmire"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Dragmire"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent_Dragmire"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Dragmire"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Dragmire"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Dragmire"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Dragmire"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl1,mus_SteelCrescent2_SwordIsland);
-ds_list_add(_dl1,mus_SteelCrescent5_SwordIsland);
-ds_list_add(_dl2,mus_SteelCrescent2_SwordIsland);
-ds_list_add(_dl2,mus_SteelCrescent5_SwordIsland);
+_val=asset_get_index("mus_SteelCrescent2_SwordIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent5_SwordIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_SwordIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_SwordIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
 /*
-ds_list_add(_dl1,mus_SteelCrescent_Town_Body, mus_SteelCrescent_Town_Intro);
-ds_list_add(_dl1,mus_SteelCrescent2_Town_Body, mus_SteelCrescent2_Town_Intro);
-ds_list_add(_dl1,mus_SteelCrescent3_Town_Body, mus_SteelCrescent3_Town_Intro);
-ds_list_add(_dl1,mus_SteelCrescent4_Town_Body, mus_SteelCrescent4_Town_Intro);
-ds_list_add(_dl1,mus_SteelCrescent5_Town_Body, mus_SteelCrescent5_Town_Intro);
-ds_list_add(_dl1,mus_SteelCrescent2_OldKasuto);
-ds_list_add(_dl1,mus_SteelCrescent3_OldKasuto);
+_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_OldKasuto"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent3_OldKasuto"); if (_val!=-1){ds_list_add(_dl1,_val);}
 */
-ds_list_add(_dl2,mus_SteelCrescent_Town_Body, mus_SteelCrescent_Town_Intro);
-ds_list_add(_dl2,mus_SteelCrescent2_Town_Body, mus_SteelCrescent2_Town_Intro);
-ds_list_add(_dl2,mus_SteelCrescent3_Town_Body, mus_SteelCrescent3_Town_Intro);
-ds_list_add(_dl2,mus_SteelCrescent4_Town_Body, mus_SteelCrescent4_Town_Intro);
-ds_list_add(_dl2,mus_SteelCrescent5_Town_Body, mus_SteelCrescent5_Town_Intro);
-ds_list_add(_dl2,mus_SteelCrescent2_OldKasuto);
-ds_list_add(_dl2,mus_SteelCrescent3_OldKasuto);
+_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_OldKasuto"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_OldKasuto"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl1,mus_SteelCrescent_Dungeon_Body, mus_SteelCrescent_Dungeon_Intro);
-ds_list_add(_dl1,mus_SteelCrescent2_Dungeon2);
-ds_list_add(_dl1,mus_SteelCrescent2_Dungeon_Body, mus_SteelCrescent2_Dungeon_Intro);
-ds_list_add(_dl1,mus_SteelCrescent3_Dungeon_Body, mus_SteelCrescent3_Dungeon_Intro);
-ds_list_add(_dl1,mus_SteelCrescent4_Dungeon_Body, mus_SteelCrescent4_Dungeon_Intro);
-ds_list_add(_dl1,mus_SteelCrescent5_Dungeon_Body, mus_SteelCrescent5_Dungeon_Intro);
-ds_list_add(_dl1,mus_SteelCrescent5_DungeonTheme02);
-ds_list_add(_dl2,mus_SteelCrescent_Dungeon_Body, mus_SteelCrescent_Dungeon_Intro);
-ds_list_add(_dl2,mus_SteelCrescent2_Dungeon_Body, mus_SteelCrescent2_Dungeon_Intro);
-ds_list_add(_dl2,mus_SteelCrescent3_Dungeon_Body, mus_SteelCrescent3_Dungeon_Intro);
-ds_list_add(_dl2,mus_SteelCrescent4_Dungeon_Body, mus_SteelCrescent4_Dungeon_Intro);
-ds_list_add(_dl2,mus_SteelCrescent5_Dungeon_Body, mus_SteelCrescent5_Dungeon_Intro);
-ds_list_add(_dl2,mus_SteelCrescent5_DungeonTheme02);
+_val=asset_get_index("mus_SteelCrescent_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon2"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl1,mus_SteelCrescent_GreatPalace_Body, mus_SteelCrescent_GreatPalace_Intro);
-ds_list_add(_dl1,mus_SteelCrescent2_GreatPalace_Body, mus_SteelCrescent2_GreatPalace_Intro);
-ds_list_add(_dl1,mus_SteelCrescent3_GreatPalace_Body, mus_SteelCrescent3_GreatPalace_Intro);
-ds_list_add(_dl1,mus_SteelCrescent4_GreatPalace_Body, mus_SteelCrescent4_GreatPalace_Intro);
-ds_list_add(_dl1,mus_SteelCrescent5_GreatPalace_Body, mus_SteelCrescent5_GreatPalace_Intro);
-ds_list_add(_dl2,mus_SteelCrescent_GreatPalace_Body, mus_SteelCrescent_GreatPalace_Intro);
-ds_list_add(_dl2,mus_SteelCrescent2_GreatPalace_Body, mus_SteelCrescent2_GreatPalace_Intro);
-ds_list_add(_dl2,mus_SteelCrescent3_GreatPalace_Body, mus_SteelCrescent3_GreatPalace_Intro);
-ds_list_add(_dl2,mus_SteelCrescent4_GreatPalace_Body, mus_SteelCrescent4_GreatPalace_Intro);
-ds_list_add(_dl2,mus_SteelCrescent5_GreatPalace_Body, mus_SteelCrescent5_GreatPalace_Intro);
+_val=asset_get_index("mus_SteelCrescent_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_GreatPalace_Intro")));}
 
-ds_list_add(_dl1,mus_SteelCrescent_DragmireTower);
-ds_list_add(_dl1,mus_SteelCrescent2_DragmireTower);
-ds_list_add(_dl1,mus_SteelCrescent3_DragmireTower);
-ds_list_add(_dl1,mus_SteelCrescent4_DragmireTower);
-ds_list_add(_dl1,mus_SteelCrescent5_DragmireTower);
-ds_list_add(_dl2,mus_SteelCrescent_DragmireTower);
-ds_list_add(_dl2,mus_SteelCrescent2_DragmireTower);
-ds_list_add(_dl2,mus_SteelCrescent3_DragmireTower);
-ds_list_add(_dl2,mus_SteelCrescent4_DragmireTower);
-ds_list_add(_dl2,mus_SteelCrescent5_DragmireTower);
+_val=asset_get_index("mus_SteelCrescent_DragmireTower"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_DragmireTower"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent3_DragmireTower"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent4_DragmireTower"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent5_DragmireTower"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent_DragmireTower"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_DragmireTower"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_DragmireTower"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_DragmireTower"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_DragmireTower"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_Boss);
-ds_list_add(_dl2,mus_SteelCrescent2_Boss);
-ds_list_add(_dl2,mus_SteelCrescent3_Boss);
-ds_list_add(_dl2,mus_SteelCrescent4_Boss);
-ds_list_add(_dl2,mus_SteelCrescent5_Boss);
+_val=asset_get_index("mus_SteelCrescent_Boss"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Boss"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Boss"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Boss"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Boss"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_Thunderbird);
-ds_list_add(_dl2,mus_SteelCrescent2_Thunderbird);
-ds_list_add(_dl2,mus_SteelCrescent3_Thunderbird);
-ds_list_add(_dl2,mus_SteelCrescent4_Thunderbird);
-ds_list_add(_dl2,mus_SteelCrescent5_Thunderbird);
+_val=asset_get_index("mus_SteelCrescent_Thunderbird"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Thunderbird"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Thunderbird"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Thunderbird"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Thunderbird"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_DarkLink);
-ds_list_add(_dl2,mus_SteelCrescent2_ShadowBoss);
-ds_list_add(_dl2,mus_SteelCrescent3_ShadowBoss);
-ds_list_add(_dl2,mus_SteelCrescent4_ShadowBoss);
-ds_list_add(_dl2,mus_SteelCrescent5_ShadowBoss);
+_val=asset_get_index("mus_SteelCrescent_DarkLink"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_ShadowBoss"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_ShadowBoss"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_ShadowBoss"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_ShadowBoss"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent2_Ganon01_Body, mus_SteelCrescent2_Ganon01_Intro);
-ds_list_add(_dl2,mus_SteelCrescent3_Ganon1And2_Body, mus_SteelCrescent3_Ganon1And2_Intro);
-ds_list_add(_dl2,mus_SteelCrescent4_Ganon01);
-ds_list_add(_dl2,mus_SteelCrescent5_Ganon01);
+_val=asset_get_index("mus_SteelCrescent2_Ganon01_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Ganon01_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Ganon1And2_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Ganon1And2_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Ganon01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Ganon01"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent2_Ganon02);
+_val=asset_get_index("mus_SteelCrescent2_Ganon02"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_Ganon_FinalPhase);
-ds_list_add(_dl2,mus_SteelCrescent3_GanonPhase03);
-ds_list_add(_dl2,mus_SteelCrescent4_Ganon03);
-ds_list_add(_dl2,mus_SteelCrescent5_Ganon03);
+_val=asset_get_index("mus_SteelCrescent_Ganon_FinalPhase"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_GanonPhase03"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Ganon03"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Ganon03"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_Title_Body, mus_SteelCrescent_Title_Intro);
-ds_list_add(_dl2,mus_SteelCrescent2_Title_Body, mus_SteelCrescent2_Title_Intro);
-ds_list_add(_dl2,mus_SteelCrescent3_Title_Body, mus_SteelCrescent3_Title_Intro);
-ds_list_add(_dl2,mus_SteelCrescent4_Title_Body, mus_SteelCrescent4_Title_Intro);
-ds_list_add(_dl2,mus_SteelCrescent5_Title_Body, mus_SteelCrescent5_Title_Intro);
+_val=asset_get_index("mus_SteelCrescent_Title_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Title_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Title_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Title_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Title_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Title_Intro")));}
 
-ds_list_add(_dl2,mus_SteelCrescent_FileSelect);
-ds_list_add(_dl2,mus_SteelCrescent2_FileSelect);
-ds_list_add(_dl2,mus_SteelCrescent3_FileSelect);
-ds_list_add(_dl2,mus_SteelCrescent4_FileSelect);
-ds_list_add(_dl2,mus_SteelCrescent5_FileSelect);
+_val=asset_get_index("mus_SteelCrescent_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_ContinueSave);
-ds_list_add(_dl2,mus_SteelCrescent2_ContinueSave);
+_val=asset_get_index("mus_SteelCrescent_ContinueSave"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_ContinueSave"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_House);
-ds_list_add(_dl2,mus_SteelCrescent2_House_1);
-ds_list_add(_dl2,mus_SteelCrescent3_House);
-ds_list_add(_dl2,mus_SteelCrescent4_House);
-ds_list_add(_dl2,mus_SteelCrescent5_House);
+_val=asset_get_index("mus_SteelCrescent_House"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_House_1"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_House"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_House"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_House"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_FastTravelTunnels);
-ds_list_add(_dl2,mus_SteelCrescent2_TravelTunnels);
-ds_list_add(_dl2,mus_SteelCrescent4_TravelTunnels);
-ds_list_add(_dl2,mus_SteelCrescent5_TravelTunnels);
+_val=asset_get_index("mus_SteelCrescent_FastTravelTunnels"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_TravelTunnels"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_TravelTunnels"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_TravelTunnels"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_MiniGame_Body, mus_SteelCrescent_MiniGame_Intro);
-ds_list_add(_dl2,mus_SteelCrescent2_Minigame_Body, mus_SteelCrescent2_Minigame_Intro);
-ds_list_add(_dl2,mus_SteelCrescent4_MiniGame);
-ds_list_add(_dl2,mus_SteelCrescent5_MiniGame);
+_val=asset_get_index("mus_SteelCrescent_MiniGame_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_MiniGame_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Minigame_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Minigame_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_MiniGame"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_MiniGame"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_Battle);
-ds_list_add(_dl2,mus_SteelCrescent2_Battle);
-ds_list_add(_dl2,mus_SteelCrescent3_Battle);
-ds_list_add(_dl2,mus_SteelCrescent4_Battle);
-ds_list_add(_dl2,mus_SteelCrescent5_Battle);
+_val=asset_get_index("mus_SteelCrescent_Battle"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Battle"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Battle"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Battle"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Battle"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_SteelCrescent_Credits_Intro);
-ds_list_add(_dl2,mus_SteelCrescent2_Credits_Body);
-ds_list_add(_dl2,mus_SteelCrescent3_Credits_Body);
-ds_list_add(_dl2,mus_SteelCrescent4_Credits);
-ds_list_add(_dl2,mus_SteelCrescent5_Credits);
+_val=asset_get_index("mus_SteelCrescent_Credits_Intro"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Credits_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Credits_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Credits"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Credits"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
 
 
 
 // Wyng
-ds_list_add(_dl1,mus_Wyng1_MazeIsland_Body);
-ds_list_add(_dl1,mus_Wyng1_OldKasuto_Body);
-ds_list_add(_dl1,mus_Wyng1_Overworld01);
-ds_list_add(_dl1,mus_Wyng1_DeathMountain01);
-ds_list_add(_dl1,mus_Wyng1_Dungeon01);
-ds_list_add(_dl1,mus_Wyng1_GreatPalace01);
-ds_list_add(_dl1,mus_Wyng1_DragmireTower01);
+_val=asset_get_index("mus_Wyng1_MazeIsland_Body"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_OldKasuto_Body"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_Overworld01"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_DeathMountain01"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_GreatPalace01"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_DragmireTower01"); if (_val!=-1){ds_list_add(_dl1,_val);}
 //ds_list_add(_dl1,mus_Wyng1_Town01);
 //ds_list_add(_dl1,mus_Wyng1_Bulblin01);
 
-ds_list_add(_dl2,mus_Wyng1_MazeIsland_Body);
-ds_list_add(_dl2,mus_Wyng1_OldKasuto_Body);
-ds_list_add(_dl2,mus_Wyng1_ShadowBoss_Body);
-ds_list_add(_dl2,mus_Wyng1_FileSelect_Body);
-ds_list_add(_dl2,mus_Wyng1_ContinueSave_Body);
-ds_list_add(_dl2,mus_Wyng1_House_Body);
-ds_list_add(_dl2,mus_Wyng1_FastTravelTunnels_Body);
-ds_list_add(_dl2,mus_Wyng1_Minigame_Body);
-ds_list_add(_dl2,mus_Wyng1_Battle1_Body);
-ds_list_add(_dl2,mus_Wyng1_Battle2_Body);
-ds_list_add(_dl2,mus_Wyng1_DungeonClear_Body);
-ds_list_add(_dl2,mus_Wyng1_GameClear_Body);
-ds_list_add(_dl2,mus_Wyng1_PrincessZeldaQuest1_Body);
-ds_list_add(_dl2,mus_Wyng1_PrincessZeldaQuest2_Body);
-ds_list_add(_dl2,mus_Wyng1_Credits);
+_val=asset_get_index("mus_Wyng1_MazeIsland_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_OldKasuto_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_ShadowBoss_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_FileSelect_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_ContinueSave_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_House_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_FastTravelTunnels_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Minigame_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Battle1_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Battle2_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_DungeonClear_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_GameClear_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_PrincessZeldaQuest1_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_PrincessZeldaQuest2_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Credits"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-ds_list_add(_dl2,mus_Wyng1_Overworld01);
-ds_list_add(_dl2,mus_Wyng1_DeathMountain01);
-ds_list_add(_dl2,mus_Wyng1_Town01);
-ds_list_add(_dl2,mus_Wyng1_Bulblin01);
-ds_list_add(_dl2,mus_Wyng1_Dungeon01);
-ds_list_add(_dl2,mus_Wyng1_GreatPalace01);
-ds_list_add(_dl2,mus_Wyng1_DragmireTower01);
-ds_list_add(_dl2,mus_Wyng1_BossBattle01);
-ds_list_add(_dl2,mus_Wyng1_Thunderbird01);
-ds_list_add(_dl2,mus_Wyng1_Ganon01);
-ds_list_add(_dl2,mus_Wyng1_Title01);
+_val=asset_get_index("mus_Wyng1_Overworld01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_DeathMountain01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Bulblin01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_GreatPalace01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_DragmireTower01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_BossBattle01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Thunderbird01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Ganon01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Title01"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
 
 
@@ -1906,6 +1838,7 @@ for(_i=ds_list_size(_dl2)-1; _i>=0; _i--)
 
 
 // Isabelle Chiming --------------------------------------
+/*
 dm[?audio_get_name(mus_IsabelleChiming_OverworldStandard01)     +STR_Intro+STR_Length] = 006.400;
 dm[?audio_get_name(mus_IsabelleChiming_OverworldStandard01)     +STR_Body +STR_Length] = 067.208;
 //                                                                                                  //
@@ -1984,43 +1917,44 @@ dm[?audio_get_name(mus_IsabelleChiming_Minigame01)              +STR_Body +STR_L
 dm[?audio_get_name(mus_IsabelleChiming_BattleJPN01)             +STR_Intro+STR_Length] = 002.823;
 dm[?audio_get_name(mus_IsabelleChiming_BattleJPN01)             +STR_Body +STR_Length] = 042.668;
 //                                                                                                  //
+*/
 
 
 
 
 // Wyng --------------------------------------
-dm[?audio_get_name(mus_Wyng1_Overworld01)    +STR_Intro+STR_Length] = 011.319;
-dm[?audio_get_name(mus_Wyng1_Overworld01)    +STR_Body +STR_Length] = 077.617;
+_val=asset_get_index("mus_Wyng1_Overworld01"); if (_val!=-1){dm[?audio_get_name(_val)    +STR_Intro+STR_Length] = 011.319;}
+_val=asset_get_index("mus_Wyng1_Overworld01"); if (_val!=-1){dm[?audio_get_name(_val)    +STR_Body +STR_Length] = 077.617;}
 //                                                                              //
-dm[?audio_get_name(mus_Wyng1_DeathMountain01)+STR_Intro+STR_Length] = 006.909;
-dm[?audio_get_name(mus_Wyng1_DeathMountain01)+STR_Body +STR_Length] = 051.818;
+_val=asset_get_index("mus_Wyng1_DeathMountain01"); if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 006.909;}
+_val=asset_get_index("mus_Wyng1_DeathMountain01"); if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 051.818;}
 //                                                                              //
-dm[?audio_get_name(mus_Wyng1_Town01)         +STR_Intro+STR_Length] = 003.535;
-dm[?audio_get_name(mus_Wyng1_Town01)         +STR_Body +STR_Length] = 062.959;
+_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){dm[?audio_get_name(_val)         +STR_Intro+STR_Length] = 003.535;}
+_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){dm[?audio_get_name(_val)         +STR_Body +STR_Length] = 062.959;}
 //                                                                              //
-dm[?audio_get_name(mus_Wyng1_Bulblin01)      +STR_Intro+STR_Length] = 003.968;
-dm[?audio_get_name(mus_Wyng1_Bulblin01)      +STR_Body +STR_Length] = 068.655;
+_val=asset_get_index("mus_Wyng1_Bulblin01"); if (_val!=-1){dm[?audio_get_name(_val)      +STR_Intro+STR_Length] = 003.968;}
+_val=asset_get_index("mus_Wyng1_Bulblin01"); if (_val!=-1){dm[?audio_get_name(_val)      +STR_Body +STR_Length] = 068.655;}
 //                                                                              //
-dm[?audio_get_name(mus_Wyng1_Dungeon01)      +STR_Intro+STR_Length] = 003.310;
-dm[?audio_get_name(mus_Wyng1_Dungeon01)      +STR_Body +STR_Length] = 099.955;
+_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){dm[?audio_get_name(_val)      +STR_Intro+STR_Length] = 003.310;}
+_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){dm[?audio_get_name(_val)      +STR_Body +STR_Length] = 099.955;}
 //                                                                              //
-dm[?audio_get_name(mus_Wyng1_GreatPalace01)  +STR_Intro+STR_Length] = 033.529;
-dm[?audio_get_name(mus_Wyng1_GreatPalace01)  +STR_Body +STR_Length] = 149.019;
+_val=asset_get_index("mus_Wyng1_GreatPalace01"); if (_val!=-1){dm[?audio_get_name(_val)  +STR_Intro+STR_Length] = 033.529;}
+_val=asset_get_index("mus_Wyng1_GreatPalace01"); if (_val!=-1){dm[?audio_get_name(_val)  +STR_Body +STR_Length] = 149.019;}
 //                                                                              //
-dm[?audio_get_name(mus_Wyng1_DragmireTower01)+STR_Intro+STR_Length] = 017.021;
-dm[?audio_get_name(mus_Wyng1_DragmireTower01)+STR_Body +STR_Length] = 080.222;
+_val=asset_get_index("mus_Wyng1_DragmireTower01"); if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 017.021;}
+_val=asset_get_index("mus_Wyng1_DragmireTower01"); if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 080.222;}
 //                                                                              //
-dm[?audio_get_name(mus_Wyng1_BossBattle01)   +STR_Intro+STR_Length] = 001.333;
-dm[?audio_get_name(mus_Wyng1_BossBattle01)   +STR_Body +STR_Length] = 032.000;
+_val=asset_get_index("mus_Wyng1_BossBattle01"); if (_val!=-1){dm[?audio_get_name(_val)   +STR_Intro+STR_Length] = 001.333;}
+_val=asset_get_index("mus_Wyng1_BossBattle01"); if (_val!=-1){dm[?audio_get_name(_val)   +STR_Body +STR_Length] = 032.000;}
 //                                                                              //
-dm[?audio_get_name(mus_Wyng1_Thunderbird01)  +STR_Intro+STR_Length] = 004.145;
-dm[?audio_get_name(mus_Wyng1_Thunderbird01)  +STR_Body +STR_Length] = 040.073;
+_val=asset_get_index("mus_Wyng1_Thunderbird01"); if (_val!=-1){dm[?audio_get_name(_val)  +STR_Intro+STR_Length] = 004.145;}
+_val=asset_get_index("mus_Wyng1_Thunderbird01"); if (_val!=-1){dm[?audio_get_name(_val)  +STR_Body +STR_Length] = 040.073;}
 //                                                                              //
-dm[?audio_get_name(mus_Wyng1_Ganon01)        +STR_Intro+STR_Length] = 005.901;
-dm[?audio_get_name(mus_Wyng1_Ganon01)        +STR_Body +STR_Length] = 084.708;
+_val=asset_get_index("mus_Wyng1_Ganon01"); if (_val!=-1){dm[?audio_get_name(_val)        +STR_Intro+STR_Length] = 005.901;}
+_val=asset_get_index("mus_Wyng1_Ganon01"); if (_val!=-1){dm[?audio_get_name(_val)        +STR_Body +STR_Length] = 084.708;}
 //                                                                              //
-dm[?audio_get_name(mus_Wyng1_Title01)        +STR_Intro+STR_Length] = 007.752;
-dm[?audio_get_name(mus_Wyng1_Title01)        +STR_Body +STR_Length] = 060.945;
+_val=asset_get_index("mus_Wyng1_Title01"); if (_val!=-1){dm[?audio_get_name(_val)        +STR_Intro+STR_Length] = 007.752;}
+_val=asset_get_index("mus_Wyng1_Title01"); if (_val!=-1){dm[?audio_get_name(_val)        +STR_Body +STR_Length] = 060.945;}
 //                                                                              //
 
 
@@ -2063,7 +1997,11 @@ var                      _SET    = STR_Default;
 if (argument_count>_arg) _SET    = argument[_arg++];
 
 var                      _INTRO  = 0;
-if (argument_count>_arg) _INTRO  = argument[_arg++];
+if (argument_count>_arg)
+{
+    _INTRO  = argument[_arg++];
+    if (audio_get_name(_INTRO)==audio_get_name(snd_0)){sdm(""); sdm("WARNING. data_sound(). snd_0 was passed as the intro for "+audio_get_name(_SOUND)); sdm("");}
+}
 
 var                      _LOOP   = -1;
 if (argument_count>_arg) _LOOP   = argument[_arg++];

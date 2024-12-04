@@ -21,8 +21,10 @@ with(Audio)
     case $0E:{aud_play_sound(get_audio_theme_track(dk_ItemDrop)); aud_play_sound(get_audio_theme_track(STR_Sword+STR_Beam)); break;} // 
     case $0F:{aud_play_sound(snd_ZeldaII_BassNote01); aud_play_sound(snd_SuperMarioBros3_CanonFiring_2ndPart, $FF,false, .7); aud_play_sound(get_audio_theme_track(dk_BlockBreak),$FF,false,.4); aud_play_sound(snd_Z1_Step_1a); break;} // 
     case $10:{aud_play_sound(snd_Boomerang_1a); aud_play_sound(snd_Strike_Enemy_1a); break;} // 
-    case $11:{aud_play_sound(snd_ZeldaII_FDS_EncounterEnter,$FF,false,.6); aud_play_sound(snd_Z1_Secret); break;}
-    case $12:{aud_play_sound(snd_ZeldaII_FDS_Flute,$FF,false,.6); aud_play_sound(snd_Flute_Item_1a); break;}
+    case $11:{aud_play_sound(max(0,asset_get_index("snd_ZeldaII_FDS_EncounterEnter")),$FF,false,.6); aud_play_sound(snd_Z1_Secret); break;}
+    case $12:{aud_play_sound(max(0,asset_get_index("snd_ZeldaII_FDS_Flute")),$FF,false,.6); aud_play_sound(snd_Flute_Item_1a); break;}
+    //case $11:{aud_play_sound(snd_ZeldaII_FDS_EncounterEnter,$FF,false,.6); aud_play_sound(snd_Z1_Secret); break;}
+    //case $12:{aud_play_sound(snd_ZeldaII_FDS_Flute,$FF,false,.6); aud_play_sound(snd_Flute_Item_1a); break;}
     case $13:{aud_play_sound(get_audio_theme_track(dk_BridgeCrumble)); aud_play_sound(get_audio_theme_track(dk_Boomerang)); break;} // 
     }
 }

@@ -427,18 +427,15 @@ switch(g.cutscene_part)
     if (_INTRO!=_BODY) Audio.mus_rm_intr = _INTRO;
     Audio.mus_rm_body = _BODY;
     
-    var _LOOP = _INTRO==_BODY;
-    if (audio_get_name(_MUSIC)==audio_get_name(mus_Wyng1_Credits))
+    var _will_loop = val(Audio.dm[?audio_get_name(_MUSIC)+STR_Loop], _INTRO==_BODY);
+    if(!_will_loop)
+    //if (audio_get_name(_MUSIC)==audio_get_name(mus_Wyng1_Credits))
     {
         Audio.mus_rm_intr = 0;
         Audio.mus_rm_body = 0;
-        var _LOOP = false; // Wyng stated this should NOT loop
     }
-    else
-    {
-        var _LOOP = _INTRO==_BODY;
-    }
-    aud_play_sound(_MUSIC, Audio.PRIORITY_TOP, _LOOP, -1, dk_Credits);
+    
+    aud_play_sound(_MUSIC, Audio.PRIORITY_TOP, _will_loop, -1, dk_Credits);
     
     
     g.cutscene_timer  = DUR1; // DUR1: $5F 1.583s

@@ -30,7 +30,15 @@ I'm still new the world of sharing source code and working with a community on a
 There are ~3800 additional sprites due to the player skins. I have removed all but the default skin so that all the extras are not in the way during development.
 
 When it's time to release the project, or if you would like to include any of the extra skins during development:
-1. Download [this](https://drive.google.com/file/d/1CqalzaXPOK8w75XwTWi7Jii7BWXYEMlj/view?usp=sharing) folder and unzip. It contains all the player skin gmx files and the image files that go with them.
+1. Download [**files_for_importing_pc_skins**](https://drive.google.com/file/d/1CqalzaXPOK8w75XwTWi7Jii7BWXYEMlj/view?usp=sharing) folder and unzip. It contains all the player skin .gmx files and the .png image files that go with them.
 2. In **GameMaker:Studio** > In the assets tree > In the **Sprites** folder > Right click on the **player_character** folder > Click **Add Existing Sprite**.
-3. In the window that pops up, navigate to the **individual_sprites_format** folder inside the downloaded skins folder > Select the gmx files of which skins you want (Do not select **spr_PCSkin_KazunobuShimizu_Link01.sprite.gmx** as it's the default skin already in the project)
+3. In the window that pops up, navigate to the **individual_sprites_format** folder inside the downloaded skins folder > Select the .gmx files of which skins you want (Do not select **spr_PCSkin_KazunobuShimizu_Link01.sprite.gmx** as it's the default skin already in the project)
 4. In **GameMaker:Studio** > In the assets tree > In the **Scripts** folder > In the **game_object** folder > In the **goa** folder > Open the **GameObjectA_init** script > Find the comment `// UNCOMMENT WHICH SKINS YOU WILL USE HERE` > Uncomment which skins you're going to use.
+
+# Alternate Audio Sets
+The largest files are audio, and there are 9 extra audio sets added by the community and HoverBat. Because this can slow down development time, I have removed most of them until a new release.
+
+When it's time to release the project, or if you would like to include any of the extra audio sets during development:
+1. Download [**files_for_importing_community_audio**](https://drive.google.com/file/d/1AZmX07ezTJl5BPfcL2bHYheAR5X0dsNW/view?usp=sharing) folder and unzip. It contains all the .gmx files of the extra audio sets and the .mp3/.wav files that go with them.
+2. In **GameMaker:Studio** > In the assets tree > In the **Sounds** folder you will find several empty folders; **ZeldaII_FDS**, **IsabelleChiming**, **SteelCrescent**, **SteelCrescent_Alt**, **SteelCrescent_NESPlus**, **SteelCrescent_Skug**, **SteelCrescent_Synth**, **Wyng**. You will have to import the audio set one at a time. > Right click on an audio set's folder > Click **Add Existing Sound**.
+3. In the window that pops up, navigate to the downloaded **files_for_importing_community_audio** folder > Inside it, open the folder that matches the audio set you're importing > Select all of the .gmx files in that folder > Click **Open**.

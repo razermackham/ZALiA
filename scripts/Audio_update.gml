@@ -166,12 +166,13 @@ with(Audio) // with(Audio) -----------------------------------------------------
 /* // Test sounds
 if(keyboard_check_pressed(vk_f4))
 {
+    //aud_play_sound(snd_importTest01);
     //aud_play_sound(max(0,asset_get_index("snd_zzzzzzzz")),$FF,false); // testing if this gives error. result: it does not
     //aud_play_sound(max(0,asset_get_index("snd_Lock_Open_1a")),$FF,false);
     //var _IDX = asset_get_index("snd_Lock_Open_1a");
     //if (_IDX!=-1) aud_play_sound(_IDX,$FF,false);
-    aud_play_sound(snd_Boomerang_1a);
-    aud_play_sound(snd_Strike_Enemy_1a);
+    //aud_play_sound(snd_Boomerang_1a);
+    //aud_play_sound(snd_Strike_Enemy_1a);
     //aud_play_sound(snd_Lock_Open_1a,$FF,false, .8);
     //aud_play_sound(snd_ZeldaII_FDS_StabSolid,$FF,false, .4);
     //aud_play_sound(snd_Strike_Solid_1a,$FF,false, .4);

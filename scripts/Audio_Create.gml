@@ -67,20 +67,28 @@ dm[?_dk1+_dk]="ZELDA II (NES)";
 
 
 
-_dk=_set_ZELDA2_FDS;
-ds_list_add(dl_AUDIO_SETS,_dk);
-dm[?_dk1+_dk]="ZELDA II (FDS)";
+    _val = asset_get_index("mus_ZeldaII_FDS_Title");
+if (_val!=-1)
+{
+    _dk=_set_ZELDA2_FDS;
+    ds_list_add(dl_AUDIO_SETS,_dk);
+    dm[?_dk1+_dk]="ZELDA II (FDS)";
+}
 
 
 
 
-_dk=dk_Nikos8BitStereo;
-ds_list_add(dl_AUDIO_SETS,_dk);
-//dm[?_dk1+_dk]="NIKOS 8BIT STEREO (Z2 STEREO)";
-//dm[?_dk1+_dk]="NIKOS 8BIT STEREO (ZELDA II STEREO)";
-//dm[?_dk1+_dk]="NIKOS 8BIT STEREO";
-dm[?_dk1+_dk]="NIKOS 8BIT STEREO (Z2 8BS STYLE)";
-//dm[?_dk1+_dk]="NIKOS 8BIT STEREO (NIKOTENGOKU'S Z2 8BS STYLE)";
+    _val = asset_get_index("mus_NikoTengoku_Title_Body");
+if (_val!=-1)
+{
+    _dk=dk_Nikos8BitStereo;
+    ds_list_add(dl_AUDIO_SETS,_dk);
+    //dm[?_dk1+_dk]="NIKOS 8BIT STEREO (Z2 STEREO)";
+    //dm[?_dk1+_dk]="NIKOS 8BIT STEREO (ZELDA II STEREO)";
+    //dm[?_dk1+_dk]="NIKOS 8BIT STEREO";
+    dm[?_dk1+_dk]="NIKOS 8BIT STEREO (Z2 8BS STYLE)";
+    //dm[?_dk1+_dk]="NIKOS 8BIT STEREO (NIKOTENGOKU'S Z2 8BS STYLE)";
+}
 
 
 
@@ -92,74 +100,105 @@ dm[?_dk1+_dk]="THE LEGEND OF ZELDA 1";
 
 
 
-_val = "ISABELLE CHIMING (VRC6 OST)";
-_dk=dk_IsabelleChiming;
-ds_list_add(dl_AUDIO_SETS,_dk);
-dm[?_dk1+_dk]=_val;
-dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
-dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+    _val = asset_get_index("mus_IsabelleChiming_Title");
+if (_val!=-1)
+{
+    _val = "ISABELLE CHIMING (VRC6 OST)";
+    _dk=dk_IsabelleChiming;
+    ds_list_add(dl_AUDIO_SETS,_dk);
+    dm[?_dk1+_dk]=_val;
+    dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
+    dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+    
+        _val = asset_get_index("mus_IsabelleChiming_BattleJPN_Body");
+    if (_val!=-1)
+    {
+        _dk=dk_IsabelleChiming2;
+        //ds_list_add(dl_AUDIO_SETS,_dk);
+        dm[?_dk1+_dk]=_val;
+        dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
+        dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+    }
+}
 
 
 
 
-_dk=dk_IsabelleChiming2;
-//ds_list_add(dl_AUDIO_SETS,_dk);
-dm[?_dk1+_dk]=_val;
-dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
-dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+    _val = asset_get_index("mus_SteelCrescent_Title_Body");
+if (_val!=-1)
+{
+    _dk=dk_SteelCrescent;
+    ds_list_add(dl_AUDIO_SETS,_dk);
+    dm[?_dk1+_dk]=SteelCrescents_NAME;
+    dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
+    dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+}
 
 
 
 
-_dk=dk_SteelCrescent;
-ds_list_add(dl_AUDIO_SETS,_dk);
-dm[?_dk1+_dk]=SteelCrescents_NAME;
-dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
-dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+    _val = asset_get_index("mus_SteelCrescent2_Title_Body");
+if (_val!=-1)
+{
+    _dk=dk_SteelCrescent2;
+    ds_list_add(dl_AUDIO_SETS,_dk);
+    dm[?_dk1+_dk]=SteelCrescents_NAME+" - ALT";
+    dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
+    dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+}
 
 
 
 
-_dk=dk_SteelCrescent2;
-ds_list_add(dl_AUDIO_SETS,_dk);
-dm[?_dk1+_dk]=SteelCrescents_NAME+" - ALT";
-dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
-dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+    _val = asset_get_index("mus_SteelCrescent3_Title_Body");
+if (_val!=-1)
+{
+    _dk=dk_SteelCrescent3;
+    ds_list_add(dl_AUDIO_SETS,_dk);
+    dm[?_dk1+_dk]=SteelCrescents_NAME+" - NES PLUS";
+    dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
+    dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+}
 
 
 
 
-_dk=dk_SteelCrescent3;
-ds_list_add(dl_AUDIO_SETS,_dk);
-dm[?_dk1+_dk]=SteelCrescents_NAME+" - NES PLUS";
-dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
-dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+    _val = asset_get_index("mus_SteelCrescent4_LevelUp");
+if (_val!=-1)
+{
+    _dk=dk_SteelCrescent4;
+    ds_list_add(dl_AUDIO_SETS,_dk);
+    dm[?_dk1+_dk]=SteelCrescents_NAME+" - SKUG";
+    dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
+    dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+}
 
 
 
 
-_dk=dk_SteelCrescent4;
-ds_list_add(dl_AUDIO_SETS,_dk);
-dm[?_dk1+_dk]=SteelCrescents_NAME+" - SKUG";
-dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
-dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+    _val = asset_get_index("mus_SteelCrescent5_Title_Body");
+if (_val!=-1)
+{
+    _dk=dk_SteelCrescent5;
+    ds_list_add(dl_AUDIO_SETS,_dk);
+    dm[?_dk1+_dk]=SteelCrescents_NAME+" - SYNTH";
+    dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
+    dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+}
 
 
 
 
-_dk=dk_SteelCrescent5;
-ds_list_add(dl_AUDIO_SETS,_dk);
-dm[?_dk1+_dk]=SteelCrescents_NAME+" - SYNTH";
-dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
-dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+    _val = asset_get_index("mus_Wyng1_Title01");
+if (_val!=-1)
+{
+    _dk=dk_Wyng;
+    ds_list_add(dl_AUDIO_SETS,_dk);
+    dm[?_dk1+_dk]="WYNG - ORCHESTRAL SOUNDTRACK";
+    dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
+    dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+}
 
-
-
-_dk=dk_Wyng;
-ds_list_add(dl_AUDIO_SETS,_dk);
-dm[?_dk1+_dk]="WYNG - ORCHESTRAL SOUNDTRACK";
-dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
-dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
 
 
 

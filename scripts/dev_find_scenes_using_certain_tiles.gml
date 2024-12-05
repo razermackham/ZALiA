@@ -2,7 +2,7 @@
 
 
 //if (keyboard_check_pressed(vk_f7))
-var _i,_j,_k,_m, _idx, _count, _area;
+var _i,_j,_k,_m, _idx, _count, _area, _scene_name;
 var _str, _pos;
 var _dl_ts_data, _dm_ts_data, _dl_tile, _dl_layer_data, _dm_layer_data, _file, _file_name,_file_name1, _file_data;
 var _dm_ts_info = ds_map_create();
@@ -16,12 +16,17 @@ var _dl_tiles1 = ds_list_create();
 var _RULE = 0;
 
 
-///* // Looking for usage of any tile from Natural_1a permutation tilesets
+///* // 
+var _TS_NAME = "ts_Man_made_1a";
+ds_list_add(_dl_tsrc,$FF);
+//*/
+
+/* // Looking for usage of any tile from Natural_1a permutation tilesets
 _RULE = 1; // Accept any ts_Natural_1a tileset except ts_Natural_1a_WRB
 var _TS_NAME = "ts_Natural_1a";
 ds_list_clear(_dl_tsrc); // means any tile from the tileset
 //for(_i=$00; _i<$100; _i++) ds_list_add(_dl_tsrc,_i);
-//*/
+*/
 
 /* // Looking for usage of any tile from Natural_3a_WRB
 var _TS_NAME = "ts_Natural_3a_WRB";
@@ -200,6 +205,8 @@ for(_i=0; _i<_COUNT1; _i++) // Each area
     {   // file name example:  "rm_tile_data/PalcA/PalcA_003.json"
         _file_has_ts = false;
         
+        //_scene_name = _area+hex_str(_j);
+        
         _file_name1  = string_lettersdigits(_area);
         _file_name1 += "_";
         _file_name1 += string_repeat("0",_j<100);
@@ -260,6 +267,23 @@ for(_i=0; _i<_COUNT1; _i++) // Each area
             _dm_layer_data = _dl_layer_data[|_k];
             _layer_name    = _dm_layer_data[?"name"];
             _layer_name    = string(_layer_name);
+            
+            if (1)
+            {   // List all dungeons rooms with liquid
+                if(!string_pos("Palc",_area))
+                {
+                    _j = $100; // skip to next area
+                    break;//_k
+                }
+                
+                if(!string_pos("LIQUID_",_layer_name))
+                {
+                    continue;//_k
+                }
+                
+                sdm(_file_name1);
+                break;//_k
+            }
             
             if (string_pos("BG",_layer_name) 
             ||  string_pos("FG",_layer_name) )

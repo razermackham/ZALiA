@@ -359,18 +359,18 @@ rm_num  = $09;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PA+'009', STR_ow_axis+hex_str(ow_axis));
 
 
-clm3=$07; y3=(row0+$18)<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  clm3<<3,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clms0-clm3-1)<<3,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+row3=row0+$16; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+row5=row0+$14; y5=row5<<3;
+row6=row5-$04; y6=row6<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $07<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $0E<<3,y5); // Bot  1
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $12<<3,y6); // Bot  1
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $6C<<3,y6); // Bot  1
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $70<<3,y5); // Bot  1
 
-row3=row0+$15; y3=row3<<3; y4=(row3-4)<<3
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $0E<<3,y3); // Bot  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $12<<3,y4); // Bot  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $6C<<3,y4); // Bot  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $70<<3,y3); // Bot  1
 
-
-row3=row0+$17;
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '08'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0A'+EXL0_); // RGT 0, 
 

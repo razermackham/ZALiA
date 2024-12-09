@@ -156,15 +156,14 @@ rm_num  = $03;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PB+'003', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
-row4=row0+$11; y4=row4<<3;
+row3=row0+$16; y3=row3<<3;
+row4=row0+$10; y4=row4<<3;
 row5=row3+$01; y5=row5<<3;
-
+row6=row0+$08; y6=row6<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($07<<3)+4,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($73<<3)+4,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-data_spawn(rm+STR_PRIO,SpDrA,$1,  $2A<<3,(row0+$09)<<3); // DropSpawner  1
-data_spawn(rm+STR_PRIO,SpDrA,$1,  $62<<3,(row0+$09)<<3); // DropSpawner  1
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $2A<<3,y6); // DropSpawner  1
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $62<<3,y6); // DropSpawner  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $20<<3,y4); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $36<<3,y4); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $4C<<3,y4); // Bot  1
@@ -175,7 +174,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '02'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '04'+EXL0_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmD0,$1,  $4A<<3,(row0+$0F)<<3,  STR_Treasure+STR_Map+"01"); // Key 
+data_spawn(rm+STR_PRIO,ItmD0,$1,  $4A<<3,(row0+$0E)<<3,  STR_Treasure+STR_Map+"01"); // Key 
 
 
 data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);

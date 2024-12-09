@@ -1885,8 +1885,8 @@ row4=row3+$01; y4=row4<<3;
 row5=row0+$07; y5=row5<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $0E<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $71<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,Ra__A,$1,  $3E<<3,y5); // Ra  1
-data_spawn(rm+STR_PRXM,Ra__A,$1,  $44<<3,y5); // Ra  1
+//data_spawn(rm+STR_PRXM,Ra__A,$1,  $3E<<3,y5); // Ra  1
+//data_spawn(rm+STR_PRXM,Ra__A,$1,  $44<<3,y5); // Ra  1
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
@@ -1916,7 +1916,8 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+(clms3*_a++))<<3)+4,y4,  STR_Lit); // 
 data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+(clms3*_a++))<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+(clms3*_a++))<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,SpStA,$1,  $48<<3,y3-($06<<3)); // SpawnByStab  1
-data_spawn(rm+STR_PRXM,IrKnA,$3,  $46<<3,y3); // IronKnuckle  3
+data_spawn(rm+STR_PRXM,GumaA,$1,  $46<<3,y3); // Guma  1
+//data_spawn(rm+STR_PRXM,IrKnA,$3,  $46<<3,y3); // IronKnuckle  3
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 

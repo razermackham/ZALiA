@@ -229,7 +229,7 @@ row4=row3+$01; y4=row4<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  ($12<<3)+4,(row0+$18)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $77<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,BlazA,$1,  ($16<<3)+4,(row0+$0E)<<3); // Blaze  1
-data_spawn(rm+STR_PRIO,SpPoA,$1,  $00<<3,(row0+$00)<<3,  STR_Qualified+STR_Quest+STR_Nums+"02"); // PoisonBubbleSpawner  1 
+data_spawn(rm+STR_PRIO,SpPoA,$1,  0,0,  STR_Qualified+STR_Quest+STR_Nums+"02"); // PoisonBubbleSpawner  1 
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $36<<3,(row0+$10)<<3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $4E<<3,(row0+$0E)<<3); // Myu  1
 
@@ -756,15 +756,15 @@ rm_num  = $13;
 set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_PD+'015', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
-
+row5=row0+$0C; y5=row5<<3;
+row6=row0+$07; y6=row6<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $77<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($08<<3)+4,(row0+$0D)<<3); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($12<<3)+4,(row0+$0D)<<3); // Blaze  1
-data_spawn(rm+STR_PRXM,Ra__A,$1,  $36<<3,(row0+$07)<<3); // Ra  1
-data_spawn(rm+STR_PRXM,Ra__A,$1,  $48<<3,(row0+$07)<<3); // Ra  1
+data_spawn(rm+STR_PRIO,BlazA,$1,  ($08<<3)+4,y5); // Blaze  1
+data_spawn(rm+STR_PRIO,BlazA,$1,  ($12<<3)+4,y5); // Blaze  1
+data_spawn(rm+STR_PRXM,Ra__A,$1,  $36<<3,y6); // Ra  1
+data_spawn(rm+STR_PRXM,Ra__A,$1,  $48<<3,y6); // Ra  1
 
 
 data_exit(EXU0,etA4,0,  $1C,row_e0,  $30,ROWS5,  $2F,row_e4,  '0F'+EXD0_); // UP  0, Pit up 

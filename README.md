@@ -32,7 +32,7 @@ I'm still new the world of sharing source code and working with a community on a
 There are ~3800 additional sprites due to the player skins. I have removed all but the default skin so that all the extras are not in the way during development.
 
 When it's time to release the project, or if you would like to include any of the extra skins during development:
-1. Download [**files_for_importing_pc_skins**](https://drive.google.com/file/d/1CqalzaXPOK8w75XwTWi7Jii7BWXYEMlj/view?usp=sharing) folder and unzip. It contains all the player skin .gmx files and the .png image files that go with them.
+1. Download [**files_for_importing_player_skins**](https://drive.google.com/file/d/1eYZVcAdwkWNi3KS7cznDgkCBSHa7ky4O/view?usp=sharing) folder and unzip. It contains all the player skin .gmx files and the .png image files that go with them.
 2. In **GameMaker:Studio** > In the assets tree > In the **Sprites** folder > Right click on the **player_character** folder > Click **Add Existing Sprite**.
 3. In the window that pops up, navigate to the **individual_sprites_format** folder inside the downloaded skins folder > Select the .gmx files of which skins you want (Do not select **spr_PCSkin_KazunobuShimizu_Link01.sprite.gmx** as it's the default skin already in the project)
 4. In **GameMaker:Studio** > In the assets tree > In the **Scripts** folder > In the **game_object** folder > In the **goa** folder > Open the **GameObjectA_init** script > Find the comment `// UNCOMMENT WHICH SKINS YOU WILL USE HERE` > Uncomment which skins you're going to use.

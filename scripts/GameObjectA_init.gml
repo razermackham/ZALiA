@@ -171,7 +171,7 @@ switch(PCSkins_SYS_VER)
     
     PC_init_add_spritesheet(spr_PCSkin_Crim_Rygar01,                         "Rygar",               "Crim");
     PC_init_add_spritesheet(spr_PCSkin_Crim_LeeBrothers01,                   "Lee Brothers",        "Crim");
-    //PC_init_add_spritesheet(spr_PCSkin_KazunobuShimizu_Link01,               "Link",                "Kazunobu Shimizu");
+    PC_init_add_spritesheet(spr_PCSkin_Glottal_Hepper01,                     "Hepper",              "Glottal");
     //PC_init_add_spritesheet(spr_PCSkin_KazunobuShimizu_Link01,               "Link",                "Kazunobu Shimizu");
     */
     break;}

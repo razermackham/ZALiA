@@ -16,10 +16,16 @@ var _dl_tiles1 = ds_list_create();
 var _RULE = 0;
 
 
-///* // 
+///* // Outside town room connector tiles in ts_Man_made_1a
+var _TS_NAME = "ts_Man_made_2a";
+ds_list_add(_dl_tsrc,$60,$61,$62,$63,$64,$65,$69);
+ds_list_add(_dl_tsrc,$70,$71,$72,$73);
+//*/
+
+/* // 
 var _TS_NAME = "ts_Natural_1a";
 ds_list_add(_dl_tsrc,$5F);
-//*/
+*/
 
 /* // Looking for usage of any tile from Natural_1a permutation tilesets
 _RULE = 1; // Accept any ts_Natural_1a tileset except ts_Natural_1a_WRB
@@ -32,13 +38,6 @@ ds_list_clear(_dl_tsrc); // means any tile from the tileset
 var _TS_NAME = "ts_Natural_3a_WRB";
 ds_list_clear(_dl_tsrc); // means any tile from the tileset
 //for(_i=$00; _i<$100; _i++) ds_list_add(_dl_tsrc,_i);
-*/
-
-/* // Outside town room connector tiles in ts_Man_made_1a
-var _TS_NAME = "ts_Man_made_1a";
-ds_list_add(_dl_tsrc,$D0,$D1,$D2,$D3);
-//ds_list_add(_dl_tsrc,$D4,$D5,$D6,$D7);
-//ds_list_add(_dl_tsrc,$D0,$D1,$D2,$D3,$D4,$D5,$D6,$D7);
 */
 
 /* // Recheck the moved tiles in ts_Man_made_1a

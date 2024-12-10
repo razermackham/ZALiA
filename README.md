@@ -26,7 +26,7 @@ I'm still new the world of sharing source code and working with a community on a
   * Someone informed me you can still get [**GameMaker:Studio 1.4.9999**](http://store.yoyogames.com/downloads/gm-studio/release-notes-studio.html). If you have trouble trusting links: Go to GameMaker's official home page (I've been told you need a YoYo account and license number, but typing gibberish into the license field works) > Click on Blog at the top > Scroll down to find the search bar > Search **1.4.9999** > Click on search result: **GAMEMAKER:STUDIO 1.4.9999 RELEASED**
   * If you can't get a copy of GameMaker:Studio 1.4.9999, I've been told [Undertale Mod Tool](https://github.com/UnderminersTeam/UndertaleModTool) can be used though I'm not familiar with it.
 * [Tiled](https://www.mapeditor.org/) map/level editor if you want to edit existing scenes/rooms or make new ones.
-  * [Here](https://drive.google.com/file/d/1TYcu6SFQScW54UZZeEwsmTahZOpDnxEO/view?usp=sharing) is the Google Drive download for all the Tiled map files that ZALiA uses.
+  * [Here](https://drive.google.com/file/d/1gkk9OkNfLUGsQn0aDtfW7kkM1a80K59K/view?usp=sharing) is the Google Drive download for all the Tiled map files that ZALiA uses.
 
 # Player Skins
 There are ~3800 additional sprites due to the player skins. I have removed all but the default skin so that all the extras are not in the way during development.

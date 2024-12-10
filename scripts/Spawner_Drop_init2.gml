@@ -6,6 +6,8 @@ var _i, _val, _len, _pos, _dk;
 
 var _TYPE = 0;
 var _ts_nums = 0;
+
+/*
 TILESET = ts_Man_made_2a_WRB; // TileSet
 
 if (g.dungeon_num 
@@ -77,22 +79,89 @@ else
     case 4:{_ts_nums+=$40404040; break;}
     }
 }
+*/
+
+
+TILESET = ts_DungeonA01;
+
+
+_ts_nums = $E0E1F0F1;
+
+if (g.dg_RmTile_solid[# xl>>3   ,(yt>>3)-1] 
+||  g.dg_RmTile_solid[#(xl>>3)+1,(yt>>3)-1] )
+{
+    _ts_nums &= $0000FFFF;
+    _ts_nums |= $E2E30000;
+}
+
+
+if (g.dungeon_num 
+&&  g.dungeon_num<8 )
+{
+    var    _DUNGEON_NUM = val(f.dm_rando[?g.rm_name+STR_Dungeon+STR_Num], g.dungeon_num);
+    switch(_DUNGEON_NUM){
+    default:{TILESET=ts_DungeonA01; break;}
+    case  1:{TILESET=ts_DungeonA01; break;}
+    case  2:{TILESET=ts_DungeonB01; break;}
+    case  3:{TILESET=ts_DungeonC01; break;}
+    case  4:{TILESET=ts_DungeonD01; break;}
+    case  5:{TILESET=ts_DungeonE01; break;}
+    case  6:{TILESET=ts_DungeonF01; break;}
+    case  7:{TILESET=ts_DungeonG01; break;}
+    }//switch(_DUNGEON_NUM)
+    
+    if (val(f.dm_rando[?STR_Randomize+STR_Dungeon+STR_Tileset]))
+    {
+        TILESET = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(TILESET)], TILESET)
+    }
+}
+else
+{
+    if(!is_undefined(dk_spawn))
+    {
+        for(_i=$1; _i<=$F; _i++)
+        {
+            _val=val(g.dm_spawn[?dk_spawn+STR_Data+hex_str(_i)]);
+            if (is_string(_val))
+            {
+                    _pos =string_pos(   STR_Type,_val);
+                if (_pos)
+                {   _pos+=string_length(STR_Type);
+                    _val =string_copy(_val, _pos, string_length(_val)-(_pos-1));
+                    _TYPE=str_hex(_val);
+                    continue;//_i
+                }
+            }
+        }
+    }
+    
+    _TYPE = clamp(_TYPE,0,4);
+    
+    switch(_TYPE){
+    default:{TILESET=ts_DungeonA01; break;}
+    case  0:{TILESET=ts_DungeonG01; break;}
+    case  1:{TILESET=ts_DungeonA01; break;}
+    case  2:{TILESET=ts_DungeonB01; break;}
+    case  3:{TILESET=ts_DungeonC01; break;}
+    case  4:{TILESET=ts_DungeonH01; break;}
+    }
+}
+
 
 
 dg_XY_TS = ds_grid_create(4,2);
 //               $(FF)FFFFFF >>$18    top left
-dg_XY_TS[#0,0] = ((_ts_nums>>$18) & $0F) <<3; // ts x
-dg_XY_TS[#0,1] = ((_ts_nums>>$18) & $F0) >>1; // ts y
+dg_XY_TS[#0,0] = ((_ts_nums>>$18)&$0F) <<3; // ts x
+dg_XY_TS[#0,1] = ((_ts_nums>>$18)&$F0) >>1; // ts y
 //               $FF(FF)FFFF >>$10    top right
-dg_XY_TS[#1,0] = ((_ts_nums>>$10) & $0F) <<3; // ts x
-dg_XY_TS[#1,1] = ((_ts_nums>>$10) & $F0) >>1; // ts y
+dg_XY_TS[#1,0] = ((_ts_nums>>$10)&$0F) <<3; // ts x
+dg_XY_TS[#1,1] = ((_ts_nums>>$10)&$F0) >>1; // ts y
 //               $FFFF(FF)FF >>$08    btm left
-dg_XY_TS[#2,0] = ((_ts_nums>>$08) & $0F) <<3; // ts x
-dg_XY_TS[#2,1] = ((_ts_nums>>$08) & $F0) >>1; // ts y
+dg_XY_TS[#2,0] = ((_ts_nums>>$08)&$0F) <<3; // ts x
+dg_XY_TS[#2,1] = ((_ts_nums>>$08)&$F0) >>1; // ts y
 //               $FFFFFF(FF) >>$00    btm right
-dg_XY_TS[#3,0] = ((_ts_nums>>$00) & $0F) <<3; // ts x
-dg_XY_TS[#3,1] = ((_ts_nums>>$00) & $F0) >>1; // ts y
-//                          //
+dg_XY_TS[#3,0] = ((_ts_nums>>$00)&$0F) <<3; // ts x
+dg_XY_TS[#3,1] = ((_ts_nums>>$00)&$F0) >>1; // ts y
 
 
 

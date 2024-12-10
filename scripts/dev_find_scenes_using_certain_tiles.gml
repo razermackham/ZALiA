@@ -17,8 +17,8 @@ var _RULE = 0;
 
 
 ///* // 
-var _TS_NAME = "ts_Man_made_1a";
-ds_list_add(_dl_tsrc,$FF);
+var _TS_NAME = "ts_Natural_1a";
+ds_list_add(_dl_tsrc,$5F);
 //*/
 
 /* // Looking for usage of any tile from Natural_1a permutation tilesets
@@ -268,7 +268,7 @@ for(_i=0; _i<_COUNT1; _i++) // Each area
             _layer_name    = _dm_layer_data[?"name"];
             _layer_name    = string(_layer_name);
             
-            if (1)
+            if (0)
             {   // List all dungeons rooms with liquid
                 if(!string_pos("Palc",_area))
                 {

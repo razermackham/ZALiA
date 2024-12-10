@@ -43,7 +43,7 @@ PLATFORM_DEPTH  = DEPTH_BG2;
 PLATFORM_PI     = PI_BGR_2;
 PLATFORM_PI     = val(p.dm_depth_pi[?hex_str(abs(PLATFORM_DEPTH))], PLATFORM_PI);
 PLATFORM_DEPTH--;
-PLATFORM_TS     = ts_Man_made_2a_WRB;
+PLATFORM_TS     = ts_DungeonA01;
 
 
 PlatformNext_idx = 0;
@@ -71,16 +71,16 @@ if (USE_SURF)
 // Each nybble's value is a diff pillar head and the row in the tileset.
 // Add as many combos another _dl_TSRC[i] line w/ diff combo.
 var         _dl_TSRC = ds_list_create();
-ds_list_add(_dl_TSRC, $1011); //  0
-ds_list_add(_dl_TSRC, $1311); //  1
-ds_list_add(_dl_TSRC, $0011); //  2
-ds_list_add(_dl_TSRC, $0101); //  3
-ds_list_add(_dl_TSRC, $3010); //  4
-ds_list_add(_dl_TSRC, $2111); //  5
-ds_list_add(_dl_TSRC, $1110); //  6
-ds_list_add(_dl_TSRC, $1001); //  7
-ds_list_add(_dl_TSRC, $3100); //  8
-ds_list_add(_dl_TSRC, $1010); //  9
+ds_list_add(_dl_TSRC, $1011); //  0 0,1
+ds_list_add(_dl_TSRC, $1311); //  1 1,3
+ds_list_add(_dl_TSRC, $0011); //  2 0,1
+ds_list_add(_dl_TSRC, $0101); //  3 0,1
+ds_list_add(_dl_TSRC, $3010); //  4 0,1,3
+ds_list_add(_dl_TSRC, $2111); //  5 1,2
+ds_list_add(_dl_TSRC, $1110); //  6 0,1
+ds_list_add(_dl_TSRC, $1001); //  7 0,1
+ds_list_add(_dl_TSRC, $3100); //  8 0,1,3
+ds_list_add(_dl_TSRC, $1010); //  9 0,1
 // ds_list_add(_dl_TSRC, $); // 10
 //                              // 
 for(_i=ds_list_size(_dl_TSRC)-1; _i>=0; _i--)

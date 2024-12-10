@@ -3194,8 +3194,22 @@ rm_num  = $E1;
 
 
 //   --------------------------  E2  --------------------------- 
-//    Testing: Platforms (Circle movement) test 1
-rm_num  = $E2; 
+//    To see what WestA_002 looks like
+rm_num  = $E2;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_WA+'002', STR_ow_axis+'00');
+
+
+row3=row0+$17; y3=row3<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  rm_num_+EXL0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  rm_num_+EXR0_); // RGT 0, 
+
+
+
+
+
 
 
 

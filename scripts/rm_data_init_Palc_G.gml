@@ -1630,10 +1630,10 @@ rm_num  = $2C;
 set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_PG+'028', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
-row4=row0+$09; y4=row4<<3;
+row3=row0+$15; y3=row3<<3;
+row4=row0+$07; y4=row4<<3;
 data_spawn(rm+STR_PRIO,LoDoA,$1,  $0E<<3,(row3-$02)<<3); // Locked Door
-data_spawn(rm+STR_PRIO,SpStA,$2,  $16<<3,(row0+$09)<<3); // SpawnByStab  2
+data_spawn(rm+STR_PRIO,SpStA,$2,  $16<<3,(row0+$07)<<3); // SpawnByStab  2
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '39'+EXR0_); // LFT 0, 
@@ -2580,20 +2580,20 @@ rm_num  = $46;
 set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_PG+'050', STR_ow_axis+hex_str(ow_axis));
 
 
-y3  = (row0+$10)<<3;
-y4  = (row0+$0E)<<3;
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($16<<3)+4,(row0+$0E)<<3); // Blaze  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $30<<3,y3); // Bot  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $3B<<3,y3); // Bot  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $4A<<3,y4); // Bot  1
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $53<<3,y4); // Bot  1
+row3=row0+$08; y3=row3<<3;
+row4=row0+$0E; y4=row4<<3;
+row5=row0+$0C; y5=row5<<3;
+data_spawn(rm+STR_PRIO,BlazA,$1,  ($16<<3)+4,(row0+$0C)<<3); // Blaze  1
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $30<<3,y4); // Bot  1
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $3B<<3,y4); // Bot  1
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $4A<<3,y5); // Bot  1
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $53<<3,y5); // Bot  1
 
 
-row3 = row0+$15;
-clm3 = $10; // Elevator center clm
-data_exit(EXD0,etC0,1,  clm3-4,row0+$1F,  CLMS4,ROWS5,  clm3-1,row0+$1B,  '49'+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_, clm3,row3);    // Elevator DW $40, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0A,  '47'+EXL0_); // RGT 0, 
+clm3=$10; // Elevator center clm
+data_exit(EXD0,etC0,1,  clm3-$04,row_e2,  CLMS4,ROWS5,  clm3-$01,row_e3,  '49'+EXU0_); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row0+$13);                                                       // Elevator DW $40, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '47'+EXL0_); // RGT 0, 
 
 
 data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_00",rm);

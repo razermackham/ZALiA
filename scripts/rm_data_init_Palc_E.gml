@@ -161,22 +161,20 @@ rm_num  = $03;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PE+'003', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$15; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
-
+row5=row0+$05; y5=row5<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($07<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($77<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-row4=row0+$07; y4=row4<<3;
-data_spawn(rm+STR_PRXM,Ra__A,$1,  $36<<3,y4); // Ra  1
-data_spawn(rm+STR_PRXM,Ra__A,$1,  $48<<3,y4); // Ra  1
+data_spawn(rm+STR_PRXM,Ra__A,$1,  $36<<3,y5); // Ra  1
+data_spawn(rm+STR_PRXM,Ra__A,$1,  $48<<3,y5); // Ra  1
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '02'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '04'+EXL0_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$4,  $4C<<3,(row0+$0B)<<3); // PBag v4: 200
+data_spawn(rm+STR_PRIO,ItmF0,$4,  $4C<<3,(row0+$09)<<3); // PBag v4: 200
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);

@@ -75,76 +75,135 @@ if (g.pc.SwordHB_collidable
 }
 
 
-if (cs&CS_SW1)
-{
-    var _REACTED = false;
-    
-    if (g.pc.behavior==g.pc.behavior_STAB_DOWN)
-    {
-        if (_PC_VSPD 
-        &&  _PC_VSPD<$80 )
-        {
-            BounceVelocity  = round(abs8b(_PC_VSPD) * BounceVelocity_BASE);
-            if (pc_is_cucco()) BounceVelocity += $3;
-            BounceVelocity  = -max(BounceVelocity_MIN, BounceVelocity);
-            BounceVelocity &= $FF;
-            g.pc.vspd = BounceVelocity;
-            
-            _REACTED = true;
-        }
-    }
-    else if (g.pc.behavior==g.pc.behavior_STAB_UP)
-    {
-        //g.pc.vspd = 0;
-        //_REACTED = true;
-    }
-    else if (isVal(g.pc.behavior, g.pc.behavior_STAB_STAND,g.pc.behavior_STAB_CROUCH))
-    {
-        g.control1_timer = g.pc.Pushback_DURATION; // PC atk will NOT affect PC.hspd
-        pushback_pc(x, hspd_PUSHBACK);
-        _REACTED = true;
-    }
-    
-    if (_REACTED)
-    {
-        ReactionAnim_timer = ReactionAnim_DUR1;
-        //aud_play_sound(Audio.SND_STRK_ENM1, 0,false, .5);
-        aud_play_sound(get_audio_theme_track(dk_ElevatorMove));
-        aud_play_sound(get_audio_theme_track(STR_Stab));
-        aud_play_sound(Audio.SND_STEP_1A);
-        //aud_play_sound(Audio.SND_BOOMERANG);
-        //aud_play_combo1(9);
-    }
-}
+
+
+
 
 /*
-if (ReactionAnim_timer & ReactionAnim_TIMING 
-//&&  ReactionAnim_timer > ReactionAnim_DUR1-(ReactionAnim_TIMING<<3) 
-&& (ReactionAnim_timer &(ReactionAnim_TIMING-1) == (ReactionAnim_TIMING-1)) )
-{
-    aud_play_sound(Audio.SND_WLK_WTR1A, 0,false, .3);
-    aud_play_sound(Audio.SND_ELEV_MVE1, 0,false, .4);
-    //aud_play_combo1(9);
-}
+// PC Sword HB init data
+SwordHB_collidable = false;
+SwordHB_can_draw   = SwordHB_collidable;
+SwordHB_color      = c_lime; // debug
+
+SwordHB_W       = 14 + g.HB_ADJ_W; // 14,15
+SwordHB_H       =  3 + g.HB_ADJ_H; //  3, 4
+Cucco_SwordHB_W =  7; // 6
+Cucco_SwordHB_H =  4;
+SwordHB_w       = SwordHB_W;
+SwordHB_h       = SwordHB_H;
+SwordHB_w_      =(SwordHB_w>>1);
+SwordHB_h_      =(SwordHB_h>>1);
+SwordHB_x_base  =  0; // 047E
+SwordHB_y_base  =  0; // 0480
+SwordHB_xoff    =  0;
+SwordHB_yoff    =  0;
+SwordHB_x       =  0;
+SwordHB_y       =  0;
 */
-
-cs &= ~CS_SW1;
-BounceVelocity  = 0;
-
-//if (cs&CS_BD1) enemy_collide_pc_body();
-
-
-
-
-
-/*
 switch(sub_state)
 {
     // ======================================================
     // ----------------------------------------------
     case sub_state_IDLE:{
     if (timer) break;
-    break;}
+    
+    if (cs&CS_SW1)
+    {
+        var _reacted = false;
+        
+        if (g.pc.behavior==g.pc.behavior_STAB_DOWN)
+        {
+            if (_PC_VSPD 
+            &&  _PC_VSPD<$80 )
+            {
+                var _HB_W = 8;
+                if (ver!=2 
+                ||  g.pc.SwordHB_w<_HB_W 
+                ||  collideRect((g.pc.SwordHB_x+g.pc.SwordHB_w_)-(_HB_W>>1),g.pc.SwordHB_y,_HB_W,g.pc.SwordHB_h, id) ) // more specific/narrower sword hb
+                {
+                    if (ver==2)
+                    {
+                        g.pc.vspd = $FA;
+                    }
+                    else
+                    {
+                        BounceVelocity  = round(abs8b(_PC_VSPD) * BounceVelocity_BASE);
+                        if (pc_is_cucco()) BounceVelocity += $3;
+                        BounceVelocity  = -max(BounceVelocity_MIN, BounceVelocity);
+                        BounceVelocity &= $FF;
+                        g.pc.vspd = BounceVelocity;
+                    }
+                    //sdm("BounceVelocity $"+hex_str(BounceVelocity)+", _PC_VSPD $"+hex_str(_PC_VSPD)+", g.pc.vspd $"+hex_str(g.pc.vspd));
+                    
+                    _reacted = true;
+                }
+            }
+        }
+        else if (g.pc.behavior==g.pc.behavior_STAB_UP)
+        {
+            //g.pc.vspd = 0;
+            //_reacted = true;
+        }
+        else if (isVal(g.pc.behavior, g.pc.behavior_STAB_STAND,g.pc.behavior_STAB_CROUCH))
+        {
+            g.control1_timer = g.pc.Pushback_DURATION; // PC atk will NOT affect PC.hspd
+            pushback_pc(x, hspd_PUSHBACK);
+            _reacted = true;
+        }
+        
+        if (_reacted)
+        {
+            ReactionAnim_timer = ReactionAnim_DUR1;
+            aud_play_sound(get_audio_theme_track(dk_ElevatorMove));
+            aud_play_sound(get_audio_theme_track(STR_Stab));
+            aud_play_sound(Audio.SND_STEP_1A);
+            
+            if (ver==2)
+            {
+                timer = $C;
+                sub_state = sub_state_COOLDOWN0;
+            }
+        }
+    }
+    
+    /*
+    if (ReactionAnim_timer & ReactionAnim_TIMING 
+    //&&  ReactionAnim_timer > ReactionAnim_DUR1-(ReactionAnim_TIMING<<3) 
+    && (ReactionAnim_timer &(ReactionAnim_TIMING-1) == (ReactionAnim_TIMING-1)) )
+    {
+        aud_play_sound(Audio.SND_WLK_WTR1A, 0,false, .3);
+        aud_play_sound(Audio.SND_ELEV_MVE1, 0,false, .4);
+        //aud_play_combo1(9);
+    }
+    */
+    break;}//case sub_state_IDLE
+    
+    
+    
+    
+    
+    
+    /*
+    // ======================================================
+    // ----------------------------------------------
+    case sub_state_BOUNCE:{
+    if (timer) break;
+    break;}//case sub_state_BOUNCE
+    */
+    
+    
+    
+    
+    
+    
+    // ======================================================
+    // ----------------------------------------------
+    case sub_state_COOLDOWN0:{ // Transition to cooldown
+    if (timer) break;
+    
+    timer = $80;
+    sub_state = sub_state_COOLDOWN1;
+    break;}//case sub_state_COOLDOWN0
     
     
     
@@ -154,11 +213,36 @@ switch(sub_state)
     
     // ======================================================
     // ----------------------------------------------
-    case sub_state_BOUNCE:{
+    case sub_state_COOLDOWN1:{ // Cooldown period
     if (timer) break;
-    break;}
-}
-*/
+    
+    timer = $10;
+    sub_state = sub_state_COOLDOWN2;
+    break;}//case sub_state_COOLDOWN1
+    
+    
+    
+    
+    
+    
+    
+    // ======================================================
+    // ----------------------------------------------
+    case sub_state_COOLDOWN2:{ // Transition to collidable
+    if (timer) break;
+    
+    timer = $0;
+    sub_state = sub_state_IDLE;
+    break;}//case sub_state_COOLDOWN2
+}//switch(sub_state)
+
+
+
+
+cs &= ~CS_SW1;
+BounceVelocity = 0;
+
+//if (cs&CS_BD1) enemy_collide_pc_body();
 
 
 

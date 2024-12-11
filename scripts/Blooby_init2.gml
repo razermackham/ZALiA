@@ -48,9 +48,12 @@ facingDir = hspd_dir;
 
 
 set_xy(id, clamp(x,XC_MIN,XC_MAX), clamp(y,YC_MIN,YC_MAX));
-// ====================================================================
-// -------------------------------------------------------------
-//hspd = 0; // TESTING
+
+
+switch(ver){
+case 1:{GO_init_palidx(PI_MOB_PUR); break;}
+case 2:{GO_init_palidx(PI_MOB_RED); break;}
+}
 
 
 

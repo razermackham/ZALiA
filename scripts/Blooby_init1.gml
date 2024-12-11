@@ -1,5 +1,7 @@
 /// Blooby_init1()
 
+// ver 2: Has a collision cooldown
+
 
 var _i, _a;
 
@@ -14,8 +16,10 @@ GO_sprite_init(Blooby_SPR_A1);
 
                       _a=1;
 sub_state_IDLE      = _a++;
-sub_state_BOUNCE    = _a++;
-//sub_state_IDLE      = _a++;
+//sub_state_BOUNCE    = _a++;
+sub_state_COOLDOWN0 = _a++;
+sub_state_COOLDOWN1 = _a++;
+sub_state_COOLDOWN2 = _a++;
 sub_state           = sub_state_IDLE;
 
 

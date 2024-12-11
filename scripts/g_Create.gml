@@ -6,17 +6,47 @@
 if (DEV) sdm(" g_Create()");
 
 
-// TODO: Rename abbreviated game objects names to a full name. Example: IronKunckle enemy is currently named "IrKnA".
+/*
+TODO: Add "OG Mode"
+OG Zelda II, widescreen, remove most/all added content, keep most/all QOL changes
+*/
+
+/*
+TODO: Rename abbreviated game objects names to a full name. Example: IronKunckle enemy is currently named "IrKnA".
+*/
+
 /*
 TODO: Assign all globally used variables to `global` instead of the persistant objects they're currently assigned to.
-Many variables I use globally are variables "persistant" objects.
+Many variables I use globally are variables in "persistant" objects.
 I did this so that accessing them was less characters and to associate them with what they're realated to.
 Example: g.torch_lighting_method, f.game_completed_count
 */
+
 /*
 TODO: Downgrade or upgrade graphic detail of scenes so it's consitant across all scenes.
 Either reduce the detail of non-OG scenes and any OG scenes that had detail added, 
 or add detail to mainly OG scenes to be consistant with detailed scenes.
+*/
+
+/*
+TODO: Add more difficulty, challenges, and content to 2nd quest
+  * Different dungeon layouts
+  * Less torches to light scenes?
+*/
+
+/*
+TODO: Revamp palette system
+  * Increase available swap colors from 3 to 7. The 3-color-limit rule will continue. The extra colors are for potential future things
+  * The rule that full green guarantees black is pointless. Just use black in the sprite/tile
+*/
+
+/*
+TODO: Revamp dungeon tileset format and re-tile dungeons
+  * For more space in the tilesets, for more graphics, offset tiles need to be removed, but scenes will need to be re-tiled so offsets aren't neccessary
+*/
+
+/*
+TODO: 
 */
 
 

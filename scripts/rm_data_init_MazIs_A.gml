@@ -3188,8 +3188,37 @@ rm_num  = $E0;
 
 
 //   --------------------------  E1  --------------------------- 
-//    Testing: Snaraa test 1
-rm_num  = $E1; 
+//    Testing: Blooby platforming challenge. BloobyPlatforming_000.tmx
+rm_num  = $E1;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'216', STR_View+'00', STR_ow_axis+'00');
+
+
+row3=$56; y3=row3<<3;
+row4=$04; y4=row4<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_spawn(rm+STR_PRIO,Blooby,$2,  $2B<<3,$52<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $30<<3,$48<<3); // Blooby 2
+
+data_spawn(rm+STR_PRIO,Blooby,$2,  $0A<<3,$3C<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $16<<3,$3A<<3); // Blooby 2
+
+data_spawn(rm+STR_PRIO,Blooby,$2,  $24<<3,$30<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $2A<<3,$28<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $1D<<3,$27<<3); // Blooby 2
+
+data_spawn(rm+STR_PRIO,Blooby,$2,  $1A<<3,$16<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $24<<3,$11<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $2E<<3,$0D<<3); // Blooby 2
+//data_spawn(rm+STR_PRIO,Blooby,$1,  $1F<<3,(row0+$15)<<3,  1,$00); // Blooby 1
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  rm_num_+EXL0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  rm_num_+EXR0_); // RGT 0, 
+
+
+
+
+
 
 
 

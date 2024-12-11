@@ -2245,6 +2245,7 @@ data_go_prop1(    Blooby, "Blooby", spr_Blooby_2a_1);
 data_go_scr(  o_name,   Blooby_init1, Blooby_init2, Blooby_update, Blooby_udp);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PId, HBa, CSa,HPMax, $03,XPa0, RSPd, DRPa, SWDf,    0,    0,    0,    0);
+data_go_prop2(o_name+"02", PId, HBa, CSa,HPMax, $03,XPa0, RSPd, DRPa, SWDf,    0,    0,    0,    0);
 
 
 

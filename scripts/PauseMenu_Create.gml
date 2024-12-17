@@ -649,8 +649,8 @@ switch(POSITIONING_VER){
 case 1:{Dolls_X=$34; Dolls_Y=$81; Dolls_PAD=$0E; break;}
 case 2:{Dolls_X=$34; Dolls_Y=$7F; Dolls_PAD=$0E; break;}
 }
-//SPR_LIFE_DOLL       = val(g.dm_ITEM[?object_get_name(ItmG0)+'01'+STR_Sprite], spr_Item_LifeDoll_1a);
-SPR_LIFE_DOLL       = val(g.dm_ITEM[?object_get_name(ItmG0)+'01'+STR_Sprite], spr_Item_LifeDoll_1b);
+//SPR_LIFE_DOLL       = val(g.dm_ITEM[?object_get_name(ItmG0)+"01"+STR_Sprite], spr_Item_LifeDoll_1a);
+SPR_LIFE_DOLL       = val(g.dm_ITEM[?object_get_name(ItmG0)+"01"+STR_Sprite], spr_Item_LifeDoll_1b);
 SPR_LIFE_DOLL_H_    = sprite_get_height(SPR_LIFE_DOLL)>>1;
 LifeDoll_count = 0;
 

@@ -1,6 +1,7 @@
 /// BurnableMgr_Draw()
 
 
+if (!variable_instance_exists(self, "can_draw")) exit;
 if(!can_draw)  exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     can_draw = false;
 //

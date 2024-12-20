@@ -22,10 +22,11 @@ with(g.pc)
 // Enemy, 
 for(_i=0; _i<MAX_GOB1; _i++)
 {
-    if!(g.go_mgr.dl_gob1[|_i]+1)
-    {
-        continue;//_i
-    }
+    // ToDo: what is this check?
+    //if!(g.go_mgr.dl_gob1[|_i]+1)
+    //{
+    //    continue;//_i
+    //}
     
     
     with(g.go_mgr.dl_gob1[|_i])
@@ -60,10 +61,11 @@ for(_i=0; _i<MAX_GOB1; _i++)
 // Projectile Hostile
 for(_i=0; _i<MAX_GOC1; _i++)
 {
-    if!(g.go_mgr.dl_goc1[|_i]+1)
-    {
-        continue;//_i
-    }
+    // ToDo: what is this check?
+    //if!(g.go_mgr.dl_goc1[|_i]+1)
+    //{
+    //    continue;//_i
+    //}
     
     
     with(g.go_mgr.dl_goc1[|_i])
@@ -78,10 +80,11 @@ for(_i=0; _i<MAX_GOC1; _i++)
 // Projectile Friendly
 for(_i=0; _i<MAX_GOC2; _i++)
 {
-    if!(g.go_mgr.dl_goc2[|_i]+1)
-    {
-        continue;//_i
-    }
+    // ToDo: what is this check?
+    //if!(g.go_mgr.dl_goc2[|_i]+1)
+    //{
+    //    continue;//_i
+    //}
     
     with(g.go_mgr.dl_goc2[|_i])
     {

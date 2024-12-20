@@ -79,7 +79,8 @@ window_set_scale(g.WindowScale_scale);
 
 
 instance_create(0,0,Dev_RmWarper);
-instance_create(0,0,Dev_StabToCheat);
+// ToDo: re-implement Dev_StabToCheat
+//instance_create(0,0,Dev_StabToCheat);
 
 //debug_exit_data_2a();
 //dev_pal_data_output_1a();

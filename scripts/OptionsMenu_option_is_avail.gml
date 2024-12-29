@@ -113,9 +113,12 @@ switch(argument0)
         break;}
         
         case RandoOptions_MARK_HIDDEN_EXIT:{
+        return true;
+        /*
         return val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
             || val(f.dm_rando[?STR_Randomize+STR_PBAG+STR_Locations]) 
             || val(f.dm_rando[?STR_Randomize+STR_Key +STR_Locations]);
+        */
         break;}
         
         case RandoOptions_BACK:{

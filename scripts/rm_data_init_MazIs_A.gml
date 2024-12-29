@@ -3211,6 +3211,12 @@ data_spawn(rm+STR_PRIO,Blooby,$2,  $24<<3,$11<<3); // Blooby 2
 data_spawn(rm+STR_PRIO,Blooby,$2,  $2E<<3,$0D<<3); // Blooby 2
 //data_spawn(rm+STR_PRIO,Blooby,$1,  $1F<<3,(row0+$15)<<3,  1,$00); // Blooby 1
 
+if(0){// For testing hyper hspd from stabbing a Blooby
+data_spawn(rm+STR_PRIO,Blooby,$2,  $18<<3,$56<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $1E<<3,$56<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $14<<3,$58<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $26<<3,$58<<3); // Blooby 2
+}
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  rm_num_+EXL0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  rm_num_+EXR0_); // RGT 0, 

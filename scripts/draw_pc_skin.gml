@@ -165,10 +165,9 @@ with(g.pc)
         }
     }
     else
-    {
+    {   // From 'custom_playercharacter_graphics' folder
         var _val, _x,_y;
         var _Sheet_X = _BEHAVIOR * Spritesheet_W;
-        //var _Sheet_X = val(dm_skins[?STR_Clm+hex_str(_BEHAVIOR)]) * Spritesheet_W;
         var _Sheet_y = 0;
         
         _x  = _X;
@@ -184,28 +183,26 @@ with(g.pc)
         // Shield
         if(!_USE_DISGUISE)
         {
-            _val = _SHIELD_LEVEL;
-            _Sheet_y = val(dm_skins[?STR_Row+STR_Shield+hex_str(_val)]) * Spritesheet_H;
+            _val = 0 + (_SHIELD_LEVEL>1);
+            _Sheet_y = _val * Spritesheet_H;
             draw_sprite_part_(Skin_image,0, _Sheet_X,_Sheet_y, Spritesheet_W,Spritesheet_H, _x,_y,        -1, _X_SCALE,_Y_SCALE, _COLOR);
         }
         
         // Body
-        _val = 1 + sign(_USE_DISGUISE);
-        _Sheet_y = val(dm_skins[?STR_Row+STR_Body+hex_str(_val)]) * Spritesheet_H;
+        _val = 2 + sign(_USE_DISGUISE);
+        _Sheet_y = _val * Spritesheet_H;
         draw_sprite_part_(Skin_image,0, _Sheet_X,_Sheet_y, Spritesheet_W,Spritesheet_H, _x,_y,            -1, _X_SCALE,_Y_SCALE, _COLOR);
         
         // Head
-        _val  = val(dm_skins[?STR_Row+STR_Head+"01"]);
-        _val += (disguise_idx+1) * sign(_USE_DISGUISE);
+        _val = 4;
+        if (_USE_DISGUISE) _val = 5 + disguise_idx;
         _Sheet_y = _val * Spritesheet_H;
-        //_val = 1 + (sign(_USE_DISGUISE)*(disguise_idx+1));
-        //_Sheet_y = val(dm_skins[?STR_Row+STR_Head+hex_str(_val)]) * Spritesheet_H;
         draw_sprite_part_(Skin_image,0, _Sheet_X,_Sheet_y, Spritesheet_W,Spritesheet_H, _x,_y,            -1, _X_SCALE,_Y_SCALE, _COLOR);
         pal_swap_reset();
         
         // Sword
-        _val = _SWORD_LEVEL;
-        _Sheet_y = val(dm_skins[?STR_Row+STR_Sword+hex_str(_val)]) * Spritesheet_H;
+        _val = 8 + (_SWORD_LEVEL>1);
+        _Sheet_y = _val * Spritesheet_H;
         draw_sprite_part_(Skin_image,0, _Sheet_X,_Sheet_y, Spritesheet_W,Spritesheet_H, _x,_y, _SWORD_PALIDX, _X_SCALE,_Y_SCALE, _COLOR);
     }
 }

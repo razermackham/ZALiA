@@ -152,7 +152,9 @@ if (_C1&$4) // On 1st frame after app start
                 if (val(dm_skins[?hex_str(_i)+"_source_is_file"]))
                 {
                     if (is_undefined(_sprite)) continue;//_i
-                    draw_sprite_part(_sprite,0, $F0,$F0, Spritesheet_W,Spritesheet_H, 0,0);
+                    draw_sprite_part(_sprite,0, $F*Spritesheet_W,$F*Spritesheet_H, Spritesheet_W,Spritesheet_H, 0,0);
+                    //draw_sprite_part(_sprite,0, $FF,$FF, Spritesheet_W,Spritesheet_H, 0,0);
+                    //draw_sprite_part(_sprite,0, $F0,$F0, Spritesheet_W,Spritesheet_H, 0,0);
                 }
                 else
                 {

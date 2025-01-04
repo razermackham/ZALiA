@@ -3,6 +3,17 @@
 
 if (ver==2) // 2nd Quest Zelda
 {
+    if(!val(f.dm_quests[?Zelda_DATAKEY1]) 
+       !is_undefined( Item_ITEM_ID) 
+    &&  item_acquired(Item_ITEM_ID) )
+    {
+        f.dm_quests[?Zelda_DATAKEY1] = 1;
+    }
+    /*
+    if (is_talking 
+    && !g.gui_state )
+    {   f.dm_quests[?Zelda_DATAKEY1] = 1;  }
+    */
     if(!val(f.dm_quests[?Zelda_DATAKEY1]))
     {   // I'm having trouble setting a custom pos for pc so this is an attempt to resolve it.
         set_xy(g.pc, g.rm_w_-abs(x-g.rm_w_),y);
@@ -11,10 +22,6 @@ if (ver==2) // 2nd Quest Zelda
     if (val(f.dm_quests[?Zelda_DATAKEY1]))
     {    dialogue_ver = "01";  } // 01: GOOD-LUCK/HINT
     else dialogue_ver = "02";    // 02: BOTTLE INSTRUCTIONS
-    
-    if (is_talking 
-    && !g.gui_state )
-    {   f.dm_quests[?Zelda_DATAKEY1] = 1;  }
     
     // update give item
     NPC_update_3(g.pc.x,g.pc.y); // Spawn item

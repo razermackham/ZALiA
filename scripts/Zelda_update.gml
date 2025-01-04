@@ -4,7 +4,7 @@
 if (ver==2) // 2nd Quest Zelda
 {
     if(!val(f.dm_quests[?Zelda_DATAKEY1]) 
-       !is_undefined( Item_ITEM_ID) 
+    && !is_undefined( Item_ITEM_ID) 
     &&  item_acquired(Item_ITEM_ID) )
     {
         f.dm_quests[?Zelda_DATAKEY1] = 1;

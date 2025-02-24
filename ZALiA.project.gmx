@@ -14620,7 +14620,7 @@
     <constant name="application_surface_W">BASE_GAME_RESOLUTION_W</constant>
     <constant name="application_surface_H">BASE_GAME_RESOLUTION_H</constant>
     <constant name="VIEW_W_OG">256</constant>
-    <constant name="VIEW_H_OG">224</constant>
+    <constant name="VIEW_H_OG">240</constant>
     <constant name="VIEW_W_OG_">(VIEW_W_OG &gt;&gt;1)</constant>
     <constant name="VIEW_H_OG_">(VIEW_H_OG &gt;&gt;1)</constant>
     <constant name="VIEW_W_WD">application_surface_W</constant>
@@ -15578,7 +15578,7 @@
     <constant name="Zelda_DATAKEY1">(STR_Zelda+STR_Dialogue+STR_State+STR_Quest+"02")</constant>
     <constant name="Wiseman_DATAKEY1">(STR_Wiseman+STR_Dialogue+STR_State+STR_Quest+"02")</constant>
     <constant name="Scroblin_DATAKEY1">(STR_Scroblin+STR_Open+STR_Path)</constant>
-    <constant name="SteelCrescents_NAME">"Steel Crescent"</constant>
+    <constant name="SteelCrescents_NAME">"Nomaph"</constant>
     <constant name="dk_NO_ENCOUNTER">"NO_ENCOUNTER"</constant>
     <constant name="dk_SpawnDatakey">"_SpawnDatakey"</constant>
     <constant name="dk_SceneMusicThemeException">"_SceneMusicThemeException"</constant>

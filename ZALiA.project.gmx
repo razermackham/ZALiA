@@ -13898,6 +13898,7 @@
     </scripts>
     <scripts name="ds">
       <script>scripts\is_in_grid.gml</script>
+      <script>scripts\ds_grid_get_compat.gml</script>
     </scripts>
     <scripts name="dev">
       <script>scripts\dev_start_pc_with.gml</script>

@@ -14602,6 +14602,7 @@
       <room>rooms\rmA_Action</room>
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
+    <room>rooms\rm_Switcher</room>
   </rooms>
   <constants number="1049">
     <constant name="DEV">true</constant>

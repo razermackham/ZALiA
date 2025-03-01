@@ -434,7 +434,9 @@ if (global.RetroShaders_IS_LIVE)
     //global.RetroShaders_surface_scale = 2;
 }
 global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
-
+global.room_switcher_next_room = undefined;
+global.room_switcher_next_width = 0;
+global.room_switcher_next_height = 0;
 
 
 // --------------------------------------------------------------------------

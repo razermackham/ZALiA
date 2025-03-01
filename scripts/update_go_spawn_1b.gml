@@ -68,7 +68,7 @@ if (argument_count>4
 for(_i=0; _i<_GO_COUNT; _i++)
 {
                                     _a=0;
-    _spawn_dk = g.dg_spawn_prxm[#_i,_a++]; // 
+    _spawn_dk = string(g.dg_spawn_prxm[#_i,_a++]); // 
     
     
     // 1: avail to spawn, 0: spawned/can't respawn, -1: can't spawn again

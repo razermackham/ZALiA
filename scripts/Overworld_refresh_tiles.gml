@@ -115,7 +115,7 @@ else
                 }
             }
             
-            _tid = tile_change_2a(T_SIZE, TILESET1,_tsrc, _x,_y, Tile_DEPTH1, 0);
+            _tid = tile_change_2a(T_SIZE, TILESET1,_tsrc, _x,_y, Tile_DEPTH1, 1);
             dg_tid[#_j,_i] = _tid;
             
             if (tile_exists(_tid)) tile_set_scale(_tid, _scale_x,_scale_y);

@@ -432,7 +432,9 @@ dm_RandoHints=ds_map_create();
 
 Rando_RauruRiverDevil=true;
 
-
+global.room_switcher_next_room = undefined;
+global.room_switcher_next_width = 0;
+global.room_switcher_next_height = 0;
 
 
 // --------------------------------------------------------------------------

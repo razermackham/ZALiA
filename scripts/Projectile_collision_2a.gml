@@ -25,8 +25,10 @@ update_body_hb_1a();
 
 for(var _i=ds_list_size(g.go_mgr.dl_gob1)-1; _i>=0; _i--)
 {
-    if(!(g.go_mgr.dl_gob1[|_i]+1) 
-    ||   g.go_mgr.dl_gob1[|_i].state != g.go_mgr.dl_gob1[|_i].state_NORMAL )
+    if(!ds_list_has_element(g.go_mgr.dl_gob1, _i)) {
+        continue;
+    }
+    if(g.go_mgr.dl_gob1[|_i].state != g.go_mgr.dl_gob1[|_i].state_NORMAL )
     {
         continue;
     }

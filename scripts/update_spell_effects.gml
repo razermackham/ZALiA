@@ -42,7 +42,7 @@ if (g.spells_active &   SPL_THUN)
     // BEC7
     for(var _i=ds_list_size(g.go_mgr.dl_gob1)-1; _i>=0; _i--)
     {
-        if!(g.go_mgr.dl_gob1[|_i]+1)
+        if(!ds_list_has_element(g.go_mgr.dl_gob1, _i))
         {
             continue;
         }
@@ -108,7 +108,7 @@ if (g.spells_active &   SPL_SPEL)
     // TURN ALL SUSCEPTIBLE ENEMIES INTO Bot
     for(_i=ds_list_size(g.go_mgr.dl_gob1)-1; _i>=0; _i--)
     {
-        if!(g.go_mgr.dl_gob1[|_i]+1)
+        if(!ds_list_has_element(g.go_mgr.dl_gob1, _i))
         {
             continue;//_i
         }

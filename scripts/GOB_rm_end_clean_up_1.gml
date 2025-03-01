@@ -8,7 +8,7 @@ var _i;
 
 for(_i=ds_list_size(g.go_mgr.dl_gob1)-1; _i>=0; _i--)
 {
-    if!( g.go_mgr.dl_gob1[|_i]+1) continue;
+    if(!ds_list_has_element(g.go_mgr.dl_gob1, _i)) continue;
     
     with(g.go_mgr.dl_gob1[|_i])
     {
@@ -25,7 +25,7 @@ for(_i=ds_list_size(g.go_mgr.dl_gob1)-1; _i>=0; _i--)
 
 for(_i=ds_list_size(g.go_mgr.dl_gob2)-1; _i>=0; _i--)
 {
-    if!( g.go_mgr.dl_gob2[|_i]+1) continue;
+    if(!ds_list_has_element(g.go_mgr.dl_gob2, _i)) continue;
     
     with(g.go_mgr.dl_gob2[|_i])
     {

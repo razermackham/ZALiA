@@ -1509,7 +1509,7 @@ mus_rm_pos_curr = 0;
 // The timing_sound_.. variables are used to loop the title screen scrolling properly
 timing_sound_position_prev = 0;
 timing_sound_position_curr = 0;
-timing_sound_inst = 0;
+timing_sound_asset = undefined;
 
 data_sound(snd_Default_Title_Intro_no_volume,0);
 data_sound(snd_Default_Title_no_volume,0);

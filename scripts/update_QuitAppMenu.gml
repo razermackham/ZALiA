@@ -136,7 +136,7 @@ with(g.QUIT_APP_MENU)
                     lives = 0;
                     
                     //sdm("update_QuitAppMenu() -> case sub_state_IDLE_CLOSED -> game_end()");
-                    Audio.mus_rm_body = 0; // Need to do this so ContinueScreen music will play
+                    Audio.mus_rm_body = -1; // Need to do this so ContinueScreen music will play
                     
                     will_go_to_continuesave = true;
                     // Seems like the combination of get_saved_value() and room_goto_() can crash the app so I moved room_goto_(rmB_ContinueSave) to sub_state_CLOSING3

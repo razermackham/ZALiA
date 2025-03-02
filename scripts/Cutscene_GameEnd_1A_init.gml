@@ -27,8 +27,8 @@ with(HUD) instance_destroy();
 
 
 audio_stop_sound(Audio.mus_rm_inst);
-                 Audio.mus_rm_intr = 0;
-                 Audio.mus_rm_body = 0;
+                 Audio.mus_rm_intr = -1;
+                 Audio.mus_rm_body = -1;
 //
 
 TRIFORCE_SPR  = spr_Triforce_1a;

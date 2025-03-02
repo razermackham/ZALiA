@@ -4,6 +4,10 @@
 with(Audio)
 {
     var _THEME = argument[0];
+    if (_THEME == "undefined")
+    {
+        return -1;
+    }
     
     var _track       = val(dm[?_THEME+STR_Default]);
     var _TRACK_COUNT = val(dm[?_THEME+STR_Track+STR_Count]);
@@ -97,7 +101,7 @@ with(Audio)
 }
 
 
-return 0;
+return -1;
 
 
 

@@ -1469,15 +1469,15 @@ for(_i=1; _i<=_count; _i++)
 
 
 // intro of mus_rm_body
-mus_rm_intr = 0; 
+mus_rm_intr = -1; 
 // music track for current rm
-mus_rm_body = 0; 
+mus_rm_body = -1; 
 // music track to play on any given frame when playing music is qualified
-mus_rm_curr = 0;
+mus_rm_curr = -1;
 // instance of music track to play on any given frame when playing music is qualified
-mus_rm_inst = 0;
+mus_rm_inst = -1;
 // music body prev rm
-mus_rm_body_prev = 0;
+mus_rm_body_prev = -1;
 
 
 encounter_sound_inst = 0;

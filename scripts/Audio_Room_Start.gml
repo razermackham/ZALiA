@@ -284,7 +284,7 @@ else if (0)
 // ----------------------------------------------------------------
 audio_stop_sound(snd_Default_Title_Intro_no_volume);
 audio_stop_sound(snd_Default_Title_no_volume);
-timing_sound_inst = 0;
+timing_sound_asset = undefined;
 timing_sound_position_prev = 0;
 timing_sound_position_curr = 0;
 

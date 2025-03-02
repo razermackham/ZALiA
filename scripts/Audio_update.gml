@@ -24,19 +24,19 @@ with(Audio) // with(Audio) -----------------------------------------------------
     if (rm_music_theme==STR_Title 
     &&  g.ChangeRoom_timer<=0 )
     {
-        if (audio_get_name(timing_sound_inst)!=audio_get_name(snd_Default_Title_Intro_no_volume) 
-        &&  audio_get_name(timing_sound_inst)!=audio_get_name(snd_Default_Title_no_volume) )
+        if (timing_sound_asset != snd_Default_Title_Intro_no_volume
+        &&  timing_sound_asset != snd_Default_Title_no_volume )
         {
-            timing_sound_inst = aud_play_sound(snd_Default_Title_Intro_no_volume, 1,false);
-            //sdm(audio_get_name(timing_sound_inst)+", start");
+            aud_play_sound(snd_Default_Title_Intro_no_volume, 1,false);
+            timing_sound_asset = snd_Default_Title_Intro_no_volume;
         }
         else
         {
-            if (audio_get_name(  timing_sound_inst)==audio_get_name(snd_Default_Title_Intro_no_volume) 
-            && !audio_is_playing(timing_sound_inst) )
+            if (timing_sound_asset == snd_Default_Title_Intro_no_volume
+            && !audio_is_playing(timing_sound_asset) )
             {
-                timing_sound_inst = aud_play_sound(snd_Default_Title_no_volume, 1,true);
-                //sdm(audio_get_name(timing_sound_inst)+", start");
+                aud_play_sound(snd_Default_Title_no_volume, 1,true);
+                timing_sound_asset = snd_Default_Title_no_volume;
             }
         }
     }
@@ -58,11 +58,10 @@ with(Audio) // with(Audio) -----------------------------------------------------
     // The timing_sound_.. variables are used to loop the title screen scrolling properly
     // The track position of a sound instance on any given frame is a very precise 
     // fraction and does NOT start at 0 on the frame it loops.
-    if (timing_sound_inst 
-    &&  audio_is_playing(timing_sound_inst) )
+    if (!is_undefined(timing_sound_asset) && audio_is_playing(timing_sound_asset))
     {
         timing_sound_position_prev = timing_sound_position_curr;
-        timing_sound_position_curr = audio_sound_get_track_position(timing_sound_inst);
+        timing_sound_position_curr = audio_sound_get_track_position(timing_sound_asset);
     }
     else
     {

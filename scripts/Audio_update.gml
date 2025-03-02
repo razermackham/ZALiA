@@ -42,7 +42,7 @@ with(Audio) // with(Audio) -----------------------------------------------------
     }
     
     // ------------------------------------------------------------------------
-    if (mus_rm_inst 
+    if (mus_rm_inst != -1
     &&  audio_is_playing(mus_rm_inst) )
     {
         mus_rm_pos_prev = mus_rm_pos_curr;
@@ -70,9 +70,9 @@ with(Audio) // with(Audio) -----------------------------------------------------
     }
     
     
-    if (mus_rm_inst 
+    if (mus_rm_inst != -1
     &&  audio_is_playing(mus_rm_inst) 
-    &&  mus_rm_body 
+    &&  mus_rm_body  != -1
     &&  audio_get_name(mus_rm_inst)==audio_get_name(mus_rm_body) )
     {
         mus_rm_body_last_pos = audio_sound_get_track_position(mus_rm_inst);

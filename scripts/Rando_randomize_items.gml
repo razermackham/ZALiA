@@ -7,7 +7,7 @@ random_set_seed(Rando_SEED);
 
 
 var _i,_j,_k,_m, _idx, _val;
-var _count,_count1,_count2;
+var _count,_count1,_count2,_count3;
 var _loc_num,_loc_num1,_loc_num2, _loc_cat,_loc_cat1;
 var _qual_loc_count1,_qual_loc_count2;
 var _is_item, _is_key;
@@ -332,6 +332,527 @@ Rando_randomize_items_1();
 
 // Scene outside of Fire-Vines Cave
 dm_save_data[?Area_WestA+"40"+STR_file_name+STR_Quest+hex_str(QUEST_NUM)] = "WestA_"+"002";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+if (ItemLocations_NPC_GIVE_HINTS 
+||  ItemLocations_ZELDA_HINT )
+{
+    var _area,_area1;
+    var _dialogue=undefined;
+    var _pos;
+    var _dk_loc, _dk_spawn;
+    var _dm_set_area_counts=ds_map_create();
+    var _dl_set=ds_list_create();
+    var _dl_choices=ds_list_create();
+    var _dl_area_choices=ds_list_create();
+    var _dm_hint_location_requirements=ds_map_create();
+    
+    
+    
+    
+    // ------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
+    if (ItemLocations_NPC_GIVE_HINTS)
+    {
+        random_set_seed(Rando_SEED);
+        
+        var _dl_item_loc_nums=ds_list_create();
+        var _dl_HINT_NUMS=ds_list_create();
+        var _dl_BOSS_NAMES=ds_list_create();
+        ds_list_add(_dl_BOSS_NAMES,"HORSEHEAD","HELMETHEAD","REBONACK","CAROCK","GOOMA","BARBA");
+        
+        
+        ds_list_copy(_dl_item_loc_nums,dl_locnum_that_gave_prog);
+        if (1)
+        {
+            var _dl_ITEM_IDS=ds_list_create();
+            ds_list_add(_dl_ITEM_IDS,STR_MEAT,STR_SHIELD,STR_RING,STR_PENDANT,STR_SWORD);
+            _count=ds_list_size(_dl_ITEM_IDS);
+            for(_i=0; _i<_count; _i++)
+            {
+                _item_id  = _dl_ITEM_IDS[|_i];
+                _loc_num  = val(dm_save_data[?_item_id+STR_Location+STR_Num+STR_Randomized]);
+                if (_loc_num 
+                &&  ds_list_find_index(_dl_item_loc_nums,_loc_num)==-1 )
+                {   ds_list_add(       _dl_item_loc_nums,_loc_num);  }
+            }
+            
+            ds_list_destroy(_dl_ITEM_IDS); _dl_ITEM_IDS=undefined;
+        }
+        
+        
+        
+        ds_list_clear(_dl_HINT_NUMS);
+        _count1=val(g.dm_RandoHints[?STR_Hint+STR_Count]);
+        for(_i=1; _i<=_count1; _i++) ds_list_add(_dl_HINT_NUMS,_i);
+        ds_list_shuffle(_dl_HINT_NUMS);
+        
+        _count=ds_list_size(_dl_item_loc_nums);
+        for(_i=0; _i<_count; _i++)
+        {
+            _loc_num  = _dl_item_loc_nums[|_i];
+            _dk_loc   = STR_Location+hex_str(_loc_num);
+            _item_id  = dm_save_data[?_dk_loc+STR_Item+STR_ID+STR_Randomized];
+            _dk_spawn = dm_save_data[?_dk_loc+STR_Spawn+STR_Datakey];
+            
+            if (ItemLocations_ZELDA_HINT==1 
+            &&  _item_id==STR_ALLKEY )
+            {
+                continue;//_i
+            }
+            
+            ds_list_clear(_dl_choices);
+            _j=1;
+            while (true)
+            //for(_j=1; _j<=$20; _j++)
+            {   // different kinds of hints for an item location
+                _val = dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(_j++)];
+                if (is_undefined(_val)) break;//_j
+                ds_list_add(_dl_choices,_val);
+            }
+            
+            if (ds_list_size(_dl_choices))
+            {
+                ds_list_shuffle(_dl_choices);
+                _dialogue = _dl_choices[|0];
+                
+                if (DungeonBoss_WILL_RANDOMIZE 
+                &&  ds_list_size(_dl_choices)>1 
+                &&  area_is_dungeon(string_copy(_dk_spawn,1,AreaID_LEN)) )
+                {
+                    for(_j=ds_list_size(_dl_BOSS_NAMES)-1; _j>=0; _j--)
+                    {
+                        _val = _dl_BOSS_NAMES[|_j];
+                        _pos = string_pos(_val,_dialogue);
+                        if (_pos)
+                        {
+                            _dialogue = _dl_choices[|1];
+                            break;//_j
+                        }
+                    }
+                }
+                
+                _pos=string_pos("&",_dialogue);
+                if (_pos)
+                {
+                    _val = string_upper(string_letters(_item_id));
+                    _dialogue = string_delete(_dialogue,_pos,1);
+                    _dialogue = string_insert(_val,_dialogue,_pos);
+                    //_dialogue = string_replace(_dialogue,_val,_pos);
+                }
+                
+                
+                ds_list_clear(_dl_area_choices);
+                for(_j=1; _j<=_count1; _j++) // each hint location
+                {
+                    _qual=false;
+                    _area=g.dm_RandoHints[?hex_str(_j)+STR_Area];
+                    if(!is_undefined(_area) 
+                    &&  ds_list_find_index(_dl_set,_j)==-1 
+                    &&  ds_list_find_index(_dl_area_choices,_area)==-1 )
+                    {
+                        if (0) // make sure hint location isnt locked behind its item
+                        {
+                            _rm_name=val(g.dm_RandoHints[?hex_str(_j)+STR_Rm+STR_Name]);
+                            switch(_rm_name)
+                            {
+                                case "_WestA_24":{ // 'THIS IS<KINGS TOMB'
+                                //_qual = !isVal(_item_id);
+                                break;}
+                            }
+                        }
+                        else
+                        {
+                            _qual=true;
+                        }
+                        
+                        if (_qual) ds_list_add(_dl_area_choices,_area);
+                    }
+                }
+                
+                if (ds_list_size(_dl_area_choices))
+                {
+                    ds_list_shuffle(_dl_area_choices);
+                    
+                    _area=0;
+                    if (1) // limit each area to 3 hints to prevent clumping
+                    {
+                        for(_j=ds_list_size(_dl_area_choices)-1; _j>=0; _j--)
+                        {
+                            _area1=_dl_area_choices[|_j];
+                            if (_area1==STR_Other 
+                            ||  val(_dm_set_area_counts[?_area1])<3 )
+                            {
+                                _area=_area1;
+                                break;//_j
+                            }
+                        }
+                    }
+                    
+                    if (_area==0) _area=_dl_area_choices[|0];
+                    
+                    
+                    for(_j=0; _j<_count1; _j++)
+                    {
+                        _num=_dl_HINT_NUMS[|_j];
+                        _area1=g.dm_RandoHints[?hex_str(_num)+STR_Area];
+                        _val  =g.dm_RandoHints[?hex_str(_num)+STR_Dialogue+STR_Datakey];
+                        
+                        if (ds_list_find_index(_dl_set,_num)==-1 
+                        && !is_undefined(_area1) 
+                        &&  _area==_area1 )
+                        {
+                            if(!is_undefined(_val)) // dialogue datakey
+                            {
+                                _count3=val(dm_save_data[?STR_Rando+STR_Hint+STR_Count])+1;
+                                dm_save_data[?STR_Rando+STR_Hint+STR_Count]=_count3;
+                                
+                                dm_save_data[?STR_Rando+STR_Hint+hex_str(_count3)+STR_Dialogue+STR_Datakey]=_val;
+                                dm_save_data[?STR_Rando+STR_Hint+hex_str(_count3)+STR_Dialogue]=_dialogue;
+                                dm_save_data[?STR_Rando+STR_Hint+hex_str(_count3)+STR_Item]=_item_id;
+                                dm_save_data[?STR_Rando+STR_Hint+_val+STR_Hint+STR_Num]=_count3;
+                                dm_save_data[?STR_Rando+STR_Hint+_val]=_dialogue;
+                                
+                                ds_list_add(_dl_set,_num);
+                                _dm_set_area_counts[?_area] = val(_dm_set_area_counts[?_area])+1;
+                                
+                                debug_str  = _item_id+string_repeat(" ",string_length(STR_BRACELET)-string_length(_item_id));
+                                debug_str += " hint dialogue '"+_dialogue+"' set to datakey "+_val;
+                                sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+                                break;//_j
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        ds_list_destroy(_dl_item_loc_nums); _dl_item_loc_nums=undefined;
+        ds_list_destroy(_dl_HINT_NUMS); _dl_HINT_NUMS=undefined;
+        ds_list_destroy(_dl_BOSS_NAMES); _dl_BOSS_NAMES=undefined;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    // ------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
+    if (ItemLocations_ZELDA_HINT)
+    {
+        random_set_seed(Rando_SEED);
+        
+        _dialogue = undefined;
+        
+        
+        
+        
+        if (ItemLocations_ZELDA_HINT==1)
+        {
+            _item_id = STR_ALLKEY;
+            
+            if (ALLKEY_LOC_NUM)
+            {
+                ds_list_clear(_dl_choices);
+                for(_j=1; _j<=$20; _j++)
+                {   // different kinds of hints for an item location
+                    _val = dm_LOCATIONS[?hex_str(ALLKEY_LOC_NUM)+STR_Hint+hex_str(_j)];
+                    if (is_undefined(_val)) break;//_j
+                    ds_list_add(_dl_choices,_val);
+                }
+                
+                if (ds_list_size(   _dl_choices))
+                {
+                    ds_list_shuffle(_dl_choices);
+                    _dialogue =     _dl_choices[|0];
+                    _pos=string_pos("&",_dialogue);
+                    if (_pos)
+                    {
+                        _val = string_upper(string_letters(_item_id));
+                        _dialogue = string_delete(_dialogue,_pos,1);
+                        _dialogue = string_insert(_val,_dialogue,_pos);
+                    }
+                }
+            }
+        }
+        
+        
+        
+        
+        if (ItemLocations_ZELDA_HINT==2)
+        {
+            _item_id = STR_JUMP;
+            //sdm("");sdm("STR_JUMP+STR_Location: "+string(val(dm_save_data[?STR_JUMP+STR_Location])));sdm("");
+            switch(val(dm_save_data[?STR_JUMP+STR_Location]))
+            {
+                case STR_Rauru:{
+                _dialogue=choose("THE JUMP<SPELL IS<IN RAURU.", 
+                                 "JUMP SPELL<IS IN A<FOREST<TOWN.", 
+                                 "JUMP SPELL<IS IN A<NEARBY<TOWN.");
+                break;}
+                
+                case STR_Ruto:{
+                _dialogue=choose("THE JUMP<SPELL IS<IN RUTO.", 
+                                 "JUMP SPELL<IS IN A<MOUNTAIN<TOWN.", 
+                                 "YOU NEED<THE TROPHY<FOR THE<JUMP SPELL", 
+                                 "JUMP SPELL<IS IN A<NEARBY<TOWN.");
+                break;}
+                
+                case STR_Saria:{
+                _dialogue=choose("THE JUMP<SPELL IS<IN SARIA.", 
+                                 "JUMP SPELL<IS IN A<WATER TOWN", 
+                                 "JUMP SPELL<IS IN A<CURSED<TOWN.", 
+                                 "YOU NEED<THE MIRROR<FOR THE<JUMP SPELL");
+                break;}
+                
+                case STR_Mido:{
+                _dialogue=choose("THE JUMP<SPELL IS<IN MIDO.", 
+                                 "JUMP SPELL<IS IN A<WATER TOWN", 
+                                 "YOU NEED<THE FLOWER<FOR THE<JUMP SPELL");
+                break;}
+                
+                case STR_Darunia:{
+                _dialogue=choose("THE JUMP<SPELL IS<IN DARUNIA", 
+                                 "JUMP SPELL<IS IN A<MOUNTAIN<TOWN.", 
+                                 "JUMP SPELL<IS IN A<CURSED<TOWN.", 
+                                 "YOU NEED<THE CHILD<FOR THE<JUMP SPELL");
+                break;}
+                
+                case STR_New_Kasuto:{
+                _dialogue=choose("THE JUMP<SPELL IS<IN<NEW KASUTO", 
+                                 "JUMP SPELL<IS IN A<KASUTO<TOWN.", 
+                                 "YOU NEED<THE HAMMER<FOR THE<JUMP SPELL");
+                break;}
+                
+                case STR_Old_Kasuto:{
+                _dialogue=choose("THE JUMP<SPELL IS<IN<OLD KASUTO", 
+                                 "JUMP SPELL<IS IN A<KASUTO<TOWN.", 
+                                 "YOU NEED<THE CROSS<FOR THE<JUMP SPELL");
+                break;}
+            }
+        }
+        
+        
+        if(!is_undefined(_dialogue))
+        {
+            _count3=val(dm_save_data[?STR_Rando+STR_Hint+STR_Count])+1;
+            dm_save_data[?STR_Rando+STR_Hint+STR_Count]=_count3;
+            
+            var _DIALOGUE_DK = STR_Zelda+STR_Hint;
+            dm_save_data[?STR_Rando+STR_Hint+hex_str(_count3)+STR_Dialogue+STR_Datakey]=_DIALOGUE_DK;
+            dm_save_data[?STR_Rando+STR_Hint+hex_str(_count3)+STR_Dialogue]=_dialogue;
+            dm_save_data[?STR_Rando+STR_Hint+hex_str(_count3)+STR_Item]=_item_id;
+            dm_save_data[?STR_Rando+STR_Hint+_DIALOGUE_DK+STR_Hint+STR_Num]=_count3;
+            dm_save_data[?STR_Rando+STR_Hint+_DIALOGUE_DK]=_dialogue;
+            
+            dm_save_data[?STR_Zelda+STR_Hint+STR_Dialogue]=_dialogue;
+        }
+    }
+    
+    
+    
+    
+    ds_map_destroy(_dm_set_area_counts); _dm_set_area_counts=undefined;
+    ds_map_destroy(_dm_hint_location_requirements); _dm_hint_location_requirements=undefined;
+    
+    ds_list_destroy(_dl_set); _dl_set=undefined;
+    ds_list_destroy(_dl_choices); _dl_choices=undefined;
+    ds_list_destroy(_dl_area_choices); _dl_area_choices=undefined;
+}
+
+ds_list_destroy(dl_locnum_that_gave_prog); dl_locnum_that_gave_prog=undefined;
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+// Randomize MAP sellers prices
+random_set_seed(Rando_SEED);
+
+if (DEBUG){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
+
+var _pbag_price_min = 0;
+var _pbag_price_max = 0;
+var _total=0;
+var _item_id2 = undefined;
+var _version = 1;
+var _objver1 = undefined;
+var _val1,_val2,_val3;
+var _min,_max;
+var _datakey = undefined;
+var _item_type = undefined;
+var _location_num_ = 0;
+
+_count=val(dm_LOCATIONS[?STR_Total+STR_Location+STR_Count]);
+for(_i=1; _i<=_count; _i++)
+{
+    _location_num_ = hex_str(_i);
+    _item_type = dm_LOCATIONS[?_location_num_+STR_Item+STR_Type];
+    if(!is_undefined(_item_type))
+    {
+        if (_item_type==STR_MAP1 
+        ||  _item_type==STR_MAP2 )
+        {
+            _item_id = dm_save_data[?STR_Location+_location_num_+STR_Item+STR_ID+STR_Randomized];
+            if(!is_undefined(_item_id))
+            {
+                var                                      _TYPE=1; // keys, progression items, support items, 
+                     if (string_pos(STR_PBAG, _item_id)) _TYPE=2;
+                else if (string_pos(STR_HEART,_item_id)) _TYPE=3;
+                else if (string_pos(STR_MAGIC,_item_id)) _TYPE=3;
+                else if (string_pos(STR_1UP,  _item_id)) _TYPE=3;
+                
+                switch(_TYPE)
+                {   // ----------------------------------------------------------------
+                    default:{ // _TYPE==1. keys, progression items, support items, 
+                    _max = 2000;
+                    _min = 300;
+                    
+                    // So the player doesn't get stuck grinding for xp to get past the first area.
+                    if (TownLocations_WILL_RANDOMIZE)
+                    {   // TODO: Be more specific and check if the player will need the item to get past the first area.
+                        if (val(dm_save_data[?STR_Town+STR_Rando+STR_Rauru+"B"])==STR_Nabooru 
+                        ||  val(dm_save_data[?STR_Town+STR_Rando+STR_Rauru+"B"])==STR_New_Kasuto 
+                        ||  val(dm_save_data[?STR_Town+STR_Rando+STR_Ruto +"B"])==STR_Nabooru 
+                        ||  val(dm_save_data[?STR_Town+STR_Rando+STR_Ruto +"B"])==STR_New_Kasuto )
+                        {
+                            if (string_pos(STR_KEY,_item_id) 
+                            ||  ds_list_find_index(dl_ItemPool_A,_item_id)!=-1 )
+                            {
+                                _max = 800;
+                            }
+                        }
+                    }
+                    break;}
+                    
+                    
+                    
+                    // ----------------------------------------------------------------
+                    case 2:{ // PBags
+                    if(!_pbag_price_max)
+                    {
+                        _count2=0;
+                        
+                                     _count1 = ds_list_size(dl_PBAGS);
+                        for(_j=0; _j<_count1; _j++)
+                        {
+                            _item_id2 = string(dl_PBAGS[|_j]);
+                            _version  = val(g.dm_spawn[?_item_id2+STR_Version]);
+                            _objver1  = object_get_name(ItmE0) + hex_str(_version);
+                            _idx = val(g.dm_go_prop[?_objver1+STR_XP], -1);
+                            if (_idx+1)
+                            {
+                                _val2 = g.dl_XP[|_idx];
+                                if (XP_WILL_RANDOMIZE) _val2 = val(dm_save_data[?STR_XP+hex_str(_idx)], _val2);
+                                if (_val2)
+                                {
+                                    _total += _val2;
+                                    _count2++;
+                                }
+                            }
+                        }
+                        
+                        if (_total 
+                        &&  _total>=_count2 )
+                        {
+                            _val3 = round(_total/_count2);
+                            if (_val3)
+                            {
+                                _val2 = 100;
+                                _val3 = max(_val2+50, _val3);
+                                _pbag_price_max = _val3+_val2;
+                                _pbag_price_min = _val3-_val2;
+                            }
+                        }
+                    }
+                    
+                    
+                    if (_pbag_price_max)
+                    {
+                        _max = _pbag_price_max;
+                        _min = _pbag_price_min;
+                    }
+                    else
+                    {
+                        _max = 550;
+                        _min = 350;
+                    }
+                    break;}
+                    
+                    
+                    
+                    // ----------------------------------------------------------------
+                    case 3:{ // Container Pieces, 1UP, 
+                    _max = 4000;
+                    _min = 300;
+                    break;}
+                }
+                
+                
+                
+                
+                _min = max(1,_min);
+                _max = max(_min+100,_max);
+                _val = irandom(_max-_min) + _min;
+                _val = clamp(_val, _min,_max);
+                
+                _datakey = STR_Map+string(1+(_item_type==STR_MAP2));
+                dm_save_data[?_datakey+STR_Cost] = _val;
+                
+                if (DEBUG){debug_str = _datakey+", _min: "+string(_min)+", _max: "+string(_max)+", _val: "+string(_val)+", _item_id: "+_item_id+", _TYPE: "+string(_TYPE);
+                sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

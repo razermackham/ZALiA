@@ -177,10 +177,11 @@ ds_grid_resize(dg_MainOptions, ds_grid_width(dg_MainOptions)+1,ds_grid_height(dg
 dg_MainOptions[#ds_grid_width(dg_MainOptions)-1,0] = "TORCH LIGHTING    ";
 dg_MainOptions[#ds_grid_width(dg_MainOptions)-1,1] = Font2;
 //                                          //
-//MainOption_RENDER_DELAY      = ds_grid_width(dg_MainOptions);
-//ds_grid_resize(dg_MainOptions, ds_grid_width(dg_MainOptions)+1,ds_grid_height(dg_MainOptions));
-//dg_MainOptions[#ds_grid_width(dg_MainOptions)-1,0] = "RENDER DELAY      ";
-//dg_MainOptions[#ds_grid_width(dg_MainOptions)-1,1] = Font2;
+//if (global.RenderFrameDelay_state!=-1) // -1: App will not include this option
+MainOption_RENDER_DELAY      = ds_grid_width(dg_MainOptions);
+ds_grid_resize(dg_MainOptions, ds_grid_width(dg_MainOptions)+1,ds_grid_height(dg_MainOptions));
+dg_MainOptions[#ds_grid_width(dg_MainOptions)-1,0] = "RENDER DELAY      ";
+dg_MainOptions[#ds_grid_width(dg_MainOptions)-1,1] = Font2;
 //                                          //
 MainOption_STAB_FRENZY       = ds_grid_width(dg_MainOptions);
 ds_grid_resize(dg_MainOptions, ds_grid_width(dg_MainOptions)+1,ds_grid_height(dg_MainOptions));

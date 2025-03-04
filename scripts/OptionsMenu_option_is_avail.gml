@@ -22,7 +22,7 @@ switch(argument0)
         //case MainOption_SHOW_ACTIVE_SPELLS:{return true; break;}
         //case MainOption_HUD_STATE:{return true; break;}
         case MainOption_TORCH_LIGHTING:{return true; break;}
-        //case MainOption_RENDER_DELAY:{return true; break;}
+        case MainOption_RENDER_DELAY:  {return global.RenderFrameDelay_state>=0; break;}  // -1: App will not include this option
         case MainOption_STAB_FRENZY:   {return f.items&ITM_SWRD; break;}
         //case MainOption_CUCCO_PERMANANT:{return g.CuccoSpell2_Acquired>0; break;}
         case MainOption_RANDO_OPTIONS: {return true; break;}

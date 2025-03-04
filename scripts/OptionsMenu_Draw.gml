@@ -422,7 +422,7 @@ switch(Menu_in_focus)
             
             //case MainOption_HUD_STATE:         {_text2=_ar_STATE_TEXT1[sign(g.HUD_state)]; break;}
             //case MainOption_HUD_STATE:         {_text2=string(g.HUD_state); break;}
-            //case MainOption_RENDER_DELAY:      {_text2=_ar_STATE_TEXT1[sign(g.RenderFrameDelay_state)]; break;}
+            case MainOption_RENDER_DELAY:      {_text2=_ar_STATE_TEXT1[sign(global.RenderFrameDelay_state)]; break;}
             case MainOption_SCREEN_SHAKE:      {_text2=_ar_STATE_TEXT1[sign(g.ScreenShake_user_pref)]; break;}
             case MainOption_DIALOGUE_SPEED:    {_text2=string(g.mod_DLG_SPEED+1); break;}
             //case MainOption_SHOW_ACTIVE_SPELLS:{_text2=_ar_STATE_TEXT2[sign(g.mod_IndicateSpellActive)]; break;}

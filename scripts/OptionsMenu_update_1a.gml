@@ -255,11 +255,11 @@ switch(MainOption)
     
     // ---------------------------------------------------------
     // ---------------------------------------------------
-    //case MainOption_RENDER_DELAY:{
-    //g.RenderFrameDelay_state = !g.RenderFrameDelay_state;
-    ////g.RenderFrameDelay_timer = $48;
-    //save_game_pref();
-    //break;}
+    case MainOption_RENDER_DELAY:{
+    global.RenderFrameDelay_state = !global.RenderFrameDelay_state;
+    //global.RenderFrameDelay_timer = $48;
+    save_game_pref();
+    break;}
     
     
     

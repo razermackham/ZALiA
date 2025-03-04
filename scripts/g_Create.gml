@@ -191,11 +191,13 @@ GO_depth_init(DEPTH_BASE);
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
-//can_use_dev_tools1          = false;
-DevTools_state              = 0;
+//can_use_dev_tools1 = false;
+DevTools_state = 0;
 
-RenderFrameDelay_state      = 0;
-RenderFrameDelay_timer      = 0; // Display state when > 0
+// Frame Delay: An option that delays the game's render by 1 frame to simulate what I think happens in fceux.
+// Draws the state of the frame delay. -1: App will not include this option, 0: Don't draw the Frame Delay's state, 1: Draw the Frame Delay's state
+global.RenderFrameDelay_state = -1;
+global.RenderFrameDelay_timer =  0; // Display state when > 0
 
 view_update_order = 1; // 1: OG, 2: update after gob update
 
@@ -364,6 +366,11 @@ if (FileCleaning01_STATE)
 
 
 global.SceneRando_enabled = false;
+
+
+// CamZoom1: Simulate a resolution of 398.222.. x 224. Scale application surface by (VIEW_H_WD/VIEW_H_OG)..
+global.CamZoom1_state = -1; // -1: App will not include this option, 0/1: Off/On
+//global.CamZoom1_state = 1; // testing
 
 
 

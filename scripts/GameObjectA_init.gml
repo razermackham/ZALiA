@@ -341,6 +341,7 @@ if (g.mod_PC_CUCCO_1)
     Cucco_crouching_state     = 0; // 0:NOT crouching, 1:any crouch, 2:low crouch
     
     
+    /*
     // For charge stab skill
     Cucco_SPRITE_BODY1_BEAK = spr_chicken_1a_body_1a_1_WRB_Beak;
     Cucco_SPRITE_BODY2_BEAK = spr_chicken_1a_body_2a_1_v3_WRB_Beak;
@@ -350,6 +351,7 @@ if (g.mod_PC_CUCCO_1)
     Cucco_SPRITE_BODY6_BEAK = spr_chicken_1a_body_6a_1_WRB_Beak;
     Cucco_SPRITE_BODY7_BEAK = spr_chicken_1a_body_7a_1_WRB_Beak;
     Cucco_SPRITE_BODY8_BEAK = spr_chicken_1a_body_7b_1_WRB_Beak;
+    */
     
                    dg_Cucco_DISGUISE_SPRITES=ds_grid_create(0,2);
     ds_grid_resize(dg_Cucco_DISGUISE_SPRITES,ds_grid_width(dg_Cucco_DISGUISE_SPRITES)+1,2);

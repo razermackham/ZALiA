@@ -26,11 +26,17 @@ var _count = counter>>8;
 // TITLE ---------------------------------------
 if!(counter&$3) // every 4 frames
 {
-    if (_RESET)                story2_y = story_y;
-    if (_RESET)                title_y  = TITLE_Y_RESET; // ONE FRAME
+    if (_RESET)
+    {
+        story2_y = story_y;
+        title_y  = TITLE_Y_RESET;
+    }
     
-    if (_count>=SCROLL2_DELAY) title_y--;  // story scroll.  SCROLL2_DELAY=8
-    else if (title_y>0)        title_y--;  // title reveal scroll
+    if (_count>=SCROLL2_DELAY  // story scroll. SCROLL2_DELAY=8
+    ||  title_y>0 )            // title reveal scroll
+    {
+        title_y--;
+    }
 }
 
 
@@ -38,11 +44,10 @@ if!(counter&$3) // every 4 frames
 story_y = title_y + STORY_YOFF;
 
 if(!(counter&$3)  
-&&      story2_y<0 )
+&&  story2_y<0 )
 {
         story2_y--;
     if (story2_y+Story_H <= viewYT())
-    //if (story2_y+STORY_SPR_H <= viewYT())
     {   story2_y = viewYB();  }
 }
 

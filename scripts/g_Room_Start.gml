@@ -1854,7 +1854,6 @@ if (_ROOM_B1)
         cycle_num = 0;
         
         story_y  = TITLE_Y_START + STORY_YOFF;
-        story2_y =   story_y;
         title_y  = -(story_y + Story_H);
         //title_y  = -(story_y + STORY_SPR_H);
         

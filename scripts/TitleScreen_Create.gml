@@ -275,7 +275,6 @@ Story_H   = $E0;
 
 STORY_YOFF = HOME_Y + $90; // HOME_Y: $18 + $90 = $A8
 story_y    = TITLE_Y_START + STORY_YOFF; // $78 + $A8 = $120
-story2_y   = story_y;
 
 
 

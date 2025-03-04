@@ -28,8 +28,7 @@ if!(counter&$3) // every 4 frames
 {
     if (_RESET)
     {
-        story2_y = story_y;
-        title_y  = TITLE_Y_RESET;
+        title_y = TITLE_Y_RESET;
     }
     
     if (_count>=SCROLL2_DELAY  // story scroll. SCROLL2_DELAY=8
@@ -42,14 +41,6 @@ if!(counter&$3) // every 4 frames
 
 // STORY -----------------------------------------------------
 story_y = title_y + STORY_YOFF;
-
-if(!(counter&$3)  
-&&  story2_y<0 )
-{
-        story2_y--;
-    if (story2_y+Story_H <= viewYT())
-    {   story2_y = viewYB();  }
-}
 
 
 

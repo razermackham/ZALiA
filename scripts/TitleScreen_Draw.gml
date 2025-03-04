@@ -148,17 +148,10 @@ if(!surface_exists(Story_srf))
     surface_reset_target();
 }
 
-if (surface_exists(Story_srf))
+if (surface_exists(Story_srf) 
+&&  rectInView(x,story_y, Story_W,Story_H) )
 {
-    if (rectInView(x,story_y, Story_W,Story_H))
-    {
-        draw_surface(Story_srf, x,story_y);
-    }
-    
-    if (rectInView(x,story2_y, Story_W,Story_H))
-    {
-        draw_surface(Story_srf, x,story2_y);
-    }
+    draw_surface(Story_srf, x,story_y);
 }
 
 

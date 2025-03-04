@@ -16,7 +16,7 @@ depth = 0;
 
 HOME_X  = viewXC() - VIEW_W_OG_; // centered
 HOME_Y  = viewYB() - VIEW_H_OG;  // aligned to bottom
-HOME_Y += $10;
+HOME_Y += $10; // Because VIEW_H_OG used to erronously be 224 instead of 240
 
 x = HOME_X;
 y = HOME_Y;

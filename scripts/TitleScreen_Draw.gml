@@ -18,7 +18,7 @@ if(!surface_exists(dl_STAR_SKY[|0])) // 1st frame only
 {
     var _X1 = g.rm_w_ - VIEW_W_OG_;
     var _Y1 = g.rm_h  - VIEW_H_OG;
-    _Y1 += $10;
+    _Y1 += $10; // Because VIEW_H_OG used to erronously be 224 instead of 240
     
                  _count = ds_grid_width(dg_STAR_SKY);
     for(_i=0; _i<_count; _i++) // each star

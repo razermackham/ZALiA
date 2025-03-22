@@ -115,7 +115,12 @@ DURATION6 = $05; // 2024/07/14
 //DURATION6 = floor(DURATION1*($100/arena_w)); // Result is $0A
 //sdm("DURATION6 "+string(DURATION6)+", arena_w "+string(arena_w));
 
-attack_timer = $FF + irandom($FF); // For Attack2, Attack3
+// Minimum attack1 duration. For ver-2(PENDANT Carock).
+DURATION7 = $13F; // 2025/03/22
+//DURATION7 = $FF;
+// Added to attack1 duration but as a random number from 0-DURATION8
+DURATION8 = $FF;
+attack_timer = DURATION7 + irandom(DURATION8); // For Attack2, Attack3
 
 
                       _a=1;

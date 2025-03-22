@@ -343,7 +343,7 @@ switch(sub_state)
     
     Carock_update_1(); // Find and set new x
     
-    attack_timer    = Attack2_DURATION1 + irandom($FF); // For Attack2, Attack3
+    attack_timer = DURATION7 + irandom(DURATION8); // For Attack2, Attack3
     sub_state_timer = DURATION1; // DURATION1=$10
     sub_state       = sub_state_ATTACK_1A;
     break;}
@@ -397,7 +397,7 @@ switch(sub_state)
     
     Carock_update_1(); // Find and set new x
     
-    attack_timer    = $FF + irandom($FF); // For Attack2, Attack3
+    attack_timer = DURATION7 + irandom(DURATION8); // For Attack2, Attack3
     sub_state_timer = DURATION1; // DURATION1=$10
     sub_state       = sub_state_ATTACK_1A;
     break;}

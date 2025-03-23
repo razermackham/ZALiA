@@ -5,8 +5,8 @@
 
 with(f)
 {
-    var _C1 = xpPending > 0;            // XP Pending
-    var _C2 = xpDrain   > 0 && xp > 0;  // XP Drain
+    var _C1 = xpPending>0;       // XP Pending
+    var _C2 = xpDrain>0 && xp>0; // XP Drain
     
     if (_C1) // XP Pending
     {
@@ -55,8 +55,10 @@ with(f)
     
     
     // D4CE: JSR 968D       - Activate Level-up menu
+    // TODO: I doubt this OG code is necessary since update_menus() takes care of it. Test without this code to see if it's necessary.
     if(!g.gui_state 
-    &&  xp >= xpNext )
+    && !g.cutscene  // 2025/03/23. Added to prevent softlock during a cutscene
+    &&  xp>=xpNext )
     {
         g.gui_state = g.gui_state_LEVEL_UP;
     }

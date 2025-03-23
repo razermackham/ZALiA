@@ -45,19 +45,19 @@ switch(gui_state)
     // -----------------------------------------------------------------
     // -----------------------------------------------------------------
     case 0:{ //   -----------------------------------------
-    if (f.xp >= f.xpNext)
+    if (f.xp>=f.xpNext)
     {   // Open LevelUp Menu
         gui_state = gui_state_LEVEL_UP;
         break;
     }
     
     
-    if ( Input.Pause_held            // Start btn $10
-    && !(Input.heldPrev & Input.S) ) // Start btn $10
+    if ( Input.Pause_held          // Start btn $10
+    && !(Input.heldPrev&Input.S) ) // Start btn $10
     {   // Open Pause Menu
-        gui_state           = gui_state_PAUSE;
-        menu_state           = 1;
-        PAUSE_MENU.state    = PAUSE_MENU.ST_SPL;
+        gui_state = gui_state_PAUSE;
+        menu_state = 1;
+        PAUSE_MENU.state = PAUSE_MENU.ST_SPL;
     }
     break;}
     
@@ -69,7 +69,7 @@ switch(gui_state)
     // -----------------------------------------------------------------
     // -----------------------------------------------------------------
     case gui_state_PAUSE:{ // SPELL/ITEM/MAP  ----------------------------
-    if (pc_lock & PC_LOCK_MENU)
+    if (pc_lock&PC_LOCK_MENU)
     {
         gui_state = 0;
         menu_state = 0;

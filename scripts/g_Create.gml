@@ -432,8 +432,8 @@ Rando_RauruRiverDevil=true;
 
 
 
-global.RetroShaders_IS_LIVE       = false; // false disables all RetroShaders actions
-global.RetroShaders_enabled       = false;
+global.RetroShaders_IS_LIVE       = true; // false disables all RetroShaders actions
+global.RetroShaders_enabled       = true;
 global.RetroShaders_surface_scale = 1;
 if (global.RetroShaders_IS_LIVE)
 {

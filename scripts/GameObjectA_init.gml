@@ -171,11 +171,11 @@ switch(PCSkins_SYS_VER)
     //PC_init_add_spritesheet(spr_PCSkin_Crim_Rygar01,                         "Rygar",               "Crim");
     //PC_init_add_spritesheet(spr_PCSkin_Crim_LeeBrothers01,                   "Lee Brothers",        "Crim");
     //PC_init_add_spritesheet(spr_PCSkin_Glottal_Hepper01,                     "Hepper",              "Glottal");
-    //PC_init_add_spritesheet(spr_PCSkin_Irenepunmaster_Sonic01,                 "Sonic",               "Irenepunmaster");
+    //PC_init_add_spritesheet(spr_PCSkin_Irenepunmaster_Shadow01,              "Shadow",              "Irenepunmaster");
     
-    //PC_init_add_spritesheet(spr_PCSkin_Broomietunes_Gail01,                    "Gail",                "Broomietunes");
-    //PC_init_add_spritesheet(spr_PCSkin_MisterMike_Ganondorf01,                 "Ganondorf",           "MisterMike");
-    //PC_init_add_spritesheet(spr_PCSkin_Debilitante_Jason01,                    "Jason",               "Debilitante");
+    //PC_init_add_spritesheet(spr_PCSkin_Broomietunes_Gail01,                  "Gail",                "Broomietunes");
+    //PC_init_add_spritesheet(spr_PCSkin_MisterMike_Ganondorf01,               "Ganondorf",           "MisterMike");
+    //PC_init_add_spritesheet(spr_PCSkin_Debilitante_Jason01,                  "Jason",               "Debilitante");
     break;}
     
     

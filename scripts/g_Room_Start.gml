@@ -923,7 +923,17 @@ if (_ROOM_A)
 
 
 // -------------------------------------------------------------------------
-if (_ROOM_A)
+if (_ROOM_C)
+{   // 2025/03/23. A falling scene from the overworld will draw cucco if pc was cucco in the last scene
+    spells_active = 0;
+    
+    if (mod_PC_CUCCO_1 
+    &&  CuccoSpell2_Acquired 
+    &&  CuccoSpell2_Active 
+    &&  CuccoSpell2_Option )
+    {   spells_active |= SPL_FARY;  }
+}
+else if (_ROOM_A)
 {
     if (coming_from != coming_from_RM_A  // NOT coming from a      rmA
     ||  rm_name     != _rm_name_PREV )   //     coming from a diff rmA 

@@ -432,17 +432,6 @@ Rando_RauruRiverDevil=true;
 
 
 
-global.RetroShaders_IS_LIVE       = true; // false disables all RetroShaders actions
-global.RetroShaders_enabled       = true;
-global.RetroShaders_surface_scale = 1;
-if (global.RetroShaders_IS_LIVE)
-{
-    global.RetroShaders_surface_scale = 1;
-    //global.RetroShaders_surface_scale = 2;
-}
-global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
-
-
 
 // --------------------------------------------------------------------------
 // The first room determines if wide view is used.
@@ -477,6 +466,20 @@ VIEW_PORT_W = view_wview[0] * VIEW_PORT_SCALE;
 VIEW_PORT_H = view_hview[0] * VIEW_PORT_SCALE;
 view_wport[0] = VIEW_PORT_W;
 view_hport[0] = VIEW_PORT_H;
+
+
+
+global.RetroShaders_IS_LIVE       = true; // false disables all RetroShaders actions
+global.RetroShaders_enabled       = true;
+global.RetroShaders_surface_scale = 1;
+if (global.RetroShaders_IS_LIVE)
+{
+    //global.RetroShaders_surface_scale = 1;
+    global.RetroShaders_surface_scale = 4;
+}
+global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
+
+
 
 
 WINDOW_PAD = $40;

@@ -1,31 +1,34 @@
 /// CloudCover1_init()
 
 
-var _i,_j, _a, _x,_y, _datakey;
+var _i,_j, _a, _x,_y, _depth, _datakey;
 
 
 scr_update   = CloudCover1_update;
 scr_draw     = CloudCover1_draw;
 scr_inst_end = CloudCover1_end;
 
-GO_depth_init(g.DEPTH_CLOUD);
-//GO_depth_init(DEPTH_BG8+$08);
 GO_init_palidx(PI_CLOUD_1); // 
 //palidx_permut = 5;
 
+_depth = g.DEPTH_CLOUD;
 
 if(!is_undefined(dk_spawn))
 {   _datakey =   dk_spawn+STR_Data;               _a=0;
     if(!is_undefined( g.dm_rm[?_datakey+hex_str(++_a)]))
     {   palidx_permut=g.dm_rm[?_datakey+hex_str(  _a)];  }
     
-    if(!is_undefined( g.dm_rm[?_datakey+hex_str(++_a)]))
-    {   GO_depth_init(g.dm_rm[?_datakey+hex_str(  _a)]);  }
+    if(!is_undefined(mg.dm_rm[?_datakey+hex_str(++_a)]))
+    {   _depth =     g.dm_rm[?_datakey+hex_str(  _a)];  }
+    //{   GO_depth_init(g.dm_rm[?_datakey+hex_str(  _a)]);  }
     
     if(!is_undefined( g.dm_rm[?_datakey+hex_str(++_a)]))
     {   DRAW_YOFF +=  g.dm_rm[?_datakey+hex_str(  _a)];  }
 }
 //GO_pal_idx_init(palidx_def); // 
+
+_depth = max(_depth, DEPTH_HUD+1);
+GO_depth_init(_depth);
 
 
 CloudSpr1         = g.CloudLarge1_SPR1;

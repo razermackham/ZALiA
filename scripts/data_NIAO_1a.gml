@@ -1,4 +1,4 @@
-/// data_NIAO_1a(instance key, xy data, version, init scr, *pal idx, *data..)
+/// data_NIAO_1a(instance key, xy data, version, init scr, *pal idx, *data, ..)
 
 
 // xy data example $1352: x = ($1352&$FF)<<3, y = ($1352>>8)<<3

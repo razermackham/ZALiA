@@ -1879,7 +1879,8 @@ data_spawn(rm+STR_PRIO,ItmE0,$1,  ($1A<<3)+3,y3); // Magic Jar (Full)
 //   --------------------------  3B  ---------------------------  
 //    End Game Credits
 rm_num  = $3B;
-set_rm_data(area+hex_str(rm_num), dk_WakeZelda, STR_Tile+area_WA+'059', STR_ow_axis+'00', STR_OWRC+hex_str(val(g.dm_rm[?rm+STR_OWRC])), MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
+set_rm_data(area+hex_str(rm_num), dk_WakeZelda, STR_Tile+area_WA+'059', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
+//set_rm_data(area+hex_str(rm_num), dk_WakeZelda, STR_Tile+area_WA+'059', STR_ow_axis+'00', STR_OWRC+hex_str(val(g.dm_rm[?rm+STR_OWRC])), MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
 g.GameEnd1B_RM_NAME = rm_name;
 
 
@@ -1918,7 +1919,8 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  _val+EXL0_); // RG
 //   --------------------------  3C  ---------------------------  
 //    Upper North Castle Hallway
 rm_num  = $3C;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'01', STR_Tile+area_WA+'047', STR_ow_axis+'00', STR_OWRC+hex_str(val(g.dm_rm[?rm+STR_OWRC])), MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'01', STR_Tile+area_WA+'047', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
+//set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'01', STR_Tile+area_WA+'047', STR_ow_axis+'00', STR_OWRC+hex_str(val(g.dm_rm[?rm+STR_OWRC])), MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
 
 
 row3=row0+$07; y3=row3<<3;

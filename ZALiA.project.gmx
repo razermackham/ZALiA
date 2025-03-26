@@ -11896,6 +11896,7 @@
       <script>scripts\window_set_scale.gml</script>
       <script>scripts\window_get_scale.gml</script>
       <script>scripts\draw_view_og_outline.gml</script>
+      <script>scripts\CamZoom_test1.gml</script>
     </scripts>
     <scripts name="tile">
       <script>scripts\scene_enter_add_tiles.gml</script>

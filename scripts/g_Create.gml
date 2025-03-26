@@ -489,7 +489,8 @@ Fullscreen_KEY      = ord("F");
 
 WindowScale_changed = false;
 WindowScale_KEY     = ord("G");
-WindowScale_MIN     = global.RetroShaders_surface_scale;
+WindowScale_MIN     = 1;
+//WindowScale_MIN     = global.RetroShaders_surface_scale;
 //WindowScale_MIN     = 2;
 WindowScale_scale   = max(WindowScale_MIN, 4);
 

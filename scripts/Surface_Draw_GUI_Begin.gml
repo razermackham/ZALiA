@@ -1,6 +1,9 @@
 /// Surface_Draw_GUI_Begin()
 
 
+CamZoom_test1();
+
+
 var _qualifies = global.RetroShaders_IS_LIVE && global.RetroShaders_enabled;
 if (_qualifies)
 {

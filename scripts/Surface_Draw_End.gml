@@ -1,39 +1,17 @@
 /// Surface_Draw_End()
 
 
-var _CAN_UPDATE_FRAME = can_update_frame();
-
-
-x = view_xview[0];
-y = view_yview[0];
-
-
-
-
-if (_CAN_UPDATE_FRAME)
+if (can_update_frame_)
 {
     if (g.FallScene_timer>2)
     {
         draw_falling_scene();
     }
-    else
-    {
-        if (g.ChangeRoom_timer>0 
-        ||  is_exiting_rm() 
-        ||  is_exiting_ow() )
-        {   // Draw screen a solid color
-            draw_clear_color = p.dl_COLOR[|p.background_color_index];
-        }
-    }
     
-    // clear the entire screen with any one color
+    // clear the entire screen with any color
     if (draw_clear_color!=-1)
     {
         draw_clear(draw_clear_color);
-    }
-    else
-    {
-        //DEPTH_FG8
     }
     
     draw_clear_color = -1;
@@ -42,48 +20,52 @@ if (_CAN_UPDATE_FRAME)
 
 
 
-if (_CAN_UPDATE_FRAME 
-&&  g.MaskWideView )
+
+
+
+
+if (can_update_frame_ 
+&&  g.MaskWideView 
+&&  g.MaskWideView_w>0 )
 {
-    // 0: Off
-    // 1: Draw masks. Waiting for the start animation cue
-    // 2: Draw and animate masks
-    switch(g.MaskWideView)
-    {
-        case 1:{
-        with(TitleScreen)
-        {
-            if(!(counter&$3) 
-            &&  title_y>0 )
-            {
-                g.MaskWideView = 2; // 2: play animation
-                break;//with(TitleScreen)
-            }
-        }
-        break;}//case 1
-        
-        
-        case 2:{ // 2: play animation
-        g.MaskWideView_w = max(g.MaskWideView_w-.25, 0);
-        break;}//case 2
-    }//switch(g.MaskWideView)
-    
-    
-    if (g.MaskWideView_w>0)
-    {
-        draw_sprite_(spr_1x1_WHT,0, viewXL(),                 viewYT(), -1, g.MaskWideView_w,viewH(), p.C_BLK1);
-        draw_sprite_(spr_1x1_WHT,0, viewXR()-g.MaskWideView_w,viewYT(), -1, g.MaskWideView_w,viewH(), p.C_BLK1);
-    }
-    else
-    {
-        g.MaskWideView = 0;
-    }
+    draw_sprite_(spr_1x1_WHT,0, viewXL(),                 viewYT(), -1, g.MaskWideView_w,viewH(), c_black);
+    draw_sprite_(spr_1x1_WHT,0, viewXR()-g.MaskWideView_w,viewYT(), -1, g.MaskWideView_w,viewH(), c_black);
 }
 
 
 
 
-if (_CAN_UPDATE_FRAME)
+
+
+
+
+if (can_update_frame_)
+{
+    if (ScreenShake_surf_xl!=0 
+    ||  ScreenShake_surf_yt!=0 )
+    {
+        var          _SURF = surface_create(application_surface_w,application_surface_h);
+        surface_copy(_SURF, 0,0, application_surface);
+        
+        if (global.application_surface_draw_enable_state)
+        {
+            draw_clear_alpha(c_black,0);
+            draw_surface(_SURF, ScreenShake_surf_xl,ScreenShake_surf_yt);
+        }
+        else
+        {
+            surface_set_target(_SURF);
+            draw_clear_alpha(c_black,0);
+            draw_surface(application_surface, ScreenShake_surf_xl,ScreenShake_surf_yt);
+            surface_reset_target();
+            surface_copy(application_surface, 0,0, _SURF);
+        }
+        
+        surface_free(_SURF);
+    }
+}
+/*
+if (can_update_frame_)
 {
     if (g.ScreenShake_user_pref 
     &&  g.ScreenShake_timer )
@@ -136,6 +118,7 @@ if (_CAN_UPDATE_FRAME)
         g.ScreenShake_strength_y = 0;
     }
 }
+*/
 
 
 
@@ -160,7 +143,17 @@ if (_CAN_UPDATE_FRAME)
 // ---------------------------------------------------------
 
 
-// Rando Key Stats, Rando Hints
+// Rando Key Stats
+if (can_draw_keys)
+{
+    draw_key_stats();
+}
+// Rando Hints
+if (can_draw_hints)
+{
+    draw_rando_hints();
+}
+/*
 if (g.room_type=="A" 
 &&  g.gui_state==g.gui_state_PAUSE 
 &&  g.PAUSE_MENU.state&$3!=g.PAUSE_MENU.ST_MAP )
@@ -183,6 +176,7 @@ if (g.room_type=="A"
         draw_rando_hints();
     }
 }
+*/
 
 
 
@@ -200,14 +194,10 @@ dev_draw_app_paused_icon();
 dev_draw_app_frame_count();
 
 // Draw the app version
-if (keyboard_check(vk_f8))
+if (AppVersion_can_draw)
 {
-    var _TEXT = "V-"+GM_version;
-    var _XL = viewXL()+8;
-    var _YT = viewYT()+8;
-    var _PAD = $1;
-    draw_sprite_(spr_1x1_WHT,0, _XL,_YT, -1, (string_length(_TEXT)<<8)+(_PAD<<1), 8+(_PAD<<1), c_black);
-    draw_text_(_XL+_PAD,_YT+_PAD, _TEXT);
+    draw_sprite_(spr_1x1_WHT,0, AppVersion_xl,AppVersion_yt, -1, (string_length(AppVersion_TEXT)<<8)+(AppVersion_PAD<<1), 8+(AppVersion_PAD<<1), c_black);
+    draw_text_(AppVersion_xl+AppVersion_PAD, AppVersion_yt+AppVersion_PAD, AppVersion_TEXT);
 }
 
 

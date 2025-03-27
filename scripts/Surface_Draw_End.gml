@@ -1,39 +1,17 @@
 /// Surface_Draw_End()
 
 
-var _CAN_UPDATE_FRAME = can_update_frame();
-
-
-x = view_xview[0];
-y = view_yview[0];
-
-
-
-
-if (_CAN_UPDATE_FRAME)
+if (can_update_frame_)
 {
     if (g.FallScene_timer>2)
     {
         draw_falling_scene();
     }
-    else
-    {
-        if (g.ChangeRoom_timer>0 
-        ||  is_exiting_rm() 
-        ||  is_exiting_ow() )
-        {   // Draw screen a solid color
-            draw_clear_color = p.dl_COLOR[|p.background_color_index];
-        }
-    }
     
-    // clear the entire screen with any one color
+    // clear the entire screen with any color
     if (draw_clear_color!=-1)
     {
         draw_clear(draw_clear_color);
-    }
-    else
-    {
-        //DEPTH_FG8
     }
     
     draw_clear_color = -1;
@@ -42,99 +20,16 @@ if (_CAN_UPDATE_FRAME)
 
 
 
-if (_CAN_UPDATE_FRAME 
-&&  g.MaskWideView )
+
+
+
+
+if (can_update_frame_ 
+&&  g.MaskWideView 
+&&  g.MaskWideView_w>0 )
 {
-    // 0: Off
-    // 1: Draw masks. Waiting for the start animation cue
-    // 2: Draw and animate masks
-    switch(g.MaskWideView)
-    {
-        case 1:{
-        with(TitleScreen)
-        {
-            if(!(counter&$3) 
-            &&  title_y>0 )
-            {
-                g.MaskWideView = 2; // 2: play animation
-                break;//with(TitleScreen)
-            }
-        }
-        break;}//case 1
-        
-        
-        case 2:{ // 2: play animation
-        g.MaskWideView_w = max(g.MaskWideView_w-.25, 0);
-        break;}//case 2
-    }//switch(g.MaskWideView)
-    
-    
-    if (g.MaskWideView_w>0)
-    {
-        draw_sprite_(spr_1x1_WHT,0, viewXL(),                 viewYT(), -1, g.MaskWideView_w,viewH(), p.C_BLK1);
-        draw_sprite_(spr_1x1_WHT,0, viewXR()-g.MaskWideView_w,viewYT(), -1, g.MaskWideView_w,viewH(), p.C_BLK1);
-    }
-    else
-    {
-        g.MaskWideView = 0;
-    }
-}
-
-
-
-
-if (_CAN_UPDATE_FRAME)
-{
-    if (g.ScreenShake_user_pref 
-    &&  g.ScreenShake_timer )
-    {
-        g.ScreenShake_timer--;
-        
-        
-        if (g.ScreenShake_strength_x)
-        {   g.ScreenShake_xoff = (irandom(g.ScreenShake_strength_x-1)+1) * choose(1,-1);  }
-        
-        if (g.ScreenShake_strength_y)
-        {   g.ScreenShake_yoff = (irandom(g.ScreenShake_strength_y-1)+1) * choose(1,-1);  }
-        
-        if (g.ScreenShake_xoff!=0 
-        ||  g.ScreenShake_yoff!=0 )
-        {
-            var _W = surface_get_width( application_surface);
-            var _H = surface_get_height(application_surface);
-            var          _SURF = surface_create(_W,_H);
-            surface_copy(_SURF, 0,0, application_surface);
-            
-            if (global.application_surface_draw_enable_state)
-            {
-                draw_clear_alpha(c_black,0);
-                draw_surface(_SURF, viewXL()+g.ScreenShake_xoff, viewYT()+g.ScreenShake_yoff);
-            }
-            else
-            {
-                surface_set_target(_SURF);
-                draw_clear_alpha(c_black,0);
-                var _XL = g.ScreenShake_xoff*(_W div BASE_GAME_RESOLUTION_W);
-                var _YT = g.ScreenShake_yoff*(_H div BASE_GAME_RESOLUTION_H);
-                draw_surface(application_surface, _XL,_YT);
-                surface_reset_target();
-                surface_copy(application_surface, 0,0, _SURF);
-            }
-            
-            surface_free(_SURF);
-            
-            g.ScreenShake_xoff = 0;
-            g.ScreenShake_yoff = 0;
-        }
-    }
-    else
-    {
-        g.ScreenShake_timer      = 0;
-        g.ScreenShake_xoff       = 0;
-        g.ScreenShake_yoff       = 0;
-        g.ScreenShake_strength_x = 0;
-        g.ScreenShake_strength_y = 0;
-    }
+    draw_sprite_(spr_1x1_WHT,0, viewXL(),                 viewYT(), -1, g.MaskWideView_w,viewH(), c_black);
+    draw_sprite_(spr_1x1_WHT,0, viewXR()-g.MaskWideView_w,viewYT(), -1, g.MaskWideView_w,viewH(), c_black);
 }
 
 
@@ -144,87 +39,30 @@ if (_CAN_UPDATE_FRAME)
 
 
 
-
-if (global.CamZoom1_state 
-&&  room_is_type("A") )
+if (can_update_frame_)
 {
-    //var _SCALE0 = 0.9;
-    var _SCALE0 = VIEW_H_OG/VIEW_H_WD;
-    var _SCALE1 = 1 + (1-_SCALE0);
-    var _H0 = VIEW_H_WD * _SCALE0;
-    var _H0_ = floor(_H0/2) + (frac(_H0/2)!=0);
-    var _W0 = VIEW_W_WD * _SCALE0;
-    var _W0_ = floor(_W0/2) + (frac(_W0/2)!=0);
-    
-    var _x_origin = g.view_xc_og;
-         if (g.view_lock_rm&$2) _x_origin = viewXL();
-    else if (g.view_lock_rm&$1) _x_origin = viewXR();
-    else
+    if (ScreenShake_surf_xl!=0 
+    ||  ScreenShake_surf_yt!=0 )
     {
-        var _x_min = cam_xl_min();
-        if (g.view_xc_og<=_x_min+_W0_ 
-        &&  g.view_at_rm_edge&$2 )
-        {
-            _x_min = viewXL();
-        }
-        _x_min += _W0_;
+        var          _SURF = surface_create(application_surface_w,application_surface_h);
+        surface_copy(_SURF, 0,0, application_surface);
         
-        var _x_max = cam_xr_max();
-        if (g.view_xc_og>=_x_max-_W0_ 
-        &&  g.view_at_rm_edge&$1 )
+        if (global.application_surface_draw_enable_state)
         {
-            _x_max = viewXR();
+            draw_clear_alpha(c_black,0);
+            draw_surface(_SURF, ScreenShake_surf_xl,ScreenShake_surf_yt);
         }
-        //if (g.view_at_rm_edge&$1) _x_max = viewXR();
-        _x_max -= _W0_;
-        _x_origin = clamp(g.view_xc_og, _x_min,_x_max);
-    }
-    _x_origin -= x;
-    
-    var _y_origin = g.view_yc_og;
-         if (g.view_lock_rm&$4) _y_origin = viewYB();
-    else if (g.view_lock_rm&$8) _y_origin = viewYT();
-    else
-    {
-        var _y_min = cam_yt_min();
-        if (g.view_yc_og<=_y_min+_H0_ 
-        &&  g.view_at_rm_edge&$8 )
+        else
         {
-            _y_min = viewYT();
+            surface_set_target(_SURF);
+            draw_clear_alpha(c_black,0);
+            draw_surface(application_surface, ScreenShake_surf_xl,ScreenShake_surf_yt);
+            surface_reset_target();
+            surface_copy(application_surface, 0,0, _SURF);
         }
-        _y_min += _H0_;
         
-        var _y_max = cam_yb_max();
-        if (g.view_yc_og>=_y_max-_H0_ 
-        &&  g.view_at_rm_edge&$4 )
-        {
-            _y_max = viewYB();
-        }
-        //if (g.view_at_rm_edge&$4) _y_max = viewYB();
-        _y_max -= _H0_;
-        _y_origin = clamp(g.view_yc_og, _y_min,_y_max);
+        surface_free(_SURF);
     }
-    _y_origin -= y;
-    //if (keyboard_check_pressed(vk_f7)) sdm("_SCALE0 "+string(_SCALE0)+", _SCALE1 "+string(_SCALE1)+", _W0 "+string_format(_W0,1,$10)+", _W0_ "+string(_W0_)+", _H0 "+string_format(_H0,1,$10)+", _H0_ "+string(_H0_)+", g.view_lock_rm $"+hex_str(g.view_lock_rm)+", g.view_at_rm_edge $"+hex_str(g.view_at_rm_edge)+", _x_origin "+string(_x_origin)+", _y_origin "+string(_y_origin));
-    
-    /*
-    var _SPRITE = sprite_create_from_surface(application_surface, 0,0, surface_get_width(application_surface),surface_get_height(application_surface), false,false, _x_origin,_y_origin);
-    draw_sprite_ext(_SPRITE,0, x+_x_origin,y+_y_origin, _SCALE1,_SCALE1, 0,c_white,1);
-    sprite_delete(_SPRITE);
-    */
-    ///*
-    var _SPRITE = sprite_create_from_surface(application_surface, 0,0, surface_get_width(application_surface),surface_get_height(application_surface), false,false, _x_origin,_y_origin);
-    var _SURF1 = surface_create(surface_get_width(application_surface),surface_get_height(application_surface));
-    surface_set_target(_SURF1);
-    draw_clear_alpha(c_black,0);
-    draw_sprite_ext(_SPRITE,0, _x_origin,_y_origin, _SCALE1,_SCALE1, 0,c_white,1);
-    //draw_surface_stretched(application_surface, _xl,_yt, surface_get_width(application_surface)*_SCALE,surface_get_height(application_surface)*_SCALE);
-    surface_reset_target();
-    //draw_surface(_SURF1, x,y);
-    surface_copy(application_surface, 0,0, _SURF1);
-    surface_free(_SURF1);
-    sprite_delete(_SPRITE);
-    //*/
 }
 
 
@@ -240,28 +78,15 @@ if (global.CamZoom1_state
 // ---------------------------------------------------------
 
 
-// Rando Key Stats, Rando Hints
-if (g.room_type=="A" 
-&&  g.gui_state==g.gui_state_PAUSE 
-&&  g.PAUSE_MENU.state&$3!=g.PAUSE_MENU.ST_MAP )
+// Rando Key Stats
+if (can_draw_keys)
 {
-    var _KEYS_REQUESTED = keyboard_check(vk_f4) || Input.GP_Face4_held; // GP_Face4_held, GP_Other2_held (xbox Y)
-    var _HINT_REQUESTED = keyboard_check(vk_f3) || Input.GP_Face2_held; // GP_Face2_held, GP_Other1_held (xbox B)
-    
-    if (_KEYS_REQUESTED 
-    && !_HINT_REQUESTED 
-    &&  val(f.dm_rando[?STR_Randomize+STR_Key+STR_Locations]) )
-    {
-        draw_key_stats();
-    }
-    
-    
-    if (_HINT_REQUESTED 
-    && !_KEYS_REQUESTED 
-    &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
-    {
-        draw_rando_hints();
-    }
+    draw_key_stats();
+}
+// Rando Hints
+if (can_draw_hints)
+{
+    draw_rando_hints();
 }
 
 
@@ -280,14 +105,10 @@ dev_draw_app_paused_icon();
 dev_draw_app_frame_count();
 
 // Draw the app version
-if (keyboard_check(vk_f8))
+if (AppVersion_can_draw)
 {
-    var _TEXT = "V-"+GM_version;
-    var _XL = viewXL()+8;
-    var _YT = viewYT()+8;
-    var _PAD = $1;
-    draw_sprite_(spr_1x1_WHT,0, _XL,_YT, -1, (string_length(_TEXT)<<8)+(_PAD<<1), 8+(_PAD<<1), c_black);
-    draw_text_(_XL+_PAD,_YT+_PAD, _TEXT);
+    draw_sprite_(spr_1x1_WHT,0, AppVersion_xl,AppVersion_yt, -1, (string_length(AppVersion_TEXT)<<8)+(AppVersion_PAD<<1), 8+(AppVersion_PAD<<1), c_black);
+    draw_text_(AppVersion_xl+AppVersion_PAD, AppVersion_yt+AppVersion_PAD, AppVersion_TEXT);
 }
 
 

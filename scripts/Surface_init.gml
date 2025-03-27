@@ -28,9 +28,53 @@ y = 0;
 
 timer = 0;
 
+can_update_frame_ = false;
+
 
 srf_frame_curr = 0;
 srf_frame_prev = 0;
+
+ScreenShake_surf_xl = 0;
+ScreenShake_surf_yt = 0;
+
+application_surface_w = surface_get_width( application_surface);
+application_surface_h = surface_get_height(application_surface);
+
+can_draw_hints = false;
+can_draw_keys  = false;
+
+AppVersion_can_draw = false;
+AppVersion_TEXT     = "V-"+GM_version;;
+AppVersion_xl       = 0;
+AppVersion_yt       = 0;
+AppVersion_PAD      = 1;
+
+
+
+
+RetroShaders_can_draw = false;
+RetroShaders_u_dist_x = 0.00;
+RetroShaders_u_dist_y = 0.00;
+RetroShaders_u_pixel_scale_x = 0.00;
+RetroShaders_u_pixel_scale_y = 0.00;
+
+RetroShaders_SaturationBrightness_can_draw = false;
+RetroShaders_Saturation_amount = 0;
+RetroShaders_Brightness_amount = 0;
+
+RetroShaders_Scanlines_can_draw = false;
+RetroShaders_Scanlines_line_height = 0;
+
+RetroShaders_Bloom_can_draw = false;
+
+RetroShaders_Blur_can_draw = false;
+RetroShaders_Blur_VER = 2;
+
+
+
+
+Window_w = window_get_width();
+Window_h = window_get_height();
 
 
 

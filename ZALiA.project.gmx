@@ -13481,6 +13481,7 @@
     <scripts name="surface">
       <script>scripts\Surface_Game_End.gml</script>
       <script>scripts\Surface_init.gml</script>
+      <script>scripts\Surface_Step.gml</script>
       <script>scripts\Surface_Draw_End.gml</script>
       <script>scripts\Surface_Draw_GUI_Begin.gml</script>
       <script>scripts\debug_draw_data.gml</script>
@@ -14567,8 +14568,8 @@
       <object>objects\Dev_RmWarper</object>
       <object>objects\RandoDebug01</object>
     </objects>
-    <object>objects\Surface</object>
     <object>objects\GraphicsEffectsEditor</object>
+    <object>objects\Surface</object>
   </objects>
   <rooms name="rooms">
     <rooms name="rmB">

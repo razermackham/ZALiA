@@ -64,71 +64,6 @@ if (can_update_frame_)
         surface_free(_SURF);
     }
 }
-/*
-if (can_update_frame_)
-{
-    if (g.ScreenShake_user_pref 
-    &&  g.ScreenShake_timer )
-    {
-        g.ScreenShake_timer--;
-        
-        
-        if (g.ScreenShake_strength_x)
-        {   g.ScreenShake_xoff = (irandom(g.ScreenShake_strength_x-1)+1) * choose(1,-1);  }
-        
-        if (g.ScreenShake_strength_y)
-        {   g.ScreenShake_yoff = (irandom(g.ScreenShake_strength_y-1)+1) * choose(1,-1);  }
-        
-        if (g.ScreenShake_xoff!=0 
-        ||  g.ScreenShake_yoff!=0 )
-        {
-            var _W = surface_get_width( application_surface);
-            var _H = surface_get_height(application_surface);
-            var          _SURF = surface_create(_W,_H);
-            surface_copy(_SURF, 0,0, application_surface);
-            
-            if (global.application_surface_draw_enable_state)
-            {
-                draw_clear_alpha(c_black,0);
-                draw_surface(_SURF, viewXL()+g.ScreenShake_xoff, viewYT()+g.ScreenShake_yoff);
-            }
-            else
-            {
-                surface_set_target(_SURF);
-                draw_clear_alpha(c_black,0);
-                var _XL = g.ScreenShake_xoff*(_W div BASE_GAME_RESOLUTION_W);
-                var _YT = g.ScreenShake_yoff*(_H div BASE_GAME_RESOLUTION_H);
-                draw_surface(application_surface, _XL,_YT);
-                surface_reset_target();
-                surface_copy(application_surface, 0,0, _SURF);
-            }
-            
-            surface_free(_SURF);
-            
-            g.ScreenShake_xoff = 0;
-            g.ScreenShake_yoff = 0;
-        }
-    }
-    else
-    {
-        g.ScreenShake_timer      = 0;
-        g.ScreenShake_xoff       = 0;
-        g.ScreenShake_yoff       = 0;
-        g.ScreenShake_strength_x = 0;
-        g.ScreenShake_strength_y = 0;
-    }
-}
-*/
-
-
-
-
-
-
-
-
-
-//CamZoom_test1();
 
 
 
@@ -153,30 +88,6 @@ if (can_draw_hints)
 {
     draw_rando_hints();
 }
-/*
-if (g.room_type=="A" 
-&&  g.gui_state==g.gui_state_PAUSE 
-&&  g.PAUSE_MENU.state&$3!=g.PAUSE_MENU.ST_MAP )
-{
-    var _KEYS_REQUESTED = keyboard_check(vk_f4) || Input.GP_Face4_held; // GP_Face4_held, GP_Other2_held (xbox Y)
-    var _HINT_REQUESTED = keyboard_check(vk_f3) || Input.GP_Face2_held; // GP_Face2_held, GP_Other1_held (xbox B)
-    
-    if (_KEYS_REQUESTED 
-    && !_HINT_REQUESTED 
-    &&  val(f.dm_rando[?STR_Randomize+STR_Key+STR_Locations]) )
-    {
-        draw_key_stats();
-    }
-    
-    
-    if (_HINT_REQUESTED 
-    && !_KEYS_REQUESTED 
-    &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
-    {
-        draw_rando_hints();
-    }
-}
-*/
 
 
 

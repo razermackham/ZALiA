@@ -8,7 +8,7 @@ var _i,_j, _x0,_x,_y;
 
 for(_i=CloudLayers_COUNT-1; _i>=0; _i--)
 {
-    pal_swap_set(p.palette_image, dg_CloudLayers[#_i,7], false);
+    pal_swap_set(p.palette_image, dg_CloudLayers[#_i,7]);
     _x0 = dg_CloudLayers[#_i,2];
     _y  = dg_CloudLayers[#_i,3]+DRAW_YOFF;
     for(_j=0; _j<CloudSpr1_COUNT_X; _j++)

@@ -50,29 +50,6 @@ AppVersion_yt       = 0;
 AppVersion_PAD      = 1;
 
 
-
-
-RetroShaders_can_draw = false;
-RetroShaders_u_dist_x = 0.00;
-RetroShaders_u_dist_y = 0.00;
-RetroShaders_u_pixel_scale_x = 0.00;
-RetroShaders_u_pixel_scale_y = 0.00;
-
-RetroShaders_SaturationBrightness_can_draw = false;
-RetroShaders_Saturation_amount = 0;
-RetroShaders_Brightness_amount = 0;
-
-RetroShaders_Scanlines_can_draw = false;
-RetroShaders_Scanlines_line_height = 0;
-
-RetroShaders_Bloom_can_draw = false;
-
-RetroShaders_Blur_can_draw = false;
-RetroShaders_Blur_VER = 2;
-
-
-
-
 Window_w = window_get_width();
 Window_h = window_get_height();
 
@@ -110,6 +87,29 @@ if (RoomPreview_VER)
 
 
 //global.application_surface_draw_enable_STATE = true;
+RetroShaders_can_draw = false;
+RetroShaders_u_dist_x = 0.00;
+RetroShaders_u_dist_y = 0.00;
+RetroShaders_u_pixel_scale_x = 0.00;
+RetroShaders_u_pixel_scale_y = 0.00;
+
+RetroShaders_SaturationBrightness_can_draw = false;
+RetroShaders_Saturation_amount = 0;
+RetroShaders_Brightness_amount = 0;
+
+RetroShaders_Scanlines_can_draw = false;
+RetroShaders_Scanlines_line_height = 0;
+
+RetroShaders_Bloom_can_draw = false;
+
+RetroShaders_Blur_can_draw = false;
+RetroShaders_Blur_VER = 2;
+
+shd_SaturationBrightness_IS_COMPILED = false;
+shd_ScanLines01_IS_COMPILED          = false;
+shd_Bloom01_IS_COMPILED              = false;
+shd_Blur01_IS_COMPILED               = false;
+shd_Blur02_IS_COMPILED               = false;
 
 if (global.RetroShaders_IS_LIVE 
 &&  shaders_are_supported() )

@@ -167,32 +167,37 @@ if (AppVersion_can_draw)
 
 
 
-    RetroShaders_can_draw = global.RetroShaders_IS_LIVE && global.RetroShaders_enabled;
-if (RetroShaders_can_draw)
+
+if (global.RetroShaders_IS_LIVE 
+&&  shaders_are_supported() )
 {
-    RetroShaders_can_draw =  (shd_SaturationBrightness_IS_COMPILED && (GEE.dg_Saturation[#GEE.Saturation_ENABLE,$5] || GEE.dg_Brightness[#GEE.Brightness_ENABLE,$5])) 
-                         ||  (shd_ScanLines01_IS_COMPILED          &&  GEE.dg_Scanlines[# GEE.Scanlines_ENABLE, $5]) 
-                         ||  (shd_Bloom01_IS_COMPILED              &&  GEE.dg_Bloom[#     GEE.Bloom_ENABLE,     $5]) 
-                         ||  (shd_Blur01_IS_COMPILED               &&  GEE.dg_Blur[#      GEE.Blur_ENABLE,      $5])
-                         ||  (shd_Blur02_IS_COMPILED               &&  GEE.dg_Blur[#      GEE.Blur_ENABLE,      $5]);
+        RetroShaders_can_draw = global.RetroShaders_IS_LIVE && global.RetroShaders_enabled;
+    if (RetroShaders_can_draw)
+    {
+        RetroShaders_can_draw =  (shd_SaturationBrightness_IS_COMPILED && (GEE.dg_Saturation[#GEE.Saturation_ENABLE,$5] || GEE.dg_Brightness[#GEE.Brightness_ENABLE,$5])) 
+                             ||  (shd_ScanLines01_IS_COMPILED          &&  GEE.dg_Scanlines[# GEE.Scanlines_ENABLE, $5]) 
+                             ||  (shd_Bloom01_IS_COMPILED              &&  GEE.dg_Bloom[#     GEE.Bloom_ENABLE,     $5]) 
+                             ||  (shd_Blur01_IS_COMPILED               &&  GEE.dg_Blur[#      GEE.Blur_ENABLE,      $5])
+                             ||  (shd_Blur02_IS_COMPILED               &&  GEE.dg_Blur[#      GEE.Blur_ENABLE,      $5]);
+    }
+    
+    RetroShaders_u_dist_x = 1.0/application_surface_w;
+    RetroShaders_u_dist_y = 1.0/application_surface_h;
+    RetroShaders_u_pixel_scale_x = Window_w/application_surface_w;
+    RetroShaders_u_pixel_scale_y = Window_h/application_surface_h;
+    
+    RetroShaders_SaturationBrightness_can_draw = shd_SaturationBrightness_IS_COMPILED && (GEE.dg_Saturation[#GEE.Saturation_ENABLE,$5] || GEE.dg_Brightness[#GEE.Brightness_ENABLE,$5]);
+    RetroShaders_Saturation_amount = GEE.dg_Saturation[#GEE.Saturation_EDIT,$5]*(GEE.dg_Saturation[#GEE.Saturation_ENABLE,$5]>0);
+    RetroShaders_Brightness_amount = GEE.dg_Brightness[#GEE.Brightness_EDIT,$5]*(GEE.dg_Brightness[#GEE.Brightness_ENABLE,$5]>0);
+    
+    RetroShaders_Scanlines_can_draw = shd_ScanLines01_IS_COMPILED && GEE.dg_Scanlines[#GEE.Scanlines_ENABLE,$5];
+    RetroShaders_Scanlines_line_height = max(1.0, global.RetroShaders_surface_scale/2.0);
+    
+    RetroShaders_Bloom_can_draw = shd_Bloom01_IS_COMPILED && GEE.dg_Bloom[#GEE.Bloom_ENABLE,$5];
+    
+    RetroShaders_Blur_can_draw  = GEE.dg_Blur[#GEE.Blur_ENABLE,$5];
+    RetroShaders_Blur_can_draw &= (RetroShaders_Blur_VER==1 && shd_Blur01_IS_COMPILED) || (RetroShaders_Blur_VER==2 && shd_Blur02_IS_COMPILED);
 }
-
-RetroShaders_u_dist_x = 1.0/application_surface_w;
-RetroShaders_u_dist_y = 1.0/application_surface_h;
-RetroShaders_u_pixel_scale_x = Window_w/application_surface_w;
-RetroShaders_u_pixel_scale_y = Window_h/application_surface_h;
-
-RetroShaders_SaturationBrightness_can_draw = shd_SaturationBrightness_IS_COMPILED && (GEE.dg_Saturation[#GEE.Saturation_ENABLE,$5] || GEE.dg_Brightness[#GEE.Brightness_ENABLE,$5]);
-RetroShaders_Saturation_amount = GEE.dg_Saturation[#GEE.Saturation_EDIT,$5]*(GEE.dg_Saturation[#GEE.Saturation_ENABLE,$5]>0);
-RetroShaders_Brightness_amount = GEE.dg_Brightness[#GEE.Brightness_EDIT,$5]*(GEE.dg_Brightness[#GEE.Brightness_ENABLE,$5]>0);
-
-RetroShaders_Scanlines_can_draw = shd_ScanLines01_IS_COMPILED && GEE.dg_Scanlines[#GEE.Scanlines_ENABLE,$5];
-RetroShaders_Scanlines_line_height = max(1.0, global.RetroShaders_surface_scale/2.0);
-
-RetroShaders_Bloom_can_draw = shd_Bloom01_IS_COMPILED && GEE.dg_Bloom[#GEE.Bloom_ENABLE,$5];
-
-RetroShaders_Blur_can_draw  = GEE.dg_Blur[#GEE.Blur_ENABLE,$5];
-RetroShaders_Blur_can_draw &= (RetroShaders_Blur_VER==1 && shd_Blur01_IS_COMPILED) || (RetroShaders_Blur_VER==2 && shd_Blur02_IS_COMPILED);
 
 
 

@@ -1,22 +1,21 @@
-/// pal_swap_set(palette_sprite_index, palette_index, palette is surface);
+/// pal_swap_set(palette_sprite_index, palette_index);
 
 
 // ------------------------------------------------------------
 if(!global.use_pal_swap)
 {
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 if(!argument[1] 
 ||  argument[1]>=global.palette_image_W )
 {
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 if (global.palette_image_IS_SURFACE)
 {    if(!surface_exists(argument[0])) exit;  } // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-else if(!sprite_exists( argument[0])) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//if(!sprite_exists( argument[0])) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+else if(!sprite_exists( argument[0])) exit;    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
@@ -28,7 +27,7 @@ var _Palette_INDEX = argument[1];
 
 
 if (global.palette_image_IS_SURFACE) var _tex = surface_get_texture(_Palette_IMAGE);
-else                                 var _tex =  sprite_get_texture(_Palette_IMAGE, 0);
+else                                 var _tex = sprite_get_texture( _Palette_IMAGE, 0);
 texture_set_stage(            global.Pal_Texture, _tex);
 texture_set_interpolation_ext(global.Pal_Texture, 1)
 
@@ -40,7 +39,6 @@ var _texel_hy = _texel_y * 0.5;
 
 
 if (global.palette_image_IS_SURFACE)
-//if(argument[2])
 {   // palette is surface
     var _val0 =           _texel_hx;
     var _val1 =           _texel_hy;

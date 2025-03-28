@@ -113,7 +113,7 @@ if (can_draw_self)
 
 
 // Projectile Rain ------------------------------------------
-pal_swap_set(p.palette_image, ProjRain_PI, false);
+pal_swap_set(p.palette_image, ProjRain_PI);
 for(_i=ds_grid_width(dg_ProjRain)-1; _i>=0; _i--)
 {
     if(!dg_ProjRain[#_i,$4]) continue;

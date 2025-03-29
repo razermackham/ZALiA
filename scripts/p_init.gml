@@ -515,10 +515,10 @@ BGR_PAL_COUNT = 4;
 MOB_PAL_COUNT = 4;
 
 PAL_PER_SET   = 1; // PAL BASE
-PAL_PER_SET  += 1; // MENU PAL
+PAL_PER_SET  += 4; // MENU PALS
 PAL_PER_SET  += PC_PAL_COUNT; // PC PAL
 PAL_PER_SET  += PC_PAL_COUNT; // CUCCO PAL
-PAL_PER_SET  += 1; // DARKLONK PAL
+//PAL_PER_SET  += 1; // DARKLONK PAL
 PAL_PER_SET  += BGR_PAL_COUNT;
 PAL_PER_SET  += MOB_PAL_COUNT;
 
@@ -760,11 +760,14 @@ PAL_POS_BASE = 1;
 
 var         _dl_PI = ds_list_create();
 ds_list_add(_dl_PI, PI_GUI_1);
+ds_list_add(_dl_PI, PI_GUI_2);
+ds_list_add(_dl_PI, PI_GUI_3);
+ds_list_add(_dl_PI, PI_GUI_4);
 for(_i=0; _i<PC_PAL_COUNT; _i++) ds_list_add(_dl_PI, PI_PC_1+_i);
 for(_i=0; _i<PC_PAL_COUNT; _i++) ds_list_add(_dl_PI, PI_CUC1+_i);
 //ds_list_add(_dl_PI, PI_PC_1);
 //                              // 
-ds_list_add(_dl_PI, PI_DARKLONK);
+//ds_list_add(_dl_PI, PI_DARKLONK); //(PI_DARKLONK + 1)
 //                              // 
 ds_list_add(_dl_PI, PI_BGR_1);
 ds_list_add(_dl_PI, PI_BGR_2);
@@ -795,7 +798,10 @@ for(_i=0; _i<_count; _i++)
 ds_list_destroy(_dl_PI); _dl_PI=undefined;
 
 
-PAL_POS_MENU = val(dm_pal_data[?hex_str(PI_GUI_1)  +_dk_Palette_Position], get_pal_pos(PI_GUI_1  ));
+PAL_POS_GUI1 = val(dm_pal_data[?hex_str(PI_GUI_1)  +_dk_Palette_Position], get_pal_pos(PI_GUI_1  ));
+PAL_POS_GUI2 = val(dm_pal_data[?hex_str(PI_GUI_2)  +_dk_Palette_Position], get_pal_pos(PI_GUI_2  ));
+PAL_POS_GUI3 = val(dm_pal_data[?hex_str(PI_GUI_3)  +_dk_Palette_Position], get_pal_pos(PI_GUI_3  ));
+PAL_POS_GUI4 = val(dm_pal_data[?hex_str(PI_GUI_4)  +_dk_Palette_Position], get_pal_pos(PI_GUI_4  ));
 //                                                                                              // 
 PAL_POS_PC_1 = val(dm_pal_data[?hex_str(PI_PC_1)   +_dk_Palette_Position], get_pal_pos(PI_PC_1   )); // Tunic (Green)
 PAL_POS_PC_2 = val(dm_pal_data[?hex_str(PI_PC_2)   +_dk_Palette_Position], get_pal_pos(PI_PC_2   )); // Spell flash (Light)
@@ -804,7 +810,7 @@ PAL_POS_CUC1 = val(dm_pal_data[?hex_str(PI_CUC1)   +_dk_Palette_Position], get_p
 PAL_POS_CUC2 = val(dm_pal_data[?hex_str(PI_CUC2)   +_dk_Palette_Position], get_pal_pos(PI_CUC2   )); // Spell flash (Light)
 PAL_POS_CUC3 = val(dm_pal_data[?hex_str(PI_CUC3)   +_dk_Palette_Position], get_pal_pos(PI_CUC3   )); // Disguise
 //                                                                                              // 
-PAL_POS_DLNK = val(dm_pal_data[?hex_str(PI_DARKLONK)+_dk_Palette_Position], get_pal_pos(PI_DARKLONK));
+//PAL_POS_DLNK = val(dm_pal_data[?hex_str(PI_DARKLONK)+_dk_Palette_Position], get_pal_pos(PI_DARKLONK));
 //                                                                                              // 
 PAL_POS_BGR1 = val(dm_pal_data[?hex_str(PI_BGR_1)  +_dk_Palette_Position], get_pal_pos(PI_BGR_1  ));
 PAL_POS_BGR2 = val(dm_pal_data[?hex_str(PI_BGR_2)  +_dk_Palette_Position], get_pal_pos(PI_BGR_2  ));
@@ -817,7 +823,10 @@ PAL_POS_MOB3 = val(dm_pal_data[?hex_str(PI_MOB_BLU)+_dk_Palette_Position], get_p
 PAL_POS_MOB4 = val(dm_pal_data[?hex_str(PI_MOB_PUR)+_dk_Palette_Position], get_pal_pos(PI_MOB_PUR));
 //                                                                                              // 
 //                                                                                              // 
-PAL_POS_MENU_DARK = PAL_POS_MENU + (COL_PER_SET<<1);
+PAL_POS_GUI1_DARK = PAL_POS_GUI1 + (COL_PER_SET<<1);
+PAL_POS_GUI2_DARK = PAL_POS_GUI2 + (COL_PER_SET<<1);
+PAL_POS_GUI3_DARK = PAL_POS_GUI3 + (COL_PER_SET<<1);
+PAL_POS_GUI4_DARK = PAL_POS_GUI4 + (COL_PER_SET<<1);
 //                                                                                              // 
 PAL_POS_PC_1_DARK = PAL_POS_PC_1 + (COL_PER_SET<<1);
 PAL_POS_PC_2_DARK = PAL_POS_PC_2 + (COL_PER_SET<<1);
@@ -826,7 +835,7 @@ PAL_POS_CUC1_DARK = PAL_POS_CUC1 + (COL_PER_SET<<1);
 PAL_POS_CUC2_DARK = PAL_POS_CUC2 + (COL_PER_SET<<1);
 PAL_POS_CUC3_DARK = PAL_POS_CUC3 + (COL_PER_SET<<1);
 //                                                                                              // 
-PAL_POS_DLNK_DARK = PAL_POS_DLNK + (COL_PER_SET<<1);
+//PAL_POS_DLNK_DARK = PAL_POS_DLNK + (COL_PER_SET<<1);
 //                                                                                              // 
 PAL_POS_BGR1_DARK = PAL_POS_BGR1 + (COL_PER_SET<<1);
 PAL_POS_BGR2_DARK = PAL_POS_BGR2 + (COL_PER_SET<<1);
@@ -841,19 +850,6 @@ PAL_POS_MOB4_DARK = PAL_POS_MOB4 + (COL_PER_SET<<1);
 //                                                                                              // 
 //PAL_POS_PC_SWORD = get_pal_pos(PI_PC_SWORD);
 //                                                                                              // 
-/*
-PAL_POS_MENU = val(dm_pal_data[?hex_str(PI_GUI_1)  +_dk_Palette_Position], PAL_POS_BASE+(PI_GUI_1  *COL_PER_PAL));
-PAL_POS_BGR1 = val(dm_pal_data[?hex_str(PI_BGR_1)  +_dk_Palette_Position], PAL_POS_BASE+(PI_BGR_1  *COL_PER_PAL));
-PAL_POS_BGR2 = val(dm_pal_data[?hex_str(PI_BGR_2)  +_dk_Palette_Position], PAL_POS_BASE+(PI_BGR_2  *COL_PER_PAL));
-PAL_POS_BGR3 = val(dm_pal_data[?hex_str(PI_BGR_3)  +_dk_Palette_Position], PAL_POS_BASE+(PI_BGR_3  *COL_PER_PAL));
-PAL_POS_BGR4 = val(dm_pal_data[?hex_str(PI_BGR_4)  +_dk_Palette_Position], PAL_POS_BASE+(PI_BGR_4  *COL_PER_PAL));
-
-PAL_POS_PC_1 = val(dm_pal_data[?hex_str(PI_PC_1)   +_dk_Palette_Position], PAL_POS_BASE+(PI_PC_1   *COL_PER_PAL));
-PAL_POS_MOB1 = val(dm_pal_data[?hex_str(PI_MOB_ORG)+_dk_Palette_Position], PAL_POS_BASE+(PI_MOB_ORG*COL_PER_PAL));
-PAL_POS_MOB2 = val(dm_pal_data[?hex_str(PI_MOB_RED)+_dk_Palette_Position], PAL_POS_BASE+(PI_MOB_RED*COL_PER_PAL));
-PAL_POS_MOB3 = val(dm_pal_data[?hex_str(PI_MOB_BLU)+_dk_Palette_Position], PAL_POS_BASE+(PI_MOB_BLU*COL_PER_PAL));
-PAL_POS_MOB4 = val(dm_pal_data[?hex_str(PI_MOB_PUR)+_dk_Palette_Position], PAL_POS_BASE+(PI_MOB_PUR*COL_PER_PAL));
-*/
 
 
 
@@ -878,10 +874,11 @@ PAL_POS_MOB4 = val(dm_pal_data[?hex_str(PI_MOB_PUR)+_dk_Palette_Position], PAL_P
 _ci1 = CI_BLK1_;
 
 PAL_BASE = hex_str(CI_GRN0)+hex_str(CI_TONE_HGH)+hex_str(CI_TONE_MID)+hex_str(CI_TONE_LOW); // Base colors. Green, White, Red, Blue
-//PAL_BASE = "3E"+ "0E"+ "2E"+ "1E"; // Base colors. Green, White, Red, Blue
-PAL_MENU = _ci1 + CI_WHT1_ + CI_RED3_ + CI_VLT3_; // Menu. $30-White, $16-Red, $12-Blue
-//PAL_MENU = CI_GRN0_ + CI_WHT1_ + CI_RED3_ + CI_VLT3_; // Menu. $30-White, $16-Red, $12-Blue
-PAL_SET1 = PAL_BASE + PAL_MENU;
+PAL_GUI1 = _ci1 + CI_WHT1_ + CI_RED3_ + CI_VLT3_; // $30-White, $16-Red, $12-Blue
+PAL_GUI2 = _ci1 + CI_GRY1_ + CI_GRY4_ + CI_BLK1_; // Greyed gui text
+PAL_GUI3 = _ci1 + CI_BLK1_ + CI_BLK1_ + CI_BLK1_; // 
+PAL_GUI4 = _ci1 + CI_BLK1_ + CI_BLK1_ + CI_BLK1_; // 
+PAL_SET1 = PAL_BASE + PAL_GUI1 + PAL_GUI2 + PAL_GUI3 + PAL_GUI4;
 
 //                    H          M          S
 PAL_PC_1 = _ci1 + CI_RED1_ + CI_GRN2_ + CI_YLW3_; // Tunic Green.   Normal
@@ -930,8 +927,10 @@ PAL_SET_CUC2 = PAL_SET_PC_2;                    // Cucco palettes DARK
 PAL_SET_PC_A = PAL_SET_PC_1 + PAL_SET_PC_0 + PAL_SET_CUC1 + PAL_SET_CUC0; // RM LIT
 PAL_SET_PC_B = PAL_SET_PC_2 + PAL_SET_PC_0 + PAL_SET_CUC2 + PAL_SET_CUC0; // RM DARK
 
-PAL_SET2 = PAL_SET1 + PAL_SET_PC_A + PAL_DL_1;
-PAL_SET3 = PAL_SET1 + PAL_SET_PC_B + PAL_DL_1;
+PAL_SET2 = PAL_SET1 + PAL_SET_PC_A;
+PAL_SET3 = PAL_SET1 + PAL_SET_PC_B;
+//PAL_SET2 = PAL_SET1 + PAL_SET_PC_A + PAL_DL_1;
+//PAL_SET3 = PAL_SET1 + PAL_SET_PC_B + PAL_DL_1;
 
 
 
@@ -951,7 +950,7 @@ ds_list_add(dl_pal_pc, PAL_CUC2); // Cucco Tunic Red
 ds_list_add(dl_pal_pc, PAL_CUC3); // Cucco Tunic Lvl3
 ds_list_add(dl_pal_pc, PAL_CUC5); // Disguise
 //                                //
-ds_list_add(dl_pal_pc, PAL_DL_1); // Darklonk
+//ds_list_add(dl_pal_pc, PAL_DL_1); // Darklonk
 //                                //
 // $0D-$0F.  Reserved for future possibilities
 //// $0B-$0F.  Reserved for future possibilities
@@ -975,7 +974,7 @@ ds_list_add(dl_pal_pc, dl_pal_pc[|$10]); // Cucco Tunic Green
 ds_list_add(dl_pal_pc, dl_pal_pc[|$11]); // Cucco Tunic Red
 ds_list_add(dl_pal_pc, dl_pal_pc[|$12]); // Cucco Tunic Lvl3
 //                                //
-ds_list_add(dl_pal_pc, PAL_DL_1); // Darklonk
+//ds_list_add(dl_pal_pc, PAL_DL_1); // Darklonk
 //                                //
 
 

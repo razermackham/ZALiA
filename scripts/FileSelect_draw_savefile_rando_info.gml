@@ -643,7 +643,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
             case RandoOTHER_ITEMS_item_cursor_MAP2:   {_dk=STR_MAP2;    _pi=PI_MOB_ORG; break;}
             }
             
-            if!(_ITEMS&val(g.dm_ITEM[?_dk+STR_Bit])) _pi=PI_DARKLONK;
+            if!(_ITEMS&val(g.dm_ITEM[?_dk+STR_Bit])) _pi=PI_GUI_2;
             
             
             _sprite=val(g.dm_ITEM[?_dk+STR_Sprite], spr_Torch_1a);
@@ -669,7 +669,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         _x  = _xl0;
             _count = val(_dm_FILE[?STR_File+STR_Start+STR_Container+STR_HP], f.CONT_MIN_HP);
         if (_count>f.CONT_MIN_HP) _pi=PI_MOB_RED;
-        else                      _pi=PI_DARKLONK;
+        else                      _pi=PI_GUI_2;
         
         _sprite=spr_Item_Heart_container_1d;
         _w = sprite_get_width(_sprite);
@@ -692,7 +692,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         _x += $9;
             _count = val(_dm_FILE[?STR_File+STR_Start+STR_Container+STR_MP], f.CONT_MIN_MP);
         if (_count>f.CONT_MIN_MP) _pi=PI_MOB_ORG;
-        else                      _pi=PI_DARKLONK;
+        else                      _pi=PI_GUI_2;
         
         _sprite=spr_Item_Magic_container_1d;
         _w = sprite_get_width(_sprite);
@@ -715,7 +715,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         _x += $B;
             _count = val(_dm_FILE[?STR_File+STR_Start+STR_Dolls]);
         if (_count) _pi=PI_PC_1;
-        else        _pi=PI_DARKLONK;
+        else        _pi=PI_GUI_2;
         
         _sprite=val(g.dm_ITEM[?STR_1UP+STR_Sprite], spr_Torch_1a);
         _w = sprite_get_width(_sprite);

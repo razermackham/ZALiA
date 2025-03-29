@@ -45,7 +45,7 @@ if (f.items&ITM_FTHR)
     //_x = Window_spell_menu_window_xl + (Window_w>>1);
     _y = Window_yb - $C;
     
-    if(!g.DoubleJump_state) _pi = PI_DARKLONK;
+    if(!g.DoubleJump_state) _pi = PI_GUI_2;
     else                    _pi = PI_MOB_ORG;
     draw_sprite_(_spr,0, _x,_y, _pi, -1,-1, c_white,1, 90);
 }

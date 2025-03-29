@@ -9,8 +9,8 @@ var _datakey1;
 var _char_w = 8;
 var _char_h = 8;
 
-var _PI_DARK1=get_pi(PI_DARKLONK,3);
-var _PI_DARK2=PI_DARKLONK;
+var _PI_DARK1=get_pi(PI_GUI_2,3);
+var _PI_DARK2=PI_GUI_2;
 
 var _FONT_SPRITE1 = spr_Font1;
 var _FONT_SPRITE2 = spr_Font2;

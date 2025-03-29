@@ -50,7 +50,7 @@ pal_swap_reset();
 for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
 {
     if (_dl_CAN_COLOR_FILE[|_i]) _pi = PI_MENU;
-    else                         _pi = PI_DARKLONK;
+    else                         _pi = PI_GUI_2;
     _text = f.ar_save_names[_i];
     _x = saveNameX;
     _y = saveNameY + (SAVE_FILE_PAD*_i);
@@ -262,7 +262,7 @@ if (state)
     for(_i=0; _i<SAVE_FILE_MAX; _i++)
     {
         if (_dl_CAN_COLOR_FILE[|_i]) _pi = PI_PC_1;
-        else                         _pi = PI_DARKLONK;
+        else                         _pi = PI_GUI_2;
         _x = doll_x;
         _y = doll_y + (SAVE_FILE_PAD*_i) + 1;
         draw_sprite_(SPR_DOLL,0, _x,_y, _pi);

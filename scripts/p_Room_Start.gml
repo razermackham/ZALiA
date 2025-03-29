@@ -476,7 +476,7 @@ pal_rm_dark_idx = clamp(pal_rm_dark_idx, -1, ds_grid_width(dg_pal_rm_dark)-1);
 if(!is_undefined(pal_rm_def) 
 //&&  is_undefined(pal_rm_file)  // ** Keep this here in case you use dark pal from file in the future.
 &&  pal_rm_dark_idx+1 
-&&  g.rm_brightness < g.RM_BRIGHTNESS_MAX )
+&&  g.rm_brightness<g.RM_BRIGHTNESS_MAX )
 {
     _idx = clamp(g.rm_brightness, 0, ds_grid_height(dg_pal_rm_dark)-1);
     

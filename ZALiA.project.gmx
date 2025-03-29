@@ -15530,14 +15530,14 @@
     <constant name="PI_GUI_2">(PI_GUI_1 + 1)</constant>
     <constant name="PI_GUI_3">(PI_GUI_2 + 1)</constant>
     <constant name="PI_GUI_4">(PI_GUI_3 + 1)</constant>
-    <constant name="PI_PC_1">(PI_GUI_1 + 1)</constant>
+    <constant name="PI_PC_1">(PI_GUI_4 + 1)</constant>
     <constant name="PI_PC_3">(PI_PC_1 + PC_PAL_COUNT1)</constant>
     <constant name="PI_PC_2">(PI_PC_3 + 1)</constant>
     <constant name="PI_CUC1">(PI_PC_2 + PC_PAL_COUNT2)</constant>
     <constant name="PI_CUC3">(PI_CUC1 + PC_PAL_COUNT1)</constant>
     <constant name="PI_CUC2">(PI_CUC3 + 1)</constant>
     <constant name="PI_DARKLONK">(PI_CUC2 + PC_PAL_COUNT2)</constant>
-    <constant name="PI_BGR_1">(PI_DARKLONK + 1)</constant>
+    <constant name="PI_BGR_1">(PI_CUC2 + PC_PAL_COUNT2)</constant>
     <constant name="PI_BGR_2">(PI_BGR_1 + 1)</constant>
     <constant name="PI_BGR_3">(PI_BGR_2 + 1)</constant>
     <constant name="PI_BGR_4">(PI_BGR_3 + 1)</constant>

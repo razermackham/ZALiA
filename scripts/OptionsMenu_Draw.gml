@@ -505,7 +505,7 @@ switch(Menu_in_focus)
         
         if (InputConfigState==InputConfigState_EDITING 
         &&  _i!=InputConfigOption )
-        {    _pi = PI_DARKLONK;  }
+        {    _pi = PI_GUI_2;  }
         else _pi = PI_MENU;
         
         draw_text_(_x,_y, _text, _font, _pi);

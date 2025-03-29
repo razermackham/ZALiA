@@ -84,6 +84,7 @@ if (g.canDrawPalette)
     draw_rect(_COLOR1, _x-1,_y-1, (_w0*_SCALE2)+2, (_H1*_SCALE2)+2);
     if (global.palette_image_IS_SURFACE) draw_surface_part_ext(p.palette_image,   _x0,0, _w0,_H1, _x,_y, _SCALE2,_SCALE2, c_white,1);
     else                                 draw_sprite_part_ext( p.palette_image,0, _x0,0, _w0,_H1, _x,_y, _SCALE2,_SCALE2, c_white,1);
+    /*
     // DarkLonk
     _x  += _w0*_SCALE2;
     _x  += _PAD;
@@ -92,7 +93,7 @@ if (g.canDrawPalette)
     draw_rect(_COLOR1, _x-1,_y-1, (_w0*_SCALE2)+2, (_H1*_SCALE2)+2);
     if (global.palette_image_IS_SURFACE) draw_surface_part_ext(p.palette_image,   _x0,0, _w0,_H1, _x,_y, _SCALE2,_SCALE2, c_white,1);
     else                                 draw_sprite_part_ext( p.palette_image,0, _x0,0, _w0,_H1, _x,_y, _SCALE2,_SCALE2, c_white,1);
-    
+    */
     // Lonk (dark room)
     _x  += _w0*_SCALE2;
     _x  += _PAD<<1;
@@ -109,6 +110,7 @@ if (g.canDrawPalette)
     draw_rect(_COLOR1, _x-1,_y-1, (_w0*_SCALE2)+2, (_H1*_SCALE2)+2);
     if (global.palette_image_IS_SURFACE) draw_surface_part_ext(p.palette_image,   _x0,0, _w0,_H1, _x,_y, _SCALE2,_SCALE2, c_white,1);
     else                                 draw_sprite_part_ext( p.palette_image,0, _x0,0, _w0,_H1, _x,_y, _SCALE2,_SCALE2, c_white,1);
+    /*
     // DarkLonk (dark room)
     _x  += _w0*_SCALE2;
     _x  += _PAD;
@@ -117,7 +119,7 @@ if (g.canDrawPalette)
     draw_rect(_COLOR1, _x-1,_y-1, (_w0*_SCALE2)+2, (_H1*_SCALE2)+2);
     if (global.palette_image_IS_SURFACE) draw_surface_part_ext(p.palette_image,   _x0,0, _w0,_H1, _x,_y, _SCALE2,_SCALE2, c_white,1);
     else                                 draw_sprite_part_ext( p.palette_image,0, _x0,0, _w0,_H1, _x,_y, _SCALE2,_SCALE2, c_white,1);
-    
+    */
     
     
     // ----------------------------------------------------------------

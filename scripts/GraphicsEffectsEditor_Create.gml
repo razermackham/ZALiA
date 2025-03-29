@@ -26,7 +26,7 @@ dg_menu_idx = -1;
 
 
 PI_MENU  = PI_GUI_1;
-PI_DARK1 = PI_DARKLONK;
+PI_DARK1 = PI_GUI_2;
 
 
 

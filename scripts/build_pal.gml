@@ -24,7 +24,7 @@ with(p)
         argument[      _COUNT1]  = string(argument[_COUNT1]);
          _return +=           string_copy(argument[_COUNT1],1,_COUNT2);
     }
-    else _return += PAL_MENU;
+    else _return += PAL_GUI1+PAL_GUI2+PAL_GUI3+PAL_GUI4;
     
     
     var _len = string_length(_return);

@@ -8,8 +8,8 @@ var _text, _type;
 var _item, _item_found;
 
 var _pi, _color;
-var _PI_FOUND1=get_pi(PI_DARKLONK,3);
-var _PI_FOUND2=PI_DARKLONK;
+var _PI_FOUND1=get_pi(PI_GUI_2,3);
+var _PI_FOUND2=PI_GUI_2;
 
 var _FOUND_COUNT = string_length(_FOUND_NUMS)>>1;
 

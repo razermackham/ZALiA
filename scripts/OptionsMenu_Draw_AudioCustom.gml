@@ -5,7 +5,7 @@ var _i,_j, _idx, _val, _count, _size, _state;
 var _x,_y, _x0,_y0, _x1,_y1, _x2,_y2;
 var _dk, _set;
 var _sprite, _pi, _color,_color1;
-var _PI_DARK1=get_pi(PI_DARKLONK,3);
+var _PI_DARK1=get_pi(PI_GUI_2,3);
 //var _GREY_COLOR1 = p.C_GRY1;
 var _tsrc, _ts_x,_ts_y;
 var _font, _text;

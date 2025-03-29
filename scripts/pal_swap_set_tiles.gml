@@ -1,4 +1,4 @@
-/// pal_swap_set_tiles(palette sprite or surface, pal index, start layer, end layer, pal is surface);
+/// pal_swap_set_tiles(palette sprite or surface, pal index, start layer, end layer);
 
 // Call this every step you want to draw the tiles palette swapped.  
 // Stop calling it, or set the pal index to 0 to stop palette swapping.
@@ -20,18 +20,7 @@ var _is_surface = global.palette_image_IS_SURFACE;
 if (_is_surface)
 {    if(!surface_exists(argument[0])) exit;  } // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 else if(!sprite_exists( argument[0])) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-/*
-if (argument[4]){ // if is surface
-    if(!surface_exists(argument[0])){
-        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    }
-}
-else{            // if is sprite
-    if(!sprite_exists( argument[0])){
-        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    }
-}
-*/
+
 
 
 
@@ -45,8 +34,6 @@ if (_low<_high){ //You passed the arguments in backwards, nimrod.
     _low        = argument[3]-1;
     _high       = argument[2]+1;
 }
-
-//var _is_surface = argument[4];
 
 
 

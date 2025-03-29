@@ -6,8 +6,8 @@ var _dk;
 
 var _text, _pi;
 var _char_w=8;
-var _PI_DARK1=get_pi(PI_DARKLONK,3);
-var _PI_DARK2=PI_DARKLONK;
+var _PI_DARK1=get_pi(PI_GUI_2,3);
+var _PI_DARK2=PI_GUI_2;
 
 var _RANDO_ACTIVE = FileSelect_Rando_is_on(-1);
 

@@ -35,8 +35,8 @@ timer2=0;
 
 
 PI_MENU  = PI_GUI_1;
-PI_DARK1 = get_pi(PI_DARKLONK,1);
-PI_DARK2 = get_pi(PI_DARKLONK,3);
+PI_DARK1 = get_pi(PI_GUI_2,1);
+PI_DARK2 = get_pi(PI_GUI_2,3);
 
 OpenClose_Key_KEY = ord("O");
 OpenClose_Key_pressed = false;

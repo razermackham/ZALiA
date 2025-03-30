@@ -620,7 +620,8 @@ if (_C1 || _C2 || _C3 || _C4)
                 if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
                 {
                     dm_data[?hex_str(_owrc)+STR_River_Devil+STR_State] = 1;
-                    dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm_data[?STR_Rando+STR_River_Devil+STR_TSRC], $D8);
+                    dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm_data[?STR_Rando+STR_River_Devil+STR_TSRC]);
+                    //dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm_data[?STR_Rando+STR_River_Devil+STR_TSRC], $D8);
                     dg_solid[#byte(_owrc>>0),byte(_owrc>>8)] = 1;
                 }
             }

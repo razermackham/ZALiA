@@ -18,14 +18,21 @@ if(!_SCALE_Y) _Y += g.overworld.T_SIZE;
 
 
 var _tsrc  = _TILE_DATA-1; // Tiled app adds 1 so it can't be 0
-    _tsrc &=   $3FFFFFFF; // truncate the scale xy data
+    _tsrc &= $3FFFFFFF;    // truncate the scale xy data
     _tsrc  = abs(_tsrc);
 //
-if!((_tsrc>>8)&$FF) var _TS = ts_Overworld_anark02;
-else                var _TS = ts_Overworld_anark01;
+switch((_tsrc>>8)&$FF)
+{
+    default:{var _TS=ts_Overworld_anark01; break;}
+    case  0:{var _TS=ts_Overworld_anark02; break;}
+    case  1:{var _TS=ts_Overworld_anark01; break;}
+    case  2:{var _TS=ts_OverworldAnim01;   break;}
+}
+//if!((_tsrc>>8)&$FF) var _TS = ts_Overworld_anark02;
+//else                var _TS = ts_Overworld_anark01;
 //var _IDX = ((_tsrc>>8)&$FF) == 0; // 0: ts_Overworld_anark02, 1: ts_Overworld_anark01
 //var _TS  = g.overworld.dl_anarkhya_ts[|_IDX];
-_tsrc&=$FF;
+_tsrc &= $FF;
 
 
 var _TILE_ID = tile_change_3a(g.overworld.T_SIZE, _TS,_tsrc, _X,_Y, _DEPTH, _CHANGE);

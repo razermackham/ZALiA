@@ -5,7 +5,7 @@ var _i,_j;
 var _x,_y, _x_base,_y_base;
 var _clm,_row, _clms,_rows;
 var _grid_x2,_grid_y2, _grid_x2_base,_grid_y2_base;
-var _tsrc, _ts_x,_ts_y;
+var _tile_data, _tsrc, _ts_x,_ts_y;
 
 
 // Calculate 4x4 cell grid
@@ -57,22 +57,18 @@ for(_i=0; _i<_rows; _i++) // each row (4x4 tiles)
         _grid_y2 = _grid_y2_base + _i;
         
         // (_grid_xy2>>2): _grid_xy2's 16x16 owrc
-            _tsrc  = g.overworld.dg_tsrc[#_grid_x2>>2, _grid_y2>>2];
-            _tsrc &= $FF;
-        if (_tsrc == TSRC_WATE02 
-        && !(f.items&ITM_BOOT) )
-        {
-            _tsrc  = TSRC_WATE01;
-        }
+        _tile_data = g.overworld.dg_tsrc[#_grid_x2>>2, _grid_y2>>2];
+        _tsrc = _tile_data&$FF;
         
         _ts_x  = ((_tsrc>>0) &$F) <<4;  // Tileset's 16x16 tile's left
         _ts_y  = ((_tsrc>>4) &$F) <<4;  // Tileset's 16x16 tile's top
         _ts_x += ((_grid_x2  &$3) <<2); // add num of 4x4 units (times 4 pixels) to left
         _ts_y += ((_grid_y2  &$3) <<2); // add num of 4x4 units (times 4 pixels) to top
         
-        _x     = _x_base + (_j<<2);
-        _y     = _y_base + (_i<<2);
-        draw_background_part(g.overworld.TILESET1, _ts_x,_ts_y, 4,4, _x,_y);
+        _x = _x_base + (_j<<2);
+        _y = _y_base + (_i<<2);
+        draw_background_part(g.dl_tileset[|(_tile_data>>8)&$FF], _ts_x,_ts_y, 4,4, _x,_y);
+        //draw_background_part(g.overworld.TILESET1, _ts_x,_ts_y, 4,4, _x,_y);
     }
 }
 

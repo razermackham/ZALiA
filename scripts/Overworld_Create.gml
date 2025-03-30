@@ -32,6 +32,15 @@ Tile_DEPTH2 = _a--;
 TILESET1           = ts_Overworld_1;
 TILESET_TILEMARKER = ts_tile_marker_1a_16x16; // For debug drawing exit outlines
 
+TILESET1_TS_IDX  = ds_list_find_index(g.dl_tileset,TILESET1);
+TILESET1_TS_IDX_ = hex_str(TILESET1_TS_IDX);
+
+TILESET2_TS_IDX  = ds_list_find_index(g.dl_tileset,ts_OverworldAnim01);
+TILESET2_TS_IDX_ = hex_str(TILESET2_TS_IDX);
+
+TSRC_WATER01 = (TILESET2_TS_IDX<<8) | TSRC_WATE01; // deep water
+TSRC_WATER02 = (TILESET2_TS_IDX<<8) | TSRC_WATE02; // shallow water
+
 
 PC_DRAWY_OFF = -2;
 
@@ -259,7 +268,7 @@ TileChangeEvent_TYPE_BOOT1 = "BOOTS01";
 dg_boulders = ds_grid_create(0,4);
 
 BoulderCircle_center_OWRC    = 0; // set in init_data_overworld()
-BoulderCircle_center_TSRC    = TSRC_HOLE01; // $C8: Hole in ground
+BoulderCircle_center_TSRC    = (TILESET1_TS_IDX<<8)|TSRC_HOLE01; // $C8: Hole in ground
 dl_BoulderCircle_broke_order = ds_list_create();
 dl_BoulderCircle_OWRC        = ds_list_create();
 for(_i=0; _i<8; _i++) ds_list_add(dl_BoulderCircle_OWRC, 0);
@@ -272,8 +281,8 @@ if (g.anarkhyaOverworld_MAIN)
     //            dl_anarkhya_ts = ds_list_create();
     //ds_list_add(dl_anarkhya_ts, ts_Overworld_anark01);
     //ds_list_add(dl_anarkhya_ts, ts_Overworld_anark02);
-    background_assign(ts_Overworld_anark01, ts_Overworld_anark01_00);
-    background_assign(ts_Overworld_anark02, ts_Overworld_anark02_00);
+    //background_assign(ts_Overworld_anark01, ts_Overworld_anark01_00);
+    //background_assign(ts_Overworld_anark02, ts_Overworld_anark02_00);
     
     dg_anarkhya_tsrc_def        = ds_grid_create(0,0); // def: default
     dg_anarkhya_tsrc            = ds_grid_create(0,0);
@@ -312,6 +321,8 @@ ENC_TRIG_HB_H = $10;
 var _type, _data;
 var _tsrc, _tsrc_count;
 var _area, _biome;
+var _TS1_DATA = TILESET1_TS_IDX<<8;
+var _TS2_DATA = TILESET2_TS_IDX<<8;
 
 dm_enc                     = ds_map_create();
 dl_biome_enc               = ds_list_create();
@@ -344,7 +355,7 @@ dg_enc_obj_id_spawn_data_1 = ds_grid_create(0,4);
 ds_list_add( dl_biome_enc,    _biome);
 ds_list_add( dl_biome_battle, _biome);
 ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,TSRC_GRAS01,TSRC_GRAS02,TSRC_GRAS03,TSRC_GRAS04);
+ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_GRAS01,_TS1_DATA|TSRC_GRAS02,_TS1_DATA|TSRC_GRAS03,_TS1_DATA|TSRC_GRAS04);
 _val1=""; _count=ds_list_size(_dl_1);
 for(_i=0; _i<_count; _i++)
 {
@@ -357,8 +368,8 @@ ds_list_add(_dl_biome_tsrc, _val1);
 ds_list_add( dl_enc_inst_life_dur, $0A); // 
 dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $20; // OG: $20
 dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = TSRC_GRAS04;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = TSRC_GRAS01;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_GRAS04;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_GRAS01;
 //                                                  // 
 _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
      ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
@@ -378,7 +389,7 @@ _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
 ds_list_add( dl_biome_enc,    _biome);
 ds_list_add( dl_biome_battle, _biome);
 ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,TSRC_SAND01,TSRC_SAND02,TSRC_SAND03, TSRC_PATH03);
+ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_SAND01,_TS1_DATA|TSRC_SAND02,_TS1_DATA|TSRC_SAND03, _TS1_DATA|TSRC_PATH03);
 _val1=""; _count=ds_list_size(_dl_1);
 for(_i=0; _i<_count; _i++)
 {
@@ -392,9 +403,9 @@ ds_list_add(_dl_biome_tsrc, _val1);
 ds_list_add( dl_enc_inst_life_dur, dl_enc_inst_life_dur[|ds_list_size(dl_enc_inst_life_dur)-1]); // 
 dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $18; // OG: $18
 dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = TSRC_SAND02;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = TSRC_SAND01;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = TSRC_SAND03;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_SAND02;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_SAND01;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_SAND03;
 //                                                  // 
 _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
      ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
@@ -414,7 +425,7 @@ _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
 ds_list_add( dl_biome_enc,    _biome);
 ds_list_add( dl_biome_battle, _biome);
 ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,TSRC_SNOW01,TSRC_SNOW02,TSRC_SNOW03,TSRC_SNOW04);
+ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_SNOW01,_TS1_DATA|TSRC_SNOW02,_TS1_DATA|TSRC_SNOW03,_TS1_DATA|TSRC_SNOW04);
 _val1=""; _count=ds_list_size(_dl_1);
 for(_i=0; _i<_count; _i++)
 {
@@ -427,9 +438,9 @@ ds_list_add(_dl_biome_tsrc, _val1);
 ds_list_add( dl_enc_inst_life_dur, dl_enc_inst_life_dur[|ds_list_size(dl_enc_inst_life_dur)-1]); // 
 dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $18; // OG: $18
 dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = TSRC_SNOW04;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = TSRC_SNOW02;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = TSRC_SNOW01;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_SNOW04;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_SNOW02;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_SNOW01;
 //                                                  // 
 _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
      ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
@@ -449,7 +460,7 @@ _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
 ds_list_add( dl_biome_enc,    _biome);
 ds_list_add( dl_biome_battle, _biome);
 ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,TSRC_TREE01,TSRC_TREE02,TSRC_TREE03,TSRC_TREE04);
+ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_TREE01,_TS1_DATA|TSRC_TREE02,_TS1_DATA|TSRC_TREE03,_TS1_DATA|TSRC_TREE04);
 _val1=""; _count=ds_list_size(_dl_1);
 for(_i=0; _i<_count; _i++)
 {
@@ -462,9 +473,9 @@ ds_list_add(_dl_biome_tsrc, _val1);
 ds_list_add( dl_enc_inst_life_dur, $18); // 
 dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $18; // OG: $18
 dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = TSRC_TREE01;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = TSRC_TREE01;
-//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = TSRC_TREE01;
+//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_TREE01;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_TREE01;
+//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_TREE01;
 //                                                  // 
 _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
      ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
@@ -484,7 +495,7 @@ _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
 ds_list_add( dl_biome_enc,    _biome);
 ds_list_add( dl_biome_battle, _biome);
 ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,TSRC_SWAM01,TSRC_SWAM02,TSRC_SWAM03,TSRC_SWAM04);
+ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_SWAM01,_TS1_DATA|TSRC_SWAM02,_TS1_DATA|TSRC_SWAM03,_TS1_DATA|TSRC_SWAM04);
 _val1=""; _count=ds_list_size(_dl_1);
 for(_i=0; _i<_count; _i++)
 {
@@ -497,9 +508,9 @@ ds_list_add(_dl_biome_tsrc, _val1);
 ds_list_add( dl_enc_inst_life_dur, dl_enc_inst_life_dur[|ds_list_size(dl_enc_inst_life_dur)-1]); // 
 dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $20; // OG: $20
 dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = TSRC_SWAM02;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = TSRC_SWAM01;
-//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = TSRC_SWAM01;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_SWAM02;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_SWAM01;
+//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_SWAM01;
 //                                                  // 
 _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
      ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
@@ -519,7 +530,7 @@ _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
 ds_list_add( dl_biome_enc,    _biome);
 ds_list_add( dl_biome_battle, _biome);
 ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,TSRC_GRAV01,TSRC_GRAV02,TSRC_GRAV03,TSRC_GRAV04);
+ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_GRAV01,_TS1_DATA|TSRC_GRAV02,_TS1_DATA|TSRC_GRAV03,_TS1_DATA|TSRC_GRAV04);
 _val1=""; _count=ds_list_size(_dl_1);
 for(_i=0; _i<_count; _i++)
 {
@@ -533,10 +544,10 @@ ds_list_add(_dl_biome_tsrc, _val1);
 ds_list_add( dl_enc_inst_life_dur, $30); // 
 dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $09; // OG: $09
 dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = TSRC_GRAV02;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = TSRC_GRAV01;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = TSRC_GRAV03;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Tertiary]  = TSRC_GRAV04;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_GRAV02;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_GRAV01;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_GRAV03;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Tertiary]  = _TS1_DATA|TSRC_GRAV04;
 //                                                  // 
 _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
      ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
@@ -556,7 +567,7 @@ _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
 ds_list_add( dl_biome_enc,    _biome);
 ds_list_add( dl_biome_battle, _biome);
 ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,TSRC_VOLC01);
+ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_VOLC01);
 _val1=""; _count=ds_list_size(_dl_1);
 for(_i=0; _i<_count; _i++)
 {
@@ -569,9 +580,9 @@ ds_list_add(_dl_biome_tsrc, _val1);
 ds_list_add( dl_enc_inst_life_dur, dl_enc_inst_life_dur[|ds_list_size(dl_enc_inst_life_dur)-1]); // 
 dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $03; // OG: $03
 dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = TSRC_VOLC01;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = TSRC_VOLC01;
-//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = TSRC_VOLC01;
+//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_VOLC01;
+dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_VOLC01;
+//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_VOLC01;
 //                                                  // 
 _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
      ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
@@ -589,7 +600,7 @@ _idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
 
                            _biome = STR_PATH_;
 ds_list_add( dl_biome_enc, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,TSRC_PATH01,TSRC_PATH02);
+ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_PATH01,_TS1_DATA|TSRC_PATH02);
 _val1=""; _count=ds_list_size(_dl_1);
 for(_i=0; _i<_count; _i++)
 {
@@ -598,7 +609,7 @@ for(_i=0; _i<_count; _i++)
     dm_data[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
 }
 ds_list_add(_dl_biome_tsrc, _val1);
-//ds_list_add(_dl_biome_tsrc, hexStr(TSRC_PATH01,TSRC_PATH02));
+//ds_list_add(_dl_biome_tsrc, hexStr(_TS1_DATA|TSRC_PATH01,_TS1_DATA|TSRC_PATH02));
 //                                                  // 
 //                                                  // 
 //                                                  // 
@@ -615,15 +626,17 @@ for(_i=0; _i<_count; _i++)
     _tsrc_count = 0;
     _biome = dl_biome_enc[|_i];
     
-    if (ds_list_size(_dl_biome_tsrc) > _i)
+    if (ds_list_size(_dl_biome_tsrc)>_i)
     {
-        _data =     _dl_biome_tsrc[|_i];
-               _tsrc_count = string_length(_data)>>1;
+        _data =      _dl_biome_tsrc[|_i];
+               _tsrc_count = string_length(_data)>>2;
+               //_tsrc_count = string_length(_data)>>1;
         for(_j=_tsrc_count-1; _j>=0; _j--)
         {
-                    _tsrc = string_copy(_data, (_j<<1)+1, 2);
-            dm_enc[?_tsrc +STR_Biome]             = _biome;
-            dm_enc[?_tsrc +STR_Biome+STR_Idx]     = _i;
+            _tsrc = string_copy(_data, (_j<<1)+1, 4);
+            //_tsrc = string_copy(_data, (_j<<1)+1, 2);
+            dm_enc[?_tsrc +STR_Biome]              = _biome;
+            dm_enc[?_tsrc +STR_Biome+STR_Idx]      = _i;
             dm_enc[?_biome+STR_TSRC+hex_str(_j+1)] = str_hex(_tsrc);
         }
     }

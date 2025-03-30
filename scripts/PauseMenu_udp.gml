@@ -5,7 +5,7 @@ var _i;
 var _xl,_yt;
 var _clm,_row;
 var _grid_clm,_grid_row;
-var _ts, _tsrc1,_tsrc2,_tsrc3,_tsrc4, _tsrcA,_tsrcB, _ts_x,_ts_y, _ts_xoff,_ts_yoff, _tile_w,_tile_h;
+var _ts, _tsrc1,_tsrc2,_tsrc3,_tsrc4, _tsrcA,_tsrcB, _ts_x,_ts_y, _ts_xoff,_ts_yoff, _tile_data, _tile_w,_tile_h;
 var _is_treeA,_is_treeB;
 var _owrc;
 
@@ -160,32 +160,34 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
         _grid_row = tsrc_grid_row_base + _row;
         _owrc = (_grid_row<<8) | _grid_clm;
         
-        _tsrc1  = g.overworld.dg_tsrc[#_grid_clm,_grid_row];
-        _tsrc1 &= $FF;
+        _tile_data = g.overworld.dg_tsrc[#_grid_clm,_grid_row];
+        _tsrc1 = _tile_data&$FF;
         
         _tsrc2 = -1;
         _tsrc3 = -1;
         
-        if (_tsrc1==$00   // Water - deep
-        ||  _tsrc1==$04   // Water - shallow
-        ||  _tsrc1==$06 ) // Water - shallow
+        if (_tile_data==g.overworld.TSRC_WATER01   // Water - deep
+        ||  _tile_data==g.overworld.TSRC_WATER02 ) // Water - shallow
+        //if (_tsrc1==$00   // Water - deep
+        //||  _tsrc1==$04   // Water - shallow
+        //||  _tsrc1==$06 ) // Water - shallow
         {
-            if (_tsrc1==$00) _tsrc2 = $82; // Water - deep
-            else             _tsrc2 = $86; // Water - shallow
+            if (_tile_data==g.overworld.TSRC_WATER01) _tsrc2 = $82; // Water - deep
+            else                                      _tsrc2 = $86; // Water - shallow
             _tsrc2 += _grid_clm&$1;
             _tsrc2 += (!(g.counter0&$40))<<1;
             _tsrc2 +=(_grid_row&$1)<<4;
         }
         else
         {
-            _tsrc2 = val(dm_terrain[?STR_TSRC+"_16x16_to_8x8_"+"_Layer1"+hex_str(_tsrc1)], -1);
+            _tsrc2 = val(dm_terrain[?STR_TSRC+"_16x16_to_8x8_"+"_Layer1"+hex_str(_tile_data)], -1);
         }
         
         
         
         if (_tsrc2!=-1)
         {
-            _tsrc3 = val(dm_terrain[?STR_TSRC+"_16x16_to_8x8_"+"_Layer2"+hex_str(_tsrc1)], -1);
+            _tsrc3 = val(dm_terrain[?STR_TSRC+"_16x16_to_8x8_"+"_Layer2"+hex_str(_tile_data)], -1);
             
             if (_tsrc3==$E8) // River Devil
             {

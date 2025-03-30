@@ -83,7 +83,8 @@ if (_C1  // _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
                 mot       = MOT_WALK;
                 move_distance = 0;
                 
-                _tsrc = dg_tsrc[#_pc_clm,_pc_row] &$FF;
+                _tsrc = dg_tsrc[#_pc_clm,_pc_row];
+                _tsrc1 = _tsrc&$FF;
                 
                 if (_RANDO_TSRC_ACTIVE)
                 {
@@ -92,10 +93,10 @@ if (_C1  // _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
                 }
                 else
                 {
-                    if (_tsrc==TSRC_SWAM01 
-                    ||  _tsrc==TSRC_SWAM02 
-                    ||  _tsrc==TSRC_SWAM03 
-                    ||  _tsrc==TSRC_SWAM04 )
+                    if (_tsrc1==TSRC_SWAM01 
+                    ||  _tsrc1==TSRC_SWAM02 
+                    ||  _tsrc1==TSRC_SWAM03 
+                    ||  _tsrc1==TSRC_SWAM04 )
                     {
                         move_spd = MOVE_SPD_2;
                         move_speed = move_SPEED2;
@@ -182,11 +183,14 @@ if(!dest_dist
             _rm_row = (DRAW_ROWS>>1)+_PC_DIR_SIGN_Y;
             
             _tsrc   = dg_tsrc[#_ow_clm,_ow_row];
+            _tsrc1  = _tsrc&$FF;
             if (_RANDO_TSRC_ACTIVE)
             {
-                _val1 = ((_tsrc&$FF)>>2)<<2;
-                _val1 = val(dm_Rando_TSRC[?hex_str(_val1)]);
-                if (_val1) _tsrc = _val1;
+                _val1 = dm_Rando_TSRC[?hex_str(_tsrc)];
+                if(!is_undefined(_val1)) _tsrc = (_val1>>2)<<2;
+                //_val1 = dm_Rando_TSRC[?hex_str((_tsrc1>>2)<<2)];
+                //_val1 = val(dm_Rando_TSRC[?hex_str(_val1)]);
+                //if (_val1) _tsrc = _val1;
                 //dm_rando_biome
                 //dm_data[?STR_TSRC+_tsrc_+STR_Biome]
             }
@@ -197,7 +201,7 @@ if(!dest_dist
                 if(!val(dm_data[?hex_str(_owrc)+STR_Open]))
                 {
                         dm_data[?hex_str(_owrc)+STR_Open] = 1;
-                    _tsrc = TSRC_TOWN08; // $72: town w/ grass bg & green roofs
+                    _tsrc = (TILESET1_TS_IDX<<8)|TSRC_TOWN08; // $72: town w/ grass bg & green roofs
                     Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                     aud_play_sound(get_audio_theme_track(dk_BlockBreak));
                     aud_play_sound(get_audio_theme_track(dk_Fanfare), -1,false,-1, dk_Fanfare);
@@ -220,7 +224,7 @@ if(!dest_dist
                 switch(_data)
                 {
                     default:{
-                    _tsrc = TSRC_GRAS01; // $20: field
+                    _tsrc = (TILESET1_TS_IDX<<8)|TSRC_GRAS01; // $20: field
                     Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                     aud_play_sound(get_audio_theme_track(dk_BlockBreak));
                     break;}
@@ -229,7 +233,7 @@ if(!dest_dist
                     if(!val(dm_data[?hex_str(_owrc)+STR_Open]))
                     {
                             dm_data[?hex_str(_owrc)+STR_Open] = 1;
-                        _tsrc = TSRC_HOUSE04; // HOUSE04: Single house on grass
+                        _tsrc = (TILESET1_TS_IDX<<8)|TSRC_HOUSE04; // HOUSE04: Single house on grass
                         aud_play_sound(get_audio_theme_track(STR_Secret));
                         Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                         aud_play_sound(get_audio_theme_track(dk_BlockBreak));
@@ -237,15 +241,15 @@ if(!dest_dist
                     break;}
                 }
             }
-            else if (_tsrc==TSRC_TREE01) // Forest
+            else if (_tsrc==(TILESET1_TS_IDX<<8)|TSRC_TREE01) // Forest
             {
-                _tsrc = TSRC_GRAS01; // $20: field
+                _tsrc = (TILESET1_TS_IDX<<8)|TSRC_GRAS01; // $20: field
                 Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
             }
             else if (inRange(_tsrc, TSRC_BOUL02,TSRC_BOUL02+6)) // Boulder
             {
-                _tsrc = val(dm_data[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_Boulder], TSRC_PATH03);
+                _tsrc = val(dm_data[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_Boulder], (TILESET1_TS_IDX<<8)|TSRC_PATH03);
                 Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
                 
@@ -576,9 +580,9 @@ if (flute_timer)
             if (_tsrc==-1)
             {
                 switch(val(dm_data[?hex_str(_owrc)+STR_River_Devil])){
-                default:{_tsrc=TSRC_PATH02; break;}
-                case  1:{_tsrc=TSRC_BRDG1B; break;} // $B3. Vertically aligned bridge
-                //case 2:{_tsrc=TSRC_TREE01+1; break;} // Orange colored trees tile
+                default:{_tsrc=(TILESET1_TS_IDX<<8)|TSRC_PATH02; break;}
+                case  1:{_tsrc=(TILESET1_TS_IDX<<8)|TSRC_BRDG1B; break;} // $B3. Vertically aligned bridge
+                //case 2:{_tsrc=(TILESET1_TS_IDX<<8)|(TSRC_TREE01+1); break;} // Orange colored trees tile
                 }
             }
             
@@ -598,7 +602,7 @@ if (flute_timer)
             _ow_row = _pc_row + 2;
             _owrc   = (_ow_row<<8) | _ow_clm;
             
-            if (_owrc == val(dm_data[?MK_OWRC_PAL_THRE1]) 
+            if (_owrc==val(dm_data[?MK_OWRC_PAL_THRE1]) 
             && !val(dm_data[?hex_str(_owrc)+STR_Open]) )
             {
                 aud_play_sound(get_audio_theme_track(dk_Fanfare), -1,false,-1, dk_Fanfare);
@@ -607,8 +611,8 @@ if (flute_timer)
                 
                 _rm_clm = (DRAW_CLMS>>1);
                 _rm_row = (DRAW_ROWS>>1) + 2;
-                _tsrc   = TSRC_PALA02+1; // TSRC_PALA02: $90-95: Palace w/ biom bg's
-                //_tsrc   = TSRC_PALA01; // $E0: Palace
+                _tsrc   = (TILESET1_TS_IDX<<8)|(TSRC_PALA02+1); // TSRC_PALA02: $90-95: Palace w/ biom bg's
+                //_tsrc   = (TILESET1_TS_IDX<<8)|TSRC_PALA01; // $E0: Palace
                 Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                 
                 if (g.anarkhyaOverworld_MAIN 
@@ -875,62 +879,42 @@ if (exit_grid_xy)
 
 
 // -------------------------------------------------------------------
-if (g.counter0&$40) background_assign(ts_Overworld_1,ts_Overworld_1_2);
-else                background_assign(ts_Overworld_1,ts_Overworld_1_1_2);
+//if (g.counter0&$40) background_assign(ts_Overworld_1,ts_Overworld_1_2);
+//else                background_assign(ts_Overworld_1,ts_Overworld_1_1_2);
 
 
+switch((g.counter0&$7F)>>5)
+{
+    case 0:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_00); break;}
+    case 1:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_01); break;}
+    case 2:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_02); break;}
+    case 3:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_03); break;}
+}
+/*
 if (g.anarkhyaOverworld_MAIN 
 &&  g.anarkhyaOverworld_use )
 {
-    switch(2)
+    switch((g.counter0&$7F)>>5)
     {
-        case 1:{
-        if!(g.counter0&$40)
-        {
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_00);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_00);
-        }
-        else if!(g.counter0&$20)
-        {
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_01);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_01);
-        }
-        else if!(g.counter0&$10)
-        {
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_02);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_02);
-        }
-        else
-        {
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_03);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_03);
-        }
+        case 0:{
+        background_assign(ts_Overworld_anark01, ts_Overworld_anark01_00);
+        background_assign(ts_Overworld_anark02, ts_Overworld_anark02_00);
         break;}
-        
-        
+        case 1:{
+        background_assign(ts_Overworld_anark01, ts_Overworld_anark01_01);
+        background_assign(ts_Overworld_anark02, ts_Overworld_anark02_01);
+        break;}
         case 2:{
-        switch((g.counter0&$7F)>>5)
-        {
-            case 0:{
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_00);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_00);
-            break;}
-            case 1:{
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_01);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_01);
-            break;}
-            case 2:{
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_02);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_02);
-            break;}
-            case 3:{
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_03);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_03);
-            break;}
-        }
+        background_assign(ts_Overworld_anark01, ts_Overworld_anark01_02);
+        background_assign(ts_Overworld_anark02, ts_Overworld_anark02_02);
+        break;}
+        case 3:{
+        background_assign(ts_Overworld_anark01, ts_Overworld_anark01_03);
+        background_assign(ts_Overworld_anark02, ts_Overworld_anark02_03);
         break;}
     }
 }
+*/
 
 
 

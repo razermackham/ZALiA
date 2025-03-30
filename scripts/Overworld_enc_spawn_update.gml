@@ -73,18 +73,22 @@ if (dest_dist){
     _ow_row += bit_dir(pc_dir&$C); // += 0,1,-1
 }
 
-var _TSRC = dg_tsrc[#_ow_clm, _ow_row];
+var _tsrc = dg_tsrc[#_ow_clm, _ow_row];
 
-if (1&&_RANDO_TSRC_ACTIVE)
+if (_RANDO_TSRC_ACTIVE)
 {
-    _val1 = ((_TSRC&$FF)>>2)<<2;
+    _val1 = dm_Rando_TSRC[?hex_str(_tsrc)];
+    if(!is_undefined(_val1)) _tsrc = (_val1>>2)<<2;
+    /*
+    _val1 = ((_tsrc&$FF)>>2)<<2;
     _val1 = val(dm_Rando_TSRC[?hex_str(_val1)]);
-    if (_val1) _TSRC = (_TSRC&$FF00) | _val1;
+    if (_val1) _tsrc = (_tsrc&$FF00) | _val1;
+    */
 }
 
 
-var _BIOME     = dm_enc[?hex_str(_TSRC)+STR_Biome];
-var _BIOME_IDX = dm_enc[?hex_str(_TSRC)+STR_Biome+STR_Idx];
+var _BIOME     = dm_enc[?hex_str(_tsrc)+STR_Biome];
+var _BIOME_IDX = dm_enc[?hex_str(_tsrc)+STR_Biome+STR_Idx];
 
 
 if (is_undefined(_BIOME) 
@@ -310,7 +314,7 @@ for(_i=0; _i<_count; _i++)
             _str += ", y $"         + hex_str(dg_enc_inst[#_i,2]);
             _str += ", clm $"       + hex_str(dg_enc_inst[#_i,1]>>SHIFT);
             _str += ", row $"       + hex_str(dg_enc_inst[#_i,2]>>SHIFT);
-            _str += ", pc on tsrc $" + hex_str(_TSRC);
+            _str += ", pc on tsrc $" + hex_str(_tsrc);
             _str += ", _BIOME $"    + hex_str(_BIOME);
             _str += ", life dur $"  + hex_str(dg_enc_inst[#_i,ENC_INST_TMR_IDX]);
             _str += ", g.tmr_enc_spawn "   + string(g.tmr_enc_spawn);
@@ -321,7 +325,7 @@ for(_i=0; _i<_count; _i++)
             _str  = " ";
             _str += ", _pc_clm $"       + hex_str(_pc_clm);
             _str += ", _pc_row $"       + hex_str(_pc_row);
-            _str += ", pc on tsrc $"    + hex_str(_TSRC);
+            _str += ", pc on tsrc $"    + hex_str(_tsrc);
             _str += ", pc_step_ctr $"   + hex_str(pc_step_ctr);
             sdm(_str);
         }

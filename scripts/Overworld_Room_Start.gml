@@ -85,7 +85,7 @@ if(!val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
         {
             _clm=(_owrc>>0)&$FF;
             _row=(_owrc>>8)&$FF;
-            dg_tsrc[# _clm,_row]=TSRC_MOUN01;
+            dg_tsrc[# _clm,_row]=(TILESET1_TS_IDX<<8)|TSRC_MOUN01;
             dg_solid[#_clm,_row]=$01;
             dm_data[?hex_str(_owrc)+STR_Open]=0;
         }

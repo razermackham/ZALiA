@@ -11638,8 +11638,6 @@
       </backgrounds>
       <backgrounds name="man_made">
         <background>background\ts_Man_made_1a_WRB</background>
-        <background>background\ts_Man_made_1a_RWB</background>
-        <background>background\ts_Man_made_1a_BRW</background>
         <background>background\ts_Man_made_2a_WRB</background>
         <background>background\ts_Man_made_3a_WRB</background>
         <background>background\ts_Man_made_4a_WRB</background>
@@ -11669,19 +11667,14 @@
       </backgrounds>
       <backgrounds name="overworld">
         <background>background\ts_Overworld_1</background>
-        <background>background\ts_Overworld_1_1_2</background>
-        <background>background\ts_Overworld_1_2</background>
         <background>background\ts_Overworld_8x8_01</background>
         <background>background\ts_Overworld_anark01</background>
-        <background>background\ts_Overworld_anark01_00</background>
-        <background>background\ts_Overworld_anark01_01</background>
-        <background>background\ts_Overworld_anark01_02</background>
-        <background>background\ts_Overworld_anark01_03</background>
         <background>background\ts_Overworld_anark02</background>
-        <background>background\ts_Overworld_anark02_00</background>
-        <background>background\ts_Overworld_anark02_01</background>
-        <background>background\ts_Overworld_anark02_02</background>
-        <background>background\ts_Overworld_anark02_03</background>
+        <background>background\ts_OverworldAnim01</background>
+        <background>background\ts_OverworldAnim01_00</background>
+        <background>background\ts_OverworldAnim01_01</background>
+        <background>background\ts_OverworldAnim01_02</background>
+        <background>background\ts_OverworldAnim01_03</background>
       </backgrounds>
       <backgrounds name="animation">
         <background>background\ts_Animation030101</background>
@@ -15391,8 +15384,8 @@
     <constant name="BURNABLE_A">$01</constant>
     <constant name="BURNABLE_B">(BURNABLE_A + 1)</constant>
     <constant name="BURNABLE_C">(BURNABLE_B + 1)</constant>
-    <constant name="TSRC_WATE01">$00</constant>
-    <constant name="TSRC_WATE02">$04</constant>
+    <constant name="TSRC_WATE01">$80</constant>
+    <constant name="TSRC_WATE02">(TSRC_WATE01 + $04)</constant>
     <constant name="TSRC_MOUN01">$10</constant>
     <constant name="TSRC_GRAS01">$20</constant>
     <constant name="TSRC_GRAS02">(TSRC_GRAS01 + 1)</constant>

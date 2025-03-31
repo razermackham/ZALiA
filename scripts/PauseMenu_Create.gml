@@ -1022,6 +1022,12 @@ tsrc_grid_row_base = 0;
 dg_terrain_draw = ds_grid_create(TerrainDraw_CLMS*TerrainDraw_ROWS,$C);
 
 
+
+var _TS1_IDX_ = hex_str(ds_list_find_index(g.dl_tileset,ts_Overworld_1));
+var _TS2_IDX_ = hex_str(ds_list_find_index(g.dl_tileset,ts_OverworldAnim01));
+//var _TS1_IDX_ = g.overworld.TILESET1_TS_IDX_;
+//var _TS2_IDX_ = g.overworld.TILESET2_TS_IDX_;
+
 /*
 var _TSRC_WATER_SHALLOW1 = $30; // 
 var _TSRC_WATER_SHALLOW_ANIM1A = $30; // 
@@ -1092,171 +1098,171 @@ var _TSRC_MONSTER1 = $E8; //
 
 dm_terrain = ds_map_create();
 
-
-
             _dk = STR_TSRC+"_16x16_to_8x8_"+"_Layer1";
-dm_terrain[?_dk+hex_str(TSRC_TREE01)]   = _TSRC_SOLID_GREEN1; // Reg Green Tree - Reg Green BGR
-dm_terrain[?_dk+hex_str(TSRC_TREE02)]   = _TSRC_SOLID_GREEN2; // Orange Tree - Dark Green BGR
-dm_terrain[?_dk+hex_str(TSRC_TREE03)]   = _TSRC_SOLID_GREEN1; // Dark Green Tree - Reg Green BGR
-dm_terrain[?_dk+hex_str(TSRC_TREE04)]   = _TSRC_SOLID_GREEN2; // Dark Green Tree - Mid Green BGR
-dm_terrain[?_dk+hex_str(TSRC_TREE04+1)] = _TSRC_SOLID_BLUE2; // Reg Green Tree - Mid Blue BGR
-dm_terrain[?_dk+hex_str(TSRC_TREE04+2)] = _TSRC_SOLID_BLUE2; // Orange Tree - Mid Blue BGR
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_TREE01)]   = _TSRC_SOLID_GREEN1; // Reg Green Tree - Reg Green BGR
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_TREE02)]   = _TSRC_SOLID_GREEN2; // Orange Tree - Dark Green BGR
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_TREE03)]   = _TSRC_SOLID_GREEN1; // Dark Green Tree - Reg Green BGR
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_TREE04)]   = _TSRC_SOLID_GREEN2; // Dark Green Tree - Mid Green BGR
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_TREE04+1)] = _TSRC_SOLID_BLUE2; // Reg Green Tree - Mid Blue BGR
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_TREE04+2)] = _TSRC_SOLID_BLUE2; // Orange Tree - Mid Blue BGR
 
-dm_terrain[?_dk+hex_str($08)]         = _TSRC_SHOALS2; // Shoals - deep
-dm_terrain[?_dk+hex_str($0A)]         = _TSRC_SHOALS1; // Shoals - shallow
+dm_terrain[?_dk+_TS1_IDX_+hex_str($08)]         = _TSRC_SHOALS2; // Shoals - deep
+dm_terrain[?_dk+_TS1_IDX_+hex_str($0A)]         = _TSRC_SHOALS1; // Shoals - shallow
 
-dm_terrain[?_dk+hex_str(TSRC_SAND01)] = _TSRC_DESERT1; // Desert/Sand
-dm_terrain[?_dk+hex_str(TSRC_SAND02)] = _TSRC_DESERT2; // Desert/Sand
-dm_terrain[?_dk+hex_str(TSRC_SAND03)] = _TSRC_DESERT1; // Desert/Sand
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_SAND01)] = _TSRC_DESERT1; // Desert/Sand
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_SAND02)] = _TSRC_DESERT2; // Desert/Sand
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_SAND03)] = _TSRC_DESERT1; // Desert/Sand
 
-dm_terrain[?_dk+hex_str(TSRC_SNOW01)] = _TSRC_BEACH1; // Beach/Snow
-dm_terrain[?_dk+hex_str(TSRC_SNOW02)] = _TSRC_BEACH1; // Beach/Snow
-dm_terrain[?_dk+hex_str(TSRC_SNOW03)] = _TSRC_BEACH1; // Beach/Snow
-dm_terrain[?_dk+hex_str(TSRC_SNOW04)] = _TSRC_BEACH2; // Beach/Snow
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_SNOW01)] = _TSRC_BEACH1; // Beach/Snow
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_SNOW02)] = _TSRC_BEACH1; // Beach/Snow
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_SNOW03)] = _TSRC_BEACH1; // Beach/Snow
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_SNOW04)] = _TSRC_BEACH2; // Beach/Snow
 
-dm_terrain[?_dk+hex_str(TSRC_GRAS01)] = _TSRC_FIELD1; // Field/Grass
-dm_terrain[?_dk+hex_str(TSRC_GRAS02)] = _TSRC_FIELD1; // Field/Grass
-dm_terrain[?_dk+hex_str(TSRC_GRAS03)] = _TSRC_FIELD1; // Field/Grass
-dm_terrain[?_dk+hex_str(TSRC_GRAS04)] = _TSRC_FIELD1; // Field/Grass
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_GRAS01)] = _TSRC_FIELD1; // Field/Grass
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_GRAS02)] = _TSRC_FIELD1; // Field/Grass
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_GRAS03)] = _TSRC_FIELD1; // Field/Grass
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_GRAS04)] = _TSRC_FIELD1; // Field/Grass
 
-dm_terrain[?_dk+hex_str(TSRC_VOLC01)] = _TSRC_VOLCANO1; // Volcano
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_VOLC01)] = _TSRC_VOLCANO1; // Volcano
 
-dm_terrain[?_dk+hex_str(TSRC_SWAM01)] = _TSRC_SWAMP1; // Swamp
-dm_terrain[?_dk+hex_str(TSRC_SWAM02)] = _TSRC_SWAMP1; // Swamp
-dm_terrain[?_dk+hex_str(TSRC_SWAM03)] = _TSRC_SWAMP1; // Swamp
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_SWAM01)] = _TSRC_SWAMP1; // Swamp
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_SWAM02)] = _TSRC_SWAMP1; // Swamp
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_SWAM03)] = _TSRC_SWAMP1; // Swamp
 
-dm_terrain[?_dk+hex_str(TSRC_GRAV01)] = _TSRC_CEMETERY1; // Cemetery/Grave
-dm_terrain[?_dk+hex_str(TSRC_GRAV02)] = _TSRC_CEMETERY1; // Cemetery/Grave
-dm_terrain[?_dk+hex_str(TSRC_GRAV03)] = _TSRC_CEMETERY1; // Cemetery/Grave
-dm_terrain[?_dk+hex_str(TSRC_GRAV04)] = _TSRC_CEMETERY2; // Cemetery/Grave
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_GRAV01)] = _TSRC_CEMETERY1; // Cemetery/Grave
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_GRAV02)] = _TSRC_CEMETERY1; // Cemetery/Grave
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_GRAV03)] = _TSRC_CEMETERY1; // Cemetery/Grave
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_GRAV04)] = _TSRC_CEMETERY2; // Cemetery/Grave
 
-dm_terrain[?_dk+hex_str(TSRC_PATH01)] = _TSRC_PATH1; // Path
-dm_terrain[?_dk+hex_str(TSRC_PATH02)] = _TSRC_PATH2; // Path - messy
-dm_terrain[?_dk+hex_str(TSRC_PATH03)] = _TSRC_PATH3; // Path - rough/hostile
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_PATH01)] = _TSRC_PATH1; // Path
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_PATH02)] = _TSRC_PATH2; // Path - messy
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_PATH03)] = _TSRC_PATH3; // Path - rough/hostile
 
-dm_terrain[?_dk+hex_str($C0)]         = _TSRC_CAVE1; // Cave
-dm_terrain[?_dk+hex_str($C1)]         = _TSRC_CAVE1; // Cave
-dm_terrain[?_dk+hex_str($C2)]         = _TSRC_CAVE1; // Cave
-dm_terrain[?_dk+hex_str($C8)]         = _TSRC_HOLE1; // Ground Hole
+dm_terrain[?_dk+_TS1_IDX_+hex_str($C0)]         = _TSRC_CAVE1; // Cave
+dm_terrain[?_dk+_TS1_IDX_+hex_str($C1)]         = _TSRC_CAVE1; // Cave
+dm_terrain[?_dk+_TS1_IDX_+hex_str($C2)]         = _TSRC_CAVE1; // Cave
+dm_terrain[?_dk+_TS1_IDX_+hex_str($C8)]         = _TSRC_HOLE1; // Ground Hole
 
-dm_terrain[?_dk+hex_str(TSRC_BOUL01)]   = _TSRC_PATH1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02)]   = _TSRC_PATH1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+1)] = _TSRC_DESERT1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+2)] = _TSRC_FIELD1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+3)] = _TSRC_SWAMP1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+4)] = _TSRC_SOLID_BLUE1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+5)] = _TSRC_VOLCANO1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+6)] = _TSRC_SOLID_BLUE2; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL01)]   = _TSRC_PATH1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02)]   = _TSRC_PATH1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+1)] = _TSRC_DESERT1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+2)] = _TSRC_FIELD1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+3)] = _TSRC_SWAMP1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+4)] = _TSRC_SOLID_BLUE1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+5)] = _TSRC_VOLCANO1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+6)] = _TSRC_SOLID_BLUE2; // Boulder
 
-dm_terrain[?_dk+hex_str($D8)]         = _TSRC_PATH1; // River Devil
-dm_terrain[?_dk+hex_str($D9)]         = _TSRC_BRIDGE2; // River Devil
-//dm_terrain[?_dk+hex_str($DC)]         = _TSRC_MONSTER1; // River Devil
+dm_terrain[?_dk+_TS2_IDX_+hex_str($F8)]         = _TSRC_PATH1; // River Devil
+dm_terrain[?_dk+_TS2_IDX_+hex_str($F9)]         = _TSRC_BRIDGE2; // River Devil
+//dm_terrain[?_dk+hex_str($D8)]         = _TSRC_PATH1; // River Devil
+//dm_terrain[?_dk+hex_str($D9)]         = _TSRC_BRIDGE2; // River Devil
 
-dm_terrain[?_dk+hex_str(TSRC_MOUN01)] = _TSRC_MOUNTAIN1; // Mountain - Top Left of a 16x16
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_MOUN01)] = _TSRC_MOUNTAIN1; // Mountain - Top Left of a 16x16
 
-dm_terrain[?_dk+hex_str(TSRC_BRDG1A)] = _TSRC_BRIDGE1; // Bridge - horizontal
-dm_terrain[?_dk+hex_str(TSRC_BRDG1B)] = _TSRC_BRIDGE2; // Bridge - vertical
-dm_terrain[?_dk+hex_str($B4)]         = _TSRC_BRIDGE1; // Bridge - horizontal
-dm_terrain[?_dk+hex_str($B5)]         = _TSRC_BRIDGE2; // Bridge - vertical
-dm_terrain[?_dk+hex_str($B6)]         = _TSRC_BRIDGE1; // Bridge - horizontal
-dm_terrain[?_dk+hex_str($B7)]         = _TSRC_BRIDGE2; // Bridge - vertical
-dm_terrain[?_dk+hex_str($B8)]         = _TSRC_BRIDGE1; // Bridge - horizontal
-dm_terrain[?_dk+hex_str($B9)]         = _TSRC_BRIDGE2; // Bridge - vertical
-dm_terrain[?_dk+hex_str($BA)]         = _TSRC_BRIDGE1; // Bridge - horizontal
-dm_terrain[?_dk+hex_str($BB)]         = _TSRC_BRIDGE2; // Bridge - vertical
-dm_terrain[?_dk+hex_str($BC)]         = _TSRC_BRIDGE1; // Bridge - horizontal
-dm_terrain[?_dk+hex_str($BD)]         = _TSRC_BRIDGE2; // Bridge - vertical
-dm_terrain[?_dk+hex_str($BE)]         = _TSRC_BRIDGE1; // Bridge - horizontal
-dm_terrain[?_dk+hex_str($BF)]         = _TSRC_BRIDGE2; // Bridge - vertical
-dm_terrain[?_dk+hex_str($A8)]         = _TSRC_BRIDGE1; // Bridge Corner
-dm_terrain[?_dk+hex_str($A9)]         = _TSRC_BRIDGE2; // Bridge Corner
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BRDG1A)] = _TSRC_BRIDGE1; // Bridge - horizontal
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BRDG1B)] = _TSRC_BRIDGE2; // Bridge - vertical
+dm_terrain[?_dk+_TS1_IDX_+hex_str($B4)]         = _TSRC_BRIDGE1; // Bridge - horizontal
+dm_terrain[?_dk+_TS1_IDX_+hex_str($B5)]         = _TSRC_BRIDGE2; // Bridge - vertical
+dm_terrain[?_dk+_TS1_IDX_+hex_str($B6)]         = _TSRC_BRIDGE1; // Bridge - horizontal
+dm_terrain[?_dk+_TS1_IDX_+hex_str($B7)]         = _TSRC_BRIDGE2; // Bridge - vertical
+dm_terrain[?_dk+_TS1_IDX_+hex_str($B8)]         = _TSRC_BRIDGE1; // Bridge - horizontal
+dm_terrain[?_dk+_TS1_IDX_+hex_str($B9)]         = _TSRC_BRIDGE2; // Bridge - vertical
+dm_terrain[?_dk+_TS1_IDX_+hex_str($BA)]         = _TSRC_BRIDGE1; // Bridge - horizontal
+dm_terrain[?_dk+_TS1_IDX_+hex_str($BB)]         = _TSRC_BRIDGE2; // Bridge - vertical
+dm_terrain[?_dk+_TS1_IDX_+hex_str($BC)]         = _TSRC_BRIDGE1; // Bridge - horizontal
+dm_terrain[?_dk+_TS1_IDX_+hex_str($BD)]         = _TSRC_BRIDGE2; // Bridge - vertical
+dm_terrain[?_dk+_TS1_IDX_+hex_str($BE)]         = _TSRC_BRIDGE1; // Bridge - horizontal
+dm_terrain[?_dk+_TS1_IDX_+hex_str($BF)]         = _TSRC_BRIDGE2; // Bridge - vertical
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A8)]         = _TSRC_BRIDGE1; // Bridge Corner
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A9)]         = _TSRC_BRIDGE2; // Bridge Corner
 
-dm_terrain[?_dk+hex_str($AE)]         = _TSRC_BRIDGE1; // Raft Launch - horizontal
-dm_terrain[?_dk+hex_str($AF)]         = _TSRC_BRIDGE2; // Raft Launch - vertical
-dm_terrain[?_dk+hex_str($B0)]         = _TSRC_BRIDGE1; // Raft Launch - horizontal
-dm_terrain[?_dk+hex_str($B1)]         = _TSRC_BRIDGE2; // Raft Launch - vertical
+dm_terrain[?_dk+_TS1_IDX_+hex_str($AE)]         = _TSRC_BRIDGE1; // Raft Launch - horizontal
+dm_terrain[?_dk+_TS1_IDX_+hex_str($AF)]         = _TSRC_BRIDGE2; // Raft Launch - vertical
+dm_terrain[?_dk+_TS1_IDX_+hex_str($B0)]         = _TSRC_BRIDGE1; // Raft Launch - horizontal
+dm_terrain[?_dk+_TS1_IDX_+hex_str($B1)]         = _TSRC_BRIDGE2; // Raft Launch - vertical
 
-dm_terrain[?_dk+hex_str($70)]         = _TSRC_BEACH1; // Town
-dm_terrain[?_dk+hex_str($71)]         = _TSRC_DESERT1; // Town
-dm_terrain[?_dk+hex_str($72)]         = _TSRC_FIELD1; // Town
-dm_terrain[?_dk+hex_str($73)]         = _TSRC_DESERT1; // Town
-dm_terrain[?_dk+hex_str($E8)]         = _TSRC_PATH1; // Town
-dm_terrain[?_dk+hex_str($E9)]         = _TSRC_FIELD1; // Town
-dm_terrain[?_dk+hex_str($EA)]         = _TSRC_PATH2; // Town
-dm_terrain[?_dk+hex_str($EB)]         = _TSRC_DESERT1; // Town
-dm_terrain[?_dk+hex_str($78)]         = _TSRC_BEACH1; // House
-dm_terrain[?_dk+hex_str($EC)]         = _TSRC_PATH1; // House
-dm_terrain[?_dk+hex_str($ED)]         = _TSRC_PATH2; // House
-dm_terrain[?_dk+hex_str($EE)]         = _TSRC_DESERT1; // House
-dm_terrain[?_dk+hex_str($EF)]         = _TSRC_FIELD1; // House
+dm_terrain[?_dk+_TS1_IDX_+hex_str($70)]         = _TSRC_BEACH1; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($71)]         = _TSRC_DESERT1; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($72)]         = _TSRC_FIELD1; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($73)]         = _TSRC_DESERT1; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($E8)]         = _TSRC_PATH1; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($E9)]         = _TSRC_FIELD1; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($EA)]         = _TSRC_PATH2; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($EB)]         = _TSRC_DESERT1; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($78)]         = _TSRC_BEACH1; // House
+dm_terrain[?_dk+_TS1_IDX_+hex_str($EC)]         = _TSRC_PATH1; // House
+dm_terrain[?_dk+_TS1_IDX_+hex_str($ED)]         = _TSRC_PATH2; // House
+dm_terrain[?_dk+_TS1_IDX_+hex_str($EE)]         = _TSRC_DESERT1; // House
+dm_terrain[?_dk+_TS1_IDX_+hex_str($EF)]         = _TSRC_FIELD1; // House
 
-dm_terrain[?_dk+hex_str($90)]         = _TSRC_PATH2; // Dungeon
-dm_terrain[?_dk+hex_str($91)]         = _TSRC_DESERT1; // Dungeon
-dm_terrain[?_dk+hex_str($92)]         = _TSRC_FIELD1; // Dungeon
-dm_terrain[?_dk+hex_str($93)]         = _TSRC_SWAMP1; // Dungeon
-dm_terrain[?_dk+hex_str($94)]         = _TSRC_WATER_SHALLOW1; // Dungeon
-dm_terrain[?_dk+hex_str($95)]         = _TSRC_VOLCANO1; // Dungeon
-dm_terrain[?_dk+hex_str($98)]         = _TSRC_PATH3; // Dungeon
-dm_terrain[?_dk+hex_str($99)]         = _TSRC_PATH3; // Dungeon
-dm_terrain[?_dk+hex_str($E0)]         = _TSRC_PATH1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($90)]         = _TSRC_PATH2; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($91)]         = _TSRC_DESERT1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($92)]         = _TSRC_FIELD1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($93)]         = _TSRC_SWAMP1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($94)]         = _TSRC_WATER_SHALLOW1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($95)]         = _TSRC_VOLCANO1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($98)]         = _TSRC_PATH3; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($99)]         = _TSRC_PATH3; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($E0)]         = _TSRC_PATH1; // Dungeon
 
-dm_terrain[?_dk+hex_str($A0)]         = _TSRC_PATH2; // Castle
-dm_terrain[?_dk+hex_str($A1)]         = _TSRC_DESERT1; // Castle
-dm_terrain[?_dk+hex_str($A2)]         = _TSRC_FIELD1; // Castle
-dm_terrain[?_dk+hex_str($A3)]         = _TSRC_SWAMP1; // Castle
-dm_terrain[?_dk+hex_str($A4)]         = _TSRC_WATER_SHALLOW1; // Castle
-dm_terrain[?_dk+hex_str($A5)]         = _TSRC_VOLCANO1; // Castle
-dm_terrain[?_dk+hex_str($E1)]         = _TSRC_PATH1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A0)]         = _TSRC_PATH2; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A1)]         = _TSRC_DESERT1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A2)]         = _TSRC_FIELD1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A3)]         = _TSRC_SWAMP1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A4)]         = _TSRC_WATER_SHALLOW1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A5)]         = _TSRC_VOLCANO1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($E1)]         = _TSRC_PATH1; // Castle
 
 
 
 
             _dk = STR_TSRC+"_16x16_to_8x8_"+"_Layer2";
-dm_terrain[?_dk+hex_str($90)]         = _TSRC_DUNGEON1; // Dungeon
-dm_terrain[?_dk+hex_str($91)]         = _TSRC_DUNGEON1; // Dungeon
-dm_terrain[?_dk+hex_str($92)]         = _TSRC_DUNGEON1; // Dungeon
-dm_terrain[?_dk+hex_str($93)]         = _TSRC_DUNGEON1; // Dungeon
-dm_terrain[?_dk+hex_str($94)]         = _TSRC_DUNGEON1; // Dungeon
-dm_terrain[?_dk+hex_str($95)]         = _TSRC_DUNGEON1; // Dungeon
-dm_terrain[?_dk+hex_str($98)]         = _TSRC_DUNGEON1; // Dungeon
-dm_terrain[?_dk+hex_str($99)]         = _TSRC_DUNGEON1; // Dungeon
-dm_terrain[?_dk+hex_str($E0)]         = _TSRC_DUNGEON1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($90)]         = _TSRC_DUNGEON1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($91)]         = _TSRC_DUNGEON1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($92)]         = _TSRC_DUNGEON1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($93)]         = _TSRC_DUNGEON1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($94)]         = _TSRC_DUNGEON1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($95)]         = _TSRC_DUNGEON1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($98)]         = _TSRC_DUNGEON1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($99)]         = _TSRC_DUNGEON1; // Dungeon
+dm_terrain[?_dk+_TS1_IDX_+hex_str($E0)]         = _TSRC_DUNGEON1; // Dungeon
 
-dm_terrain[?_dk+hex_str($A0)]         = _TSRC_CASTLE1; // Castle
-dm_terrain[?_dk+hex_str($A1)]         = _TSRC_CASTLE1; // Castle
-dm_terrain[?_dk+hex_str($A2)]         = _TSRC_CASTLE1; // Castle
-dm_terrain[?_dk+hex_str($A3)]         = _TSRC_CASTLE1; // Castle
-dm_terrain[?_dk+hex_str($A4)]         = _TSRC_CASTLE1; // Castle
-dm_terrain[?_dk+hex_str($A5)]         = _TSRC_CASTLE1; // Castle
-dm_terrain[?_dk+hex_str($E1)]         = _TSRC_CASTLE1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A0)]         = _TSRC_CASTLE1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A1)]         = _TSRC_CASTLE1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A2)]         = _TSRC_CASTLE1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A3)]         = _TSRC_CASTLE1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A4)]         = _TSRC_CASTLE1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($A5)]         = _TSRC_CASTLE1; // Castle
+dm_terrain[?_dk+_TS1_IDX_+hex_str($E1)]         = _TSRC_CASTLE1; // Castle
 
-dm_terrain[?_dk+hex_str($70)]         = _TSRC_TOWN2; // Town
-dm_terrain[?_dk+hex_str($71)]         = _TSRC_TOWN1; // Town
-dm_terrain[?_dk+hex_str($72)]         = _TSRC_TOWN3; // Town
-dm_terrain[?_dk+hex_str($73)]         = _TSRC_TOWN2; // Town
-dm_terrain[?_dk+hex_str($E8)]         = _TSRC_TOWN2; // Town
-dm_terrain[?_dk+hex_str($E9)]         = _TSRC_TOWN2; // Town
-dm_terrain[?_dk+hex_str($EA)]         = _TSRC_TOWN2; // Town
-dm_terrain[?_dk+hex_str($EB)]         = _TSRC_TOWN2; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($70)]         = _TSRC_TOWN2; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($71)]         = _TSRC_TOWN1; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($72)]         = _TSRC_TOWN3; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($73)]         = _TSRC_TOWN2; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($E8)]         = _TSRC_TOWN2; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($E9)]         = _TSRC_TOWN2; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($EA)]         = _TSRC_TOWN2; // Town
+dm_terrain[?_dk+_TS1_IDX_+hex_str($EB)]         = _TSRC_TOWN2; // Town
 
-dm_terrain[?_dk+hex_str($78)]         = _TSRC_HOUSE1; // House
-dm_terrain[?_dk+hex_str($EC)]         = _TSRC_HOUSE1; // House
-dm_terrain[?_dk+hex_str($ED)]         = _TSRC_HOUSE1; // House
-dm_terrain[?_dk+hex_str($EE)]         = _TSRC_HOUSE1; // House
-dm_terrain[?_dk+hex_str($EF)]         = _TSRC_HOUSE1; // House
+dm_terrain[?_dk+_TS1_IDX_+hex_str($78)]         = _TSRC_HOUSE1; // House
+dm_terrain[?_dk+_TS1_IDX_+hex_str($EC)]         = _TSRC_HOUSE1; // House
+dm_terrain[?_dk+_TS1_IDX_+hex_str($ED)]         = _TSRC_HOUSE1; // House
+dm_terrain[?_dk+_TS1_IDX_+hex_str($EE)]         = _TSRC_HOUSE1; // House
+dm_terrain[?_dk+_TS1_IDX_+hex_str($EF)]         = _TSRC_HOUSE1; // House
 
-dm_terrain[?_dk+hex_str(TSRC_BOUL01)]   = _TSRC_BOULDER1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02)]   = _TSRC_BOULDER1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+1)] = _TSRC_BOULDER1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+2)] = _TSRC_BOULDER1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+3)] = _TSRC_BOULDER1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+4)] = _TSRC_BOULDER1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+5)] = _TSRC_BOULDER1; // Boulder
-dm_terrain[?_dk+hex_str(TSRC_BOUL02+6)] = _TSRC_BOULDER1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL01)]   = _TSRC_BOULDER1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02)]   = _TSRC_BOULDER1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+1)] = _TSRC_BOULDER1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+2)] = _TSRC_BOULDER1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+3)] = _TSRC_BOULDER1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+4)] = _TSRC_BOULDER1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+5)] = _TSRC_BOULDER1; // Boulder
+dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+6)] = _TSRC_BOULDER1; // Boulder
 
-dm_terrain[?_dk+hex_str($D8)]         = _TSRC_MONSTER1; // River Devil
-dm_terrain[?_dk+hex_str($D9)]         = _TSRC_MONSTER1; // River Devil
-//dm_terrain[?_dk+hex_str($DC)]         = _TSRC_MONSTER1; // River Devil
+dm_terrain[?_dk+_TS2_IDX_+hex_str($F8)]         = _TSRC_MONSTER1; // River Devil
+dm_terrain[?_dk+_TS2_IDX_+hex_str($F9)]         = _TSRC_MONSTER1; // River Devil
+//dm_terrain[?_dk+_TS1_IDX_+hex_str($D8)]         = _TSRC_MONSTER1; // River Devil
+//dm_terrain[?_dk+_TS1_IDX_+hex_str($D9)]         = _TSRC_MONSTER1; // River Devil
 
 
 

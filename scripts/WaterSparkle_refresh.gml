@@ -34,7 +34,7 @@ for(_i=ds_grid_width(dg_WaterSparkle)-1; _i>=0; _i--)
         _ow_clm = (_owrc>>0)&$FF;
         _ow_row = (_owrc>>8)&$FF;
         _tsrc = dg_tsrc[#_ow_clm,_ow_row] &$FF;
-        if (_tsrc==TSRC_WATE01 
+        if (_tsrc==TSRC_WATER01 
         && !dg_solid[#_ow_clm,_ow_row] )
         {
             ds_list_shuffle(_dl1); // sparkle pixel rc w/in an 8x8 area

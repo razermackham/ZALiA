@@ -26,14 +26,14 @@ if(!ds_map_size(g.dm_tile_file)) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // ---------------------------------------------------------------------------------
 var _i,_j, _k,_m;
-var _x,_y, _idx, _val,_val2, _dir, _type, _count;
+var _x,_y, _w,_h, _idx, _val,_val2, _dir, _type, _count;
 var _scale_x,_scale_y;
 var _clms,_rows, _clm,_row, _clm1,_row1;
 var _area_name1,_area_name2, _rm_name1,_rm_name2;
 var _depth,_depth_idx;
 var _pi, _permut;
-var _ts, _ts_x,_ts_y, _tsrc;
-var _tile_id, _tile_data, _tile_count, _layer_name, _hide_val;
+var _ts,_ts1,_ts2, _ts_x,_ts_y, _tsrc,_tsrc1,_tsrc2;
+var _tile_w,_tile_h, _tile_id, _tile_num_of_ts, _tile_data, _tile_count, _layer_name, _hide_val;
 var _str,_char, _name, _pos, _ts_name;
 var _dk;
 var _rm_has_burnables=false;
@@ -85,6 +85,14 @@ room_tile_clear(room);
 var _dm_ts_info = ds_map_create();
 var _dm_ts_data;
 var _dl_ts_data = g.dm_tile_file[?"tilesets"];
+var _dg_ts_data = ds_grid_create(0,4);
+
+var _TMX_W      = g.dm_tile_file[?"width"];
+var _TMX_H      = g.dm_tile_file[?"height"];
+var _TMX_TILE_W = g.dm_tile_file[?"tilewidth"];
+var _TMX_TILE_H = g.dm_tile_file[?"tileheight"];
+
+var _ts_asset_idx = -1;
 
 
              _count = ds_list_size(_dl_ts_data);
@@ -95,7 +103,7 @@ for(_i=0; _i<_count; _i++)
     _str        = _dm_ts_data[?"source"];
     // _dm_ts_data[?"source"] example: "source":"..\/..\/..\/..\/..\/..\/Tiled\/Tilesets\/Z2_Remake_1a\/ts_Natural_1a_WRB.tsx
     
-    if (string_pos("palette",_str)) continue;
+    if (string_pos("palette",_str)) continue;//_i
     
     for(_j=string_length(_str); _j>=1; _j--) // go backwards through the string
     {
@@ -103,15 +111,25 @@ for(_i=0; _i<_count; _i++)
         if (_char==".")
         {   // So far, it's only the file ext(.tsx), next _j starts the tileset name.
             _ts_name = "";
-            continue;
+            continue;//_j
         }
         
         
         if (_char=="/")
         {
             _dm_ts_info[?hex_str(_i)+_STR_NAME] = _ts_name;
-            _dm_ts_info[?hex_str(_i)+_STR_IDX]  = val(g.dm_tileset[?_ts_name],g.ts_SOLID_COLORS); // asset index
-            break;
+            _ts_asset_idx = val(g.dm_tileset[?_ts_name],g.ts_SOLID_COLORS); // asset index
+            _dm_ts_info[?hex_str(_i)+_STR_IDX]  = _ts_asset_idx;
+            
+            _idx = ds_grid_width(_dg_ts_data);
+            ds_grid_resize(_dg_ts_data, _idx+1,ds_grid_height(_dg_ts_data));
+            _dg_ts_data[#_idx,0] = _ts_asset_idx;
+            _dg_ts_data[#_idx,1] = _ts_name;
+            _dg_ts_data[#_idx,2] = _dm_ts_data[?"firstgid"];
+            _tile_w = val(g.dm_tileset[?_ts_name+STR_Tile+STR_Width], 8);
+            _tile_h = val(g.dm_tileset[?_ts_name+STR_Tile+STR_Height],8);
+            _dg_ts_data[#_idx,3] = _dg_ts_data[#_idx,2] + (val(g.dm_tileset[?_ts_name+STR_Tile+STR_Count],$100) - 1);
+            break;//_j
         }
         
         _ts_name = _char + _ts_name;
@@ -119,6 +137,9 @@ for(_i=0; _i<_count; _i++)
     
     ds_map_clear(_dm_ts_data);
 }
+
+
+var _dg_ts_data_W = ds_grid_width(_dg_ts_data);
 
 
 
@@ -481,6 +502,21 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         
         
         _ts = val(_dm_ts_info[?hex_str(_tile_data>>8)+_STR_IDX], g.ts_TILE_MARKER);
+        
+        
+        /*
+        for(_k=0; _k<_dg_ts_data_W; _k++)
+        {
+            if (_tile_data>=_dg_ts_data[#_k,2] 
+            &&  _tile_data<=_dg_ts_data[#_k,3] )
+            {
+                _tsrc1 = _tile_data-_dg_ts_data[#_k,2];
+                _ts1   = _dg_ts_data[#_k,0];
+                break;//_k
+            }
+        }
+        */
+        
         
         if (g.dungeon_num 
         &&  string_pos(STR_Dungeon,background_get_name(_ts)) )
@@ -977,6 +1013,7 @@ if (g.mod_CLOUD_MOVEMENT)
 
 ds_list_destroy(_dl_rm_depth); _dl_rm_depth=undefined;
 ds_map_destroy( _dm_ts_info);  _dm_ts_info =undefined;
+ds_grid_destroy(_dg_ts_data);  _dg_ts_data =undefined;
 
 
 

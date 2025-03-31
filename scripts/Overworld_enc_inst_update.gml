@@ -230,11 +230,15 @@ for(_i=0; _i<_DG_WIDTH; _i++)
         // -------------------------------------------------------------
         _tsrc  = dg_tsrc[#_pc_clm,_pc_row];
         
-        if (1&&_RANDO_TSRC_ACTIVE)
+        if (_RANDO_TSRC_ACTIVE)
         {
+            _val1 = dm_Rando_TSRC[?hex_str(_tsrc)];
+            if(!is_undefined(_val1)) _tsrc = (_val1>>2)<<2;
+            /*
             _val1=((_tsrc&$FF)>>2)<<2;
             _val1=val(dm_Rando_TSRC[?hex_str(_val1)]);
             if (_val1) _tsrc = (_tsrc&$FF00) | _val1;
+            */
         }
         
         _biome = dm_enc[?hex_str(_tsrc)+STR_Biome]; // STR_FIELD, STR_DESER, etc..

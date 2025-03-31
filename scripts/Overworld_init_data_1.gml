@@ -50,20 +50,22 @@ var _area;
 var _datakey, _dk;
 if(Z)sdm("var _dk, _str1,_str2;");
 
-var _data, _rm_name;
+var _tile_w,_tile_h;
 
+var _data, _rm_name;
+/*
 var _dl_RANDO_TSRC_A = ds_list_create();
 var _dl_RANDO_TSRC_B = ds_list_create();
-ds_list_add(_dl_RANDO_TSRC_A,TSRC_GRAS01); // grass
-ds_list_add(_dl_RANDO_TSRC_A,TSRC_SAND01); // desert
-ds_list_add(_dl_RANDO_TSRC_A,TSRC_VOLC01); // volcano
-ds_list_add(_dl_RANDO_TSRC_A,TSRC_GRAV01); // grave
-ds_list_add(_dl_RANDO_TSRC_A,TSRC_TREE01); // trees
-ds_list_add(_dl_RANDO_TSRC_A,TSRC_SWAM01); // swamp
-ds_list_add(_dl_RANDO_TSRC_A,TSRC_SNOW01); // beach
+ds_list_add(_dl_RANDO_TSRC_A,(TILESET1_TS_IDX<<8)|TSRC_GRAS01); // grass
+ds_list_add(_dl_RANDO_TSRC_A,(TILESET1_TS_IDX<<8)|TSRC_SAND01); // desert
+ds_list_add(_dl_RANDO_TSRC_A,(TILESET1_TS_IDX<<8)|TSRC_VOLC01); // volcano
+ds_list_add(_dl_RANDO_TSRC_A,(TILESET1_TS_IDX<<8)|TSRC_GRAV01); // grave
+ds_list_add(_dl_RANDO_TSRC_A,(TILESET1_TS_IDX<<8)|TSRC_TREE01); // trees
+ds_list_add(_dl_RANDO_TSRC_A,(TILESET1_TS_IDX<<8)|TSRC_SWAM01); // swamp
+ds_list_add(_dl_RANDO_TSRC_A,(TILESET1_TS_IDX<<8)|TSRC_SNOW01); // beach
 ds_list_copy(_dl_RANDO_TSRC_B,_dl_RANDO_TSRC_A);
 ds_list_shuffle(_dl_RANDO_TSRC_B);
-
+*/
 
 
 
@@ -77,6 +79,11 @@ while (    !file_text_eof(   _file))
             file_text_close( _file);
 //
 var _dm_file_data = json_decode(_str);
+
+var _TMX_W      = _dm_file_data[?"width"];
+var _TMX_H      = _dm_file_data[?"height"];
+var _TMX_TILE_W = _dm_file_data[?"tilewidth"];
+var _TMX_TILE_H = _dm_file_data[?"tileheight"];
 
 
 
@@ -157,16 +164,19 @@ var _STR_NAME   = "_name";
 var _dm_ts_info = ds_map_create();
 var _dl_ts_data = _dm_file_data[?"tilesets"];
 var _dm_ts_data;
-_str="";
+var _dg_ts_data = ds_grid_create(0,5);
+var _list_idx_of_ts = 0;
+_str = "";
              _count = ds_list_size(_dl_ts_data);
 for(_i=0; _i<_count; _i++)
 {
+    _name = "";
     _dm_ts_data = _dl_ts_data[|_i];
     _str = _dm_ts_data[?"source"];
     
     for(_j=string_length(_str); _j>=1; _j--) // start from end, go backwards
     {   // "source" Example: "..\/..\/..\/Tilesets\/Z2_Remake_1a\/ts_Overworld_1a.tsx"
-        if (string_char_at(_str, _j) != "/") continue;
+        if (string_char_at(_str,_j) != "/") continue;
         
         
             _name = string_copy(_str, _j+1, (string_length(_str)-_j) - 4); // (- 4): truncates the file ext
@@ -176,13 +186,29 @@ for(_i=0; _i<_count; _i++)
             _ts   = TILESET1;
             _name = background_get_name(_ts);
         }
+        
         _dm_ts_info[?hex_str(_i)+_STR_NAME] = _name; // ts name
         _dm_ts_info[?hex_str(_i)+_STR_IDX]  = _ts;   // ts index
+        
+        _idx = ds_grid_width(_dg_ts_data);
+        ds_grid_resize(_dg_ts_data, _idx+1,ds_grid_height(_dg_ts_data));
+        _dg_ts_data[#_idx,0] = _ts;
+        _dg_ts_data[#_idx,1] = _name;
+        _dg_ts_data[#_idx,2] = _dm_ts_data[?"firstgid"];
+        _tile_w = val(g.dm_tileset[?_name+STR_Tile+STR_Width], T_SIZE);
+        _tile_h = val(g.dm_tileset[?_name+STR_Tile+STR_Height],T_SIZE);
+        _dg_ts_data[#_idx,3] = _dg_ts_data[#_idx,2] + (val(g.dm_tileset[?_name+STR_Tile+STR_Count],$100) - 1);
+        _dg_ts_data[#_idx,4] = ds_list_find_index(g.dl_tileset,_ts);
         break;//_j
     }
     
     ds_map_clear(_dm_ts_data);
 }
+
+var _dg_ts_data_W = ds_grid_width(_dg_ts_data);
+
+
+
 
 
 
@@ -194,11 +220,11 @@ for(_i=0; _i<_count; _i++)
 if(Z)repeat($2) sdm("");
 
 ds_grid_resize(dg_tsrc_def,  OW_CLMS, OW_ROWS);
-ds_grid_clear (dg_tsrc_def,  0);
+ds_grid_clear (dg_tsrc_def,  TSRC_WATER01);
 ds_grid_copy(dg_tsrc,dg_tsrc_def);
 if(Z)repeat($1) sdm("");
 if(Z)sdm("ds_grid_resize(dg_tsrc_def, OW_CLMS, OW_ROWS);");
-if(Z)sdm("ds_grid_clear( dg_tsrc_def, 0);");
+if(Z)sdm("ds_grid_clear( dg_tsrc_def, TSRC_WATER01);");
 if(Z)sdm("ds_grid_copy(dg_tsrc,dg_tsrc_def);");
 
 
@@ -351,6 +377,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
     for(_j=0; _j<_count_j; _j++) // each tile or obj of this layer
     {
         _owrc_printed = false;
+        _list_idx_of_ts = 0;
         
         _str_j = hex_str(_j);
         
@@ -610,11 +637,26 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             _val  = hex_str(_tsrc>>8);
             _ts   = _dm_ts_info[?_val+_STR_IDX];
             _name = _dm_ts_info[?_val+_STR_NAME];
+            _list_idx_of_ts = max(ds_list_find_index(g.dl_tileset,_ts), TILESET1_TS_IDX);
             
             
             //if (_layer_type=="objectgroup") sdm(" ts name: "+_name+", _tsrc_raw "+hex_str(_tsrc_raw)+", info "+_info);
             
             _tsrc &= $FF;
+            
+            
+            /*
+            for(_k=0; _k<_dg_ts_data_W; _k++)
+            {
+                if (_tsrc_raw>=_dg_ts_data[#_k,2] 
+                &&  _tsrc_raw<=_dg_ts_data[#_k,3] )
+                {
+                    _tsrc1 = _tsrc_raw-_dg_ts_data[#_k,2];
+                    _ts1   = _dg_ts_data[#_k,0];
+                    break;//_k
+                }
+            }
+            */
             
             if (string_pos("CHANGE",_layer_name))
             {
@@ -631,7 +673,8 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                     
                     dg_ChangeTiles_Boots[#_idx,0] = _owrc;
                     dg_ChangeTiles_Boots[#_idx,1] = _val;   // solid bits
-                    dg_ChangeTiles_Boots[#_idx,2] = _tsrc;
+                    dg_ChangeTiles_Boots[#_idx,2] = TSRC_WATER01;
+                    //dg_ChangeTiles_Boots[#_idx,2] = (_list_idx_of_ts<<8) | _tsrc;
                     dg_ChangeTiles_Boots[#_idx,3] = _ts;
                     continue;//_j
                 }
@@ -712,8 +755,8 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             
             if (string_pos(STR_BG,_layer_name)) // Should be the 1st, and only, obj of 1st layer
             {
-                _tsrc0 = _tsrc;
-                          ds_grid_clear(dg_tsrc_def,           _tsrc0);
+                _tsrc0 = (_list_idx_of_ts<<8) | _tsrc;
+                ds_grid_clear(dg_tsrc_def,_tsrc0);
                 if(Z)repeat($2) sdm("");
                 if(Z)sdm("ds_grid_clear(dg_tsrc_def,$"+hex_str(_tsrc0)+");");
                 break;//_j
@@ -749,7 +792,8 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             }
             
             
-            dg_tsrc_def[#_ow_clm,_ow_row] = _tsrc;
+            _tsrc0 = (_list_idx_of_ts<<8) | _tsrc;
+            dg_tsrc_def[#_ow_clm,_ow_row] = _tsrc0;
         }
         
         
@@ -781,9 +825,10 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             &&  string_pos(STR_Rauru+STR_Boulder,_info) )
             {
                 dm_data[?STR_Rando+STR_River_Devil+STR_OWRC] = _owrc;
-                dm_data[?STR_Rando+STR_River_Devil+STR_TSRC] = $D8;
+                dm_data[?STR_Rando+STR_River_Devil+STR_TSRC] = (TILESET2_TS_IDX<<8) | $F8;
+                //dm_data[?STR_Rando+STR_River_Devil+STR_TSRC] = $D8;
                 //dm_data[?_owrc_+STR_River_Devil+STR_State]   = 1;
-                dm_data[?_owrc_+STR_TSRC+STR_Under+STR_River_Devil] = TSRC_PATH02;
+                dm_data[?_owrc_+STR_TSRC+STR_Under+STR_River_Devil] = (TILESET1_TS_IDX<<8) | TSRC_PATH02;
             }
         }
         else if (_layer_name==STR_Monster)
@@ -1136,7 +1181,8 @@ if(Z)
     sdm("_count1 = $"+hex_str(_count1)+";");
     sdm("_count2 = $"+hex_str(_count2)+";");
     sdm("ds_grid_resize(dg_tsrc_def, _count1,_count2);");
-    sdm("ds_grid_clear( dg_tsrc_def, $"+hex_str(_tsrc0)+");");
+    sdm("ds_grid_clear( dg_tsrc_def, TSRC_WATER01);");
+    //sdm("ds_grid_clear( dg_tsrc_def, $"+hex_str(_tsrc0)+");");
     sdm("ds_grid_copy(dg_tsrc,dg_tsrc_def);");
     repeat($1) sdm("");
     sdm("ds_list_clear(_dl1);");
@@ -1155,7 +1201,9 @@ if(Z)
                 if!(_i&$F) _str1 += " ";
                 if!(_i&$7) _str1 += "'";
             }
-            _str1 += hex_str(_tsrc);
+            _str2  = hex_str(_tsrc);
+            if!((_tsrc>>8)&$FF) _str2 = TILESET1_TS_IDX_+_str2;
+            _str1 += _str2;
         }
         _str1 += "'";
         sdm("ds_list_add(_dl1,"+_str1+");");
@@ -1168,7 +1216,7 @@ if(Z)
     sdm("    _str1 = _dl1[|_j];");
     sdm("    for(_i=0; _i<_count1; _i++) // Each clm of tiles");
     sdm("    {");
-    sdm("        _str2 = string_copy(_str1,(_i<<1)+1,2);");
+    sdm("        _str2 = string_copy(_str1,(_i<<1)+1,4);");
     sdm("        dg_tsrc_def[#_i,_j] = str_hex(_str2);");
     sdm("    }");//_i. clms
     sdm("}");//_j. rows
@@ -1377,7 +1425,7 @@ if(Z)
     sdm("for(_i=0; _i<_count1; _i++)");
     sdm("{");
     sdm("    dg_ChangeTiles_Boots[#_i,1] = $00;"); // solid bits
-    sdm("    dg_ChangeTiles_Boots[#_i,2] = $00;"); // tsrc
+    sdm("    dg_ChangeTiles_Boots[#_i,2] = TSRC_WATER01;"); // tsrc
     sdm("    dg_ChangeTiles_Boots[#_i,3] = $26;"); // ts
     sdm("}");
     repeat($1) sdm("");
@@ -1388,7 +1436,7 @@ if(Z)
             if (_i && !(_i&$F) && !_j) repeat($1) sdm("");
             _val = dg_ChangeTiles_Boots[#_i,_j];
             if ((_j==1 && _val==$00)   // 1: solid bits
-            ||  (_j==2 && _val==$00)   // 2: tsrc
+            ||  (_j==2 && _val==TSRC_WATER01)   // 2: tsrc
             ||  (_j==3 && _val==$26) ) // 3: ts
             {
                 continue;//_j;
@@ -1436,7 +1484,7 @@ if(Z)
         _owrc = dm_data[?STR_Rando+STR_River_Devil+STR_OWRC];
         sdm("dm_data[?STR_Rando+STR_River_Devil+STR_OWRC] = $"+hex_str(_owrc)+";");
         sdm("dm_data[?STR_Rando+STR_River_Devil+STR_TSRC] = $"+hex_str(val(dm_data[?STR_Rando+STR_River_Devil+STR_TSRC]))+";");
-        sdm("dm_data[?'"+hex_str(_owrc)+"'"+"+STR_TSRC+STR_Under+STR_River_Devil] = TSRC_PATH02;");
+        sdm("dm_data[?'"+hex_str(_owrc)+"'"+"+STR_TSRC+STR_Under+STR_River_Devil] = (TILESET1_TS_IDX<<8) | TSRC_PATH02;");
         _values_were_set = true;
     }
     
@@ -1599,6 +1647,7 @@ if (g.anarkhyaOverworld_MAIN)
 // -------------------------------------------------------------------
 if(!is_undefined(_dm_ts_data))    {ds_map_destroy(_dm_ts_data);     _dm_ts_data=undefined;}
 if(!is_undefined(_dl_ts_data))    {ds_list_destroy(_dl_ts_data);    _dl_ts_data=undefined;}
+if(!is_undefined(_dg_ts_data))    {ds_grid_destroy(_dg_ts_data);    _dg_ts_data=undefined;}
 
 if(!is_undefined(_dm_file_data))  {ds_map_destroy(_dm_file_data);   _dm_file_data=undefined;}
 
@@ -1617,8 +1666,8 @@ if(!is_undefined(_dm_ts_info))    {ds_map_destroy(_dm_ts_info);     _dm_ts_info=
 
 if(!is_undefined(_dl_AreaNames))  {ds_list_destroy(_dl_AreaNames);  _dl_AreaNames=undefined;}
 
-ds_list_destroy(_dl_RANDO_TSRC_A); _dl_RANDO_TSRC_A=undefined;
-ds_list_destroy(_dl_RANDO_TSRC_B); _dl_RANDO_TSRC_B=undefined;
+//ds_list_destroy(_dl_RANDO_TSRC_A); _dl_RANDO_TSRC_A=undefined;
+//ds_list_destroy(_dl_RANDO_TSRC_B); _dl_RANDO_TSRC_B=undefined;
 
 if(Z)sdm("ds_list_destroy(_dl1); _dl1=undefined;");
 //sdm("ds_list_destroy(_dl2); _dl2=undefined;");

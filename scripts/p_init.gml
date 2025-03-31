@@ -25,6 +25,10 @@ GO_depth_init(DEPTH_BASE);
 
 
 
+// 7 colors means 5040 permutations per palette
+// 6 colors means  720 permutations per palette
+// 5 colors means  120 permutations per palette
+// 4 colors means   24 permutations per palette
 //                          // 
 //                          // 
 C_BLK0 = $000000; // B-000,G-000,R-000.   full black
@@ -34,10 +38,10 @@ C_RED0 = $0000FF; // B-000,G-000,R-255.   full red
 C_GRN0 = $00FF00; // B-000,G-255,R-000.   full green
 C_BLU0 = $FF0000; // B-255,G-000,R-000.   full blue
 //                          // 
+C_YLW0 = $FFFF00; // B-255,G-255,R-000.   full yellow
 C_MGN0 = $FF00FF; // B-255,G-000,R-255.   full magenta
 C_TEL0 = $00FFFF; // B-000,G-255,R-255.   full teal
-C_YLW0 = $FFFF00; // B-255,G-255,R-000.   full yellow
-C_ERR0 =  C_YLW0; // Error, Missing data, ..   full green 
+C_ERR0 =  C_YLW0; // Error, Missing data, ..
 //C_ERR0 =  C_GRN0; // Error, Missing data, ..   full green 
 //                          // 
 //                          // 

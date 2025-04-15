@@ -13895,6 +13895,7 @@
         <script>scripts\GOB_draw_hp.gml</script>
       </scripts>
       <scripts name="Dev_StabToCheat">
+        <script>scripts\Dev_StabToCheat_end.gml</script>
         <script>scripts\Dev_StabToCheat_Create.gml</script>
         <script>scripts\Dev_StabToCheat_Step.gml</script>
         <script>scripts\Dev_StabToCheat_update_1a.gml</script>

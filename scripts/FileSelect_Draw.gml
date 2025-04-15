@@ -51,15 +51,15 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
 {
     if (_dl_CAN_COLOR_FILE[|_i]) _pi = PI_MENU;
     else                         _pi = PI_DARKLONK;
-    _text = f.ar_save_names[_i];
+    _text = f.dl_save_names[|_i];
     _x = saveNameX;
     _y = saveNameY + (SAVE_FILE_PAD*_i);
     draw_text_(_x,_y, _text, -1,_pi);
     
     if (state==State_MAIN 
-    &&  stats[_i,0] ) // stats[_i,0] = _saveData[?f.SDNAME_saveCreated]
+    &&  dg_stats[#_i,0] ) // dg_stats[#_i,0] = _saveData[?f.SDNAME_saveCreated]
     {   // Quest icon
-        if (stats[_i,1]==2)
+        if (dg_stats[#_i,1]==2)
         {
             _spr = SPR_QUEST;
             _x = QUEST_X;
@@ -69,7 +69,7 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
         
         
         // Death count
-            _text = string(stats[_i,2]);
+            _text = string(dg_stats[#_i,2]);
         repeat(3-string_length(_text))
         {   _text = '0'+_text;  }
         
@@ -82,7 +82,7 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
         _y = LEVELS_Y + (SAVE_FILE_PAD*_i);
         for(_j=0; _j<=2; _j++) // Each stat (Atk,Mag,Lif)
         {
-            _text = string(stats[_i, 3+_j]);
+            _text = string(dg_stats[#_i, 3+_j]);
             _x  = LEVELS_X;
             _x += LEVELS_X_OFF*_j;
             _x += $10;
@@ -158,7 +158,7 @@ switch(state)
 // ---------------------------------------------------------------------------------------------
 if (state)
 {   // Fairy - menu cursor
-    _spr = sprites_fairy[sprites_fairy_idx];
+    _spr = dl_sprites_fairy[|sprites_fairy_idx];
     _x = fairy_x;
     _y = fairy_y;
     switch(state)

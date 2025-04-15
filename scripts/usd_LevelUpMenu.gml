@@ -16,7 +16,7 @@ else                  canDrawStatIcon = 1;
 if (g.menu_state == 4) // Building window
 {
     for (var i=0; i<=2; i++)
-    {   statXPNext[i] = get_xp_next(i);  }
+    {   dl_xp_next_stat[|i] = get_xp_next(i);  }
 }
 
 

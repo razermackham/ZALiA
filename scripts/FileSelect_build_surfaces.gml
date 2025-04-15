@@ -47,7 +47,7 @@ switch(state)
             {
                 _x  = _X1; // Levels XL
                 _x += _j * ($04<<3); // spr XL
-                _spr = ar_spr_statIcon[_j];
+                _spr = dl_spr_statIcon[|_j];
                 draw_sprite_(_spr,0, _x+4,_y+4);
                 
                 _x += 8; // "-" XL

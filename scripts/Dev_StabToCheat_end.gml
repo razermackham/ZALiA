@@ -1,9 +1,5 @@
-/// Cutscene_GameEnd_1B_end()
+/// Dev_StabToCheat_end()
 
-
-//ar_CURTAIN      = 0;
-//ar_CURTAIN_TSRC = 0;
-//ar_ANIM_TSRC    = 0;
 
 /*
 var _exists = false;
@@ -35,32 +31,24 @@ if (_exists)                             ds_=undefined;
 */
 
 
-var _exists;
+
+
+var _exists = false;
 
 
 
 
-    _exists=variable_instance_exists(id,"dl_curtain_tsrc");
-if (_exists) _exists = !is_undefined(    dl_curtain_tsrc);
-if (_exists) _exists = ds_exists(        dl_curtain_tsrc,ds_type_list);
-if (_exists)           ds_list_destroy(  dl_curtain_tsrc);
-if (_exists)                             dl_curtain_tsrc=undefined;
+    _exists=variable_instance_exists(id,"dl_pi");
+if (_exists) _exists = !is_undefined(    dl_pi);
+if (_exists) _exists = ds_exists(        dl_pi,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_pi);
+if (_exists)                             dl_pi=undefined;
 
-
-
-
-
-    _exists=variable_instance_exists(id,"dg_curtain");
-if (_exists) _exists = !is_undefined(    dg_curtain);
-if (_exists) _exists = ds_exists(        dg_curtain,ds_type_grid);
-if (_exists)           ds_grid_destroy(  dg_curtain);
-if (_exists)                             dg_curtain=undefined;
-
-    _exists = variable_instance_exists(id,  'dg_CREDITS');
-if (_exists) _exists =      !is_undefined(   dg_CREDITS);
-if (_exists) _exists =       ds_exists(      dg_CREDITS, ds_type_grid);
-if (_exists)                 ds_grid_destroy(dg_CREDITS);
-if (_exists)                                 dg_CREDITS = undefined;
+    _exists=variable_instance_exists(id,"dl_sprites");
+if (_exists) _exists = !is_undefined(    dl_sprites);
+if (_exists) _exists = ds_exists(        dl_sprites,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_sprites);
+if (_exists)                             dl_sprites=undefined;
 
 
 

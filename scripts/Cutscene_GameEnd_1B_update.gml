@@ -120,56 +120,36 @@ switch(g.cutscene_part)
     {
         _x = _X + (_i<<3);
         
-                      _a   = _GRID_ROWS;
         //  DEPTH   -------------------------------------------------------
-                      _a--;
-        ar_CURTAIN[_i,_a]  = _CURTAIN_DEPTH;
-        
-        
+        dg_curtain[#_i,5] = _CURTAIN_DEPTH;
         
         //  GROUND ROW  -------------------------------------------------------
-                      _a--;
-        ar_CURTAIN[_i,_a]  = get_ground_y(_x,_Y_START, 1, g.pc.spawn_y+PC_H);
-        ar_CURTAIN[_i,_a]  = ar_CURTAIN[_i,_a]>>3;
-        
-        
+        _y = get_ground_y(_x,_Y_START, 1, g.pc.spawn_y+PC_H);
+        _y = _y>>3;
+        dg_curtain[#_i,4] = _y; // ground row
         
         //  ROW UNDER CEILNG  --------------------------------------------------
-        _y = ar_CURTAIN[_i,_a]; // ground row
-                      _a--;
-        ar_CURTAIN[_i,_a]  = find_row_solid(TID_SOLID1, _x>>3,_y-4, -1, 0, $08);
-        ar_CURTAIN[_i,_a]++;
-        
-        
+        dg_curtain[#_i,3] = find_row_solid(TID_SOLID1, _x>>3,_y-4, -1, 0, $08);
+        dg_curtain[#_i,3]++;
         
         //  ROW UNDER CURTAIN  -------------------------------------------------
-                      _a--;
-        ar_CURTAIN[_i,_a]  = ar_CURTAIN[_i,_a+1] + 4;
+        dg_curtain[#_i,2] = dg_curtain[#_i,3] + 4;
         
-        if (curtain_lowest_row < ar_CURTAIN[_i,_a])
-        {   curtain_lowest_row = ar_CURTAIN[_i,_a];  }
-        
-        
+        if (curtain_lowest_row < dg_curtain[#_i,2])
+        {   curtain_lowest_row = dg_curtain[#_i,2];  }
         
         //  GOAL REACHED  -----------------------------------------------------
-                      _a--;
-        ar_CURTAIN[_i,_a]  = 0;
-        
-        
+        dg_curtain[#_i,1] = 0;
         
         // STATE/SIDE  -------------------------------------------------------
         //  0: NOT curtain clm,  1: left side of curtain,  2: right side of curtain
-            _y    = ar_CURTAIN[_i,_a+1]; // ROW UNDER CURTAIN
-            _y   -= 2;                  // move up to a curtain tile
-            _y    = _y<<3;
+        _y  = dg_curtain[#_i,2]; // ROW UNDER CURTAIN
+        _y -= 2;                 // move up to a curtain tile
+        _y  = _y<<3;
             _tsrc = tile_layer_get_tsrc(_CURTAIN_DEPTH, _x,_y);
-                                   _a--;
-        if (_tsrc+1) ar_CURTAIN[_i,_a]  = 1 + (_tsrc&1); // 1: left, 2: right
-        else         ar_CURTAIN[_i,_a]  = 0; // 0: clm doesn't have curtain
+        if (_tsrc+1) dg_curtain[#_i,0] = 1 + (_tsrc&$1); // 1: left, 2: right
+        else         dg_curtain[#_i,0] = 0; // 0: clm doesn't have curtain
     }
-    
-    
-    
     
     
     // ---------------------------------------------------
@@ -517,10 +497,8 @@ switch(g.cutscene_part)
     var _dir   =  1; // -1 left, 1 right
     
     //  _IDX1 is the middle-right clm.
-    var _IDX1  =  array_height_2d(ar_CURTAIN)>>1;
+    var _IDX1  =  ds_grid_height(dg_curtain)>>1;
     var _idx2  = _IDX1 - !_dir; // - !_dir: Start at the left middle curtain if !_dir(searching left)
-    
-    // sdm('array_height_2d(ar_CURTAIN) '+string(array_height_2d(ar_CURTAIN))+', _IDX1 '+string(_IDX1)+', _idx2 '+string(_idx2));
     
     // Start with the middle 2 curtains and search outward 
     // each dir(-1 left, 1 right) until you find a 
@@ -533,16 +511,14 @@ switch(g.cutscene_part)
             //     _idx2 is the start index(one of the 2 middle curtains)
             _idx = _idx2 + (_j*_dir);
             
-            // sdm('_idx '+string(_idx)+', ar_CURTAIN[_idx,0] '+string(ar_CURTAIN[_idx,0])+', _clm_found '+string(_clm_found));
-            
             if (_clm_found)
             {
-                ar_CURTAIN[_idx,0] = 0;
+                dg_curtain[#_idx,0] = 0;
                 continue; // _j
             }
             
             
-            if(!ar_CURTAIN[_idx,0])
+            if(!dg_curtain[#_idx,0])
             {
                 _clm_found = true;
             }
@@ -553,8 +529,6 @@ switch(g.cutscene_part)
         
         _idx2 =  _IDX1 - !_dir; // - !_dir: Start at the left middle curtain and search left.
     }
-    
-    // for(_i=array_height_2d(ar_CURTAIN)-1; _i>=0; _i--) sdm('ar_CURTAIN[_i,0] '+string(ar_CURTAIN[_i,0]));
     
     
     g.DIALOGUE_WINDOW.depth  = DLG_DEPTH_DEF;

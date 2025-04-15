@@ -11,7 +11,7 @@ var _spell;
 
 
 var _FILE_NUM  = clamp(argument0, 1,SAVE_FILE_MAX);
-var _FILE_NAME = f.ar_FILE_NAMES[_FILE_NUM-1];
+var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
 
 if(!file_exists(_FILE_NAME))
 {

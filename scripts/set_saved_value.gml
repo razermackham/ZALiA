@@ -10,7 +10,7 @@ var                      _WILL_DELETE = false;
 if (argument_count>_arg) _WILL_DELETE = argument[_arg++];
 
 
-var _FILE_NAME = f.ar_FILE_NAMES[_FILE_NUM-1];
+var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
 
 if (file_exists(_FILE_NAME))
 {

@@ -1,12 +1,14 @@
 /// FileSelect_Room_End()
 
 sdm(""); sdm("FileSelect_Room_End()"); sdm("");
+
+
 //ar_FILE_NAMES               = 0;
-ar_FILE_NAMES_PREFERENCES   = 0;
-stats           = 0;
-ar_spr_statIcon = 0;
+//ar_FILE_NAMES_PREFERENCES   = 0;
+//stats           = 0;
+//ar_spr_statIcon = 0;
 //ar_save_names   = 0;
-sprites_fairy   = 0;
+//sprites_fairy   = 0;
 
 
 if (surface_exists(surf_MAIN))
@@ -63,6 +65,18 @@ var _exists = false;
 
 
 
+    _exists=variable_instance_exists(id,"dl_sprites_fairy");
+if (_exists) _exists = !is_undefined(    dl_sprites_fairy);
+if (_exists) _exists = ds_exists(        dl_sprites_fairy,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_sprites_fairy);
+if (_exists)                             dl_sprites_fairy=undefined;
+
+    _exists=variable_instance_exists(id,"dl_spr_statIcon");
+if (_exists) _exists = !is_undefined(    dl_spr_statIcon);
+if (_exists) _exists = ds_exists(        dl_spr_statIcon,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_spr_statIcon);
+if (_exists)                             dl_spr_statIcon=undefined;
+
     _exists = variable_instance_exists(id,  "dl_sprites");
 if (_exists) _exists =      !is_undefined(   dl_sprites);
 if (_exists) _exists =       ds_exists(      dl_sprites,ds_type_list);
@@ -105,8 +119,11 @@ if (_exists)                                dm_rando_settings=undefined;
 
 
 
-
-
+    _exists=variable_instance_exists(id,"dg_stats");
+if (_exists) _exists = !is_undefined(    dg_stats);
+if (_exists) _exists = ds_exists(        dg_stats,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_stats);
+if (_exists)                             dg_stats=undefined;
 
     _exists = variable_instance_exists(id,  "dg_RandoMAIN_Options");
 if (_exists) _exists =      !is_undefined(   dg_RandoMAIN_Options);

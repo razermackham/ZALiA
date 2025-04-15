@@ -18,7 +18,7 @@ if (g.tile_pal_swap_ver==1)
             ds_list_sort(  g.dl_pal_swap_depths, 0); // 0: descending
         }
         
-        _ar_TILE_IDS=0;
+        _ar_TILE_IDS = 0;
     }
 }
 

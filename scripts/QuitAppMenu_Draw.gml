@@ -24,7 +24,7 @@ var _tsrc, _ts_x,_ts_y;
 
 for(_i=0; _i<cnt_draw_rows; _i++) // each row
 {
-    _data = ar_TSRC_DATA[_i];
+    _data = dl_tsrc_data[|_i];
     
     for(_j=string_length(_data)-1; _j>=0; _j--) // 8x8. each column of the row
     {

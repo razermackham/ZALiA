@@ -6,7 +6,7 @@ if (DEV) sdm(" f_init()");
 
 
 var _i,_j, _val;
-var _datakey;
+var _datakey, _name, _file_num;
 
 
 
@@ -55,25 +55,28 @@ SDNAME_volume_music         = "_volume_music";
 
 
 // SAVE_NAME_NULL       = string_repeat(" ", SAVE_NAME_CHAR_LIMIT);
-
 // FILE_NAME            = "SaveFile_";
-var _PREFIX = "SaveFile_";
-dl_FILE_NAME_PREFIX=ds_list_create();
-for(_i=0; _i<SAVE_FILE_MAX; _i++) ds_list_add(dl_FILE_NAME_PREFIX,_PREFIX+string(_i+1));
 
+dl_FILE_NAME_PREFIX = ds_list_create();
+dl_file_names = ds_list_create();
+dl_save_names = ds_list_create();
+for(_i=0; _i<SAVE_FILE_MAX; _i++)
+{
+    _file_num = _i+1;
+    ds_list_add(dl_FILE_NAME_PREFIX, "SaveFile_"+string(_file_num));
+    ds_list_add(dl_file_names, dl_FILE_NAME_PREFIX[|_i]+".txt");
+    ds_list_add(dl_save_names, get_saved_value(_file_num, SDNAME_save_name,SAVE_NAME_NULL));
+}
+/*
 var _file_num, _name;
 for(_i=SAVE_FILE_MAX-1; _i>=0; _i--)
 {
     _file_num = _i+1;
-    
     _name = dl_FILE_NAME_PREFIX[|_i];
-    //_name = _PREFIX+string(_file_num);
-    ar_FILE_NAMES[_i]             = _name+".txt";
-    ar_FILE_NAMES_PREFERENCES[_i] = _name+STR_Preference+".txt";
-    
+    ar_FILE_NAMES[_i] = _name+".txt";
     ar_save_names[_i] = get_saved_value(_file_num, SDNAME_save_name,SAVE_NAME_NULL);
 }
-
+*/
 
 
 

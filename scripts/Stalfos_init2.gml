@@ -23,20 +23,20 @@ else
 }
 
 
-ar_legs_spr[3] = spr_Stalfos_legs4; // downstab
-ar_legs_spr[2] = spr_Stalfos_legs3; // jump
-ar_legs_spr[1] = spr_Stalfos_legs2; // legs closed
-ar_legs_spr[0] = spr_Stalfos_legs1; // legs open
+            dl_legs_sprites = ds_list_create();
+ds_list_add(dl_legs_sprites,spr_Stalfos_legs1); // legs open
+ds_list_add(dl_legs_sprites,spr_Stalfos_legs2); // legs closed
+ds_list_add(dl_legs_sprites,spr_Stalfos_legs3); // jump
+ds_list_add(dl_legs_sprites,spr_Stalfos_legs4); // downstab
+Legs_sprite = dl_legs_sprites[|0];
+
+Arm_sprite = 0;
+Arm_xoff   = $10;
+Arm_yoff   = 0;
 
 
-Legs_sprite    = ar_legs_spr[0];
-Arm_sprite     = 0;
-Arm_xoff     = $10;
-Arm_yoff     = 0;
-
-
-VSPD_GRAV   = 2;
-vspd_grav   = VSPD_GRAV;
+VSPD_GRAV = 2;
+vspd_grav = VSPD_GRAV;
 
 hasDroppedFromSpawn = false; // 04A0[eIndex] for update sprite data
 

@@ -57,16 +57,18 @@ SUB_STATE_RSET_1A   = _a++; // ReSET. Draw solid black for x frames before going
 
 
 
-CURTAIN_CLMS    = viewW()>>3;
+CURTAIN_CLMS = viewW()>>3;
 
 // CURTAIN_CLM: The first clm of the curtains that animates.
 // ** NOTE:  rm_center(0) may return the wrong value if used before view_wview[0] has been set for the current rm.
-CURTAIN_CLM     = (g.rm_w_>>3) - (CURTAIN_CLMS>>1);
-CURTAIN_TS      = ts_Man_made_1a_WRB;
+CURTAIN_CLM  = (g.rm_w_>>3) - (CURTAIN_CLMS>>1);
+CURTAIN_TS   = ts_Man_made_1a_WRB;
 
 curtain_lowest_row = 0;
 
-ar_CURTAIN = 0;
+CURTAIN_FRAMES = 4;
+
+dg_curtain = ds_grid_create(CURTAIN_CLMS,6);
 
 var _TSRC1 = $6C;               // mid
 var _TSRC2 = _TSRC1+2;          // frame 4
@@ -74,16 +76,12 @@ var _TSRC3 = _TSRC1 + $10 - 2;  // frame 1
 var _TSRC4 = _TSRC3 + 2;        // frame 2
 var _TSRC5 = _TSRC4 + 2;        // frame 3
 
-
-CURTAIN_FRAMES  = 4;
-
-ar_CURTAIN_TSRC = 0;
-                _a = CURTAIN_FRAMES;
-ar_CURTAIN_TSRC[_a--] = _TSRC2;     // Anim frame 4
-ar_CURTAIN_TSRC[_a--] = _TSRC5;     // Anim frame 3
-ar_CURTAIN_TSRC[_a--] = _TSRC4;     // Anim frame 2
-ar_CURTAIN_TSRC[_a--] = _TSRC3;     // Anim frame 1
-ar_CURTAIN_TSRC[_a--] = _TSRC1;     // Mid
+dl_curtain_tsrc = ds_list_create();
+ds_list_add(dl_curtain_tsrc,_TSRC1); // Mid
+ds_list_add(dl_curtain_tsrc,_TSRC3); // Anim frame 1
+ds_list_add(dl_curtain_tsrc,_TSRC4); // Anim frame 2
+ds_list_add(dl_curtain_tsrc,_TSRC5); // Anim frame 3
+ds_list_add(dl_curtain_tsrc,_TSRC2); // Anim frame 4
 
 curtain_frame = CURTAIN_FRAMES;
 

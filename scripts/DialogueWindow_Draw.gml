@@ -147,7 +147,7 @@ if (writ_char_pos  // if any characters written yet
         if (_Z2) _x = g.rm_w_ - ((dg_dlg[#_i,1]<<3)>>1); // dg_dlg[#_i,1]: the string_length of the line
         else     _x = _x1;
         _y = _y1 + (_i<<4);
-        draw_text_(_x,_y, ar_lines_written[_i], _FONT);
+        draw_text_(_x,_y, dl_lines_written[|_i], _FONT);
     }
 }
 

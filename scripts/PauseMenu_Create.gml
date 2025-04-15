@@ -274,174 +274,118 @@ sprDataStr8 = _C+_H + _C + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Bottom
 sprDataStr9 = _V+_H + _C + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Hor section bar
 
 
+
+
+dg_tdata_H = 3;
+
 // an index num of 1st dimension == the anim frame - 1
 // an index num of 2nd dimension == one of the 8-pixel-high rows
-// ar_win_tdata_spl[anim frame, row of frame]
-// spl: spell
-var _VER = 1; // ver2: btm change state section includes corner tiles
-ar_win_tdata_spl = 0;
+// dg_win_tdata_spl[anim frame, row of frame]
+dg_win_tdata_spl = ds_grid_create(0,dg_tdata_H);
+_idx = -1;
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr1; // Top
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_spl[#_idx,0] = sprDataStr3; // Hor section bar
+dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+dg_win_tdata_spl[#_idx,2] = sprDataStr1; // Bottom
+//                                      //
 
-ar_win_tdata_spl[$0A, 2] = sprDataStr1; // Bottom
-ar_win_tdata_spl[$0A, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$0A, 0] = sprDataStr3; // Hor section bar
-if (_VER==2) ar_win_tdata_spl[$0A, 0] = sprDataStr1;
-
-ar_win_tdata_spl[$09, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$09, 0] = sprDataStr2; // 
-
-ar_win_tdata_spl[$08, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$08, 0] = sprDataStr2; // 
-
-ar_win_tdata_spl[$07, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$07, 0] = sprDataStr2; // 
-
-ar_win_tdata_spl[$06, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$06, 0] = sprDataStr2; // 
-
-ar_win_tdata_spl[$05, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$05, 0] = sprDataStr2; // 
-
-ar_win_tdata_spl[$04, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$04, 0] = sprDataStr2; // 
-
-ar_win_tdata_spl[$03, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$03, 0] = sprDataStr2; // 
-
-ar_win_tdata_spl[$02, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$02, 0] = sprDataStr2; // 
-
-ar_win_tdata_spl[$01, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$01, 0] = sprDataStr2; // 
-
-ar_win_tdata_spl[$00, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$00, 0] = sprDataStr1; // Top
 
 
-
-
-/*
-// itm: item
-ar_win_tdata_itm = 0;
-
-ar_win_tdata_itm[$0A, 2] = sprDataStr1; // Bottom
-ar_win_tdata_itm[$0A, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$0A, 0] = sprDataStr3; // Hor section bar
-if (_VER==2) ar_win_tdata_itm[$0A, 0] = sprDataStr1;
-
-ar_win_tdata_itm[$09, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$09, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$08, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$08, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$07, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$07, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$06, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$06, 0] = sprDataStr3; // Hor section bar
-
-ar_win_tdata_itm[$05, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$05, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$04, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$04, 0] = sprDataStr3; // Hor section bar
-
-ar_win_tdata_itm[$03, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$03, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$02, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$02, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$01, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$01, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$00, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$00, 0] = sprDataStr1; // Top
-*/
 
 // itm: item
-ar_win_tdata_itm = 0;
-
-ar_win_tdata_itm[$0A, 2] = sprDataStr1; // Bottom
-ar_win_tdata_itm[$0A, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$0A, 0] = sprDataStr3; // Hor section bar
-if (_VER==2) ar_win_tdata_itm[$0A, 0] = sprDataStr1;
-
-ar_win_tdata_itm[$09, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$09, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$08, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$08, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$07, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$07, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$06, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$06, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$05, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$05, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$04, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$04, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$03, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$03, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$02, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$02, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$01, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$01, 0] = sprDataStr2; // 
-
-ar_win_tdata_itm[$00, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$00, 0] = sprDataStr1; // Top
+dg_win_tdata_itm = ds_grid_create(0,dg_tdata_H);
+ds_grid_copy(dg_win_tdata_itm,dg_win_tdata_spl);
 
 
 
 
-
-
-
-ar_win_tdata_map = 0;
-
-ar_win_tdata_map[$0A, 2] = sprDataStr8; // Bottom
-ar_win_tdata_map[$0A, 1] = sprDataStr7; // 
-ar_win_tdata_map[$0A, 0] = sprDataStr6; // Hor section bar
-if (_VER==2) ar_win_tdata_map[$0A, 0] = sprDataStr9;
-
-ar_win_tdata_map[$09, 1] = sprDataStr5; // 
-ar_win_tdata_map[$09, 0] = sprDataStr5; // 
-
-ar_win_tdata_map[$08, 1] = sprDataStr5; // 
-ar_win_tdata_map[$08, 0] = sprDataStr5; // 
-
-ar_win_tdata_map[$07, 1] = sprDataStr5; // 
-ar_win_tdata_map[$07, 0] = sprDataStr5; // 
-
-ar_win_tdata_map[$06, 1] = sprDataStr5; // 
-ar_win_tdata_map[$06, 0] = sprDataStr5; // 
-
-ar_win_tdata_map[$05, 1] = sprDataStr5; // 
-ar_win_tdata_map[$05, 0] = sprDataStr5; // 
-
-ar_win_tdata_map[$04, 1] = sprDataStr5; // 
-ar_win_tdata_map[$04, 0] = sprDataStr5; // 
-
-ar_win_tdata_map[$03, 1] = sprDataStr5; // 
-ar_win_tdata_map[$03, 0] = sprDataStr5; // 
-
-ar_win_tdata_map[$02, 1] = sprDataStr5; // 
-ar_win_tdata_map[$02, 0] = sprDataStr5; // 
-
-ar_win_tdata_map[$01, 1] = sprDataStr5; // 
-ar_win_tdata_map[$01, 0] = sprDataStr5; // 
-
-ar_win_tdata_map[$00, 1] = sprDataStr5; // 
-ar_win_tdata_map[$00, 0] = sprDataStr4; // Top
-
-
-
+dg_win_tdata_map = ds_grid_create(0,dg_tdata_H);
+_idx = -1;
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr4; // Top
+dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
+dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
+dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
+dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
+dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
+dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
+dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
+dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
+dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
+dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+//                                      //
+ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+dg_win_tdata_map[#_idx,0] = sprDataStr8; // Hor section bar
+dg_win_tdata_map[#_idx,1] = sprDataStr7; // 
+dg_win_tdata_map[#_idx,2] = sprDataStr6; // Bottom
+//                                      //
 
 
 
@@ -449,6 +393,18 @@ ar_win_tdata_map[$00, 0] = sprDataStr4; // Top
 // --------------------------------------------------------
 canDrawSpells = false;
 
+dl_spell_str = ds_list_create();
+var _CHAR_MAX = 8;
+var                  _spell_name;
+for(_i=0; _i<g.SPELL_COUNT; _i++){
+                     _spell_name  = string_letters(val(g.dm_Spell[?hex_str($1<<_i)+STR_Name], STR_CUCCO));
+    if(!is_undefined(_spell_name))
+    {                _spell_name += string_repeat(".", _CHAR_MAX-string_length(_spell_name));  }
+    else             _spell_name  = string_repeat(".", _CHAR_MAX);
+    
+    ds_list_add(dl_spell_str,_spell_name);
+}
+/*
 var _CHAR_MAX = 8;
 var                  _spell_name;
 for(_i=g.SPELL_COUNT-1; _i>=0; _i--){
@@ -457,9 +413,9 @@ for(_i=g.SPELL_COUNT-1; _i>=0; _i--){
     {                _spell_name += string_repeat(".", _CHAR_MAX-string_length(_spell_name));  }
     else             _spell_name  = string_repeat(".", _CHAR_MAX);
     
-    ar_spell_str[_i]=_spell_name;
+    dl_spell_str[|_i] = _spell_name;
 }
-
+*/
 Head_TEXT         = "MAGIC";
 Head_TEXT        += string_repeat(".", _CHAR_MAX-string_length(Head_TEXT));
 
@@ -703,8 +659,10 @@ map_anim_idx = 0;
 
 // index is (frame - 1) of open map sequence, which is about 5 frames.
 // The value is num of clms to draw from drawX.
+dl_map_anim_data = ds_list_create();
+ds_list_add(dl_map_anim_data,$00,$02,$06,$0B,$10,$14,$18,$1B,$1E,$20,$20);
+/*
 ar_map_anim_data = 0;
-
 var    _VER = 3;
 switch(_VER)
 {
@@ -743,35 +701,31 @@ switch(_VER)
     ar_map_anim_data[10] = $20; // 
     break;}
 }
+*/
 
 
 
 
+/*
+dg_map_edge values:
+$FF: Draw nothing
+$FE: Draw solid
+$0F bits:
+  $00-03 back-end 2 pixels transparent for edge of map
+  $00: Sprite 1
+  $01: Sprite 1 rot 90deg
+  $02: Sprite 2
+  $03: Sprite 2 rot 90deg
 
-
-
-/*  dg_map_edge values:
-    
-    $FF: Draw nothing
-    $FE: Draw solid
-    $0F bits:
-        
-        $00-03 back-end 2 pixels transparent for edge of map
-        $00: Sprite 1
-        $01: Sprite 1 rot 90deg
-        $02: Sprite 2
-        $03: Sprite 2 rot 90deg
-        
-        $04-07 same as 0-3 except back-end 2 pixels opaque for inner map
-        $04: Sprite 1
-        $05: Sprite 1 rot 90deg
-        $06: Sprite 2
-        $07: Sprite 2 rot 90deg
-        
-    $C0 bits:
-        $40: Flip hor
-        $80: Flip ver */
-//
+  $04-07 same as 0-3 except back-end 2 pixels opaque for inner map
+  $04: Sprite 1
+  $05: Sprite 1 rot 90deg
+  $06: Sprite 2
+  $07: Sprite 2 rot 90deg
+$C0 bits:
+  $40: Flip hor
+  $80: Flip ver
+*/
 _clms = CLMS_MAP_PAPER;
 _rows = ROWS_MAP_PAPER;
 dg_map_edge = ds_grid_create(_clms, _rows); ds_grid_clear(dg_map_edge, -1);
@@ -806,135 +760,135 @@ dg_map_edge[#_clm,  $0F] = $43; //
 // dg_map_edge[#_clm, _row] = $C0; // 
 
 // clm $01
-              _clm++;
+             _clm++;
 dg_map_edge[# $01, _row] = $C0; // 
 
 // clm $02
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $00;
 dg_map_edge[#_clm, _row] = $82; // 
 
 // clm $03
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $02;
 
 // clm $04
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm, _row] = $C0; // 
 
 // clm $05
-              _clm++;
+             _clm++;
 
 
 // clm $06
-              _clm++;
+             _clm++;
 
 
 // clm $07
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $40;
 dg_map_edge[#_clm, _row] = $82; // 
 
 // clm $08
-              _clm++;
+             _clm++;
 
 
 // clm $09
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm, _row] = $C0; // 
 
 // clm $0A
-              _clm++;
+             _clm++;
 
 
 // clm $0B
-              _clm++;
+             _clm++;
 
 
 // clm $0C
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $00;
 
 // clm $0D
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $00;
 dg_map_edge[#_clm, _row] = $C0; // 
 
 // clm $0E
-              _clm++;
+             _clm++;
 
 
 // clm $0F
-              _clm++;
+             _clm++;
 
 
 // clm $10
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm, _row] = $C0; // 
 
 // clm $11
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $40;
 dg_map_edge[#_clm, _row] = $82; // 
 
 // clm $12
-              _clm++;
+             _clm++;
 
 
 // clm $13
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm, _row] = $C0; // 
 
 // clm $14
-              _clm++;
+             _clm++;
 
 
 // clm $15
-              _clm++;
+             _clm++;
 
 
 // clm $16
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $00;
 
 // clm $17
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $00;
 dg_map_edge[#_clm, _row] = $C0; // 
 
 // clm $18
-              _clm++;
+             _clm++;
 
 
 // clm $19
-              _clm++;
+             _clm++;
 
 
 // clm $1A
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm, _row] = $C0; // 
 
 // clm $1B
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $00;
 
 // clm $1C
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $FE;
 dg_map_edge[#_clm,  $01] = $46; // inner map tear
 
 // clm $1D
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $00] = $02;
 dg_map_edge[#_clm, _row] = $C0; // 
 
 // clm $1E
-              _clm++;
+             _clm++;
 dg_map_edge[#_clm,  $0D] = $85; // inner map tear
 dg_map_edge[#_clm, _row] = $82; // 
 
 // clm $1F
-              _clm++;
+             _clm++;
 // dg_map_edge[#_clm,  $00] = $; // 
 dg_map_edge[#_clm,  $01] = $83; // 
 // dg_map_edge[#_clm,  $02] = $; // 

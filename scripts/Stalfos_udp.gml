@@ -52,7 +52,7 @@ else
 
 
 GO_set_sprite(id, dl_sprites[|_body_idx]);
-Legs_sprite = ar_legs_spr[_legs_idx];
+Legs_sprite = dl_legs_sprites[|_legs_idx];
 
 
 

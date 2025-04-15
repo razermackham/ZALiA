@@ -52,7 +52,7 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
 {
     drawX -= (canDrawSections-ANIM_FRAMES_DEF)<<4;
     
-    var _IDX_LAST   = array_length_1d(ar_map_anim_data)-1;
+    var _IDX_LAST   = ds_map_size(dl_map_anim_data)-1;
     Window_extra_draw_clms = (canDrawSections-ANIM_FRAMES_DEF)<<1; // column width 8
     
     if (g.menu_state==5) map_anim_idx = _IDX_LAST;
@@ -60,7 +60,7 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
     
     
     
-    paper_drawn_clms = ar_map_anim_data[map_anim_idx];
+    paper_drawn_clms = dl_map_anim_data[|map_anim_idx];
     paper_drawn_rows = ROWS_MAP_PAPER;
     
     map_is_opening = paper_drawn_clms && paper_drawn_clms<CLMS_MAP_PAPER;
@@ -312,7 +312,8 @@ Window_w = Window_w<<3;
 
 var _SECTIONS = clamp(canDrawSections, 1, ANIM_FRAMES_DEF);
 Window_h  = _SECTIONS<<1;
-Window_h += (array_length_2d(ar_win_tdata_spl, _SECTIONS-1) &$1); // extra row
+Window_h += dg_win_tdata_spl[#_SECTIONS-1,dg_tdata_H-1]!=0; // extra row
+//Window_h += (array_length_2d(ar_win_tdata_spl, _SECTIONS-1) &$1); // extra row
 Window_h  = Window_h<<3;
 
 

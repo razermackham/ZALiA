@@ -51,7 +51,7 @@ for(_i=0; _i<Window_vertical_draw_section_count-1; _i++) // Each section
     &&  g.CuccoSpell2_Acquired 
     &&  g.CuccoSpell2_Option )
     {    _text = SPELL_TEXT_CUCCO;  }
-    else _text = ar_spell_str[_i];
+    else _text = dl_spell_str[|_i];
     
     
     _amount = get_spell_cost(_spell_bit);

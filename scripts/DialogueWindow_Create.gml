@@ -1,7 +1,7 @@
 /// DialogueWindow_Create()
 
 
-var i, _a, _val;
+var _i, _a, _val;
 
                   _a = 1;
 // SUB_STATE_ = _a++; // 
@@ -190,8 +190,9 @@ writ_dlg            = ""; // what's been written so far
 writ_snd            = get_audio_theme_track(dk_TypeChar);
 // writ_snd_can_play = true;
 
-      MAX_LINES = (rows-2) >>1; // = 4
-for(i=MAX_LINES-1; i>=0; i--) ar_lines_written[i] = ""; // 
+MAX_LINES = (rows-2)>>1; // = 4
+dl_lines_written = ds_list_create();
+for(_i=MAX_LINES-1; _i>=0; _i--) dl_lines_written[|_i] = ""; // 
 
 
 dg_dlg = ds_grid_create(0,2);

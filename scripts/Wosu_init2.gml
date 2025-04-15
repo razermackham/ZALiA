@@ -6,7 +6,7 @@ var _i, _val, _len, _pos;
 
 dl_sprites[|1] = spr_Wosu2;
 dl_sprites[|0] = spr_Wosu1;
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 if(!is_undefined(dk_spawn)) // if not from a spawner
 {

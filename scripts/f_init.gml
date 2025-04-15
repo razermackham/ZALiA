@@ -9,6 +9,9 @@ var _i,_j, _val;
 var _datakey, _name, _file_num;
 
 
+depth = DEPTH_f;
+
+
 
 
 

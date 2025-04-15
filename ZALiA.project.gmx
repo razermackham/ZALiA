@@ -11640,6 +11640,7 @@
         <background>background\ts_Man_made_1a_WRB</background>
         <background>background\ts_Man_made_2a_WRB</background>
         <background>background\ts_Man_made_3a_WRB</background>
+        <background>background\ts_ManMade05</background>
         <background>background\ts_Man_made_4a_WRB</background>
         <background>background\ts_Man_made_6a_WRB</background>
         <background>background\ts_Man_made_7a_WRB</background>
@@ -11686,6 +11687,7 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\THIS_IS_A_FORK_OF_THE_MASTER_ZALIA.gml</script>
     <script>scripts\d_l0__oo__0l_b.gml</script>
     <script>scripts\scr_temp1.gml</script>
     <script>scripts\scr_temp2.gml</script>
@@ -11758,6 +11760,7 @@
         <script>scripts\init_data_xp.gml</script>
         <script>scripts\init_data_town_1a.gml</script>
         <script>scripts\init_data_spells_1a.gml</script>
+        <script>scripts\init_data_items.gml</script>
         <script>scripts\init_data_dialogue.gml</script>
         <script>scripts\NPC_data_init.gml</script>
       </scripts>
@@ -11888,10 +11891,10 @@
       <script>scripts\window_set_scale.gml</script>
       <script>scripts\window_get_scale.gml</script>
       <script>scripts\draw_view_og_outline.gml</script>
+      <script>scripts\CamZoom_test1.gml</script>
     </scripts>
     <scripts name="tile">
       <script>scripts\scene_enter_add_tiles.gml</script>
-      <script>scripts\rm_enter_set_tiles.gml</script>
       <script>scripts\tile_data_init.gml</script>
       <script>scripts\tile_data_init_1.gml</script>
       <script>scripts\tile_add_.gml</script>
@@ -13072,6 +13075,7 @@
           <scripts name="spike_ball">
             <script>scripts\SpikeBall1_init_1.gml</script>
             <script>scripts\SpikeBall1_init_2.gml</script>
+            <script>scripts\SpikeBall1_init3.gml</script>
             <script>scripts\SpikeBall1_update.gml</script>
             <script>scripts\SpikeBall1_udp.gml</script>
           </scripts>
@@ -13700,10 +13704,12 @@
       <script>scripts\p_init_add_more_colors.gml</script>
       <script>scripts\p_Room_Start.gml</script>
       <script>scripts\p_Room_Start_1.gml</script>
+      <script>scripts\p_Room_End.gml</script>
       <script>scripts\p_Draw.gml</script>
       <script>scripts\p_Draw_1.gml</script>
       <script>scripts\p_Game_End.gml</script>
       <script>scripts\p_init_palette_data.gml</script>
+      <script>scripts\p_init_palette_data2.gml</script>
       <script>scripts\palette_data_init.gml</script>
       <script>scripts\update_Pallete_1a.gml</script>
       <script>scripts\update_Pallete_1b.gml</script>
@@ -13718,9 +13724,12 @@
       <script>scripts\isPalSprPalette.gml</script>
       <script>scripts\isPalSprColor.gml</script>
       <script>scripts\get_pi.gml</script>
+      <script>scripts\add_pi_permut.gml</script>
       <script>scripts\get_pal_color.gml</script>
       <script>scripts\get_pal_pos.gml</script>
+      <script>scripts\get_pal_col_pos.gml</script>
       <script>scripts\request_pal_change.gml</script>
+      <script>scripts\update_scene_palette.gml</script>
       <script>scripts\change_pal.gml</script>
       <script>scripts\set_pc_pal.gml</script>
       <script>scripts\get_pc_skin_palette.gml</script>
@@ -13732,6 +13741,8 @@
       <script>scripts\rm_is_fully_lit.gml</script>
       <script>scripts\rm_pal_qual_lit.gml</script>
       <script>scripts\triforce_pal_update.gml</script>
+      <script>scripts\get_color_brightness.gml</script>
+      <script>scripts\color_str.gml</script>
       <scripts name="palette_swap">
         <script>scripts\pal_swap_draw_palette.gml</script>
         <script>scripts\pal_swap_enable_override.gml</script>
@@ -13920,6 +13931,7 @@
         <script>scripts\dev_randomize_palette_shadow.gml</script>
         <script>scripts\dev_output_colors_1a.gml</script>
         <script>scripts\dev_automate_palette_data.gml</script>
+        <script>scripts\dev_automate_palette_data2.gml</script>
       </scripts>
       <scripts name="Dev_RmWarping">
         <script>scripts\Dev_RmWarper_Create.gml</script>
@@ -14584,7 +14596,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1049">
+  <constants number="1017">
     <constant name="DEV">true</constant>
     <constant name="USE_FRAME_DELAY">1</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
@@ -14678,22 +14690,6 @@
     <constant name="DEPTH_FG6">(DEPTH_FG5-TILE_DEPTHS_PAD)</constant>
     <constant name="DEPTH_FG7">(DEPTH_FG6-TILE_DEPTHS_PAD)</constant>
     <constant name="DEPTH_FG8">(DEPTH_FG7-TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG1_P1">TILE_DEPTHS_BASE</constant>
-    <constant name="DEPTH_BG1_P2">(DEPTH_BG1_P1 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG1_P3">(DEPTH_BG1_P2 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG1_P4">(DEPTH_BG1_P3 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG2_P1">(DEPTH_BG1_P4 + TILE_LAYERS_GROUP_PAD)</constant>
-    <constant name="DEPTH_BG2_P2">(DEPTH_BG2_P1 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG2_P3">(DEPTH_BG2_P2 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG2_P4">(DEPTH_BG2_P3 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG1_P1">(-TILE_DEPTHS_BASE)</constant>
-    <constant name="DEPTH_FG1_P2">(DEPTH_FG1_P1 - TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG1_P3">(DEPTH_FG1_P2 - TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG1_P4">(DEPTH_FG1_P3 - TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG2_P1">(DEPTH_FG1_P4 - TILE_LAYERS_GROUP_PAD)</constant>
-    <constant name="DEPTH_FG2_P2">(DEPTH_FG2_P1 - TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG2_P3">(DEPTH_FG2_P2 - TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG2_P4">(DEPTH_FG2_P3 - TILE_DEPTHS_PAD)</constant>
     <constant name="DEPTH_HIDDEN">-3000</constant>
     <constant name="DEPTH_SOLIDS">-1000</constant>
     <constant name="DEPTH_UNIQUE">-2000</constant>
@@ -14705,6 +14701,7 @@
     <constant name="DEPTH_BASE_HUD">(DEPTH_FG7 - DEPTH_PAD)</constant>
     <constant name="DEPTH_BASE_MENU">(DEPTH_BASE_HUD - DEPTH_PAD)</constant>
     <constant name="DEPTH_BASE_SURFACE">(DEPTH_BASE_MENU - DEPTH_PAD)</constant>
+    <constant name="DEPTH_PERSIST_OBJ">(DEPTH_BASE_SURFACE - DEPTH_PAD)</constant>
     <constant name="DEPTH_FILE_SELECT">(DEPTH_BASE - DEPTH_PAD)</constant>
     <constant name="DEPTH_HUD">DEPTH_BASE_HUD</constant>
     <constant name="DEPTH_NIAO">DEPTH_BASE_NIAO</constant>
@@ -14725,6 +14722,12 @@
     <constant name="DEPTH_OW_ENEMY">(DEPTH_OW - 1)</constant>
     <constant name="DEPTH_OW_PC">(DEPTH_OW_ENEMY - 1)</constant>
     <constant name="DEPTH_SURFACE">DEPTH_BASE_SURFACE</constant>
+    <constant name="DEPTH_Audio">(DEPTH_SURFACE - 1)</constant>
+    <constant name="DEPTH_p">(DEPTH_Audio - 1)</constant>
+    <constant name="DEPTH_g">(DEPTH_p - 1)</constant>
+    <constant name="DEPTH_Input">(DEPTH_g - 1)</constant>
+    <constant name="DEPTH_f">(DEPTH_SURFACE + 1)</constant>
+    <constant name="DEPTH_Overworld">(DEPTH_f + 1)</constant>
     <constant name="SPL_NONE">$000</constant>
     <constant name="SPL_PRTC">$001</constant>
     <constant name="SPL_JUMP">(SPL_PRTC &lt;&lt;1)</constant>
@@ -15512,33 +15515,10 @@
     <constant name="TSRC_BREAK3_A">('82' + '83' + '92' + '93')</constant>
     <constant name="TSRC_BREAK3_B">('86' + '87' + '96' + '97')</constant>
     <constant name="TSRC_BREAK4_A">('A8' + 'A8' + 'A9' + 'A9')</constant>
-    <constant name="COL_PER_PAL">4</constant>
     <constant name="PI_PERMUTATIONS">6</constant>
     <constant name="PC_PAL_COUNT1">3</constant>
     <constant name="PC_PAL_COUNT2">3</constant>
     <constant name="PC_PAL_COUNT">(PC_PAL_COUNT1 + PC_PAL_COUNT2 + 1)</constant>
-    <constant name="PI_BASE">0</constant>
-    <constant name="PI_GUI_1">(PI_BASE + 1)</constant>
-    <constant name="PI_GUI_2">(PI_GUI_1 + 1)</constant>
-    <constant name="PI_GUI_3">(PI_GUI_2 + 1)</constant>
-    <constant name="PI_GUI_4">(PI_GUI_3 + 1)</constant>
-    <constant name="PI_PC_1">(PI_GUI_1 + 1)</constant>
-    <constant name="PI_PC_3">(PI_PC_1 + PC_PAL_COUNT1)</constant>
-    <constant name="PI_PC_2">(PI_PC_3 + 1)</constant>
-    <constant name="PI_CUC1">(PI_PC_2 + PC_PAL_COUNT2)</constant>
-    <constant name="PI_CUC3">(PI_CUC1 + PC_PAL_COUNT1)</constant>
-    <constant name="PI_CUC2">(PI_CUC3 + 1)</constant>
-    <constant name="PI_DARKLONK">(PI_CUC2 + PC_PAL_COUNT2)</constant>
-    <constant name="PI_BGR_1">(PI_DARKLONK + 1)</constant>
-    <constant name="PI_BGR_2">(PI_BGR_1 + 1)</constant>
-    <constant name="PI_BGR_3">(PI_BGR_2 + 1)</constant>
-    <constant name="PI_BGR_4">(PI_BGR_3 + 1)</constant>
-    <constant name="PI_MOB_ORG">(PI_BGR_4 + 1)</constant>
-    <constant name="PI_MOB_RED">(PI_MOB_ORG + 1)</constant>
-    <constant name="PI_MOB_BLU">(PI_MOB_RED + 1)</constant>
-    <constant name="PI_MOB_PUR">(PI_MOB_BLU + 1)</constant>
-    <constant name="PI_CLOUD_1">PI_BGR_4</constant>
-    <constant name="PI_PC_SWORD">(PI_MOB_PUR + 2 + (PC_PAL_COUNT&lt;&lt;1) + 1)</constant>
     <constant name="SAVE_NAME_CHAR_LIMIT">8</constant>
     <constant name="SAVE_FILE_MAX">3</constant>
     <constant name="SAVE_NAME_EMPTY">(string_repeat(" ", SAVE_NAME_CHAR_LIMIT))</constant>

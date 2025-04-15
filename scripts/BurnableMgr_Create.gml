@@ -22,7 +22,7 @@ SMALL_SPR_CUE   = $20;
 FIRE_SPR1   = spr_Flame1;
 FIRE_SPR2   = spr_Flame2;
 FIRE_SPR3   = spr_Flame_Small_1a;
-FIRE_PI     = PI_MOB_ORG;
+FIRE_PI     = global.PI_MOB_ORG;
 FIRE_YOFF   = -((sprite_get_height(FIRE_SPR1)-8)>>1);
 FIRE_YOFF--;
 

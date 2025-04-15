@@ -96,7 +96,7 @@ if(!(g.counter1&$3F)
 {   // 9869
     if (avail_uidx_goc(MAX_GOC1)!=UIDX_NULL)
     {   // Create Bullet2, pID $11
-        GOC1_create(xl,_yt_PREV, facingDir, projectile,projectile_ver, id, PI_MOB_RED); // PI_MOB2: red
+        GOC1_create(xl,_yt_PREV, facingDir, projectile,projectile_ver, id, global.PI_MOB_RED); // PI_MOB2: red
     }
     else
     {

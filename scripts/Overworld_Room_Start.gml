@@ -108,10 +108,13 @@ _ow_y = ((_PC_ROW<<SHIFT) + (T_SIZE>>1)) - DRAW_H_;
 Overworld_refresh_tiles(_ow_x,_ow_y);
 
 
+change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(ENC_PI), string_length(ENC_PAL), ENC_PAL));
+/*
 var _POS  = val(p.dm_pal_data[?hex_str(ENC_PI)+STR_Palette+STR_Position], p.PAL_POS_MOB4);
 var _LEN  = string_length(ENC_PAL);
-    _POS += (COL_PER_PAL<<1)-_LEN;
+    _POS += global.PAL_CHAR_PER_PAL-_LEN;
 change_pal(strReplaceAt(p.pal_rm_new, _POS, _LEN, ENC_PAL));
+*/
 
 
 WaterSparkle_refresh(pcrc);

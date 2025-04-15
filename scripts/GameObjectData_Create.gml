@@ -156,19 +156,19 @@ CSp = $1E; // 16x32 w/ lower CS_TOP
 
 
 // PI: Palette Index
-PIa = PI_MOB_ORG; // 7.  orange
-PIb = PI_MOB_RED; // 8.  red
-PIc = PI_MOB_BLU; // 9.  blue
-PId = PI_MOB_PUR; // 10. purple
+PIa = global.PI_MOB_ORG; // 7.  orange
+PIb = global.PI_MOB_RED; // 8.  red
+PIc = global.PI_MOB_BLU; // 9.  blue
+PId = global.PI_MOB_PUR; // 10. purple
 
-PIe = PI_BGR_1; // 
-PIf = PI_BGR_2; // 
-PIg = PI_BGR_3; // 
-PIh = PI_BGR_4; // 
+PIe = global.PI_BGR1; // 
+PIf = global.PI_BGR2; // 
+PIg = global.PI_BGR3; // 
+PIh = global.PI_BGR4; // 
 
-PIi = PI_PC_1; // 
+PIi = global.PI_PC1; // 
 
-PIj = PI_GUI_1; // 
+PIj = global.PI_GUI1; // 
 
 
 

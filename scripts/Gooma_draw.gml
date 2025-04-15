@@ -43,7 +43,7 @@ if (g.mod_Gooma_Projectile_1
     
     if (_can_draw)
     {
-        draw_sprite_(spr_Flame1,0, Weapon_Ball_x,Weapon_Ball_y-4, PI_MOB_ORG, sign_(g.counter1&$4));
+        draw_sprite_(spr_Flame1,0, Weapon_Ball_x,Weapon_Ball_y-4, global.PI_MOB_ORG, sign_(g.counter1&$4));
     }
 }
 

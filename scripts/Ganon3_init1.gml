@@ -7,7 +7,7 @@ var _i, _a, _idx, _val, _count;
 Ganon_init_1();
 
 GO_sprite_init(g.Ganon3_SPRITE1);
-GO_init_palidx(PI_MOB_PUR);
+GO_init_palidx(global.PI_MOB_PUR);
 
 
 GROUND_Y = get_ground_y(g.rm_w_, (g.rm_row0+PAGE_ROWS_)<<3,1, (g.rm_row0+$1B)<<3);
@@ -268,9 +268,11 @@ Slime_W_        = sprite_get_width( sprite)>>1;
 Slime_H_        = sprite_get_height(sprite)>>1;
 Slime_CLMS      = (Slime_W_<<1)<<3;
 Slime_ROWS      = (Slime_H_<<1)<<3;
-Slime_PI1       = PI_BGR_1;
+Slime_PI1       = add_pi_permut(global.PI_BGR1,    "WBRGYMC", object_get_name(id)+" pi permut "+"PI_BGR1-WBRGYMC");
+//Slime_PI1       = global.PI_BGR1;
 //Slime_PI1       = get_pi(Slime_PI1,1);
-Slime_PI2       = PI_MOB_PUR;
+Slime_PI2       = add_pi_permut(global.PI_MOB_PUR, "WBRGYMC", object_get_name(id)+" pi permut "+"PI_MOB_PUR-WBRGYMC");
+//Slime_PI2       = global.PI_MOB_PUR;
 //Slime_PI2_BASE  = PI_MOB_PUR;
 //Slime_PI2       = get_pi(Slime_PI2_BASE,1);
 Slime_HP1       = $A;
@@ -299,7 +301,7 @@ RoarCooldown_timer  = 0;
 
 
 
-Skull_PI            = PI_MOB_RED;
+Skull_PI            = global.PI_MOB_RED;
 Skull_DURATION1     = $40;
 Skull_DURATION2     = $20;
 Skull_can_draw      = false;
@@ -321,7 +323,7 @@ SkullClingState_CLING   = _a++;
 SkullClingState_FREE    = _a++;
 SkullClingState         = SkullClingState_CLING;
 
-SkullAura_PI        = PI_MOB_ORG;
+SkullAura_PI        = global.PI_MOB_ORG;
 SkullAura_pi        = SkullAura_PI;
 SkullAura_SPRITE    = spr_Aura_3a_1;
 SkullAura_W_        = sprite_get_width( SkullAura_SPRITE)>>1;
@@ -393,7 +395,8 @@ Explosion_timer = 0;
 
 
 
-ProjRain_PI         = get_pi(PI_MOB_RED,0);
+ProjRain_PI         = global.PI_MOB_RED;
+//ProjRain_PI         = get_pi(global.PI_MOB_RED,0);
 ProjRain_DURATION1  = $100;
 ProjRain_DURATION2  = $200;
 ProjRain_timer      = 0;

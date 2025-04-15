@@ -3,6 +3,7 @@
 
 scr_init1    = undefined; // initialize instance Begin
 scr_init2    = undefined; // initialize instance End
+scr_init3    = undefined; // initialize instance End
 scr_step     = undefined; // Parent step scr (Example: all GOB call GameObjectB_step())
 scr_update   = undefined; // object_index specific main update
 scr_udp      = undefined; // udp: Update Draw Properties

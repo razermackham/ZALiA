@@ -10,7 +10,7 @@ init_vars_go_4a(); // scr_vars, scr_ini1/2, scr_step, scr_updt, scr_udp, scr_dra
 
 GO_depth_init(DEPTH_NIAO); // sets depth & depth_def
 GO_sprite_init(spr_Placement_01x01);
-GO_init_palidx(PI_BGR_1);
+GO_init_palidx(global.PI_BGR1);
 
 
 doorway_spr      = 0;

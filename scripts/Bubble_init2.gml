@@ -40,7 +40,7 @@ if(!is_undefined(    dk_spawn))
 if(!is_undefined(               _spawn_datakey) 
 && !is_undefined(   g.dm_spawn[?_spawn_datakey+STR_pal_idx]) )
 {    GO_init_palidx(g.dm_spawn[?_spawn_datakey+STR_pal_idx]);  }
-else GO_init_palidx(PI_MOB_BLU);
+else GO_init_palidx(global.PI_MOB_BLU);
 
 
 var _DIR_DATA = $2|$8; // Default: $A = LFT($2) & UP($8)
@@ -104,7 +104,7 @@ if (g.area_name==Area_PalcG)
     ||  ver==$20 
     ||  ver==$22 )
     {
-        GO_init_palidx(PI_MOB_BLU);
+        GO_init_palidx(global.PI_MOB_BLU);
         
         HP_IDX = $1F;
         hp = g.dl_HP[|HP_IDX];

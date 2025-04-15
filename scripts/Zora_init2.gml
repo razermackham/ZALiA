@@ -1,7 +1,7 @@
 /// Zora_init2()
 
 
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 
 SPR_IDLE = spr_Zora_body_B; // legs open
 SPR_WALK = spr_Zora_body_A; // legs closed

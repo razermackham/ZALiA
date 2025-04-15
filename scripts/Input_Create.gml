@@ -8,6 +8,9 @@ var _i, _a;
 var _datakey;
 
 
+depth = DEPTH_Input;
+
+
 gamepad_slot = -1; // -1: No gamepad connected
 
 

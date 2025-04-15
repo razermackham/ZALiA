@@ -4,7 +4,7 @@
 if (DEV) sdm(" p_Room_Start()");
 
 
-var _i,_j,_k, _idx, _count;
+var _i,_j,_k, _idx, _count,_count1,_count2;
 var _val, _val1,_val2,_val3;
 var _str,_str1,_str2,_str3, _pos,_pos1, _pos_offset, _len1,_len2;
 var _dk;
@@ -12,16 +12,6 @@ var _pal,_pal1, _pi;
 var _dungeon_num;
 
 
-/*  // This has moved to rm_enter_set_tiles() so it doesn't override 
-    // the data rm_enter_set_tiles() sets.
-for (_i = ds_list_size(g.dl_t_depth)-1; _i >= 0; _i--)
-{
-    // dg_depth_pi contains the pi's each depth will use for THE CURRENT RM.
-    // This loop sets the default pi's for each depth. PI specific to the 
-    // current rm is passed to it in rm_enter_set_tiles() from file data.
-    dg_depth_pi[| _i] = dm_depth_pi[?hex_str(abs(g.dl_t_depth[| _i]))];
-}
-*/
 
 
 fall_scene_counter   = 1;
@@ -37,13 +27,15 @@ SpellFlash_GOB_timer   = 0;
 SpellReady_flash_timer = 0;
 
 
-     if (g.room_type=="A")   background_color_index = val(g.dm_rm[?g.rm_name+STR_Background_color], CI_BLK1);
-else if (room==rmB_GameOver) background_color_index = ds_list_find_index(dl_COLOR,GameOverScreen_BGR_COLOR);
-else                         background_color_index = CI_BLK1; // $D: black
+if (room!=rmB_Death) global.BackgroundColor_at_death = -1;
+
+     if (g.room_type=="A")   global.BackgroundColor_scene = dl_COLOR[|val(g.dm_rm[?g.rm_name+STR_Background_color], CI_BLK1)];
+else if (room==rmB_GameOver) global.BackgroundColor_scene = GameOverScreen_BGR_COLOR;
+else                         global.BackgroundColor_scene = C_BLK1;
 
 
 if (g.room_type=="A" 
-&&  background_color_index!=CI_BLK1 )
+&&  background_colour!=C_BLK1 )
 {
     var _qualifies = global.Halloween1_enabled;
     
@@ -52,10 +44,10 @@ if (g.room_type=="A"
     &&  g.RandoPalette_state  // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
     &&  val(f.dm_rando[?STR_Randomize+STR_Palette]) )
     {
-        if (background_color_index==CI_VLT2   // Town sky
-        ||  background_color_index==CI_BLU2   // Encounter sky
-        ||  background_color_index==CI_BLU4   // Old Kasuto sky
-        ||  background_color_index==CI_PUR3 ) // Cemetery sky
+        if (background_colour==C_VLT2   // Town sky
+        ||  background_colour==C_BLU2   // Encounter sky
+        ||  background_colour==C_BLU4   // Old Kasuto sky
+        ||  background_colour==C_PUR3 ) // Cemetery sky
         {
             _qualifies = !irandom($F);
         }
@@ -65,24 +57,7 @@ if (g.room_type=="A"
     if (_qualifies)
     {
         var _INST = NIAO_create2(0,0, 3,StarSky_1_init);
-        if (_INST!=noone) background_color_index = CI_BLK1;
-        /*
-        for(_i=ds_list_size(g.dl_niao)-1; _i>=0; _i--)
-        {
-            if(!is_undefined(g.dl_niao[|_i]) 
-            &&  g.dl_niao[|_i]!=noone 
-            &&  g.dl_niao[|_i] 
-            &&  instance_exists(g.dl_niao[|_i]) 
-            &&  g.dl_niao[|_i].state==0 )
-            {
-                instance_destroy(g.dl_niao[|_i]);
-                g.dl_niao[|_i] = noone;
-                g.dl_niao[|_i] = NIAO_create(0,0, 3, StarSky_1_init);
-                background_color_index = CI_BLK1;
-                break;//_i
-            }
-        }
-        */
+        if (_INST!=noone) global.BackgroundColor_scene = C_BLK1;
     }
 }
 
@@ -93,17 +68,14 @@ if (global.SceneRando_enabled)
     var _SceneRando_scene = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name);
     if (_SceneRando_scene!=g.rm_name)
     {
-        _idx = val(g.dm_rm[?_SceneRando_scene+STR_Background_color], background_color_index);
-        if (background_color_index==CI_BLK1 
-        ||  _idx==CI_BLK1 )
-        {
-            background_color_index = CI_BLK1;
-        }
+        _idx = max(0,ds_list_find_index(dl_COLOR,global.BackgroundColor_scene));
+        _idx = val(g.dm_rm[?_SceneRando_scene+STR_Background_color], _idx);
+        if (_idx==CI_BLK1) global.BackgroundColor_scene = C_BLK1;
     }
 }
 
 
-set_background_color(dl_COLOR[|background_color_index]);
+set_background_color(global.BackgroundColor_scene);
 
 
 
@@ -118,6 +90,7 @@ set_background_color(dl_COLOR[|background_color_index]);
 // ------------------------------------------------------------------------------------------
 pal_rm_def  = undefined; // the rm's default palette. pal_rm_def, pal_rm_new, pal_rm_curr  should all be equal by the end of this script.
 
+//pal_rm_new  = undefined;        // Checked every frame. Triggers pal change if != pal_rm_curr
 pal_rm_new  = "";        // Checked every frame. Triggers pal change if != pal_rm_curr
 pal_rm_curr = "";        // the rm's current palette
 
@@ -125,8 +98,6 @@ pal_rm_file = undefined; // from .json Tiled file
 pal_rm_dark = pal_rm_dark_DEFAULT;
 //     pal_rm_dark     = undefined;
 //var _pal_rm_dark_DEF = dg_pal_rm_dark[#0,0];
-
-ds_grid_clear(dg_rm_pal,-1);
 
 
 
@@ -161,10 +132,6 @@ switch(g.room_type)
                 else if (_len1<_len2) _pal  = string_copy(_pal, 1, _len1);
                 pal_rm_file = _pal;
             }
-            
-            //pal_rm_file = dm_scene_palette[?_dk];
-            //pal_rm_file = val(f.dm_rando[?g.rm_name+STR_Palette], pal_rm_file);
-            //pal_rm_file = val(f.dm_rando[?_dk+STR_Palette], pal_rm_file);
         }
         
         if (is_undefined(pal_rm_file))
@@ -172,11 +139,6 @@ switch(g.room_type)
             pal_rm_file = get_palette_via_file_data(0, g.rm_name, g.file_data_quest_num); // Get rm palette data from file
         }
     }
-    /*
-    if (_FILE_CLEANING) _val = json_encode(g.dm_tile_file);
-    else                _val = 0;
-    pal_rm_file = get_palette_via_file_data(_val, g.rm_name, g.file_data_quest_num); // Get rm palette data from file
-    */
     break;}
     
     
@@ -186,9 +148,16 @@ switch(g.room_type)
     case 'B':{ // For rmB, TitleScreen is the only one w/ a Tiled file currently(2021/09/09).
     if (room==rmB_Title)
     {
-        if (_FILE_CLEANING) _val = json_encode(g.dm_tile_file);
-        else                _val = 0;
-        pal_rm_file = get_palette_via_file_data(_val, g.rm_name, g.file_data_quest_num); // Get rm palette data from file
+        _dk = "Title_000";
+        pal_rm_file = dm_scene_palette[?_dk];
+        
+        if (is_undefined(pal_rm_file) 
+        ||  _FILE_CLEANING )
+        {
+            if (_FILE_CLEANING) _val = json_encode(g.dm_tile_file);
+            else                _val = 0;
+            pal_rm_file = get_palette_via_file_data(_val, _dk, g.file_data_quest_num); // Get rm palette data from file
+        }
     }
     else
     {
@@ -207,12 +176,30 @@ switch(g.room_type)
 
 
 
+
+
+
+
+
 if (is_undefined(pal_rm_def))
 {
     if(!is_undefined(pal_rm_file))
     {
+        // TODO: This assumes the current palette index order will always be the same. Dev a system that can handle any order.
+        // GUI, PC, CUCCO
         pal_rm_def  = PAL_SET2;
-        pal_rm_def += pal_rm_file;
+        
+        // BGR
+        _count1 = val(global.dm_pi[?"BGR"+STR_Count]) * global.PAL_CHAR_PER_PAL;
+        pal_rm_def += string_copy(pal_rm_file, 1, _count1); // BGR
+        
+        // MOB
+        if (g.town_num)         pal_rm_def += PAL_NPC_SET1;
+        else if (g.dungeon_num) pal_rm_def += PAL_MOB_SET2;
+        else                    pal_rm_def += PAL_MOB_SET1;
+        //pal_rm_def += string_copy(pal_rm_file, _count1+1, string_length(pal_rm_file)-_count1); // MOB
+        
+        // dark
         pal_rm_def += pal_rm_dark;
     }
     else
@@ -240,7 +227,7 @@ if (g.room_type=="A"
 &&  g.dungeon_num 
 &&  g.dungeon_num<8 )
 {
-    var _layer_name, _depth, _ci_;
+    var _layer_name, _depth, _ci;
     
     _count = ds_list_size(g.dl_TILE_DEPTH_NAMES);
     for(_i=0; _i<_count; _i++)
@@ -251,12 +238,12 @@ if (g.room_type=="A"
         _layer_name = g.dm_tile_file[? _dk+STR_Depth+STR_Layer+STR_Name];
         if(!is_undefined(_depth) 
         && !is_undefined(_layer_name) 
-        &&  string_pos("STRUCTURE_BGWALL01_01",_layer_name) ) // use "STRUCTURE_BGWALL01_02" in the layer name so this doesn't run
+        &&  string_pos("STRUCTURE_BGWALL01_01",_layer_name) ) // use "STRUCTURE_BGWALL01_02" in the layer name if you don't want this run
         {
             _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
             if (_idx!=-1)
             {
-                _pi = PI_BGR_4;
+                _pi = global.PI_BGR4;
                 dg_depth_pi[#_idx,0] = _pi; // pi default
                 dg_depth_pi[#_idx,1] = _pi; // pi current
                 dg_depth_pi[#_idx,2] = 0;   // permut default. 00-05
@@ -265,16 +252,20 @@ if (g.room_type=="A"
                 
                 _dungeon_num = val(f.dm_rando[?g.rm_name+STR_Dungeon+STR_Num], g.dungeon_num);
                 switch(_dungeon_num){
-                default:{_ci_=CI_GRY4_; break;}
-                case  1:{_ci_=CI_GRY4_; break;}
-                case  2:{_ci_=CI_TEL4_; break;}
-                case  3:{_ci_=CI_ORG4_; break;}
-                case  4:{_ci_=CI_PUR4_; break;}
-                case  5:{_ci_=CI_GRB4_; break;}
-                case  6:{_ci_=CI_ORG4_; break;}
-                case  7:{_ci_=CI_ORG4_; break;}
-                }//switch(g.dungeon_num)
-                pal_rm_def = strReplaceAt(pal_rm_def,get_pal_pos(_pi)+6, 2,_ci_);
+                default:{_ci=CI_GRY4; break;}
+                case  1:{_ci=CI_GRY4; break;}
+                case  2:{_ci=CI_CYN4; break;}
+                case  3:{_ci=CI_ORG4; break;}
+                case  4:{_ci=CI_PUR4; break;}
+                case  5:{_ci=CI_GRB4; break;}
+                case  6:{_ci=CI_ORG4; break;}
+                case  7:{_ci=CI_ORG4; break;}
+                }//switch(_dungeon_num)
+                
+                _pal  = color_str(dl_COLOR[|_ci]);
+                _pos  = get_pal_pos(_pi);
+                _pos += (string_pos("B",global.PAL_BASE_COLOR_ORDER)-1) * global.PAL_CHAR_PER_COLOR;
+                pal_rm_def = strReplaceAt(pal_rm_def, _pos, string_length(_pal), _pal);
             }
         }
     }
@@ -306,11 +297,11 @@ if (room!=rmB_Title
                 if(!is_undefined(_pal))
                 {
                     var _layer_name, _depth, _pos;
-                    var _solid_wall_pi_pos = get_pal_pos(PI_BGR_1);
+                    var _solid_wall_pi_pos = get_pal_pos(global.PI_BGR1);
                     var _dl_TILE_DEPTH_NAMES_COUNT = ds_list_size(g.dl_TILE_DEPTH_NAMES);
                     
                     
-                    pal_rm_def = strReplaceAt(pal_rm_def,get_pal_pos(PI_BGR_1), string_length(_pal),_pal);
+                    pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_BGR1), string_length(_pal),_pal);
                     
                     
                     for(_i=0; _i<_dl_TILE_DEPTH_NAMES_COUNT; _i++)
@@ -345,60 +336,66 @@ if (room!=rmB_Title
                             _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
                             if (_idx!=-1)
                             {
-                                _pal1 = CI_BLK1_+CI_BLK1_+CI_BLK1_+CI_BLK1_;
-                                _pi   = dg_depth_pi[#_idx,1]; // pi for bgr wall
-                                _pos  = get_pal_pos(_pi);
+                                _pi  = dg_depth_pi[#_idx,1]; // pi for bgr wall
+                                _pos = get_pal_pos(_pi);
                                 
-                                var _ci_ = string_copy(pal_rm_def,_solid_wall_pi_pos+4,2); // 2nd to last color, mid-tone, base color
+                                var _COLOR_DATA1 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*2), global.PAL_CHAR_PER_COLOR); // 2nd to last color, mid-tone, base color
+                                var _COLOR_DATA2 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*3), global.PAL_CHAR_PER_COLOR); // last color, and last 2 str chars of a palette
+                                var _color_data = _COLOR_DATA1;
                                 
                                 // If the mid-tone (_ci_) IS black, make the bgr wall full black to contrast the fgr wall
-                                if (_ci_!=CI_BLK1_)
+                                if (_COLOR_DATA1!=color_str(C_BLK1))
                                 {
-                                    // The background wall layer will often use bgr palette 4 in case there's 
-                                    // a darker tone available for dungeon's color. So its color will 
-                                    // need to be adjusted to match the new dungeon color.
-                                        _ci_ = string_copy(pal_rm_def,_solid_wall_pi_pos+6,2);    // last color, and last 2 str chars of a palette
-                                    if (_ci_==CI_BLK1_)
-                                    {   _ci_ = string_copy(pal_rm_def,_solid_wall_pi_pos+4,2);  } // 2nd to last color
+                                    if (_COLOR_DATA2==color_str(C_BLK1)) _color_data = _COLOR_DATA1;
+                                    else                                 _color_data = _COLOR_DATA2;
                                     
-                                    if (str_hex(string_char_at(_ci_,1))>=4) _ci_ = CI_BLK1_; // temp fix for new colors
+                                    if (ds_list_find_index(p.dl_COLOR,str_hex(_color_data))>=$40) _color_data = color_str(C_BLK1); // temp fix for new colors
                                     
-                                    _pos += 6;
-                                    _pal1 = _ci_;
+                                    _pos += global.PAL_CHAR_PER_COLOR*3;
+                                    _pal1 = _color_data;
                                     
-                                    if (_ci_!=CI_BLK1_)
+                                    if (_color_data!=color_str(C_BLK1))
                                     {
-                                                       _val1=string_char_at(_ci_,2);
-                                             if (isVal(_val1,"0","D"))      _pal1 = CI_GRY4_; // CI_GRY4_: darkest grey. if white or grey
-                                        else if (isVal(_val1,"9","A","B"))  _pal1 = CI_GRB4_; // CI_GRB4_: darkest green tone
-                                        else if (isVal(_val1,"5","6","7"))  _pal1 = CI_ORG4_; // CI_ORG4_: darkest red tone
-                                        else if (isVal(_val1,"1","2"))      _pal1 = CI_VLT4_; // CI_VLT4_: darkest blue/purple tone
-                                        else                                _pal1 = "0"+_val1; // use darkest of this color
+                                        _color_data = ds_list_find_index(p.dl_COLOR,str_hex(_color_data));
+                                        _color_data = hex_str(_color_data);
+                                        _val1 = string_char_at(_color_data,2);
+                                             if (isVal(_val1,"0","D"))     _pal1 = CI_GRY4_; // CI_GRY4_: darkest grey. if white or grey
+                                        else if (isVal(_val1,"9","A","B")) _pal1 = CI_GRB4_; // CI_GRB4_: darkest green tone
+                                        else if (isVal(_val1,"5","6","7")) _pal1 = CI_ORG4_; // CI_ORG4_: darkest red tone
+                                        else if (isVal(_val1,"1","2"))     _pal1 = CI_VLT4_; // CI_VLT4_: darkest blue/purple tone
+                                        else                               _pal1 = "0"+_val1; // use darkest of this color
                                     }
+                                    
+                                    _pal1 = p.dl_COLOR[|str_hex(_pal1)];
+                                    _pal1 = color_str(_pal1);
+                                }
+                                else
+                                {
+                                    _pal1 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1);
                                 }
                                 
-                                pal_rm_def = strReplaceAt(pal_rm_def,_pos, string_length(_pal1),_pal1);
-                                //pal_rm_def = strReplaceAt(pal_rm_def,_pos+6, 2,_ci_);
+                                
+                                pal_rm_def = strReplaceAt(pal_rm_def, _pos, string_length(_pal1),_pal1);
                                 break;//_i
                             }
                         }
                     }
                 }
                 /*switch(g.dungeon_num){ // DEFAULT PALETTES
-                case 1:{_pal = CI_BLK1_+CI_WHT2_+CI_GRY2_+CI_GRY4_  +  CI_BLK1_+CI_TEL1_+CI_TEL3_+CI_TEL4_; break;} // Parapa Palace
-                case 2:{_pal = CI_BLK1_+CI_TEL1_+CI_TEL3_+CI_TEL4_  +  CI_BLK1_+    "36"+    "16"+    "06"; break;} // Midoro Palace
+                case 1:{_pal = CI_BLK1_+CI_WHT2_+CI_GRY2_+CI_GRY4_  +  CI_BLK1_+CI_CYN1_+CI_CYN3_+CI_CYN4_; break;} // Parapa Palace
+                case 2:{_pal = CI_BLK1_+CI_CYN1_+CI_CYN3_+CI_CYN4_  +  CI_BLK1_+    "36"+    "16"+    "06"; break;} // Midoro Palace
                 case 3:{_pal = CI_BLK1_+    "26"+    "06"+CI_BLK1_  +  CI_BLK1_+    "34"+    "14"+    "04"; break;} // Island Palace
                 case 4:{_pal = CI_BLK1_+    "23"+    "03"+CI_BLK1_  +  CI_BLK1_+    "37"+    "27"+    "07"; break;} // Maze Isl Palace
                 case 5:{_pal = CI_BLK1_+    "2A"+    "0A"+CI_BLK1_  +  CI_BLK1_+    "32"+    "22"+    "02"; break;} // Palace on the Sea
                 case 6:{_pal = CI_BLK1_+    "25"+    "05"+CI_BLK1_  +  CI_BLK1_+    "30"+    "10"+    "00"; break;} // 3-Eye-Rock Palace
-                case 7:{_pal = CI_BLK1_+    "37"+    "27"+    "07"  +  CI_BLK1_+CI_TEL1_+CI_TEL3_+CI_TEL4_; break;} // Great Palace
+                case 7:{_pal = CI_BLK1_+    "37"+    "27"+    "07"  +  CI_BLK1_+CI_CYN1_+CI_CYN3_+CI_CYN4_; break;} // Great Palace
                 case 8:{_pal = CI_BLK1_+    "26"+    "2D"+CI_BLK1_  +  CI_BLK1_+    "31"+    "0C"+CI_BLK1_; break;} // Dragmire Tower
                 }*/
             }
             else if (g.RandoPalette_state==2) // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
             {
                 var             _dl1=ds_list_create();
-                ds_list_add(    _dl1,PI_BGR_1,PI_BGR_2,PI_BGR_3,PI_BGR_4);
+                ds_list_add(    _dl1,global.PI_BGR1, global.PI_BGR2, global.PI_BGR3, global.PI_BGR4);
                 ds_list_shuffle(_dl1);
                 
                 var             _dl2=ds_list_create();
@@ -413,7 +410,7 @@ if (room!=rmB_Title
                 for(_i=0; _i<_count; _i++)
                 {
                     _val = _dl2[|_i];
-                    pal_rm_def = strReplaceAt(pal_rm_def,get_pal_pos(_dl1[|_i]), string_length(_val),_val);
+                    pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(_dl1[|_i]), string_length(_val),_val);
                 }
                 
                 ds_list_destroy(_dl1); _dl1=undefined;
@@ -426,24 +423,22 @@ if (room!=rmB_Title
         _pal = f.dm_rando[?STR_Palette+"_PC"+"01"];
         if(!is_undefined(_pal))
         {
-            pal_rm_def = strReplaceAt(pal_rm_def,get_pal_pos(PI_PC_1), string_length(_pal),_pal);
+            pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_PC1), string_length(_pal),_pal);
         }
         
         // Cucco Palette ----------------------------------------------------------------------
         _pal = f.dm_rando[?STR_Palette+STR_Cucco+"01"];
         if(!is_undefined(_pal))
         {
-            pal_rm_def = strReplaceAt(pal_rm_def,get_pal_pos(PI_CUC1), string_length(_pal),_pal);
+            pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_CUCCO1), string_length(_pal),_pal);
         }
     }
     
     
     _idx = val(g.pc.dm_skins[?STR_Current+STR_Idx]);
     _pal = get_pc_skin_palette(_idx);
-    pal_rm_def = strReplaceAt(pal_rm_def,get_pal_pos(PI_PC_1), string_length(_pal),_pal);
-    
-    
-    //if (g.AltDungeonTiles_TEST1 && g.room_type=="A" && isVal(g.dungeon_num,1)) pal_rm_def = strReplaceAt(pal_rm_def,get_pal_pos(PI_BGR_1)+2, 6,CI_PUR2_+CI_PUR3_+CI_TEL4_); // Testing
+    pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_PC1), string_length(_pal),_pal);
+    //if (g.AltDungeonTiles_TEST1 && g.room_type=="A" && isVal(g.dungeon_num,1)) pal_rm_def = strReplaceAt(pal_rm_def,get_pal_pos(PI_BGR_1)+2, 6,CI_PUR2_+CI_PUR3_+CI_CYN4_); // Testing
 }
 
 
@@ -471,66 +466,32 @@ pal_rm_dark_idx = val(g.dm_rm[?g.rm_name+STR_Dark_Room], -1);
 pal_rm_dark_idx = clamp(pal_rm_dark_idx, -1, ds_grid_width(dg_pal_rm_dark)-1);
 
 
-
-
 if(!is_undefined(pal_rm_def) 
-//&&  is_undefined(pal_rm_file)  // ** Keep this here in case you use dark pal from file in the future.
 &&  pal_rm_dark_idx+1 
-&&  g.rm_brightness < g.RM_BRIGHTNESS_MAX )
+&&  g.rm_brightness<g.RM_BRIGHTNESS_MAX )
 {
     _idx = clamp(g.rm_brightness, 0, ds_grid_height(dg_pal_rm_dark)-1);
-    
     pal_rm_dark = dg_pal_rm_dark[#pal_rm_dark_idx, _idx];
     
-    pal_rm_def  = string_copy(pal_rm_def, 1, (PAL_PER_SET*COL_PER_PAL)<<1);
+    pal_rm_def  = string_copy(pal_rm_def, 1,global.PAL_CHAR_PER_SET);
     pal_rm_def += pal_rm_dark;
+    //sdm("g.rm_name "+g.rm_name+". pal_rm_dark_idx "+string(pal_rm_dark_idx)+", _idx "+string(_idx));
 }
 
 
-
-
-// ------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------
-/*
-if(!is_undefined(pal_rm_def) 
-&&  g.canRandomizePalette ) // Randomize palette.  Toggle: alt + 'P'
-{
-    pal_rm_def = dev_randomize_palette_1a(pal_rm_def);
-}
-*/
-
-
-
-
-// ------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------
-// Just in case
-if (is_undefined(pal_rm_def) 
-|| !is_string(   pal_rm_def) )
-{   pal_rm_def = pal_rm_DEFAULT;  }
 
 
 // ------------------------------------------------------------------------------------------
 // Make sure pal_rm_def has the correct number of chars.
 var _LEN1 = string_length(pal_rm_def);
-var _LEN2 = string_length(pal_rm_DEFAULT);
-
-     if (_LEN1>_LEN2) pal_rm_def  = string_copy(pal_rm_def,           1, _LEN2);
-else if (_LEN1<_LEN2) pal_rm_def += string_copy(pal_rm_DEFAULT, _LEN1+1, _LEN2-_LEN1);
-
-
-
-
-// ------------------------------------------------------------------------------------------
-// Set colors for pc sword palette
-_pal = get_pc_sword_palette(false);
-pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(PI_PC_SWORD), string_length(_pal),_pal);
-
-
-
-// ------------------------------------------------------------------------------------------
-//if(!is_undefined(pal_rm_def)) pal_rm_def = update_Pallete_1b(); // Updates dark rm palette
-
+if (_LEN1<global.PAL_CHAR_PER_SCENE)
+{
+    pal_rm_def += string_repeat("0", global.PAL_CHAR_PER_SCENE-_LEN1);
+}
+else
+{
+    pal_rm_def  = string_copy(pal_rm_def, 1, global.PAL_CHAR_PER_SCENE);
+}
 
 
 
@@ -549,17 +510,17 @@ if (global.Halloween1_enabled
     ||  g.town_name==STR_Old_Kasuto )
     {
         _pal = 0;
-        var _mob_pal  = CI_BLK1_+CI_VLT1_+CI_VLT2_+CI_YLW4_; // MOB ORG
-            _mob_pal += CI_BLK1_+CI_VLT1_+CI_ORG3_+CI_BLK1_; // MOB RED
-            _mob_pal += CI_BLK1_+CI_RED3_+CI_ORG4_+CI_BLK1_; // MOB BLU
-            _mob_pal += CI_BLK1_+CI_VLT1_+CI_PNK3_+CI_BLK1_; // MOB PUR
+        var _mob_pal  = build_pal(C_VLT1,C_VLT2,C_YLW4,C_BLK1); // MOB ORG
+            _mob_pal += build_pal(C_VLT1,C_ORG3,C_BLK1,C_BLK1); // MOB RED
+            _mob_pal += build_pal(C_RED3,C_ORG4,C_BLK1,C_BLK1); // MOB BLU
+            _mob_pal += build_pal(C_VLT1,C_PNK3,C_BLK1,C_BLK1); // MOB PUR
         //
         if (val(g.dm_rm[?g.rm_name+STR_Town+STR_House]))
         {
-            _pal  = CI_BLK1_+CI_BLU4_+CI_VLT4_+CI_BLK1_; // BG1
-            _pal += CI_BLK1_+CI_VLT3_+CI_BLK1_+CI_BLK1_; // BG2
-            _pal += CI_BLK1_+CI_BLU3_+CI_MGN4_+CI_YLW4_; // BG3
-            _pal += CI_BLK1_+CI_YLW1_+CI_YGR3_+CI_BLK1_; // BG4
+            _pal  = build_pal(C_BLU4,C_VLT4,C_BLK1,C_BLK1); // BG1
+            _pal += build_pal(C_VLT3,C_BLK1,C_BLK1,C_BLK1); // BG2
+            _pal += build_pal(C_BLU3,C_MGN4,C_YLW4,C_BLK1); // BG3
+            _pal += build_pal(C_YLW1,C_YGR3,C_BLK1,C_BLK1); // BG4
         }
         else if (val(g.dm_rm[?g.rm_name+STR_Town+STR_Outside]))
         {
@@ -569,63 +530,53 @@ if (global.Halloween1_enabled
                 _pal = 0;
                 _mob_pal = 0;
                 break;}
-                
                 case STR_Rauru:{
-                _pal  = CI_BLK1_+CI_ORG1_+CI_YLW3_+CI_BLK1_; // BG1
-                _pal += CI_BLK1_+CI_PUR3_+CI_GRY4_+CI_BLK1_; // BG2
-                _pal += CI_BLK1_+CI_BLK1_+CI_ORG3_+CI_YLW4_; // BG3
-                //_pal += CI_BLK1_+CI_BLK1_+CI_BLK1_+CI_YLW4_; // BG3
-                _pal += CI_BLK1_+CI_BLU2_+CI_PUR3_+CI_BLK1_; // BG4
+                _pal  = build_pal(C_ORG1,C_YLW3,C_BLK1,C_BLK1); // BG1
+                _pal += build_pal(C_PUR3,C_GRY4,C_BLK1,C_BLK1); // BG2
+                _pal += build_pal(C_BLK1,C_ORG3,C_YLW4,C_BLK1); // BG3
+                _pal += build_pal(C_BLU2,C_PUR3,C_BLK1,C_BLK1); // BG4
                 break;}
-                
                 case STR_Ruto:{
-                _pal  = CI_BLK1_+CI_ORG4_+CI_BLK1_+CI_GRY4_; // BG1
-                _pal += CI_BLK1_+CI_GRY2_+CI_YLW3_+CI_BLK1_; // BG2
-                _pal += CI_BLK1_+CI_GRY2_+CI_GRY4_+CI_BLK1_; // BG3
-                //_pal += CI_BLK1_+CI_GRY1_+CI_TEL4_+CI_BLK1_; // BG3
-                _pal += CI_BLK1_+CI_VLT4_+CI_PUR3_+CI_BLK1_; // BG4
+                _pal  = build_pal(C_ORG4,C_BLK1,C_GRY4,C_BLK1); // BG1
+                _pal += build_pal(C_GRY2,C_YLW3,C_BLK1,C_BLK1); // BG2
+                _pal += build_pal(C_GRY2,C_GRY4,C_BLK1,C_BLK1); // BG3
+                _pal += build_pal(C_VLT4,C_PUR3,C_BLK1,C_BLK1); // BG4
                 break;}
-                
                 case STR_Saria:{
-                _pal  = CI_BLK1_+CI_GRY3_+CI_GRY4_+CI_BLK1_; // BG1
-                _pal += CI_BLK1_+CI_TEL3_+CI_VLT4_+CI_BLK1_; // BG2
-                _pal += CI_BLK1_+CI_GRY2_+CI_TEL4_+CI_BLK1_; // BG3
-                _pal += CI_BLK1_+CI_RED2_+CI_RED4_+CI_BLK1_; // BG4
+                _pal  = build_pal(C_GRY3,C_GRY4,C_BLK1,C_BLK1); // BG1
+                _pal += build_pal(C_CYN3,C_VLT4,C_BLK1,C_BLK1); // BG2
+                _pal += build_pal(C_GRY2,C_CYN4,C_BLK1,C_BLK1); // BG3
+                _pal += build_pal(C_RED2,C_RED4,C_BLK1,C_BLK1); // BG4
                 break;}
-                
                 case STR_Mido:{
-                _pal  = CI_BLK1_+CI_YLW3_+CI_YLW4_+CI_PUR2_; // BG1
-                _pal += CI_BLK1_+CI_GRN1_+CI_GRN3_+CI_BLK1_; // BG2
-                _pal += CI_BLK1_+CI_YLW4_+CI_GRN3_+CI_BLK1_; // BG3
-                _pal += CI_BLK1_+CI_VLT4_+CI_PUR3_+CI_BLK1_; // BG4
+                _pal  = build_pal(C_YLW3,C_YLW4,C_PUR2,C_BLK1); // BG1
+                _pal += build_pal(C_GRN1,C_GRN3,C_BLK1,C_BLK1); // BG2
+                _pal += build_pal(C_YLW4,C_GRN3,C_BLK1,C_BLK1); // BG3
+                _pal += build_pal(C_VLT4,C_PUR3,C_BLK1,C_BLK1); // BG4
                 break;}
-                
                 case STR_Nabooru:{
-                _pal  = CI_BLK1_+CI_ORG1_+CI_YLW3_+CI_BLK1_; // BG1
-                _pal += CI_BLK1_+CI_PUR3_+CI_GRY4_+CI_BLK1_; // BG2
-                _pal += CI_BLK1_+CI_GRN3_+CI_YGR4_+CI_BLK1_; // BG3
-                _pal += CI_BLK1_+CI_BLU2_+CI_PUR3_+CI_BLK1_; // BG4
+                _pal  = build_pal(C_ORG1,C_YLW3,C_BLK1,C_BLK1); // BG1
+                _pal += build_pal(C_PUR3,C_GRY4,C_BLK1,C_BLK1); // BG2
+                _pal += build_pal(C_GRN3,C_YGR4,C_BLK1,C_BLK1); // BG3
+                _pal += build_pal(C_BLU2,C_PUR3,C_BLK1,C_BLK1); // BG4
                 break;}
-                
                 case STR_Darunia:{
-                _pal  = CI_BLK1_+CI_YLW3_+CI_PUR4_+CI_BLK1_; // BG1
-                _pal += CI_BLK1_+CI_VLT2_+CI_TEL4_+CI_BLK1_; // BG2
-                _pal += CI_BLK1_+CI_ORG1_+CI_ORG3_+CI_BLK1_; // BG3
-                _pal += CI_BLK1_+CI_PNK3_+CI_YLW4_+CI_BLK1_; // BG4
+                _pal  = build_pal(C_YLW3,C_PUR4,C_BLK1,C_BLK1); // BG1
+                _pal += build_pal(C_VLT2,C_CYN4,C_BLK1,C_BLK1); // BG2
+                _pal += build_pal(C_ORG1,C_ORG3,C_BLK1,C_BLK1); // BG3
+                _pal += build_pal(C_PNK3,C_YLW4,C_BLK1,C_BLK1); // BG4
                 break;}
-                
                 case STR_New_Kasuto:{
-                _pal  = CI_BLK1_+CI_ORG3_+CI_ORG4_+CI_BLK1_; // BG1
-                _pal += CI_BLK1_+CI_YLW3_+CI_YLW4_+CI_BLK1_; // BG2
-                _pal += CI_BLK1_+CI_GRY3_+CI_GRY4_+CI_BLK1_; // BG3
-                _pal += CI_BLK1_+CI_BLU2_+CI_PUR3_+CI_BLK1_; // BG4
+                _pal  = build_pal(C_ORG3,C_ORG4,C_BLK1,C_BLK1); // BG1
+                _pal += build_pal(C_YLW3,C_YLW4,C_BLK1,C_BLK1); // BG2
+                _pal += build_pal(C_GRY3,C_GRY4,C_BLK1,C_BLK1); // BG3
+                _pal += build_pal(C_BLU2,C_PUR3,C_BLK1,C_BLK1); // BG4
                 break;}
-                
                 case STR_Old_Kasuto:{
-                _pal  = CI_BLK1_+CI_GRY3_+CI_GRY4_+CI_BLK1_; // BG1
-                _pal += CI_BLK1_+CI_TEL3_+CI_VLT4_+CI_BLK1_; // BG2
-                _pal += CI_BLK1_+CI_GRY2_+CI_TEL4_+CI_BLK1_; // BG3
-                _pal += CI_BLK1_+CI_RED2_+CI_RED4_+CI_BLK1_; // BG4
+                _pal  = build_pal(C_GRY3,C_GRY4,C_BLK1,C_BLK1); // BG1
+                _pal += build_pal(C_CYN3,C_VLT4,C_BLK1,C_BLK1); // BG2
+                _pal += build_pal(C_GRY2,C_CYN4,C_BLK1,C_BLK1); // BG3
+                _pal += build_pal(C_RED2,C_RED4,C_BLK1,C_BLK1); // BG4
                 _mob_pal = 0;
                 break;}
             }//switch(g.town_name)
@@ -635,9 +586,8 @@ if (global.Halloween1_enabled
             _mob_pal = 0;
         }
         
-        
-        if (_pal!=0)     pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(PI_BGR_1),   string_length(_pal),_pal);
-        if (_mob_pal!=0) pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(PI_MOB_ORG), string_length(_mob_pal),_mob_pal);
+        if (_pal!=0)     pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_BGR1),    string_length(_pal),_pal);
+        if (_mob_pal!=0) pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_MOB_ORG), string_length(_mob_pal),_mob_pal);
     }
 }
 
@@ -650,9 +600,8 @@ if (global.Halloween1_enabled
 
 if (room==rmB_GameOver)
 {
-    _pos = get_pal_pos(PI_MOB_RED);
-    _pal = CI_BLK1_+CI_WHT1_+CI_RED3_+CI_BLK1_;
-    pal_rm_def = strReplaceAt(pal_rm_def, _pos, string_length(_pal),_pal);
+    _pal = build_pal(C_WHT1,C_RED3,C_BLK1);
+    pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_MOB_RED), string_length(_pal), _pal);
 }
 
 
@@ -661,9 +610,35 @@ if (room==rmB_GameOver)
 
 
 
+
+global.spell_unaffordable_pi = add_pi_permut(global.PI_GUI1, "BWRGYMKC", "spell unaffordable");
+global.spell_futile_pi       = add_pi_permut(global.PI_GUI1, "RBWGYMKC", "spell futile");
+
+
+_idx=-1;
+ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_COL_CNT);
+dg_FallScene_PI[#_idx,0] = add_pi_permut(FallScene_PI_BASE, "RBWGYMKC", "fall scene 1a"); // m, s, h
+dg_FallScene_PI[#_idx,1] = add_pi_permut(FallScene_PI_BASE, "BWRGYMKC", "fall scene 1b"); // s, h, m
+dg_FallScene_PI[#_idx,2] =               FallScene_PI_BASE; // h, m, s
+//                                                      //
+ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_COL_CNT);
+dg_FallScene_PI[#_idx,0] = add_pi_permut(global.PI_MOB_PUR, "RBWGYMKC", "fall scene 2a"); // m, s, h
+dg_FallScene_PI[#_idx,1] = add_pi_permut(global.PI_MOB_PUR, "BWRGYMKC", "fall scene 2b"); // s, h, m
+dg_FallScene_PI[#_idx,2] =               global.PI_MOB_PUR; // h, m, s
+
+
+
+
+
+
+
+
 // ------------------------------------------------------------------------------------------
-pal_rm_def = change_pal(pal_rm_def);
+pal_rm_def = change_pal( pal_rm_def);
+pal_rm_def = string_copy(pal_rm_def, 1, global.PAL_CHAR_PER_SCENE);
 // ------------------------------------------------------------------------------------------
+
+
 
 
 

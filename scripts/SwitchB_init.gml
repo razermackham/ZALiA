@@ -4,7 +4,7 @@
 GO_depth_init(DEPTH_ENEMY);
 //GO_depth_init(DEPTH_BG1_P4+1); // +1 so tile pal swap can work
 
-var _PI = PI_BGR_4;
+var _PI = global.PI_BGR4;
 if(!is_undefined(         dk_spawn))
 {   _PI = val(g.dm_spawn[?dk_spawn+STR_pal_idx], _PI);  }
 GO_init_palidx(_PI);

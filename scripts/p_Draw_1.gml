@@ -136,7 +136,10 @@ if (_C1&$4) // On 1st frame after app start
         // with each row separated by 1 pixel.
         var _j,_k, _idx, _val, _count;
         var _datakey;
-        var _palette = "";
+        var _palette,_palette1;
+        var _c_wht = p.C_WHT0_;
+        var _c_red = p.C_RED0_;
+        var _c_blu = p.C_BLU0_;
         _surf = surface_create(Spritesheet_W,Spritesheet_H);
         surface_set_target(_surf);
         
@@ -153,8 +156,6 @@ if (_C1&$4) // On 1st frame after app start
                 {
                     if (is_undefined(_sprite)) continue;//_i
                     draw_sprite_part(_sprite,0, $F*Spritesheet_W,$F*Spritesheet_H, Spritesheet_W,Spritesheet_H, 0,0);
-                    //draw_sprite_part(_sprite,0, $FF,$FF, Spritesheet_W,Spritesheet_H, 0,0);
-                    //draw_sprite_part(_sprite,0, $F0,$F0, Spritesheet_W,Spritesheet_H, 0,0);
                 }
                 else
                 {
@@ -166,18 +167,25 @@ if (_C1&$4) // On 1st frame after app start
                 _palette = "";
                 for(_j=0; _j<3; _j++) // each palette
                 {
-                    _y=_j*5;
+                    _c_wht = p.C_WHT0_;
+                    _c_red = p.C_RED0_;
+                    _c_blu = p.C_BLU0_;
+                    
+                    _y=_j*5; // each palette is 5 pixels apart
                     for(_k=0; _k<3; _k++) // each palette color
                     {
                         _x=_k*4;
-                        _val  = surface_getpixel(_surf,_x,_y); // get the pixel color
-                        _idx  = ds_list_find_index(p.dl_COLOR,_val);
-                        _idx &= $FF;
-                        if(!_k) _palette += p.CI_BLK1_;
-                        //if(!_k) _palette += hex_str(_idx); // sword color
-                        _palette += hex_str(_idx);
-                        //sdm("$"+hex_str(_val));
+                        _val = surface_getpixel(_surf,_x,_y); // get the pixel color
+                        _val = color_str(_val);
+                        switch(_k){
+                        case  0:{_c_wht=_val; break;}
+                        case  1:{_c_red=_val; break;}
+                        case  2:{_c_blu=_val; break;}
+                        }
+                        //sdm("$"+color_str(_val));
                     }
+                    
+                    _palette += build_pal(_c_wht,_c_red,_c_blu,p.C_BLK1, p.C_SWDH);
                 }
                 //sdm("");
                 
@@ -199,8 +207,11 @@ if (_C1&$4) // On 1st frame after app start
 // ------------------------------------------------------------------------
 if (_C1&$8)
 {
-    _w1 = global.palette_image_W;
-    _h1 = global.palette_image_H;
+    _w1 = string_length(pal_rm_def) div global.PAL_CHAR_PER_PAL;
+    //_w1 = string_length(pal_rm_curr) div global.PAL_CHAR_PER_PAL;
+    _h1 = global.COLORS_PER_PALETTE;
+    //_w1 = global.palette_image_w;
+    //_h1 = global.palette_image_h;
     _surf = surface_create(_w1,_h1);
     surface_set_target(_surf);
     

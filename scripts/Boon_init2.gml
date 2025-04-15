@@ -3,7 +3,7 @@
 
 DRAW_YOFF = 0;
 
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 GO_depth_init(DEPTH_FLYER);
 
 ds_list_add(dl_sprites,spr_Boon1);

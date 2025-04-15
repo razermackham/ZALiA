@@ -11,7 +11,7 @@ projectile_ver = projectile_VER;
 
 ds_list_add(dl_sprites,spr_Bago1);
 ds_list_add(dl_sprites,spr_Bago2);
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 GO_depth_init(DEPTH_FLYER);
 
 HSPD1 = $10; // Normal

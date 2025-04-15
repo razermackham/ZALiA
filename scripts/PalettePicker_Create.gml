@@ -21,13 +21,12 @@ var _SCALE1 = 6;
 gui_alignment       = -1;
 
 
-PI_OFFSET           = PI_PC_1;
-PAL_CNT             = p.PAL_PER_SET - 2; // -2: PAL BASE + MENU PAL
+PI_OFFSET           = global.PI_PC1;
+PAL_CNT             = p.PAL_PER_SET;
+PAL_CNT            -= 1; // PAL BASE
+PAL_CNT            -= val(global.dm_pi[?"GUI"+STR_Count],1); // MENU PAL
 PAL_CNT            += p.PAL_PER_SET; // Dark pals
-//PAL_CNT             = PC_PAL_COUNT + p.BGR_PAL_COUNT + p.MOB_PAL_COUNT + 1 + p.PAL_PER_SET; // +1 bc PC
-//PAL_CNT            += 2; // Dark PAL BASE + MENU PAL
-//PAL_CNT            += 
-COL_PER_PAL_        = COL_PER_PAL;
+COL_PER_PAL_        = global.COLORS_PER_PALETTE;
 
 
 // View only
@@ -52,11 +51,32 @@ PALS2_SCALE         = _SCALE1;
 PALS2_X             = COLOR_GRID_X + COLOR_GRID_W2 + ($01<<3);
 PALS2_X            -= PI_OFFSET * PALS2_SCALE;
 PALS2_Y             = COLOR_GRID_Y;
-PALS2_X2            = PALS2_X + (PI_OFFSET                  * PALS2_SCALE);;
-PALS2_Y2            = PALS2_Y + ((COL_PER_PAL-COL_PER_PAL_) * PALS2_SCALE);
-PALS2_W             = global.palette_image_W * PALS2_SCALE;
-PALS2_H             = global.palette_image_H * PALS2_SCALE;
-PALS2_W2            = PAL_CNT   * PALS2_SCALE;
+PALS2_X2            = PALS2_X + (PI_OFFSET * PALS2_SCALE);;
+PALS2_Y2            = PALS2_Y + ((global.COLORS_PER_PALETTE-COL_PER_PAL_) * PALS2_SCALE);
+PALS2_W             = global.palette_image_w * PALS2_SCALE;
+PALS2_H             = global.COLORS_PER_PALETTE * PALS2_SCALE;
+PALS2_W2            = PAL_CNT * PALS2_SCALE;
+
+
+// Object Palettes
+ObjPal_COL_SIZE = 4;
+ObjPalOutline_W = 1;
+ObjPal_DIST1  = ObjPal_COL_SIZE +  ObjPalOutline_W;
+ObjPalBgr1_W  = ObjPal_COL_SIZE + (ObjPalOutline_W<<1);
+ObjPalBgr1_H  = ObjPal_COL_SIZE *  global.COLORS_PER_PALETTE;
+ObjPalBgr1_H += ObjPalOutline_W * (global.COLORS_PER_PALETTE+1);
+ObjPalBgr2_W  = ObjPalBgr1_W + (ObjPalOutline_W<<1);
+ObjPalBgr2_H  = ObjPalBgr1_H + (ObjPalOutline_W<<1);
+ObjPal_YT_OFFSET  = ObjPalBgr2_H;
+ObjPal_YT_OFFSET += 2; // obj sprite pad
+ObjPal_surf_W = ObjPalBgr2_W;
+ObjPal_surf_H = ObjPalBgr2_H;
+ObjPal_surf = surface_create(ObjPal_surf_W,ObjPal_surf_H);
+ObjPal_FONT   = spr_Font2_1;
+ObjPal_FONT_W = sprite_get_width( ObjPal_FONT);
+ObjPal_FONT_H = sprite_get_height(ObjPal_FONT);
+
+
 
 
 
@@ -147,7 +167,7 @@ pal_in_editor           = ""; // Current palette affecting screen while in edit 
 
 
 //pal_curs_idx_DEF    = 0;
-pal_curs_idx_DEF    = (PI_BGR_1-PI_OFFSET)*COL_PER_PAL;
+pal_curs_idx_DEF    = (global.PI_BGR1-PI_OFFSET)*global.COLORS_PER_PALETTE;
 pal_curs_idx        = pal_curs_idx_DEF;
 //pal_curs_idx        = 0;
 pal_curs_col        = 0;
@@ -162,7 +182,8 @@ CURSOR_COLOR        = p.dl_COLOR[|$27]; // $27 orange, bright
 
 
 
-bgr_at_sess_start       = p.background_color_index;
+bgr_at_sess_start       = ds_list_find_index(p.dl_COLOR,background_colour);
+//bgr_at_sess_start       = p.background_color_index;
 bgr_before_edit_color   = bgr_at_sess_start;
 bgr_in_editor           = bgr_at_sess_start; // Current bgr color affecting screen while in edit mode(STATE_PKM2)
 

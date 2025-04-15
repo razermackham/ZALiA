@@ -6,7 +6,7 @@ init_vars_Bot();
 
 dl_sprites[|1] = spr_Myu2; // spikes out
 dl_sprites[|0] = spr_Myu1;
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 
 abilities |= ABL_WALK;
 

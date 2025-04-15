@@ -16,7 +16,7 @@ if(!(counter&$3F)    // every 64 frames. 1.067s
 &&  is_facing_pc(id) 
 &&  avail_uidx_goc(MAX_GOC1) != UIDX_NULL )
 {   // Bullet1
-    GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id, PI_MOB_BLU);
+    GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id, global.PI_MOB_BLU);
 }
 
 

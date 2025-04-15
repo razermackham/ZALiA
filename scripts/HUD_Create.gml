@@ -6,10 +6,7 @@ depth = DEPTH_HUD;
 can_draw_self = true;
 
 
-
-PI_MENU         = get_pi(PI_GUI_1);
-PI_SPELL_READY1 = get_pi(PI_PC_1,0);
-PI_SPELL_READY2 = get_pi(PI_GUI_1,4);
+PI_MENU = global.PI_GUI1;
 
 NextLevel_sprite = global.SPR_ICON_ATK;
 //icon_next_spr = global.SPR_ICON_ATK;
@@ -94,15 +91,15 @@ Level_MAG_X = Level_ATK_X + _LVL_ICON_DIST;
 Level_LIF_X = Level_MAG_X + _LVL_ICON_DIST;
 //                                                                          //
 //                                                                          //
-SpellReady_ICON_SPR = global.SPR_ICON_MAG;
+SpellQueued_ICON_SPR = global.SPR_ICON_MAG;
 //                                                                          //
-SpellReady_ICON_X   = MP_X;
-SpellReady_TEXT_X   = SpellReady_ICON_X + ($01<<3);
+SpellQueued_ICON_X   = MP_X;
+SpellQueued_TEXT_X   = SpellQueued_ICON_X + ($01<<3);
 //                                                                          //
 //                                                                          //
-SpellReady_NONE     = "...";
-SpellReady_text     = SpellReady_NONE;
-SpellReady_palidx   = PI_MENU;
+SpellQueued_NONE     = "...";
+SpellQueued_text     = SpellQueued_NONE;
+SpellQueued_palidx   = PI_MENU;
 //                                                                          //
 //                                                                          //
 //                                                                          //

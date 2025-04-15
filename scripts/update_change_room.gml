@@ -143,11 +143,12 @@ if (ChangeRoom_timer<=0)
                 var _PAL  = hex_str(fall_scene_pal);
                 var _LEN  = string_length(_PAL);
                 var _POS  = val(dm_pal_data[?hex_str(FallScene_PI_BASE)+STR_Palette+STR_Position], PAL_POS_BGR1);
-                    _POS += (COL_PER_PAL<<1)-_LEN;
+                    _POS += global.PAL_CHAR_PER_PAL - _LEN;
                 change_pal(strReplaceAt(pal_rm_new, _POS,_LEN, _PAL));
                 
                 // This is to prevent a couple frames of a bright bgr color drawing clear before transitioning to the bgr color of the next rm
-                background_color_index = CI_BLK1;
+                global.BackgroundColor_scene = C_BLK1;
+                //background_color_index = CI_BLK1;
             }
             
             // delete all room tiles so falling scene has a clear screen to draw on

@@ -112,7 +112,7 @@ switch(state)
     }
     else
     {
-        pal_swap_set(p.palette_image, PI_GUI_1);
+        pal_swap_set(p.palette_image, global.PI_GUI1);
         if (surface_exists(surf_MAIN))
         {   draw_surface(  surf_MAIN, surf_MAIN_XL,surf_MAIN_YT);  }
         pal_swap_reset();

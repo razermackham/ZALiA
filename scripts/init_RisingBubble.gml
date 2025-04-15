@@ -2,7 +2,7 @@
 
 
 GO_sprite_init(spr_Rising_Bubble_01);
-GO_init_palidx(PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_RED);
 GO_depth_init(g.dl_TILE_DEPTHS[|(ds_list_size(g.dl_TILE_DEPTHS))-1] - 1); // Set in front of water & fg terrain
 //GO_depth_init(DEPTH_FG1_P3 - 1); // Set in front of water & fg terrain
 

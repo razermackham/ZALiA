@@ -109,7 +109,7 @@ switch(state)
         
         if (_EDIT_REQUESTED_BGR)
         {
-            bgr_at_sess_start = p.background_color_index;
+            bgr_at_sess_start = max(0,ds_list_find_index(p.dl_COLOR,background_colour));
             
             timer = DELAY1_DUR; // Delay any input reaction in next state.
             state = STATE_BGR_COLOR;
@@ -161,7 +161,8 @@ switch(state)
         else if (_CANCEL)
         {
             change_pal(pal_at_sess_start);
-            p.background_color_index = val(g.dm_rm[?g.rm_name+STR_Background_color], p.CI_ERR0);
+            var _IDX = val(g.dm_rm[?g.rm_name+STR_Background_color], p.CI_ERR0);
+            set_background_color(p.dl_COLOR[|_IDX]);
         }
         
         //pal_at_sess_start = "";
@@ -224,7 +225,7 @@ switch(state)
             var _COL2 = string_copy(pal_in_editor,     _POS, string_length(_COL1));
             if (_COL1!=_COL2)
             {
-                change_pal(strReplaceAt(p.pal_rm_new, _POS, string_length(_COL1), _COL1));
+                change_pal(strReplaceAt(p.pal_rm_new,  _POS, string_length(_COL1), _COL1));
                 break;
             }
         }
@@ -236,11 +237,11 @@ switch(state)
         && !_Input2_HELD ) // !Input.trig_RH
         {
             var _POS  = (pal_curs_idx mod PAL_CNT) + PI_OFFSET;
-                _POS *= COL_PER_PAL;
+                _POS *= global.COLORS_PER_PALETTE;
                 //_POS += COL_PER_PAL-COL_PER_PAL_;
                 _POS  = (_POS<<1)+1; // because string pos
             //
-            var _PAL1 = string_copy(pal_at_sess_start, _POS, COL_PER_PAL<<1);
+            var _PAL1 = string_copy(pal_at_sess_start, _POS, global.COLORS_PER_PALETTE<<1);
             var _PAL2 = string_copy(pal_in_editor,     _POS, string_length(_PAL1));
             if (_PAL1!=_PAL2)
             {
@@ -305,7 +306,7 @@ switch(state)
         if (_Input1_HELD) // Input.trig_LH
         {
             var _POS  = (pal_curs_idx mod PAL_CNT) + PI_OFFSET;
-                _POS *= COL_PER_PAL;
+                _POS *= global.COLORS_PER_PALETTE;
                 _POS += 1;
                 _POS  = (_POS<<1)+1; // because string pos
         }
@@ -443,8 +444,8 @@ switch(state)
         pal_in_editor = change_pal(strReplaceAt(p.pal_rm_new, _POS, 2, hex_str(_COL)));
         
         if(0){
-        var _CLM  = ((_POS-1)>>1) mod global.palette_image_W;
-        var _ROW  = ((_POS-1)>>1) div global.palette_image_W;
+        var _CLM  = ((_POS-1)>>1) mod global.palette_image_w;
+        var _ROW  = ((_POS-1)>>1) div global.palette_image_w;
         var _str  =   "_CLM $"+hex_str(_CLM);
             _str += ", _ROW $"+hex_str(_ROW);
         sdm(""); sdm(_str); sdm("");
@@ -482,16 +483,19 @@ switch(state)
     {
         if (_CONFIRM)
         {
-            if (bgr_at_sess_start!=p.background_color_index)
+            
+            if (p.dl_COLOR[|bgr_at_sess_start]!=background_colour)
             {
                 //ds_list_add(dl_hist_room, p.pal_rm_curr);
             }
         }
         else if (_CANCEL)
         {
+            var _IDX = val(g.dm_rm[?g.rm_name+STR_Background_color], p.CI_ERR0);
+            set_background_color(p.dl_COLOR[|_IDX]);
             //bg_set_color(p.dl_COLOR[|bgr_at_sess_start]);
             //p.background_color_index = bgr_at_sess_start;
-            p.background_color_index = val(g.dm_rm[?g.rm_name+STR_Background_color], p.CI_ERR0);
+            //p.background_color_index = val(g.dm_rm[?g.rm_name+STR_Background_color], p.CI_ERR0);
         }
         
         //pal_at_sess_start = "";
@@ -508,13 +512,15 @@ switch(state)
     // TOGGLE OLD/NEW COLORS --------------------------------------------------------
     if (Input.GP_Other2_held) // gp4: xbox 'Y' button
     {
+        set_background_color(p.dl_COLOR[|bgr_at_sess_start]);
+        //p.background_color_index = bgr_at_sess_start;
         //p.background_color_index = val(g.dm_rm[?g.rm_name+STR_Background_color], p.CI_ERR0);
-        p.background_color_index = bgr_at_sess_start;
         break;
     }
     else
     {
-        p.background_color_index = bgr_in_editor;
+        set_background_color(p.dl_COLOR[|bgr_in_editor]);
+        //p.background_color_index = bgr_in_editor;
     }
     
     
@@ -530,12 +536,13 @@ switch(state)
         //var _POS = PalettePicker_pal_col_pos();
         bgr_in_editor = ((col_curs_idx div COLOR_GRID_W)<<4) | (col_curs_idx mod COLOR_GRID_W);
         //bgr_in_editor = col_curs_idx;
-        p.background_color_index = bgr_in_editor;
+        set_background_color(p.dl_COLOR[|bgr_in_editor]);
+        //p.background_color_index = bgr_in_editor;
         //pal_in_editor = change_pal(strReplaceAt(p.pal_rm_new, _POS, 2, hex_str(_COL)));
         
         if(0){
-        var _CLM  = ((_POS-1)>>1) mod global.palette_image_W;
-        var _ROW  = ((_POS-1)>>1) div global.palette_image_W;
+        var _CLM  = ((_POS-1)>>1) mod global.palette_image_w;
+        var _ROW  = ((_POS-1)>>1) div global.palette_image_w;
         var _str  =   "_CLM $"+hex_str(_CLM);
             _str += ", _ROW $"+hex_str(_ROW);
         sdm(""); sdm(_str); sdm("");

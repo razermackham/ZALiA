@@ -20,7 +20,10 @@ with(g.QUIT_APP_MENU)
                 &&  keyboard_check_pressed(vk_escape) 
                 && !g.Fullscreen_toggled ) // toggling fullscreen can happen earlier in the frame, window_get_fullscreen() will not be accurate here
                 {
-                    with(Dev_PalettePicker) _qual = state!=STATE_PKM1 && state!=STATE_PKM2 && state!=STATE_BGR_COLOR;
+                    with(Dev_PalettePicker)
+                    {   // exiting these Dev_PalettePicker states gets priority
+                        _qual = state!=STATE_PKM1 && state!=STATE_PKM2 && state!=STATE_BGR_COLOR;
+                    }
                 }
                 
                 if (_qual)
@@ -28,6 +31,7 @@ with(g.QUIT_APP_MENU)
                     if (room==rmB_Title 
                     ||  room==rmB_FileSelect )
                     {
+                        sdm("update_QuitAppMenu() -> case sub_state_IDLE_CLOSED -> game_end()");
                         game_end(); // Quit app
                     }
                     else
@@ -85,8 +89,9 @@ with(g.QUIT_APP_MENU)
         
         QuitAppMenu_udp();
         
-        var _CONFIRM  =(Input.Pause_held && !(Input.heldPrev&Input.S)) 
-                     || keyboard_check_pressed(vk_enter);
+        var _CONFIRM  = Input.Pause_pressed;
+        //var _CONFIRM  =(Input.Pause_held && !(Input.heldPrev&Input.S)) 
+        //             || keyboard_check_pressed(vk_enter);
         var _CANCEL   = Input.GP_Other1_pressed  // gp2: xbox 'B'
                      || keyboard_check_pressed(vk_escape);
         if (_CONFIRM 
@@ -98,6 +103,7 @@ with(g.QUIT_APP_MENU)
                 if (room==rmB_Title 
                 ||  room==rmB_FileSelect )
                 {
+                    sdm("update_QuitAppMenu() -> case sub_state_OPEN1 -> game_end()");
                     game_end(); // Quit app
                 }
                 else
@@ -127,7 +133,7 @@ with(g.QUIT_APP_MENU)
                     
                     f.death_count += lives;
                     lives = 0;
-                    
+                    //sdm("update_QuitAppMenu() -> case sub_state_IDLE_CLOSED -> game_end()");
                     Audio.mus_rm_body = 0; // Need to do this so ContinueScreen music will play
                     room_goto_(rmB_ContinueSave);
                 }

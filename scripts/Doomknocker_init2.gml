@@ -7,7 +7,7 @@ projectile     = projectile_OBJ;
 projectile_ver = projectile_VER;
 
 dl_sprites[|0] = spr_Doomknocker_body1;
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 
 VSPD_GRAV = 2;
 vspd_grav = VSPD_GRAV;

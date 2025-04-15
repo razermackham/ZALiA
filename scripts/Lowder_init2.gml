@@ -3,7 +3,7 @@
 
 ds_list_add(dl_sprites,spr_Lowder2);
 ds_list_add(dl_sprites,spr_Lowder1);
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 
 
 uses_vspd_sub = false;

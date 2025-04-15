@@ -17,8 +17,6 @@ case   behavior_STAB_UP:    {_ATTACKING = g.CUCCO_CAN_THRUST_U && f.Cucco_skills
 
 draw_yoff  = 0;
 
-sword_palidx = palidx_base;
-
 
     Cucco_disguise_sprite = 0;
 if (use_disguise)
@@ -62,10 +60,6 @@ if (HoldItem_timer
     // 9364
     //HoldItem_x_scale = HoldItem_X_SCALE;
     HoldItem_x_scale = xScale;
-    
-    
-    //sword_sprite = 0;
-    sword_palidx = palidx_base;
     
     Cucco_eye_can_draw = true;
     Cucco_eye_xoff  =  2 * HoldItem_x_scale;

@@ -41,25 +41,6 @@ ds_list_add(_dl_DUNGEON_TILESETS,ts_DungeonG01); // Great Palace
 ds_list_add(_dl_DUNGEON_TILESETS,ts_DungeonH01); // Dragmire Tower
 
 
-if (p.USE_ADDITIONAL_COLORS)
-{
-    var _COLORS3="";
-    var _COLORS4="";
-    var _COLORS5="";
-    for(_i=$40; _i<$F0; _i++)
-    {
-        _val=p.dl_COLOR[|_i];
-        if (_val!=p.C_ERR0)
-        {
-            _val=colour_get_value(_val);
-            if (_val<$48) _COLORS5 += hex_str(_i);
-            if (_val<$80) _COLORS4 += hex_str(_i);
-            else          _COLORS3 += hex_str(_i);
-        }
-    }
-}
-
-
 //
 var          _dl_pals1=ds_list_create();
 ds_list_copy(_dl_pals1,p.dl_various_pals1);
@@ -127,14 +108,6 @@ for(_i=1; _i<=_dl_DUNGEON_AREAS_COUNT; _i++) // each dungeon
     }
     
     
-    if (p.USE_ADDITIONAL_COLORS)
-    {
-        _color1=string_copy(_COLORS3, (irandom((string_length(_COLORS3)>>1)-1)<<1)+1, 2);
-        _color2=string_copy(_COLORS4, (irandom((string_length(_COLORS4)>>1)-1)<<1)+1, 2);
-        _color3=string_copy(_COLORS5, (irandom((string_length(_COLORS4)>>1)-1)<<1)+1, 2);
-    }
-    
-    
     _val2  = string_copy(_val2,1,2); // 
     _val2 += _color1+_color2+_color3;
     
@@ -190,12 +163,12 @@ ds_list_add(_dl_TUNIC_CI, p.CI_RED2_,p.CI_RED3_,p.CI_RED4_);
 ds_list_add(_dl_TUNIC_CI, p.CI_ORG2_,p.CI_ORG3_,p.CI_ORG4_);
 ds_list_add(_dl_TUNIC_CI, p.CI_YLW2_,p.CI_YLW3_,p.CI_YLW4_);
 ds_list_add(_dl_TUNIC_CI, choose(p.CI_YGR2_,p.CI_GRN2_,p.CI_GRB2_), choose(p.CI_YGR3_,p.CI_GRN3_,p.CI_GRB3_), choose(p.CI_YGR4_,p.CI_GRN4_,p.CI_GRB4_));
-ds_list_add(_dl_TUNIC_CI, p.CI_TEL2_,p.CI_TEL3_,p.CI_TEL4_);
+ds_list_add(_dl_TUNIC_CI, p.CI_CYN2_,p.CI_CYN3_,p.CI_CYN4_);
 //ds_list_add(_dl_TUNIC_CI, choose(p.CI_BLU1_,p.CI_VLT1_,p.CI_TEL1_), choose(p.CI_BLU2_,p.CI_VLT2_,p.CI_TEL2_), choose(p.CI_BLU3_,p.CI_VLT3_,p.CI_TEL3_), choose(p.CI_BLU4_,p.CI_TEL4_));
 
 // Limiting the number of brights because their colors aren't very distinct
 var _dl_BRIGHT_CI=ds_list_create(); // bright acceptable tunic colors
-ds_list_add(_dl_BRIGHT_CI, p.CI_BLU1_,p.CI_VLT1_,p.CI_PUR1_,p.CI_MGN1_,p.CI_PNK1_,p.CI_RED1_,p.CI_ORG1_,p.CI_YLW1_,p.CI_YGR1_,p.CI_GRN1_,p.CI_GRB1_,p.CI_TEL1_);
+ds_list_add(_dl_BRIGHT_CI, p.CI_BLU1_,p.CI_VLT1_,p.CI_PUR1_,p.CI_MGN1_,p.CI_PNK1_,p.CI_RED1_,p.CI_ORG1_,p.CI_YLW1_,p.CI_YGR1_,p.CI_GRN1_,p.CI_GRB1_,p.CI_CYN1_);
 ds_list_shuffle(_dl_BRIGHT_CI);
 ds_list_add(_dl_TUNIC_CI, _dl_BRIGHT_CI[|0],_dl_BRIGHT_CI[|1],_dl_BRIGHT_CI[|2],_dl_BRIGHT_CI[|3]);
 

@@ -582,15 +582,15 @@ cont_piece_count_mp = cont_piece_cnt_mp();
 
 // --------------------------------------------------------------------------------------------
 // PI: Palette Index
-PIa = PI_MOB_ORG; // 7.  orange
-PIb = PI_MOB_RED; // 8.  red
-PIc = PI_MOB_BLU; // 9.  blue/purple
-PId = PI_MOB_PUR; // 10. purple/?
-PIe = PI_BGR_1; // 2.  
-PIf = PI_BGR_2; // 3.  
-PIg = PI_BGR_3; // 4.  
-PIh = PI_BGR_4; // 5.  
-Sign_PI = PI_BGR_3;
+PIa = global.PI_MOB_ORG; // 7.  orange
+PIb = global.PI_MOB_RED; // 8.  red
+PIc = global.PI_MOB_BLU; // 9.  blue/purple
+PId = global.PI_MOB_PUR; // 10. purple/?
+PIe = global.PI_BGR1; // 2.  
+PIf = global.PI_BGR2; // 3.  
+PIg = global.PI_BGR3; // 4.  
+PIh = global.PI_BGR4; // 5.  
+Sign_PI = global.PI_BGR3;
 
 
 

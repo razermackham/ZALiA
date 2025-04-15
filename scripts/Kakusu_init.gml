@@ -5,7 +5,7 @@ GameObjectB_init();
 
 scr_step = Kakusu_step;
 
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 
 

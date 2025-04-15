@@ -1,7 +1,7 @@
 /// Surface_Draw_GUI_Begin()
 
 
-//CamZoom_test1();
+CamZoom_test1();
 
 
 
@@ -193,3 +193,7 @@ _yt+=_DIST1;
 draw_text_(_XL,_yt, "application_surface h "+string_repeat("-",surface_get_height(application_surface)<0)+string_repeat(" ",surface_get_height(application_surface)>=0)+hex_str(abs(surface_get_height(application_surface))), _FONT_SPR);
 _yt+=_DIST1;
 */
+
+
+
+

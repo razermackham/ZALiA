@@ -9,7 +9,7 @@ init_vars_goc_1a(); // GOC/Projectile
 
 //GO_init_1a();       // set go_name
 GO_sprite_init(spr_Placement_08x16);
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 GO_depth_init(DEPTH_PROJECTILE);
 GO_depth_init(DEPTH_PC_MAIN-1);
 // GO_depth_init(DEPTH_ENEMY_PROJECTILE);

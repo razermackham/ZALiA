@@ -162,17 +162,18 @@ if (hp)
         {
             projectile     = _OBJ;
             projectile_ver = 1 + (projectile==SpikeBall1);
+            var _pi = -1;
+            if (projectile==SpikeBall1) _pi = EnergyBall_PI;
             
             _x = _Crystal_X;
             _y = _Crystal_Y;
-            with(GOC1_create(_x,_y, -1, projectile,projectile_ver))
+            with(GOC1_create(_x,_y, -1, projectile,projectile_ver, -1, _pi))
             {
                 switch(object_index)
                 {
                     case SpikeBall1:{
                     hspd =(-HSPD1) &$FF;
                     vspd =( VSPD1*sign_(irandom(1))) &$FF;
-                    GO_init_palidx(other.EnergyBall_PI);
                     break;}
                     
                     case Bullet1:{

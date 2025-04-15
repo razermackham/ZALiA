@@ -11,7 +11,7 @@ projectile_ver = projectile_VER;
 
 dl_sprites[|1] = spr_Tektite2;
 dl_sprites[|0] = spr_Tektite1;
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 Legs_sprite = spr_Tektite_legs;
 
 draw_yoff = 0;

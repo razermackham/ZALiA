@@ -47,7 +47,8 @@ for(_i=0; _i<_COUNT1; _i++) // Each area
             // _dm_ts_data[?"source"] Example: "source":"..\/..\/..\/..\/..\/..\/Tiled\/Tilesets\/Z2_Remake_1a\/ts_Natural_1a_WRB.tsx
             
             if(!string_pos("Natural", _str) 
-            && !string_pos("Man_made",_str) )
+            && !string_pos("Man_made",_str) 
+            && !string_pos("ManMade",_str) )
             {
                 continue;//_k. to next tileset
             }

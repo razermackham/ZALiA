@@ -5,7 +5,7 @@ var _i, _val, _len, _depth;
 
 dl_sprites[|1] = spr_Girubokku2;
 dl_sprites[|0] = spr_Girubokku1; // 1: eye open
-GO_init_palidx(PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_RED);
 GO_depth_init(DEPTH_FLYER);
 
 //DRAW_YOFF = 1; // Does it get +1 in-ground??

@@ -78,8 +78,8 @@ row4=row3-$02; y4=row4<<3;
 row5=row3+$04; y5=row5<<3;
 data_spawn_cutscene(Cutscene_GameEnd_1A,1, 0,0);
 _dist=($04<<3)+4; // _dist: dist to center of the 2 torches
-data_spawn(rm+STR_PRIO,TorchA,$1,  (x0-_dist)-4,y3,  STR_Palette+hex_str(PI_BGR_4),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  (x0+_dist)-4,y3,  STR_Palette+hex_str(PI_BGR_4),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  (x0-_dist)-4,y3,  STR_Palette+hex_str(global.PI_BGR4),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  (x0+_dist)-4,y3,  STR_Palette+hex_str(global.PI_BGR4),STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,Zelda,$1,  (clm1-$02)<<3,y4-($01<<3)); // Zelda!!
 data_spawn(rm+STR_PRIO,Zelda,$2,  (clm1+$02)<<3,y4);          // Zelda, 2nd Quest
 
@@ -598,7 +598,7 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_WA+'
 row3=row0+$0C; y3=row3<<3;
 row4=row0+$0A; y4=row4<<3;
 row5=row0+$16; y5=row5<<3;
-_pi=PI_BGR_1;
+_pi=global.PI_BGR1;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,(row3+$01)<<3,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,(row4+$01)<<3,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($2F<<3)+4,(row5+$01)<<3,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
@@ -630,7 +630,7 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_WA+'
 
 row3=row0+$14; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
-_pi=PI_BGR_1;
+_pi=global.PI_BGR1;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $06<<3,y4,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,y4,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $11<<3,(row0+$12)<<3); // Bot  1 
@@ -1157,7 +1157,7 @@ set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Color+COLOR2_, STR_Tile+area_W
 
 row3=row0+$17; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
-_dist=($04<<3)+4; _pi=PI_BGR_2; // _dist: dist between rm center and torch center
+_dist=($04<<3)+4; _pi=global.PI_BGR2; // _dist: dist between rm center and torch center
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
 data_spawn(rm+STR_PRIO,TorchA,$3,  (x0-_dist)-4,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
 data_spawn(rm+STR_PRIO,TorchA,$3,  (x0+_dist)-4,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
@@ -1588,7 +1588,7 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR2_, STR_Tile+area_
 row3=row0+$16; y3=row3<<3;
 row4=row0+$01; y4=row4<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
-_pi=PI_BGR_4;
+_pi=global.PI_BGR4;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  ($0D<<3)+4,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  ($29<<3)+4,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 
@@ -1888,7 +1888,7 @@ data_spawn_cutscene(Cutscene_GameEnd_1B,1,  0,0);
 row3=row0+$13; y3=row3<<3;
 row4=row3+$04; y4=row4<<3;
 row5=row4+$02; y5=row5<<3;
-_pi=PI_BGR_4;
+_pi=global.PI_BGR4;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($2D<<3)+4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($33<<3)+0,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($4C<<3)+0,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
@@ -2321,7 +2321,7 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_WA+'
 row3=row0+$17; y3=row3<<3;
 row4=row0+$14; y4=row4<<3;
 row5=row4+$01; y5=row5<<3;
-_pi=PI_BGR_2;
+_pi=global.PI_BGR2;
 data_spawn_cutscene(Cutscene_MoaiOpenMouth_1,1,  1,0);
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($28<<3)-4,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($67<<3)-4,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
@@ -2796,7 +2796,7 @@ row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $0A<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $35<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,PushA,$2,  $1F<<3,(row0+$0C)<<3,  STR_Palette+hex_str(PI_BGR_4)); // Pushable
+data_spawn(rm+STR_PRIO,PushA,$2,  $1F<<3,(row0+$0C)<<3,  STR_Palette+hex_str(global.PI_BGR4)); // Pushable
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld 

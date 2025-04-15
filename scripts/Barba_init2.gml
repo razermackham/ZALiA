@@ -6,7 +6,7 @@ var _i, _a, _val, _count;
 
 Boss_init_2();
 
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 Head_SPRITE1 = spr_Barba_1a;
 Head_SPRITE2 = spr_Barba_1b;

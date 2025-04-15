@@ -172,7 +172,7 @@ switch(sub_state)
     
     
     // Set pal colors for Ganon Skull
-    var _PAL = p.CI_BLK1_+p.CI_WHT1_+p.CI_RED3_+p.CI_BLK1_;
+    var _PAL = build_pal(p.C_WHT1,p.C_RED3,p.C_BLK1,p.C_BLK1);
     var _LEN = string_length(_PAL);
     var _POS = get_pal_pos(Form3_Skull_PI+1) - _LEN;
     change_pal(strReplaceAt(p.pal_rm_new, _POS,_LEN,_PAL));

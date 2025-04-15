@@ -1,16 +1,41 @@
 /// update_Pallete_1a()
 
 
+var _idx;
+
+
 // 8E23: JSR 9235.  Update Link's palette
 // 0: Green, 1: Red(SHIELD active || have RING), 2: Blue(SHIELD active && have RING)
-                          var _PI1 = PI_PC_1 + sign(f.items        &ITM_RING);
-                          var _pi  = _PI1    + sign(g.spells_active&SPL_PRTC); // Normal
-if (g.pc.use_disguise)        _pi  = PI_PC_3;
-if (g.game_end_state)         _pi  = PI_PC_1; // Switch to tradisional green tunic for end game.
-if (g.FallScene_timer)        _pi  = _PI1; // Falling scene
-else if (SpellFlash_PC_timer) _pi  = dg_PI_SEQ[#$4,(SpellFlash_PC_timer-1)&$3]; // Spell flash
-if (pc_is_cucco())            _pi += PC_PAL_COUNT;
+var _pi = global.PI_PC1;
 
+if (g.game_end_state)
+{
+    if (pc_is_cucco()) _pi = global.PI_CUCCO1; // Switch to traditional green tunic for end game.
+    else               _pi = global.PI_PC1;    // Switch to traditional green tunic for end game.
+}
+else if (g.FallScene_timer)
+{
+    if (pc_is_cucco()) _pi = global.PI_CUCCO1;
+    else               _pi = global.PI_PC1;
+    _pi += sign(f.items&ITM_RING) + sign(g.spells_active&SPL_PRTC);
+}
+else if (SpellFlash_PC_timer)
+{
+    _idx = (SpellFlash_PC_timer-1)&$3;
+    if (pc_is_cucco()) _pi = dg_PI_SEQ[#$5,_idx];
+    else               _pi = dg_PI_SEQ[#$4,_idx];
+}
+else if (g.pc.use_disguise)
+{
+    if (pc_is_cucco()) _pi = global.PI_DISGUISE_CUCCO;
+    else               _pi = global.PI_DISGUISE_PC;
+}
+else
+{
+    if (pc_is_cucco()) _pi = global.PI_CUCCO1;
+    else               _pi = global.PI_PC1;
+    _pi += sign(f.items&ITM_RING) + sign(g.spells_active&SPL_PRTC);
+}
 
 dg_PI_SEQ[#0,0] = _pi;
 
@@ -18,7 +43,7 @@ dg_PI_SEQ[#0,0] = _pi;
 
 
 // Update background color
-var _color = dl_COLOR[|background_color_index];
+var _color = global.BackgroundColor_scene;
 
 if (g.all_bg_black_only)
 {
@@ -29,22 +54,15 @@ else
     if (Flash_Bgr_timer 
     ||  Flash_Bgr_timer2 ) // for Ganon3 spell and boss explosion
     {
-        if (Flash_Bgr_timer2) // Ganon3_ProjRain_update() updates the bgr color
-        {
-            _color = C_RED3; // C_RED3: $16, Mob red
-        }
-        else if(!BackgroundFlash_setting)
-        {
-            _color = dg_color_seq[#0,(Flash_Bgr_timer-1)&$3]; // Spell flash
-        }
-        else
-        {
-            _color = dl_BackgroundFlash_COLORS[|BackgroundFlash_setting];
-        }
+             if (Flash_Bgr_timer2)        _color = C_RED3; // Ganon3_ProjRain_update() updates the bgr color
+        else if(!BackgroundFlash_setting) _color = dg_color_seq[#0,(Flash_Bgr_timer-1)&$3]; // Spell flash
+        else                              _color = dl_BackgroundFlash_COLORS[|BackgroundFlash_setting];
     }
 }
 
 set_background_color(_color);
+
+
 
 
 // Update spell flash timer 074B.  9245
@@ -56,10 +74,11 @@ if (SpellFlash_GOB_timer)   SpellFlash_GOB_timer--;
 if (SpellReady_flash_timer) SpellReady_flash_timer--;
 
 
+
+
 update_rm_brightness();
 
 
-//color_tiles();
 
 
 /*

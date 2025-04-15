@@ -16,7 +16,7 @@ case 3:{GO_sprite_init(spr_Flame_Small_1b); break;}
 ANIM_SPEED = $08;
 
 GO_depth_init(DEPTH_BG4+1);
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 
 can_draw_self = true;

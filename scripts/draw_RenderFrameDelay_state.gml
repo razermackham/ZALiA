@@ -1,9 +1,6 @@
 /// draw_RenderFrameDelay_state()
 
 
-if (global.RenderFrameDelay_timer)
-{   global.RenderFrameDelay_timer--;  }
-
 if(!global.RenderFrameDelay_timer) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 

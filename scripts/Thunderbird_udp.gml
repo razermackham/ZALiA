@@ -10,8 +10,8 @@ if (hp < HP)
     if!(g.counter1&$18) Face_sprite=spr_Thunderbird_Face_1a;
     else                Face_sprite=spr_Thunderbird_Face_1b;
     
-    if (palidx_def !=  PI_MOB_BLU)
-    {   GO_init_palidx(PI_MOB_BLU);  }
+    if (palidx_def !=  global.PI_MOB_BLU)
+    {   GO_init_palidx(global.PI_MOB_BLU);  }
 }
 
 

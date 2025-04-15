@@ -20,7 +20,7 @@ attack_state          = attack_state_IDLE; // 0080
 // sprite_index: spr_Gooma_Placement: 24x48
 GO_set_sprite(id,spr_Gooma_1a);
 
-Weapon_PALIDX       = PI_MOB_BLU;
+Weapon_PALIDX       = global.PI_MOB_BLU;
 
 Weapon_Ball_sprite  = 0;
 Weapon_Ball_x       = 0;
@@ -58,9 +58,9 @@ if (f.quest_num>1)
 
 if (ver==2)
 {
-    GO_init_palidx(PI_MOB_RED);
-    var _PAL = '30'+'16'+'0D';
-    change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(palidx_base)+2, string_length(_PAL), _PAL));
+    GO_init_palidx(global.PI_MOB_RED);
+    var _PAL = build_pal(p.C_WHT1,p.C_RED3,p.C_BLK1,p.C_BLK1);
+    change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(palidx_base), string_length(_PAL), _PAL));
 }
 
 

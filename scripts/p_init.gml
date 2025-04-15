@@ -627,22 +627,6 @@ TRIFORCE_PI = PI_MOB_BLU;
 triforce_pi = TRIFORCE_PI;
 //TRIFORCE_PAL_POS = val(dm_pal_data[?hex_str(triforce_pi)+STR_Palette+STR_Position]);
 
-dl_triforce_pal_seq = ds_list_create();
-ds_list_add(dl_triforce_pal_seq, build_pal(C_WHT1, C_ORG3, C_WHT1, C_BLK1));
-ds_list_add(dl_triforce_pal_seq, build_pal(C_WHT1, C_ORG2, C_WHT1, C_BLK1));
-ds_list_add(dl_triforce_pal_seq, build_pal(C_WHT1, C_ORG1, C_WHT1, C_BLK1));
-ds_list_add(dl_triforce_pal_seq, build_pal(C_WHT1, C_ORG1, C_WHT1, C_BLK1));
-/*
-var _CI1 = CI_WHT1_;
-//var _CI2 = CI_ORG4_;
-var _CI2 = CI_WHT1_;
-ar_PALSEQ_TRIFORCE[3] = CI_GRN0_ + _CI1 + CI_ORG1_ + _CI2; // 
-ar_PALSEQ_TRIFORCE[2] = CI_GRN0_ + _CI1 + CI_ORG1_ + _CI2; // 
-ar_PALSEQ_TRIFORCE[1] = CI_GRN0_ + _CI1 + CI_ORG2_ + _CI2; // 
-ar_PALSEQ_TRIFORCE[0] = CI_GRN0_ + _CI1 + CI_ORG3_ + _CI2; // 
-*/
-
-
 PI_SPELL_UNAFFORDABLE = get_pi(PI_GUI_1,4); // 4: SHM
 PI_SPELL_FUTILE       = get_pi(PI_GUI_1,3); // 3: MSH
 //PI_SPELL_ACTIVE       = get_pi(PI_GUI_1,2); // 2: MHS
@@ -1229,6 +1213,22 @@ dg_pal_seq[#_a,$1] = CI_GRN0_ + CI_RED2_ + CI_RED3_ + CI_ORG4_; //
 dg_pal_seq[#_a,$2] = CI_GRN0_ + CI_RED3_ + CI_RED4_ + CI_BLK1_; // 
 dg_pal_seq[#_a,$3] = CI_GRN0_ + CI_RED4_ + CI_BLK1_ + CI_BLK1_; // 
 pal_seq_idx2       = 0;
+
+
+dl_triforce_pal_seq = ds_list_create();
+ds_list_add(dl_triforce_pal_seq, CI_BLK1_+CI_WHT1_+CI_ORG3_+CI_WHT1_);
+ds_list_add(dl_triforce_pal_seq, CI_BLK1_+CI_WHT1_+CI_ORG2_+CI_WHT1_);
+ds_list_add(dl_triforce_pal_seq, CI_BLK1_+CI_WHT1_+CI_ORG1_+CI_WHT1_);
+ds_list_add(dl_triforce_pal_seq, CI_BLK1_+CI_WHT1_+CI_ORG1_+CI_WHT1_);
+/*
+var _CI1 = CI_WHT1_;
+//var _CI2 = CI_ORG4_;
+var _CI2 = CI_WHT1_;
+ar_PALSEQ_TRIFORCE[3] = CI_GRN0_ + _CI1 + CI_ORG1_ + _CI2; // 
+ar_PALSEQ_TRIFORCE[2] = CI_GRN0_ + _CI1 + CI_ORG1_ + _CI2; // 
+ar_PALSEQ_TRIFORCE[1] = CI_GRN0_ + _CI1 + CI_ORG2_ + _CI2; // 
+ar_PALSEQ_TRIFORCE[0] = CI_GRN0_ + _CI1 + CI_ORG3_ + _CI2; // 
+*/
 
 
 

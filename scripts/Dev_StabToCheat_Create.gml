@@ -146,7 +146,7 @@ ROW_OFF  = $02; //
 // X_BASE  =  $; // 
 // Y_BASE  =  $; // 
 
-dl_hb = ds_list_create();
+dg_hb = ds_grid_create(OPTION_CNT,4);
 Dev_StabToCheat_update_1a();
 
 
@@ -163,3 +163,7 @@ Dev_StabToCheat_update_1a();
 0000 0000 >>2 = 00
 0000 0000 >>2 = 00
 */
+
+
+
+

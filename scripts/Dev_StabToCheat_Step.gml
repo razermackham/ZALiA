@@ -17,7 +17,7 @@ if(!is_active)
     if (g.use_StabToCheat)
     {
         is_active = true;
-        Dev_StabToCheat_update_1a(); // Populate dl_hb[|]
+        Dev_StabToCheat_update_1a(); // Populate dg_hb[#]
     }
     
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -46,7 +46,7 @@ if (is_active
     PC_update_sword_hb();
     for(var _i=0; _i<OPTION_CNT; _i++)
     {
-        if (rectInRect(dl_hb[|_i,0],dl_hb[|_i,1],dl_hb[|_i,2],dl_hb[|_i,3], g.pc.SwordHB_x,g.pc.SwordHB_y,g.pc.SwordHB_w,g.pc.SwordHB_h))
+        if (rectInRect(dg_hb[#_i,0],dg_hb[#_i,1],dg_hb[#_i,2],dg_hb[#_i,3], g.pc.SwordHB_x,g.pc.SwordHB_y,g.pc.SwordHB_w,g.pc.SwordHB_h))
         {
             collided_cheat = true;
             _num = _i+1;

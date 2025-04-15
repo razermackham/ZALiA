@@ -16,34 +16,34 @@ var _Y     = (g.pc.yt>>3)<<3;
 
 for(_i=0; _i<OPTION_CNT; _i++)
 {
-    dl_hb[|_i,0] = _x + 2;
-    dl_hb[|_i,1] = _Y;
-    // dl_hb[|_i,1] = (ROW_BASE<<3) + 6;
-    dl_hb[|_i,2] = _HBW;
-    dl_hb[|_i,3] = _HBH;
+    dg_hb[#_i,0] = _x + 2;
+    dg_hb[#_i,1] = _Y;
+    // dg_hb[#_i,1] = (ROW_BASE<<3) + 6;
+    dg_hb[#_i,2] = _HBW;
+    dg_hb[#_i,3] = _HBH;
     
     if (inRange(_i,  0, 7) 
     ||  inRange(_i, 10,17) )
     { // items & spells
         _i++;
-        dl_hb[|_i,0] = dl_hb[|_i-1,0];
-        dl_hb[|_i,1] = dl_hb[|_i-1,1] + $10;
-        dl_hb[|_i,2] = dl_hb[|_i-1,2];
-        dl_hb[|_i,3] = dl_hb[|_i-1,3];
+        dg_hb[#_i,0] = dg_hb[#_i-1,0];
+        dg_hb[#_i,1] = dg_hb[#_i-1,1] + $10;
+        dg_hb[#_i,2] = dg_hb[#_i-1,2];
+        dg_hb[#_i,3] = dg_hb[#_i-1,3];
     }
     else if (inRange(_i, 23,25))
     { // decrease level
-        dl_hb[|_i,0] = dl_hb[|_i-3,0];
-        dl_hb[|_i,1] = dl_hb[|_i-3,1] + $10;
-        dl_hb[|_i,2] = dl_hb[|_i-3,2];
-        dl_hb[|_i,3] = dl_hb[|_i-3,3];
+        dg_hb[#_i,0] = dg_hb[#_i-3,0];
+        dg_hb[#_i,1] = dg_hb[#_i-3,1] + $10;
+        dg_hb[#_i,2] = dg_hb[#_i-3,2];
+        dg_hb[#_i,3] = dg_hb[#_i-3,3];
     }
     else if (inRange(_i, 26,30))
     { // Magic Refill Jar[26], P-Bags[27-30]
-        dl_hb[|_i,0] -= ($0C<<3);
-        dl_hb[|_i,1] = _Y + ((_i&$1)<<4);
-        dl_hb[|_i,2] = _HBW;
-        dl_hb[|_i,3] = _HBH;
+        dg_hb[#_i,0] -= ($0C<<3);
+        dg_hb[#_i,1] = _Y + ((_i&$1)<<4);
+        dg_hb[#_i,2] = _HBW;
+        dg_hb[#_i,3] = _HBH;
         
         if!(_i&$1) _x -= _X_INC;
     }
@@ -54,7 +54,7 @@ for(_i=0; _i<OPTION_CNT; _i++)
     
     _x += _X_INC;
 }
-// dl_hb[|$0, ] = ; // 
+// dg_hb[#$0, ] = ; // 
 
 
 /*

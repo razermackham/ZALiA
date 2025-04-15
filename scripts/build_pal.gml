@@ -8,6 +8,7 @@
 
 with(p)
 {
+    var _i;
     var _return = PAL_BASE;
     
     var _CI0 = hex_str(CI_GRN0);
@@ -55,9 +56,9 @@ with(p)
     
     
     _return += PAL_SET_PC_A; // PAL_SET_PC_A: PC & CUCCO. rm LIT
-    for(var i=0; i<_COUNT1; i++)
+    for(_i=0; _i<max(_COUNT1,argument_count); _i++)
     {
-        _return += string(argument[i]);
+        _return += string(argument[_i]);
     }
     
     
@@ -90,18 +91,18 @@ with(p)
     
     
     /*
-    for(var i=0; i<_COUNT1; i++)
+    for(var _i=0; _i<_COUNT1; _i++)
     {
-        argument[i] = string(argument[i]);
+        argument[_i] = string(argument[_i]);
         
-            _len = string_length(argument[i]);
-        if (_len&1) {_len--; argument[i] = string_copy(argument[i],1,_len);}
+            _len = string_length(argument[_i]);
+        if (_len&1) {_len--; argument[_i] = string_copy(argument[_i],1,_len);}
         //
         if (_len<_COUNT2)
-        {   argument[i] += string_repeat(_CI0, (_COUNT2-_len)>>1);  } // _CI0 has 2 chars
-            argument[i]  = string_copy(argument[i],1,_COUNT2);
+        {   argument[_i] += string_repeat(_CI0, (_COUNT2-_len)>>1);  } // _CI0 has 2 chars
+            argument[_i]  = string_copy(argument[_i],1,_COUNT2);
         //
-        _return += argument[i];
+        _return += argument[_i];
     }
     
         _len = string_length(_return);

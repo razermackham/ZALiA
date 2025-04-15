@@ -1323,8 +1323,6 @@ pal_rm_DEFAULT += pal_rm_dark_DEFAULT;
 
 
 
-
-
 dg_pal_seq = ds_grid_create(0,4);
 
 // triforce flashing
@@ -1429,23 +1427,279 @@ fall_scene_pal = fall_scene_1_pal; // pal for active fall scene
 
 // Colors for FallScene backgrounds
 dg_FallScene_PI = ds_grid_create(0,FallScene_COL_CNT);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Rando_palettes = 0;
+
+dm_pal_data = ds_map_create();
+dm_scene_palette = ds_map_create();
+dl_various_pals1 = ds_list_create();
+dl_various_pals2 = ds_list_create();
+
+
+
+
+
+
 /*
-if (global.PAL_SYS_VER<4)
-{
-    _idx = ds_grid_width(dg_FallScene_PI)-1;
-    ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_COL_CNT);
-    dg_FallScene_PI[#_idx,0] = get_pi(FallScene_PI_BASE,3); // m, s, h
-    dg_FallScene_PI[#_idx,1] = get_pi(FallScene_PI_BASE,4); // s, h, m
-    dg_FallScene_PI[#_idx,2] = get_pi(FallScene_PI_BASE,0); // h, m, s
-    //                                                      //
-    ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_COL_CNT);
-    dg_FallScene_PI[#_idx,0] = get_pi(global.PI_MOB_PUR,3); // m, s, h
-    dg_FallScene_PI[#_idx,1] = get_pi(global.PI_MOB_PUR,4); // s, h, m
-    dg_FallScene_PI[#_idx,2] = get_pi(global.PI_MOB_PUR,0); // h, m, s
-}
-else
-{
-    // set in p.Room_Start()
+PAL_SET_PC_0 = PAL_PC_4 + PAL_PC_5 + PAL_PC_6;  // Spell flash palettes
+PAL_SET_PC_1 = PAL_PC_1 + PAL_PC_2 + PAL_PC_3;  // Tunic palettes LIT
+PAL_SET_PC_2 = PAL_PC_7 + PAL_PC_A + PAL_PC_B;  // Tunic palettes DARK
+
+PAL_SET_CUC0 = PAL_SET_PC_0;                    // Cucco spell flash palettes
+PAL_SET_CUC1 = PAL_CUC1 + PAL_CUC2 + PAL_CUC1;  // Cucco palettes LIT
+PAL_SET_CUC2 = PAL_SET_PC_2;                    // Cucco palettes DARK
+
+PAL_SET_PC_A = PAL_SET_PC_1 + PAL_SET_PC_0 + PAL_SET_CUC1 + PAL_SET_CUC0; // RM LIT
+PAL_SET_PC_B = PAL_SET_PC_2 + PAL_SET_PC_0 + PAL_SET_CUC2 + PAL_SET_CUC0; // RM DARK
+*/
+
+
+
+
+
+// CI: Color Index
+_ci1 = CI_BLK1_;
+//_ci1 = 'FF'; // 'FF' means use bg color.. _i think?..
+var _SET1 = _ci1 + CI_RED3_ + CI_GRY4_ + CI_BLK1_;
+//var _SET1 = _ci1 + CI_RED3_ + CI_GRY4_ + CI_BLK1_;
+//var _SET1 = _ci1 + CI_GRY1_ + CI_GRY4_ + CI_BLK1_;
+
+
+//PAL_MOB_ORG1 PAL_MOB_RED1 PAL_MOB_BLU1 PAL_MOB_PUR1
+var _PAL1 = _ci1 + CI_WHT1_ + CI_WHT1_ + CI_WHT1_;
+var _PAL2 = _ci1 + CI_RED1_ + CI_GRY1_ + CI_PUR4_;
+var _PAL3 = PAL_MOB_ORG1;
+var _PAL4 = _ci1 + CI_WHT2_ + CI_WHT1_ + CI_ORG4_;
+//var _PAL3 = _ci1 + CI_WHT1_ + CI_ORG2_ + CI_RED3_;
+// File Select screen
+             _dk  = room_get_name(rmB_FileSelect);
+dm_pal_data[?_dk] = PAL_SET2 
+                  + _PAL4        + _PAL1        + _PAL1                           + _PAL2  // bgr
+                  + PAL_MOB_ORG1 + PAL_MOB_RED1 + _ci1+CI_ORG2_+CI_ORG2_+CI_BLK1_ + _PAL2; // mob
+//
+/*
+             _dk  = room_get_name(rmB_FileSelect);
+dm_pal_data[?_dk] = PAL_SET2 
+                  + _PAL1        + _PAL1        + _PAL1 + _PAL2                       // bgr
+                  + PAL_MOB_ORG1 + PAL_MOB_RED1 + _ci1 + CI_ORG2_ + CI_ORG2_ + CI_BLK1_ + _PAL2;     // mob
+*/
+/*
+//PAL_MOB_ORG1 PAL_MOB_RED1 PAL_MOB_BLU1 PAL_MOB_PUR1
+var _PAL1 = _ci1 + CI_WHT1_ + CI_WHT1_ + CI_WHT1_;
+var _PAL2 = _ci1+ '36'+CI_GRY1_+ '03';
+var _PAL3 = _ci1 + CI_WHT1_ + CI_ORG2_ + CI_RED3_;
+// File Select screen
+             _dk  = room_get_name(rmB_FileSelect);
+dm_pal_data[?_dk] = PAL_SET2 
+                  + _PAL1 + _PAL1 + _PAL1 + _PAL2                       // bgr
+                  + _PAL3 + _PAL1 + _ci1 + CI_ORG2_ + CI_ORG2_ + CI_BLK1_ + _PAL2;     // mob
+*/
+// Continue Save screen
+             _dk  = room_get_name(rmB_ContinueSave);
+dm_pal_data[?_dk] = PAL_SET2 
+                  + _ci1+CI_RED2_+CI_BLK1_+CI_BLK1_ + _PAL1 + _PAL1                           + _PAL2  // bgr
+                  + _PAL3 + _ci1+CI_WHT1_+CI_RED3_+CI_BLK1_ + _ci1+CI_WHT1_+CI_TEL2_+CI_BLK1_ + _PAL2; // mob
+//
+// '3C110D' + '302111' + '303621' + '302919' + 
+// '302800' + '302817' + '302716' + '30160D';
+
+OW_PAL = PAL_SET2 
+       + CI_BLK1_ + CI_TEL1_ + CI_BLU3_ + CI_BLK1_  // BGR1
+       + CI_BLK1_ + CI_WHT1_ + CI_YGR2_ + CI_YGR3_  // BGR2
+       + CI_BLK1_ + CI_WHT1_ + CI_YLW2_ + CI_ORG3_  // BGR3
+       + CI_BLK1_ + CI_WHT1_ + CI_YLW2_ + CI_GRY3_  // BGR4
+       + PAL_MOB_ORG1               // MOB1
+       + PAL_MOB_RED1               // MOB2
+       + PAL_MOB_BLU2               // MOB3
+       + PAL_MOB_PUR1;              // MOB4
+//
+/*
+OW_PAL = build_pal(CI_BLK1_ + CI_TEL1_+ '11'+CI_BLK1_,  // BGR1
+                   CI_BLK1_ + CI_WHT1_+ '29'+ '19',  // BGR2
+                   CI_BLK1_ + CI_WHT1_+ '28'+ '17',  // BGR3
+                   CI_BLK1_ + CI_WHT1_+ '28'+CI_GRY3_,  // BGR4
+                   CI_BLK1_ + CI_WHT1_ + CI_ORG2_ + CI_RED3_,  // MOB1
+                   CI_BLK1_ + CI_WHT1_ + CI_RED3_ + CI_BLK1_,  // MOB2
+                   CI_BLK1_ + CI_WHT1_ + CI_BLU2_ + CI_VLT3_,  // MOB3
+                   CI_BLK1_ + CI_WHT1_+ '36'+CI_BLU2_); // MOB4
+*/
+/*  For reference:
+PAL_MOB_ORG1 = CI_BLK1_ + CI_WHT1_ + CI_ORG2_ + CI_RED3_; // orange     mob 
+//                                      // 
+PAL_MOB_RED1 = CI_BLK1_ + CI_WHT1_ + CI_RED3_ + CI_ORG4_; // red        mob 
+PAL_MOB_RED2 = CI_BLK1_ + CI_RED1_ + CI_RED3_ + CI_ORG4_; // red        mob   NPC
+//                                      // 
+PAL_MOB_BLU1 = CI_BLK1_ + CI_WHT1_ + CI_TEL2_ + CI_TEL4_; // blue       mob (non-dungeon)
+PAL_MOB_BLU2 = CI_BLK1_ + CI_WHT1_ + CI_BLU2_ + CI_BLU4_; // blue       mob (dungeon)
+//                                      // 
+PAL_MOB_PUR1 = CI_BLK1_ + CI_WHT1_ + CI_PUR3_ + CI_PUR4_; // purple     mob 
+*/
+
+
+// The data for each palette of colors is a string consisting of 8 characters, which
+// are 4 sets of 2 characters, each set the string representation of an 8-bit
+// hex value which is the index of p.dl_COLOR and also the grid xy of a 
+// color on the color grid image
+// The 1st value is for GREEN, 2nd for WHITE, 3rd for RED, 4th for BLUE
+// The 1st value can be a code: 
+    // FF: use room bg color
+pal_rm_file = undefined; // from .json rm file
+pal_rm_def  = undefined;
+pal_rm_curr = "";
+pal_rm_new  = "";
+pal_rm_dark = undefined;
+pal_rm_dark_DEFAULT = dg_pal_rm_dark[#0,0];
+//dg_rm_pal = ds_grid_create(P_SPR_W,4);
+                     _a=0;
+dg_rm_pal_IDX_FILE = _a++;
+dg_rm_pal_IDX_DFLT = _a++;
+dg_rm_pal_IDX_CURR = _a++;
+dg_rm_pal_IDX_NEW  = _a++;
+//dg_rm_pal_IDX_DARK  = _a++;
+//dg_rm_pal_IDX_DARK_DFLT  = _a++;
+dg_rm_pal   = ds_grid_create(_a,global.palette_image_W);
+ds_grid_clear(dg_rm_pal, -1);
+dg_rm_pal_W = ds_grid_width(dg_rm_pal);
+
+
+
+// pal_rm_DEFAULT: In case pal data for a rm cannot be located.
+pal_rm_DEFAULT  = PAL_SET2;
+pal_rm_DEFAULT += string_repeat(_SET1, BGR_PAL_COUNT);
+pal_rm_DEFAULT += string_repeat(_SET1, MOB_PAL_COUNT);
+//pal_rm_DEFAULT += PAL_DL_1;
+pal_rm_DEFAULT += pal_rm_dark_DEFAULT;
+/*
+pal_rm_DEFAULT  = PAL_SET1 + string_repeat(_SET1, BGR_PAL_COUNT);
+pal_rm_DEFAULT += PAL_PC_1 + string_repeat(_SET1, MOB_PAL_COUNT);
+pal_rm_DEFAULT  = build_pal(_SET1,_SET1,_SET1,_SET1, _SET1,_SET1,_SET1,_SET1);
+pal_rm_DEFAULT += pal_rm_dark_DEFAULT;
+*/
+
+
+dg_pal_seq = ds_grid_create(4,4);
+ds_grid_clear(dg_pal_seq, _SET1);
+            _a=1;
+dg_pal_seq[#_a,$0] = CI_GRN0_ + CI_RED1_ + CI_RED3_ + CI_ORG4_; // 
+dg_pal_seq[#_a,$1] = CI_GRN0_ + CI_RED2_ + CI_RED3_ + CI_ORG4_; // 
+dg_pal_seq[#_a,$2] = CI_GRN0_ + CI_RED3_ + CI_RED4_ + CI_BLK1_; // 
+dg_pal_seq[#_a,$3] = CI_GRN0_ + CI_RED4_ + CI_BLK1_ + CI_BLK1_; // 
+pal_seq_idx2       = 0;
+
+
+dl_triforce_pal_seq = ds_list_create();
+ds_list_add(dl_triforce_pal_seq, CI_BLK1_+CI_WHT1_+CI_ORG3_+CI_WHT1_);
+ds_list_add(dl_triforce_pal_seq, CI_BLK1_+CI_WHT1_+CI_ORG2_+CI_WHT1_);
+ds_list_add(dl_triforce_pal_seq, CI_BLK1_+CI_WHT1_+CI_ORG1_+CI_WHT1_);
+ds_list_add(dl_triforce_pal_seq, CI_BLK1_+CI_WHT1_+CI_ORG1_+CI_WHT1_);
+/*
+var _CI1 = CI_WHT1_;
+//var _CI2 = CI_ORG4_;
+var _CI2 = CI_WHT1_;
+ar_PALSEQ_TRIFORCE[3] = CI_GRN0_ + _CI1 + CI_ORG1_ + _CI2; // 
+ar_PALSEQ_TRIFORCE[2] = CI_GRN0_ + _CI1 + CI_ORG1_ + _CI2; // 
+ar_PALSEQ_TRIFORCE[1] = CI_GRN0_ + _CI1 + CI_ORG2_ + _CI2; // 
+ar_PALSEQ_TRIFORCE[0] = CI_GRN0_ + _CI1 + CI_ORG3_ + _CI2; // 
+*/
+
+
+
+
+
+
+
+
+
+
+//_pal1   = CI_GRN0_ + CI_WHT1_ + CI_WHT2_ + CI_BLK1_;
+//_pal2   = CI_GRN0_ + CI_WHT1_ + CI_WHT2_ + CI_BLK1_;
+
+//build_pal(
+
+
+
+
+
+
+
+
+// ---------------------------------------------------------------------------
+// Palette index sequences
+dg_PI_SEQ = ds_grid_create($10,$04);
+ds_grid_clear(dg_PI_SEQ, PI_ERR0);
+//                                      //
+// $00: PC stun
+dg_PI_SEQ[#$00,0] = PI_PC_1;
+dg_PI_SEQ[#$00,1] = PI_MOB_ORG;
+dg_PI_SEQ[#$00,2] = PI_MOB_RED;
+dg_PI_SEQ[#$00,3] = PI_MOB_BLU;
+//                                      //
+// $04: PC spell flash
+dg_PI_SEQ[#$04,0] = PI_PC_2+2; // Dark
+dg_PI_SEQ[#$04,1] = PI_PC_2+0; // Light
+dg_PI_SEQ[#$04,2] = PI_PC_2+1; // Mid
+dg_PI_SEQ[#$04,3] = PI_PC_2+0; // Light
+//                                      //
+// $08: Barrier
+dg_PI_SEQ[#$08,0] = PI_GUI_1   + PI_DRK1; // GUI pal, but
+dg_PI_SEQ[#$08,1] = PI_MOB_PUR + PI_DRK1;
+//dg_PI_SEQ[#$08,0] = PI_DRK1 + 1; // GUI pal, but
+//dg_PI_SEQ[#$08,1] = PI_DRK1 + PI_MOB_PUR;
+dg_PI_SEQ[#$08,2] = dg_PI_SEQ[#$08,0];
+dg_PI_SEQ[#$08,3] = dg_PI_SEQ[#$08,1];
+//                                      //
+//                                      //
+
+
+
+dl_PI_MOB     = ds_list_create();
+dl_PI_MOB[|4] = PI_MOB_PUR;
+dl_PI_MOB[|3] = PI_MOB_BLU;
+dl_PI_MOB[|2] = PI_MOB_RED;
+dl_PI_MOB[|1] = PI_MOB_ORG;
+dl_PI_MOB[|0] = PI_PC_1;
+
+
+
+
+/*
+// var _STATE  = val(dm[?_datakey+STR_State])
+var    _PHASE  = val(dm[?_datakey2]);
+switch(_PHASE){
+    // -------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------
+    case 1:{break;}
+    // -------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------
+    case 2:{break;}
+    // -------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------
+    case 3:{break;}
 }
 */
 

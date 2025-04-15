@@ -15,7 +15,7 @@ scr_draw = Moon1_draw;
 GO_sprite_init(spr_Moon01);
 
 GO_depth_init(g.DEPTH_STARS-1);
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 
     CAM_LOCKED = true;

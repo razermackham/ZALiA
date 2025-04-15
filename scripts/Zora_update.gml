@@ -117,7 +117,7 @@ if (    shoot_timer)
         }
         
         // Bullet2, pID $11. PI_MOB2: red
-        GOC1_create(_xl,_yt, facingDir, projectile,projectile_ver, id, PI_MOB_RED);
+        GOC1_create(_xl,_yt, facingDir, projectile,projectile_ver, id, global.PI_MOB_RED);
     }
 }
 

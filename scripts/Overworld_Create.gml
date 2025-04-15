@@ -23,7 +23,9 @@ OVERWORLD_INIT_METHOD = 2;
 can_draw_exits = 1;
 
 
+//depth = DEPTH_Overworld;
 GO_depth_init(DEPTH_BASE); // sets depth & depth_def
+
               _a = depth+$16;
 //              _a = depth+$10;
 Tile_DEPTH1 = _a--;
@@ -469,7 +471,6 @@ for(_i=0; _i<_count; _i++)
     dm_data[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
 }
 ds_list_add(_dl_biome_tsrc, _val1);
-//ds_list_add(_dl_biome_tsrc, hexStr(TSRC_TREE01,TSRC_TREE02,TSRC_TREE03,TSRC_TREE04));
 ds_list_add( dl_enc_inst_life_dur, $18); // 
 dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $18; // OG: $18
 dm_enc[?STR_Rando+STR_Biome+_biome] = true;
@@ -820,8 +821,8 @@ for(_i=ds_grid_width(dg_ENC_SPR)-1; _i>=0; _i--)
 }
 
 
-ENC_PI  = PI_MOB_PUR;
-ENC_PAL = p.CI_WHT1_+p.CI_BLK1_+p.CI_BLK1_;
+ENC_PI = global.PI_MOB_PUR;
+ENC_PAL = build_pal(p.C_WHT1,p.C_BLK1,p.C_BLK1,p.C_BLK1);
 
 
 

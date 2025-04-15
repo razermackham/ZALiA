@@ -53,8 +53,8 @@ SPEED1 = $10;
 // SPEED1 = $18;
 
 
-PI_FRWD = PI_MOB_RED; // Red
-PI_BKWD = PI_MOB_BLU; // Blue
+PI_FRWD = global.PI_MOB_RED; // Red
+PI_BKWD = global.PI_MOB_BLU; // Blue
 // PI_BKWD = p.PI_MOB4; // Purple
 if (path_dir) GO_init_palidx(PI_FRWD);
 else          GO_init_palidx(PI_BKWD);

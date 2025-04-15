@@ -145,7 +145,7 @@ dg_DATA[#_idx,IDX_TEXT_ROW]  = dg_DATA[#_idx-1,IDX_TEXT_ROW] + 1;
 
 
 ARROW_SPR   = spr_Menu_Selector_arrow_1a;
-PI_DEF      = PI_GUI_1;
+PI_DEF      = global.PI_GUI1;
 
 ANIM_FRAMES_DEF = ROWS >>1;
 anim_frame      = 0;

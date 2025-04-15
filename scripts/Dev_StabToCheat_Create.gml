@@ -86,43 +86,43 @@ dl_sprites[|$1F] = spr_0; // For suicide.
 
 
 for(_i=OPTION_CNT-1; _i>=0; _i--) ar_pi[_i]=0;
-ar_pi[ 0] = get_pi(PI_MOB_ORG); // 
-ar_pi[ 1] = get_pi(PI_MOB_ORG); // 
-ar_pi[ 2] = get_pi(PI_MOB_ORG); // 
-ar_pi[ 3] = get_pi(PI_MOB_ORG); // 
-ar_pi[ 4] = get_pi(PI_MOB_ORG); // 
-ar_pi[ 5] = get_pi(PI_MOB_ORG); // 
-ar_pi[ 6] = get_pi(PI_MOB_ORG); // 
-ar_pi[ 7] = get_pi(PI_MOB_ORG); // 
+ar_pi[ 0] = global.PI_MOB_ORG; // 
+ar_pi[ 1] = global.PI_MOB_ORG; // 
+ar_pi[ 2] = global.PI_MOB_ORG; // 
+ar_pi[ 3] = global.PI_MOB_ORG; // 
+ar_pi[ 4] = global.PI_MOB_ORG; // 
+ar_pi[ 5] = global.PI_MOB_ORG; // 
+ar_pi[ 6] = global.PI_MOB_ORG; // 
+ar_pi[ 7] = global.PI_MOB_ORG; // 
 
-ar_pi[ 8] = get_pi(PI_PC_1); // 
-ar_pi[ 9] = get_pi(PI_PC_1); // 
+ar_pi[ 8] = global.PI_PC1; // 
+ar_pi[ 9] = global.PI_PC1; // 
 
-ar_pi[10] = get_pi(PI_MOB_BLU); // 
-ar_pi[11] = get_pi(PI_MOB_BLU); // 
-ar_pi[12] = get_pi(PI_MOB_BLU); // 
-ar_pi[13] = get_pi(PI_MOB_BLU); // 
-ar_pi[14] = get_pi(PI_MOB_BLU); // 
-ar_pi[15] = get_pi(PI_MOB_BLU); // 
-ar_pi[16] = get_pi(PI_MOB_BLU); // 
-ar_pi[17] = get_pi(PI_MOB_BLU); // 
+ar_pi[10] = global.PI_MOB_BLU; // 
+ar_pi[11] = global.PI_MOB_BLU; // 
+ar_pi[12] = global.PI_MOB_BLU; // 
+ar_pi[13] = global.PI_MOB_BLU; // 
+ar_pi[14] = global.PI_MOB_BLU; // 
+ar_pi[15] = global.PI_MOB_BLU; // 
+ar_pi[16] = global.PI_MOB_BLU; // 
+ar_pi[17] = global.PI_MOB_BLU; // 
 
-ar_pi[18] = get_pi(PI_MOB_RED); // 
-ar_pi[19] = get_pi(PI_MOB_RED); // 
+ar_pi[18] = global.PI_MOB_RED; // 
+ar_pi[19] = global.PI_MOB_RED; // 
 
-ar_pi[20] = get_pi(PI_GUI_1); // 
-ar_pi[21] = get_pi(PI_GUI_1); // 
-ar_pi[22] = get_pi(PI_GUI_1); //
+ar_pi[20] = global.PI_GUI1; // 
+ar_pi[21] = global.PI_GUI1; // 
+ar_pi[22] = global.PI_GUI1; //
 ar_pi[23] = ar_pi[20];
 ar_pi[24] = ar_pi[21];
 ar_pi[25] = ar_pi[22];
-ar_pi[26] = get_pi(PI_MOB_RED);
-ar_pi[27] = get_pi(PI_MOB_ORG);
-ar_pi[28] = get_pi(PI_MOB_ORG);
-ar_pi[29] = get_pi(PI_MOB_ORG);
-ar_pi[30] = get_pi(PI_MOB_ORG);
+ar_pi[26] = global.PI_MOB_RED;
+ar_pi[27] = global.PI_MOB_ORG;
+ar_pi[28] = global.PI_MOB_ORG;
+ar_pi[29] = global.PI_MOB_ORG;
+ar_pi[30] = global.PI_MOB_ORG;
 
-ar_pi[31] = get_pi(PI_PC_1); // suicide
+ar_pi[31] = global.PI_PC1; // suicide
 
 
 

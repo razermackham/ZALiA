@@ -2,8 +2,8 @@
 
 
 switch(ver){
-case 1:{GO_init_palidx(PI_MOB_RED); break;}
-case 2:{GO_init_palidx(PI_MOB_PUR); break;}
+case 1:{GO_init_palidx(global.PI_MOB_RED); break;}
+case 2:{GO_init_palidx(global.PI_MOB_PUR); break;}
 }
 GO_depth_init(DEPTH_FLYER);
 
@@ -27,7 +27,7 @@ NEED_CROSS = ver==2;
 if (ver==2 
 &&  g.area_name==Area_TownA )
 {
-    GO_init_palidx(PI_MOB_PUR);
+    GO_init_palidx(global.PI_MOB_PUR);
     
     XP_IDX = $0E;
     xp     = g.dl_XP[|XP_IDX];

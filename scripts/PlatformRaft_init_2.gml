@@ -1,6 +1,13 @@
 /// PlatformRaft_init_2()
 
 
+if!(f.items&ITM_RAFT)
+{
+    instance_destroy();
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
 var _i, _a, _val;
 var _PATH  = 0;
 var _START = 0;

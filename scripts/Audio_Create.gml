@@ -22,6 +22,9 @@ var _VOL_WYNG2 = min(_VOL_WYNG1+.15, 1); // Wyng
 testing_num = 0;
 
 
+depth = DEPTH_Audio;
+
+
 // GameMaker Audio Looping Issue With Tracks With An Intro: -------
 //   If you have 2 separate files (Intro, Body) then there will 
 // be a noticeable gap between the intro and body because checking 

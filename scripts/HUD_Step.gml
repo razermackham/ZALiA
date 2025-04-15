@@ -57,35 +57,35 @@ if (_SPELL==SPL_FARY
 &&  g.CuccoSpell2_Acquired 
 &&  g.CuccoSpell2_Option )
 {
-    SpellReady_text = "CUCCO";
+    SpellQueued_text = "CUCCO";
 }
 else
 {
-    SpellReady_text = val(g.dm_Spell[?hex_str(_SPELL)+STR_Name], SpellReady_NONE);
+    SpellQueued_text = val(g.dm_Spell[?hex_str(_SPELL)+STR_Name], SpellQueued_NONE);
 }
 
-if (SpellReady_text!=SpellReady_NONE)
+if (SpellQueued_text!=SpellQueued_NONE)
 {
-    SpellReady_text = string_letters(SpellReady_text);
+    SpellQueued_text = string_letters(SpellQueued_text);
 }
 
 
-SpellReady_palidx = PI_MENU;
-if (SpellReady_text!=SpellReady_NONE)
+SpellQueued_palidx = PI_MENU;
+if (SpellQueued_text!=SpellQueued_NONE)
 {
     if (p.SpellReady_flash_timer)
     {
-        SpellReady_palidx = p.dg_PI_SEQ[#$04,(p.SpellReady_flash_timer-1)&$3];
+        SpellQueued_palidx = p.dg_PI_SEQ[#$04,(p.SpellReady_flash_timer-1)&$3];
     }
     else if (g.mod_IndicateSpellUnaffordable 
          &&  f.mp-get_spell_cost(g.spell_ready) < 0 )
     {
-        SpellReady_palidx = p.PI_SPELL_UNAFFORDABLE;
+        SpellQueued_palidx = global.spell_unaffordable_pi;
     }
     else if (g.mod_IndicateSpellActive 
          &&  g.spells_active & g.spell_ready )
     {
-        SpellReady_palidx  = p.PI_SPELL_FUTILE;
+        SpellQueued_palidx  = global.spell_futile_pi;
     }
 }
 

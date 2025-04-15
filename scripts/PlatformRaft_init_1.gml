@@ -1,14 +1,8 @@
 /// PlatformRaft_init_1()
 
 
-if(!f.items&ITM_RAFT)
-{
-    instance_destroy();
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-}
-
-
 var _i, _a;
+
 
 Platform_init_1();
 

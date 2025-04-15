@@ -12,6 +12,7 @@ for(_i=0; _i<ds_list_size(p.dl_COLOR); _i++) // each possible color
     if(string_length(_str)<6) _str  = "00" + _str;
                               _str  = "dl_COLOR[|$"+hex_str(_i)+"] = $"+_str+", ";
                               _str += "Luminosity: $"+hex_str(colour_get_value(p.dl_COLOR[|_i]));
+                              _str += ", Brightness $"+hex_str(get_color_brightness(p.dl_COLOR[|_i]));
                               _str += ";      // ";
     if!(_i&$F)
     {   sdm("");  }

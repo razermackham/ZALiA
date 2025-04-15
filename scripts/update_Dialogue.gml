@@ -977,7 +977,7 @@ switch(g.menu_state)
                 g.dialogue_source.state = 0;
                 
                 //g.go_mgr.uIdxSwap_gob = g.dialogue_source.uIdx;
-                with(GameObject_create(g.dialogue_source.xl,g.dialogue_source.yt, _obj,_ver, -1, PI_MOB_BLU))
+                with(GameObject_create(g.dialogue_source.xl,g.dialogue_source.yt, _obj,_ver, -1, global.PI_MOB_BLU))
                 {
                     switch(object_index)
                     {   // ------------------------------

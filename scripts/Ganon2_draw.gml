@@ -51,11 +51,11 @@ if (Form3_can_draw)
     if (Form3_sprite_idx==1  // transparent spr
     &&  stun_timer )
     {    _pi = p.dg_PI_SEQ[#0,(stun_timer>>1)&$3] + p.PI_LIT1;  }
-    else _pi = PI_BGR_1;
+    else _pi = global.PI_BGR1;
     
     
     if (Form3_sprite_idx==1) // transparent spr
-    {   draw_skull_1a(x,y,1,1, PI_MOB_RED, 1);  }
+    {   draw_skull_1a(x,y,1,1, global.PI_MOB_RED, 1);  }
     
     draw_sprite_(_sprite,0, x,y, _pi);
 }

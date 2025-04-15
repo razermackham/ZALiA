@@ -113,8 +113,8 @@ if(!surface_exists(Story_srf))
     var _XL2 = _XL1+($1<<3);
     var _yt = 0;
     var _DIST1 = $10;
-    var _PI1 = PI_BGR_4;
-    var _PI2 = PI_BGR_1;
+    var _PI1 = global.PI_BGR4;
+    var _PI2 = global.PI_BGR1;
     Story_srf = surface_create(Story_W,Story_H);
     surface_set_target(Story_srf);
     draw_clear_alpha(c_black,0);
@@ -241,7 +241,7 @@ for(_j=ds_grid_width(dg_SeaSparkle)-1; _j>=1; _j--)
 
 
 // Sword
-draw_sprite_(SWORD_SPR,0, SWORD_SPR_X,SWORD_SPR_Y, PI_MOB_ORG);
+draw_sprite_(SWORD_SPR,0, SWORD_SPR_X,SWORD_SPR_Y, global.PI_MOB_ORG);
 
 
 

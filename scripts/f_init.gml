@@ -9,6 +9,9 @@ var _i,_j, _val;
 var _datakey;
 
 
+depth = DEPTH_f;
+
+
 
 
 

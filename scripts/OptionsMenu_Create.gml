@@ -34,9 +34,10 @@ can_play_boss_music_at_open_RandomCustom = false;
 timer2=0;
 
 
-PI_MENU  = PI_GUI_1;
-PI_DARK1 = get_pi(PI_GUI_2,1);
-PI_DARK2 = get_pi(PI_GUI_2,3);
+PI_MENU  = global.PI_GUI1;
+PI_DARK1 = add_pi_permut(global.PI_GUI2, "WBRGYMKC", "OptionsMenu dark text 1");
+PI_DARK2 = add_pi_permut(global.PI_GUI2, "RBWGYMKC", "OptionsMenu dark text 2");
+
 
 OpenClose_Key_KEY = ord("O");
 OpenClose_Key_pressed = false;

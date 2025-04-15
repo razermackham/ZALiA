@@ -15,7 +15,7 @@ if (TurnedIn_count)
         
         if (dg_TurnedIn[#_i,2]) // stun timer
         {    _pi  = p.dg_PI_SEQ[#0, (dg_TurnedIn[#_i,2]>>1) & $3];  } // stun flash
-        else _pi  = PI_MOB_PUR; // PI_MOB_PUR: will be grey-scale
+        else _pi  = global.PI_MOB_PUR; // PI_MOB_PUR: will be grey-scale
         //else _pi  = PI_MOB_ORG;
         
         switch(dg_TurnedIn[#_i,1]) // kakusu graphic type
@@ -24,7 +24,7 @@ if (TurnedIn_count)
             case 0:{ // NORM
             draw_sprite_(spr_Bot2_Norm,    0, _x,_y, _pi);
             draw_sprite_(spr_Bot_Eyes_1a_1,0, _x,_y, _pi);
-            draw_sprite_(spr_1x1_WHT,0, _x-1,_y+3, -1, 2,1, get_pal_color(_pi,3));
+            draw_sprite_(spr_1x1_WHT,0, _x-1,_y+3, -1, 2,1, get_pal_color(p.pal_rm_curr, _pi, "B"));
             //draw_rect(get_pal_color(_pi,3), _x-1,_y+3, 2,1); // mouth
             break;}
             
@@ -34,7 +34,7 @@ if (TurnedIn_count)
             draw_sprite_(spr_Bot2_Norm,        0, _x,_y,   _pi);
             //draw_sprite_(spr_Eye_Closed_1a_WRB,0, _x,_y+2, _pi); // eye closed
             draw_sprite_(spr_Eye_Open_1b_WRB,0, _x,_y+2, _pi); // eye half open
-            draw_sprite_(spr_1x1_WHT,0, _x-1,_y+1, -1, 2,1, get_pal_color(_pi,3));
+            draw_sprite_(spr_1x1_WHT,0, _x-1,_y+1, -1, 2,1, get_pal_color(p.pal_rm_curr, _pi, "B"));
             //draw_rect(get_pal_color(_pi,3), _x-1,_y+1, 2,1); // pupil
             break;}
             

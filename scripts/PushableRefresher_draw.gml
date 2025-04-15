@@ -11,7 +11,7 @@ switch(sub_state)
     var _ROT  = (g.counter0>>1)&$3;
         _ROT ^= $3;
         _ROT *= 90;
-    draw_sprite_(spr_Fireball2,0, x,y+_YOFF, PI_MOB_ORG, 1,1, c_white,1, _ROT);
+    draw_sprite_(spr_Fireball2,0, x,y+_YOFF, global.PI_MOB_ORG, 1,1, c_white,1, _ROT);
     break;}//case sub_state_IDLE
     
     
@@ -31,7 +31,7 @@ switch(sub_state)
         
         var _XSCALE = 1;
         if (_TIME-1 mod _DURATION1 < _DURATION1>>1) _XSCALE = -1;
-        draw_sprite_(_SPRITE,0, x,y+_YOFF, PI_MOB_ORG, _XSCALE);
+        draw_sprite_(_SPRITE,0, x,y+_YOFF, global.PI_MOB_ORG, _XSCALE);
     }
     break;}//case sub_state_TRIGGERED
     
@@ -53,7 +53,7 @@ switch(sub_state)
         {
             if (timer<$8) var _XSCALE = sign_(timer&$1);
             else          var _XSCALE = sign_(timer&$2);
-            draw_sprite_(spr_Flame_Small_1a,0, x,y+_YOFF, PI_MOB_ORG, _XSCALE);
+            draw_sprite_(spr_Flame_Small_1a,0, x,y+_YOFF, global.PI_MOB_ORG, _XSCALE);
         }
     }
     break;}//case sub_state_COOLDOWN

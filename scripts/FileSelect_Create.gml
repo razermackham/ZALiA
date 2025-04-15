@@ -36,7 +36,7 @@ depth       = DEPTH_FILE_SELECT;
 DEPTH_PIECE = depth-1;
 
 
-PI_MENU = get_pi(PI_GUI_1);
+PI_MENU = global.PI_GUI1;
 
 //FONT_SPRITE1=spr_Font3_1;
 FONT_SPRITE1 = spr_Font2;

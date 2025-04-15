@@ -7,7 +7,7 @@ var _i, _val;
 
 
 GO_depth_init(DEPTH_ITEM);
-GO_init_palidx(PI_MOB_ORG); // This is the CRYSTAL's palidx
+GO_init_palidx(global.PI_MOB_ORG); // This is the CRYSTAL's palidx
 
 
 DUNGEON_NUM = g.dungeon_num;
@@ -38,14 +38,17 @@ Flash_DUR   = $62;
 Flash_timer = 0; // 0767
 
 
-            dl_COLOR_IDX=ds_list_create(); // 0: blue, 1: white, 2: green, 3: red
-ds_list_add(dl_COLOR_IDX, p.CI_VLT3_,p.CI_WHT1_,p.CI_GRN2_,p.CI_RED3_);
+dl_COLOR_ID = ds_list_create();
+ds_list_add(dl_COLOR_ID,color_str(p.C_VLT3)); // 0: blue
+ds_list_add(dl_COLOR_ID,color_str(p.C_WHT1)); // 1: white
+ds_list_add(dl_COLOR_ID,color_str(p.C_GRN2)); // 2: green
+ds_list_add(dl_COLOR_ID,color_str(p.C_RED3)); // 3: red
 
 
 // THIS ALGORITHM IS CORRECT, BUT YOU 
 // NEED TO KNOW THE CORRECT DEPTH FOR THE CRYSTAL HOLDER.
-midtone_PALDATA_POS = p.PAL_POS_BGR2 + 4;
-midtone_colorID_DEF = string_copy(p.pal_rm_def, midtone_PALDATA_POS, 2);
+midtone_PALDATA_POS = p.PAL_POS_BGR2 + (global.PAL_CHAR_PER_COLOR*(string_pos(global.PAL_BASE_COLOR_ORDER,"R")-1));
+midtone_colorID_DEF = string_copy(p.pal_rm_def, midtone_PALDATA_POS, global.PAL_CHAR_PER_COLOR);
 midtone_colorID_cur = midtone_colorID_DEF;
 
 

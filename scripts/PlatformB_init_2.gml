@@ -42,7 +42,7 @@ switch(ver)
     GO_depth_init(DEPTH_FG4-1);
     // GO_depth_init(g.DEPTH_CLOUD-1);
     GO_sprite_init(spr_cloud_2a);
-    GO_init_palidx(PI_CLOUD_1);
+    GO_init_palidx(global.PI_CLOUD_1);
     palidx_permut = 2; // 2:MHS
     //palidx_permut = 5; // 5:SMH
     //palidx_permut = 3; // 3:MSH

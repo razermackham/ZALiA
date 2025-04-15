@@ -12,7 +12,7 @@ DUR_DELAY_CMP1 = $40; // Delay completion start
 DUR_DELAY_CMP2 = $20; // Delay completion reward
 
 
-GO_init_palidx(PI_BGR_3);
+GO_init_palidx(global.PI_BGR3);
 GO_sprite_init(spr_Placement_32x32);
 set_xlyt(id, xl, yt);
 

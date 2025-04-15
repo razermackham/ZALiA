@@ -1,6 +1,9 @@
 /// PalettePicker_Game_End()
 
 
+if (surface_exists(ObjPal_surf)) surface_free(ObjPal_surf);
+
+
 /*
 var          _exists = false;
 

@@ -62,7 +62,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         var _spell_name=undefined;
         var _spell_bit=0;
         var _pi;
-        var _PI1=PI_BGR_1;
+        var _PI1=global.PI_BGR1;
         //var _PI1=PI_PC_1;
         
         var _XL  = FileRandoData_CLM<<3;
@@ -532,10 +532,10 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         
         _x += $18+$0;
         _yoff = 1;
-        _pi = PI_MOB_ORG;
+        _pi = global.PI_MOB_ORG;
         draw_sprite_(spr_Bot2_Norm,    0, _x,_y+_yoff, _pi);
         draw_sprite_(spr_Bot_Eyes_1a_1,0, _x,_y+_yoff, _pi);
-        draw_sprite_(spr_1x1_WHT,0, _x-1,_y+3+_yoff, -1, 2,1, get_pal_color(_pi,3));
+        draw_sprite_(spr_1x1_WHT,0, _x-1,_y+3+_yoff, -1, 2,1, get_pal_color(p.pal_rm_curr, _pi, "B"));
         
         _x += $9;
         draw_text_(_x,_y, "*", -1,PI_MENU);
@@ -631,19 +631,19 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         {
             switch(_i){
             default:{continue;}
-            case RandoOTHER_ITEMS_item_cursor_CANDLE: {_dk=STR_CANDLE;  _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_SHIELD: {_dk=STR_SHIELD;  _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_BAIT:   {_dk=STR_MEAT;    _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_RING:   {_dk=STR_RING;    _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_PENDANT:{_dk=STR_PENDANT; _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_SWORD:  {_dk=STR_SWORD;   _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_FEATHER:{_dk=STR_FEATHER; _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_NOTE:   {_dk=STR_NOTE;    _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_MAP1:   {_dk=STR_MAP1;    _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_MAP2:   {_dk=STR_MAP2;    _pi=PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_CANDLE: {_dk=STR_CANDLE;  _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_SHIELD: {_dk=STR_SHIELD;  _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_BAIT:   {_dk=STR_MEAT;    _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_RING:   {_dk=STR_RING;    _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_PENDANT:{_dk=STR_PENDANT; _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_SWORD:  {_dk=STR_SWORD;   _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_FEATHER:{_dk=STR_FEATHER; _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_NOTE:   {_dk=STR_NOTE;    _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_MAP1:   {_dk=STR_MAP1;    _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_MAP2:   {_dk=STR_MAP2;    _pi=global.PI_MOB_ORG; break;}
             }
             
-            if!(_ITEMS&val(g.dm_ITEM[?_dk+STR_Bit])) _pi=PI_GUI_2;
+            if!(_ITEMS&val(g.dm_ITEM[?_dk+STR_Bit])) _pi=global.PI_GUI2;
             
             
             _sprite=val(g.dm_ITEM[?_dk+STR_Sprite], spr_Torch_1a);
@@ -668,8 +668,8 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         
         _x  = _xl0;
             _count = val(_dm_FILE[?STR_File+STR_Start+STR_Container+STR_HP], f.CONT_MIN_HP);
-        if (_count>f.CONT_MIN_HP) _pi=PI_MOB_RED;
-        else                      _pi=PI_GUI_2;
+        if (_count>f.CONT_MIN_HP) _pi=global.PI_MOB_RED;
+        else                      _pi=global.PI_GUI2;
         
         _sprite=spr_Item_Heart_container_1d;
         _w = sprite_get_width(_sprite);
@@ -691,8 +691,8 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         
         _x += $9;
             _count = val(_dm_FILE[?STR_File+STR_Start+STR_Container+STR_MP], f.CONT_MIN_MP);
-        if (_count>f.CONT_MIN_MP) _pi=PI_MOB_ORG;
-        else                      _pi=PI_GUI_2;
+        if (_count>f.CONT_MIN_MP) _pi=global.PI_MOB_ORG;
+        else                      _pi=global.PI_GUI2;
         
         _sprite=spr_Item_Magic_container_1d;
         _w = sprite_get_width(_sprite);
@@ -714,8 +714,8 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         
         _x += $B;
             _count = val(_dm_FILE[?STR_File+STR_Start+STR_Dolls]);
-        if (_count) _pi=PI_PC_1;
-        else        _pi=PI_GUI_2;
+        if (_count) _pi=global.PI_PC1;
+        else        _pi=global.PI_GUI2;
         
         _sprite=val(g.dm_ITEM[?STR_1UP+STR_Sprite], spr_Torch_1a);
         _w = sprite_get_width(_sprite);
@@ -1116,7 +1116,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         
         _x += $18+$0;
         _yoff = 1;
-        _pi = PI_MOB_ORG;
+        _pi = global.PI_MOB_ORG;
         draw_sprite_(spr_Bot2_Norm,    0, _x,_y+_yoff, _pi);
         draw_sprite_(spr_Bot_Eyes_1a_1,0, _x,_y+_yoff, _pi);
         draw_sprite_(spr_1x1_WHT,0, _x-1,_y+3+_yoff, -1, 2,1, get_pal_color(_pi,3));
@@ -1192,17 +1192,17 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         {
             switch(_i){
             default:{continue;}
-            case RandoOTHER_ITEMS_item_cursor_CANDLE: {_dk=STR_CANDLE;  _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_SHIELD: {_dk=STR_SHIELD;  _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_RING:   {_dk=STR_RING;    _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_PENDANT:{_dk=STR_PENDANT; _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_SWORD:  {_dk=STR_SWORD;   _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_NOTE:   {_dk=STR_NOTE;    _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_MAP1:   {_dk=STR_MAP1;    _pi=PI_MOB_ORG; break;}
-            case RandoOTHER_ITEMS_item_cursor_MAP2:   {_dk=STR_MAP2;    _pi=PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_CANDLE: {_dk=STR_CANDLE;  _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_SHIELD: {_dk=STR_SHIELD;  _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_RING:   {_dk=STR_RING;    _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_PENDANT:{_dk=STR_PENDANT; _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_SWORD:  {_dk=STR_SWORD;   _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_NOTE:   {_dk=STR_NOTE;    _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_MAP1:   {_dk=STR_MAP1;    _pi=global.PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_MAP2:   {_dk=STR_MAP2;    _pi=global.PI_MOB_ORG; break;}
             case RandoOTHER_ITEMS_item_cursor_DOLLS:  {_dk=STR_1UP;     _pi=PI_PC_1; break;}
             case RandoOTHER_ITEMS_item_cursor_HEART:  {_dk=STR_HEART;   _pi=PI_MOB_RED; break;}
-            case RandoOTHER_ITEMS_item_cursor_MAGIC:  {_dk=STR_MAGIC;   _pi=PI_MOB_ORG; break;}
+            case RandoOTHER_ITEMS_item_cursor_MAGIC:  {_dk=STR_MAGIC;   _pi=global.PI_MOB_ORG; break;}
             }
             
             switch(_i)

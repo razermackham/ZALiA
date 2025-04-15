@@ -145,13 +145,8 @@ switch(MainOption)
                 
                 var _palette = p.pal_rm_curr;
                 //var _palette = p.pal_rm_new;
-                
                 var _pal = get_pc_skin_palette(_Skin_IDX);
-                _palette = strReplaceAt(_palette, get_pal_pos(PI_PC_1),     string_length(_pal),_pal);
-                
-                _pal = get_pc_sword_palette(true);
-                _palette = strReplaceAt(_palette, get_pal_pos(PI_PC_SWORD), string_length(_pal), _pal);
-                
+                _palette = strReplaceAt(_palette, get_pal_pos(global.PI_PC1), string_length(_pal), _pal);
                 change_pal(_palette);
             }
         }

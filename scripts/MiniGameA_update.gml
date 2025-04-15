@@ -152,7 +152,7 @@ switch(sub_state)
             var _HSPD = dg_SEQ[#seq_idx,3];
             var _VSPD = dg_SEQ[#seq_idx,4];
             
-            var _PI=PI_MOB_BLU; // PI_MOB_BLU for this rm uses purple mob colors
+            var _PI=global.PI_MOB_BLU; // PI_MOB_BLU for this rm uses purple mob colors
                  dg_SEQ[#seq_idx,0] = GameObject_create(_XL,_YT, TARGET_OBJ,TARGET_VER, -1,_PI);
             with(dg_SEQ[#seq_idx,0])
             {

@@ -8,7 +8,7 @@ Boss_init_2();
 Boss_init_2b(-1); // Determine & set the side of the arena to start on.
 
 
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 
 
             dl_Head_SPRITES=ds_list_create();

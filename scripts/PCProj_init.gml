@@ -23,7 +23,7 @@ GO_depth_init(DEPTH_PC_SWORD_BEAM);
 dl_sprites[|1] = spr_Fireball1;
 dl_sprites[|0] = spr_Link_sword_beam;
 GO_sprite_init(dl_sprites[|0]);
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 
 

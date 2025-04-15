@@ -64,7 +64,7 @@ else
         {   // Draw Riverman portrait
             var     _DEPTH = depth;
             depth =  DEPTH_BG5+1;
-            draw_sprite_(spr_Riverman_portrait_1a_1,0, ((drawX>>3)<<3)+(6<<3), ((drawY>>3)<<3)-(3<<3)-4, PI_BGR_4);
+            draw_sprite_(spr_Riverman_portrait_1a_1,0, ((drawX>>3)<<3)+(6<<3), ((drawY>>3)<<3)-(3<<3)-4, global.PI_BGR4);
             depth = _DEPTH;
         }
     }

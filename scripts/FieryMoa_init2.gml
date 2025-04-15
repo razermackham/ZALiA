@@ -4,7 +4,7 @@
 var _i, _val, _len, _pos;
 
 
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 GO_depth_init(DEPTH_FLYER);
 
 sprL = spr_Moa2;

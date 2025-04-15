@@ -5,8 +5,6 @@ var _i,_j, _idx, _val, _count, _size, _state;
 var _x,_y, _x0,_y0, _x1,_y1, _x2,_y2;
 var _dk, _set;
 var _sprite, _pi, _color,_color1;
-var _PI_DARK1=get_pi(PI_GUI_2,3);
-//var _GREY_COLOR1 = p.C_GRY1;
 var _tsrc, _ts_x,_ts_y;
 var _font, _text;
 var _NO_ACTION_TEXT = "---";
@@ -18,6 +16,9 @@ var _PAD1 = $2;
 var _DIST1 = _FONT_SIZE+_LEADING1;
 var _DIST2 = _DIST1-3;
 var _BLINK_TIMING = $40;
+
+//var _PI_DARK1 = get_pi(global.PI_GUI2,3);
+//var _GREY_COLOR1 = p.C_GRY1;
 
 var _Window_W = draw_clms_count<<3;
 
@@ -171,8 +172,8 @@ for(_i=0; _i<AudioCustom_COUNT; _i++)
     {
         if (_SUB_MENU_IS_OPEN 
         && !dg_AudioCustom[#_i,2] ) // 2: open state
-        {    _pi = _PI_DARK1;  }
-        else _pi =  PI_MENU;
+        {    _pi = PI_DARK2;  }
+        else _pi = PI_MENU;
         
         //if (_i==AudioCustom_cursor) _color = c_white;
         //else                        _color = -1;
@@ -210,7 +211,7 @@ for(_i=0; _i<AudioCustom_COUNT; _i++)
                 if (dg_AudioCustom[#_i,2]) // 2: open state
                 {
                     _sprite = spr_arrow_6_dwn;
-                    _pi = _PI_DARK1;
+                    _pi = PI_DARK2;
                 }
                 else
                 {
@@ -412,7 +413,7 @@ if (_CURSOR_HAS_SUBMENU)
 else
 {
     _color = _color1;
-    _pi = _PI_DARK1;
+    _pi = PI_DARK2;
 }
 
 _x  = _x0;

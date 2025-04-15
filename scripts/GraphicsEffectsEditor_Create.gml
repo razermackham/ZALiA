@@ -25,8 +25,8 @@ dg_menu_idx = -1;
 
 
 
-PI_MENU  = PI_GUI_1;
-PI_DARK1 = PI_GUI_2;
+PI_MENU  = global.PI_GUI1;
+PI_DARK1 = global.PI_GUI2;
 
 
 

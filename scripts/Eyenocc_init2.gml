@@ -4,7 +4,7 @@
 var _i,_j, _idx, _val,_val1, _count,_count1;
 var _dk, _str, _len, _pos;
 
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 
 

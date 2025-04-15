@@ -7,7 +7,7 @@ var _i;
 dl_sprites[|1] = spr_BossBot2;
 dl_sprites[|0] = spr_BossBot1;
 GO_set_sprite(id, dl_sprites[|0]);
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 
 VSPD_GRAV = 2;
 vspd_grav = VSPD_GRAV;

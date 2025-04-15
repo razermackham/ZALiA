@@ -187,14 +187,14 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
         
         _spr  = spr_0;
         _yoff = 0;
-        _pi   = PI_MOB_ORG;
+        _pi   = global.PI_MOB_ORG;
         
         switch(_item_type)
         {   //-------------------------------------------
             case STR_Kakusu:{
             if (g.counter1&$10) _spr=spr_Slime_Small_1a_1;
             else                _spr=spr_Slime_Small_1b_1;
-            _pi = PI_MOB_ORG;
+            _pi = global.PI_MOB_ORG;
             _yoff = -4; // bc graphic is aligned to bottom of img
             break;}
             
@@ -203,7 +203,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
                            _val = $28; // timing for beating heart anim
             if (g.counter0&_val==_val) _spr=spr_Heart_1a;
             else                       _spr=spr_Heart_1b;
-            _pi = PI_MOB_RED;
+            _pi = global.PI_MOB_RED;
             break;}
             
             //-------------------------------------------
@@ -214,7 +214,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
             case 1:{_spr=spr_Bottle_6a_Liquid_1b; break;}
             case 2:{_spr=spr_Bottle_6a_Liquid_1c; break;}
             }
-            _pi = PI_MOB_ORG;
+            _pi = global.PI_MOB_ORG;
             _yoff = -1;
             draw_sprite_(_spr,0, _x,_y+_yoff, _pi); // bubbling liquid
             _spr=spr_Bottle_6a; // empty bottle
@@ -224,13 +224,13 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
             case STR_1UP:{
             if (g.counter1&$10) _spr=spr_Item_LifeDoll_1a;
             else                _spr=spr_Item_LifeDoll_1b;
-            _pi = PI_PC_1;
+            _pi = global.PI_PC1;
             break;}
             
             //-------------------------------------------
             case STR_KEY:{
             _spr = val(g.dm_ITEM[?STR_KEY+STR_Sprite], _spr);
-            _pi = PI_MOB_ORG;
+            _pi = global.PI_MOB_ORG;
             break;}
         }
         
@@ -259,7 +259,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
             _x += -move_x;
             _y += -move_y;
         }
-        draw_sprite_(MEAT_SPR,0, _x,_y, PI_MOB_ORG);
+        draw_sprite_(MEAT_SPR,0, _x,_y, global.PI_MOB_ORG);
     }
     
     
@@ -294,7 +294,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
         _x = dg_enc_inst[#_i,1]; // enc obj center x
         _y = dg_enc_inst[#_i,2]; // enc obj center y
         
-        if (_idx==FAIRY_IDX) _pi = PI_MOB_ORG;
+        if (_idx==FAIRY_IDX) _pi = global.PI_MOB_ORG;
         else                 _pi = ENC_PI;
         
         _spr = dg_ENC_SPR[#_idx,sign(g.counter1&$8)];
@@ -337,7 +337,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
                 switch(PCSkins_SYS_VER)
                 {
                     case 1:{
-                    draw_sprite_(Skin_image,$60|(other.pc_sprite_idx&$F), _x,_y, PI_PC_1);
+                    draw_sprite_(Skin_image,$60|(other.pc_sprite_idx&$F), _x,_y, global.PI_PC1);
                     break;}
                     
                     
@@ -353,7 +353,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
                         _yt2 = val(dm_skins[?_dk+STR_Placed+'_yt']); // relative to spr_PCSkins_Full01
                         _xl1 = _x - (_w>>1);
                         _yt1 = _y - (_h>>1);
-                        draw_sprite_part_(Skin_image,0, _xl2,_yt2, _w,_h, _xl1,_yt1, PI_PC_1);
+                        draw_sprite_part_(Skin_image,0, _xl2,_yt2, _w,_h, _xl1,_yt1, global.PI_PC1);
                     }
                     break;}
                 }
@@ -364,7 +364,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
                 var _Sheet_Y = Spritesheet_H * $E;
                 _x -= Spritesheet_W>>1;
                 _y -= Spritesheet_H>>1;
-                draw_sprite_part_(Skin_image,0, _Sheet_X,_Sheet_Y, Spritesheet_W,Spritesheet_H, _x,_y, PI_PC_1);
+                draw_sprite_part_(Skin_image,0, _Sheet_X,_Sheet_Y, Spritesheet_W,Spritesheet_H, _x,_y, global.PI_PC1);
             }
         }
     }
@@ -458,7 +458,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
             
             if (_spr)
             {
-                _pi = PI_MOB_ORG;
+                _pi = global.PI_MOB_ORG;
                 _pi = p.dg_PI_SEQ[#0,(Warp_timer>>2)&$3] + p.PI_LIT1;
                 draw_sprite_(_spr,0, _x,_y, _pi, _xscale);
                 
@@ -471,7 +471,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
                     _val = sprite_get_width(_font_spr);
                     _x -= (_val*_count1)>>1;
                     _y -= $A+_val;
-                    draw_text_(_x,_y, _text, _font_spr, PI_GUI_1);
+                    draw_text_(_x,_y, _text, _font_spr, global.PI_GUI1);
                 }
             }
             else
@@ -481,7 +481,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
                      if (_val>$A) _spr=spr_pop01_1; // $B-$F
                 else if (_val>$6) _spr=spr_pop01_2; // $7-$A
                 else              _spr=spr_pop01_3; // $0-$6
-                draw_sprite_(_spr,0, _x,_y, PI_GUI_1);
+                draw_sprite_(_spr,0, _x,_y, global.PI_GUI1);
             }
         }
     }

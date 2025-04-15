@@ -1,7 +1,7 @@
 /// Grunt_init2()
 
 
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 dl_sprites[|1] = spr_Grunt_body2;
 dl_sprites[|0] = spr_Grunt_body1;
 

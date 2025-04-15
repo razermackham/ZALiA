@@ -7,7 +7,7 @@ Platform_init_1();
 GO_depth_init(DEPTH_FG4-1);
 //GO_depth_init(g.DEPTH_CLOUD-1);
 //GO_sprite_init(spr_cloud_2a);
-GO_init_palidx(PI_CLOUD_1);
+GO_init_palidx(global.PI_CLOUD_1);
 
 
 CLMS_MIN    = 6;

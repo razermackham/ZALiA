@@ -331,10 +331,7 @@ switch(Menu_in_focus)
             _y2  = _y1 + _font_h;
             _y2 += _DIST3;
             _y = _y2;
-            if (_y+(g.pc.Spritesheet_H>>1) < _MenuWindow_YB)
-            {
-                draw_pc_skin(_x,_y, 1,1, g.pc.behavior_WALK1+PCSpriteWalk_frame, false, -1,-1, PI_PC_1,PI_PC_SWORD);
-            }
+            //if (_y+(g.pc.Spritesheet_H>>1) < _MenuWindow_YB) draw_pc_skin(_x,_y, 1,1, g.pc.behavior_WALK1+PCSpriteWalk_frame, false, -1,-1, global.PI_PC1, global.PI_PC_SWORD);
             
             
             if (_i==MainOption)
@@ -505,7 +502,7 @@ switch(Menu_in_focus)
         
         if (InputConfigState==InputConfigState_EDITING 
         &&  _i!=InputConfigOption )
-        {    _pi = PI_GUI_2;  }
+        {    _pi = global.PI_GUI2;  }
         else _pi = PI_MENU;
         
         draw_text_(_x,_y, _text, _font, _pi);

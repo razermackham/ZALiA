@@ -4,7 +4,7 @@
 var _i, _a, _val, _pos;
 
 
-palidx = PI_BGR_1;
+palidx = global.PI_BGR1;
 
 //ST_SUB1_NORM = 1; // 
 //state_sub1   = ST_SUB1_NORM;

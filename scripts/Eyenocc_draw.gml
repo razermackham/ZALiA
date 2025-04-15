@@ -5,7 +5,7 @@ if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 var _PI = palidx;
-if (Eye_state==Eye_state_CLOSED) _PI = PI_GUI_2;
+if (Eye_state==Eye_state_CLOSED) _PI = global.PI_GUI2;
 //if (Eye_state==Eye_state_CLOSED) _PI = PI_DARKLONK;
 GameObject_draw_1a(sprite, _PI); // draw self
 

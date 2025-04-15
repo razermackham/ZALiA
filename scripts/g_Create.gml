@@ -178,7 +178,8 @@ var _dl_1 = ds_list_create();
 
 
 
-GO_depth_init(DEPTH_BASE);
+depth = DEPTH_g;
+//GO_depth_init(DEPTH_BASE);
 
 
 
@@ -898,15 +899,15 @@ dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+S
 dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
 dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
 
-//_ts = ts_Man_made_5a_WRB;
-//ds_list_add(dl_tileset,_ts);
-//_name = background_get_name(_ts);
-//dm_tileset[?_name] = _ts;
-//dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
-//dm_tileset[?_name+STR_Tile+STR_Height] = $08;
-//dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
-//dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
-//dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+_ts = ts_ManMade05;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
 
 _ts = ts_Man_made_6a_WRB;
 ds_list_add(dl_tileset,_ts);
@@ -1168,6 +1169,7 @@ else
     }
     file_find_close();
 }
+//sdm("custom tileset count: $"+hex_str(val(g.dm_tileset[?"_User"+STR_Custom+STR_Dungeon+STR_Tileset+STR_Count])));
 
 
 
@@ -1343,7 +1345,8 @@ dl_ceiling_bottom_rc = ds_list_create();
 tile_data_init();
 
 
-burnable_mgr = instance_create(0,0,BurnableMgr);
+burnable_mgr = 0;
+//burnable_mgr = instance_create(0,0,BurnableMgr);
 
 
 
@@ -2091,6 +2094,7 @@ repeat($10) ds_list_add(dl_niao,0);
 
 // ----------------------------------------------------------
 // --------------------  ITEMS  -----------------------------
+//init_data_items();
 SPR_CONT_PIECE_HP = spr_ItemContainer_Piece_HP_1b;
 SPR_CONT_HP       = spr_Item_Heart_container_1d;
 
@@ -2401,7 +2405,7 @@ dm_ITEM[?hex_str(bitNum(_bit))+STR_Sprite]  = _spr;
 dm_ITEM[?_name+'01'           +STR_Sprite]  = _spr; // ITEM MAP1 - WEST
 dm_ITEM[?hex_str(       _bit )+STR_Object]  = _obj;
 dm_ITEM[?_name+STR_Bit]                     = _bit;
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = PI_MOB_ORG;
+//dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = global.PI_MOB_ORG;
 dm_ITEM[?_name+STR_Item+STR_Type]           = STR_MAP1;
 dm_ITEM[?_name+STR_Hold+STR_Item]           = true; // is hold item
 dm_ITEM[?STR_MAP1+STR_Object]               = _obj;
@@ -2415,7 +2419,7 @@ dm_ITEM[?hex_str(bitNum(_bit))+STR_Sprite]  = _spr;
 dm_ITEM[?_name+'01'           +STR_Sprite]  = _spr; // ITEM MAP2 - EAST
 dm_ITEM[?hex_str(       _bit )+STR_Object]  = _obj;
 dm_ITEM[?_name+STR_Bit]                     = _bit;
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = PI_MOB_ORG;
+//dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = global.PI_MOB_ORG;
 dm_ITEM[?_name+STR_Item+STR_Type]           = STR_MAP2;
 dm_ITEM[?_name+STR_Hold+STR_Item]           = true; // is hold item
 dm_ITEM[?STR_MAP2+STR_Object]               = _obj;
@@ -2496,11 +2500,13 @@ dm_ITEM[?STR_FLOWER+STR_Object]            = _obj;
 dm_ITEM[?STR_FLOWER+STR_Object+STR_Name]   = _name;
 dm_ITEM[?STR_FLOWER+STR_Bit]               = _bit;
 dm_ITEM[?STR_FLOWER+STR_Sprite]            = _spr;
+/*
 if (g.mod_MedicinePlantItem){
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx]= PI_MOB_ORG;
+dm_ITEM[?hex_str(       _bit )+STR_pal_idx]= global.PI_MOB_ORG;
 }else{
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx]= PI_MOB_BLU;
+dm_ITEM[?hex_str(       _bit )+STR_pal_idx]= global.PI_MOB_BLU;
 }
+*/
 //                                                      //
 _obj=ItmC4; _name=object_get_name(_obj); _bit=ITM_CHLD; _spr=spr_Item_Child;
 dm_ITEM[?hex_str(       _bit )+STR_Sprite] = _spr;
@@ -2521,7 +2527,7 @@ dm_ITEM[?hex_str(bitNum(_bit))+STR_Sprite]  = _spr;
 dm_ITEM[?_name+'01'           +STR_Sprite]  = _spr;        // 
 dm_ITEM[?hex_str(       _bit )+STR_Object]  = _obj;
 dm_ITEM[?_name+STR_Bit]                     = _bit;
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = PI_MOB_RED;
+//dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = global.PI_MOB_RED;
 dm_ITEM[?_name+STR_Item+STR_Type]           = STR_BOTTLE;
 dm_ITEM[?_name+STR_Hold+STR_Item]           = true; // is hold item
 dm_ITEM[?STR_BOTTLE+STR_Object]             = _obj;
@@ -2535,7 +2541,7 @@ dm_ITEM[?hex_str(bitNum(_bit))+STR_Sprite]  = _spr;
 dm_ITEM[?_name+'01'           +STR_Sprite]  = _spr;        // 
 dm_ITEM[?hex_str(       _bit )+STR_Object]  = _obj;
 dm_ITEM[?_name+STR_Bit]                     = _bit;
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = PI_MOB_ORG;
+//dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = global.PI_MOB_ORG;
 dm_ITEM[?_name+STR_Item+STR_Type]           = STR_SPELL;
 dm_ITEM[?_name+STR_Hold+STR_Item]           = true; // is hold item
 dm_ITEM[?STR_SPELL+STR_Object]              = _obj;

@@ -44,7 +44,7 @@ switch(sub_state)
     case sub_state_COOLDOWN0:{ // Deflating
     can_draw_self = g.counter1&$1;
     if (g.counter1&$2) palidx_base = palidx_def;
-    else               palidx_base = PI_GUI_2;
+    else               palidx_base = global.PI_GUI2;
     //else               palidx_base = PI_DARKLONK;
     break;}//case sub_state_COOLDOWN0
     
@@ -58,7 +58,7 @@ switch(sub_state)
     // ----------------------------------------------
     case sub_state_COOLDOWN1:{ // Deflated. Not collidable
     can_draw_self = g.counter1&$1;
-    palidx_base = PI_GUI_2;
+    palidx_base = global.PI_GUI2;
     //palidx_base = PI_DARKLONK;
     break;}//case sub_state_COOLDOWN1
     
@@ -73,7 +73,7 @@ switch(sub_state)
     case sub_state_COOLDOWN2:{ // Inflating
     can_draw_self = g.counter1&$1;
     if (g.counter1&$2) palidx_base = palidx_def;
-    else               palidx_base = PI_GUI_2;
+    else               palidx_base = global.PI_GUI2;
     //else               palidx_base = PI_DARKLONK;
     break;}//case sub_state_COOLDOWN2
 }//switch(sub_state)

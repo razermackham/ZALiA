@@ -12,7 +12,7 @@ dl_sprites[|1] = SPR_B;
 dl_sprites[|0] = SPR_A;
 GO_set_sprite(id, dl_sprites[|0]);
 
-GO_init_palidx(PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_RED);
 
 
 CHAIN_SPR = spr_Chain_link_01a;

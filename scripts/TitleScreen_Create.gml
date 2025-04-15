@@ -393,7 +393,7 @@ if(!is_undefined(_DATA))
             _pi  = string_copy(_layer_name, _pos+string_length(_name), 2); // bg palette num ('01', '02', '03', '04')
             _pi  = str_hex(_pi);
             _pi -= _pi>5;
-            _pi  = PI_BGR_1 + (_pi-1);
+            _pi  = global.PI_BGR1 + (_pi-1);
             
             _idx = ds_grid_width(dg_terrain);
             ds_grid_resize(dg_terrain,_idx+1,dg_terrain_H);

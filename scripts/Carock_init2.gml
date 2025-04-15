@@ -23,7 +23,7 @@ if (ver==2)
 }
 
 
-GO_init_palidx(PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_RED);
 
 // placement sprite: spr_Carock_1a(32x48)
 SPRITE_IDLE    = spr_Carock_1a;

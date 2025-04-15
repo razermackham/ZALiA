@@ -5,7 +5,7 @@
 
 
 GO_sprite_init(spr_Mace2);
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 
 reverse_ctr = 0;
 

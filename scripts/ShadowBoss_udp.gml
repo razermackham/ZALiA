@@ -24,7 +24,7 @@ if (g.mod_ShadowBoss_DrawWithFairy
     
     palidx  = palidx_def; // palidx_def: PI_MOB_RED
     palidx += (g.boss_stun_timer>>1)&$1; // Stun flash
-    palidx  = get_pi(palidx); // ShadowBoss doesn't call EF11
+    //palidx  = get_pi(palidx); // ShadowBoss doesn't call EF11
     
     GO_update_cam_vars(); // MOD
     

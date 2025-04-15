@@ -63,12 +63,12 @@ for(_i=0; _i<Window_vertical_draw_section_count-1; _i++) // Each section
     if (g.mod_IndicateSpellUnaffordable 
     &&  f.mp-_amount<0 )
     {
-        _pi = p.PI_SPELL_UNAFFORDABLE;
+        _pi = global.spell_unaffordable_pi;
     }
     else if (g.mod_IndicateSpellActive 
          &&  g.spells_active&_spell_bit )
     {
-        _pi = p.PI_SPELL_FUTILE;
+        _pi = global.spell_futile_pi;
     }
     else
     {

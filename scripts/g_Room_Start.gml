@@ -1430,16 +1430,6 @@ if (_ROOM_A)
 
 
 
-if (_ROOM_A)
-{
-    scene_enter_add_tiles();
-}
-
-
-
-
-
-
 if (_ROOM_A 
 &&  pc.use_disguise )
 {
@@ -1526,6 +1516,18 @@ if (_ROOM_A
 
 
 
+if (_ROOM_A)
+{
+    scene_enter_add_tiles();
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -1547,16 +1549,16 @@ if (_ROOM_A)
             && !is_undefined( g.dm_rm[?goToExitName+dk_FastTravel+STR_Exit+STR_Datakey]) )
             {
                 switch(g.town_name){
-                default:            {_pi=PI_BGR_3; break;}
-                case STR_Rauru:     {_pi=PI_BGR_4; break;}
-                case STR_Ruto:      {_pi=PI_BGR_4; break;}
-                case STR_Saria:     {_pi=PI_BGR_2; break;}
-                case STR_Mido:      {_pi=PI_BGR_3; break;}
-                case STR_Nabooru:   {_pi=PI_BGR_4; break;}
-                case STR_Darunia:   {_pi=PI_BGR_1; break;}
-                case STR_New_Kasuto:{_pi=PI_BGR_4; break;}
-                case STR_Old_Kasuto:{_pi=PI_BGR_3; break;}
-                case STR_Bulblin:   {_pi=PI_BGR_3; break;}
+                default:            {_pi=global.PI_BGR3; break;}
+                case STR_Rauru:     {_pi=global.PI_BGR4; break;}
+                case STR_Ruto:      {_pi=global.PI_BGR4; break;}
+                case STR_Saria:     {_pi=global.PI_BGR2; break;}
+                case STR_Mido:      {_pi=global.PI_BGR3; break;}
+                case STR_Nabooru:   {_pi=global.PI_BGR4; break;}
+                case STR_Darunia:   {_pi=global.PI_BGR1; break;}
+                case STR_New_Kasuto:{_pi=global.PI_BGR4; break;}
+                case STR_Old_Kasuto:{_pi=global.PI_BGR3; break;}
+                case STR_Bulblin:   {_pi=global.PI_BGR3; break;}
                 }
                 
                 with(GameObject_create(xl-$C,yt-$4, TorchA,$3, -1, _pi))

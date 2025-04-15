@@ -11,7 +11,7 @@ if(!global.use_pal_swap)
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 if(!argument[1] 
-||  argument[1]>=global.palette_image_W )
+||  argument[1]>=global.palette_image_w )
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }

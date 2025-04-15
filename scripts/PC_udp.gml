@@ -116,29 +116,12 @@ else                           palidx = p.dg_PI_SEQ[#0,0];
 _c1 = stun_timer || p.SpellFlash_PC_timer;
 _c2 = rm_pal_qual_lit();
 _c3 = _c1 || _c2;
-//_c3 = p.Flash_Pal_timer || rm_pal_qual_lit();
-
-if (_c3) palidx += p.PI_LIT1;
-else     palidx += p.PI_DRK1;
 
 
-if (is_cucco 
-&&  _c3 )
-{    palidx_permut = 4;  }
-else palidx_permut = 0;
+if(!_c3) palidx += p.PI_DRK1;
 
-// testing
-//palidx_permut = clamp((g.timer0&$3F) div ($40 div PI_PERMUTATIONS), 0, PI_PERMUTATIONS-1);
-
-
-Draw_palidx = get_pi(palidx, palidx_permut);
-
-
-
-if(!_c1   // no pc flash timers active
-&&  _c2 ) // room is lit
-{    sword_palidx = PI_PC_SWORD;  }
-else sword_palidx = palidx;
+palidx_permut = 0;
+Draw_palidx = palidx;
 
 
 

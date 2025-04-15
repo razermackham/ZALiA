@@ -124,7 +124,7 @@ if (g.mod_Gooma_Projectile_1
             var _XL = Weapon_Ball_x-$4;
             var _YT = Weapon_Ball_y-$C;
             // Flame2
-            with(GOC1_create(_XL,_YT, facingDir, projectile,projectile_ver, id, PI_MOB_ORG))
+            with(GOC1_create(_XL,_YT, facingDir, projectile,projectile_ver, id, global.PI_MOB_ORG))
             {
                 hspd = ($20*facingDir) &$FF;
                 vspd = $FF;
@@ -176,7 +176,7 @@ if (g.mod_Gooma_Projectile_1
             var _XL = Weapon_Ball_x-4;
             var _YT = Weapon_Ball_y-8;
             // Fireball2 v3: Bounces
-            with(GOC1_create(_XL,_YT, _DIRX, projectile,projectile_ver, id, PI_MOB_ORG))
+            with(GOC1_create(_XL,_YT, _DIRX, projectile,projectile_ver, id, global.PI_MOB_ORG))
             {
                 var     _SPEED = $30;
                 hspd = (_SPEED*_DIRX) &$FF;

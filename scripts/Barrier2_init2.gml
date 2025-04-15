@@ -8,7 +8,7 @@ DRAW_YOFF = 0;
 
 
 GO_depth_init(DEPTH_BG1+1);
-GO_init_palidx(PI_BGR_4);
+GO_init_palidx(global.PI_BGR4);
 
 
                       _a=1;
@@ -48,6 +48,10 @@ PC_HOLD_BEHAVIOR = g.pc.behavior_HOLD_ITEM1;
 
 
 
+
+Triforce_PI1 = global.PI_MOB_ORG;
+Triforce_PI2 = add_pi_permut(Triforce_PI1, "RWBGYMKC", "triforce flash");
+Triforce_pi  = Triforce_PI1;
 
 TriforceSymbol_SPR  = spr_Triforce_2a;
 TriforceSymbol_XC   = Blocks_XC;

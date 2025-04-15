@@ -64,6 +64,23 @@ if (depth==DEPTH_BG1
 GO_depth_init(depth);
 
 palidx_permut = clamp(palidx_permut, 0,PI_PERMUTATIONS-1);
+palidx_LIT  = palidx_def + p.PI_LIT1;
+palidx_DARK = palidx_def + p.PI_DRK1;
+if (palidx_permut)
+{
+    var     _order=global.PAL_BASE_COLOR_ORDER;
+    switch(palidx_permut){
+    case 1:{_order="WBRGYMKC"; break;}
+    case 2:{_order="RWBGYMKC"; break;}
+    case 3:{_order="RBWGYMKC"; break;}
+    case 4:{_order="BWRGYMKC"; break;}
+    case 5:{_order="BRWGYMKC"; break;}
+    }
+    palidx_LIT  = add_pi_permut(palidx_LIT,  _order, "AdditionalBGGraphics");
+    palidx_DARK = val(global.dm_pi[?hex_str(palidx_LIT)+STR_Dark+"1"], palidx_LIT);
+    //palidx_DARK = add_pi_permut(palidx_DARK, _order, "AdditionalBGGraphics");
+}
+
 
 //                                       x      y
 if (is_undefined(_xy_data)) _xy_data = "0000"+"0000";

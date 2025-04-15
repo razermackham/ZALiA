@@ -32,7 +32,7 @@ set_background_color(p.C_BLK1);
 // ---------------------------------------------------------------------------------------------
 FileSelect_build_surfaces();
 
-pal_swap_set(p.palette_image, PI_GUI_1);
+pal_swap_set(p.palette_image, global.PI_GUI1);
 switch(state){
 case State_MAIN:     {if (surface_exists(surf_MAIN))      draw_surface(surf_MAIN,      viewXC()-(surface_get_width(surf_MAIN)>>1),surf_MAIN_YT); break;}//case State_MAIN
 //case State_MAIN:     {if (surface_exists(surf_MAIN))      draw_surface(surf_MAIN,      surf_MAIN_XL,surf_MAIN_YT); break;}//case State_MAIN
@@ -50,7 +50,7 @@ pal_swap_reset();
 for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
 {
     if (_dl_CAN_COLOR_FILE[|_i]) _pi = PI_MENU;
-    else                         _pi = PI_GUI_2;
+    else                         _pi = global.PI_GUI2;
     _text = f.ar_save_names[_i];
     _x = saveNameX;
     _y = saveNameY + (SAVE_FILE_PAD*_i);
@@ -255,14 +255,14 @@ if (state)
         _y += $02; // micro adj
         break;}//case State_RANDO
     }
-    draw_sprite_(_spr,0, _x,_y, PI_MOB_ORG);
+    draw_sprite_(_spr,0, _x,_y, global.PI_MOB_ORG);
     
     
     // Lonk doll icons
     for(_i=0; _i<SAVE_FILE_MAX; _i++)
     {
-        if (_dl_CAN_COLOR_FILE[|_i]) _pi = PI_PC_1;
-        else                         _pi = PI_GUI_2;
+        if (_dl_CAN_COLOR_FILE[|_i]) _pi = global.PI_PC1;
+        else                         _pi = global.PI_GUI2;
         _x = doll_x;
         _y = doll_y + (SAVE_FILE_PAD*_i) + 1;
         draw_sprite_(SPR_DOLL,0, _x,_y, _pi);

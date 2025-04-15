@@ -97,7 +97,7 @@ DLG_DEPTH       = 0; // So curtain is in front of text.
 
 THE_END_can_draw    = 0;
 THE_END_TEXT        = "THE END";
-THE_END_PI          = PI_GUI_1;
+THE_END_PI          = global.PI_GUI1;
 
 // writ_dlg            = "";
 
@@ -106,39 +106,40 @@ can_draw_L_and_Z = false;
 
 
 
-var _CA1 = '30';
-var _CA2 = p.CI_GRN0_; // $F3
+var _DATAKKEY1 = STR_Palette+STR_Position;
 
-var _CB1 = '05';
-var _CB2 = '15';
-var _CB3 = '25';
+var _CA1 = color_str(p.C_WHT1);
+var _CA2 = color_str(p.C_GRN0);
+var _CA3 = color_str(p.C_GRY1);
+var _CA4 = color_str(p.C_GRY3);
 
-var _CC1 = '02';
-var _CC2 = '12';
-var _CC3 = '22';
+var _CB1 = color_str(p.C_PNK4);
+var _CB2 = color_str(p.C_PNK3);
+var _CB3 = color_str(p.C_PNK2);
 
+var _CC1 = color_str(p.C_BLU4);
+var _CC2 = color_str(p.C_VLT3);
+var _CC3 = color_str(p.C_VLT2);
 
-var _DK  = STR_Palette+STR_Position;
-
-CREDITS_STAF_PI         = PI_MOB_BLU;
-CREDITS_STAF_PAL_POS    = val(p.dm_pal_data[?hex_str(CREDITS_STAF_PI)+_DK]);
-CREDITS_STAF_PAL1       = _CA2+_CA1+'10'+'00';
+CREDITS_STAF_PI      = global.PI_MOB_BLU;
+CREDITS_STAF_PAL_POS = get_pal_pos(CREDITS_STAF_PI);
+CREDITS_STAF_PAL1    = _CA1+_CA3+_CA4;
 
 // $05,05,16,  $15,05,16,  $25,05,16,  $30,15,16
-CREDITS_TITL_PI         = PI_MOB_PUR;
-CREDITS_TITL_PAL_POS    = val(p.dm_pal_data[?hex_str(CREDITS_TITL_PI)+_DK]);
-CREDITS_TITL_PAL1       = _CA2+_CB1+_CB1+_CB1;
-CREDITS_TITL_PAL2       = _CA2+_CB2+_CB1+_CB1;
-CREDITS_TITL_PAL3       = _CA2+_CB3+_CB1+_CB1;
-CREDITS_TITL_PAL4       = _CA2+_CA1+_CB1+_CB2;
+CREDITS_TITL_PI      = global.PI_MOB_PUR;
+CREDITS_TITL_PAL_POS = get_pal_pos(CREDITS_TITL_PI);
+CREDITS_TITL_PAL1    = _CB1+_CB1+_CB1;
+CREDITS_TITL_PAL2    = _CB2+_CB1+_CB1;
+CREDITS_TITL_PAL3    = _CB3+_CB1+_CB1;
+CREDITS_TITL_PAL4    = _CA1+_CB1+_CB2;
 
 // $02,02,16,  $12,02,16,  $22,02,16,  $30,12,16
-CREDITS_NAME_PI         = PI_GUI_1;
-CREDITS_NAME_PAL_POS    = val(p.dm_pal_data[?hex_str(CREDITS_NAME_PI)+_DK]);
-CREDITS_NAME_PAL1       = _CA2+_CC1+_CC1+_CC1;
-CREDITS_NAME_PAL2       = _CA2+_CC2+_CC1+_CC1;
-CREDITS_NAME_PAL3       = _CA2+_CC3+_CC1+_CC1;
-CREDITS_NAME_PAL4       = _CA2+_CA1+_CC1+_CC2;
+CREDITS_NAME_PI      = global.PI_GUI1;
+CREDITS_NAME_PAL_POS = get_pal_pos(CREDITS_NAME_PI);
+CREDITS_NAME_PAL1    = _CC1+_CC1+_CC1;
+CREDITS_NAME_PAL2    = _CC2+_CC1+_CC1;
+CREDITS_NAME_PAL3    = _CC3+_CC1+_CC1;
+CREDITS_NAME_PAL4    = _CA1+_CC1+_CC2;
 
 PAL_LEN = string_length(CREDITS_TITL_PAL1);
 
@@ -383,7 +384,7 @@ sdm("_idx $"+hex_str(_idx)+", ds_grid_width(dg_CREDITS): $"+hex_str(ds_grid_widt
 triforce_can_draw   = 0;
 TRIFORCE_SPR        = spr_Triforce_1a;
 //p.triforce_pi       = PI_MOB_PUR;
-p.triforce_pi       = PI_BGR_3;
+p.triforce_pi       = global.PI_BGR3;
 //p.triforce_pi       = PI_BGR_4;
 
 

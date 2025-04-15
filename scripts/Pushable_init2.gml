@@ -17,7 +17,7 @@ case  3:{GO_sprite_init(g.Pushable_SPR2); break;}// graphic height 48 (spr_Statu
 
 
 
-var _pi = PI_BGR_4;
+var _pi = global.PI_BGR4;
 if(!is_undefined(              dk_spawn))
 {       _val = val(g.dm_spawn[?dk_spawn+STR_pal_idx],-1);
     if (_val) _pi = _val;

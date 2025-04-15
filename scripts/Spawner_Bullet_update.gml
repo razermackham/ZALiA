@@ -27,7 +27,7 @@ if (_IDX&$8) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ---------------------------------------------------------------------------
 var _XL = xl+4;
 var _YT = yt+5;
-with(GOC1_create(_XL,_YT, _DIR, projectile,projectile_ver, id, PI_MOB_BLU))
+with(GOC1_create(_XL,_YT, _DIR, projectile,projectile_ver, id, global.PI_MOB_BLU))
 {
     is_from_spawner = true;
     

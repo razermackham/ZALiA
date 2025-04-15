@@ -30,14 +30,14 @@ GROUND_Y = get_ground_y(x,spawn_y, 1, GROUND_Y, TID_SOLID1|TID_ONEWY1);
 switch(ver)
 {   // ----------------------------------------------------
     case 1:{ // Bot
-    GO_init_palidx(PI_MOB_BLU);
+    GO_init_palidx(global.PI_MOB_BLU);
     abilities |= ABL_WALK;
     abilities |= ABL_JUMP;
     break;}
     
     // ----------------------------------------------------
     case 2:{ // Bit
-    GO_init_palidx(PI_MOB_RED);
+    GO_init_palidx(global.PI_MOB_RED);
     abilities |= ABL_WALK;
     abilities |= ABL_RUN_;
     break;}
@@ -71,7 +71,7 @@ switch(ver)
     
     // ----------------------------------------------------
     case 4:{  // v4: Nyb (same as Bit but all hspd is fast hspd)
-    GO_init_palidx(PI_MOB_PUR);
+    GO_init_palidx(global.PI_MOB_PUR);
     abilities |= ABL_WALK;
     abilities |= ABL_RUN_;
     /*

@@ -98,10 +98,9 @@ var _DUR2=$14;
 //var _DUR2=$18;
 var _DUR3=_DUR2+(_DUR2 div 3);
 //var _DUR3=_DUR2+(_DUR2>>1);
-     if (_TIME > _DUR1-_DUR2) p.background_color_index=COLOR_IDX1; // RED4
-else if (_TIME > _DUR1-_DUR3) p.background_color_index=COLOR_IDX2; // ORG4
-else                          p.background_color_index=COLOR_IDX0; // VLT4
-
+     if (_TIME>_DUR1-_DUR2) global.BackgroundColor_scene = p.dl_COLOR[|COLOR_IDX1]; // RED4
+else if (_TIME>_DUR1-_DUR3) global.BackgroundColor_scene = p.dl_COLOR[|COLOR_IDX2]; // ORG4
+else                        global.BackgroundColor_scene = p.dl_COLOR[|COLOR_IDX0]; // VLT4
 
 
 

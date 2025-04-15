@@ -27,20 +27,20 @@ case 4:{break;}
 }
 
 
-GO_init_palidx(PI_MOB_RED);
-GO_init_palidx(PI_MOB_BLU);
-GO_init_palidx(PI_MOB_PUR);
+GO_init_palidx(global.PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_PUR);
 
 
-SPR_SPIKES_A    = spr_Spike_ball_Spikes_1a;
-SPR_SPIKES_B    = spr_Spike_ball_Spikes_1b;
-SPR_SPIKES_C    = spr_Spike_ball_Spikes_1c;
-spikes_spr      = SPR_SPIKES_A;
+SPR_SPIKES_A = spr_Spike_ball_Spikes_1a;
+SPR_SPIKES_B = spr_Spike_ball_Spikes_1b;
+SPR_SPIKES_C = spr_Spike_ball_Spikes_1c;
+spikes_spr   = SPR_SPIKES_A;
 
 
-PUPIL_COLOR     = get_pal_color(get_pi(palidx), 3);
-pupil_xoff      = 0;
-pupil_yoff      = 0;
+PUPIL_COLOR = get_pal_color(p.pal_rm_curr, palidx, "B");
+pupil_xoff = 0;
+pupil_yoff = 0;
 
 
 Idle_DURATION1 = $40;

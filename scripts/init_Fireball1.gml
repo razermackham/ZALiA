@@ -4,7 +4,7 @@
 
 
 GO_sprite_init(spr_Fireball1);
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 
 

@@ -148,13 +148,13 @@ pal_swap_reset();
 // -------------------------------------------------------------------
 if (g.mod_HUD_SPELL_READY)
 {
-    _x = _X_BASE  + SpellReady_ICON_X;
+    _x = _X_BASE  + SpellQueued_ICON_X;
     _y = _Y1;
-    draw_spr_aligned(SpellReady_ICON_SPR, _x,_y, -1,-1, PI_MENU);
+    draw_spr_aligned(SpellQueued_ICON_SPR, _x,_y, -1,-1, PI_MENU);
     
     
-    _x = _X_BASE + SpellReady_TEXT_X;
-    draw_text_(_x,_y, SpellReady_text, -1, SpellReady_palidx);
+    _x = _X_BASE + SpellQueued_TEXT_X;
+    draw_text_(_x,_y, SpellQueued_text, -1, SpellQueued_palidx);
 }
 
 

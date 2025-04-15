@@ -18,7 +18,7 @@ update_draw_xy();
 // F1BD
 GO_add_palidx_set(); // add p.PI_LIT1 or p.PI_DRK1 to palidx_base
 if (stun_timer) palidx_base = GO_update_pal_flash(stun_timer, 2);
-palidx = get_pi(palidx_base, palidx_permut);
+palidx = palidx_base;
 
 
 

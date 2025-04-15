@@ -142,7 +142,7 @@ else // BD24. All bounces complete
             //
             if (_idx<8)
             {   // Create Bullet1, pID $10
-                with(GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id, PI_MOB_BLU))
+                with(GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id, global.PI_MOB_BLU))
                 {
                     //  $16 14 13 11 0F 0E 0D 0B
                     // "161413110F0E0D0B"; // 9BD5-9BDC

@@ -834,7 +834,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x4,$25<<3,  STR_Qualified+STR_Quest+STR_Nums+
 data_spawn(rm+STR_PRIO,TorchA,$1,  x4,$31<<3,  STR_Qualified+STR_Quest+STR_Nums+"01"); // v1: Light w/ CANDLE or FIRE
 
 data_spawn(rm+STR_PRIO,SpStA,$1,  $14<<3,$06<<3); // SpawnByStab  1
-_pi = PI_BGR_1;
+_pi = global.PI_BGR1;
 clm3=$06; x3=clm3<<3;
 clm4=$38; x4=clm4<<3;
 data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,$0D<<3,  STR_Palette+hex_str(_pi)); // Snaraa

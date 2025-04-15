@@ -50,6 +50,7 @@ switch(Main_cursor)
         
         update_shaders_surf_resize();
         global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
+        //global.application_surface_draw_enable_state = false; // for testing cam zoom
         application_surface_draw_enable(global.application_surface_draw_enable_state);
         
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);

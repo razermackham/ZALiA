@@ -589,7 +589,7 @@ rm_num  = $22;
 set_rm_data(area+hex_str(rm_num), mus1, STR_Color+p.CI_VLT4_, STR_Tile+area_PH+'255', STR_ow_axis+hex_str(ow_axis));
 
                                 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++),   _rc, 1,Cloud_1_init, PI_BGR_4,0); // 
+data_NIAO_1a(rm+STR_NIAO+string(_a++),   _rc, 1,Cloud_1_init, global.PI_BGR4,0); // 
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,CloudCover1_init); // 1: TOP, BGR
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 2,CloudCover1_init); // 2: BTM, BGR
 data_NIAO_1a(rm+STR_NIAO+string(_a++),  _RC1, 2,CloudCover1_init, -1,-1, _DEPTH1); // 2: BTM, FGR

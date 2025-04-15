@@ -14,9 +14,7 @@ switch(ver)
     //if (g.view_lock_rm&$C) _PAGES_Y = 1;
     
     
-    if (palidx_permut) pal_swap_set(p.palette_image, get_pi(palidx,palidx_permut));
-    else               pal_swap_set(p.palette_image, palidx);
-    
+    pal_swap_set(p.palette_image, palidx);
     for(_i=0; _i<_PAGES_Y; _i++) // each vertical map page
     {
         for(_j=0; _j<CLOUD_COUNT; _j++) // each cloud
@@ -66,7 +64,6 @@ switch(ver)
     
     // -----------------------------------------------------------------
     case 2:{ // ------------------------------------------------
-    
     var _DEBUG = 0 && !(g.counter1&$3F);
     
     var _i,_j,_k, _x,_y, _y_base;
@@ -85,9 +82,7 @@ switch(ver)
     // while (_CloudArea_yt + (CloudArea_H+DIST3))
     
     
-    if (palidx_permut) pal_swap_set(p.palette_image, get_pi(palidx,palidx_permut));
-    else               pal_swap_set(p.palette_image, palidx);
-    
+    pal_swap_set(p.palette_image, palidx);
     for(_i=0; _i<_COUNT1; _i++) // each template set, vertical
     {
         _y_base = CloudArea_YT - (_i*_DIST1); // the top of this set

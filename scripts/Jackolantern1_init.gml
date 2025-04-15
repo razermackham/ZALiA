@@ -54,7 +54,7 @@ case 1:{GO_sprite_init(_SPR); break;}
 //ANIM_SPEED = $08;
 
 GO_depth_init(DEPTH_BG3-1);
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 
 sdm("Jackolantern1_init(). "+" xl $"+hex_str(xl)+", yt $"+hex_str(yt));

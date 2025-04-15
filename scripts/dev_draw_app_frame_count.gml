@@ -20,7 +20,7 @@ if (global.App_frame_count_can_draw
         _xl = _XL;
         _yt = _YT;
         draw_rect(c_black, _xl-_PAD1,_yt-_PAD1, _w,_H1);
-        draw_text_(_xl,_yt, _text, -1,PI_GUI_1);
+        draw_text_(_xl,_yt, _text, -1,global.PI_GUI1);
     }
     
     if (global.App_frame_count_unpaused_can_draw)
@@ -34,7 +34,7 @@ if (global.App_frame_count_can_draw
         _yt -= _PAD1;
         _yt -= $8;
         draw_rect(c_black, _xl-_PAD1,_yt-_PAD1, _w,_H1);
-        draw_text_(_xl,_yt, _text, -1,PI_GUI_1);
+        draw_text_(_xl,_yt, _text, -1,global.PI_GUI1);
     }
     
     if (global.App_frame_count_unpaused_can_draw)
@@ -48,7 +48,7 @@ if (global.App_frame_count_can_draw
         _yt -= _PAD1;
         _yt -= $8;
         draw_rect(c_black, _xl-_PAD1,_yt-_PAD1, _w,_H1);
-        draw_text_(_xl,_yt, _text, -1,PI_GUI_1);
+        draw_text_(_xl,_yt, _text, -1,global.PI_GUI1);
     }
 }
 

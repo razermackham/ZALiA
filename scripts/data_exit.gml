@@ -168,7 +168,7 @@ if(!is_undefined(g.dm_dungeon[?STR_Dungeon+area+STR_Name])
 var                      _DOOR_ID = -1;               // What kind of door graphic to draw, if any.
 if (argument_count>_arg) _DOOR_ID = argument[_arg++]; // 
 
-var                      _PAL_IDX = PI_BGR_1;         // Palette idx for door graphic
+var                      _PAL_IDX = global.PI_BGR1;         // Palette idx for door graphic
 if (argument_count>_arg) _PAL_IDX = argument[_arg++]; // 
 
 g.dm_rm[?_EXIT_NAME+STR_Door+STR_ID]     = _DOOR_ID;

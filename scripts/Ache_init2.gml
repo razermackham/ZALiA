@@ -3,8 +3,8 @@
 
 SPR_IDLE = spr_Ache1;
 SPR_FLAP = spr_Ache2;
-if (ver==2) GO_init_palidx(PI_MOB_RED);
-else        GO_init_palidx(PI_MOB_BLU);
+if (ver==2) GO_init_palidx(global.PI_MOB_RED);
+else        GO_init_palidx(global.PI_MOB_BLU);
 GO_depth_init(DEPTH_FLYER);
 
 

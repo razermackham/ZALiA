@@ -125,7 +125,6 @@ switch(ITEM_TYPE)
     f.items |= ITEM_BIT;
     _can_flash=true;
     aud_play_sound(get_audio_theme_track(_MUSIC_THEME1), -1,false,-1, _MUSIC_THEME1);
-    change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(PI_PC_SWORD)+2, 2, p.CI_WHT1_));
     break;}
     
     // ===============================================================================

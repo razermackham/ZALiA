@@ -6,7 +6,7 @@ var _i, _a, _val;
 
 ds_list_add(dl_sprites,spr_Leever1);
 ds_list_add(dl_sprites,spr_Leever2);
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 GO_depth_init(DEPTH_BG7+3);
 
                   _a=1;

@@ -25,8 +25,8 @@ dg_menu_idx = -1;
 
 
 
-PI_MENU  = PI_GUI_1;
-PI_DARK1 = PI_DARKLONK;
+PI_MENU  = global.PI_GUI1;
+PI_DARK1 = global.PI_GUI2;
 
 
 
@@ -686,9 +686,9 @@ dg_Blur[#dg_menu_idx,$1] = _y; // YT
 dg_Blur[#dg_menu_idx,$2] = "EDIT"; // 
 dg_Blur[#dg_menu_idx,$3] = _font_sprite;
 dg_Blur[#dg_menu_idx,$4] = true; // option is available
-dg_Blur[#dg_menu_idx,$5] = 0.50; // current setting
-//dg_Blur[#dg_menu_idx,$5] = 1.00; // current setting
-//dg_Blur[#dg_menu_idx,$5] = 0.85; // current setting
+//dg_Blur[#dg_menu_idx,$5] = 0.50; // current setting
+dg_Blur[#dg_menu_idx,$5] = 1.00; // current setting
+//dg_Blur[#dg_menu_idx,$5] = 0.75; // current setting
 dg_Blur[#dg_menu_idx,$6] = 0.00; // min
 dg_Blur[#dg_menu_idx,$7] = 1.00; // max
 dg_Blur[#dg_menu_idx,$8] = dg_Blur[#dg_menu_idx,$5]; // default

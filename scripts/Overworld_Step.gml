@@ -241,13 +241,15 @@ if(!dest_dist
                     break;}
                 }
             }
-            else if (_tsrc==(TILESET1_TS_IDX<<8)|TSRC_TREE01) // Forest
+            else if (_tsrc1==TSRC_TREE01) // Forest
+            //else if (_tsrc==(TILESET1_TS_IDX<<8)|TSRC_TREE01) // Forest
             {
                 _tsrc = (TILESET1_TS_IDX<<8)|TSRC_GRAS01; // $20: field
                 Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
             }
-            else if (inRange(_tsrc, TSRC_BOUL02,TSRC_BOUL02+6)) // Boulder
+            else if (inRange(_tsrc1, TSRC_BOUL02,TSRC_BOUL02+6)) // Boulder
+            //else if (inRange(_tsrc, TSRC_BOUL02,TSRC_BOUL02+6)) // Boulder
             {
                 _tsrc = val(dm_data[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_Boulder], (TILESET1_TS_IDX<<8)|TSRC_PATH03);
                 Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);

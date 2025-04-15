@@ -2,7 +2,7 @@
 
 
 dl_sprites[|0] = spr_Mau1;
-GO_init_palidx(PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_RED);
 GO_depth_init(DEPTH_FLYER);
 
 //DRAW_YOFF = 1; // Does it get +1 in-ground??

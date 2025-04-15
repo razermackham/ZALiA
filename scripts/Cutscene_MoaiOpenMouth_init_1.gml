@@ -10,7 +10,7 @@ switch(object_index){
 case Cutscene_MoaiOpenMouth_1:{ // Kakusu Tomb
 GO_sprite_init(spr_Moai_mouth_1a_1);
 GO_depth_init(DEPTH_BG5-1);
-GO_init_palidx(PI_BGR_4);
+GO_init_palidx(global.PI_BGR4);
 break;}
 // -----------------------------------------------
 case Cutscene_MoaiOpenMouth2:{ // Mido Church
@@ -19,7 +19,7 @@ GO_sprite_init(spr_Moai_mouth_3a_1); // wider, taller
 //GO_sprite_init(spr_Moai_mouth_2a);
 //GO_sprite_init(spr_Moai_mouth_2a_1); // Shorter mouth
 GO_depth_init(DEPTH_BG5-1);
-GO_init_palidx(PI_BGR_4);
+GO_init_palidx(global.PI_BGR4);
 break;}
 }
 

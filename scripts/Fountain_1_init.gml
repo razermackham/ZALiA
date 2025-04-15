@@ -18,7 +18,7 @@ if (_DEPTH == -1)
 GO_depth_init(_DEPTH+_DEPTH_ADD);
 
 
-var _pi_base   = PI_GUI_1;
+var _pi_base   = global.PI_GUI1;
 var _pi_permut = 1;
 
 if(    !is_undefined(         dk_spawn)){
@@ -35,9 +35,15 @@ if(    !is_undefined(         dk_spawn)){
 }
 
 
-//if (_pi_permut) PALIDX = get_pi(_pi_base,_pi_permut);
-//else            PALIDX = _pi_base;
-PALIDX = get_pi(_pi_base,_pi_permut);
+switch(_pi_permut){
+default:{PALIDX=_pi_base; break;}
+case  1:{PALIDX=add_pi_permut(_pi_base,"WBRGYMKC","Fountain"); break;}
+case  2:{PALIDX=add_pi_permut(_pi_base,"RWBGYMKC","Fountain"); break;}
+case  3:{PALIDX=add_pi_permut(_pi_base,"RBWGYMKC","Fountain"); break;}
+case  4:{PALIDX=add_pi_permut(_pi_base,"BWRGYMKC","Fountain"); break;}
+case  5:{PALIDX=add_pi_permut(_pi_base,"BRWGYMKC","Fountain"); break;}
+}
+
 GO_init_palidx(_pi_base);
 palidx_permut = _pi_permut;
 

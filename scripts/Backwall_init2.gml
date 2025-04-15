@@ -11,7 +11,7 @@ sub_state_MOVING   = _i++;
 sub_state_DROWNING = _i++;
 sub_state          = sub_state_IDLE;
 
-GO_init_palidx(PI_BGR_3);
+GO_init_palidx(global.PI_BGR3);
 
 
 /*

@@ -6,8 +6,10 @@ var _dk;
 
 var _text, _pi;
 var _char_w=8;
-var _PI_DARK1=get_pi(PI_DARKLONK,3);
-var _PI_DARK2=PI_DARKLONK;
+
+var _PI_DARK1 = add_pi_permut(global.PI_GUI2, "RBWGYMKC", "FileSelect_Draw_RandoState_OTHER() dark text 1");
+var _PI_DARK2 = global.PI_GUI2;
+
 
 var _RANDO_ACTIVE = FileSelect_Rando_is_on(-1);
 
@@ -214,19 +216,19 @@ switch(RandoOTHER_state)
             {
                 switch(_j){
                 default:{continue;}
-                case RandoOTHER_ITEMS_item_cursor_CANDLE: {_dk=STR_CANDLE;  _pi=PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_BAIT:   {_dk=STR_MEAT;    _pi=PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_SHIELD: {_dk=STR_SHIELD;  _pi=PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_RING:   {_dk=STR_RING;    _pi=PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_PENDANT:{_dk=STR_PENDANT; _pi=PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_SWORD:  {_dk=STR_SWORD;   _pi=PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_FEATHER:{_dk=STR_FEATHER; _pi=PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_NOTE:   {_dk=STR_NOTE;    _pi=PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_MAP1:   {_dk=STR_MAP1;    _pi=PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_MAP2:   {_dk=STR_MAP2;    _pi=PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_DOLLS:  {_dk=STR_1UP;     _pi=PI_PC_1; break;}
-                case RandoOTHER_ITEMS_item_cursor_HEART:  {_dk=STR_HEART;   _pi=PI_MOB_RED; break;}
-                case RandoOTHER_ITEMS_item_cursor_MAGIC:  {_dk=STR_MAGIC;   _pi=PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_CANDLE: {_dk=STR_CANDLE;  _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_BAIT:   {_dk=STR_MEAT;    _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_SHIELD: {_dk=STR_SHIELD;  _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_RING:   {_dk=STR_RING;    _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_PENDANT:{_dk=STR_PENDANT; _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_SWORD:  {_dk=STR_SWORD;   _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_FEATHER:{_dk=STR_FEATHER; _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_NOTE:   {_dk=STR_NOTE;    _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_MAP1:   {_dk=STR_MAP1;    _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_MAP2:   {_dk=STR_MAP2;    _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_DOLLS:  {_dk=STR_1UP;     _pi=global.PI_PC1; break;}
+                case RandoOTHER_ITEMS_item_cursor_HEART:  {_dk=STR_HEART;   _pi=global.PI_MOB_RED; break;}
+                case RandoOTHER_ITEMS_item_cursor_MAGIC:  {_dk=STR_MAGIC;   _pi=global.PI_MOB_ORG; break;}
                 }
                 
                 switch(_j){
@@ -355,10 +357,10 @@ switch(RandoOTHER_state)
             case RandoOTHER_REQUIRE_cursor_KAKUSU:{
             _x = dg_RandoOTHER_REQUIRE[#_i,0];
             _y = dg_RandoOTHER_REQUIRE[#_i,1];
-            _pi = PI_MOB_ORG;
+            _pi = global.PI_MOB_ORG;
             draw_sprite_(spr_Bot2_Norm,    0, _x,_y, _pi);
             draw_sprite_(spr_Bot_Eyes_1a_1,0, _x,_y, _pi);
-            draw_sprite_(spr_1x1_WHT,0, _x-1,_y+3, -1, 2,1, get_pal_color(_pi,3));
+            draw_sprite_(spr_1x1_WHT,0, _x-1,_y+3, -1, 2,1, get_pal_color(p.pal_rm_curr, _pi, "B"));
             
             
             _x += $C;

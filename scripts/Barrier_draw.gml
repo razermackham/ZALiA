@@ -17,8 +17,7 @@ var _Y  = spawn_y;
     //_Y += -((!!_DIR)<<3);
     //_Y += _Y_OFF*_DIR;
 var _rows=0;
-_pi = get_pi(p.dg_PI_SEQ[#dg_PI_SEQ_IDX,_IDX], _IDX==2);
-pal_swap_set(p.palette_image, _pi);
+pal_swap_set(p.palette_image, p.dg_PI_SEQ[#dg_PI_SEQ_IDX,_IDX]);
 
 for(_i=0; _i<BARRIER_COUNT; _i++) // each barrier/crystal
 {
@@ -62,7 +61,7 @@ pal_swap_reset();
 
 var _Y1 = spawn_y-8;
 var _Y2 = _Y1 + ((ROWS_DEF+$02)<<3);
-_pi = PI_BGR_2;
+_pi = global.PI_BGR2;
 for(_i=0; _i<BARRIER_COUNT; _i++) // each barrier
 {
     _x  = spawn_x + ((BARRIER_W+BARRIER_PAD) * _i);
@@ -84,7 +83,7 @@ for(_i=0; _i<BARRIER_COUNT; _i++) // each barrier/crystal
     
     if ( _spr == CRYSTAL_SPR_1A)
     {    _pi  = p.dg_PI_SEQ[#$00, (g.counter1>>1)&$3];  } // changes color every 2 frames
-    else _pi  = PI_GUI_1;
+    else _pi  = global.PI_GUI1;
     
     _x  = spawn_x + ((BARRIER_W+BARRIER_PAD) * _i);
     _x += 8; // horizontal center of this barrier

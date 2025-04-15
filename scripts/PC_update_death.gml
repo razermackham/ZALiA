@@ -5,6 +5,7 @@
 if (g.pc.is_dead 
 && !g.pc.stun_timer )
 {
+    global.BackgroundColor_at_death = background_colour;
     g.pc.is_dead = 0;
     g.pc.state   = g.pc.state_DEAD;
     

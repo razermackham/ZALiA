@@ -125,10 +125,11 @@ for(_i=0; _i<_count; _i++)
             ds_grid_resize(_dg_ts_data, _idx+1,ds_grid_height(_dg_ts_data));
             _dg_ts_data[#_idx,0] = _ts_asset_idx;
             _dg_ts_data[#_idx,1] = _ts_name;
-            _dg_ts_data[#_idx,2] = _dm_ts_data[?"firstgid"];
+            _dg_ts_data[#_idx,2] = val(_dm_ts_data[?"firstgid"]);
             _tile_w = val(g.dm_tileset[?_ts_name+STR_Tile+STR_Width], 8);
             _tile_h = val(g.dm_tileset[?_ts_name+STR_Tile+STR_Height],8);
             _dg_ts_data[#_idx,3] = _dg_ts_data[#_idx,2] + (val(g.dm_tileset[?_ts_name+STR_Tile+STR_Count],$100) - 1);
+            //sdm("scene_enter_add_tiles(). tileset: "+_ts_name);
             break;//_j
         }
         
@@ -255,7 +256,7 @@ for(_i=ds_list_size(g.dl_TILE_DEPTHS)-1; _i>=0; _i--)
     // dg_depth_pi contains the pi's each depth will use for THE CURRENT RM.
     // This loop sets the default pi's for each depth. PI specific to the 
     // current rm is passed to it in rm_enter_set_tiles() from file data.
-    _pi = val(p.dm_depth_pi[?hex_str(abs(g.dl_TILE_DEPTHS[|_i]))], PI_BGR_1);
+    _pi = val(p.dm_depth_pi[?hex_str(abs(g.dl_TILE_DEPTHS[|_i]))], global.PI_BGR1);
     
     // pi
     p.dg_depth_pi[#_i,0] = _pi;
@@ -294,8 +295,11 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
         // The pi each depth will use for THE CURRENT RM.
         _pi  = string_copy(_layer_name, _pos+string_length(_name), 2); // bg palette num ('01', '02', '03', '04')
         _pi  = str_hex(_pi);
-        _pi -= _data_system_ver==3 && _pi>5;
-        _pi  = PI_BGR_1 + (_pi-1);
+        _pi--;
+        _pi  = _pi mod val(global.dm_pi[?"BGR"+STR_Count]);
+        _pi  = global.PI_BGR1 + _pi;
+        //_pi -= _data_system_ver==3 && _pi>5;
+        //_pi  = global.PI_BGR1 + (_pi-1);
         
             _pos = string_pos(_STR_PERMUT,_layer_name);
         if (_pos) _permut = str_hex(string_copy(_layer_name, _pos+string_length(_STR_PERMUT), 2)); // 01-06
@@ -303,15 +307,24 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
                   _permut--; // (01 through 06)-1 = (00 through 05)
                   _permut = clamp(_permut, 0,PI_PERMUTATIONS-1); // 00-05
         //
+        switch(_permut){
+        case 1:{_pi=add_pi_permut(_pi, "WBRGYMKC", _name+" permut "+"WBRGYMKC"); break;}
+        case 2:{_pi=add_pi_permut(_pi, "RWBGYMKC", _name+" permut "+"RWBGYMKC"); break;}
+        case 3:{_pi=add_pi_permut(_pi, "RBWGYMKC", _name+" permut "+"RBWGYMKC"); break;}
+        case 4:{_pi=add_pi_permut(_pi, "BWRGYMKC", _name+" permut "+"BWRGYMKC"); break;}
+        case 5:{_pi=add_pi_permut(_pi, "BRWGYMKC", _name+" permut "+"BRWGYMKC"); break;}
+        }
+        
         p.dg_depth_pi[#_idx,0] = _pi;     // pi default
         p.dg_depth_pi[#_idx,1] = _pi;     // pi current
         p.dg_depth_pi[#_idx,2] = _permut; // permut default. 00-05
         p.dg_depth_pi[#_idx,3] = _permut; // permut current. 00-05
         /*
-        if (g.rm_name==RM_NAME_NPALACE){
-            _str  = " rm_name "+g.rm_name + "_layer_name "+_layer_name + ", _pos "+string(_pos) + ", _depth "+string(_depth) + ", _val $"+hex_str(_val) + ", _name "+_name + ", _idx $"+hex_str(_idx);
-            _str += ", p.dg_depth_pi[#_idx,1] $"+hex_str(p.dg_depth_pi[#_idx,1]) + ", p.dg_depth_pi[#_idx,3] $"+hex_str(p.dg_depth_pi[#_idx,3]);
-            sdm(_str);
+        if (g.rm_name==Area_PalcA+"07"){
+        //if (g.rm_name==RM_NAME_NPALACE){
+        _str  = "global.PI_BGR1 $"+hex_str(global.PI_BGR1)+", _layer_name "+_layer_name+", _permut "+string(_permut)+", _depth "+string(_depth)+", _name "+_name+", _idx $"+hex_str(_idx);
+        _str += ", p.dg_depth_pi[#_idx,1] $"+hex_str(p.dg_depth_pi[#_idx,1])+", p.dg_depth_pi[#_idx,3] $"+hex_str(p.dg_depth_pi[#_idx,3]);
+        sdm(_str);
         }
         */
         
@@ -322,7 +335,6 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
             _name = g.dl_TILE_DEPTH_NAMES[|_idx]; // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
             g.dm_tile_file[?_name+STR_Depth+STR_Layer+STR_Name] = _layer_name;
             g.dm_tile_file[?_layer_name+STR_Depth] = _depth;
-            //sdm("_layer_name: "+_layer_name+", _depth "+string(_depth));
             _graphic_layer_count++;
         }
     }
@@ -536,7 +548,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             
             if (val(f.dm_rando[?STR_Randomize+STR_Dungeon+STR_Tileset]))
             {
-                _ts = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(_ts)], _ts)
+                _ts = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(_ts)], _ts);
             }
             //_ts = ts_DungeonAlt05; // testing
         }

@@ -77,7 +77,7 @@ else var        _TIMING = $7F;
 if(!(g.counter1&_TIMING) 
 &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
 {   // BAE3: JSR DBCE
-    with(GOC1_create(xl,yt-9, facingDir, projectile,projectile_ver, id, PI_MOB_RED))
+    with(GOC1_create(xl,yt-9, facingDir, projectile,projectile_ver, id, global.PI_MOB_RED))
     {
         vspd = 2;
         pal_flash_time = 1;

@@ -832,12 +832,13 @@ if (DungeonTileset_WILL_RANDOMIZE)
     
     ds_list_add(  dl_list2,ts_Cave01);
     
+    ds_list_clear(dl_list3);
+    
     
     _datakey = "_User"+STR_Custom+STR_Dungeon+STR_Tileset;
     _count = val(g.dm_tileset[?_datakey+STR_Count]);
     if (_count)
     {
-        ds_list_clear(dl_list3);
         var _background;
         for(_i=1; _i<=_count; _i++)
         {
@@ -860,8 +861,7 @@ if (DungeonTileset_WILL_RANDOMIZE)
             }
             else
             {
-                _count1 = ds_list_size(dl_list3);
-                for(_i=0; _i<_count1; _i++) ds_list_add(dl_list2,dl_list3[|_i]);
+                for(_i=ds_list_size(dl_list3)-1; _i>=0; _i--) ds_list_add(dl_list2,dl_list3[|_i]);
             }
         }
     }
@@ -869,6 +869,7 @@ if (DungeonTileset_WILL_RANDOMIZE)
     
     ds_list_shuffle(dl_list2);
     
+    //_count1 = ds_list_size(dl_list1);
     for(_i=ds_list_size(dl_list1)-1; _i>=0; _i--)
     {
         _datakey = STR_Rando+STR_Tileset+background_get_name(dl_list1[|_i]);
@@ -1881,7 +1882,7 @@ if (DungeonBoss_WILL_RANDOMIZE)
                 _palette = p.dm_scene_palette[?_file_name];
                 if(!is_undefined(_palette))
                 {
-                    _palette = string_copy(_palette, 1, (COL_PER_PAL<<1)<<2);
+                    _palette = string_copy(_palette, 1, (global.COLORS_PER_PALETTE<<1)<<2);
                     dm_save_data[?_c_scene_name+STR_Palette] = _palette;
                 }
             }

@@ -17,7 +17,7 @@ yScale    = 1;
 
 pal_flash_time = 0;
 
-palidx_def    = PI_MOB_ORG;
+palidx_def    = global.PI_MOB_ORG;
 palidx_base   = palidx_def;
 palidx_permut = 0; // permutation (0-5)
 palidx        = palidx_def;

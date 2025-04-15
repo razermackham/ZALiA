@@ -6,7 +6,7 @@ var _i,_j, _val;
 
 GO_sprite_init(spr_PillarHead01a);
 
-var _PI = PI_BGR_1;
+var _PI = global.PI_BGR1;
 if(!is_undefined(         dk_spawn))
 {   _PI = val(g.dm_spawn[?dk_spawn+STR_pal_idx], _PI);  }
 GO_init_palidx(_PI);

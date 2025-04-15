@@ -4,7 +4,7 @@
 var _i, _val, _len, _pos;
 
 
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 SPR_1A = spr_Locked_Door1B;     // Mid, key hole
 SPR_1B = spr_Locked_Door_2a;    // Mid, NO key hole

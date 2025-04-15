@@ -201,8 +201,8 @@ luck = clamp(luck, 0,1);
 
 
 
-if(!is_undefined(dk_spawn)) palidx = val(g.dm_spawn[?dk_spawn+STR_pal_idx], PI_MOB_RED);
-else                        palidx = PI_MOB_RED;
+if(!is_undefined(dk_spawn)) palidx = val(g.dm_spawn[?dk_spawn+STR_pal_idx], global.PI_MOB_RED);
+else                        palidx = global.PI_MOB_RED;
 GO_init_palidx(palidx);
 
 

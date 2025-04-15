@@ -11,7 +11,7 @@ var _shine  = 0;
 else if (p.SpellFlash_GOB_timer) var _PI = p.dg_PI_SEQ[#4,max(0,p.SpellFlash_GOB_timer-1)&$3];
 else                             var _PI = 0;
 
-var _pi = PI_MOB_RED;
+var _pi = global.PI_MOB_RED;
 
 
 
@@ -51,7 +51,7 @@ if (Skull_can_draw)
 if (Crystal_can_draw)
 {
     Crystal_can_draw=false;
-    Crystal_pi = PI_MOB_ORG + ((g.counter1>>1)&$3);
+    Crystal_pi = global.PI_MOB_ORG + ((g.counter1>>1)&$3);
     Crystal_x  = Skull_x;
     Crystal_y  = Skull_y-5;
     draw_sprite_(Crystal_sprite,0, Crystal_x,Crystal_y, Crystal_pi);

@@ -2,6 +2,8 @@
 
 
 Projectile_init();
+
+scr_init3 = SpikeBall1_init3;
 //
 HSPD1   = $20;
 VSPD1   = HSPD1;

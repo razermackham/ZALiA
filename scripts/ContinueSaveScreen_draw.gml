@@ -8,7 +8,7 @@ if (state == ST_NUL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 var _text, _x,_y;
-var _pi = PI_GUI_1;
+var _pi = global.PI_GUI1;
 
 
 if(!surface_exists(Caution_srf))
@@ -57,7 +57,7 @@ if(!surface_exists(Caution_srf))
 
 if (surface_exists(Caution_srf))
 {
-    pal_swap_set(p.palette_image, PI_BGR_1);
+    pal_swap_set(p.palette_image, global.PI_BGR1);
     draw_surface(Caution_srf, Caution_XL,Caution_YT);
     pal_swap_reset();
 }
@@ -71,8 +71,8 @@ if (state == ST_SEL
 &&  Options_idx == Option_SAVE 
 &&  saveFlashCount <= SAVE_FLASH_LIMIT 
 &&  counter & 4 )
-{    _pi = PI_BGR_1;  }
-else _pi = PI_GUI_1;
+{    _pi = global.PI_BGR1;  }
+else _pi = global.PI_GUI1;
 dg_Options[#Option_SAVE,3] = _pi;
 
 

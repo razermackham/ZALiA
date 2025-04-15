@@ -15,9 +15,8 @@ var _spr;
 var _str;
 var _dk;
 
-PI_MENU     = get_pi(PI_GUI_1);
-//PI_SPELL1   = get_pi(PI_GUI_1,4); // 4: SHM
-//PI_SPELL2   = get_pi(PI_GUI_1,2); // 2: MHS
+
+PI_MENU = global.PI_GUI1;
 
 
 timer = 0;
@@ -41,11 +40,7 @@ DUR_ARROW_BLINK = 6;
 
 // Store the current rm palette when the menu opens.
 rm_pal_on_open = p.pal_rm_DEFAULT;
-PAL_MOBS = p.PAL_MOB_ORG1 + p.PAL_MOB_RED1 + p.PAL_MENU_BLU2;
-//PAL_MOBS = p.PAL_MOB_ORG1 + p.PAL_MOB_RED1 + p.PAL_MENU_BLU2 + p.PAL_MOB_PUR1;
-//PAL_MOBS = p.PAL_MOB_ORG1 + p.PAL_MOB_RED1 + p.PAL_MENU_BLU1 + p.PAL_MOB_PUR1;
-//PAL_MOBS = p.PAL_MOB_ORG1 + p.PAL_MOB_RED1 + p.PAL_MOB_BLU2 + p.PAL_MOB_PUR1;
-//PAL_MOBS = p.PAL_MOB_ORG1 + p.PAL_MOB_RED1 + p.PAL_MOB_BLU1 + p.PAL_MOB_PUR1;
+PAL_MOBS = p.PAL_MOB_ORG1 + p.PAL_MOB_RED2 + p.PAL_MENU_BLU2;
 PAL_MOBS_LEN = string_length(PAL_MOBS);
 
 
@@ -150,7 +145,7 @@ dg_icons1[#_i,0] = SPR_ICON_KSU;
 dg_icons1[#_i,1] = g.CHAR_TIMES + "X";
 dg_icons1[#_i,2] =  0; // xoff
 dg_icons1[#_i,3] = -1; // yoff
-dg_icons1[#_i,4] = PI_MOB_ORG; // 
+dg_icons1[#_i,4] = global.PI_MOB_ORG; // 
 
 
 
@@ -439,7 +434,7 @@ SPELL_TEXT_CUCCO += string_repeat(".", _CHAR_MAX-string_length(SPELL_TEXT_CUCCO)
 // --------------------------------------------------------
 canDrawItems = false;
 
-var _PI_ITEM = PI_MOB_ORG;
+var _PI_ITEM = global.PI_MOB_ORG;
 var _SPR_ERROR = spr_Locked_Door1B;
 
        POSITIONING_VER = 2;
@@ -532,7 +527,7 @@ dg_items[#_i,$00]   = ITM_MEDI;
 dg_items[#_i,$01]   =(($02<<3)+4) + ((CLMS_WIN_DEF>>1)<<3);
 dg_items[#_i,$02]   = _y2;
 dg_items[#_i,$03]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$00]))+STR_Sprite], _SPR_ERROR);
-dg_items[#_i,$04]   = val(g.dm_ITEM[?hex_str(ITM_MEDI)+STR_pal_idx],PI_MOB_ORG);
+dg_items[#_i,$04]   = val(g.dm_ITEM[?hex_str(ITM_MEDI)+STR_pal_idx],global.PI_MOB_ORG);
 //                                                                                              //
 ITM_CHLD_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
 dg_items[#_i,$00]   = ITM_CHLD;
@@ -546,7 +541,7 @@ dg_items[#_i,$00]   = ITM_BTL1;
 dg_items[#_i,$01]   = $60;
 dg_items[#_i,$02]   = _y2;
 dg_items[#_i,$03]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$00]))+STR_Sprite], _SPR_ERROR);
-dg_items[#_i,$04]   = PI_MOB_RED;
+dg_items[#_i,$04]   = global.PI_MOB_RED;
 ITM_BTL1_SPR1 = dg_items[#ITM_BTL1_IDX,$03];
 ITM_BTL1_SPR2 = spr_Item_Bottle_8c; // Bottle full
 //                                                                      //
@@ -580,7 +575,7 @@ switch(POSITIONING_VER)
 }
 
 //                                                                      //
-dg_items[#(bitNum(ITM_FRY1))-1,$04]  = PI_MOB_RED;
+dg_items[#(bitNum(ITM_FRY1))-1,$04]  = global.PI_MOB_RED;
 //                                                                      //
 
 

@@ -32,7 +32,7 @@ else
         var _TEXT = string_copy(ITEM_ID, string_length(ITEM_ID)-2, 1);
         var _XL  = drawX - ((string_length(_TEXT)<<3)>>1);
         var _YT  = drawY - hh_ - 8;
-        draw_text_(_XL,_YT, _TEXT, -1,PI_GUI_1);
+        draw_text_(_XL,_YT, _TEXT, -1,global.PI_GUI1);
     }
 }
 

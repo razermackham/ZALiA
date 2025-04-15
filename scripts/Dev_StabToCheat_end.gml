@@ -53,3 +53,12 @@ if (_exists)                             dl_sprites=undefined;
 
 
 
+    _exists=variable_instance_exists(id,"dg_hb");
+if (_exists) _exists = !is_undefined(    dg_hb);
+if (_exists) _exists = ds_exists(        dg_hb,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_hb);
+if (_exists)                             dg_hb=undefined;
+
+
+
+

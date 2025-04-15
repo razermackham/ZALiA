@@ -8,7 +8,7 @@
 var _i, _a;
 
 Bot_init2();
-GO_init_palidx(PI_MOB_PUR);
+GO_init_palidx(global.PI_MOB_PUR);
 
 
 VSPD_BOUNCE = (-$20)&$FF;

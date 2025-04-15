@@ -12,8 +12,8 @@ Slime_W_ = sprite_get_width( g.Ganon3_SPRITE1)>>1;
 Slime_H_ = sprite_get_height(g.Ganon3_SPRITE1)>>1;
 
 
-PALIDX1 = PI_BGR_4;
-PALIDX2 = PI_MOB_RED;
+PALIDX1 = global.PI_BGR4;
+PALIDX2 = global.PI_MOB_RED;
 
 timer1  = 0;
 timer2  = 0;
@@ -33,7 +33,7 @@ Crystal_can_draw     = true;
 Crystal_SPRITE1      = spr_Crystal_1b; // empty/clear
 Crystal_SPRITE2      = spr_Crystal_1a; // colored & flashing
 Crystal_sprite       = Crystal_SPRITE1;
-Crystal_PI           = PI_MOB_RED;
+Crystal_PI           = global.PI_MOB_RED;
 Crystal_pi           = Crystal_PI;
 Crystal_xoff         = 0;
 Crystal_yoff         = 0;
@@ -42,7 +42,7 @@ Crystal_y            = y;
 
 
 CrystalAura_SPRITE   = spr_Aura_2a_WRB;
-CrystalAura_PI       = PI_MOB_ORG;
+CrystalAura_PI       = global.PI_MOB_ORG;
 CrystalAura_pi       = CrystalAura_PI;
 
 CrystalSlot_SPRITE   = spr_Stone_Crystal_Slot_1a;

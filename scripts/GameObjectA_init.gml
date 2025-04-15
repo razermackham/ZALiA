@@ -30,8 +30,8 @@ scr_inst_end = PC_end;
 
 
 // ---------------------------------------------------------------------------------------------
-var _i,_j,_k, _a, _idx, _val;
-var _datakey, _name, _creator, _str, _pos, _len;
+var _i,_j,_k, _a, _idx,_idx1,_idx2, _val, _count1,_count2;
+var _datakey, _name, _creator, _char, _str, _pos, _len;
 
 
 
@@ -296,7 +296,7 @@ Head_xoff   = 0;
 
 
 GO_set_sprite(id, dl_sprites[|behavior]);
-GO_init_palidx(PI_PC_1);
+GO_init_palidx(global.PI_PC1);
 
 
 
@@ -369,9 +369,16 @@ if (g.mod_PC_CUCCO_1)
     dg_Cucco_DISGUISE_SPRITES_idx2 = 0;
     Cucco_disguise_sprite = 0;
     
+    //CuccoSpellFlash_pi = PI_SPELL_FLASH1; // Will be set in PC_Room_Start
+    
     
     Cucco_W = sprite_get_width( Cucco_SPRITE_BODY1);
     Cucco_H = sprite_get_height(Cucco_SPRITE_BODY1);
+    
+    
+    CuccoFallScene_SPRITE_BODY = Cucco_SPRITE_BODY1;
+    CuccoFallScene_SPRITE_LEGS = Cucco_SPRITE_LEGS4;
+    CuccoFallScene_SPRITE_WING = Cucco_SPRITE_WING2;
     
     
     Cucco_damage_taken  = 0;
@@ -414,8 +421,6 @@ if (g.mod_PC_CUCCO_1)
 
 Sword2_SpriteTesting1 = true;
 Sword2_SpriteTesting1 = false; // Only use Sword2 graphics for ATK1,ATK2,DWTH,UPTH
-
-sword_palidx = palidx_base;
 
 GraphicSwordPoint_DIST = $18; // Dist from PC.xc to the tip of the sword's graphic.
 
@@ -629,7 +634,7 @@ HoldItem_inst     = noone; //
 HoldItem_object   =   0; // 049D
 HoldItem_ver      =   0; // 
 HoldItem_sprite   =   0;
-HoldItem_palidx   = PI_MOB_ORG; // 5: MOB3 orange
+HoldItem_palidx   = global.PI_MOB_ORG; // 5: MOB3 orange
 
 // PC will always face right after holding an 
 // item, regardless of PC's xScale on item pick up.

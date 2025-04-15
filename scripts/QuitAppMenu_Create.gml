@@ -4,7 +4,7 @@
 var _i, _a, _count;
 
 
-PI_MENU = PI_GUI_1;
+PI_MENU = global.PI_GUI1;
 gui_state_backup    = 0;
 
                          _a=1;

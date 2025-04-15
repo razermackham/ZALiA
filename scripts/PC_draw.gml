@@ -5,7 +5,7 @@ if (can_draw_self)
 {
     if (RescueFairy_sprite)
     {
-        draw_sprite_(RescueFairy_sprite,0, RescueFairy_draw_x,RescueFairy_draw_y, PI_MOB_RED, 1);
+        draw_sprite_(RescueFairy_sprite,0, RescueFairy_draw_x,RescueFairy_draw_y, global.PI_MOB_RED, 1);
     }
     
     
@@ -72,7 +72,7 @@ if (can_draw_self)
         {
             _x = _x1;
             _y = _y1;
-            draw_pc_skin(_x,_y, Draw_xscale1,Draw_yscale1, Draw_behavior, use_disguise, -1,-1, Draw_palidx,-1, -1, Draw_rotation1);
+            draw_pc_skin(_x,_y, Draw_xscale1,Draw_yscale1, Draw_behavior, use_disguise, -1,-1, Draw_palidx, -1, Draw_rotation1);
         }
         
         

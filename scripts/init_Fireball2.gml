@@ -2,7 +2,7 @@
 
 
 GO_sprite_init(spr_Fireball2);
-GO_init_palidx(PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_RED);
 
 //brightness = 1;
 

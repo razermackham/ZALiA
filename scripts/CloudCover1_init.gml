@@ -8,27 +8,23 @@ scr_update   = CloudCover1_update;
 scr_draw     = CloudCover1_draw;
 scr_inst_end = CloudCover1_end;
 
-GO_init_palidx(PI_CLOUD_1); // 
-//palidx_permut = 5;
+
+
 
 _depth = g.DEPTH_CLOUD;
 
 if(!is_undefined(dk_spawn))
-{   _datakey =   dk_spawn+STR_Data;               _a=0;
-    if(!is_undefined( g.dm_rm[?_datakey+hex_str(++_a)]))
-    {   palidx_permut=g.dm_rm[?_datakey+hex_str(  _a)];  }
-    
-    if(!is_undefined(mg.dm_rm[?_datakey+hex_str(++_a)]))
-    {   _depth =     g.dm_rm[?_datakey+hex_str(  _a)];  }
-    //{   GO_depth_init(g.dm_rm[?_datakey+hex_str(  _a)]);  }
-    
-    if(!is_undefined( g.dm_rm[?_datakey+hex_str(++_a)]))
-    {   DRAW_YOFF +=  g.dm_rm[?_datakey+hex_str(  _a)];  }
+{
+    _datakey = dk_spawn+STR_Data;                 _i=1;
+    palidx_permut = val(g.dm_rm[?dk_spawn+STR_Data+hex_str(_i++)], palidx_permut);
+    _depth        = val(g.dm_rm[?dk_spawn+STR_Data+hex_str(_i++)], _depth);
+    DRAW_YOFF    += val(g.dm_rm[?dk_spawn+STR_Data+hex_str(_i++)]);
 }
-//GO_pal_idx_init(palidx_def); // 
 
-_depth = max(_depth, DEPTH_HUD+1);
+GO_init_palidx(global.PI_CLOUD_1, palidx_permut);
 GO_depth_init(_depth);
+
+
 
 
 CloudSpr1         = g.CloudLarge1_SPR1;
@@ -81,7 +77,7 @@ var _DISTX  =  5;
 var _DISTY  =  CloudSpr1_H_-2;
 var _disty  = _DISTY;
 
-var _permut = 0;
+var _pi;
 
 
 for(_i=0; _i<CloudLayers_COUNT; _i++)
@@ -96,12 +92,7 @@ for(_i=0; _i<CloudLayers_COUNT; _i++)
     dg_CloudLayers[#_i,4] = Clouds_DIR;
     dg_CloudLayers[#_i,5] = max(_SPEED-(_i<<3), $01);
     dg_CloudLayers[#_i,6] = 0;
-    
-    if (_i&$1) _permut = 3;
-    else       _permut = 1;
-               _permut = 3;
-               _permut = 0;
-    dg_CloudLayers[#_i,7] = get_pi(palidx_base, _permut);
+    dg_CloudLayers[#_i,7] = palidx_def;
     
     _y     += (_disty*sign_(ver==1));
     _disty -= (_disty>>1)-4;

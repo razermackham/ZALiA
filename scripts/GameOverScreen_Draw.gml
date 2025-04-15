@@ -4,7 +4,9 @@
 set_background_color(p.GameOverScreen_BGR_COLOR);
 
 if (timer>2)
-{   draw_sprite_(GANON_SPR,0, x,y, get_pi(PI_MOB_ORG));  }
+{
+    draw_sprite_(GANON_SPR,0, x,y, global.PI_MOB_ORG);
+}
 
 
 

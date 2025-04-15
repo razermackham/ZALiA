@@ -26,12 +26,12 @@ case 4: { door_spr = spr_doorway_1a_WBR_3; break; } // no btm graphic
 }
 */
 
-PI_FRWD = PI_MOB_RED; // Red
-PI_BKWD = PI_MOB_BLU; // Blue
+PI_FRWD = global.PI_MOB_RED; // Red
+PI_BKWD = global.PI_MOB_BLU; // Blue
 // PI_BKWD = p.PI_MOB4; // Purple
 if (path_dir) GO_init_palidx(PI_FRWD);
 else          GO_init_palidx(PI_BKWD);
-GO_init_palidx(PI_BGR_2);
+GO_init_palidx(global.PI_BGR2);
 
 
 DOOR_SPR_W  = sprite_get_width( door_spr);

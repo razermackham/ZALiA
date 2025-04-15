@@ -4,7 +4,40 @@ if (DEV) sdm(" PC_Room_Start()");
 dev_start_pc_with(); // Add items, spells, etc..
 
 
-var _i,_j;
+var _i,_j,_k, _idx;
+var _char, _pos;
+
+
+depth = depth_def;
+//GO_set_sprite(id,dg_SPRITES[#0,behavior]);
+GO_init_palidx(global.PI_PC1);
+
+
+
+
+// Add cucco spell flash palettes. cucco spell flash permut: B W R . . . . . .
+var _permut_color_order = "BWRGYMKC"; // permut color order
+if (_permut_color_order!=global.PAL_BASE_COLOR_ORDER)
+{
+    var _parent_pi = global.PI_SPELL_PC1;
+    var _new_pi = _parent_pi;
+    var _COUNT1 = val(global.dm_pi[?"SPELL_PC"+STR_Count]);
+    for(_i=0; _i<_COUNT1; _i++)
+    {
+        _parent_pi = global.PI_SPELL_PC1+_i;
+        _new_pi = add_pi_permut(_parent_pi, _permut_color_order, "cucco spell flash "+string(_i+1));
+        
+        for(_j=ds_grid_height(p.dg_PI_SEQ)-1; _j>=0; _j--)
+        {
+            if (p.dg_PI_SEQ[#$04,_j]-global.PI_SPELL_PC1==_i)
+            {
+                p.dg_PI_SEQ[#$05,_j] = _new_pi;
+            }
+        }
+    }
+}
+
+
 
 
 ds_grid_clear(dg_UwU_,0);
@@ -12,8 +45,9 @@ for(_i=ds_grid_width(dg_UwU_)-1; _i>=0; _i--)
 {   // _i is each behavior
     dg_UwU_[#_i,0]=choose(1,-1); // xscale
     dg_UwU_[#_i,1]=choose(1,-1); // yscale
-    dg_UwU_[#_i,2]=PI_PC_1+irandom(PI_PC_3-PI_PC_1); // palidx
-    dg_UwU_[#_i,3]=irandom(PI_PERMUTATIONS-1); // palix_permut
+    dg_UwU_[#_i,2]=global.PI_PC1+irandom(val(global.dm_pi[?"PC"+STR_Count])-1); // palidx
+    //dg_UwU_[#_i,2]=PI_PC_1+irandom(PI_PC_3-PI_PC_1); // palidx
+    //dg_UwU_[#_i,3]=irandom(PI_PERMUTATIONS-1); // palix_permut
     dg_UwU_[#_i,4]=irandom(3)*90; // rotation
 }
 
@@ -72,9 +106,7 @@ RescueFairy_sprite = 0;
 PC_set_behavior(behavior_IDLE); // 0080
 
 
-depth = depth_def;
-//GO_set_sprite(id,dg_SPRITES[#0,behavior]);
-GO_init_palidx(PI_PC_1);
+
 
 fairy_sprite = 0; // The fairy sprite to draw
 xScale       = 1; // 009F
@@ -86,7 +118,7 @@ HoldItem_timer    = 0; // 049C
 HoldItem_inst     = noone; // 
 HoldItem_object   = 0; // 049D
 HoldItem_sprite   = 0;
-HoldItem_palidx   = PI_MOB_ORG;
+HoldItem_palidx   = global.PI_MOB_ORG;
 
 walk_frame    = 0; // $00AE
 landing_timer = 0; // 0497

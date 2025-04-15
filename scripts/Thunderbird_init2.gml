@@ -14,7 +14,7 @@ projectile_VER = 2;
 projectile     = projectile_OBJ;
 projectile_ver = projectile_VER;
 
-GO_init_palidx(PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_RED);
 
 
 behavior = 0;

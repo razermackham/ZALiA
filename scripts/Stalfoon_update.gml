@@ -141,7 +141,7 @@ if ((_c1 | _c2)
         &&  avail_uidx_goc(MAX_GOC1) != UIDX_NULL )
         {
             // Create Bullet1, pID $10. PI_MOB3: blue
-            GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id, PI_MOB_BLU); // 
+            GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id, global.PI_MOB_BLU); // 
             if (counter < $80) counter = $80 + $20; // 2nd Bullet fires on $C0
             else               counter = 0;         // After 2nd Bullet
         }

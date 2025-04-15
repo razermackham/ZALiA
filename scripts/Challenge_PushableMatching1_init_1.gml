@@ -52,7 +52,7 @@ for(_i=0; _i<_count; _i++)
 
 
 Blocks_SPR  = spr_Block_02a;
-Blocks_PI   = PI_BGR_3;
+Blocks_PI   = global.PI_BGR3;
 
 
 

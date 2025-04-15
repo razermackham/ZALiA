@@ -50,8 +50,6 @@ AppVersion_yt       = 0;
 AppVersion_PAD      = 1;
 
 
-
-
 Window_w = window_get_width();
 Window_h = window_get_height();
 

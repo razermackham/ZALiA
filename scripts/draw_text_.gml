@@ -13,7 +13,7 @@ var                                      _TEXT_SPRITE = spr_Font1;
 if (argument_count>_i && argument[_i++]) _TEXT_SPRITE = argument[_i-1];
 
 // Pass -1 to not pal swap (pal swap may have been set outide of draw_text_()
-var                    _TEXT_PI = PI_GUI_1;
+var                    _TEXT_PI = global.PI_GUI1;
 if (argument_count>_i) _TEXT_PI = argument[_i++];
 
 var _TEXT_COLOR = -1;

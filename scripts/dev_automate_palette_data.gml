@@ -25,7 +25,7 @@ for(_i=0; _i<_AREA_COUNT; _i++)
     sdm("// -------------------------------------------------------------");
     sdm("");sdm("");
     
-    for(_j=0; _j<$100; _j++)
+    for(_j=0; _j<$100; _j++) // num of possible scenes in this area
     {
         _area_file_num_  = string_repeat("0",3-string_length(string(_j)));
         _area_file_num_ += string(_j);

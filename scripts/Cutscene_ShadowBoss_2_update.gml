@@ -75,7 +75,7 @@ switch(sub_state)
     if (p.Flash_Bgr_timer==$01)
     {
         change_pal(p.pal_rm_def);
-        p.background_color_index = p.CI_BLK1;
+        global.BackgroundColor_scene = p.C_BLK1;
     }
     
     if (g.cutscene_timer) break;//case sub_state_POST_BATTLE1
@@ -366,7 +366,7 @@ switch(sub_state)
         
         if (g.counter1 &  _TIMING 
         &&  g.counter1 & (_TIMING>>1) )
-        {    Boss_pi = PI_MOB_PUR;  }
+        {    Boss_pi = global.PI_MOB_PUR;  }
         else Boss_pi = Boss_PI;
     }
     
@@ -399,7 +399,7 @@ switch(sub_state)
     var               _TIMING = $4;
     if (g.counter1 &  _TIMING 
     &&  g.counter1 & (_TIMING>>1) )
-    {    Boss_pi = PI_MOB_PUR;  }
+    {    Boss_pi = global.PI_MOB_PUR;  }
     else Boss_pi = Boss_PI;
     
     if (g.cutscene_timer) break;//case sub_state_FILL_BOTTLE2
@@ -425,9 +425,9 @@ switch(sub_state)
     {
         switch((g.cutscene_timer>>1)&$3){
         case 0:{Boss_pi=Boss_PI;break;}
-        case 1:{Boss_pi=PI_MOB_ORG;break;}
-        case 2:{Boss_pi=PI_MOB_RED;break;}
-        case 3:{Boss_pi=PI_MOB_BLU;break;}
+        case 1:{Boss_pi=global.PI_MOB_ORG;break;}
+        case 2:{Boss_pi=global.PI_MOB_RED;break;}
+        case 3:{Boss_pi=global.PI_MOB_BLU;break;}
         }
     }
     if (g.cutscene_timer) break;//case sub_state_FILL_BOTTLE3
@@ -459,7 +459,7 @@ switch(sub_state)
     var               _TIMING = $2;
     if (g.counter1 &  _TIMING 
     &&  g.counter1 & (_TIMING>>1) )
-    {    Boss_pi = PI_MOB_PUR;  }
+    {    Boss_pi = global.PI_MOB_PUR;  }
     else Boss_pi = Boss_PI;
     
     

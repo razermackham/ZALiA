@@ -15,10 +15,12 @@ var _DRAWAREA_W = viewW() - (TEXT_DRAWAREA_PAD_X<<1);
 var _DRAWAREA_H = viewH() - (TEXT_DRAWAREA_PAD_Y<<1);
 var _DRAWAREA_X = _VIEW_XL + TEXT_DRAWAREA_PAD_X;
 var _DRAWAREA_Y = _VIEW_YT + TEXT_DRAWAREA_PAD_Y;
-var _PI1 = get_pi(PI_GUI_1);    // HMS.     Current option
-var _PI2 = get_pi(PI_GUI_1,4);  // SHM. NOT Current option
-var _PI3 = get_pi(PI_GUI_1,3);  // MSH. Rm/Exit doesn't  exist.
+
+var _PI1 = global.PI_GUI1;                                              // HMS.     Current option
+var _PI2 = add_pi_permut(_PI1, "BWRGYMKC", "Dev_RmWarper_Draw() pi-2"); // SHM. NOT Current option
+var _PI3 = add_pi_permut(_PI1, "RBWGYMKC", "Dev_RmWarper_Draw() pi-3"); // MSH. Rm/Exit doesn't  exist.
 var _pi = _PI1;
+
 var _alpha = 1;
 var _text;
 //

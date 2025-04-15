@@ -54,10 +54,10 @@ with(GameObject_create(_xl,_yt, NPC_2,1))
     {   // -------------------------------------------------
         case 1:{   // sprIndex 2: Large man
         if (g.town_name==STR_Bulblin){
-            GO_init_palidx(PI_MOB_BLU);
+            GO_init_palidx(global.PI_MOB_BLU);
             sprite_datakey = STR_Geru;
         }else{
-            GO_init_palidx(PI_MOB_PUR);
+            GO_init_palidx(global.PI_MOB_PUR);
             sprite_datakey = STR_Jack;
             if (_use_costume){
                 if (irandom($1)) sprite_datakey = STR_Castlevania+"02"+STR_NPC  +"01";
@@ -69,10 +69,10 @@ with(GameObject_create(_xl,_yt, NPC_2,1))
         // -------------------------------------------------
         case 2:{   // sprIndex 1: Pot lady
         if (g.town_name==STR_Bulblin){
-            GO_init_palidx(PI_MOB_RED);
+            GO_init_palidx(global.PI_MOB_RED);
             sprite_datakey = STR_Goriya;
         }else{
-            GO_init_palidx(PI_MOB_RED);
+            GO_init_palidx(global.PI_MOB_RED);
             sprite_datakey = STR_Zoey;
             if (_use_costume){
                 if (irandom($1)) sprite_datakey = STR_Castlevania+"02"+STR_NPC  +"02";
@@ -84,10 +84,10 @@ with(GameObject_create(_xl,_yt, NPC_2,1))
         // -------------------------------------------------
         case 3:{   // sprIndex 3: Old Woman
         if (g.town_name==STR_Bulblin){
-            GO_init_palidx(PI_MOB_RED);
+            GO_init_palidx(global.PI_MOB_RED);
             sprite_datakey = STR_Daira;
         }else{
-            GO_init_palidx(PI_MOB_RED);
+            GO_init_palidx(global.PI_MOB_RED);
             sprite_datakey = STR_Barb;
             if (_use_costume){
                 if (irandom($1)) sprite_datakey = STR_Castlevania+"02"+STR_NPC  +"03";
@@ -99,10 +99,10 @@ with(GameObject_create(_xl,_yt, NPC_2,1))
         // -------------------------------------------------
         case 4:{   // sprIndex 0: Thin lady
         if (g.town_name==STR_Bulblin){
-            GO_init_palidx(PI_MOB_BLU);
+            GO_init_palidx(global.PI_MOB_BLU);
             sprite_datakey = STR_Moblin;
         }else{
-            GO_init_palidx(PI_MOB_PUR);
+            GO_init_palidx(global.PI_MOB_PUR);
             sprite_datakey = STR_Jill;
             if (_use_costume){
                 if (irandom($1)) sprite_datakey = STR_Castlevania+"02"+STR_NPC  +"04";

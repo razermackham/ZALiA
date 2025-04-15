@@ -29,7 +29,7 @@ LINE2_Y = LINE1_Y + ($3<<3);
 
 // p.Room_Start() changes PI_MOB_RED pal to CI_BLK1_+CI_WHT1_+CI_RED3_+CI_BLK1_
 // I'm not sure why it doesn't work changing the palette here.
-TEXT_PI = PI_MOB_RED;
+TEXT_PI = global.PI_MOB_RED;
 
 
 aud_play_sound(get_audio_theme_track(dk_GannonLaugh));

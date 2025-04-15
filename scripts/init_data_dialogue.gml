@@ -1929,14 +1929,14 @@ _dm[?_dk+'B']='OH! YOU<'
 //           --------------- // 
 _str1='WE NEED A<';
 //_str=_str1+"SUN BLOOM!";
-switch(val(g.dm_ITEM[?hex_str(ITM_MEDI)+STR_pal_idx],PI_MOB_ORG)){
+switch(val(g.dm_ITEM[?hex_str(ITM_MEDI)+STR_pal_idx],global.PI_MOB_ORG)){
 //case PI_MOB_ORG:{_str=_str1+"SUN BLOOM"; break;}
 //case PI_MOB_ORG:{_str=_str1+"FIRE BLOOM"; break;}
 //case PI_MOB_ORG:{_str=_str1+"FIRE HERB"; break;}
-case PI_MOB_ORG:{_str1='WE NEED AN<'; _str2='IO FLOWER'; break;}
-case PI_MOB_RED:{_str2="RED EYE"; break;}
-case PI_MOB_BLU:{_str2="BLUE EYE"; break;}
-case PI_MOB_PUR:{_str2="NIGHT EYE"; break;}
+case global.PI_MOB_ORG:{_str1='WE NEED AN<'; _str2='IO FLOWER'; break;}
+case global.PI_MOB_RED:{_str2="RED EYE"; break;}
+case global.PI_MOB_BLU:{_str2="BLUE EYE"; break;}
+case global.PI_MOB_PUR:{_str2="NIGHT EYE"; break;}
 }
 _str = _str1+_str2;
 //_str = "POE BLOOM";

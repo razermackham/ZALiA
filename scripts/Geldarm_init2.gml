@@ -3,6 +3,9 @@
 // GeldA
 
 
+var _i, _val, _count, _dk, _pos;
+
+
 if(!is_undefined(dk_spawn) 
 && !is_undefined(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawn+dk_spawn+STR_Spawn+STR_Datakey+STR_Randomized]) )
 {    GO_depth_init(DEPTH_BG4+1);  } // attempting to stop from hiding behind tile graphics in enemy rando
@@ -11,9 +14,7 @@ else GO_depth_init(DEPTH_BG6+1);
 if (g.dungeon_num)
 {
     var _layer_name, _depth, _ci_;
-    
-    _count = ds_list_size(g.dl_TILE_DEPTH_NAMES);
-    for(_i=_count-1; _i>=0; _i--)
+    for(_i=ds_list_size(g.dl_TILE_DEPTH_NAMES)-1; _i>=0; _i--)
     {
         _dk = g.dl_TILE_DEPTH_NAMES[|_i]; // "BG01, BG02, ..."
         //if(!string_pos("BG",_dk)) break;//_i
@@ -25,7 +26,6 @@ if (g.dungeon_num)
         &&  string_pos("PILLAR",_layer_name) )
         {
             GO_depth_init(_depth-1);
-            //GO_depth_init(_depth+1);
             break;//_i
         }
     }
@@ -39,7 +39,11 @@ SEGMENT_SPR = spr_Geldarm2;
 dl_sprites[|0] = spr_Placement_08x16;
 
 // So the shadow color is black
-change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(palidx_def)+(3<<1), 2, hex_str(p.CI_BLK1)));
+_val = color_str(p.C_BLK1);
+_pos  = string_pos("B",global.PAL_BASE_COLOR_ORDER) - 1;
+_pos *= global.PAL_CHAR_PER_COLOR;
+_pos += get_pal_pos(palidx_def);
+change_pal(strReplaceAt(p.pal_rm_new, _pos, string_length(_val), _val));
 
 
 SEGMENTS = 5; // 5: OG

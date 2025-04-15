@@ -86,44 +86,43 @@ dl_sprites[|$1F] = spr_0; // For suicide.
 
 
 dl_pi = ds_list_create();
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
 
-ds_list_add(dl_pi,get_pi(PI_PC_1));
-ds_list_add(dl_pi,get_pi(PI_PC_1));
+ds_list_add(dl_pi,get_pi(global.PI_PC1));
+ds_list_add(dl_pi,get_pi(global.PI_PC1));
 
-ds_list_add(dl_pi,get_pi(PI_MOB_BLU));
-ds_list_add(dl_pi,get_pi(PI_MOB_BLU));
-ds_list_add(dl_pi,get_pi(PI_MOB_BLU));
-ds_list_add(dl_pi,get_pi(PI_MOB_BLU));
-ds_list_add(dl_pi,get_pi(PI_MOB_BLU));
-ds_list_add(dl_pi,get_pi(PI_MOB_BLU));
-ds_list_add(dl_pi,get_pi(PI_MOB_BLU));
-ds_list_add(dl_pi,get_pi(PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
 
-ds_list_add(dl_pi,get_pi(PI_MOB_RED));
-ds_list_add(dl_pi,get_pi(PI_MOB_RED));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_RED));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_RED));
 
-ds_list_add(dl_pi,get_pi(PI_GUI_1));
-ds_list_add(dl_pi,get_pi(PI_GUI_1));
-ds_list_add(dl_pi,get_pi(PI_GUI_1));
+ds_list_add(dl_pi,get_pi(global.PI_GUI1));
+ds_list_add(dl_pi,get_pi(global.PI_GUI1));
+ds_list_add(dl_pi,get_pi(global.PI_GUI1));
 ds_list_add(dl_pi,dl_pi[|ds_list_size(dl_pi)-3]);
 ds_list_add(dl_pi,dl_pi[|ds_list_size(dl_pi)-3]);
 ds_list_add(dl_pi,dl_pi[|ds_list_size(dl_pi)-3]);
-ds_list_add(dl_pi,get_pi(PI_MOB_RED));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
-ds_list_add(dl_pi,get_pi(PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_RED));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
 
-ds_list_add(dl_pi,get_pi(PI_PC_1)); // suicide
-
+ds_list_add(dl_pi,get_pi(global.PI_PC1)); // suicide
 
 
 

@@ -12,7 +12,7 @@ var                      _YSCALE     = 1;
 if (argument_count>_arg) _YSCALE     = sign_(argument[_arg++]);
 
 
-var                      _PALIDX     = PI_MOB_RED;
+var                      _PALIDX     = global.PI_MOB_RED;
 if (argument_count>_arg) _PALIDX     = argument[_arg++];
 
 var                      _PRESET     = 0; // 1,2,3,

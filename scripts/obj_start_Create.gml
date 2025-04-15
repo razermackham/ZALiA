@@ -61,14 +61,15 @@ g.QUIT_APP_MENU   = instance_create(0,0,QuitAppMenu);
                     instance_create(0,0,f);   // f: File
 //                                      // 
 //                                      // 
-g.overworld =       instance_create(0,0,Overworld);
+g.overworld       = instance_create(0,0,Overworld);
 //                                      // 
 //                                      // 
                     instance_create(0,0,RoomData);
                     instance_create(0,0,GameObjectData);
 //                                      // 
-g.go_mgr =          instance_create(0,0,GameObjectMgr);
+g.go_mgr          = instance_create(0,0,GameObjectMgr);
 //                                      // 
+g.burnable_mgr    = instance_create(0,0,BurnableMgr);
 //                                      // 
 PC_create(Lonk,0,0);
 

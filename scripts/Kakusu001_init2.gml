@@ -40,7 +40,7 @@ var _row = 0;
 Platform_COUNT  = 5;
 
 PLATFORM_DEPTH  = DEPTH_BG2;
-PLATFORM_PI     = PI_BGR_2;
+PLATFORM_PI     = global.PI_BGR2;
 PLATFORM_PI     = val(p.dm_depth_pi[?hex_str(abs(PLATFORM_DEPTH))], PLATFORM_PI);
 PLATFORM_DEPTH--;
 PLATFORM_TS     = ts_DungeonA01;

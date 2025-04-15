@@ -304,9 +304,11 @@ else if (isVal(object_index,NPC_4,NPC_5)) // Healer, Saver, Quest
     }
     else
     {
-        DOOR_PI        = PI_BGR_2;
+        DOOR_PI        = global.PI_BGR2;
         DOOR_PI_PERMUT = 0;
     }
+    
+    //DOOR_PI_DARK = val(global.dm_pi[?hex_str(DOOR_PI)+STR_Dark+"1"], DOOR_PI);
     
     // A hitbox used by NPC cs left/right to 
     // trigger the counter for stepping inside house.

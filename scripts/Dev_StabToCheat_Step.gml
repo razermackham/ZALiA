@@ -76,7 +76,7 @@ if (is_active
         }
         
         g.pc.HoldItem_timer  = $20; // $70
-        g.pc.HoldItem_palidx = PI_MOB_ORG;
+        g.pc.HoldItem_palidx = global.PI_MOB_ORG;
         g.pc.HoldItem_ver    = 1;
         
                        g.pc.HoldItem_object = ItmA0;
@@ -201,7 +201,7 @@ if (is_active
                           g.pc.HoldItem_object = CONT_PIECE_OBJ_HP;
             if (_num==20) g.pc.HoldItem_object = CONT_PIECE_OBJ_MP;
             g.pc.HoldItem_timer  = $20; // OG: $70
-            g.pc.HoldItem_palidx = PI_MOB_RED;
+            g.pc.HoldItem_palidx = global.PI_MOB_RED;
             aud_play_sound(get_audio_theme_track(dk_Fanfare), -1,false,-1, dk_Fanfare);
         }
         

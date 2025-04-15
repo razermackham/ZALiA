@@ -12,7 +12,7 @@ if (can_draw_self)
 if (tri_can_draw)
 {
     tri_can_draw = 0;
-    draw_sprite_(TRI_SPR,0, drawX+tri_xOff, drawY+tri_yOff, get_pi(p.triforce_pi));
+    draw_sprite_(TRI_SPR,0, drawX+tri_xOff, drawY+tri_yOff, p.triforce_pi);
 }
 
 

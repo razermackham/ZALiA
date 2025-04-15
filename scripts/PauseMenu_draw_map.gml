@@ -112,7 +112,7 @@ else if (paper_drawn_clms>2)
     //
     
     
-    pal_swap_set(p.palette_image, get_pi(PI_GUI_1)); // BLUE room outline
+    pal_swap_set(p.palette_image, global.PI_GUI1); // BLUE room outline
     //pal_swap_set(p.palette_image, get_pi(PI_GUI_1, 1), false); // RED room outline
     
     for(_i=ds_grid_width(dg_dngn_map)-1; _i>=0; _i--)
@@ -354,7 +354,7 @@ if (map_anim_idx+1==ds_list_size(dl_map_anim_data))
                 switch(PCSkins_SYS_VER)
                 {
                     case 1:{
-                    draw_sprite_(Skin_image,$60|_frame_index, _x,_y, PI_PC_1);
+                    draw_sprite_(Skin_image,$60|_frame_index, _x,_y, global.PI_PC1);
                     break;}
                     
                     
@@ -370,7 +370,7 @@ if (map_anim_idx+1==ds_list_size(dl_map_anim_data))
                         _yt2 = val(dm_skins[?_dk+STR_Placed+'_yt']); // relative to spr_PCSkins_Full01
                         _xl1 = _x - (_w>>1);
                         _yt1 = _y - (_h>>1);
-                        draw_sprite_part_(Skin_image,0, _xl2,_yt2, _w,_h, _xl1,_yt1, PI_PC_1);
+                        draw_sprite_part_(Skin_image,0, _xl2,_yt2, _w,_h, _xl1,_yt1, global.PI_PC1);
                     }
                     break;}
                 }
@@ -384,7 +384,7 @@ if (map_anim_idx+1==ds_list_size(dl_map_anim_data))
                 var _Sheet_X = _frame_index * _w;
                 //if (g.overworld.mot==g.overworld.MOT_RAFT) _Sheet_X += 8; // 8-F: Raft
                 var _Sheet_Y =           $E * _h;
-                draw_sprite_part_(Skin_image,0, _Sheet_X,_Sheet_Y, _w,_h, _x,_y, PI_PC_1);
+                draw_sprite_part_(Skin_image,0, _Sheet_X,_Sheet_Y, _w,_h, _x,_y, global.PI_PC1);
             }
         }
     }
@@ -402,7 +402,7 @@ if (map_anim_idx+1==ds_list_size(dl_map_anim_data))
         
         if (is_in_grid((_x-_x_base)>>3,(_y-_y_base)>>3, CLMS_MAP_DNGN,ROWS_MAP_DNGN))
         {
-            draw_sprite_(SPR_ICON_PC1,0, _x,_y, PI_PC_1, g.pc.xScale);
+            draw_sprite_(SPR_ICON_PC1,0, _x,_y, global.PI_PC1, g.pc.xScale);
         }
     }
 }
@@ -430,7 +430,8 @@ if (paper_drawn_clms)
     _x_base = drawX + 8;
     _y_base = drawY + 8;
     
-    _color = p.dl_COLOR[|p.background_color_index];
+    _color = background_colour;
+    //_color = p.dl_COLOR[|p.background_color_index];
     
     for(_i=0; _i<_rows; _i++) // each row
     {

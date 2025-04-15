@@ -11,7 +11,7 @@ switch(ver)
     // -----------------------------------
     case 1:{ // OG. Stationary Flame
     GO_sprite_init(spr_Flame1);
-    GO_init_palidx(PI_MOB_RED);
+    GO_init_palidx(global.PI_MOB_RED);
     ANIM_SPEED = ANIM_SPEED;
     hspd = 0;
     //set_xy(id, x+4,y);
@@ -25,7 +25,7 @@ switch(ver)
     // -----------------------------------
     case 2:{ // Jumping Flame
     GO_sprite_init(spr_Flame1);
-    GO_init_palidx(PI_MOB_ORG); // orange
+    GO_init_palidx(global.PI_MOB_ORG); // orange
     ANIM_SPEED = ANIM_SPEED;
     
     abilities |= ABL_JUMP;

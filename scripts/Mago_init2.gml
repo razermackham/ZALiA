@@ -1,7 +1,7 @@
 /// Mago_init2()
 
 
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 
 projectile_OBJ = Flame1;

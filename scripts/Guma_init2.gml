@@ -6,7 +6,7 @@ projectile_VER = 1;
 projectile     = projectile_OBJ;
 projectile_ver = projectile_VER;
 
-GO_init_palidx(PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_RED);
 
 VSPD_GRAV   = 2;
 vspd_grav   = VSPD_GRAV;

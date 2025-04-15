@@ -31,7 +31,9 @@ var _state_current = state&$3;
 
 // ----------------------------------------------------------------------------------
 // Draw bg color of menu
-draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, Window_w,Window_h, p.dl_COLOR[|p.background_color_index]);
+draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, Window_w,Window_h, background_colour);
+//draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, Window_w,Window_h, p.dl_COLOR[|p.background_color_index]);
+
 
 
 // ----------------------------------------------------------------------------------

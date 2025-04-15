@@ -55,7 +55,7 @@ if (g.mod_ContinueScreen_Music==1)
 }
 
 
-SaveFlash_PAL = p.CI_BLK1_ + p.CI_RED2_ + p.CI_RED3_ + p.CI_BLK1_;
+SaveFlash_PAL = build_pal(p.C_RED2,p.C_RED3,p.C_BLK1);
 change_pal(strReplaceAt(p.pal_rm_curr, p.PAL_POS_BGR1, string_length(SaveFlash_PAL), SaveFlash_PAL));
 
 
@@ -193,7 +193,7 @@ for(_i=0; _i<Options_COUNT; _i++)
 {
     dg_Options[#_i,1] = Options_XL;
     dg_Options[#_i,2] = Options_YT + (PAD1*_i);
-    dg_Options[#_i,3] = PI_GUI_1;
+    dg_Options[#_i,3] = global.PI_GUI1;
 }
 
 

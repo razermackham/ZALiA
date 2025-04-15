@@ -4,8 +4,8 @@
 GameObjectB_init();
 
 
-pal_bgr = PI_BGR_3;
-GO_init_palidx(PI_MOB_BLU);
+pal_bgr = global.PI_BGR3;
+GO_init_palidx(global.PI_MOB_BLU);
 palidx = pal_bgr;
 
 DRAW_YOFF = 0;

@@ -1043,7 +1043,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms3*_a++))<<3,y5,  STR_Qualified+STR_
 data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms3*_a++))<<3,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms3*_a++))<<3,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Bot  1
 
-_pi=PI_BGR_1;
+_pi=global.PI_BGR1;
 clm3=$2B; clm4=clm3; clms3=$10; clms4=$04;
 row5=row0+$04; y5=row5<<3;
 _a=0;
@@ -1409,7 +1409,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms5*_a++))<<3,y6,  STR_Qualified+STR_
 data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms5*_a++))<<3,y6); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms5*_a++))<<3,y6,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Bot  1
 
-_pi=PI_BGR_1;
+_pi=global.PI_BGR1;
 clm3=$1B; clm4=clm3; clms3=$04; clms4=$10;
 _a=0;
 data_spawn(rm+STR_PRIO,TyellManager,$1,  $00<<3,$00<<3);
@@ -3261,7 +3261,7 @@ row7=row6+$02; y7=row7<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($16<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($2E<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($46<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-x3=(clms0-$0A)<<3; _pi=PI_BGR_1; // $76
+x3=(clms0-$0A)<<3; _pi=global.PI_BGR1; // $76
 data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row3+$01)<<3,  STR_Palette+hex_str(_pi)); // Snaraa
 data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row6+$01)<<3,  STR_Palette+hex_str(_pi)); // Snaraa
 data_spawn(rm+STR_PRXM,FokuA,$1,  $2F<<3,y3); // Fokkeru  1

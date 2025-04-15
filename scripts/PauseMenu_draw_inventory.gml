@@ -45,8 +45,8 @@ if (f.items&ITM_FTHR)
     //_x = Window_spell_menu_window_xl + (Window_w>>1);
     _y = Window_yb - $C;
     
-    if(!g.DoubleJump_state) _pi = PI_DARKLONK;
-    else                    _pi = PI_MOB_ORG;
+    if(!g.DoubleJump_state) _pi = global.PI_GUI2;
+    else                    _pi = global.PI_MOB_ORG;
     draw_sprite_(_spr,0, _x,_y, _pi, -1,-1, c_white,1, 90);
 }
 
@@ -117,7 +117,7 @@ if (LifeDoll_count)
         _base_x = _ITEMX + Dolls_X;
         _y = _base_y;
         
-        _pi = PI_PC_1; // Green PC pal
+        _pi = global.PI_PC1; // Green PC pal
         //_pi = p.dg_PI_SEQ[#$00,0]; // Current PC pal
         pal_swap_set(p.palette_image, _pi);
         for(_i=0; _i<LifeDoll_count; _i++)
@@ -148,7 +148,7 @@ if (f.items&ITM_SKEY)
     
     if (_y+8<Window_yb)
     {
-        draw_sprite_(SkeletonKey_SPR,0, _x,_y, PI_MOB_ORG);
+        draw_sprite_(SkeletonKey_SPR,0, _x,_y, global.PI_MOB_ORG);
     }
 }
 
@@ -165,13 +165,13 @@ if (_base_y+8<Window_yb)
     if (f.items&ITM_MAP1)
     {
         _x = _base_x;
-        draw_sprite_(ItemMap1_SPR,0, _x,_y, PI_MOB_ORG);
+        draw_sprite_(ItemMap1_SPR,0, _x,_y, global.PI_MOB_ORG);
     }
     
     if (f.items&ITM_MAP2)
     {
         _x = _base_x + 8 + Maps_PAD;
-        draw_sprite_(ItemMap2_SPR,0, _x,_y, PI_MOB_ORG);
+        draw_sprite_(ItemMap2_SPR,0, _x,_y, global.PI_MOB_ORG);
     }
     
     
@@ -180,12 +180,12 @@ if (_base_y+8<Window_yb)
     if (ContainerPiece_count_hp==f.CONT_PIECE_MAX_HP) _spr = g.SPR_CONT_HP;
     else                                              _spr = g.dl_cont_spr_hp[|ContainerPiece_count_hp mod f.CONT_PIECE_PER_HP];
     _x = _base_x;
-    draw_sprite_(_spr,0, _x,_y, PI_MOB_RED);
+    draw_sprite_(_spr,0, _x,_y, global.PI_MOB_RED);
     
     if (ContainerPiece_count_mp==f.CONT_PIECE_MAX_MP) _spr = g.SPR_CONT_MP;
     else                                              _spr = g.dl_cont_spr_mp[|ContainerPiece_count_mp mod f.CONT_PIECE_PER_MP];
     _x = _base_x + $10 + Containers_PAD;
-    draw_sprite_(_spr,0, _x,_y, PI_MOB_ORG);
+    draw_sprite_(_spr,0, _x,_y, global.PI_MOB_ORG);
 }
 
 

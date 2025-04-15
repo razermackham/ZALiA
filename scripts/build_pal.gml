@@ -42,17 +42,6 @@ with(p)
         _return += string_repeat(_CI0, COL_PER_PAL);
     }
     
-    /*
-    //
-             _count = _COUNT2<<1; // extra <<1 bc 2 palettes now
-    //if (_len mod _COUNT2) _count = (_len div _COUNT2) + _COUNT2;
-    //         _count = (_len div _COUNT2); // extra <<1 bc 2 palettes now
-    if (_len<_count)
-    {   _return += string_repeat(_CI0,  (_count-_len)>>1);  } // _CI0 has 2 chars
-        _return  = string_copy(_return,1,_count);
-    //
-    */
-    
     
     
     _return += PAL_SET_PC_A; // PAL_SET_PC_A: PC & CUCCO. rm LIT
@@ -62,66 +51,9 @@ with(p)
     }
     
     
-    
-    /*
-    
-                       _count = _COUNT1+1;
-    if (argument_count>_count 
-    &&  argument[      _count] != -1 )
-    {   // alt pc pal
-        argument[      _count] = string(argument[_count]);
-         _return +=         string_copy(argument[_count],1,_COUNT2);
-    }
-    else _return += PAL_SET_PC_A; // PAL_SET_PC_A: PC & CUCCO. rm LIT
-    */
-    
-    
-    
-    /*
-    var _len = string_length(_return);
-    if (_len&1) {_len--; _return = string_copy(_return,1,_len);}
-    //
-             _count = _COUNT2<<1; // extra <<1 bc 2 palettes now
-    if (_len<_count)
-    {   _return += string_repeat(_CI0,  (_count-_len)>>1);  } // _CI0 has 2 chars
-    //    _return  = string_copy(_return,1,_count);
-    //
-    */
-    
-    
-    
-    /*
-    for(var _i=0; _i<_COUNT1; _i++)
-    {
-        argument[_i] = string(argument[_i]);
-        
-            _len = string_length(argument[_i]);
-        if (_len&1) {_len--; argument[_i] = string_copy(argument[_i],1,_len);}
-        //
-        if (_len<_COUNT2)
-        {   argument[_i] += string_repeat(_CI0, (_COUNT2-_len)>>1);  } // _CI0 has 2 chars
-            argument[_i]  = string_copy(argument[_i],1,_COUNT2);
-        //
-        _return += argument[_i];
-    }
-    
-        _len = string_length(_return);
-    if (_len&1) {_len--; _return = string_copy(_return,1,_len);}
-    //
-             _count = COL_PER_SET<<1;
-    if (_len<_count)
-    {   _return += string_repeat(_CI0, (_count-_len)>>1);  } // _CI0 has 2 chars
-    */
-    
-    
-    
-    
     return _return;
 }
 
 
 
 
-
-// PI_ERR0
-//hex_str(CI_GRN0)

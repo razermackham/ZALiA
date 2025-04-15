@@ -1,4 +1,4 @@
-/// p_init()
+4/// p_init()
 
 if (DEV) sdm(" p_init()");
 
@@ -656,12 +656,7 @@ fall_scene_2_spr       = 0; // created on first frame of app start.
 fall_scene_1_spr_1     = 0; // created on first frame of app start.
 fall_scene_2_spr_1     = 0; // created on first frame of app start.
 fall_scene_spr         = 0; // spr for active fall scene
-fall_scene_1_pal       = $1C0C2C;
-fall_scene_2_pal       = $160626;
-fall_scene_pal         = fall_scene_1_pal; // pal for active fall scene
-fall_scene_pal_state   = 0; // 0484
-fall_scene_pal_set     = 0; // grid idx of dg_FS_PI
-FallScene_PI_BASE      = PI_BGR_1;
+
 fall_scene_counter     = 0;
 
 FallScene_FALL_SPD_DEF = 2; // OG 2
@@ -676,23 +671,39 @@ FallScene_X_BASE       = (viewW_()-viewH_()) + FallScene_Y_BASE;
 FallScene_X_BASE      -= $06<<3;
 fall_scene_x           = 0;
 
+fall_scene_pal_state   = 0; // 0484
+fall_scene_pal_set     = 0; // grid idx of dg_FS_PI
+FallScene_PI_BASE      = global.PI_BGR1;
 
+fall_scene_1_pal = build_pal(C_CYN3,C_CYN4,C_CYN2);
+fall_scene_2_pal = build_pal(C_RED3,C_RED4,C_RED2);
+//fall_scene_1_pal = $1C0C2C;
+//fall_scene_2_pal = $160626;
+
+fall_scene_pal = fall_scene_1_pal; // pal for active fall scene
 
 
 // Colors for FallScene backgrounds
 dg_FallScene_PI = ds_grid_create(0,FallScene_COL_CNT);
-_a=-1;
-ds_grid_resize(dg_FallScene_PI, (++_a)+1, FallScene_COL_CNT);
-dg_FallScene_PI[#_a,0] = get_pi(FallScene_PI_BASE,3); // m, s, h
-dg_FallScene_PI[#_a,1] = get_pi(FallScene_PI_BASE,4); // s, h, m
-dg_FallScene_PI[#_a,2] = get_pi(FallScene_PI_BASE,0); // h, m, s
-//                                                      //
-ds_grid_resize(dg_FallScene_PI, (++_a)+1, FallScene_COL_CNT);
-dg_FallScene_PI[#_a,0] = get_pi(PI_MOB_PUR,       3); // m, s, h
-dg_FallScene_PI[#_a,1] = get_pi(PI_MOB_PUR,       4); // s, h, m
-dg_FallScene_PI[#_a,2] = get_pi(PI_MOB_PUR,       0); // h, m, s
-//                                                      //
-
+/*
+if (global.PAL_SYS_VER<4)
+{
+    _idx = ds_grid_width(dg_FallScene_PI)-1;
+    ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_COL_CNT);
+    dg_FallScene_PI[#_idx,0] = get_pi(FallScene_PI_BASE,3); // m, s, h
+    dg_FallScene_PI[#_idx,1] = get_pi(FallScene_PI_BASE,4); // s, h, m
+    dg_FallScene_PI[#_idx,2] = get_pi(FallScene_PI_BASE,0); // h, m, s
+    //                                                      //
+    ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_COL_CNT);
+    dg_FallScene_PI[#_idx,0] = get_pi(global.PI_MOB_PUR,3); // m, s, h
+    dg_FallScene_PI[#_idx,1] = get_pi(global.PI_MOB_PUR,4); // s, h, m
+    dg_FallScene_PI[#_idx,2] = get_pi(global.PI_MOB_PUR,0); // h, m, s
+}
+else
+{
+    // set in p.Room_Start()
+}
+*/
 
 
 

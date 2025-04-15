@@ -18,7 +18,6 @@ for(_i=0; _i<OPTION_CNT; _i++)
 {
     dg_hb[#_i,0] = _x + 2;
     dg_hb[#_i,1] = _Y;
-    // dg_hb[#_i,1] = (ROW_BASE<<3) + 6;
     dg_hb[#_i,2] = _HBW;
     dg_hb[#_i,3] = _HBH;
     

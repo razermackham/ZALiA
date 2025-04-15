@@ -1,4 +1,4 @@
-4/// p_init()
+/// p_init()
 
 if (DEV) sdm(" p_init()");
 
@@ -685,43 +685,6 @@ fall_scene_pal = fall_scene_1_pal; // pal for active fall scene
 
 // Colors for FallScene backgrounds
 dg_FallScene_PI = ds_grid_create(0,FallScene_COL_CNT);
-/*
-if (global.PAL_SYS_VER<4)
-{
-    _idx = ds_grid_width(dg_FallScene_PI)-1;
-    ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_COL_CNT);
-    dg_FallScene_PI[#_idx,0] = get_pi(FallScene_PI_BASE,3); // m, s, h
-    dg_FallScene_PI[#_idx,1] = get_pi(FallScene_PI_BASE,4); // s, h, m
-    dg_FallScene_PI[#_idx,2] = get_pi(FallScene_PI_BASE,0); // h, m, s
-    //                                                      //
-    ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_COL_CNT);
-    dg_FallScene_PI[#_idx,0] = get_pi(global.PI_MOB_PUR,3); // m, s, h
-    dg_FallScene_PI[#_idx,1] = get_pi(global.PI_MOB_PUR,4); // s, h, m
-    dg_FallScene_PI[#_idx,2] = get_pi(global.PI_MOB_PUR,0); // h, m, s
-}
-else
-{
-    // set in p.Room_Start()
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -736,17 +699,6 @@ dm_pal_data = ds_map_create();
 dm_scene_palette = ds_map_create();
 dl_various_pals1 = ds_list_create();
 dl_various_pals2 = ds_list_create();
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -65,11 +65,23 @@ if (_exists)                             ds_=undefined;
 
 
 
+
 var _exists = false;
 
 
 
 
+    _exists=variable_instance_exists(id,"dl_triforce_pal_seq");
+if (_exists) _exists = !is_undefined(    dl_triforce_pal_seq);
+if (_exists) _exists = ds_exists(        dl_triforce_pal_seq,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_triforce_pal_seq);
+if (_exists)                             dl_triforce_pal_seq=undefined;
+
+             _exists = variable_instance_exists(id,  "dl_pal_pc");
+if (_exists) _exists =               !is_undefined(   dl_pal_pc);
+if (_exists) _exists =                ds_exists(      dl_pal_pc, ds_type_list);
+if (_exists)                          ds_list_destroy(dl_pal_pc);
+if (_exists)                                          dl_pal_pc = undefined;
 /*
              _exists = variable_instance_exists(id,  "dl_pal_rm_drk");
 if (_exists) _exists =               !is_undefined(   dl_pal_rm_drk);

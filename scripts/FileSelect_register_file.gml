@@ -2,13 +2,13 @@
 
 
 var _FILE_NUM  = argument0;
-var _FILE_NAME = f.ar_FILE_NAMES[_FILE_NUM-1];
+var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
 
 
 var _i,_j, _val;
 var _datakey;
 
-var _SAVE_NAME = f.ar_save_names[_FILE_NUM-1];
+var _SAVE_NAME = f.dl_save_names[|_FILE_NUM-1];
 
 
 

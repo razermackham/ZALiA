@@ -43,35 +43,28 @@ ANIM_FRAMES_DEF = ROWS>>1; // 11
 anim_frame      = 0;
 cnt_draw_rows   = 0;
 
-RequestQuit_DUR1    = $40;
-RequestQuit_timer   = 0;
+RequestQuit_DUR1  = $40;
+RequestQuit_timer = 0;
 
 
 _count = CLMS-2;
 // Top & Bottom
-var _TSRC_DATA1  =               "2";           // 2: corner
-    _TSRC_DATA1 += string_repeat("0", _count);  // 0: bar hor
-    _TSRC_DATA1 +=               "2";           // 2: corner
+var _TSRC_DATA1  =               "2";         // 2: corner
+    _TSRC_DATA1 += string_repeat("0",_count); // 0: bar hor
+    _TSRC_DATA1 +=               "2";         // 2: corner
 // Mid                                          
-var _TSRC_DATA2  =               "1";           // 1: bar ver
-    _TSRC_DATA2 += string_repeat("&", _count);  // &: blank
-    _TSRC_DATA2 +=               "1";           // 1: bar ver
+var _TSRC_DATA2  =               "1";         // 1: bar ver
+    _TSRC_DATA2 += string_repeat("&",_count); // &: blank
+    _TSRC_DATA2 +=               "1";         // 1: bar ver
 // Hor section bar                              
-var _TSRC_DATA3  =               "1";           // 1: bar ver
-    _TSRC_DATA3 += string_repeat("0", _count);  // 0: bar hor
-    _TSRC_DATA3 +=               "1";           // 1: bar ver
+var _TSRC_DATA3  =               "1";         // 1: bar ver
+    _TSRC_DATA3 += string_repeat("0",_count); // 0: bar hor
+    _TSRC_DATA3 +=               "1";         // 1: bar ver
 //                                              
-       _count = ROWS-1;
-for(_i=_count; _i>=0; _i--)
-{   ar_TSRC_DATA[_i]     = _TSRC_DATA2;  } // Mids
-    ar_TSRC_DATA[0]      = _TSRC_DATA1; // Top
-    //ar_TSRC_DATA[2]      = _TSRC_DATA3; // Hor bar
-    ar_TSRC_DATA[_count] = _TSRC_DATA1; // Bottom
-// 
-
-
-
-
+dl_tsrc_data = ds_list_create();
+for(_i=0; _i<ROWS; _i++) ds_list_add(dl_tsrc_data,_TSRC_DATA2); // Mids
+dl_tsrc_data[|0]      = _TSRC_DATA1; // Top
+dl_tsrc_data[|ROWS-1] = _TSRC_DATA1; // Bottom
 
 
 

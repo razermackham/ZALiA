@@ -54,7 +54,7 @@ if (state==State_NULL
     { // In case of a scenario where changing/creating a save file name was not finalized
         for(_i=0; _i<SAVE_FILE_MAX; _i++)
         {
-            f.ar_save_names[_i] = get_saved_value(_i+1, f.SDNAME_save_name, SAVE_NAME_NULL);
+            f.dl_save_names[|_i] = get_saved_value(_i+1, f.SDNAME_save_name, SAVE_NAME_NULL);
         }
     }
     

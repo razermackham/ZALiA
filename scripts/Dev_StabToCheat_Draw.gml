@@ -18,12 +18,12 @@ for (i = 0; i < OPTION_CNT; i++)
     // _x += 4;
     // _y += 4;
     
-    _x = ar_hb[i,0] + 2;
-    _y = ar_hb[i,1] + 2;
+    _x = dg_hb[#i,0] + 2;
+    _y = dg_hb[#i,1] + 2;
     
-    draw_sprite_(dl_sprites[|i],0, _x, _y, ar_pi[i]);
+    draw_sprite_(dl_sprites[|i],0, _x, _y, dl_pi[|i]);
     
-    if (g.can_draw_hb) draw_rect_(c_lime, _x-2,_y-2, ar_hb[i,2],ar_hb[i,3], 1, true);
+    if (g.can_draw_hb) draw_rect_(c_lime, _x-2,_y-2, dg_hb[#i,2],dg_hb[#i,3], 1, true);
     
     
     if (inRange(i, 10,17))

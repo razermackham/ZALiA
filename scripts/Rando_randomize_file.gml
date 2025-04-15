@@ -8,8 +8,8 @@ var _QUEST_NUM      = argument[_arg++];
 var _RANDO_SETTINGS = argument[_arg++]; // encoded rando settings
 
 
-var _FILE_NAME = f.ar_FILE_NAMES[FILE_NUM-1];
-var _SAVE_NAME = f.ar_save_names[FILE_NUM-1];
+var _FILE_NAME = f.dl_file_names[|FILE_NUM-1];
+var _SAVE_NAME = f.dl_save_names[|FILE_NUM-1];
 
 
 if(!file_exists(_FILE_NAME))

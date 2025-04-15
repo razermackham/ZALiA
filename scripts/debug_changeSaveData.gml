@@ -39,7 +39,7 @@ for (i = 0; i < SAVE_FILE_MAX; i++)
     // f.crystals = 0;
     
     
-    _fileName   = f.ar_FILE_NAMES[i];
+    _fileName   = f.dl_file_names[|i];
     _file       = file_text_open_read(working_directory + _fileName);
     _file_data  = file_text_read_string(_file);
                   file_text_close(_file);

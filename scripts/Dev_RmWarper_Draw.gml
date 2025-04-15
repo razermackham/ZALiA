@@ -62,7 +62,7 @@ for(_i=0; _i<AREA_COUNT; _i++) // each area
     if (_idx==area_idx) _pi = _PI1;
     else                _pi = _PI2;
     
-    _text = ar_area[_idx];
+    _text = dl_area[|_idx];
     // if (_idx==AREA_COUNT-1)
     // {    _text = "TITLE";  }
     // else _text = g.dl_area_name[|_idx];
@@ -95,7 +95,7 @@ for(_i=0; _i<RmID_COUNT; _i++) // each rm
     if (_idx==rm_id) _pi = _PI1;
     else             _pi = _PI2;
     
-    _mapkey  = ar_area[area_idx] + hex_str(_idx);
+    _mapkey  = dl_area[|area_idx] + hex_str(_idx);
     if (is_undefined(g.dm_rm[?_mapkey+STR_Rm+STR_Num+STR_Game]))
     {
         _pi = _PI3; // rm does NOT exist
@@ -133,7 +133,7 @@ for(_i=0; _i<ExitID_COUNT; _i++) // each exit
     if (_idx==ExitID) _pi = _PI1;
     else              _pi = _PI2;
     
-    _mapkey  = ar_area[area_idx] + hex_str(rm_id) + hex_str(_idx);
+    _mapkey  = dl_area[|area_idx] + hex_str(rm_id) + hex_str(_idx);
     if (is_undefined(g.dm_rm[? _mapkey + STR_Num]))
     {
         _pi = _PI3; // exit does NOT exist

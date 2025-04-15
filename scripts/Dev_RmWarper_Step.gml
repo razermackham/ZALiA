@@ -94,7 +94,7 @@ if (_QUAL_STATE     // if right state
     // -------------------------------------------------------------------------
     if (_CONFIRM)
     {
-        if (ar_area[area_idx]==Area_Title)
+        if (dl_area[|area_idx]==Area_Title)
         {
             state = STATE_IDLE;
             goto_title_rm();
@@ -116,7 +116,7 @@ if (_QUAL_STATE     // if right state
                 goToRoom        = string_copy(goToExitName,1,RmName_LEN);
             }
             
-            sdm("area_idx $"+hex_str(area_idx)+", ar_area[area_idx] "+ar_area[area_idx]+", rm_id $"+hex_str(rm_id)+", ExitID $"+hex_str(ExitID));
+            sdm("area_idx $"+hex_str(area_idx)+", dl_area[|area_idx] "+dl_area[|area_idx]+", rm_id $"+hex_str(rm_id)+", ExitID $"+hex_str(ExitID));
             
             aud_play_sound(SND_OPTION_CONFIRM);
             aud_play_sound(SND_OPTION_SELECT1);
@@ -161,7 +161,7 @@ if (_QUAL_STATE     // if right state
             else      state = STATE_EXIT;
             
             
-            _area    = ar_area[area_idx];
+            _area    = dl_area[|area_idx];
             _rm_name = _area + hex_str(rm_id);
         }
         
@@ -192,7 +192,7 @@ if (_QUAL_STATE     // if right state
             
             for(_i=0; _i<RmID_COUNT; _i++){
                 rm_id    = _i;
-                _area    = ar_area[area_idx];
+                _area    = dl_area[|area_idx];
                 _rm_name = _area + hex_str(rm_id);
                 if(!is_undefined(g.dm_rm[?_rm_name+STR_Rm+STR_Num+STR_Game]))
                 {
@@ -213,7 +213,7 @@ if (_QUAL_STATE     // if right state
             if (_xbox_ah) _diff  = $08*_DIR;
             else          _diff  = _DIR;
             
-            _area    = ar_area[area_idx];
+            _area    = dl_area[|area_idx];
             _rm_name = _area + hex_str(rm_id);
             
             _count   = val(g.dm_rm[?_area   +STR_Rm+STR_Count]); // area rm count
@@ -302,7 +302,7 @@ switch(state)
         rm_id    = _RM_NUM;
         //area_idx = max(0,ds_list_find_index(g.dl_AREA_NAME, g.area_name));
         //rm_id    = g.rm_num;
-        _rm_name = ar_area[area_idx] + hex_str(rm_id);
+        _rm_name = dl_area[|area_idx] + hex_str(rm_id);
         
         if (is_undefined(f.reen) 
         ||  area_is_ow(  f.reen) )
@@ -396,7 +396,7 @@ if (0 && keyboard_check_pressed(vk_space)){
     for(_i=0; _i<AREA_COUNT; _i++){
         sdm("");
         _str  = "";
-        _area = ar_area[|_i];
+        _area = dl_area[|_i];
         
         _mapkey = _area + STR_Rm   + STR_Count; // This area's rm count
         _rm_count = val(g.dm_rm[?_mapkey]);

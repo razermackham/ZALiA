@@ -868,21 +868,16 @@ dm_depth_pi[?hex_str(DEPTH_FG2_P4)] = PI_BGR4; // -$110 depth
 TRIFORCE_PI = global.PI_MOB_BLU;
 triforce_pi = TRIFORCE_PI;
 //TRIFORCE_PAL_POS = val(dm_pal_data[?hex_str(triforce_pi)+STR_Palette+STR_Position]);
-/*
-var _CI1 = CI_WHT1_;
-//var _CI2 = CI_ORG4_;
-var _CI2 = CI_WHT1_;
-ar_PALSEQ_TRIFORCE[3] = CI_GRN0_ + _CI1 + CI_ORG1_ + _CI2; // 
-ar_PALSEQ_TRIFORCE[2] = CI_GRN0_ + _CI1 + CI_ORG1_ + _CI2; // 
-ar_PALSEQ_TRIFORCE[1] = CI_GRN0_ + _CI1 + CI_ORG2_ + _CI2; // 
-ar_PALSEQ_TRIFORCE[0] = CI_GRN0_ + _CI1 + CI_ORG3_ + _CI2; // 
-*/
 
+dl_triforce_pal_seq = ds_list_create();
+ds_list_add(dl_triforce_pal_seq, build_pal(C_WHT1, C_ORG3, C_WHT1, C_BLK1));
+ds_list_add(dl_triforce_pal_seq, build_pal(C_WHT1, C_ORG2, C_WHT1, C_BLK1));
+ds_list_add(dl_triforce_pal_seq, build_pal(C_WHT1, C_ORG1, C_WHT1, C_BLK1));
+ds_list_add(dl_triforce_pal_seq, build_pal(C_WHT1, C_ORG1, C_WHT1, C_BLK1));
 
 // These get set in p_Room_Start()
 global.spell_unaffordable_pi = 0;
 global.spell_futile_pi       = 0;
-
 
 
 

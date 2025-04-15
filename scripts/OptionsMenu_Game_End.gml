@@ -38,12 +38,16 @@ if (_exists)                             ds_=undefined;
 
 
 
-var          _exists = false;
+var _exists = false;
 
 
 
 
-
+    _exists=variable_instance_exists(id,"dl_tsrc_data");
+if (_exists) _exists = !is_undefined(    dl_tsrc_data);
+if (_exists) _exists = ds_exists(        dl_tsrc_data,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_tsrc_data);
+if (_exists)                             dl_tsrc_data=undefined;
 
 
 

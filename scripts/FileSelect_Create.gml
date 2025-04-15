@@ -183,8 +183,9 @@ LEVELS_X_OFF = $04<<3;
 SAVE_FILE_PAD = $18;
 
 
-sprites_fairy[1] = g.dl_Fairy_SPRITES[|1]; // spr_FairyB
-sprites_fairy[0] = g.dl_Fairy_SPRITES[|0]; // spr_FairyA
+dl_sprites_fairy = ds_list_create();
+ds_list_add(dl_sprites_fairy, g.dl_Fairy_SPRITES[|0]); // spr_FairyA
+ds_list_add(dl_sprites_fairy, g.dl_Fairy_SPRITES[|1]); // spr_FairyB
 sprites_fairy_idx = 0;
 
 
@@ -378,12 +379,14 @@ for(_file_num=1; _file_num<=SAVE_FILE_MAX; _file_num++)
 
 
 // -------------------------------------------------
-for(_i=SAVE_FILE_MAX-1;_i>=0;_i--){for(_j=6;_j>=0;_j--) stats[_i,_j]=0;}
+dg_stats = ds_grid_create(SAVE_FILE_MAX,7);
+//for(_i=SAVE_FILE_MAX-1;_i>=0;_i--){for(_j=6;_j>=0;_j--) stats[_i,_j]=0;}
 FS_set_stats();
 
-ar_spr_statIcon[2] = global.SPR_ICON_LIF;
-ar_spr_statIcon[1] = global.SPR_ICON_MAG;
-ar_spr_statIcon[0] = global.SPR_ICON_ATK;
+dl_spr_statIcon = ds_list_create();
+ds_list_add(dl_spr_statIcon,global.SPR_ICON_ATK);
+ds_list_add(dl_spr_statIcon,global.SPR_ICON_MAG);
+ds_list_add(dl_spr_statIcon,global.SPR_ICON_LIF);
 
 
 // -------------------------------------------------

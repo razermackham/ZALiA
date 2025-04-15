@@ -67,6 +67,95 @@ for(_i=CLMS-1; _i>=0; _i--){
 }
 */
 //                                      // 
+var _dl_tsrc = ds_list_create();
+// RGT end CLMS                         // 
+_idx = CLMS-1;
+_dl_tsrc[|_idx--] = ( $00<<(0<<3)) + (_TR0<<(1<<3)) + (_BR0<<(2<<3)) + ( $00<<(3<<3));
+_dl_tsrc[|_idx--] = (_TR0<<(0<<3)) + (_TR1<<(1<<3)) + (_BM0<<(2<<3)) + (_BR0<<(3<<3));
+_dl_tsrc[|_idx--] = (_TM0<<(0<<3)) + (_MT1<<(1<<3)) + (_MB0<<(2<<3)) + (_BM0<<(3<<3));
+// LFT end clms                         // 
+_idx = 0;
+_dl_tsrc[|_idx++] = ( $00<<(0<<3)) + (_TL0<<(1<<3)) + (_BL0<<(2<<3)) + ( $00<<(3<<3));
+_dl_tsrc[|_idx++] = (_TL0<<(0<<3)) + (_TL1<<(1<<3)) + (_MB0<<(2<<3)) + (_BL0<<(3<<3));
+_dl_tsrc[|_idx++] = (_TM0<<(0<<3)) + (_MT1<<(1<<3)) + (_MB0<<(2<<3)) + (_BM0<<(3<<3));
+//                                      // 
+//                                      // 
+var _dl_mid = ds_list_create();
+ds_list_add(_dl_mid, _TM_02 + _BM_00);
+ds_list_add(_dl_mid, _TM_10 + _BM_11);
+//                                      // 
+ds_list_add(_dl_mid, _TM_01 + _BM_00);
+ds_list_add(_dl_mid, _TM_02 + _BM_11);
+//                                      // 
+ds_list_add(_dl_mid, _TM_00 + _BM_00);
+ds_list_add(_dl_mid, _TM_12 + _BM_11);
+//                                      // 
+ds_list_add(_dl_mid, _TM_00 + _BM_00);
+ds_list_add(_dl_mid, _TM_02 + _BM_11);
+//                                      // 
+ds_list_add(_dl_mid, _TM_10 + _BM_00);
+ds_list_add(_dl_mid, _TM_01 + _BM_11);
+//                                      // 
+ds_list_add(_dl_mid, _TM_00 + _BM_00);
+ds_list_add(_dl_mid, _TM_12 + _BM_11);
+//                                      // 
+//                                      // 
+var _COUNT1 = ds_list_size(_dl_mid);
+var _COUNT2 =(CLMS_MIN>>1);
+var _COUNT3 = CLMS-CLMS_MIN;
+for(_i=0; _i<_COUNT3; _i++)
+{
+    _idx = _i mod _COUNT1;
+    _dl_tsrc[|_i+_COUNT2] = _dl_mid[|_idx];
+}
+//                                      // 
+//                                      // 
+var _tsrc_clm,_tsrc, _ts_x,_ts_y;
+//                                      // 
+     CLMS   = ds_list_size(_dl_tsrc);
+     CLMS   = clamp(CLMS, CLMS_MIN,CLMS_MAX);
+var _ROWS   = 4;
+//                                      // 
+var _SURF_W =  CLMS<<3;
+var _SURF_H = _ROWS<<3;
+var _SURF   = surface_create(_SURF_W,_SURF_H);
+surface_set_target(_SURF);
+draw_clear_alpha(c_white,0);
+for(_i=0; _i<CLMS; _i++) // Each clm
+{
+    _tsrc_clm = _dl_tsrc[|_i];
+    for(_j=0; _j<_ROWS; _j++) // Each row/tsrc byte
+    {
+            _tsrc = (_tsrc_clm>>(_j<<3)) &$FF;
+        if(!_tsrc) continue;
+        
+        _ts_x = ((_tsrc>>0)&$F)<<3;
+        _ts_y = ((_tsrc>>4)&$F)<<3;
+        
+        _x = _i<<3;
+        _y = _j<<3;
+        draw_background_part(g.ts_Natural1_HMS, _ts_x,_ts_y, 8,8, _x,_y);
+    }
+}
+
+Cloud_SPR1 = sprite_create_from_surface(_SURF,0,0, _SURF_W,_SURF_H, false,false, _SURF_W>>1,_SURF_H>>1);
+sprite_set_offset(Cloud_SPR1, sprite_get_width(Cloud_SPR1)>>1,sprite_get_height(Cloud_SPR1)>>1);
+GO_sprite_init(Cloud_SPR1);
+set_xy(id, xl+(_SURF_W>>1), y);
+BODY_W  = (CLMS<<3) - (abs(BODY_XOFF)<<1);
+
+
+draw_clear_alpha(c_white, 0); // Because drawn pixels will still be there.
+surface_reset_target();
+surface_free(_SURF);
+
+ds_list_destroy(_dl_tsrc); _dl_tsrc=undefined;
+ds_list_destroy(_dl_mid); _dl_mid=undefined;
+
+
+
+
+/*
 // RGT end CLMS                         // 
          _a=CLMS-1;
 _ar_TSRC[_a--] = ( $00<<(0<<3)) + (_TR0<<(1<<3)) + (_BR0<<(2<<3)) + ( $00<<(3<<3));
@@ -101,7 +190,7 @@ _ar_MID[_a++] = _TM_01 + _BM_11;        //
 _ar_MID[_a++] = _TM_00 + _BM_00;        // 
 _ar_MID[_a++] = _TM_12 + _BM_11;        // 
 //                                      // 
-var _COUNT1 = _a;
+var _COUNT1 = array_length_1d(_ar_MID);
 var _COUNT2 = (CLMS_MIN>>1);
 for(_i=0; _i<CLMS-CLMS_MIN; _i++)
 // for(_i=(CLMS_MIN>>1); _i<CLMS-(CLMS_MIN>>1); _i++)
@@ -121,8 +210,7 @@ var _SURF_W =  CLMS<<3;
 var _SURF_H = _ROWS<<3;
 var _SURF   = surface_create(_SURF_W,_SURF_H);
 surface_set_target(_SURF);
-draw_clear_alpha(c_white,0); // Because previous drawn pixels will still be there.
-//                                      // 
+draw_clear_alpha(c_white,0);
 for(_i=0; _i<CLMS; _i++) // Each clm
 {
     _tsrc_clm = _ar_TSRC[_i];
@@ -137,7 +225,6 @@ for(_i=0; _i<CLMS; _i++) // Each clm
         _x    = _i<<3;
         _y    = _j<<3;
         draw_background_part(g.ts_Natural1_HMS, _ts_x,_ts_y, 8,8, _x,_y);
-        //draw_background_part_ext(ts_Natural_1a_WRB, _ts_x,_ts_y, 8,8, _x,_y, 1,1, c_white,1);
     }
 }
 
@@ -154,6 +241,7 @@ surface_free(_SURF);
 
 _ar_TSRC = 0;
 _ar_MID  = 0;
+*/
 
 
 

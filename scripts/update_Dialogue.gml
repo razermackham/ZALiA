@@ -131,8 +131,8 @@ switch(g.menu_state)
     writ_line_char_pos  = 0; // 0489
     writ_dlg            = ""; // what's been written so far
     
-    for(_i=array_length_1d(ar_lines_written)-1; _i>=0; _i--)
-    {                      ar_lines_written[_i] = "";  }
+    for(_i=array_length_1d(dl_lines_written)-1; _i>=0; _i--)
+    {                      dl_lines_written[|_i] = "";  }
     
     
     
@@ -166,7 +166,7 @@ switch(g.menu_state)
     var _dialogue_is_special = false;
     
     
-    _val = f.ar_save_names[f.file_num-1];
+    _val = f.dl_save_names[|f.file_num-1];
     // Trim whitespaces at end.
     for(_i=string_length(_val); _i>=1; _i--)
     {
@@ -529,8 +529,8 @@ switch(g.menu_state)
                 if (_char==g.CHAR_BLANK) _char2 = " ";
                 else                     _char2 = _char;
                 
-                ar_lines_written[writ_line_idx] += _char2;
-                writ_dlg                        += _char2;
+                dl_lines_written[|writ_line_idx] += _char2;
+                writ_dlg                         += _char2;
             }
         }
         

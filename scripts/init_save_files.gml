@@ -14,7 +14,7 @@ ds_map_destroy(_dm_save_data); _dm_save_data = undefined;
 for(_i=0; _i<SAVE_FILE_MAX; _i++)
 {
     _file_num  = _i+1;
-    _file_name = f.ar_FILE_NAMES[_i];
+    _file_name = f.dl_file_names[|_i];
     
     if (file_exists(_file_name)) continue;
     

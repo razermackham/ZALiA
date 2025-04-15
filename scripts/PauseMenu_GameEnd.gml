@@ -1,6 +1,19 @@
 // PauseMenu_GameEnd()
 
 
+//ar_spell_str = 0
+
+// sprData = 0;
+
+//ar_map_anim_data = 0;
+
+//ar_win_tdata_spl = 0;
+//ar_win_tdata_itm = 0;
+//ar_win_tdata_map = 0;
+
+
+
+
 /*
 var _exists = false;
 
@@ -38,6 +51,19 @@ if (_exists)                             ds_=undefined;
 var _exists = false;
 
 
+
+
+    _exists=variable_instance_exists(id,"dl_spell_str");
+if (_exists) _exists = !is_undefined(    dl_spell_str);
+if (_exists) _exists = ds_exists(        dl_spell_str,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_spell_str);
+if (_exists)                             dl_spell_str=undefined;
+
+    _exists=variable_instance_exists(id,"dl_map_anim_data");
+if (_exists) _exists = !is_undefined(    dl_map_anim_data);
+if (_exists) _exists = ds_exists(        dl_map_anim_data,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_map_anim_data);
+if (_exists)                             dl_map_anim_data=undefined;
 
 
 
@@ -182,17 +208,5 @@ if (_exists)           ds_grid_destroy(  dg_terrain_draw);
 if (_exists)                             dg_terrain_draw=undefined;
 
 
-
-
-
-ar_spell_str = 0
-
-// sprData = 0;
-
-ar_map_anim_data = 0;
-
-ar_win_tdata_spl = 0;
-ar_win_tdata_itm = 0;
-ar_win_tdata_map = 0;
 
 

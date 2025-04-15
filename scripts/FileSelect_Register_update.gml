@@ -38,11 +38,11 @@ if (Register_cursor<SAVE_FILE_MAX) // SAVE FILE
         if (input_a_pressed 
         ||  input_start_pressed )
         {
-            var             _IDX  = Register_file_num-1;
-            f.ar_save_names[_IDX] = string_delete(      f.ar_save_names[_IDX], cursor_name+1, 1);
+            var              _IDX  = Register_file_num-1;
+            f.dl_save_names[|_IDX] = string_delete(      f.dl_save_names[|_IDX], cursor_name+1, 1);
             
             _val = string_char_at(REGI_CHARS,cursor_char+1);
-            f.ar_save_names[_IDX] = string_insert(_val, f.ar_save_names[_IDX], cursor_name+1);
+            f.dl_save_names[|_IDX] = string_insert(_val, f.dl_save_names[|_IDX], cursor_name+1);
         }
         
         cursor_name = (cursor_name+1+SAVE_NAME_CHAR_LIMIT) mod SAVE_NAME_CHAR_LIMIT;
@@ -77,20 +77,20 @@ else if (Register_cursor>SAVE_FILE_MAX) // END
         if(!get_saved_value(_FILE_NUM,f.SDNAME_saveCreated,0))
         {
             var _is_empty=true;
-            for(_i= string_length( f.ar_save_names[_FILE_NUM-1]); _i>=1; _i--)
+            for(_i= string_length( f.dl_save_names[|_FILE_NUM-1]); _i>=1; _i--)
             {
-                if (string_char_at(f.ar_save_names[_FILE_NUM-1],_i)!=" ")
+                if (string_char_at(f.dl_save_names[|_FILE_NUM-1],_i)!=" ")
                 {
                     _is_empty=false;
                     break;//_i
                 }
             }
             
-            if (_is_empty) f.ar_save_names[_FILE_NUM-1] = "-";
+            if (_is_empty) f.dl_save_names[|_FILE_NUM-1] = "-";
             FileSelect_register_file(_FILE_NUM);
         }
         /*
-        var _SAVE_NAME = f.ar_save_names[_FILE_NUM-1];
+        var _SAVE_NAME = f.dl_save_names[|_FILE_NUM-1];
         if (_SAVE_NAME != SAVE_NAME_NULL 
         && !get_saved_value(_FILE_NUM,f.SDNAME_saveCreated,0) )
         {

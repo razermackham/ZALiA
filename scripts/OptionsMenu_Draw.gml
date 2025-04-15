@@ -18,18 +18,17 @@ var _text, _text2;
 var _pi = PI_MENU;
 
 
-var _ar_STATE_TEXT1=0;
-    _ar_STATE_TEXT1[1]="ON";
-    _ar_STATE_TEXT1[0]="OFF";
-//
-var _ar_STATE_TEXT2=0;
-    _ar_STATE_TEXT2[1]="SHOW";
-    _ar_STATE_TEXT2[0]="HIDE";
-//
-var _ar_STATE_TEXT3=0;
-    _ar_STATE_TEXT3[1]="YES";
-    _ar_STATE_TEXT3[0]="NO";
-//
+var _dg_state_text = ds_grid_create(0,2);
+_idx = -1;
+ds_grid_resize(_dg_state_text, (++_idx)+1, 2);
+_dg_state_text[#_idx,0] = "OFF";
+_dg_state_text[#_idx,1] = "ON";
+ds_grid_resize(_dg_state_text, (++_idx)+1, 2);
+_dg_state_text[#_idx,0] = "HIDE";
+_dg_state_text[#_idx,1] = "SHOW";
+ds_grid_resize(_dg_state_text, (++_idx)+1, 2);
+_dg_state_text[#_idx,0] = "NO";
+_dg_state_text[#_idx,1] = "YES";
 
 
 
@@ -417,16 +416,16 @@ switch(Menu_in_focus)
                 }
             break;}
             
-            //case MainOption_HUD_STATE:         {_text2=_ar_STATE_TEXT1[sign(g.HUD_state)]; break;}
+            //case MainOption_HUD_STATE:         {_text2=_dg_state_text[#0,sign(g.HUD_state)]; break;}
             //case MainOption_HUD_STATE:         {_text2=string(g.HUD_state); break;}
-            case MainOption_RENDER_DELAY:      {_text2=_ar_STATE_TEXT1[sign(global.RenderFrameDelay_state)]; break;}
-            case MainOption_SCREEN_SHAKE:      {_text2=_ar_STATE_TEXT1[sign(g.ScreenShake_user_pref)]; break;}
+            case MainOption_RENDER_DELAY:      {_text2=_dg_state_text[#0,sign(global.RenderFrameDelay_state)]; break;}
+            case MainOption_SCREEN_SHAKE:      {_text2=_dg_state_text[#0,sign(g.ScreenShake_user_pref)]; break;}
             case MainOption_DIALOGUE_SPEED:    {_text2=string(g.mod_DLG_SPEED+1); break;}
-            //case MainOption_SHOW_ACTIVE_SPELLS:{_text2=_ar_STATE_TEXT2[sign(g.mod_IndicateSpellActive)]; break;}
-            case MainOption_STAB_FRENZY:       {_text2=_ar_STATE_TEXT1[sign(g.mod_StabFrenzy)]; break;}
-            //case MainOption_CUCCO_PERMANANT:   {_text2=_ar_STATE_TEXT1[sign(g.CuccoSpell2_Option)]; break;}
-            case MainOption_ANARKHYA_OW:       {_text2=_ar_STATE_TEXT1[sign(g.anarkhyaOverworld_use)]; break;}
-            case MainOption_HALLOWEEN1:        {_text2=_ar_STATE_TEXT3[sign(global.Halloween1_enabled)]; break;}
+            //case MainOption_SHOW_ACTIVE_SPELLS:{_text2=_dg_state_text[#1,sign(g.mod_IndicateSpellActive)]; break;}
+            case MainOption_STAB_FRENZY:       {_text2=_dg_state_text[#0,sign(g.mod_StabFrenzy)]; break;}
+            //case MainOption_CUCCO_PERMANANT:   {_text2=_dg_state_text[#0,sign(g.CuccoSpell2_Option)]; break;}
+            case MainOption_ANARKHYA_OW:       {_text2=_dg_state_text[#0,sign(g.anarkhyaOverworld_use)]; break;}
+            case MainOption_HALLOWEEN1:        {_text2=_dg_state_text[#2,sign(global.Halloween1_enabled)]; break;}
         }
         
         if (_text2!=0)
@@ -434,9 +433,9 @@ switch(Menu_in_focus)
             _x = _TextArea2_XL;
             _y = _y1;
             
-            if (_text2==_ar_STATE_TEXT1[0] 
-            ||  _text2==_ar_STATE_TEXT2[0] 
-            ||  _text2==_ar_STATE_TEXT3[0] )
+            if (_text2==_dg_state_text[#0,0] 
+            ||  _text2==_dg_state_text[#1,0] 
+            ||  _text2==_dg_state_text[#2,0] )
             {    _pi = PI_DARK1;  }
             else _pi = PI_MENU;
             draw_text_(_x,_y, _text2, _font, _pi);
@@ -584,26 +583,26 @@ switch(Menu_in_focus)
         
         _text2=0;
         switch(_i){
-        case DevTools_DEV_TOOLS_STATE:{_text2=_ar_STATE_TEXT1[sign(g.DevTools_state)]; break;}
-        case DevTools_APP_PERFORMANCE:{_text2=_ar_STATE_TEXT2[sign(g.can_show_debug_overlay)]; break;}
-        case DevTools_HITBOXES:       {_text2=_ar_STATE_TEXT2[sign(g.can_draw_hb)]; break;}
-        case DevTools_SCP:            {_text2=_ar_STATE_TEXT2[sign(g.can_draw_cs)]; break;}
-        case DevTools_XY:             {_text2=_ar_STATE_TEXT2[sign(g.canDraw_ogXY)]; break;}
-        case DevTools_OCS:            {_text2=_ar_STATE_TEXT2[sign(g.can_draw_ocs)]; break;}
-        case DevTools_OG_CAM:         {_text2=_ar_STATE_TEXT2[sign(g.can_draw_og_cam_outline)]; break;}
-        case DevTools_HP:             {_text2=_ar_STATE_TEXT2[sign(g.can_draw_hp)]; break;}
+        case DevTools_DEV_TOOLS_STATE:{_text2=_dg_state_text[#0,sign(g.DevTools_state)]; break;}
+        case DevTools_APP_PERFORMANCE:{_text2=_dg_state_text[#1,sign(g.can_show_debug_overlay)]; break;}
+        case DevTools_HITBOXES:       {_text2=_dg_state_text[#1,sign(g.can_draw_hb)]; break;}
+        case DevTools_SCP:            {_text2=_dg_state_text[#1,sign(g.can_draw_cs)]; break;}
+        case DevTools_XY:             {_text2=_dg_state_text[#1,sign(g.canDraw_ogXY)]; break;}
+        case DevTools_OCS:            {_text2=_dg_state_text[#1,sign(g.can_draw_ocs)]; break;}
+        case DevTools_OG_CAM:         {_text2=_dg_state_text[#1,sign(g.can_draw_og_cam_outline)]; break;}
+        case DevTools_HP:             {_text2=_dg_state_text[#1,sign(g.can_draw_hp)]; break;}
         case DevTools_SPRITE_OUTLINE: {_text2=string(g.canDrawSprOutline); break;}
-        case DevTools_FRAME_COUNT:    {_text2=_ar_STATE_TEXT2[sign(global.App_frame_count_can_draw)]; break;}
-        case DevTools_BGR_BLACK:      {_text2=_ar_STATE_TEXT1[sign(g.all_bg_black_only)]; break;}
+        case DevTools_FRAME_COUNT:    {_text2=_dg_state_text[#1,sign(global.App_frame_count_can_draw)]; break;}
+        case DevTools_BGR_BLACK:      {_text2=_dg_state_text[#0,sign(g.all_bg_black_only)]; break;}
         
-        case DevTools_EXITS:          {_text2=_ar_STATE_TEXT2[sign(g.can_draw_Exit_hb)]; break;}
-        case DevTools_SOLID_TILES:    {_text2=_ar_STATE_TEXT1[sign(g.can_show_t_solid)]; break;}
-        case DevTools_UNIQUE_TILES:   {_text2=_ar_STATE_TEXT1[sign(g.can_show_t_unique)]; break;}
-        case DevTools_DUNGEON_MAP:    {_text2=_ar_STATE_TEXT1[sign(g.dev_DungeonMapShowAll)]; break;}
-        case DevTools_ADD_ITEMS:      {_text2=_ar_STATE_TEXT1[sign(g.use_StabToCheat)]; break;}
-        case DevTools_DOUBLE_JUMP:    {_text2=_ar_STATE_TEXT1[sign(g.DoubleJump_state)]; break;}
-        //case DevTools_DOUBLE_JUMP:    {_text2=_ar_STATE_TEXT1[sign(f.items&ITM_FTHR)]; break;}
-        case DevTools_PC_DASH:        {_text2=_ar_STATE_TEXT1[sign(g.DevDash_state)]; break;}
+        case DevTools_EXITS:          {_text2=_dg_state_text[#1,sign(g.can_draw_Exit_hb)]; break;}
+        case DevTools_SOLID_TILES:    {_text2=_dg_state_text[#0,sign(g.can_show_t_solid)]; break;}
+        case DevTools_UNIQUE_TILES:   {_text2=_dg_state_text[#0,sign(g.can_show_t_unique)]; break;}
+        case DevTools_DUNGEON_MAP:    {_text2=_dg_state_text[#0,sign(g.dev_DungeonMapShowAll)]; break;}
+        case DevTools_ADD_ITEMS:      {_text2=_dg_state_text[#0,sign(g.use_StabToCheat)]; break;}
+        case DevTools_DOUBLE_JUMP:    {_text2=_dg_state_text[#0,sign(g.DoubleJump_state)]; break;}
+        //case DevTools_DOUBLE_JUMP:    {_text2=_dg_state_text[#0,sign(f.items&ITM_FTHR)]; break;}
+        case DevTools_PC_DASH:        {_text2=_dg_state_text[#0,sign(g.DevDash_state)]; break;}
         case DevTools_INVULNERABILITY:{_text2=string(g.dev_invState&$F); break;}
         }//switch(_i)
         
@@ -611,8 +610,8 @@ switch(Menu_in_focus)
         {
             _x = _TextArea2_XL;
             
-            if (_text2==_ar_STATE_TEXT1[0] 
-            ||  _text2==_ar_STATE_TEXT2[0] )
+            if (_text2==_dg_state_text[#0,0] 
+            ||  _text2==_dg_state_text[#1,0] )
             {    _pi = PI_DARK1;  }
             else _pi = PI_MENU;
             
@@ -673,13 +672,13 @@ switch(Menu_in_focus)
         
         _text2=0;
         switch(_i){
-        case RandoOptions_MARK_ACQUIRED:   {if (_option_is_avail){_text2=_ar_STATE_TEXT1[sign(g.can_mark_acquired_item_locations)];} break;}
-        case RandoOptions_MAPS_SHOW_KEYS:  {if (_option_is_avail){_text2=_ar_STATE_TEXT1[sign(g.RandoKeys_MAP_items_show_keys)];} break;}
-        case RandoOptions_RANDO_ENEMY:     {if (_option_is_avail){_text2=_ar_STATE_TEXT1[sign(g.Rando_enemy)];} break;}
-        case RandoOptions_RANDO_OW_TILES:  {if (_option_is_avail){_text2=_ar_STATE_TEXT1[sign(global.can_rando_ow_tsrc)];} break;}
-        case RandoOptions_SCENES:          {if (_option_is_avail){_text2=_ar_STATE_TEXT1[sign(global.SceneRando_enabled)];} break;}
+        case RandoOptions_MARK_ACQUIRED:   {if (_option_is_avail){_text2=_dg_state_text[#0,sign(g.can_mark_acquired_item_locations)];} break;}
+        case RandoOptions_MAPS_SHOW_KEYS:  {if (_option_is_avail){_text2=_dg_state_text[#0,sign(g.RandoKeys_MAP_items_show_keys)];} break;}
+        case RandoOptions_RANDO_ENEMY:     {if (_option_is_avail){_text2=_dg_state_text[#0,sign(g.Rando_enemy)];} break;}
+        case RandoOptions_RANDO_OW_TILES:  {if (_option_is_avail){_text2=_dg_state_text[#0,sign(global.can_rando_ow_tsrc)];} break;}
+        case RandoOptions_SCENES:          {if (_option_is_avail){_text2=_dg_state_text[#0,sign(global.SceneRando_enabled)];} break;}
         case RandoOptions_RANDO_PALETTE:   {if (_option_is_avail){_text2=string(g.RandoPalette_state);} break;}
-        case RandoOptions_MARK_HIDDEN_EXIT:{if (_option_is_avail){_text2=_ar_STATE_TEXT1[sign(g.hidden_item_exits_help)];} break;}
+        case RandoOptions_MARK_HIDDEN_EXIT:{if (_option_is_avail){_text2=_dg_state_text[#0,sign(g.hidden_item_exits_help)];} break;}
         }//switch(_i)
         
         if (_option_is_avail) _pi = PI_MENU;
@@ -697,8 +696,8 @@ switch(Menu_in_focus)
             _pi = PI_MENU;
             if (OptionsMenu_option_is_avail(Menu_RANDO_OPTIONS,_i))
             {
-                if (_text2==_ar_STATE_TEXT1[0] 
-                ||  _text2==_ar_STATE_TEXT2[0] )
+                if (_text2==_dg_state_text[#0,0] 
+                ||  _text2==_dg_state_text[#1,0] )
                 {
                     _pi = PI_DARK1;
                 }
@@ -753,14 +752,10 @@ switch(Menu_in_focus)
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
-_ar_STATE_TEXT1 = 0;
-_ar_STATE_TEXT2 = 0;
-
 draw_rows_count = 0;
 
 
-
-// ----------------------------------------------------------------------------------
+ds_grid_destroy(_dg_state_text); _dg_state_text=undefined;
 
 
 

@@ -1,8 +1,13 @@
 /// DialogueWindow_Game_End()
 
 
-var i;
-var _exists = false;
+//ar_lines_written    = 0;
+
+if (surface_exists(WINDOW_FRAME1_SRF))
+{   surface_free(  WINDOW_FRAME1_SRF);  }
+
+if (surface_exists(WINDOW_FRAME2_SRF))
+{   surface_free(  WINDOW_FRAME2_SRF);  }
 /*
 var _exists = false;
 
@@ -33,14 +38,16 @@ if (_exists)                             ds_=undefined;
 */
 
 
-ar_lines_written    = 0;
 
-if (surface_exists(WINDOW_FRAME1_SRF))
-{   surface_free(  WINDOW_FRAME1_SRF);  }
 
-if (surface_exists(WINDOW_FRAME2_SRF))
-{   surface_free(  WINDOW_FRAME2_SRF);  }
+var _exists = false;
 
+
+    _exists=variable_instance_exists(id,"dl_lines_written");
+if (_exists) _exists = !is_undefined(    dl_lines_written);
+if (_exists) _exists = ds_exists(        dl_lines_written,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_lines_written);
+if (_exists)                             dl_lines_written=undefined;
 
 
 

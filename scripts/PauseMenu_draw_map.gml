@@ -255,7 +255,7 @@ else if (paper_drawn_clms>2)
 
 // PC --------------------------
 // -----------------------------------------------------------------------
-if (map_anim_idx+1==array_length_1d(ar_map_anim_data))
+if (map_anim_idx+1==ds_list_size(dl_map_anim_data))
 {
     /*  TODO: Finish this code for MAP ITEMS
     if(!g.dungeon_num 

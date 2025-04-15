@@ -3,7 +3,7 @@
 
 // g.lu = id;
 
-var i, _idx;
+var _i, _idx;
 
 
 var _MIN = min(STAT_ATK,STAT_MAG,STAT_LIF); // 0,1,2
@@ -24,30 +24,16 @@ var _TEXT_WILL      = "WILL";
 var _TEXT_GO_UP     = "GO UP";
 
 
-                  _idx = 0;
-//
-IDX_TEXT_CLM    = _idx;
-                  _idx++
-//
-IDX_TEXT_ROW    = _idx;
-                  _idx++
-//
-IDX_TEXT        = _idx;
-                  _idx++
-//
-IDX_LVLS_ROW    = _idx;
-                  _idx++
-//
-IDX_ICON_SPR    = _idx;
-                  _idx++
-//
-IDX_CAN_LVL     = _idx;
-                  _idx++
-//
+               _idx = 0;
+IDX_TEXT_CLM = _idx++;
+IDX_TEXT_ROW = _idx++;
+IDX_TEXT     = _idx++;
+IDX_LVLS_ROW = _idx++;
+IDX_ICON_SPR = _idx++;
+IDX_CAN_LVL  = _idx++;
 
 var _count  = _MAX+1;   // 3  levels: atk, mag, lif
     _count += 5;        // 4  text: NEXT, UP, CANCEL, WILL, GO UP
-
 dg_DATA = ds_grid_create(_count, _idx+1);
 
 
@@ -55,15 +41,15 @@ dg_DATA = ds_grid_create(_count, _idx+1);
 
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
-LVL_SECTIONS_ROW  = 4;
-LVL_SECTION_ROWS  = 5;
+LVL_SECTIONS_ROW = 4;
+LVL_SECTION_ROWS = 5;
 
 
 // 8x8 tiles
 CLMS  = g.GUI_WIN_CLMS1; // 8x8
 ROWS  = 2;                      // Border rows
 ROWS += 3;                      // NEXT UP & CANCEL section
-ROWS += (LVL_SECTION_ROWS * 3); // LEVEL UP SECTIONS
+ROWS += LVL_SECTION_ROWS * 3; // LEVEL UP SECTIONS
 // ROWS = $14; // 8x8. $14 == 20
 
 
@@ -72,29 +58,26 @@ CLM_LVL_ICON = CLMS - 1 - STAT_LEVEL_MAX;
 
 
 CLM_XP = 1; // align left in case xp goes to a 5th digit
-// CLM_XP = 4; // OG aligns it right starting at this clm
+//CLM_XP = 4; // OG aligns it right starting at this clm
 
 
 
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
-var _ar_TEXT = 0;
-for (i = 0; i <= _MAX; i++)
-{   _ar_TEXT[i] = "-O..O-";  }
-    _ar_TEXT[STAT_ATK] = _TEXT_LVL_ATK;
-    _ar_TEXT[STAT_MAG] = _TEXT_LVL_MAG;
-    _ar_TEXT[STAT_LIF] = _TEXT_LVL_LIF;
-
-for (i = _MIN; i <= _MAX; i++)
+var _dm_text = ds_map_create();
+_dm_text[?hex_str(STAT_ATK)] = _TEXT_LVL_ATK;
+_dm_text[?hex_str(STAT_MAG)] = _TEXT_LVL_MAG;
+_dm_text[?hex_str(STAT_LIF)] = _TEXT_LVL_LIF;
+for(_i=_MIN; _i<=_MAX; _i++)
 {
-    dg_DATA[#i,IDX_TEXT]     = _ar_TEXT[i];
+    dg_DATA[#_i,IDX_TEXT]     = _dm_text[?hex_str(_i)];
     
-    dg_DATA[#i,IDX_LVLS_ROW] = LVL_SECTIONS_ROW + (LVL_SECTION_ROWS * (i-_MIN));
+    dg_DATA[#_i,IDX_LVLS_ROW] = LVL_SECTIONS_ROW + (LVL_SECTION_ROWS * (_i-_MIN));
     
-    dg_DATA[#i,IDX_TEXT_CLM] = CLM_LVL_TEXT;
-    dg_DATA[#i,IDX_TEXT_ROW] = dg_DATA[#i,IDX_LVLS_ROW] + 1;
+    dg_DATA[#_i,IDX_TEXT_CLM] = CLM_LVL_TEXT;
+    dg_DATA[#_i,IDX_TEXT_ROW] = dg_DATA[#_i,IDX_LVLS_ROW] + 1;
 }
-_ar_TEXT = 0;
+ds_map_destroy(_dm_text); _dm_text=undefined;
 
 
 
@@ -181,27 +164,19 @@ var _TSRC_DATA4 = _V  +  string_repeat(_E,  CLMS-2)  +  _V;     // Side 2 (Next/
 //
 
 
+dl_tsrc_data = ds_list_create();
 // Side 1                       "1" +   "&&&&" + "&&&&" + "&&&&"   +  "1"
-for (i = ROWS-1; i >= 0; i--)
-{   ar_TSRC_DATA[i]                     = _TSRC_DATA3;  }
-
+for(_i=0; _i<ROWS; _i++) ds_list_add(dl_tsrc_data,_TSRC_DATA3);
 
 // Hor bar 2 (Next/Cancel)      "2" +   "0000" + "2000" + "0000"   +  "2"
-    ar_TSRC_DATA[0]                     = _TSRC_DATA2;
-    ar_TSRC_DATA[LVL_SECTIONS_ROW-1]    = _TSRC_DATA2;
-
+dl_tsrc_data[|0]                  = _TSRC_DATA2;
+dl_tsrc_data[|LVL_SECTIONS_ROW-1] = _TSRC_DATA2;
 
 // Side 2 (Next/Cancel)         "1" +   "&&&&" + "1&&&" + "&&&&"   +  "1"
-for (i = 1; i < 1 + (LVL_SECTIONS_ROW-2); i++)
-{   ar_TSRC_DATA[i]                     = _TSRC_DATA4;  }
-
+for(_i=1; _i<1+(LVL_SECTIONS_ROW-2); _i++) dl_tsrc_data[|_i] = _TSRC_DATA4;
 
 // Hor bar 1                    "2" +   "0000" + "0000" + "0000"   +  "2";
-for (i = 0; i < 4; i++) {
-                 _idx  = LVL_SECTIONS_ROW + (LVL_SECTION_ROWS * i);
-    ar_TSRC_DATA[_idx]                  = _TSRC_DATA1;
-}
-
+for(_i=0; _i<4; _i++) dl_tsrc_data[|LVL_SECTIONS_ROW+(LVL_SECTION_ROWS*_i)] = _TSRC_DATA1;
 /*
 ar_TSRC_DATA[ 0] = _TSRC_DATA2; // Hor bar 2 (Next/Cancel)
 ar_TSRC_DATA[ 1] = _TSRC_DATA4; // Side 2 (Next/Cancel)
@@ -240,9 +215,8 @@ canDrawStatIcon = 1;
 
 
 
-statXPNext[2] = 0;
-statXPNext[1] = 0;
-statXPNext[0] = 0;
+dl_xp_next_stat = ds_list_create();
+ds_list_add(dl_xp_next_stat,0,0,0);
 
 
 

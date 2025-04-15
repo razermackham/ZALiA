@@ -85,44 +85,44 @@ dl_sprites[|$1F] = spr_0; // For suicide.
 // OBJ_CNT = array_length_1d(ar_spr);
 
 
-for(_i=OPTION_CNT-1; _i>=0; _i--) ar_pi[_i]=0;
-ar_pi[ 0] = global.PI_MOB_ORG; // 
-ar_pi[ 1] = global.PI_MOB_ORG; // 
-ar_pi[ 2] = global.PI_MOB_ORG; // 
-ar_pi[ 3] = global.PI_MOB_ORG; // 
-ar_pi[ 4] = global.PI_MOB_ORG; // 
-ar_pi[ 5] = global.PI_MOB_ORG; // 
-ar_pi[ 6] = global.PI_MOB_ORG; // 
-ar_pi[ 7] = global.PI_MOB_ORG; // 
+dl_pi = ds_list_create();
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
 
-ar_pi[ 8] = global.PI_PC1; // 
-ar_pi[ 9] = global.PI_PC1; // 
+ds_list_add(dl_pi,get_pi(global.PI_PC1));
+ds_list_add(dl_pi,get_pi(global.PI_PC1));
 
-ar_pi[10] = global.PI_MOB_BLU; // 
-ar_pi[11] = global.PI_MOB_BLU; // 
-ar_pi[12] = global.PI_MOB_BLU; // 
-ar_pi[13] = global.PI_MOB_BLU; // 
-ar_pi[14] = global.PI_MOB_BLU; // 
-ar_pi[15] = global.PI_MOB_BLU; // 
-ar_pi[16] = global.PI_MOB_BLU; // 
-ar_pi[17] = global.PI_MOB_BLU; // 
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_BLU));
 
-ar_pi[18] = global.PI_MOB_RED; // 
-ar_pi[19] = global.PI_MOB_RED; // 
+ds_list_add(dl_pi,get_pi(global.PI_MOB_RED));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_RED));
 
-ar_pi[20] = global.PI_GUI1; // 
-ar_pi[21] = global.PI_GUI1; // 
-ar_pi[22] = global.PI_GUI1; //
-ar_pi[23] = ar_pi[20];
-ar_pi[24] = ar_pi[21];
-ar_pi[25] = ar_pi[22];
-ar_pi[26] = global.PI_MOB_RED;
-ar_pi[27] = global.PI_MOB_ORG;
-ar_pi[28] = global.PI_MOB_ORG;
-ar_pi[29] = global.PI_MOB_ORG;
-ar_pi[30] = global.PI_MOB_ORG;
+ds_list_add(dl_pi,get_pi(global.PI_GUI1));
+ds_list_add(dl_pi,get_pi(global.PI_GUI1));
+ds_list_add(dl_pi,get_pi(global.PI_GUI1));
+ds_list_add(dl_pi,dl_pi[|ds_list_size(dl_pi)-3]);
+ds_list_add(dl_pi,dl_pi[|ds_list_size(dl_pi)-3]);
+ds_list_add(dl_pi,dl_pi[|ds_list_size(dl_pi)-3]);
+ds_list_add(dl_pi,get_pi(global.PI_MOB_RED));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
+ds_list_add(dl_pi,get_pi(global.PI_MOB_ORG));
 
-ar_pi[31] = global.PI_PC1; // suicide
+ds_list_add(dl_pi,get_pi(global.PI_PC1)); // suicide
 
 
 
@@ -145,6 +145,7 @@ ROW_OFF  = $02; //
 // X_BASE  =  $; // 
 // Y_BASE  =  $; // 
 
+dg_hb = ds_grid_create(OPTION_CNT,4);
 Dev_StabToCheat_update_1a();
 
 

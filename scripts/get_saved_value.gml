@@ -10,7 +10,7 @@ var _DATAKEY  = string(argument[_arg++]);
 var _DEFAULT  =        argument[_arg++];
 
 
-var _FILE_NAME = f.ar_FILE_NAMES[_FILE_NUM-1];
+var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
 if(!file_exists(_FILE_NAME)) return _DEFAULT;
 
 var _FILE      = file_text_open_read(working_directory+_FILE_NAME);

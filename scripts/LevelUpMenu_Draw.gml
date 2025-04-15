@@ -17,7 +17,7 @@ if(!global.App_frame_count
     {
         for(_j=0; _j<CLMS; _j++) // each clm
         {
-                _tsrc = string_char_at(ar_TSRC_DATA[_i], _j+1);
+                _tsrc = string_char_at(dl_tsrc_data[|_i], _j+1);
             if (_tsrc=="0" 
             ||  _tsrc=="1" 
             ||  _tsrc=="2" )
@@ -192,7 +192,7 @@ for(_i=0; _i<3; _i++)
     {
         _x = drawX + (CLM_XP<<3);
         _y = drawY + ((dg_DATA[#_i,IDX_TEXT_ROW]+1)<<3);
-        draw_text_(_x,_y, string(statXPNext[_i]));
+        draw_text_(_x,_y, string(dl_xp_next_stat[|_i]));
     }
 }
 

@@ -10,9 +10,9 @@ var _dm_save_data = ds_map_create();
 
 var _SAVE_IS_CREATED_STATE = !_WILL_ELIMINATE;
 
-var _FILE_NAME = f.ar_FILE_NAMES[_FILE_NUM-1];
+var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
 
-var                  _SAVE_NAME = f.ar_save_names[_FILE_NUM-1];
+var                  _SAVE_NAME = f.dl_save_names[|_FILE_NUM-1];
 if (_WILL_ELIMINATE) _SAVE_NAME = SAVE_NAME_NULL; // SAVE_NAME_NULL: Indicates save slot is avail for creation.
 
 

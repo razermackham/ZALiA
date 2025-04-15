@@ -1025,52 +1025,34 @@ with(g)
 // _idx_obj:  0   1   2   3,    4   5   6   7,    8   9   A   B,    C   D   E   F
 // _TYPES:   01, 02, 01, 01,   01, 01, 01, 02,   02, 01, 02, 01,   01, 03, 01, 03
 
-var _ar_id = 0;
-//                              // 
-       _a=0;                // 
-_ar_id[_a,0] = g.ENC_WEAK; // _idx_obj:  0
-_ar_id[_a,1] = g.ENC_STRG; // _idx_obj:  1
-_ar_id[_a,2] = g.ENC_WEAK; // _idx_obj:  2
-_ar_id[_a,3] = g.ENC_WEAK; // _idx_obj:  3
-       _a++;                // 
-//                              // 
-_ar_id[_a,0] = g.ENC_WEAK; // _idx_obj:  4
-_ar_id[_a,1] = g.ENC_WEAK; // _idx_obj:  5
-_ar_id[_a,2] = g.ENC_WEAK; // _idx_obj:  6
-_ar_id[_a,3] = g.ENC_STRG; // _idx_obj:  7
-       _a++;                // 
-//                              // 
-_ar_id[_a,0] = g.ENC_STRG; // _idx_obj:  8
-_ar_id[_a,1] = g.ENC_WEAK; // _idx_obj:  9
-_ar_id[_a,2] = g.ENC_STRG; // _idx_obj:  A
-_ar_id[_a,3] = g.ENC_WEAK; // _idx_obj:  B
-       _a++;                // 
-//                              // 
-_ar_id[_a,0] = g.ENC_WEAK; // _idx_obj:  C
-_ar_id[_a,1] = g.ENC_FARY; // _idx_obj:  D
-_ar_id[_a,2] = g.ENC_WEAK; // _idx_obj:  E
-_ar_id[_a,3] = g.ENC_FARY; // _idx_obj:  F
-       _a++;                // 
-//                              // 
-// _ar_id[_a,0] = g.ENC_; // _idx_obj:  
-// _ar_id[_a,1] = g.ENC_; // _idx_obj:  
-// _ar_id[_a,2] = g.ENC_; // _idx_obj:  
-// _ar_id[_a,3] = g.ENC_; // _idx_obj:  
-//        _a++;           // 
-//                              // 
-//
-_clms = array_height_2d(_ar_id);
-_rows = array_length_2d(_ar_id,0);
-dg_enc_obj_id_spawn_data_2 = ds_grid_create(_clms,_rows);
-for(_i=_clms-1; _i>=0; _i--)
-{
-    for(_j=_rows-1; _j>=0; _j--)
-    {
-        dg_enc_obj_id_spawn_data_2[#_i,_j] = _ar_id[_i,_j];
-    }
-}
+dg_enc_obj_id_spawn_data_2 = ds_grid_create(0,4);
 
-_ar_id = 0;
+_idx = -1;
+ds_grid_resize(dg_enc_obj_id_spawn_data_2, (++_idx)+1, ds_grid_height(dg_enc_obj_id_spawn_data_2));
+dg_enc_obj_id_spawn_data_2[#_idx,0] = g.ENC_WEAK; // _idx_obj:  0
+dg_enc_obj_id_spawn_data_2[#_idx,1] = g.ENC_STRG; // _idx_obj:  1
+dg_enc_obj_id_spawn_data_2[#_idx,2] = g.ENC_WEAK; // _idx_obj:  2
+dg_enc_obj_id_spawn_data_2[#_idx,3] = g.ENC_WEAK; // _idx_obj:  3
+//                                                  //
+ds_grid_resize(dg_enc_obj_id_spawn_data_2, (++_idx)+1, ds_grid_height(dg_enc_obj_id_spawn_data_2));
+dg_enc_obj_id_spawn_data_2[#_idx,0] = g.ENC_WEAK; // _idx_obj:  4
+dg_enc_obj_id_spawn_data_2[#_idx,1] = g.ENC_WEAK; // _idx_obj:  5
+dg_enc_obj_id_spawn_data_2[#_idx,2] = g.ENC_WEAK; // _idx_obj:  6
+dg_enc_obj_id_spawn_data_2[#_idx,3] = g.ENC_STRG; // _idx_obj:  7
+//                                                  //
+ds_grid_resize(dg_enc_obj_id_spawn_data_2, (++_idx)+1, ds_grid_height(dg_enc_obj_id_spawn_data_2));
+dg_enc_obj_id_spawn_data_2[#_idx,0] = g.ENC_STRG; // _idx_obj:  8
+dg_enc_obj_id_spawn_data_2[#_idx,1] = g.ENC_WEAK; // _idx_obj:  9
+dg_enc_obj_id_spawn_data_2[#_idx,2] = g.ENC_STRG; // _idx_obj:  A
+dg_enc_obj_id_spawn_data_2[#_idx,3] = g.ENC_WEAK; // _idx_obj:  B
+//                                                  //
+ds_grid_resize(dg_enc_obj_id_spawn_data_2, (++_idx)+1, ds_grid_height(dg_enc_obj_id_spawn_data_2));
+dg_enc_obj_id_spawn_data_2[#_idx,0] = g.ENC_WEAK; // _idx_obj:  C
+dg_enc_obj_id_spawn_data_2[#_idx,1] = g.ENC_FARY; // _idx_obj:  D
+dg_enc_obj_id_spawn_data_2[#_idx,2] = g.ENC_WEAK; // _idx_obj:  E
+dg_enc_obj_id_spawn_data_2[#_idx,3] = g.ENC_FARY; // _idx_obj:  F
+//                                                  //
+
 
 
 

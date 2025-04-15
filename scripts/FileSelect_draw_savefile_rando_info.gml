@@ -4,7 +4,7 @@
 var _datakey,_datakey1;
 
 var _FILE_NUM  = argument0;
-var _FILE_NAME = f.ar_FILE_NAMES[_FILE_NUM-1];
+var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
 var _FILE      = file_text_open_read(working_directory+_FILE_NAME);
 var _FILE_DATA = file_text_read_string(_FILE);
                  file_text_close(      _FILE);
@@ -83,7 +83,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
             else    _x = _XL1;
             _y = _Area_YT;
             _font_sprite = FONT_SPRITE1;
-            _text  = f.ar_save_names[_FILE_NUM-1];
+            _text  = f.dl_save_names[|_FILE_NUM-1];
             _text += " - RANDO INFO";
             draw_text_(_x,_y, _text, _font_sprite);
             

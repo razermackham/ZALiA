@@ -5,6 +5,7 @@ CamZoom_test1();
 
 
 
+
 if (RetroShaders_can_draw)
 {
     //display_set_gui_size(Window_w,Window_h);
@@ -157,6 +158,22 @@ else if(!global.application_surface_draw_enable_state)
     draw_surface(application_surface, 0,0);
 }
 
+
+
+
+
+
+
+/*
+if(!g.app_paused 
+&&  Input.GP_Other5_held      // trig L held
+&&  Input.GP_Other6_held      // trig R held
+&&  Input.GP_Other4_held      // bump R held
+&&  Input.GP_Other3_pressed ) // bump L pressed
+{
+    g.app_paused = true;
+}
+*/
 
 
 

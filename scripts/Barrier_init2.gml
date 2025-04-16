@@ -17,7 +17,7 @@ dl_sprites[|0] = spr_Barrier_1a;
 
 dg_PI_SEQ_IDX = $08;
 GO_init_palidx(p.dg_PI_SEQ[#dg_PI_SEQ_IDX,0]);
-p.dg_PI_SEQ[#dg_PI_SEQ_IDX,2] = add_pi_permut(p.dg_PI_SEQ[#dg_PI_SEQ_IDX,0], "WBRGYMKC", "Barrier");
+p.dg_PI_SEQ[#dg_PI_SEQ_IDX,2] = add_pi_permut(p.dg_PI_SEQ[#dg_PI_SEQ_IDX,0], "WBRGYKMC", "Barrier");
 
 
 Anim_VER  = 1; // 0: OG, 1: Vertical Movement 1, 2: Vertical Movement 2

@@ -108,9 +108,9 @@ else
 // dg_PI_SEQ[#0,1] = PI_MOB1;
 // dg_PI_SEQ[#0,2] = PI_MOB2;
 // dg_PI_SEQ[#0,3] = PI_MOB3;
-     if (stun_timer)           palidx = p.dg_PI_SEQ[#0,(stun_timer>>1)&$3]; // changes color every 2 frames
-else if (is_cucco || is_fairy) palidx = p.dg_PI_SEQ[#0,sign(is_fairy)];
-else                           palidx = p.dg_PI_SEQ[#0,0];
+     if (stun_timer)           palidx = p.dg_PI_SEQ[#is_cucco, (stun_timer>>1)&$3]; // changes color every 2 frames
+else if (is_cucco || is_fairy) palidx = p.dg_PI_SEQ[#$0,sign(is_fairy)];
+else                           palidx = p.dg_PI_SEQ[#$0,0];
 
 
 _c1 = stun_timer || p.SpellFlash_PC_timer;

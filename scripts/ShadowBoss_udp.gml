@@ -22,9 +22,8 @@ if (g.mod_ShadowBoss_DrawWithFairy
     //GO_set_sprite(id,g.pc.dl_ShadowBoss_SPRITES[|behavior]);
     behavior_at_udp = behavior;
     
-    palidx  = palidx_def; // palidx_def: PI_MOB_RED
-    palidx += (g.boss_stun_timer>>1)&$1; // Stun flash
-    //palidx  = get_pi(palidx); // ShadowBoss doesn't call EF11
+    if ((g.boss_stun_timer>>1)&$1) palidx = global.PI_MOB_BLU; // stun flash
+    else                           palidx = palidx_def;
     
     GO_update_cam_vars(); // MOD
     

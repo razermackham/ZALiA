@@ -46,13 +46,9 @@ palette_image = 0;
 
 // WRBGYMKC. W: WHITE, R: RED, B: BLUE, G: GREEN, Y: YELLOW, M: MAGENTA, K: BLACK, C: CYAN
 global.PAL_BASE_COLOR_ORDER = "WRBGYMKC";
-//if (global.PAL_SYS_VER<4) global.PAL_BASE_COLOR_ORDER = "GWRB";
-
-global.PAL_CHAR_PER_COLOR = 6; // full color hex
-//if (global.PAL_SYS_VER<4) global.PAL_CHAR_PER_COLOR = 2; // idx of p.dl_COLORS
-global.COLORS_PER_PALETTE = string_length(global.PAL_BASE_COLOR_ORDER);
-
-global.PAL_CHAR_PER_PAL = global.COLORS_PER_PALETTE*global.PAL_CHAR_PER_COLOR;
+global.COLORS_PER_PALETTE   = string_length(global.PAL_BASE_COLOR_ORDER);
+global.PAL_CHAR_PER_COLOR   = 6; // full color hex
+global.PAL_CHAR_PER_PAL     = global.COLORS_PER_PALETTE * global.PAL_CHAR_PER_COLOR;
 
 
 
@@ -936,108 +932,95 @@ PAL_POS_MOB4_DARK = PAL_POS_MOB4 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
 
 
 PAL_BASE = build_pal(C_WHT0,C_RED0,C_BLU0,C_GRN0,C_YLW0,C_MGN0,C_BLK0,C_CYN0);
-
-_count1 = 4;
-global.PAL_COL_SET_A  = color_str(C_BLK1);
-global.PAL_COL_SET_A += string_copy(PAL_BASE, (global.PAL_CHAR_PER_COLOR*_count1)+1, global.PAL_CHAR_PER_COLOR*(global.COLORS_PER_PALETTE-_count1));
-
+//                                                                          //
+//                                                                          //
+//                                                                          //
 PAL_GUI1 = build_pal(C_WHT1,C_RED3,C_VLT3); // standard
 PAL_GUI2 = build_pal(C_GRY1,C_GRY4,C_BLK1); // grey
 PAL_GUI3 = build_pal(C_ORG1,C_ORG3,C_BLK1); // ?
 PAL_GUI4 = build_pal(C_WHT1,C_RED3,C_VLT3); // ?
 //                                                                          //
-PAL_PC_1 = build_pal(C_RED1,C_GRN2,C_YLW3,C_BLK1,C_SWDH); // tunic green
-PAL_PC_2 = build_pal(C_RED1,C_RED3,C_YLW3,C_BLK1,C_SWDH); // tunic red
-PAL_PC_3 = build_pal(C_RED1,C_BLU3,C_GRY4,C_BLK1,C_SWDH); // tunic blue
-PAL_PC_C = build_pal(C_RED1,C_RED3,C_BLK1,C_BLK1,C_SWDH); // disguise
+PAL_MENU_BLU1 = build_pal(C_WHT1,C_BLU2,C_VLT3); // blue    menu
+PAL_MENU_BLU2 = build_pal(C_WHT1,C_BLU2,C_BLU3); // blue    menu
 //                                                                          //
-PAL_PC_4 = build_pal(C_BLU2,C_VLT4,C_VLT4,C_BLK1); // spell light
-PAL_PC_5 = build_pal(C_WHT1,C_BLU1,C_BLU1,C_BLK1); // spell mid
-PAL_PC_6 = build_pal(C_VLT3,C_WHT1,C_WHT1,C_BLK1); // spell dark
 //                                                                          //
-PAL_PC_7 = build_pal(C_BLU2,C_BLU3,C_VLT4,C_BLK1); // dark room tunic green
-PAL_PC_A = build_pal(C_BLU2,C_VLT3,C_VLT4,C_BLK1); // dark room tunic red
-PAL_PC_B = build_pal(C_BLU2,C_VLT2,C_VLT4,C_BLK1); // dark room tunic blue
+PAL_PC_1 = build_pal(C_RED1,C_GRN2,C_YLW3,C_BLK1,C_SWDH,-2,-2,-2); // tunic green
+PAL_PC_2 = build_pal(C_RED1,C_RED3,C_YLW3,C_BLK1,C_SWDH,-2,-2,-2); // tunic red
+PAL_PC_3 = build_pal(C_RED1,C_BLU3,C_GRY4,C_BLK1,C_SWDH,-2,-2,-2); // tunic blue
+PAL_PC_C = build_pal(C_RED1,C_RED3,C_BLK1,C_BLK1,C_SWDH,-2,-2,-2); // disguise
 //                                                                          //
-PAL_CUC1 = build_pal(C_WHT1,C_ORG2,C_GRN3,C_BLK1); // cucco tunic green
-PAL_CUC2 = build_pal(C_WHT1,C_ORG2,C_RED3,C_BLK1); // cucco tunic red
-PAL_CUC3 = build_pal(C_WHT1,C_ORG2,C_BLU3,C_BLK1); // cucco tunic blue
+PAL_PC_4 = build_pal(C_BLU2,C_VLT4,C_VLT4,C_BLK1,-2,-2,-2,-2); // spell light
+PAL_PC_5 = build_pal(C_WHT1,C_BLU1,C_BLU1,C_BLK1,-2,-2,-2,-2); // spell mid
+PAL_PC_6 = build_pal(C_VLT3,C_WHT1,C_WHT1,C_BLK1,-2,-2,-2,-2); // spell dark
 //                                                                          //
-PAL_CUC5 = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1); // cucco disguise
+PAL_PC_7 = build_pal(C_BLU2,C_BLU3,C_VLT4,C_BLK1,-2,-2,-2,-2); // dark room tunic green
+PAL_PC_A = build_pal(C_BLU2,C_VLT3,C_VLT4,C_BLK1,-2,-2,-2,-2); // dark room tunic red
+PAL_PC_B = build_pal(C_BLU2,C_VLT2,C_VLT4,C_BLK1,-2,-2,-2,-2); // dark room tunic blue
 //                                                                          //
-_pos  = string_pos("B",global.PAL_BASE_COLOR_ORDER) - 1; // color order index
-_pos *= global.PAL_CHAR_PER_COLOR;
-_pos++; // +1 because string
-switch(g.mod_PC_OUTLINE_COLOR){
-case 1:{
-PAL_PC_1 = strReplaceAt(PAL_PC_1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_YLW4));
-PAL_PC_1 = strReplaceAt(PAL_PC_1, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_PC_1,0,"B")));
-PAL_PC_2 = strReplaceAt(PAL_PC_2, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_YLW4));
-PAL_PC_2 = strReplaceAt(PAL_PC_2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_PC_1,0,"B")));
-break;}
-case 2:{
-PAL_PC_1 = strReplaceAt(PAL_PC_1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_ORG4));
-PAL_PC_1 = strReplaceAt(PAL_PC_1, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_PC_1,0,"B")));
-PAL_PC_2 = strReplaceAt(PAL_PC_2, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_ORG4));
-PAL_PC_2 = strReplaceAt(PAL_PC_2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_PC_1,0,"B")));
-break;}
-}
+PAL_CUC1 = build_pal(C_WHT1,C_ORG2,C_GRN3,C_BLK1,-2,-2,-2,-2); // cucco tunic green
+PAL_CUC2 = build_pal(C_WHT1,C_ORG2,C_RED3,C_BLK1,-2,-2,-2,-2); // cucco tunic red
+PAL_CUC3 = build_pal(C_WHT1,C_ORG2,C_BLU3,C_BLK1,-2,-2,-2,-2); // cucco tunic blue
+PAL_CUC5 = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // cucco disguise
+//                                                                          //
 
 
 
 
-PAL_MOB_ORG1  = build_pal(C_WHT1,C_ORG2,C_RED3,C_BLK1); // orange  mob
+PAL_MOB_ORG1  = build_pal(C_WHT1,C_ORG2,C_RED3,C_BLK1,-2,-2,-2,-2); // orange  mob
 //                                                                          //
-PAL_MOB_RED1  = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1); // red     mob
-PAL_MOB_RED2  = build_pal(C_WHT1,C_RED3,C_ORG4,C_BLK1); // red     mob (dungeon)
+PAL_MOB_RED1  = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // red     mob
+PAL_MOB_RED2  = build_pal(C_WHT1,C_RED3,C_ORG4,C_BLK1,-2,-2,-2,-2); // red     mob (dungeon)
 //                                                                          //
-PAL_MOB_BLU1  = build_pal(C_WHT1,C_CYN2,C_CYN4,C_BLK1); // blue    mob (non-dungeon)
-PAL_MOB_BLU2  = build_pal(C_WHT1,C_BLU2,C_BLU4,C_BLK1); // blue    mob (dungeon)
+PAL_MOB_BLU1  = build_pal(C_WHT1,C_CYN2,C_CYN4,C_BLK1,-2,-2,-2,-2); // blue    mob (non-dungeon)
+PAL_MOB_BLU2  = build_pal(C_WHT1,C_BLU2,C_BLU4,C_BLK1,-2,-2,-2,-2); // blue    mob (dungeon)
 //                                                                          //
-PAL_MOB_PUR1  = build_pal(C_WHT1,C_PUR3,C_PUR4,C_BLK1); // purple  mob
+PAL_MOB_PUR1  = build_pal(C_WHT1,C_PUR3,C_PUR4,C_BLK1,-2,-2,-2,-2); // purple  mob
+PAL_MOB_PUR2  = strReplaceAt(PAL_MOB_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_BLK1)); // purple  mob
+PAL_MOB_PUR2  = strReplaceAt(PAL_MOB_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_MOB_PUR2,0,"B")));
 //                                                                          //
-PAL_NPC_ORG1  = PAL_MOB_ORG1;                           // orange  npc
 //                                                                          //
-PAL_NPC_RED1  = build_pal(C_RED1,C_RED3,C_BLK1,C_BLK1); // red     npc
-PAL_NPC_BLU1  = build_pal(C_RED1,C_VLT3,C_BLK1,C_BLK1); // blue    npc
-//PAL_NPC_BLU1  = build_pal(C_RED1,C_BLU2,C_BLK1,C_BLK1); // blue    npc
-PAL_NPC_PUR1  = build_pal(C_RED1,C_PUR3,C_BLK1,C_BLK1); // purple  npc
+PAL_NPC_ORG1  = PAL_MOB_ORG1;                                       // orange  npc
+//                                                                          //
+PAL_NPC_RED1  = build_pal(C_RED1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // red     npc
+//                                                                          //
+PAL_NPC_BLU1  = build_pal(C_RED1,C_VLT3,C_BLK1,C_BLK1,-2,-2,-2,-2); // blue    npc
+PAL_NPC_BLU2  = PAL_MOB_BLU1; // Bulblin
+//                                                                          //
+PAL_NPC_PUR1  = build_pal(C_RED1,C_PUR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // purple  npc
 PAL_NPC_PUR2  = strReplaceAt(PAL_NPC_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_YLW4)); // dark brown outline
 PAL_NPC_PUR2  = strReplaceAt(PAL_NPC_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_NPC_PUR2,0,"B")));
 //                                                                          //
 PAL_NPC_SET1  = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU1 + PAL_NPC_PUR1;
+PAL_NPC_SET2  = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU2 + PAL_NPC_PUR1; // Bulblin
+//                                                                          //
 //                                                                          //
 //                                                                          //
 PAL_MOB_SET1  = PAL_MOB_ORG1 + PAL_MOB_RED1 + PAL_MOB_BLU1 + PAL_MOB_PUR1; // non-dungeon
 PAL_MOB_SET2  = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU2 + PAL_MOB_PUR1; // dungeon
-//                                                                          //
-//                                                                          //
-PAL_MENU_BLU1 = build_pal(C_WHT1,C_BLU2,C_VLT3); // blue    menu
-//                                                                          //
-PAL_MENU_BLU2 = build_pal(C_WHT1,C_BLU2,C_BLU3); // blue    menu
+PAL_MOB_SET3  = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU1 + PAL_MOB_PUR2; // 
 //                                                                          //
 
 
 
 
-var _BGR00 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1); // 
-var _BGR01 = build_pal(C_VLT3,C_VLT4,C_BLK1,C_BLK1); // Dark room pal 1a
-var _BGR02 = build_pal(C_VLT4,C_BLK1,C_BLK1,C_BLK1); // Dark room pal 1b
-var _BGR03 = build_pal(C_BLK1,C_BLK1,C_GRY4,C_BLK1); // Dark room pal 2a
-var _BGR04 = build_pal(C_CYN4,C_BLK1,C_BLK1,C_BLK1); // Dungeon, Dark full.
-var _BGR05 = build_pal(C_BLK1,C_RED3,C_BLK1,C_BLK1); // Dark rm liquid
-var _BGR06 = build_pal(C_VLT3,C_BLU4,C_BLK1,C_BLK1); // Dark room pal 1b
-var _BGR07 = build_pal(C_CYN4,C_BLU4,C_BLK1,C_BLK1); // Dungeon, Dark 1a.
-var _BGR08 = build_pal(C_BLU4,C_BLK1,C_BLK1,C_BLK1); // 
-var _BGR09 = build_pal(C_ORG2,C_ORG4,C_BLK1,C_BLK1); // Cave. 1 torch lit
-var _BGR0A = build_pal(C_GRY4,C_BLK1,C_GRY3,C_BLK1); // Dark rm 
-var _BGR0B = build_pal(C_VLT4,C_BLK1,C_BLK1,C_BLK1); // Dark rm liquid
+var _BGR00 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _BGR01 = build_pal(C_VLT3,C_VLT4,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dark room pal 1a
+var _BGR02 = build_pal(C_VLT4,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dark room pal 1b
+var _BGR03 = build_pal(C_BLK1,C_BLK1,C_GRY4,C_BLK1,-2,-2,-2,-2); // Dark room pal 2a
+var _BGR04 = build_pal(C_CYN4,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dungeon, Dark full.
+var _BGR05 = build_pal(C_BLK1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dark rm liquid
+var _BGR06 = build_pal(C_VLT3,C_BLU4,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dark room pal 1b
+var _BGR07 = build_pal(C_CYN4,C_BLU4,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dungeon, Dark 1a.
+var _BGR08 = build_pal(C_BLU4,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _BGR09 = build_pal(C_ORG2,C_ORG4,C_BLK1,C_BLK1,-2,-2,-2,-2); // Cave. 1 torch lit
+var _BGR0A = build_pal(C_GRY4,C_BLK1,C_GRY3,C_BLK1,-2,-2,-2,-2); // Dark rm 
+var _BGR0B = build_pal(C_VLT4,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dark rm liquid
 
-var _MOB00 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1); // red & blue mob dark rm. 0 torch lit
-var _MOB01 = build_pal(C_ORG2,C_BLK1,C_BLK1,C_BLK1); // orange     mob dark rm. 1 torch lit
-var _MOB02 = build_pal(C_RED3,C_BLK1,C_BLK1,C_BLK1); // red        mob dark rm. 1 torch lit
-var _MOB03 = build_pal(C_BLU2,C_BLK1,C_BLK1,C_BLK1); // blue       mob dark rm. 1 torch lit
-var _MOB04 = build_pal(C_PUR3,C_BLK1,C_BLK1,C_BLK1); // purple     mob dark rm. 1 torch lit
+var _MOB00 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // red & blue mob dark rm. 0 torch lit
+var _MOB01 = build_pal(C_ORG2,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // orange     mob dark rm. 1 torch lit
+var _MOB02 = build_pal(C_RED3,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // red        mob dark rm. 1 torch lit
+var _MOB03 = build_pal(C_BLU2,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // blue       mob dark rm. 1 torch lit
+var _MOB04 = build_pal(C_PUR3,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // purple     mob dark rm. 1 torch lit
 //var _MOB04 = build_pal(get_pal_color(PAL_NPC_PUR1,0,"R"),C_BLK1,C_BLK1,C_BLK1); // purple     mob dark rm. 1 torch lit
 //var _MOB04 = build_pal(C_MGN3,C_BLK1,C_BLK1,C_BLK1); // purple     mob dark rm. 1 torch lit
 
@@ -1149,15 +1132,15 @@ for(_i=ds_grid_height(dg_pal_rm_dark)-1; _i>=0; _i--)
 
 
 
-var _SET1 = build_pal(C_RED3,C_GRY4,C_BLK1,C_BLK1); // 
-var _PAL1 = build_pal(C_WHT1,C_WHT1,C_WHT1); // 
-var _PAL2 = build_pal(C_RED1,C_GRY1,C_PUR4); // 
+var _SET1 = build_pal(C_RED3,C_GRY4,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _PAL1 = build_pal(C_WHT1,C_WHT1,C_WHT1,C_BLK1,-2,-2,-2,-2); // 
+var _PAL2 = build_pal(C_RED1,C_GRY1,C_PUR4,C_BLK1,-2,-2,-2,-2); // 
 var _PAL3 = PAL_MOB_ORG1; // 
-var _PAL4 = build_pal(C_WHT2,C_WHT1,C_ORG4); // 
-var _PAL5 = build_pal(C_ORG2,C_ORG2,C_BLK1); // 
-var _PAL6 = build_pal(C_RED2,C_BLK1,C_BLK1); // 
-var _PAL7 = build_pal(C_WHT1,C_RED3,C_BLK1); // 
-var _PAL8 = build_pal(C_WHT1,C_CYN2,C_BLK1); // 
+var _PAL4 = build_pal(C_WHT2,C_WHT1,C_ORG4,C_BLK1,-2,-2,-2,-2); // 
+var _PAL5 = build_pal(C_ORG2,C_ORG2,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _PAL6 = build_pal(C_RED2,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _PAL7 = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _PAL8 = build_pal(C_WHT1,C_CYN2,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
 
 // File Select screen
              _dk   = room_get_name(rmB_FileSelect);
@@ -1171,10 +1154,10 @@ dm_pal_data[?_dk] +=_PAL6 + _PAL1 + _PAL1 + _PAL2  // bgr
 dm_pal_data[?_dk] +=_PAL3 + _PAL7 + _PAL8 + _PAL2; // mob
 
 OW_PAL  = PAL_SET2;
-OW_PAL += build_pal(C_CYN1,C_BLU3,C_BLK1); // BGR1
-OW_PAL += build_pal(C_WHT1,C_YGR2,C_YGR3); // BGR2
-OW_PAL += build_pal(C_WHT1,C_YLW2,C_ORG3); // BGR3
-OW_PAL += build_pal(C_WHT1,C_YLW2,C_GRY3); // BGR4
+OW_PAL += build_pal(C_CYN1,C_BLU3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BGR1
+OW_PAL += build_pal(C_WHT1,C_YGR2,C_YGR3,C_BLK1,-2,-2,-2,-2); // BGR2
+OW_PAL += build_pal(C_WHT1,C_YLW2,C_ORG3,C_BLK1,-2,-2,-2,-2); // BGR3
+OW_PAL += build_pal(C_WHT1,C_YLW2,C_GRY3,C_BLK1,-2,-2,-2,-2); // BGR4
 OW_PAL += PAL_MOB_ORG1; // MOB ORG
 OW_PAL += PAL_MOB_RED2; // MOB RED
 OW_PAL += PAL_MOB_BLU2; // MOB BLU
@@ -1240,10 +1223,10 @@ dg_pal_seq = ds_grid_create(0,4);
 // triforce flashing
 _idx = ds_grid_width(dg_pal_seq)-1;
 ds_grid_resize(dg_pal_seq, (++_idx)+1,ds_grid_height(dg_pal_seq));
-dg_pal_seq[#_idx,0] = build_pal(C_WHT1,C_ORG3,C_WHT1); // 
-dg_pal_seq[#_idx,1] = build_pal(C_WHT1,C_ORG2,C_WHT1); // 
-dg_pal_seq[#_idx,2] = build_pal(C_WHT1,C_ORG1,C_WHT1); // 
-dg_pal_seq[#_idx,3] = build_pal(C_WHT1,C_ORG1,C_WHT1); // 
+dg_pal_seq[#_idx,0] = build_pal(C_WHT1,C_ORG3,C_WHT1,C_BLK1,-2,-2,-2,-2); // 
+dg_pal_seq[#_idx,1] = build_pal(C_WHT1,C_ORG2,C_WHT1,C_BLK1,-2,-2,-2,-2); // 
+dg_pal_seq[#_idx,2] = build_pal(C_WHT1,C_ORG1,C_WHT1,C_BLK1,-2,-2,-2,-2); // 
+dg_pal_seq[#_idx,3] = build_pal(C_WHT1,C_ORG1,C_WHT1,C_BLK1,-2,-2,-2,-2); // 
 
 pal_seq_idx2 = 0;
 
@@ -1267,13 +1250,19 @@ dg_PI_SEQ[#$00,1] = global.PI_MOB_ORG;
 dg_PI_SEQ[#$00,2] = global.PI_MOB_RED;
 dg_PI_SEQ[#$00,3] = global.PI_MOB_BLU;
 //                                      //
+// $01: Cucco stun. These will be given permuts in PC_Room_Start()
+dg_PI_SEQ[#$01,0] = global.PI_CUCCO1;
+dg_PI_SEQ[#$01,1] = dg_PI_SEQ[#$00,1];
+dg_PI_SEQ[#$01,2] = dg_PI_SEQ[#$00,2];
+dg_PI_SEQ[#$01,3] = dg_PI_SEQ[#$00,3];
+//                                      //
 // $04: PC spell flash
 dg_PI_SEQ[#$04,0] = global.PI_SPELL_PC3; // Dark
 dg_PI_SEQ[#$04,1] = global.PI_SPELL_PC1; // Light
 dg_PI_SEQ[#$04,2] = global.PI_SPELL_PC2; // Mid
 dg_PI_SEQ[#$04,3] = global.PI_SPELL_PC1; // Light
 //                                      //
-// $05: Cucco spell flash. This will be set in PC_Room_Start
+// $05: Cucco spell flash. These will be given permuts in PC_Room_Start()
 dg_PI_SEQ[#$05,0] = dg_PI_SEQ[#$04,0]; // Dark
 dg_PI_SEQ[#$05,1] = dg_PI_SEQ[#$04,1]; // Light
 dg_PI_SEQ[#$05,2] = dg_PI_SEQ[#$04,2]; // Mid
@@ -1329,8 +1318,8 @@ fall_scene_pal_state   = 0; // 0484
 fall_scene_pal_set     = 0; // grid idx of dg_FS_PI
 FallScene_PI_BASE      = global.PI_BGR1;
 
-fall_scene_1_pal = build_pal(C_CYN3,C_CYN4,C_CYN2);
-fall_scene_2_pal = build_pal(C_RED3,C_RED4,C_RED2);
+fall_scene_1_pal = build_pal(C_CYN3,C_CYN4,C_CYN2,C_BLK1,-2,-2,-2,-2);
+fall_scene_2_pal = build_pal(C_RED3,C_RED4,C_RED2,C_BLK1,-2,-2,-2,-2);
 //fall_scene_1_pal = $1C0C2C;
 //fall_scene_2_pal = $160626;
 fall_scene_pal = fall_scene_1_pal; // pal for active fall scene
@@ -1587,11 +1576,6 @@ if (0) // *** Turning this off because rando seems to be picking them too often
 // so it's quicker to get palette data.
 p_init_palette_data2();
 //dev_automate_palette_data2(); // automates code for p_init_palette_data2()
-/*
-p_init_palette_data();
-//dev_automate_palette_data(); // automates code for p_init_palette_data()
-*/
-
 
 
 

@@ -34,7 +34,7 @@ var _depth,_depth_idx;
 var _pi, _permut;
 var _ts,_ts1,_ts2, _ts_x,_ts_y, _tsrc,_tsrc1,_tsrc2;
 var _tile_w,_tile_h, _tile_id, _tile_num_of_ts, _tile_data, _tile_count, _layer_name, _hide_val;
-var _str,_char, _name, _pos, _ts_name;
+var _str,_char, _name, _pos, _ts_name, _data;
 var _dk;
 var _rm_has_burnables=false;
 
@@ -239,7 +239,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
     
     if (string_pos("tile_data_system",_layer_name))
     {
-        _pos=string_pos("v.",_layer_name)+2;
+        _pos = string_pos("v.",_layer_name)+2;
         _data_system_ver = str_hex(string_copy(_layer_name, _pos, 2));
         break;//_i
     }
@@ -300,20 +300,48 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
         _pi  = global.PI_BGR1 + _pi;
         //_pi -= _data_system_ver==3 && _pi>5;
         //_pi  = global.PI_BGR1 + (_pi-1);
+        _permut = 1;
         
-            _pos = string_pos(_STR_PERMUT,_layer_name);
-        if (_pos) _permut = str_hex(string_copy(_layer_name, _pos+string_length(_STR_PERMUT), 2)); // 01-06
-        else      _permut = 1;
-                  _permut--; // (01 through 06)-1 = (00 through 05)
-                  _permut = clamp(_permut, 0,PI_PERMUTATIONS-1); // 00-05
-        //
-        switch(_permut){
-        case 1:{_pi=add_pi_permut(_pi, "WBRGYMKC", _name+" permut "+"WBRGYMKC"); break;}
-        case 2:{_pi=add_pi_permut(_pi, "RWBGYMKC", _name+" permut "+"RWBGYMKC"); break;}
-        case 3:{_pi=add_pi_permut(_pi, "RBWGYMKC", _name+" permut "+"RBWGYMKC"); break;}
-        case 4:{_pi=add_pi_permut(_pi, "BWRGYMKC", _name+" permut "+"BWRGYMKC"); break;}
-        case 5:{_pi=add_pi_permut(_pi, "BRWGYMKC", _name+" permut "+"BRWGYMKC"); break;}
+        if (_data_system_ver<4)
+        {
+                _pos = string_pos(_STR_PERMUT,_layer_name);
+            if (_pos) _permut = str_hex(string_copy(_layer_name, _pos+string_length(_STR_PERMUT), 2)); // 01-06
+            else      _permut = 1;
+                      _permut--; // (01 through 06)-1 = (00 through 05)
+                      _permut = clamp(_permut, 0,PI_PERMUTATIONS-1); // 00-05
+            switch(_permut){
+            case 1:{_pi=add_pi_permut(_pi, "WBRGYKMC", _name+" permut "+"WBRGYKMC"); break;}
+            case 2:{_pi=add_pi_permut(_pi, "RWBGMYKC", _name+" permut "+"RWBGMYKC"); break;}
+            case 3:{_pi=add_pi_permut(_pi, "RBWGMKYC", _name+" permut "+"RBWGMKYC"); break;}
+            case 4:{_pi=add_pi_permut(_pi, "BWRGKYMC", _name+" permut "+"BWRGKYMC"); break;}
+            case 5:{_pi=add_pi_permut(_pi, "BRWGKMYC", _name+" permut "+"BRWGKMYC"); break;}
+            }
         }
+        else
+        {
+            _pos = string_pos(_STR_PERMUT,_layer_name);
+            if (_pos)
+            {   // _layer_name example: "BG0302, PERMUT_RWBGYMKC"
+                _pos += string_length(_STR_PERMUT);
+                _data = strR(_layer_name,_pos);
+                _data = string_copy(_data, 1, min(global.COLORS_PER_PALETTE,string_length(_data)));
+                _permut = "";
+                _count1 = string_length(_data);
+                for(_j=0; _j<_count1; _j++)
+                {
+                    _char = string_char_at(_data,_j+1);
+                    if(!string_pos(_char,global.PAL_BASE_COLOR_ORDER))
+                    {
+                        //break;//_j
+                    }
+                    
+                    _permut += _char;
+                }
+                
+                _pi = add_pi_permut(_pi, _permut, _name+" permut "+_permut);
+            }
+        }
+        
         
         p.dg_depth_pi[#_idx,0] = _pi;     // pi default
         p.dg_depth_pi[#_idx,1] = _pi;     // pi current

@@ -12,9 +12,9 @@ if (ver==2)
     
     var _dl_color_order = ds_list_create();
     ds_list_add(_dl_color_order,global.PAL_BASE_COLOR_ORDER);
-    ds_list_add(_dl_color_order,"RBWGYMKC");
-    ds_list_add(_dl_color_order,"BWRGYMKC");
-    ds_list_add(_dl_color_order,"RBWGYMKC");
+    ds_list_add(_dl_color_order,"RBWGMKYC");
+    ds_list_add(_dl_color_order,"BWRGKYMC");
+    ds_list_add(_dl_color_order,"RBWGMKYC");
     
     
     _count1 = ds_list_size(_dl_color_order);

@@ -37,11 +37,11 @@ if(    !is_undefined(         dk_spawn)){
 
 switch(_pi_permut){
 default:{PALIDX=_pi_base; break;}
-case  1:{PALIDX=add_pi_permut(_pi_base,"WBRGYMKC","Fountain"); break;}
-case  2:{PALIDX=add_pi_permut(_pi_base,"RWBGYMKC","Fountain"); break;}
-case  3:{PALIDX=add_pi_permut(_pi_base,"RBWGYMKC","Fountain"); break;}
-case  4:{PALIDX=add_pi_permut(_pi_base,"BWRGYMKC","Fountain"); break;}
-case  5:{PALIDX=add_pi_permut(_pi_base,"BRWGYMKC","Fountain"); break;}
+case  1:{PALIDX=add_pi_permut(_pi_base,"WBRGYKMC","Fountain"); break;}
+case  2:{PALIDX=add_pi_permut(_pi_base,"RWBGMYKC","Fountain"); break;}
+case  3:{PALIDX=add_pi_permut(_pi_base,"RBWGMKYC","Fountain"); break;}
+case  4:{PALIDX=add_pi_permut(_pi_base,"BWRGKYMC","Fountain"); break;}
+case  5:{PALIDX=add_pi_permut(_pi_base,"BRWGKMYC","Fountain"); break;}
 }
 
 GO_init_palidx(_pi_base);

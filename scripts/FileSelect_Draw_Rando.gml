@@ -9,7 +9,7 @@ var _datakey1;
 var _char_w = 8;
 var _char_h = 8;
 
-var _PI_DARK1 = add_pi_permut(global.PI_GUI2, "RBWGYMKC", "FileSelect_Draw_Rando() dark text 1");
+var _PI_DARK1 = add_pi_permut(global.PI_GUI2, "RBWGMKYC", "FileSelect_Draw_Rando() dark text 1");
 var _PI_DARK2 = global.PI_GUI2;
 
 var _FONT_SPRITE1 = spr_Font1;

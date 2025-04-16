@@ -55,7 +55,7 @@ if (g.mod_ContinueScreen_Music==1)
 }
 
 
-SaveFlash_PAL = build_pal(p.C_RED2,p.C_RED3,p.C_BLK1);
+SaveFlash_PAL = build_pal(p.C_RED2,p.C_RED3,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
 change_pal(strReplaceAt(p.pal_rm_curr, p.PAL_POS_BGR1, string_length(SaveFlash_PAL), SaveFlash_PAL));
 
 

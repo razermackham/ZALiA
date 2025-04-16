@@ -14,13 +14,13 @@ scr_draw = Cutscene_ShadowBoss_2_draw;
 
 
 triforce_can_draw = 0;
-TRIFORCE_SPR    = spr_Triforce_1a;
-p.triforce_pi   = p.TRIFORCE_PI;
+TRIFORCE_SPR      = spr_Triforce_1a;
+p.triforce_pi     = p.TRIFORCE_PI;
 //p.triforce_pi   = PI_BGR_4;
 
 
-                     BOSS_SPAWN_DK   = undefined;
-with(BOSS_OBJ) other.BOSS_SPAWN_DK   = dk_spawn;
+                     BOSS_SPAWN_DK = undefined;
+with(BOSS_OBJ) other.BOSS_SPAWN_DK = dk_spawn;
 
 ARENA_X = 0;
 //with(BOSS_OBJ) other.ARENA_X = arena_x;
@@ -40,9 +40,8 @@ if (f.quest_num>=2)
     
     Boss_can_draw   = false;
     Boss_SPR        = 0;
-    //Boss_SPR        = spr_DarkLonk_Damage_2a;
-    Boss_PI         = global.PI_MOB_PUR;
-    //Boss_PI         = PI_DARKLONK;
+    Boss_PI         = global.PI_GUI3; // Greyscale, like PI_GUI2
+    //Boss_PI         = global.PI_MOB_PUR;
     Boss_pi         = Boss_PI;
     Boss_x          = 0;
     Boss_y          = 0;

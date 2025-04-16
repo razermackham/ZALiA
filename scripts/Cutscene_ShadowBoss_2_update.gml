@@ -75,6 +75,11 @@ switch(sub_state)
     if (p.Flash_Bgr_timer==$01)
     {
         change_pal(p.pal_rm_def);
+        //var            _pi = global.PI_MOB_RED;
+        //with(BOSS_OBJ) _pi = palidx_def;
+        
+        var _PAL = build_pal(p.C_GRY1,p.C_GRY4,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
+        change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(Boss_PI), string_length(_PAL), _PAL));
         global.BackgroundColor_scene = p.C_BLK1;
     }
     
@@ -132,6 +137,7 @@ switch(sub_state)
         g.pc.WalkTo_active = false;
         
         set_xy(g.pc, _TARGET_X, g.pc.y);
+        g.pc.hspd = 0;
         
         PC_set_behavior(g.pc.behavior_IDLE);
         g.pc.xScale = 1;
@@ -341,6 +347,15 @@ switch(sub_state)
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  2ND QUEST  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // ======================================================================================
     // ----------------------------------------------------------------------------------
     case sub_state_FILL_BOTTLE1:{
@@ -349,17 +364,15 @@ switch(sub_state)
     
     if (Boss_y <= Boss_Target_y+(Boss_Raise_DIST-(Boss_Raise_DIST>>2))) Boss_can_draw = true;
     else                                                                Boss_can_draw = g.counter1&$1; // fade in
-    //if (Boss_y >= Boss_Target_y+(Boss_Raise_DIST-(Boss_Raise_DIST>>2))) Boss_can_draw = g.counter1&$1; // fade in
-    //ekse Boss_can_draw = true;
     
     if (g.cutscene_timer)
-    {
+    {   // Reveal ShadowBoss Corpse flash
         var _IDX = (g.cutscene_timer>>1)&$3;
         if(!_IDX) Boss_pi = Boss_PI;
-        else      Boss_pi = p.dg_PI_SEQ[#$04,_IDX]; // pc spell flash pi's
+        else      Boss_pi = p.dg_PI_SEQ[#4,_IDX]; // 4: pc spell flash pi's
     }
     else
-    {
+    {   // Blink slow then increase frequency as corpse slowly raises
         var  _TIMING = $8;
         if (Boss_y < Boss_Target_y+(Boss_Raise_DIST>>2))
         {    _TIMING = _TIMING>>1;  }
@@ -396,6 +409,7 @@ switch(sub_state)
     Boss_can_draw   = true;
     Bottle_can_draw = true;
     
+    // Blink fast during bleeding delay
     var               _TIMING = $4;
     if (g.counter1 &  _TIMING 
     &&  g.counter1 & (_TIMING>>1) )
@@ -421,6 +435,7 @@ switch(sub_state)
     Boss_can_draw   = true;
     Bottle_can_draw = true;
     
+    // Damage flash to indicate skin has been cut
     if (g.cutscene_timer)
     {
         switch((g.cutscene_timer>>1)&$3){
@@ -456,6 +471,7 @@ switch(sub_state)
     Boss_can_draw   = true;
     Bottle_can_draw = true;
     
+    // Flash during bleeding
     var               _TIMING = $2;
     if (g.counter1 &  _TIMING 
     &&  g.counter1 & (_TIMING>>1) )
@@ -576,6 +592,7 @@ switch(sub_state)
     
     PC_set_behavior(g.pc.behavior_IDLE);
     g.pc_lock = 0;
+    g.pc.hspd = 0;
     
     g.cutscene     = 0;
     g.cutscene_ctr = 0;

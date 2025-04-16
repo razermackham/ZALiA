@@ -1,7 +1,7 @@
 /// Ganon3_init2()
 
 
-var _i, _a, _val, _pos, _datakey, _len;
+var _i, _a, _val, _pos, _datakey, _len, _order;
 var _DATAKEY1 = object_get_name(Ganon3)+STR_Phase+"02";
 
 
@@ -27,8 +27,23 @@ arena_yt = viewYT();
 arena_y  = arena_yt + ((arena_yb-arena_yt)>>1);
 
 
+
+
 GO_sprite_init(dg_SPRITES[#SPRITES_idx,0]);
 GO_init_palidx(PALIDX2);
+//PALIDX1=global.PI_BGR4; PALIDX2=global.PI_MOB_RED;
+
+//change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"B"), global.PAL_CHAR_PER_COLOR, color_str(p.C_BLK1)));
+//change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"K"), global.PAL_CHAR_PER_COLOR, color_str(p.C_BLK1)));
+
+//change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(Slime_PI1,"B"), global.PAL_CHAR_PER_COLOR, color_str(p.C_BLK1)));
+//change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(Slime_PI1,"K"), global.PAL_CHAR_PER_COLOR, color_str(p.C_BLK1)));
+
+change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(Slime_PI2,"B"), global.PAL_CHAR_PER_COLOR, color_str(p.C_BLK1)));
+change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(Slime_PI2,"K"), global.PAL_CHAR_PER_COLOR, color_str(p.C_BLK1)));
+
+
+
 
 facingDir = 1;
 xScale    = facingDir;

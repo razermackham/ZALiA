@@ -821,7 +821,7 @@ for(_i=ds_grid_width(dg_ENC_SPR)-1; _i>=0; _i--)
 
 
 ENC_PI = global.PI_MOB_PUR;
-ENC_PAL = build_pal(p.C_WHT1,p.C_BLK1,p.C_BLK1,p.C_BLK1);
+ENC_PAL = build_pal(p.C_WHT1,p.C_BLK1,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
 
 
 

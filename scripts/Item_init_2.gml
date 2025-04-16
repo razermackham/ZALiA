@@ -66,7 +66,7 @@ if (ITEM_TYPE==STR_PBAG)
 
 if (ITEM_TYPE==STR_HEART)
 {
-    var _PAL = build_pal(p.C_WHT1,p.C_RED3,p.C_ORG4,p.C_BLK1);
+    var _PAL = build_pal(p.C_WHT1,p.C_RED3,p.C_ORG4,p.C_BLK1,-2,-2,-2,-2);
     change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(global.PI_MOB_RED), string_length(_PAL), _PAL));
 }
 

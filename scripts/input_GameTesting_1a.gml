@@ -52,10 +52,10 @@ if (true) // 2024/09/16. This was supposed to be available to everyone?
     }
     
     if(!g.app_paused 
-    &&  GP_Other5_held         // trig L held
-    &&  GP_Other6_held         // trig R held
-    &&  GP_Other4_held         // bump R held
-    &&  GP_Other3_pressed )    // bump L pressed
+    &&  GP_Other5_held      // trig L held
+    &&  GP_Other6_held      // trig R held
+    &&  GP_Other4_held      // bump R held
+    &&  GP_Other3_pressed ) // bump L pressed
     {
         g.app_paused = true;
     }

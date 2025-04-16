@@ -21,6 +21,7 @@ if (_COUNT1)
     var _i,_j;
     var _palette, _char, _pos;
     var _pi, _parent_pi,_parent_pal_pos, _order;
+    var _c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn;
     for(_i=0; _i<_COUNT1; _i++) // each pi permut
     {
         _pi        = val(global.dm_pi[?STR_Permutation+hex_str(_i+1)+STR_Palette+STR_Index]);
@@ -28,6 +29,14 @@ if (_COUNT1)
         _order     = val(global.dm_pi[?hex_str(_pi)+STR_Color+STR_Order]);
         _parent_pal_pos = get_pal_pos(_parent_pi);
         _palette = "";
+        _c_wht = p.C_WHT0_;
+        _c_red = p.C_RED0_;
+        _c_blu = p.C_BLU0_;
+        _c_grn = p.C_GRN0_;
+        _c_ylw = p.C_YLW0_;
+        _c_mgn = p.C_MGN0_;
+        _c_blk = p.C_BLK0_;
+        _c_cyn = p.C_CYN0_;
         for(_j=0; _j<global.COLORS_PER_PALETTE; _j++) // each color
         {
             _char = string_char_at(_order, _j+1);
@@ -35,10 +44,22 @@ if (_COUNT1)
             _pos  = max(0,_pos-1);
             _pos *= global.PAL_CHAR_PER_COLOR;
             _pos  = _parent_pal_pos + _pos;
-            _palette += string_copy(p.pal_rm_new, _pos, global.PAL_CHAR_PER_COLOR);
+            _color = string_copy(p.pal_rm_new, _pos, global.PAL_CHAR_PER_COLOR);
+            //_palette += string_copy(p.pal_rm_new, _pos, global.PAL_CHAR_PER_COLOR);
+            
+            switch(string_char_at(global.PAL_BASE_COLOR_ORDER,_j+1)){
+            case "W":{_c_wht=_color; break;}
+            case "R":{_c_red=_color; break;}
+            case "B":{_c_blu=_color; break;}
+            case "G":{_c_grn=_color; break;}
+            case "Y":{_c_ylw=_color; break;}
+            case "M":{_c_mgn=_color; break;}
+            case "K":{_c_blk=_color; break;}
+            case "C":{_c_cyn=_color; break;}
+            }
         }
         
-        p.pal_rm_new += _palette;
+        p.pal_rm_new += build_pal(_c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn);
     }
 }
 

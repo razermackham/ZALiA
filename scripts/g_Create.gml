@@ -473,13 +473,10 @@ view_hport[0] = VIEW_PORT_H;
 
 
 global.RetroShaders_IS_LIVE       = true; // false disables all RetroShaders actions
-global.RetroShaders_enabled       = true;
-global.RetroShaders_surface_scale = 1;
-if (global.RetroShaders_IS_LIVE)
-{
-    //global.RetroShaders_surface_scale = 1;
-    global.RetroShaders_surface_scale = 4;
-}
+global.RetroShaders_enabled       = false;
+//global.RetroShaders_enabled       = true;
+if (global.RetroShaders_IS_LIVE) global.RetroShaders_surface_scale = 4;
+else                             global.RetroShaders_surface_scale = 1;
 global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
 
 

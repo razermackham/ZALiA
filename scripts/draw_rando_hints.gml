@@ -11,7 +11,7 @@ var _FOUND_NUMS = val(g.dm_RandoHintsRecorder[?STR_Found+STR_Hint+STR_Num], "");
 
 
 _pi = global.PI_GUI2;
-var _PI_FOUND1 = add_pi_permut(_pi, "RBWGYMKC", "draw_rando_hints() dark text 1");
+var _PI_FOUND1 = add_pi_permut(_pi, "RBWGMKYC", "draw_rando_hints() dark text 1");
 var _PI_FOUND2 = _pi;
 
 

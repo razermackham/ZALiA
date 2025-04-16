@@ -23,8 +23,8 @@ var _dl_areas = ds_list_create();
 //ds_list_add(_dl_areas,Area_PalcA,Area_PalcB,Area_PalcC,Area_PalcD,Area_PalcE,Area_PalcF,Area_PalcG,Area_PalcH); // all dungeons
 ds_list_copy(_dl_areas,g.dl_AREA_NAME); // all areas
 
-var _SINGLE_SCENE = false;
-_SINGLE_SCENE = true; // use this line only for getting data for a single scene
+var _SINGLE_SCENE = undefined;
+_SINGLE_SCENE = Area_TownA+"129"; // use this line only for getting data for a single scene
 
 
 sdm("");
@@ -47,10 +47,12 @@ for(_i=0; _i<_AREA_COUNT; _i++)
         sdm("//  "+_STR2+"  "+_area_file_num_+"  "+_STR2);
         
         //_file_name example: "PalcA_003"
-        if (_SINGLE_SCENE)
+        if(!is_undefined(_SINGLE_SCENE))
         {
-            _area_file_num_ = "100";
-            _area = Area_EastA;
+            _area_file_num_ = string_copy(_SINGLE_SCENE, string_length(_SINGLE_SCENE)-2, 3);
+            _area = string_copy(_SINGLE_SCENE, 1,AreaID_LEN);
+            //_area_file_num_ = "100";
+            //_area = Area_EastA;
         }
         
         _file_name  = string_letters(_area); // get "PalcA" from "_PalcA_"
@@ -102,6 +104,7 @@ for(_i=0; _i<_AREA_COUNT; _i++)
                 for(_k=0; _k<_palette_count; _k++) // each palette
                 {
                     _palette2 = string_copy(_palette1, (global.PAL_CHAR_PER_PAL*_k)+1, global.PAL_CHAR_PER_PAL);
+                    //sdm("_palette2: "+_palette2);
                     _str2 = "build_pal(";
                     for(_m=0; _m<global.COLORS_PER_PALETTE; _m++) // each color of this palette
                     {
@@ -146,7 +149,7 @@ for(_i=0; _i<_AREA_COUNT; _i++)
         
         //sdm("");
         //if (_j && !(_j&$F)){sdm("");sdm("");}
-        if (_SINGLE_SCENE) exit;
+        if(!is_undefined(_SINGLE_SCENE)) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     
     sdm("");sdm("");sdm("");sdm("");sdm("");sdm("");sdm("");sdm("");

@@ -294,7 +294,7 @@ switch(sub_state)
     //p.background_color_index = Background_COLOR_IDX1;
     if (p.Flash_Bgr_timer==$2)
     {
-        var _PAL = build_pal(p.C_GRY4,p.C_ORG2,p.C_BLK1,p.C_BLK1);
+        var _PAL = build_pal(p.C_GRY4,p.C_ORG2,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
         change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(global.PI_BGR4), string_length(_PAL), _PAL));
         //var _LEN = string_length(_PAL);
         //var _POS = get_pal_pos(global.PI_BGR4+1)-_LEN;

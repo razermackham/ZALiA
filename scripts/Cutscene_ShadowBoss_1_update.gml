@@ -152,7 +152,8 @@ switch(g.cutscene_part)
     }
     
     var _i, _pos, _pal;
-    var            _PI_DEF = global.PI_MOB_RED;
+    var            _PI_DEF = global.PI_MOB_PUR;
+    //var            _PI_DEF = global.PI_MOB_RED;
     with(BOSS_OBJ) _PI_DEF = palidx_def;
     
     

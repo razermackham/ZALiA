@@ -59,7 +59,7 @@ if (f.quest_num>1)
 if (ver==2)
 {
     GO_init_palidx(global.PI_MOB_RED);
-    var _PAL = build_pal(p.C_WHT1,p.C_RED3,p.C_BLK1,p.C_BLK1);
+    var _PAL = build_pal(p.C_WHT1,p.C_RED3,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
     change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(palidx_base), string_length(_PAL), _PAL));
 }
 

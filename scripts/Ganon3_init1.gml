@@ -264,19 +264,14 @@ dg_SPRITES_H = ds_grid_height(dg_SPRITES);
 SPRITES_idx = 0;
 GO_sprite_init(dg_SPRITES[#SPRITES_idx,0]);
 
-Slime_W_        = sprite_get_width( sprite)>>1;
-Slime_H_        = sprite_get_height(sprite)>>1;
-Slime_CLMS      = (Slime_W_<<1)<<3;
-Slime_ROWS      = (Slime_H_<<1)<<3;
-Slime_PI1       = add_pi_permut(global.PI_BGR1,    "WBRGYMC", object_get_name(id)+" pi permut "+"PI_BGR1-WBRGYMC");
-//Slime_PI1       = global.PI_BGR1;
-//Slime_PI1       = get_pi(Slime_PI1,1);
-Slime_PI2       = add_pi_permut(global.PI_MOB_PUR, "WBRGYMC", object_get_name(id)+" pi permut "+"PI_MOB_PUR-WBRGYMC");
-//Slime_PI2       = global.PI_MOB_PUR;
-//Slime_PI2_BASE  = PI_MOB_PUR;
-//Slime_PI2       = get_pi(Slime_PI2_BASE,1);
-Slime_HP1       = $A;
-Slime_hp        = Slime_HP1;
+Slime_W_   = sprite_get_width( sprite)>>1;
+Slime_H_   = sprite_get_height(sprite)>>1;
+Slime_CLMS = (Slime_W_<<1)<<3;
+Slime_ROWS = (Slime_H_<<1)<<3;
+Slime_PI1  = global.PI_BGR1;    // Scene before battle scene
+Slime_PI2  = global.PI_MOB_PUR; // During battle
+Slime_HP1  = $A;
+Slime_hp   = Slime_HP1;
 
 //SlimeChange_dir     = !SPRITES_idx;
 SlimeChange_DUR1    = $8;

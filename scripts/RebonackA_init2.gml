@@ -17,7 +17,7 @@ if (ver==2) // dark knight
 {
     GO_init_palidx(global.PI_MOB_PUR);
     
-    var _PAL = build_pal(p.C_WHT1,p.C_BLK1,p.C_VLT4,p.C_BLK1);
+    var _PAL = build_pal(p.C_WHT1,p.C_BLK1,p.C_VLT4,p.C_BLK1,-2,-2,-2,-2);
     /*
     //var _PAL = p.CI_BLK1_ + p.CI_WHT2_ + p.CI_BLK1_ + p.CI_VLT4_;
     //var _PAL = p.CI_BLK1_ + p.CI_WHT2_ + p.CI_VLT4_ + p.CI_BLK1_;

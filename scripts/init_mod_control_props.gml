@@ -5,7 +5,7 @@ var _i,_j, _a;
 
 
 
-mod_PC_OUTLINE_COLOR        =  0; // OG
+//mod_PC_OUTLINE_COLOR        =  0; // OG
 //mod_PC_OUTLINE_COLOR        =  1; // Use a darker color option 1
 //mod_PC_OUTLINE_COLOR        =  2; // Use a darker color option 2
 

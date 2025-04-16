@@ -81,7 +81,7 @@ if (can_draw_self)
     
     
     if (sub_state==sub_state_PHASE2)
-    {
+    {   // Scene before battle scene.
         _pi=Slime_PI1;
     }
     else if (_PI 
@@ -91,7 +91,7 @@ if (can_draw_self)
         _pi=_PI; // spell flash & stun flash
     }
     else
-    {
+    {   // Normal. During battle.
         _pi=Slime_PI2;
     }
     

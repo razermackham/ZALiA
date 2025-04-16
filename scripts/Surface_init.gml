@@ -30,15 +30,16 @@ timer = 0;
 
 can_update_frame_ = false;
 
-
-srf_frame_curr = 0;
-srf_frame_prev = 0;
-
 ScreenShake_surf_xl = 0;
 ScreenShake_surf_yt = 0;
 
 application_surface_w = surface_get_width( application_surface);
 application_surface_h = surface_get_height(application_surface);
+
+srf_app_paused_frame = 0;
+
+
+
 
 can_draw_hints = false;
 can_draw_keys  = false;

@@ -1879,10 +1879,10 @@ if (DungeonBoss_WILL_RANDOMIZE)
             _file_name = g.dm_rm[?_datakey]; // Tiled file name. Example: "PalcA_004"
             if(!is_undefined(_file_name))
             {
-                _palette = p.dm_scene_palette[?_file_name];
+                _palette = p.dm_scene_palette[?_file_name+dk_BGR];
                 if(!is_undefined(_palette))
                 {
-                    _palette = string_copy(_palette, 1, (global.COLORS_PER_PALETTE<<1)<<2);
+                    //_palette = string_copy(_palette, 1, global.PAL_CHAR_PER_COLOR<<2);
                     dm_save_data[?_c_scene_name+STR_Palette] = _palette;
                 }
             }

@@ -27,8 +27,7 @@ if (can_update_frame_
     ||  is_exiting_rm() 
     ||  is_exiting_ow() )
     {   // Draw screen a solid color
-        draw_clear_color = background_colour;
-        //draw_clear_color = p.dl_COLOR[|p.background_color_index];
+        draw_clear_color = global.BackgroundColor_scene;
     }
 }
 

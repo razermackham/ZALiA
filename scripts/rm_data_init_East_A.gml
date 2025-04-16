@@ -192,7 +192,8 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_EA+'002', STR_ow_ax
 
 row3=row0+$17; y3=row3<<3; row4=row0+$0B; y4=row4<<3;
 data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init);
-data_spawn(rm+STR_PRXM,Moa_A,$2,  $00<<3,(row0+$15)<<3); // Moa  2 
+data_spawn(rm+STR_PRXM,Moa_A,$2,  $00<<3,(row0+$11)<<3); // Moa  2 
+//data_spawn(rm+STR_PRXM,Moa_A,$2,  $00<<3,(row0+$15)<<3); // Moa  2 
 data_spawn(rm+STR_PRXM,Moa_A,$2,  $3A<<3,(row0+$0F)<<3); // Moa  2 
 data_spawn(rm+STR_PRXM,Moa_A,$2,  $6A<<3,(row0+$11)<<3); // Moa  2 
 data_spawn(rm+STR_PRXM,GeruB,$1,  $1E<<3,y4); // RockGeru  1 
@@ -1754,7 +1755,8 @@ data_spawn(rm+STR_PRXM,GeruA,$3,  $0A<<3,y3,STR_Strong+STR_Encounter); // Geru  
 data_spawn(rm+STR_PRXM,GeruA,$3,  $44<<3,y3,STR_Strong+STR_Encounter); // Geru  3 
 
 
-data_exit(EXM0,etB0,0,  $30,row3,  CLMS2,ROWS2,  CLM5,row3,  0); // MID 0, to Overworld 
+data_exit(EXM0,etB0,0,  $2F,row3,  CLMS2,ROWS2,  CLM5,row3,  0); // MID 0, to Overworld 
+//data_exit(EXM0,etB0,0,  $30,row3,  CLMS2,ROWS2,  CLM5,row3,  0); // MID 0, to Overworld 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3+$02,  0); // LFT 0, to Overworld 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3-$02,  0); // RGT 0, to Overworld 
 

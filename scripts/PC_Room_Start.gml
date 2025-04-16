@@ -4,7 +4,7 @@ if (DEV) sdm(" PC_Room_Start()");
 dev_start_pc_with(); // Add items, spells, etc..
 
 
-var _i,_j,_k, _idx;
+var _i,_j,_k, _idx, _count1;
 var _char, _pos;
 
 
@@ -16,16 +16,16 @@ GO_init_palidx(global.PI_PC1);
 
 
 // Add cucco spell flash palettes. cucco spell flash permut: B W R . . . . . .
-var _permut_color_order = "BWRGYMKC"; // permut color order
-if (_permut_color_order!=global.PAL_BASE_COLOR_ORDER)
+var _color_order = "BWRGKYMC"; // permut color order
+if (_color_order!=global.PAL_BASE_COLOR_ORDER)
 {
     var _parent_pi = global.PI_SPELL_PC1;
     var _new_pi = _parent_pi;
-    var _COUNT1 = val(global.dm_pi[?"SPELL_PC"+STR_Count]);
-    for(_i=0; _i<_COUNT1; _i++)
+    _count1 = val(global.dm_pi[?"SPELL_PC"+STR_Count]);
+    for(_i=0; _i<_count1; _i++)
     {
         _parent_pi = global.PI_SPELL_PC1+_i;
-        _new_pi = add_pi_permut(_parent_pi, _permut_color_order, "cucco spell flash "+string(_i+1));
+        _new_pi = add_pi_permut(_parent_pi, _color_order, "cucco spell flash "+string(_i+1));
         
         for(_j=ds_grid_height(p.dg_PI_SEQ)-1; _j>=0; _j--)
         {
@@ -34,6 +34,13 @@ if (_permut_color_order!=global.PAL_BASE_COLOR_ORDER)
                 p.dg_PI_SEQ[#$05,_j] = _new_pi;
             }
         }
+    }
+    
+    
+    _color_order = "RWBGMYKC"; // permut color order
+    for(_i=1; _i<4; _i++)
+    {   // _i=1: MOB ORG, _i=2: MOB RED, _i=3: MOB BLU
+        p.dg_PI_SEQ[#$01,_i] = add_pi_permut(p.dg_PI_SEQ[#$00,_i], _color_order, "cucco stun flash "+string(_i));
     }
 }
 

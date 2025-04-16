@@ -132,7 +132,10 @@ if(!is_undefined(_dl_layer))
                         }
                     }
                     
-                    _palette2 += build_pal(_c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn);
+                    //sdm("_c_wht "+color_str(_c_wht)+", _c_red "+color_str(_c_red)+", _c_blu "+color_str(_c_blu)+", _c_grn "+color_str(_c_grn)+", _c_ylw "+color_str(_c_ylw)+", _c_mgn "+color_str(_c_mgn)+", _c_blk "+color_str(_c_blk)+", _c_cyn "+color_str(_c_cyn));
+                    _palette1  = build_pal(_c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn);
+                    //sdm("_palette1: "+_palette1);
+                    _palette2 += _palette1;
                 }
             }
         }

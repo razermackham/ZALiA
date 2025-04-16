@@ -200,30 +200,34 @@ if (g.canDrawPalette)
         {
             if (variable_instance_exists(id,"palidx"))
             {
-                _x  = x - (other.ObjPal_surf_W>>1);
-                _y  = yt - other.ObjPal_YT_OFFSET;
-                if (surface_exists(other.ObjPal_surf)) draw_surface(other.ObjPal_surf, _x, _y);
-                
-                _x  = x - (other.ObjPal_COL_SIZE>>1);
-                _y  = yt - other.ObjPal_YT_OFFSET;
-                _y += other.ObjPalOutline_W<<1;
-                _pal = string_copy(p.pal_rm_curr,get_pal_pos(palidx),global.PAL_CHAR_PER_PAL);
-                for(_i=0; _i<global.COLORS_PER_PALETTE; _i++)
+                if(!variable_instance_exists(id,"state") 
+                ||  state )
                 {
-                    _color = string_copy(_pal,(global.PAL_CHAR_PER_COLOR*_i)+1,global.PAL_CHAR_PER_COLOR);
-                    _color = str_hex(_color);
-                    draw_sprite_(spr_1x1_WHT,0, _x,_y+(other.ObjPal_DIST1*_i), -1, other.ObjPal_COL_SIZE,other.ObjPal_COL_SIZE, _color);
+                    _x  = x - (other.ObjPal_surf_W>>1);
+                    _y  = yt - other.ObjPal_YT_OFFSET;
+                    if (surface_exists(other.ObjPal_surf)) draw_surface(other.ObjPal_surf, _x, _y);
+                    
+                    _x  = x - (other.ObjPal_COL_SIZE>>1);
+                    _y  = yt - other.ObjPal_YT_OFFSET;
+                    _y += other.ObjPalOutline_W<<1;
+                    _pal = string_copy(p.pal_rm_curr,get_pal_pos(palidx),global.PAL_CHAR_PER_PAL);
+                    for(_i=0; _i<global.COLORS_PER_PALETTE; _i++)
+                    {
+                        _color = string_copy(_pal,(global.PAL_CHAR_PER_COLOR*_i)+1,global.PAL_CHAR_PER_COLOR);
+                        _color = str_hex(_color);
+                        draw_sprite_(spr_1x1_WHT,0, _x,_y+(other.ObjPal_DIST1*_i), -1, other.ObjPal_COL_SIZE,other.ObjPal_COL_SIZE, _color);
+                    }
+                    
+                    // draw this object's current palette index
+                    _x  = x - (other.ObjPal_FONT_W>>1);
+                    _y  = yt - other.ObjPal_YT_OFFSET;
+                    _y -= 1; // pad
+                    _y -= other.ObjPal_FONT_H;
+                    draw_text_(_x,_y, string_char_at(hex_str(palidx),2), other.ObjPal_FONT);
+                    _y -= 1; // pad
+                    _y -= other.ObjPal_FONT_H;
+                    draw_text_(_x,_y, string_char_at(hex_str(palidx),1), other.ObjPal_FONT);
                 }
-                
-                // draw this object's current palette index
-                _x  = x - (other.ObjPal_FONT_W>>1);
-                _y  = yt - other.ObjPal_YT_OFFSET;
-                _y -= 1; // pad
-                _y -= other.ObjPal_FONT_H;
-                draw_text_(_x,_y, string_char_at(hex_str(palidx),2), other.ObjPal_FONT);
-                _y -= 1; // pad
-                _y -= other.ObjPal_FONT_H;
-                draw_text_(_x,_y, string_char_at(hex_str(palidx),1), other.ObjPal_FONT);
             }
         }
     }

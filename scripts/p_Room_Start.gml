@@ -35,7 +35,7 @@ else                         global.BackgroundColor_scene = C_BLK1;
 
 
 if (g.room_type=="A" 
-&&  background_colour!=C_BLK1 )
+&&  global.BackgroundColor_scene!=C_BLK1 )
 {
     var _qualifies = global.Halloween1_enabled;
     
@@ -44,10 +44,10 @@ if (g.room_type=="A"
     &&  g.RandoPalette_state  // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
     &&  val(f.dm_rando[?STR_Randomize+STR_Palette]) )
     {
-        if (background_colour==C_VLT2   // Town sky
-        ||  background_colour==C_BLU2   // Encounter sky
-        ||  background_colour==C_BLU4   // Old Kasuto sky
-        ||  background_colour==C_PUR3 ) // Cemetery sky
+        if (global.BackgroundColor_scene==C_VLT2   // Town sky
+        ||  global.BackgroundColor_scene==C_BLU2   // Encounter sky
+        ||  global.BackgroundColor_scene==C_BLU4   // Old Kasuto sky
+        ||  global.BackgroundColor_scene==C_PUR3 ) // Cemetery sky
         {
             _qualifies = !irandom($F);
         }
@@ -121,7 +121,7 @@ switch(g.room_type)
         _dk = g.dm_rm[?_dk];
         if(!is_undefined(_dk))
         {
-            pal_rm_file = dm_scene_palette[?_dk];
+            pal_rm_file = dm_scene_palette[?_dk+dk_BGR];
             _pal = f.dm_rando[?g.rm_name+STR_Palette];
             if(!is_undefined(pal_rm_file) 
             && !is_undefined(_pal) )
@@ -149,7 +149,7 @@ switch(g.room_type)
     if (room==rmB_Title)
     {
         _dk = "Title_000";
-        pal_rm_file = dm_scene_palette[?_dk];
+        pal_rm_file = dm_scene_palette[?_dk+dk_BGR];
         
         if (is_undefined(pal_rm_file) 
         ||  _FILE_CLEANING )
@@ -194,10 +194,12 @@ if (is_undefined(pal_rm_def))
         pal_rm_def += string_copy(pal_rm_file, 1, _count1); // BGR
         
         // MOB
-        if (g.town_num)         pal_rm_def += PAL_NPC_SET1;
-        else if (g.dungeon_num) pal_rm_def += PAL_MOB_SET2;
-        else                    pal_rm_def += PAL_MOB_SET1;
-        //pal_rm_def += string_copy(pal_rm_file, _count1+1, string_length(pal_rm_file)-_count1); // MOB
+        _val1 = dm_scene_palette[?g.rm_name+dk_MOB];
+             if(!is_undefined(_val1))     pal_rm_def += _val1;
+        else if (g.area_name==Area_TownA) pal_rm_def += PAL_NPC_SET1;
+        else if (g.area_name==Area_TownB) pal_rm_def += PAL_NPC_SET2;
+        else if (g.dungeon_num)           pal_rm_def += PAL_MOB_SET2;
+        else                              pal_rm_def += PAL_MOB_SET1;
         
         // dark
         pal_rm_def += pal_rm_dark;
@@ -371,7 +373,7 @@ if (room!=rmB_Title
                                 }
                                 else
                                 {
-                                    _pal1 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1);
+                                    _pal1 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2);
                                 }
                                 
                                 
@@ -510,17 +512,17 @@ if (global.Halloween1_enabled
     ||  g.town_name==STR_Old_Kasuto )
     {
         _pal = 0;
-        var _mob_pal  = build_pal(C_VLT1,C_VLT2,C_YLW4,C_BLK1); // MOB ORG
-            _mob_pal += build_pal(C_VLT1,C_ORG3,C_BLK1,C_BLK1); // MOB RED
-            _mob_pal += build_pal(C_RED3,C_ORG4,C_BLK1,C_BLK1); // MOB BLU
-            _mob_pal += build_pal(C_VLT1,C_PNK3,C_BLK1,C_BLK1); // MOB PUR
+        var _mob_pal  = build_pal(C_VLT1,C_VLT2,C_YLW4,C_BLK1,-2,-2,-2,-2); // MOB ORG
+            _mob_pal += build_pal(C_VLT1,C_ORG3,C_BLK1,C_BLK1,-2,-2,-2,-2); // MOB RED
+            _mob_pal += build_pal(C_RED3,C_ORG4,C_BLK1,C_BLK1,-2,-2,-2,-2); // MOB BLU
+            _mob_pal += build_pal(C_VLT1,C_PNK3,C_BLK1,C_BLK1,-2,-2,-2,-2); // MOB PUR
         //
         if (val(g.dm_rm[?g.rm_name+STR_Town+STR_House]))
         {
-            _pal  = build_pal(C_BLU4,C_VLT4,C_BLK1,C_BLK1); // BG1
-            _pal += build_pal(C_VLT3,C_BLK1,C_BLK1,C_BLK1); // BG2
-            _pal += build_pal(C_BLU3,C_MGN4,C_YLW4,C_BLK1); // BG3
-            _pal += build_pal(C_YLW1,C_YGR3,C_BLK1,C_BLK1); // BG4
+            _pal  = build_pal(C_BLU4,C_VLT4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG1
+            _pal += build_pal(C_VLT3,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG2
+            _pal += build_pal(C_BLU3,C_MGN4,C_YLW4,C_BLK1,-2,-2,-2,-2); // BG3
+            _pal += build_pal(C_YLW1,C_YGR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG4
         }
         else if (val(g.dm_rm[?g.rm_name+STR_Town+STR_Outside]))
         {
@@ -531,52 +533,52 @@ if (global.Halloween1_enabled
                 _mob_pal = 0;
                 break;}
                 case STR_Rauru:{
-                _pal  = build_pal(C_ORG1,C_YLW3,C_BLK1,C_BLK1); // BG1
-                _pal += build_pal(C_PUR3,C_GRY4,C_BLK1,C_BLK1); // BG2
-                _pal += build_pal(C_BLK1,C_ORG3,C_YLW4,C_BLK1); // BG3
-                _pal += build_pal(C_BLU2,C_PUR3,C_BLK1,C_BLK1); // BG4
+                _pal  = build_pal(C_ORG1,C_YLW3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG1
+                _pal += build_pal(C_PUR3,C_GRY4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG2
+                _pal += build_pal(C_BLK1,C_ORG3,C_YLW4,C_BLK1,-2,-2,-2,-2); // BG3
+                _pal += build_pal(C_BLU2,C_PUR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG4
                 break;}
                 case STR_Ruto:{
-                _pal  = build_pal(C_ORG4,C_BLK1,C_GRY4,C_BLK1); // BG1
-                _pal += build_pal(C_GRY2,C_YLW3,C_BLK1,C_BLK1); // BG2
-                _pal += build_pal(C_GRY2,C_GRY4,C_BLK1,C_BLK1); // BG3
-                _pal += build_pal(C_VLT4,C_PUR3,C_BLK1,C_BLK1); // BG4
+                _pal  = build_pal(C_ORG4,C_BLK1,C_GRY4,C_BLK1,-2,-2,-2,-2); // BG1
+                _pal += build_pal(C_GRY2,C_YLW3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG2
+                _pal += build_pal(C_GRY2,C_GRY4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG3
+                _pal += build_pal(C_VLT4,C_PUR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG4
                 break;}
                 case STR_Saria:{
-                _pal  = build_pal(C_GRY3,C_GRY4,C_BLK1,C_BLK1); // BG1
-                _pal += build_pal(C_CYN3,C_VLT4,C_BLK1,C_BLK1); // BG2
-                _pal += build_pal(C_GRY2,C_CYN4,C_BLK1,C_BLK1); // BG3
-                _pal += build_pal(C_RED2,C_RED4,C_BLK1,C_BLK1); // BG4
+                _pal  = build_pal(C_GRY3,C_GRY4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG1
+                _pal += build_pal(C_CYN3,C_VLT4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG2
+                _pal += build_pal(C_GRY2,C_CYN4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG3
+                _pal += build_pal(C_RED2,C_RED4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG4
                 break;}
                 case STR_Mido:{
-                _pal  = build_pal(C_YLW3,C_YLW4,C_PUR2,C_BLK1); // BG1
-                _pal += build_pal(C_GRN1,C_GRN3,C_BLK1,C_BLK1); // BG2
-                _pal += build_pal(C_YLW4,C_GRN3,C_BLK1,C_BLK1); // BG3
-                _pal += build_pal(C_VLT4,C_PUR3,C_BLK1,C_BLK1); // BG4
+                _pal  = build_pal(C_YLW3,C_YLW4,C_PUR2,C_BLK1,-2,-2,-2,-2); // BG1
+                _pal += build_pal(C_GRN1,C_GRN3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG2
+                _pal += build_pal(C_YLW4,C_GRN3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG3
+                _pal += build_pal(C_VLT4,C_PUR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG4
                 break;}
                 case STR_Nabooru:{
-                _pal  = build_pal(C_ORG1,C_YLW3,C_BLK1,C_BLK1); // BG1
-                _pal += build_pal(C_PUR3,C_GRY4,C_BLK1,C_BLK1); // BG2
-                _pal += build_pal(C_GRN3,C_YGR4,C_BLK1,C_BLK1); // BG3
-                _pal += build_pal(C_BLU2,C_PUR3,C_BLK1,C_BLK1); // BG4
+                _pal  = build_pal(C_ORG1,C_YLW3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG1
+                _pal += build_pal(C_PUR3,C_GRY4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG2
+                _pal += build_pal(C_GRN3,C_YGR4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG3
+                _pal += build_pal(C_BLU2,C_PUR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG4
                 break;}
                 case STR_Darunia:{
-                _pal  = build_pal(C_YLW3,C_PUR4,C_BLK1,C_BLK1); // BG1
-                _pal += build_pal(C_VLT2,C_CYN4,C_BLK1,C_BLK1); // BG2
-                _pal += build_pal(C_ORG1,C_ORG3,C_BLK1,C_BLK1); // BG3
-                _pal += build_pal(C_PNK3,C_YLW4,C_BLK1,C_BLK1); // BG4
+                _pal  = build_pal(C_YLW3,C_PUR4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG1
+                _pal += build_pal(C_VLT2,C_CYN4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG2
+                _pal += build_pal(C_ORG1,C_ORG3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG3
+                _pal += build_pal(C_PNK3,C_YLW4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG4
                 break;}
                 case STR_New_Kasuto:{
-                _pal  = build_pal(C_ORG3,C_ORG4,C_BLK1,C_BLK1); // BG1
-                _pal += build_pal(C_YLW3,C_YLW4,C_BLK1,C_BLK1); // BG2
-                _pal += build_pal(C_GRY3,C_GRY4,C_BLK1,C_BLK1); // BG3
-                _pal += build_pal(C_BLU2,C_PUR3,C_BLK1,C_BLK1); // BG4
+                _pal  = build_pal(C_ORG3,C_ORG4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG1
+                _pal += build_pal(C_YLW3,C_YLW4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG2
+                _pal += build_pal(C_GRY3,C_GRY4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG3
+                _pal += build_pal(C_BLU2,C_PUR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG4
                 break;}
                 case STR_Old_Kasuto:{
-                _pal  = build_pal(C_GRY3,C_GRY4,C_BLK1,C_BLK1); // BG1
-                _pal += build_pal(C_CYN3,C_VLT4,C_BLK1,C_BLK1); // BG2
-                _pal += build_pal(C_GRY2,C_CYN4,C_BLK1,C_BLK1); // BG3
-                _pal += build_pal(C_RED2,C_RED4,C_BLK1,C_BLK1); // BG4
+                _pal  = build_pal(C_GRY3,C_GRY4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG1
+                _pal += build_pal(C_CYN3,C_VLT4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG2
+                _pal += build_pal(C_GRY2,C_CYN4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG3
+                _pal += build_pal(C_RED2,C_RED4,C_BLK1,C_BLK1,-2,-2,-2,-2); // BG4
                 _mob_pal = 0;
                 break;}
             }//switch(g.town_name)
@@ -600,7 +602,7 @@ if (global.Halloween1_enabled
 
 if (room==rmB_GameOver)
 {
-    _pal = build_pal(C_WHT1,C_RED3,C_BLK1);
+    _pal = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2);
     pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_MOB_RED), string_length(_pal), _pal);
 }
 
@@ -611,19 +613,19 @@ if (room==rmB_GameOver)
 
 
 
-global.spell_unaffordable_pi = add_pi_permut(global.PI_GUI1, "BWRGYMKC", "spell unaffordable");
-global.spell_futile_pi       = add_pi_permut(global.PI_GUI1, "RBWGYMKC", "spell futile");
+global.spell_unaffordable_pi = add_pi_permut(global.PI_GUI1, "BWRGKYMC", "spell unaffordable");
+global.spell_futile_pi       = add_pi_permut(global.PI_GUI1, "RBWGMKYC", "spell futile");
 
 
-_idx=-1;
+_idx = -1;
 ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_CLM_COUNT);
-dg_FallScene_PI[#_idx,0] = add_pi_permut(FallScene_PI_BASE, "RBWGYMKC", "fall scene 1a"); // m, s, h
-dg_FallScene_PI[#_idx,1] = add_pi_permut(FallScene_PI_BASE, "BWRGYMKC", "fall scene 1b"); // s, h, m
+dg_FallScene_PI[#_idx,0] = add_pi_permut(FallScene_PI_BASE, "RBWGMKYC", "fall scene 1a"); // m, s, h
+dg_FallScene_PI[#_idx,1] = add_pi_permut(FallScene_PI_BASE, "BWRGKYMC", "fall scene 1b"); // s, h, m
 dg_FallScene_PI[#_idx,2] =               FallScene_PI_BASE; // h, m, s
 //                                                      //
 ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_CLM_COUNT);
-dg_FallScene_PI[#_idx,0] = add_pi_permut(global.PI_MOB_PUR, "RBWGYMKC", "fall scene 2a"); // m, s, h
-dg_FallScene_PI[#_idx,1] = add_pi_permut(global.PI_MOB_PUR, "BWRGYMKC", "fall scene 2b"); // s, h, m
+dg_FallScene_PI[#_idx,0] = add_pi_permut(global.PI_MOB_PUR, "RBWGMKYC", "fall scene 2a"); // m, s, h
+dg_FallScene_PI[#_idx,1] = add_pi_permut(global.PI_MOB_PUR, "BWRGKYMC", "fall scene 2b"); // s, h, m
 dg_FallScene_PI[#_idx,2] =               global.PI_MOB_PUR; // h, m, s
 
 

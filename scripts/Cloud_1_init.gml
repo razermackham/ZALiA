@@ -34,11 +34,11 @@ if (palidx_permut)
 {
     var _pi = palidx_def;
     switch(palidx_permut){
-    case 1:{_pi=add_pi_permut(_pi, "WBRGYMKC", "cloud permut "+"WBRGYMKC"); break;}
-    case 2:{_pi=add_pi_permut(_pi, "RWBGYMKC", "cloud permut "+"RWBGYMKC"); break;}
-    case 3:{_pi=add_pi_permut(_pi, "RBWGYMKC", "cloud permut "+"RBWGYMKC"); break;}
-    case 4:{_pi=add_pi_permut(_pi, "BWRGYMKC", "cloud permut "+"BWRGYMKC"); break;}
-    case 5:{_pi=add_pi_permut(_pi, "BRWGYMKC", "cloud permut "+"BRWGYMKC"); break;}
+    case 1:{_pi=add_pi_permut(_pi, "WBRGYKMC", "cloud permut "+"WBRGYKMC"); break;}
+    case 2:{_pi=add_pi_permut(_pi, "RWBGMYKC", "cloud permut "+"RWBGMYKC"); break;}
+    case 3:{_pi=add_pi_permut(_pi, "RBWGMKYC", "cloud permut "+"RBWGMKYC"); break;}
+    case 4:{_pi=add_pi_permut(_pi, "BWRGKYMC", "cloud permut "+"BWRGKYMC"); break;}
+    case 5:{_pi=add_pi_permut(_pi, "BRWGKMYC", "cloud permut "+"BRWGKMYC"); break;}
     }
     
     GO_init_palidx(_pi);

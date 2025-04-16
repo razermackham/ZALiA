@@ -74,7 +74,7 @@ switch(sub_state)
     
     // ==================================================================
     // -----------------------------------------------------------
-    case sub_state_PHASE2:{ // rm before battle rm
+    case sub_state_PHASE2:{ // scene before battle scene
     //if (timer) break;
     if (g.EnterRoom_control_timer) break;
     

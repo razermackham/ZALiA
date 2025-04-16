@@ -50,7 +50,7 @@ PC_HOLD_BEHAVIOR = g.pc.behavior_HOLD_ITEM1;
 
 
 Triforce_PI1 = global.PI_MOB_ORG;
-Triforce_PI2 = add_pi_permut(Triforce_PI1, "RWBGYMKC", "triforce flash");
+Triforce_PI2 = add_pi_permut(Triforce_PI1, "RWBGMYKC", "triforce flash");
 Triforce_pi  = Triforce_PI1;
 
 TriforceSymbol_SPR  = spr_Triforce_2a;

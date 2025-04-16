@@ -59,7 +59,9 @@ if (_C1&$3)
         _h1 += sign(viewH() mod _Stripe_W) * _Stripe_W;
         _surf = surface_create(_w1,_h1);
         surface_set_target(_surf);
-        draw_sprite_(spr_1x1_WHT,0, 0,0, -1, _w1,_h1, c_black);
+        _color = C_GRN0; // GRN0 will be pal swapped to black. Otherwise c_black could be swapped to something else because it's the same value as C_BLK0.
+        //_color = c_black;
+        draw_sprite_(spr_1x1_WHT,0, 0,0, -1, _w1,_h1, _color);
         
         _ts_x = $D<<3;
         _ts_y = $F<<3;
@@ -103,8 +105,8 @@ if (_C1&$3)
             _x = _Stripe_W*_i;
             _color = _dl_COLORS[|_i mod _dl_COLORS_SIZE];
             draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, _Stripe_W,_h, _color); // stripe
-            draw_background_part_ext(_TS, _ts_x,_ts_y, 8,8, _x,_y-8,    1, 1, _color,1);
-            draw_background_part_ext(_TS, _ts_x,_ts_y, 8,8, _x,_y+_h+8, 1,-1, _color,1);
+            draw_background_part_ext(_TS, _ts_x,_ts_y, 8,8, _x,_y-8,    1, 1, _color,1); // dithered end
+            draw_background_part_ext(_TS, _ts_x,_ts_y, 8,8, _x,_y+_h+8, 1,-1, _color,1); // dithered end
         }
         
         fall_scene_2_spr = sprite_create_from_surface(_surf, 0,0,_w1,_h1, 0,0, 0,0);
@@ -185,7 +187,7 @@ if (_C1&$4) // On 1st frame after app start
                         //sdm("$"+color_str(_val));
                     }
                     
-                    _palette += build_pal(_c_wht,_c_red,_c_blu,p.C_BLK1, p.C_SWDH);
+                    _palette += build_pal(_c_wht,_c_red,_c_blu,p.C_BLK1, p.C_SWDH,-2,-2,-2);
                 }
                 //sdm("");
                 

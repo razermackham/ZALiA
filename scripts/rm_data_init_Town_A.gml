@@ -61,7 +61,9 @@ var _PI1 = global.PI_BGR1;
 var _PI2 = global.PI_BGR2;
 var _PI3 = global.PI_BGR3;
 var _PI4 = global.PI_BGR4;
-var _PI5 = global.PI_MOB_PUR; // For town fast travel room torches only
+var _PI5 = global.PI_BGR4; // For town fast travel room torches only
+//var _PI5 = global.PI_BGR3; // For town fast travel room torches only
+//var _PI5 = global.PI_MOB_PUR; // For town fast travel room torches only
 var _file, _open, _owrc, _name;
 var _exit,_exit1,_exit2;
 var _rm;
@@ -233,7 +235,7 @@ _a=0;
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $1C<<3,row4<<3,  STR_Palette+hex_str(Sign_PI),STR_Dialogue+DK0018); // Sign
-data_spawn(rm+STR_PRXM,Bot_A,$2,  $14<<3,(row0+$13)<<3); // Bot  2 
+//data_spawn(rm+STR_PRXM,Bot_A,$2,  $14<<3,(row0+$13)<<3); // Bot  2 
 
 
       data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$01,  area_WA+"FF"+EXR0_); // LFT 0, 
@@ -1094,7 +1096,8 @@ break;}
 
 data_spawn(rm+STR_PRXM,Moa_A,$2,  $10<<3,(row0+$17)<<3); 
 data_spawn(rm+STR_PRXM,Moa_A,$2,  $14<<3,(row0+$13)<<3); 
-data_spawn(rm+STR_PRXM,Moa_A,$2,  $30<<3,(row0+$15)<<3); 
+data_spawn(rm+STR_PRXM,Moa_A,$2,  $30<<3,(row0+$13)<<3); 
+//data_spawn(rm+STR_PRXM,Moa_A,$2,  $30<<3,(row0+$15)<<3); 
 data_spawn(rm+STR_PRXM,Moa_A,$2,  $34<<3,(row0+$13)<<3); 
 data_spawn(rm+STR_PRXM,Moa_A,$2,  $50<<3,(row0+$15)<<3); 
 data_spawn(rm+STR_PRXM,Moa_A,$2,  $54<<3,(row0+$13)<<3); 

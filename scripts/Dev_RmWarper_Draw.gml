@@ -17,8 +17,8 @@ var _DRAWAREA_X = _VIEW_XL + TEXT_DRAWAREA_PAD_X;
 var _DRAWAREA_Y = _VIEW_YT + TEXT_DRAWAREA_PAD_Y;
 
 var _PI1 = global.PI_GUI1;                                              // HMS.     Current option
-var _PI2 = add_pi_permut(_PI1, "BWRGYMKC", "Dev_RmWarper_Draw() pi-2"); // SHM. NOT Current option
-var _PI3 = add_pi_permut(_PI1, "RBWGYMKC", "Dev_RmWarper_Draw() pi-3"); // MSH. Rm/Exit doesn't  exist.
+var _PI2 = add_pi_permut(_PI1, "BWRGKYMC", "Dev_RmWarper_Draw() pi-2"); // SHM. NOT Current option
+var _PI3 = add_pi_permut(_PI1, "RBWGMKYC", "Dev_RmWarper_Draw() pi-3"); // MSH. Rm/Exit doesn't  exist.
 var _pi = _PI1;
 
 var _alpha = 1;

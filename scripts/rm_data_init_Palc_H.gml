@@ -587,6 +587,8 @@ g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_B1;
 //      Ganon3. Final Battle
 rm_num  = $22;
 set_rm_data(area+hex_str(rm_num), mus1, STR_Color+p.CI_VLT4_, STR_Tile+area_PH+'255', STR_ow_axis+hex_str(ow_axis));
+p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET3;
+
 
                                 _a=0;
 data_NIAO_1a(rm+STR_NIAO+string(_a++),   _rc, 1,Cloud_1_init, global.PI_BGR4,0); // 

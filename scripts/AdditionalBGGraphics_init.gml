@@ -70,11 +70,11 @@ if (palidx_permut)
 {
     var     _order=global.PAL_BASE_COLOR_ORDER;
     switch(palidx_permut){
-    case 1:{_order="WBRGYMKC"; break;}
-    case 2:{_order="RWBGYMKC"; break;}
-    case 3:{_order="RBWGYMKC"; break;}
-    case 4:{_order="BWRGYMKC"; break;}
-    case 5:{_order="BRWGYMKC"; break;}
+    case 1:{_order="WBRGYKMC"; break;}
+    case 2:{_order="RWBGMYKC"; break;}
+    case 3:{_order="RBWGMKYC"; break;}
+    case 4:{_order="BWRGKYMC"; break;}
+    case 5:{_order="BRWGKMYC"; break;}
     }
     palidx_LIT  = add_pi_permut(palidx_LIT,  _order, "AdditionalBGGraphics");
     palidx_DARK = val(global.dm_pi[?hex_str(palidx_LIT)+STR_Dark+"1"], palidx_LIT);

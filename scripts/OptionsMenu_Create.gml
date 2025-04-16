@@ -35,8 +35,8 @@ timer2=0;
 
 
 PI_MENU  = global.PI_GUI1;
-PI_DARK1 = add_pi_permut(global.PI_GUI2, "WBRGYMKC", "OptionsMenu dark text 1");
-PI_DARK2 = add_pi_permut(global.PI_GUI2, "RBWGYMKC", "OptionsMenu dark text 2");
+PI_DARK1 = add_pi_permut(global.PI_GUI2, "WBRGYKMC", "OptionsMenu dark text 1");
+PI_DARK2 = add_pi_permut(global.PI_GUI2, "RBWGMKYC", "OptionsMenu dark text 2");
 
 
 OpenClose_Key_KEY = ord("O");

@@ -46,17 +46,23 @@ _pc_row = (pcrc>>8)&$FF;
 
 
 // --------------------------------------------------------------------
-        _data = dg_area[#_pc_clm, _pc_row];
-_idx = (_data>>0)&$FF;
-_num = (_data>>8)&$FF;
-// NW: North-West Hyrule
-var _IN_AREA_NW =  inRange(_idx, 0,ds_list_size(g.dl_AREA_NAME)-1) 
-               &&  g.dl_AREA_NAME[|_idx]+hex_str(_num) == Area_WestA+"01";
-//
-if (enc_spawn_timer 
-&& (_IN_AREA_NW || pc_step_counter) )
+if (enc_spawn_timer)
 {
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if (pc_step_counter)
+    {
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    
+            _data = dg_area[#_pc_clm,_pc_row];
+    _idx = (_data>>0)&$FF;
+    _num = (_data>>8)&$FF;
+    
+    if (_idx>=0 
+    &&  _idx<=ds_list_size(g.dl_AREA_NAME)-1 
+    &&  g.dl_AREA_NAME[|_idx]+hex_str(_num)==Area_WestA+"01" )
+    {   // is in NW Hyrule
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
 }
 
 
@@ -73,7 +79,7 @@ if (dest_dist){
     _ow_row += bit_dir(pc_dir&$C); // += 0,1,-1
 }
 
-var _tsrc = dg_tsrc[#_ow_clm, _ow_row];
+var _tsrc = dg_tsrc[#_ow_clm,_ow_row];
 
 if (_RANDO_TSRC_ACTIVE)
 {

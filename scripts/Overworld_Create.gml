@@ -634,8 +634,7 @@ for(_i=0; _i<_count; _i++)
                //_tsrc_count = string_length(_data)>>1;
         for(_j=_tsrc_count-1; _j>=0; _j--)
         {
-            _tsrc = string_copy(_data, (_j<<1)+1, 4);
-            //_tsrc = string_copy(_data, (_j<<1)+1, 2);
+            _tsrc = string_copy(_data, (_j<<2)+1, 4);
             dm_enc[?_tsrc +STR_Biome]              = _biome;
             dm_enc[?_tsrc +STR_Biome+STR_Idx]      = _i;
             dm_enc[?_biome+STR_TSRC+hex_str(_j+1)] = str_hex(_tsrc);

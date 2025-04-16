@@ -11687,7 +11687,6 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\THIS_IS_A_FORK_OF_THE_MASTER_ZALIA.gml</script>
     <script>scripts\d_l0__oo__0l_b.gml</script>
     <script>scripts\scr_temp1.gml</script>
     <script>scripts\scr_temp2.gml</script>

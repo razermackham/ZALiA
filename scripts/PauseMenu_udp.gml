@@ -52,7 +52,7 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
 {
     drawX -= (canDrawSections-ANIM_FRAMES_DEF)<<4;
     
-    var _IDX_LAST   = ds_map_size(dl_map_anim_data)-1;
+    var _IDX_LAST = ds_list_size(dl_map_anim_data)-1;
     Window_extra_draw_clms = (canDrawSections-ANIM_FRAMES_DEF)<<1; // column width 8
     
     if (g.menu_state==5) map_anim_idx = _IDX_LAST;
@@ -338,6 +338,14 @@ Items_Bar2_y = drawY + ITEMS_BAR2_Y;
 Items_Bar3_can_draw = drawY+ITEMS_BAR3_Y+3 < Window_yb; // Crystals btm bar
 Items_Bar3_x = Items_Bar2_x;
 Items_Bar3_y = drawY + ITEMS_BAR3_Y;
+/*
+if(keyboard_check_pressed(vk_f7)){
+sdm("drawX $"+hex_str(drawX)+", drawY $"+hex_str(drawY)+", terrain_tile_xl_base $"+hex_str(terrain_tile_xl_base)+", terrain_tile_yt_base $"+hex_str(terrain_tile_yt_base)+", terrain_draw_area_xl $"+hex_str(terrain_draw_area_xl)+", terrain_draw_area_yt $"+hex_str(terrain_draw_area_yt));
+sdm("is_undefined(paper_drawn_clms) "+string(is_undefined(paper_drawn_clms))+", is_undefined(paper_drawn_rows) "+string(is_undefined(paper_drawn_rows)));
+//sdm("paper_drawn_clms $"+hex_str(paper_drawn_clms)+", paper_drawn_rows $"+hex_str(paper_drawn_rows));
+sdm("CLMS_MAP_PAPER $"+hex_str(CLMS_MAP_PAPER)+", ROWS_MAP_PAPER $"+hex_str(ROWS_MAP_PAPER)+", canDrawSections $"+hex_str(canDrawSections)+", Window_extra_draw_clms $"+hex_str(Window_extra_draw_clms)+", Window_vertical_draw_section_count $"+hex_str(Window_vertical_draw_section_count)+", Window_filler_clms $"+hex_str(Window_filler_clms));
+}
+*/
 
 
 

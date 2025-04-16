@@ -31,49 +31,37 @@ var _state_current = state&$3;
 
 // ----------------------------------------------------------------------------------
 // Draw bg color of menu
-draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, Window_w,Window_h, background_colour);
-//draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, Window_w,Window_h, p.dl_COLOR[|p.background_color_index]);
+draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, Window_w,Window_h, global.BackgroundColor_scene);
+
 
 
 
 // ----------------------------------------------------------------------------------
 // Draw GUI Window Frame
-//var _dg = ds_grid_create(0,0);
-//var _dl_tdata = ds_list_create();
 pal_swap_set(p.palette_image, PI_MENU);
+_base_x = drawX;
 for(_i=0; _i<Window_vertical_draw_section_count; _i++) // Each vertical section
 {
-    _base_x = drawX;
     _base_y = drawY + (_i<<4);
-    /*
-    //ds_list_clear(_dl_tdata);
-    var _ar_win_tdata;
-    switch(Window_draw_data_state){
-    default:    {for(_j=dg_tdata_H-1; _j>=0; _j--) _ar_win_tdata[_j]=dg_win_tdata_spl[#_i,_j]; break;}
-    case ST_ITM:{for(_j=dg_tdata_H-1; _j>=0; _j--) _ar_win_tdata[_j]=dg_win_tdata_itm[#_i,_j]; break;}
-    case ST_MAP:{for(_j=dg_tdata_H-1; _j>=0; _j--) _ar_win_tdata[_j]=dg_win_tdata_map[#_i,_j]; break;}
-    }
-    */
-    //_count = array_length_1d(_ar_win_tdata);
+    
     for(_j=0; _j<dg_tdata_H; _j++) // (Window_w x 8). Each row of this section
     {
-        if (dg_win_tdata_map[#_i,_j]!=0)
+        switch(Window_draw_data_state){
+        default:    {_data1=dg_win_tdata_spl[#_i,_j]; break;}
+        case ST_ITM:{_data1=dg_win_tdata_itm[#_i,_j]; break;}
+        case ST_MAP:{_data1=dg_win_tdata_map[#_i,_j]; break;}
+        }
+        
+        if (_data1!=0)
         {
-            _data2 = "";
             if (Window_extra_draw_clms) // map
             {
                 _data2  = string_copy(   dg_win_tdata_map[#_i,_j],1,2); // First 2 8x8 clms from left edge
                 _data2 += string_repeat(string_char_at(_data2,2), Window_filler_clms);
                 _data2 += string_char_at(dg_win_tdata_map[#_i,_j],3);
-            }
-            
-            _data1 = dg_win_tdata_map[#_i,_j];
-            if (string_length(_data2))
-            {
                 _w = string_length(_data1) - (CLMS_WIN_DEF-1);
                 _data1 = _data2 + strR(_data1, _w+1);
             }
-            
             
             for(_k=string_length(_data1)-1; _k>=0; _k--) // 8x8. each column of the row
             {
@@ -94,7 +82,58 @@ for(_i=0; _i<Window_vertical_draw_section_count; _i++) // Each vertical section
     }//for(_j
 }//for(_i
 pal_swap_reset();
-//ds_list_destroy(_dl_tdata); _dl_tdata=undefined;
+/*
+for(_i=0; _i<Window_vertical_draw_section_count; _i++) // Each vertical section
+{
+    _base_x = drawX;
+    _base_y = drawY + (_i<<4);
+    
+    var _ar_win_tdata;
+    switch(Window_draw_data_state){
+    default:    {for(_j=array_length_2d(ar_win_tdata_spl,_i)-1; _j>=0; _j--) _ar_win_tdata[_j]=ar_win_tdata_spl[_i,_j]; break;}
+    case ST_ITM:{for(_j=array_length_2d(ar_win_tdata_itm,_i)-1; _j>=0; _j--) _ar_win_tdata[_j]=ar_win_tdata_itm[_i,_j]; break;}
+    case ST_MAP:{for(_j=array_length_2d(ar_win_tdata_map,_i)-1; _j>=0; _j--) _ar_win_tdata[_j]=ar_win_tdata_map[_i,_j]; break;}
+    }
+    
+                 _count = array_length_1d(_ar_win_tdata);
+    for(_j=0; _j<_count; _j++) // (Window_w x 8). Each row of this section
+    {
+        _data2 = "";
+        if (Window_extra_draw_clms) // map
+        {
+            _data2  = string_copy(   ar_win_tdata_map[_i,_j],1,2); // First 2 8x8 clms from left edge
+            _data2 += string_repeat(string_char_at(_data2,2), Window_filler_clms);
+            _data2 += string_char_at(ar_win_tdata_map[_i,_j],3);
+        }
+        
+        _data1 = _ar_win_tdata[_j];
+        if (string_length(_data2))
+        {
+            _w = string_length(_data1) - (CLMS_WIN_DEF-1);
+            _data1 = _data2 + strR(_data1, _w+1);
+        }
+        
+        
+        for(_k=string_length(_data1)-1; _k>=0; _k--) // 8x8. each column of the row
+        {
+                _tsrc = string_char_at(_data1,_k+1);
+            if (_tsrc=="0" 
+            ||  _tsrc=="1" 
+            ||  _tsrc=="2" )
+            {
+                _tsrc = g.dl_MenuFrame_TSRC[|real(_tsrc)];
+                _ts_x = ((_tsrc>>0)&$F)<<3;
+                _ts_y = ((_tsrc>>4)&$F)<<3;
+                _x    = _base_x + (_k<<3);
+                _y    = _base_y + (_j<<3);
+                draw_background_part(g.TS_MENU, _ts_x,_ts_y, 8,8, _x,_y);
+            }
+        }//for(_k
+    }//for(_j
+    
+    _ar_win_tdata = 0;
+}//for(_i
+*/
 
 
 // Draw sectional bar for inventory

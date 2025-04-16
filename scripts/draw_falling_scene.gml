@@ -10,7 +10,7 @@ with(p)
     if(!fall_scene_counter)
     {
         var _DIR = sign_(fall_scene_type & (g.FallScene_BIT_RIGHT|g.FallScene_BIT_DOWN)); // 1 or -1
-        fall_scene_pal_state = ((fall_scene_pal_state+FallScene_COL_CNT)+_DIR) mod FallScene_COL_CNT;
+        fall_scene_pal_state = ((fall_scene_pal_state+FallScene_CLM_COUNT)+_DIR) mod FallScene_CLM_COUNT;
     }
     
     // I added fall_scene_counter to control timing of stripe color change to every 3 frames.

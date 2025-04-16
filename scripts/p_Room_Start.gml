@@ -616,12 +616,12 @@ global.spell_futile_pi       = add_pi_permut(global.PI_GUI1, "RBWGYMKC", "spell 
 
 
 _idx=-1;
-ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_COL_CNT);
+ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_CLM_COUNT);
 dg_FallScene_PI[#_idx,0] = add_pi_permut(FallScene_PI_BASE, "RBWGYMKC", "fall scene 1a"); // m, s, h
 dg_FallScene_PI[#_idx,1] = add_pi_permut(FallScene_PI_BASE, "BWRGYMKC", "fall scene 1b"); // s, h, m
 dg_FallScene_PI[#_idx,2] =               FallScene_PI_BASE; // h, m, s
 //                                                      //
-ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_COL_CNT);
+ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_CLM_COUNT);
 dg_FallScene_PI[#_idx,0] = add_pi_permut(global.PI_MOB_PUR, "RBWGYMKC", "fall scene 2a"); // m, s, h
 dg_FallScene_PI[#_idx,1] = add_pi_permut(global.PI_MOB_PUR, "BWRGYMKC", "fall scene 2b"); // s, h, m
 dg_FallScene_PI[#_idx,2] =               global.PI_MOB_PUR; // h, m, s

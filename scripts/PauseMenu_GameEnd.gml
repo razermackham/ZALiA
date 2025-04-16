@@ -85,6 +85,24 @@ if (_exists)                                 dm_DungeonMap = undefined;
 
 
 
+    _exists=variable_instance_exists(id,"dg_win_tdata_spl");
+if (_exists) _exists = !is_undefined(    dg_win_tdata_spl);
+if (_exists) _exists = ds_exists(        dg_win_tdata_spl,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_win_tdata_spl);
+if (_exists)                             dg_win_tdata_spl=undefined;
+
+    _exists=variable_instance_exists(id,"dg_win_tdata_itm");
+if (_exists) _exists = !is_undefined(    dg_win_tdata_itm);
+if (_exists) _exists = ds_exists(        dg_win_tdata_itm,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_win_tdata_itm);
+if (_exists)                             dg_win_tdata_itm=undefined;
+
+    _exists=variable_instance_exists(id,"dg_win_tdata_map");
+if (_exists) _exists = !is_undefined(    dg_win_tdata_map);
+if (_exists) _exists = ds_exists(        dg_win_tdata_map,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_win_tdata_map);
+if (_exists)                             dg_win_tdata_map=undefined;
+
              _exists = variable_instance_exists(id,  "dg_map_edge");
 if (_exists) _exists =               !is_undefined(   dg_map_edge);
 if (_exists) _exists =                ds_exists(      dg_map_edge, ds_type_grid);

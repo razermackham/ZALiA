@@ -61,8 +61,7 @@ ROWS_WIN_ITM = ROWS_WIN_DEF;
 
 
 // 8x8 tiles. FOR THE AREA OF MAP PAPER!!!
-CLMS_MAP_PAPER = $16 + $0A; // $16 == 22
-//CLMS_MAP_PAPER = $16 + ($0A * !!g.use_wide_view); // $16 == 22
+CLMS_MAP_PAPER = $16 + $0A; // $16==22
 ROWS_MAP_PAPER = ROWS_WIN_DEF - 2 - 2; // - 2 for bottom info, - 2 for border
 
 // These are variable because some dungeons will need 
@@ -88,7 +87,7 @@ DUNGEON_MAP_PAD1 = 1;
 
 
 
-ANIM_FRAMES_DEF = ROWS_WIN_DEF >>1; // 11
+ANIM_FRAMES_DEF = ROWS_WIN_DEF>>1; // 11
 ANIM_FRAMES_MAP = ANIM_FRAMES_DEF + ((CLMS_WIN_MAP - CLMS_WIN_DEF) >>1);
 anim_frame      = 0;
 
@@ -98,8 +97,8 @@ Window_spell_menu_window_xl = 0; // xl for Spell & Item only
 Window_xr = 0;
 Window_yt = 0;
 Window_yb = 0;
-Window_w = 0;
-Window_h = 0;
+Window_w  = 0;
+Window_h  = 0;
 Window_vertical_draw_section_count = 0;
 Window_extra_draw_clms = 0;
 Window_filler_clms = 0;
@@ -123,9 +122,9 @@ SPR_ICON_KSU = spr_kakusu_icon_1a;
 
 
 
-_i=-1;
-dg_icons1 = ds_grid_create(0,5);
 
+dg_icons1 = ds_grid_create(0,5);
+_i = -1;
 ds_grid_resize(dg_icons1, (++_i)+1, ds_grid_height(dg_icons1));
 dg_icons1[#_i,0] = SPR_ICON_PC1;
 dg_icons1[#_i,1] = g.CHAR_TIMES + "X";
@@ -270,116 +269,57 @@ sprDataStr9 = _V+_H + _C + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Hor section
 
 
 
+var _WIN_MID_SECTION_COUNT = 9;
 
 dg_tdata_H = 3;
+
 
 // an index num of 1st dimension == the anim frame - 1
 // an index num of 2nd dimension == one of the 8-pixel-high rows
 // dg_win_tdata_spl[anim frame, row of frame]
+// SPELL ------------------------------------
 dg_win_tdata_spl = ds_grid_create(0,dg_tdata_H);
 _idx = -1;
 ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
 dg_win_tdata_spl[#_idx,0] = sprDataStr1; // Top
 dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
 //                                      //
-ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
-dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
-dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
-dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
-dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
-dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
-dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
-dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
-dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
-dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+repeat(_WIN_MID_SECTION_COUNT)
+{
+    ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
+    dg_win_tdata_spl[#_idx,0] = sprDataStr2; // 
+    dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
+}
 //                                      //
 ds_grid_resize(dg_win_tdata_spl, (++_idx)+1, dg_tdata_H);
 dg_win_tdata_spl[#_idx,0] = sprDataStr3; // Hor section bar
 dg_win_tdata_spl[#_idx,1] = sprDataStr2; // 
 dg_win_tdata_spl[#_idx,2] = sprDataStr1; // Bottom
-//                                      //
 
 
-
-
-// itm: item
+// ITEM ------------------------------------
 dg_win_tdata_itm = ds_grid_create(0,dg_tdata_H);
-ds_grid_copy(dg_win_tdata_itm,dg_win_tdata_spl);
+ds_grid_copy(dg_win_tdata_itm, dg_win_tdata_spl);
 
 
-
-
+// MAP ------------------------------------
 dg_win_tdata_map = ds_grid_create(0,dg_tdata_H);
 _idx = -1;
 ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
 dg_win_tdata_map[#_idx,0] = sprDataStr4; // Top
 dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
 //                                      //
-ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
-dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+repeat(_WIN_MID_SECTION_COUNT)
+{
+    ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
+    dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
+    dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
+}
 //                                      //
 ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
-dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
-dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
-dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
-dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
-dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
-dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
-dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_map[#_idx,0] = sprDataStr5; // 
-dg_win_tdata_map[#_idx,1] = sprDataStr5; // 
-//                                      //
-ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
-dg_win_tdata_map[#_idx,0] = sprDataStr8; // Hor section bar
+dg_win_tdata_map[#_idx,0] = sprDataStr6; // Hor section bar
 dg_win_tdata_map[#_idx,1] = sprDataStr7; // 
-dg_win_tdata_map[#_idx,2] = sprDataStr6; // Bottom
+dg_win_tdata_map[#_idx,2] = sprDataStr8; // Bottom
 //                                      //
 
 
@@ -399,18 +339,7 @@ for(_i=0; _i<g.SPELL_COUNT; _i++){
     
     ds_list_add(dl_spell_str,_spell_name);
 }
-/*
-var _CHAR_MAX = 8;
-var                  _spell_name;
-for(_i=g.SPELL_COUNT-1; _i>=0; _i--){
-                     _spell_name  = string_letters(val(g.dm_Spell[?hex_str($1<<_i)+STR_Name], STR_CUCCO));
-    if(!is_undefined(_spell_name))
-    {                _spell_name += string_repeat(".", _CHAR_MAX-string_length(_spell_name));  }
-    else             _spell_name  = string_repeat(".", _CHAR_MAX);
-    
-    dl_spell_str[|_i] = _spell_name;
-}
-*/
+
 Head_TEXT         = "MAGIC";
 Head_TEXT        += string_repeat(".", _CHAR_MAX-string_length(Head_TEXT));
 

@@ -191,8 +191,12 @@ writ_snd            = get_audio_theme_track(dk_TypeChar);
 // writ_snd_can_play = true;
 
 MAX_LINES = (rows-2)>>1; // = 4
+
 dl_lines_written = ds_list_create();
-for(_i=MAX_LINES-1; _i>=0; _i--) dl_lines_written[|_i] = ""; // 
+repeat(MAX_LINES)
+{
+    ds_list_add(dl_lines_written,"");
+}
 
 
 dg_dlg = ds_grid_create(0,2);

@@ -131,8 +131,10 @@ switch(g.menu_state)
     writ_line_char_pos  = 0; // 0489
     writ_dlg            = ""; // what's been written so far
     
-    for(_i=array_length_1d(dl_lines_written)-1; _i>=0; _i--)
-    {                      dl_lines_written[|_i] = "";  }
+    for(_i=ds_list_size(dl_lines_written)-1; _i>=0; _i--)
+    {
+        dl_lines_written[|_i] = "";
+    }
     
     
     

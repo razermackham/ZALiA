@@ -26,13 +26,13 @@ I'm still new the world of sharing source code and working with a community on a
   * Someone informed me you can still get [**GameMaker:Studio 1.4.9999**](http://store.yoyogames.com/downloads/gm-studio/release-notes-studio.html). If you have trouble trusting links: Go to GameMaker's official home page (I've been told you need a YoYo account and license number, but typing gibberish into the license field works) > Click on Blog at the top > Scroll down to find the search bar > Search **1.4.9999** > Click on search result: **GAMEMAKER:STUDIO 1.4.9999 RELEASED**
   * If you can't get a copy of GameMaker:Studio 1.4.9999, I've been told [Undertale Mod Tool](https://github.com/UnderminersTeam/UndertaleModTool) can be used though I'm not familiar with it.
 * [Tiled](https://www.mapeditor.org/) map/level editor if you want to edit existing scenes/rooms or make new ones.
-  * [Here](https://drive.google.com/file/d/1vthpwqrevOv4Knwm8MUU3a_RwxK9-oRz/view?usp=sharing) is the Google Drive download for all the Tiled map files that ZALiA uses.
+  * [Here](https://drive.google.com/file/d/1xCY8eRpoub1zfzu0G1195Vm6OgnVpN0R/view?usp=sharing) is the Google Drive download for all the Tiled map files that ZALiA uses.
 
 # Player Skins
 There are ~3800 additional sprites due to the player skins. I have removed all but the default skin so that all the extras are not in the way during development.
 
 When it's time to release the project, or if you would like to include any of the extra skins during development:
-1. Download [**files_for_importing_player_skins**](https://drive.google.com/file/d/1iTxXRHVHmWGa6273Xj8kRYtvufvU4l8Q/view?usp=sharing) folder and unzip. It contains all the player skin .gmx files and the .png image files that go with them.
+1. Download [**files_for_importing_player_skins**](https://drive.google.com/file/d/1cs2yqOxs18CxrGnH2aFpOwSu34ESYUST/view?usp=sharing) folder and unzip. It contains all the player skin .gmx files and the .png image files that go with them.
 2. In **GameMaker:Studio** > In the assets tree > In the **Sprites** folder > Right click on the **player_character** folder > Click **Add Existing Sprite**.
 3. In the window that pops up, navigate to the **individual_sprites_format** folder inside the downloaded skins folder > Select the .gmx files of which skins you want (Do not select **spr_PCSkin_KazunobuShimizu_Link01.sprite.gmx** as it's the default skin already in the project)
 4. In **GameMaker:Studio** > In the assets tree > In the **Scripts** folder > In the **game_object** folder > In the **goa** folder > Open the **GameObjectA_init** script > Find the comment `// UNCOMMENT WHICH SKINS YOU WILL USE HERE` > Uncomment which skins you're going to use.

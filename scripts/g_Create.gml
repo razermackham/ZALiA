@@ -172,14 +172,16 @@ var _w,_w2, _h,_h2;
 var _obj, _spr;
 var _datakey, _dk,_dk1,_dk2,_dk3, _mk;
 var _depth, _idx, _name, _id;
-var _default;
+var _default, _exists;
 var _ts;
 var _dl_1 = ds_list_create();
 
 
 
 depth = DEPTH_g;
-//GO_depth_init(DEPTH_BASE);
+
+
+
 
 
 
@@ -242,7 +244,7 @@ global.GUI_NAV1_VER = 2;
 
 DevDash_state    = false;
 DoubleJump_state = false;
-use_StabToCheat  = false; // 
+use_StabToCheat  = false;
 
 _TwT_=ROOM_SPEED_BASE*60; // 1 min in frames
 _YwY_=false;
@@ -472,11 +474,9 @@ view_hport[0] = VIEW_PORT_H;
 
 
 
-global.RetroShaders_IS_LIVE       = true; // false disables all RetroShaders actions
-global.RetroShaders_enabled       = false;
-//global.RetroShaders_enabled       = true;
-if (global.RetroShaders_IS_LIVE) global.RetroShaders_surface_scale = 4;
-else                             global.RetroShaders_surface_scale = 1;
+global.RetroShaders_IS_LIVE = true; // false disables all RetroShaders actions
+global.RetroShaders_enabled = false;
+global.RetroShaders_surface_scale = 2;
 global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
 
 

@@ -1984,7 +1984,7 @@ set_rm_data(area+hex_str(rm_num), mus0, STR_Color+COLOR2_, STR_Tile+area_PA+'253
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
 data_spawn(rm+STR_PRIO,SpTrB,$2,  $19<<3,$10<<3,  STR_Speed+hex_str(3),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
 data_spawn(rm+STR_PRIO,SpTrB,$2,  $23<<3,$0C<<3,  STR_Speed+hex_str(2),STR_Direction+string(1)); // SpikeTrapB v2: Short, Auto horizontal
-data_spawn(rm+STR_PRIO,SpTrB,$2,  $38<<3,$0C<<3,  STR_Palette+hex_str(global.PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
+data_spawn(rm+STR_PRIO,SpTrB,$2,  $38<<3,$0C<<3,  dk_PI+hex_str(global.PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
 data_spawn(rm+STR_PRIO,SpTrB,$2,  $48<<3,$08<<3,  STR_Speed+hex_str(1),STR_Direction+string(1)); // SpikeTrapB v2: Short, Auto horizontal
 data_spawn(rm+STR_PRIO,SpTrB,$2,  $56<<3,$08<<3,  STR_Speed+hex_str(2),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
 data_spawn(rm+STR_PRIO,SpTrB,$2,  $67<<3,$04<<3,  STR_Speed+hex_str(2),STR_Direction+string(1)); // SpikeTrapB v2: Short, Auto horizontal
@@ -2020,10 +2020,10 @@ row3 =  row0+$1A; // ground lvl first 2 pages of rm
 y3   = (row0+$11)<<3;
 _pi  = global.PI_MOB_PUR;
 data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init); // 
-data_spawn(rm+STR_PRXM,GlzmA,$1,  $12<<3,(row3-$E)<<3,  STR_Palette+hex_str(global.PI_MOB_RED)); // Gellzam
-data_spawn(rm+STR_PRXM,GeldA,$1,  $21<<3,y3,  STR_Palette+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $24<<3,y3,  STR_Palette+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $5D<<3,y3,  STR_Palette+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GlzmA,$1,  $12<<3,(row3-$E)<<3,  dk_PI+hex_str(global.PI_MOB_RED)); // Gellzam
+data_spawn(rm+STR_PRXM,GeldA,$1,  $21<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $24<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $5D<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
 data_spawn(rm+STR_PRIO,SpRoA,$1,  0,0); // RockSpawner  1 
 
 
@@ -2051,11 +2051,11 @@ _pi = global.PI_MOB_PUR;
 y3  = (row0+$11)<<3;
 y4  = (row0+$14)<<3;
 data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init); // 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $1F<<3,y3,  STR_Palette+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $37<<3,y3,  STR_Palette+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $44<<3,y4,  STR_Palette+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $56<<3,y4,  STR_Palette+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GlzmA,$1,  $31<<3,y3,  STR_Palette+hex_str(global.PI_MOB_RED)); // Gellzam
+data_spawn(rm+STR_PRXM,GeldA,$1,  $1F<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $37<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $44<<3,y4,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $56<<3,y4,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GlzmA,$1,  $31<<3,y3,  dk_PI+hex_str(global.PI_MOB_RED)); // Gellzam
 
 
 clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: Elevator center clm

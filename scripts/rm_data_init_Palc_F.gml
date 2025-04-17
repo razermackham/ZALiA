@@ -126,7 +126,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$2,  $18<<3,y4); // Bot  2
 data_spawn(rm+STR_PRXM,Bot_A,$2,  $24<<3,y4); // Bot  2
 data_spawn(rm+STR_PRXM,Bot_A,$2,  $3B<<3,y4); // Bot  2
 data_spawn(rm+STR_PRXM,Bot_A,$2,  $56<<3,y4); // Bot  2
-data_spawn(rm+STR_PRIO,PushA,$1,  $16<<3,(row3-$01)<<3,  STR_Palette+hex_str(global.PI_BGR2)); // Pushable
+data_spawn(rm+STR_PRIO,PushA,$1,  $16<<3,(row3-$01)<<3,  dk_PI+hex_str(global.PI_BGR2)); // Pushable
 
 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '02'+EXL0_); // RGT 0, 
@@ -1140,7 +1140,7 @@ x3=$46<<3;  x4=$3F<<3;
 
 data_spawn_2a(STR_Challenge,Challenge_BlockConfiguration,2,  x3,(row0+$0E)<<3);
 data_spawn(rm+STR_PRIO,Spawner_FallingBlock,$2,  x3,(row0+$00)<<3,  STR_Clms+hex_str($B)); // Spawner_FallingBlock  1
-data_spawn(rm+STR_PRIO,BlckB,$1,  x4,(row0+$03)<<3,  STR_Palette+hex_str(global.PI_BGR2)); // BlockB
+data_spawn(rm+STR_PRIO,BlckB,$1,  x4,(row0+$03)<<3,  dk_PI+hex_str(global.PI_BGR2)); // BlockB
 row3=row0+$18;  row4=row3+$02;  y3=row4<<3;
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $1D<<3,y3); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $2C<<3,(row0+$0E)<<3); // Bot  1

@@ -55,6 +55,8 @@ switch(Blur_cursor)
         else                            dg_Blur[#Blur_ENABLE,$A] = "OFF";
         dg_Main[#Main_BLUR,$A] = dg_Blur[#Blur_ENABLE,$A];
         dg_Main[#Main_BLUR,$5] = dg_Blur[#Blur_ENABLE,$5];
+        
+        save_game_pref();
         aud_play_sound(SOUND_CONFIRM2, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
     }
@@ -78,6 +80,7 @@ switch(Blur_cursor)
             dg_Blur[#_IDX,$5] = clamp(_val,   dg_Blur[#_IDX,$6],dg_Blur[#_IDX,$7]);
             dg_Blur[#_IDX,$A] = string_format(dg_Blur[#_IDX,$5], 1,4); // 10: value text
             
+            save_game_pref();
             aud_play_sound(SOUND_CURSOR2, -1,-1, SOUND_VOLUME);
             timer = DURATION0;
         }
@@ -90,6 +93,8 @@ switch(Blur_cursor)
     if (pressed_confirm1)
     {
         dg_Blur[#Blur_EDIT,$5] = dg_Blur[#Blur_EDIT,$8]; // 5: current, 8: default
+        
+        save_game_pref();
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
     }

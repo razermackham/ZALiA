@@ -19,7 +19,7 @@ with(enemy_spawn_1(WosuA,1))
     is_from_spawner = true;
     
     set_xlyt(id, xl, _YT-hh-$08);
-    //set_xlyt(id, xl, viewYT() + $A8);
+    //set_xlyt(id, xl, viewYT() + $A8); // OG reference
     
     if (_RAND&$2) hspd = ($14*facingDir) &$FF;
     else          hspd = ($0C*facingDir) &$FF;

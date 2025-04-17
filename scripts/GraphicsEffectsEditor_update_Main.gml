@@ -53,6 +53,7 @@ switch(Main_cursor)
         //global.application_surface_draw_enable_state = false; // for testing cam zoom
         application_surface_draw_enable(global.application_surface_draw_enable_state);
         
+        save_game_pref();
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
     }
@@ -78,6 +79,7 @@ switch(Main_cursor)
             global.RetroShaders_surface_scale = dg_Main[#_IDX,$5];
             update_shaders_surf_resize();
             
+            save_game_pref();
             aud_play_sound(SOUND_CURSOR2, -1,-1, SOUND_VOLUME);
             timer = DURATION0;
         }
@@ -171,6 +173,7 @@ switch(Main_cursor)
         dg_BloomEdit[#BloomEdit_G,5]      = dg_BloomEdit[#BloomEdit_G,8];
         */
         
+        save_game_pref();
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
     }

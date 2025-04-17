@@ -12,7 +12,7 @@ with(g.pc)
     var                                             _BEHAVIOR     = behavior;
     if (argument_count>_arg && argument[_arg++]>=0) _BEHAVIOR     = argument[_arg-1];
                                                     _BEHAVIOR     = val(dm_skins[?STR_Clm+hex_str(_BEHAVIOR)]);
-    
+    //
     var                                             _USE_DISGUISE = use_disguise;
     if (argument_count>_arg && argument[_arg++]>=0) _USE_DISGUISE = argument[_arg-1];
     
@@ -23,11 +23,7 @@ with(g.pc)
     if (argument_count>_arg && argument[_arg++])    _SWORD_LEVEL  = argument[_arg-1];
     
     var                                             _PALIDX       = Draw_palidx;
-    //var                                             _PALIDX       = get_pi(palidx, palidx_permut);
     if (argument_count>_arg && argument[_arg++]>=0) _PALIDX       = argument[_arg-1];
-    
-    //var                                             _SWORD_PALIDX = sword_palidx;
-    //if (argument_count>_arg && argument[_arg++]>=0) _SWORD_PALIDX = argument[_arg-1];
     
     var                                             _COLOR        = c_white;
     if (argument_count>_arg && argument[_arg++]>=0) _COLOR        = argument[_arg-1];

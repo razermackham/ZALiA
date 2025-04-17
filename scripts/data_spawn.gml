@@ -48,14 +48,16 @@ if (_IS_ITEM)
 var _PALETTE_IDX = -1;
 for(_i=_arg; _i<argument_count; _i++)
 {
-    _val=argument[_i];
+    _val = argument[_i];
     
-    _datakey = STR_Palette;
+    _datakey = dk_PI;
+    //_datakey = STR_Palette;
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
     {
-        _len  = string_length(_datakey);
-        _val1 = string_copy(_val, _len+1, string_length(_val)-_len);
+        _val1 = strR(_val, string_length(_datakey)+1);
+        //_len  = string_length(_datakey);
+        //_val1 = string_copy(_val, _len+1, string_length(_val)-_len);
         _PALETTE_IDX = str_hex(_val1);
         break;//_i
     }
@@ -65,9 +67,9 @@ for(_i=_arg; _i<argument_count; _i++)
 
 
 //-------------------------------------------------
-if (string_pos(    STR_PRXM,_SPAWN_DATA))
-{    var _TRIGGER= STR_PRXM;  }
-else var _TRIGGER= STR_PRIO;
+if (string_pos(   STR_PRXM,_SPAWN_DATA))
+{    var _TRIGGER=STR_PRXM;  }
+else var _TRIGGER=STR_PRIO;
 
 var _SPAWN_DATAKEY = data_spawn_3a(_RM_NAME+_TRIGGER, _OBJECT,_VERSION, _XL,_YT, _PALETTE_IDX);
 //-------------------------------------------------
@@ -498,6 +500,19 @@ for(_i=_arg; _i<argument_count; _i++)
         g.dm_spawn[?_SPAWN_DATAKEY+_datakey+STR_Datakey] = _val1;
         continue;//_i
     }
+    
+    
+    
+    
+    _datakey = STR_Palette;
+    if (is_string(          _val) 
+    &&  string_pos(_datakey,_val) )
+    {
+        _val1 = strR(_val, string_length(_datakey)+1);
+        g.dm_spawn[?_SPAWN_DATAKEY+_datakey] = _val1;
+        continue;//_i
+    }
+    
     
     
     

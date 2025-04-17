@@ -223,6 +223,15 @@ with(instance_create(_XL,_YT, _OBJECT))
     //  _PALETTE_IDX has been specified by the instance that spawned this instance
     if (_PALETTE_IDX!=-1) GO_init_palidx(_PALETTE_IDX);
     
+    
+    if(!is_undefined(            dk_spawn) 
+    && !is_undefined(g.dm_spawn[?dk_spawn+STR_Palette]) )
+    {
+        _val =       g.dm_spawn[?dk_spawn+STR_Palette];
+        change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(palidx), string_length(_val), _val));
+    }
+    
+    
     //  _DIALOGUE_DATAKEY has been specified by the instance that spawned this instance
     if (_DIALOGUE_DATAKEY!=-1) dialogue_datakey = _DIALOGUE_DATAKEY;
     

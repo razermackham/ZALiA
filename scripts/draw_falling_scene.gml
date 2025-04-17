@@ -25,26 +25,26 @@ with(p)
     
     
     // Draw PC and PC-Shadow ----------------------------------------------
-    if ((fall_scene_type&g.FallScene_BIT_RIGHT && fall_scene_x>viewXL()+FallScene_X_BASE) 
+    if ((fall_scene_type&g.FallScene_BIT_DOWN  && fall_scene_y>viewYT()+FallScene_Y_BASE)   // most likely
+    ||  (fall_scene_type&g.FallScene_BIT_RIGHT && fall_scene_x>viewXL()+FallScene_X_BASE) 
     ||  (fall_scene_type&g.FallScene_BIT_LEFT  && fall_scene_x<viewXR()-FallScene_X_BASE) 
-    ||  (fall_scene_type&g.FallScene_BIT_DOWN  && fall_scene_y>viewYT()+FallScene_Y_BASE) 
-    ||  (fall_scene_type&g.FallScene_BIT_UP    && fall_scene_y<viewYB()-FallScene_Y_BASE) )
+    ||  (fall_scene_type&g.FallScene_BIT_UP    && fall_scene_y<viewYB()-FallScene_Y_BASE) ) // least likely
     {
         var _x_scale = g.pc.xScale;
         
-        if (fall_scene_type & (g.FallScene_BIT_RIGHT|g.FallScene_BIT_LEFT))
-        {
-            _x = fall_scene_x;
-            _y = viewYC();
-            _x_scale = -sign_(fall_scene_fall_spd);
-        }
-        else if (fall_scene_type & (g.FallScene_BIT_DOWN|g.FallScene_BIT_UP))
+        if (fall_scene_type & (g.FallScene_BIT_DOWN|g.FallScene_BIT_UP))
         {
             _x = viewXC();
             _y = fall_scene_y;
             if (g.room_type=="A")
             {    _x_scale = g.pc.xScale;  }
             else _x_scale = 1;
+        }
+        else if (fall_scene_type & (g.FallScene_BIT_RIGHT|g.FallScene_BIT_LEFT))
+        {
+            _x = fall_scene_x;
+            _y = viewYC();
+            _x_scale = -sign_(fall_scene_fall_spd);
         }
         
         var _pi = global.PI_PC1;
@@ -79,8 +79,8 @@ with(p)
             case  1:{_pi=global.PI_PC2; break;}
             case  2:{_pi=global.PI_PC3; break;}
             }
-            draw_pc_skin(_x+8,_y-9, _x_scale,1, g.pc.behavior_DAMAGE, -1, -1,-1,  -1, C_BLK1);
-            draw_pc_skin(_x,  _y,   _x_scale,1, g.pc.behavior_DAMAGE, -1, -1,-1, _pi);
+            draw_pc_skin(_x+8,_y-9, _x_scale,1, g.pc.behavior_DAMAGE, false, -1,-1,  -1, C_BLK1);
+            draw_pc_skin(_x,  _y,   _x_scale,1, g.pc.behavior_DAMAGE, false, -1,-1, _pi);
         }
     }
     

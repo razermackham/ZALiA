@@ -7,10 +7,9 @@ var _OBJ = argument0;
 var _VER = argument1;
 
 
-var _facingDir =  facingDir;
-if (Input.heldH)  facingDir = -sign_(Input.heldH&$1);
-//else             facingDir = -sign_(irandom($FF)&$1);
-else              facingDir = -sign_(    rand()&$1);
+var _facingDir = facingDir;
+if (Input.heldH) facingDir = -sign_(Input.heldH&$1);
+else             facingDir = -sign_(rand()&$1);
 
 
 with(GameObject_create(0,0, _OBJ,_VER))
@@ -19,19 +18,20 @@ with(GameObject_create(0,0, _OBJ,_VER))
     other.facingDir = _facingDir;
     
     // WIDE VIEW
-    var _XX  = viewXL() + (viewW() * !facingDir); // left or right end of view
-        _XX -= ww_;                               // half GO's width
-        _XX += ((g.pc.yt&$FF)<3) * facingDir;     // OG CARRY. 0, 1, -1
-    var _YY  =   g.pc.yt + g.pc.hh - $22;
+    var _XL  = viewXL() + (viewW() * !facingDir); // left or right end of view
+        _XL -= ww_;                               // half GO's width
+        _XL +=((g.pc.yt&$FF)<3) * facingDir;      // OG CARRY. 0, 1, -1
+    var _YT  =  g.pc.yt + g.pc.hh - $22;
     /*  OG
-    var _XX = g.camXL + ((8*facingDir)&$FF) + ((g.pc.yy&$FF)<3);
-    var _YY = g.pc.yy - 2;
+    var _XL = g.camXL + ((8*facingDir)&$FF) + ((g.pc.yt&$FF)<3);
+    var _YT = g.pc.yt - 2;
     */
     
-    set_xlyt(id, _XX,_YY);
+    set_xlyt(id, _XL,_YT);
     
-    hspd      = (HSPD1*facingDir) &$FF;
-    counter   = $FF;
+    hspd = (HSPD1*facingDir) &$FF;
+    counter = $FF;
+    
     
     return id;
 }

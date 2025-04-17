@@ -362,7 +362,7 @@ C_VLT3 = $EC3820; // $12 Violet/Blue. Mid-Dark
 C_VLT4 = $8C1824; // $01 Violet.      Darkest
 //                          // 
 C_PUR1 = $F1BADC; // $33 Purple. 
-C_PUR2 = $FC88CC; // $32 Purple. 
+C_PUR2 = $FC88CC; // $23 Purple. 
 C_PUR3 = $F00080; // $13 Purple. Cemetery sky
 C_PUR4 = $9C0044; // $03 Purple. 
 //                          // 
@@ -987,8 +987,11 @@ PAL_NPC_BLU1  = build_pal(C_RED1,C_VLT3,C_BLK1,C_BLK1,-2,-2,-2,-2); // blue    n
 PAL_NPC_BLU2  = PAL_MOB_BLU1; // Bulblin
 //                                                                          //
 PAL_NPC_PUR1  = build_pal(C_RED1,C_PUR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // purple  npc
-PAL_NPC_PUR2  = strReplaceAt(PAL_NPC_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_YLW4)); // dark brown outline
+PAL_NPC_PUR2  = strReplaceAt(PAL_NPC_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_PUR4));
 PAL_NPC_PUR2  = strReplaceAt(PAL_NPC_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_NPC_PUR2,0,"B")));
+PAL_NPC_PUR3  = strReplaceAt(PAL_NPC_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_YLW4)); // dark brown outline
+PAL_NPC_PUR3  = strReplaceAt(PAL_NPC_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_NPC_PUR2,0,"B")));
+PAL_NPC_PUR4  = build_pal(C_RED1,C_GRY2,C_PUR4,C_BLK1,-2,-2,-2,-2); // purple  npc. Skill Knights
 //                                                                          //
 PAL_NPC_SET1  = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU1 + PAL_NPC_PUR1;
 PAL_NPC_SET2  = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU2 + PAL_NPC_PUR1; // Bulblin

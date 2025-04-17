@@ -9,6 +9,8 @@ var _val, _val1,_val2,_val3;
 var _str,_str1,_str2,_str3, _pos,_pos1, _pos_offset, _len1,_len2;
 var _dk;
 var _pal,_pal1, _pi;
+var _color,_color1,_color2;
+var _ci,_ci1,_ci2;
 var _dungeon_num;
 
 
@@ -101,6 +103,11 @@ pal_rm_dark = pal_rm_dark_DEFAULT;
 
 
 
+
+
+
+
+
 // ------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------
 var _FILE_CLEANING = g.FileCleaning01_STATE && g.room_type=="A" && g.rm_name==g.FileCleaning01_rm_name;
@@ -122,6 +129,7 @@ switch(g.room_type)
         if(!is_undefined(_dk))
         {
             pal_rm_file = dm_scene_palette[?_dk+dk_BGR];
+            //sdm(""); sdm("pal_rm_file: "+pal_rm_file); sdm("");
             _pal = f.dm_rando[?g.rm_name+STR_Palette];
             if(!is_undefined(pal_rm_file) 
             && !is_undefined(_pal) )
@@ -131,6 +139,7 @@ switch(g.room_type)
                      if (_len1>_len2) _pal += string_copy(pal_rm_file, _len2+1, _len1-_len2);
                 else if (_len1<_len2) _pal  = string_copy(_pal, 1, _len1);
                 pal_rm_file = _pal;
+                //sdm(""); sdm("pal_rm_file: "+pal_rm_file); sdm("");
             }
         }
         
@@ -229,7 +238,7 @@ if (g.room_type=="A"
 &&  g.dungeon_num 
 &&  g.dungeon_num<8 )
 {
-    var _layer_name, _depth, _ci;
+    var _layer_name, _depth;
     
     _count = ds_list_size(g.dl_TILE_DEPTH_NAMES);
     for(_i=0; _i<_count; _i++)
@@ -264,10 +273,8 @@ if (g.room_type=="A"
                 case  7:{_ci=CI_ORG4; break;}
                 }//switch(_dungeon_num)
                 
-                _pal  = color_str(dl_COLOR[|_ci]);
-                _pos  = get_pal_pos(_pi);
-                _pos += (string_pos("B",global.PAL_BASE_COLOR_ORDER)-1) * global.PAL_CHAR_PER_COLOR;
-                pal_rm_def = strReplaceAt(pal_rm_def, _pos, string_length(_pal), _pal);
+                _color = color_str(dl_COLOR[|_ci]);
+                pal_rm_def = strReplaceAt(pal_rm_def, get_pal_col_pos(_pi,"B"), string_length(_color), _color);
             }
         }
     }
@@ -397,7 +404,7 @@ if (room!=rmB_Title
             else if (g.RandoPalette_state==2) // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
             {
                 var             _dl1=ds_list_create();
-                ds_list_add(    _dl1,global.PI_BGR1, global.PI_BGR2, global.PI_BGR3, global.PI_BGR4);
+                ds_list_add(    _dl1,global.PI_BGR1,global.PI_BGR2,global.PI_BGR3,global.PI_BGR4);
                 ds_list_shuffle(_dl1);
                 
                 var             _dl2=ds_list_create();
@@ -492,7 +499,7 @@ if (_LEN1<global.PAL_CHAR_PER_SCENE)
 }
 else
 {
-    pal_rm_def  = string_copy(pal_rm_def, 1, global.PAL_CHAR_PER_SCENE);
+    pal_rm_def  = string_copy(pal_rm_def, 1,global.PAL_CHAR_PER_SCENE);
 }
 
 
@@ -639,43 +646,6 @@ dg_FallScene_PI[#_idx,2] =               global.PI_MOB_PUR; // h, m, s
 pal_rm_def = change_pal( pal_rm_def);
 pal_rm_def = string_copy(pal_rm_def, 1, global.PAL_CHAR_PER_SCENE);
 // ------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-//if (room==rmB_GameOver){sdm(""); sdm("pal_rm_def: "+pal_rm_def); sdm("");}
-
-
-
-
-
-
-// F3F1F2F40D3016120D3727060D3027170D3012020D3010000D2A36180D3027160D3016070D302C0C0D301303F3F1F2F4F33016120D27070D0D27070D0D0D160D0D0D0D0D302111010D270D0D0D160D0D0D210D0D0D140D0D
-// F3F1F2F40D3016120D3727060D3027170D3012020D3010000D2A36180D3027160D3016070D302C0C0D301303F3F1F2F4F33016120D27070D0D27070D0D0D160D0D0D0D0D302111010D270D0D0D160D0D0D210D0D0D140D0D
-// F3F1F2F4 0D301612, 0D372706 0D302717 0D301202 0D301000, 0D2A3618, 0D302716 0D301607 0D302C0C 0D301303
-// F3F1F2F4 F3301612, 0D27070D 0D27070D 0D0D160D 0D0D0D0D, 30211101, 0D270D0D 0D160D0D 0D210D0D 0D140D0D
-/*
-if (g.rm_name==(Area_PalcA+'03'))
-{
-    // sdm('pal_rm_dark_idx: '+string(pal_rm_dark_idx)+', g.rm_brightness: '+string(g.rm_brightness)+', g.RM_BRIGHTNESS_MAX: '+string(g.RM_BRIGHTNESS_MAX));
-    // Output: pal_rm_dark_idx: 1, g.rm_brightness: 0, g.RM_BRIGHTNESS_MAX: 2
-    sdm('pal_rm_def: '+string_copy(pal_rm_def,1,COL_PER_RM<<1)); sdm('');
-// Output: 
-// F3F1F2F4 0D301612, 0D301000 0D3C1C0C 0D301600 0D203D0D, 0D2A3618, 0D302716 0D301607 0D302102 0D301303
-// F3F1F2F4 0D301612, 0D0D0D0D 0D0D0D0D 0D12010D 0D0D0112, 0D112101, 0D0D0D0D 0D0D0D0D 0D0D0D0D 0D0D0D0D
-
-// F3F1F2F4 0D301612, 0D301000 0D3C1C0C 0D301600 0D203D0D, 0D2A3618, 0D302716 0D301607 0D302102 0D301303
-// F3F1F2F4 F3301612, 0D0C0D0D 0D0D160D 0D0D0D0D 0D0D0D0D, F3211101, 0D0D0D0D 0D0D0D0D 0D0D0D0D 0D0D0D0D
-}
-*/
-
-
-
-
 
 
 

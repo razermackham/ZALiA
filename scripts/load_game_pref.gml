@@ -2,6 +2,7 @@
 
 
 var _i, _idx, _val, _count;
+var _dm_data = 0;
 var _FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
 
 
@@ -18,6 +19,8 @@ var _ENCODED = file_text_read_string(_FILE);
 var _dm_FILE_DATA = json_decode(_ENCODED);
 
 
+
+
 // --------------------------------------------------
 g.WindowScale_scale = val(_dm_FILE_DATA[?STR_Window+STR_Scale], g.WindowScale_scale);
 window_set_scale(window_get_scale());
@@ -29,6 +32,8 @@ var _YT  = g.window_center_y;
 window_set_position_(_XL,_YT);
 
 window_set_fullscreen(val(_dm_FILE_DATA[?STR_Fullscreen]));
+
+
 
 
 // --------------------------------------------------
@@ -125,7 +130,11 @@ _val = _dm_FILE_DATA[?"_DevDash"      +STR_State];
 if(!is_undefined(_val)) g.DevDash_state = _val;
 
 _val = _dm_FILE_DATA[?"_Debug_Overlay"+STR_State];
-if(!is_undefined(_val)){g.can_show_debug_overlay = _val; show_debug_overlay(g.can_show_debug_overlay);}
+if(!is_undefined(_val))
+{
+    g.can_show_debug_overlay = _val;
+    show_debug_overlay(g.can_show_debug_overlay);
+}
 
 _val = _dm_FILE_DATA[?"_All_BGR_Black"+STR_State];
 if(!is_undefined(_val)) g.all_bg_black_only = _val;
@@ -140,27 +149,6 @@ _val = _dm_FILE_DATA[?STR_Frame+STR_Count+"_Room"           +"_can_draw"];
 if(!is_undefined(_val)) global.Room_frame_count_can_draw = _val;
 
 
-
-
-
-/*
-if (DEV && 0){
-    sdm("");
-    _val  = "volume sound: "+string(val(_dm_FILE_DATA[?f.SDNAME_volume_sound], "undefined"));
-    _val += ", ";
-    _val += "volume music: "+string(val(_dm_FILE_DATA[?f.SDNAME_volume_music], "undefined"));
-    _val += ", ";
-    _val += "bgr flashing: "+string(val(_dm_FILE_DATA[?STR_Background+STR_Flashing], "undefined"));
-    _val += ", ";
-    _val += "indicate spell active: "+string(val(_dm_FILE_DATA[?STR_Indicate+STR_Spell+STR_Active], "undefined"));
-    _val += ", ";
-    _val += "frenzy stab: "+string(val(_dm_FILE_DATA[?STR_Frenzy+STR_Stab], "undefined"));
-    _val += ", ";
-    _val += "cucco spell: "+string(val(_dm_FILE_DATA[?STR_Cucco+STR_Spell+"02"+STR_Preference], "undefined"));
-    _val += ", ";
-    sdm(_val); sdm("");
-}
-*/
 
 
 ds_map_destroy(_dm_FILE_DATA); _dm_FILE_DATA=undefined;

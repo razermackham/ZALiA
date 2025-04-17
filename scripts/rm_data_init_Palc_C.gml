@@ -116,7 +116,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $22<<3,y4,  STR_Lit); // v1: Light w/ CANDLE 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $5D<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $62<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
-data_spawn(rm+STR_PRXM,SpWoA,$1,  $00,$00); // WosuSpawner  1
+data_spawn(rm+STR_PRIO,SpWoA,$1,  $00,$00); // WosuSpawner  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $30<<3,y3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $36<<3,y3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $42<<3,y3); // Myu  1

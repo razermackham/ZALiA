@@ -158,8 +158,6 @@ if (can_draw_self)
             var _depth_COPY = depth;
             depth = Shadow_DEPTH;
             
-            //_val = 8;
-            //with(Boss) _val *= facingDir;
             draw_surface_ext(_surf, _x+Shadow_xoff,_y, Draw_xscale2,Draw_yscale2, Draw_rotation2, c_black,1);
             
             depth = _depth_COPY;
@@ -169,68 +167,15 @@ if (can_draw_self)
         draw_surface_ext(_surf, _x,_y, Draw_xscale2,Draw_yscale2, Draw_rotation2, c_white,1);
         surface_free(_surf);
         
-        
-        
-        
-        if (0){// debug -------------------
+        /* // debug -------------------
         _val=.5; // alpha
         draw_rect_(c_green,   _x1,                  _y1,                   Draw_surface_size,Draw_surface_size, _val, true); // square 0, bottom right
         draw_rect_(c_fuchsia, _x1,                  _y1-Draw_surface_size, Draw_surface_size,Draw_surface_size, _val, true); // square 1,    top right
         draw_rect_(c_green,   _x1-Draw_surface_size,_y1-Draw_surface_size, Draw_surface_size,Draw_surface_size, _val, true); // square 2,    top left
         draw_rect_(c_fuchsia, _x1-Draw_surface_size,_y1,                   Draw_surface_size,Draw_surface_size, _val, true); // square 3, bottom left
-        }
+        */
     }
 }
-
-
-
-
-/*
-        else
-        {   // Human form; Shield, Body, Sword
-            if (Draw_can_rando2) _rot = dg_UwU_[#Draw_behavior,4];
-            else                 _rot = 0;
-            
-            draw_spritesheet_pc(drawX,drawY, _x_scale,yScale, Draw_behavior, use_disguise, -1,-1, Draw_palidx,-1, -1, _rot);
-            
-            if (0)
-            {
-                _idx         = val(dm_skins[?STR_Current+STR_Idx]);
-                _val         = val(dm_skins[?hex_str(_idx)+STR_Datakey]);
-                var _W       = val(dm_skins[?STR_Frame+STR_Width]);
-                var _H       = val(dm_skins[?STR_Frame+STR_Height]);
-                var _Sheet_X = val(dm_skins[?STR_Clm+hex_str(Draw_behavior)]) * _W;
-                var _Sheet_y = 0;
-                var _X = drawX - (_W>>1) + (sign(!_x_scale)*_W);
-                var _Y = drawY - (_H>>1) + (sign(!yScale)  *_H);
-                
-                if (val(dm_skins[?hex_str(_idx)+"_is_from_file"]))
-                {
-                    // For the 'Braffolk Custom Sprite Framework'
-                    _sprite  = image_group_find_image(SPRITESHEETS_GROUP_NAME,_val);
-                    
-                    if(!use_disguise)
-                    {
-                        _val = 1 + sign(f.items&ITM_SHLD);
-                        _Sheet_y = val(dm_skins[?STR_Row+STR_Shield+hex_str(_val)]) * _H;
-                        draw_image_part_ext_(Draw_palidx, _sprite,0, _Sheet_X,_Sheet_y, _W,_H, _X,_Y, _x_scale,yScale);
-                    }
-                    
-                    _val = 1 + sign(use_disguise);
-                    _Sheet_y = val(dm_skins[?STR_Row+STR_Body+hex_str(_val)]) * _H;
-                    draw_image_part_ext_(Draw_palidx, _sprite,0, _Sheet_X,_Sheet_y, _W,_H, _X,_Y, _x_scale,yScale);
-                    
-                    _val = 1 + (sign(use_disguise)*(disguise_idx+1));
-                    _Sheet_y = val(dm_skins[?STR_Row+STR_Head+hex_str(_val)]) * _H;
-                    draw_image_part_ext_(Draw_palidx, _sprite,0, _Sheet_X,_Sheet_y, _W,_H, _X,_Y, _x_scale,yScale);
-                    
-                    _val = 1 + sign(f.items&ITM_SWRD);
-                    _Sheet_y = val(dm_skins[?STR_Row+STR_Sword+hex_str(_val)]) * _H;
-                    draw_image_part_ext_(Draw_palidx, _sprite,0, _Sheet_X,_Sheet_y, _W,_H, _X,_Y, _x_scale,yScale);
-                }
-            }
-        }
-*/
 
 
 
@@ -248,9 +193,7 @@ if (can_draw_self)
 
 
 
-
 if(!g.DevTools_state) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 
 
 // Body. Toggle with 'N'

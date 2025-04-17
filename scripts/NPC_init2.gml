@@ -78,8 +78,8 @@ if (dialogue_datakey==g.DialogueDK_MIDO_CHURCH_DOOR
 }
 
 
-if (is_ver(id,NPC_0,3) // MIRROR item
-&&  f.items&ITM_MIRR ) // Alreading has mirror
+if (is_ver(id,NPC_0,3)  // MIRROR item
+&&  f.items&ITM_MIRR )  // Alreading has mirror
 {
     state = 0;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -332,6 +332,11 @@ else if (isVal(object_index,NPC_4,NPC_5)) // Healer, Saver, Quest
         counter  = $80;  // $80: Waiting in house.
         timer_a1 = $90;  // Delay permission to exit house.
     }
+}
+else if (object_index==NPC_6) // Skill Knight
+{
+    GO_init_palidx(global.PI_MOB_PUR);
+    change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(palidx), string_length(p.PAL_NPC_PUR4), p.PAL_NPC_PUR4));
 }
 else if (object_index==NPC_7) // Spell Giver
 {

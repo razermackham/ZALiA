@@ -82,7 +82,6 @@ else if (is_fairy) // EBB8. Fairy PC -------------------------------------------
 else
 { // EC22, EC40 -------------------------------------------------------------------------
     GO_set_sprite(id,PC_PLACEMENT_SPR);
-    //GO_set_sprite(id,dg_SPRITES[#0,Draw_behavior]);
     
     palidx = palidx_def;
     

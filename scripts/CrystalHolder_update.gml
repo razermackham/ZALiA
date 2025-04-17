@@ -73,7 +73,7 @@ switch(counter) // 00AF[eIndex]
     case 2:{ // 9B2B
     set_xy(id, x,y-1);
     
-    if (yt <= spawn_y)
+    if (yt<=spawn_y)
     {
         set_xlyt(id, xl,spawn_y); // just in case
         

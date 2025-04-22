@@ -26,9 +26,12 @@ hp = HP;
 timer = 4;
 
 
-Crystal_x  = x+Crystal_xoff;
-Crystal_y  = y+Crystal_yoff;
-Crystal_Y1 = GROUND_Y-Slime_H_;
+Crystal_x  = x + Crystal_xoff;
+Crystal_y  = y + Crystal_yoff;
+// yoff from skull center y when attached to skull forehead
+Crystal_YOFF1 = -5;
+Crystal_Y1 = GROUND_Y - Slime_H_ + Crystal_YOFF1; // skull forhead
+//Crystal_Y1 = GROUND_Y-Slime_H_;
 
 
 

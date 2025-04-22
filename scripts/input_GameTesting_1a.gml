@@ -209,6 +209,7 @@ if (DEV) // The following is for making these debug tools more accessable to me.
             g.DevTools_state=true;
             g.can_show_debug_overlay = !g.can_show_debug_overlay;
             show_debug_overlay(g.can_show_debug_overlay);
+            save_game_pref();
         }
         
         // Display Entity hp

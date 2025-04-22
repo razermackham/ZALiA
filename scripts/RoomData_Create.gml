@@ -316,10 +316,16 @@ dungeon_map_tile_count = 0;
 
 MAP_TSRC_BLANK = $FF;
 // Single page rms
+MAP_TSRC_A0  = $30;               //          0: 0 exits,     1: 1 exit RGT,  2: 1 exit BTM
+MAP_TSRC_A1  = MAP_TSRC_A0 + $04; // 2 exits: 0: RGT-LFT,     1: BTM-TOP,     2: RGT-BTM
+MAP_TSRC_A2  = MAP_TSRC_A1 + $04; // 3 exits: 0: RGT-LFT-BTM, 1: RGT-BTM-T0P
+MAP_TSRC_A3  = MAP_TSRC_A2 + $04; // 4 exits: 0: 4 exits
+/*
 MAP_TSRC_A0  = $30;               //          0: 0 exits,     1: 4 exits,     2: 2 exits hor, 3: 2 exits ver
 MAP_TSRC_A1  = MAP_TSRC_A0 + $04; // 1 exits: 0: RGT,         1: LFT,         2: BTM,         3: TOP
 MAP_TSRC_A2  = MAP_TSRC_A1 + $04; // 2 exits: 0: RGT-BTM,     1: RGT-T0P,     2: LFT-BTM,     3: LFT-TOP
 MAP_TSRC_A3  = MAP_TSRC_A2 + $04; // 3 exits: 0: LFT-BTM-TOP, 1: RGT-BTM-TOP, 2: RGT-LFT-TOP, 3: RGT-LFT-BTM
+*/
 //                                // 
 // Hallway-Horizontal-End-RGT     // 
 MAP_TSRC_B0  = MAP_TSRC_A0 + $10; //          0: 0 exits

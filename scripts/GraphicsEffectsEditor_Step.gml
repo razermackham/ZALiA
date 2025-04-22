@@ -4,7 +4,8 @@
 if (timer) timer--;
 
 
-var _pressed_enable_editor = keyboard_check(vk_control) && keyboard_check_pressed(vk_f4);
+var _pressed_enable_editor = keyboard_check_pressed(vk_f5);
+//var _pressed_enable_editor = keyboard_check(vk_control) && keyboard_check_pressed(vk_f4);
 
 
 switch(state)

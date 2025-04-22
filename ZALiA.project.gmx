@@ -13720,7 +13720,6 @@
       <script>scripts\fall_scene_get_y_base.gml</script>
       <script>scripts\draw_falling_scene.gml</script>
       <script>scripts\palSpr_changeColors.gml</script>
-      <script>scripts\isPalSprPalette.gml</script>
       <script>scripts\isPalSprColor.gml</script>
       <script>scripts\get_pi.gml</script>
       <script>scripts\add_pi_permut.gml</script>
@@ -13952,6 +13951,7 @@
         <script>scripts\db_Overworld_Draw_2a.gml</script>
       </scripts>
       <scripts name="tile">
+        <script>scripts\dev_list_tile_liquid_layers.gml</script>
         <script>scripts\debug_list_rms_using_permut_ts.gml</script>
         <script>scripts\dev_find_scenes_using_certain_tiles.gml</script>
       </scripts>

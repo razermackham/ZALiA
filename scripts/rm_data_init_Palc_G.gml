@@ -1991,6 +1991,7 @@ g.dm_rm[?STR_Boss+STR_Dungeon+STR_Exit+STR_Name+_DUNGEON_NAME] = _exit;
 data_spawn_cutscene(Cutscene_ShadowBoss_1,1, 0,0); // Pre-fight.
 
 
+// Because the scene is 2 sections tall but only to fill the HUD area with bricks.
 _a=0;    _datakey=MAP_DATAKEY1+rm+STR_Page;
 g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_BLANK;
 g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_BLANK;

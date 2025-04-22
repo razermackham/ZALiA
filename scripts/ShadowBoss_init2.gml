@@ -29,7 +29,7 @@ is_blocking_attack = false;
 // Make sure hp not using potentially randomized hp in g.dl_HP
 HP_IDX = $06; // g.dl_HP_DEFAULT[|$06] = $08
 hp = g.dl_HP_DEFAULT[|HP_IDX];
-hp=3; // testing
+//hp=3; // testing
 
 to_pc_dir_x = -1; // 0060
 to_pc_dir_y = -1;

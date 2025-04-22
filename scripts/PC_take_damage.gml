@@ -9,11 +9,13 @@ if (g.pc.iframes_timer)
 
 var _INST = argument[0];
 
-var                   _ALT_DMG = -1;
+var                   _ALT_DMG = undefined;
+//var                   _ALT_DMG = -1;
 if (argument_count>1) _ALT_DMG = argument[1];
 
 if(!_INST 
-&& !_ALT_DMG )
+&&  is_undefined(_ALT_DMG) )
+//&& !_ALT_DMG )
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -34,7 +36,8 @@ if (_INST)
 // E314
 var _damage = 0;
 
-if (_ALT_DMG+1)
+if(!is_undefined(_ALT_DMG))
+//if (_ALT_DMG+1)
 {
     _damage = _ALT_DMG;
 }
@@ -44,11 +47,10 @@ else if (_INST)
         _damage = _DAMAGE;
     if (_damage)
     {
-        //var    _COUNT = (!!(g.spells_active&SPL_PRTC)) + (!!(f.items&ITM_RING));
         switch(sign(g.spells_active&SPL_PRTC) + sign(f.items&ITM_RING)){
-        default:{_damage = _DAMAGE; break;}
-        case  1:{_damage = _DAMAGE>>1; break;}
-        case  2:{_damage = round(_DAMAGE*.33); break;} // changed 7/28/23
+        default:{_damage=_DAMAGE; break;}
+        case  1:{_damage=_DAMAGE>>1; break;}
+        case  2:{_damage=round(_DAMAGE*.33); break;} // changed 7/28/23
         }
         
         _damage = max(1,_damage); // Added 7/28/23. I believe every dmg in OG is at least 1.

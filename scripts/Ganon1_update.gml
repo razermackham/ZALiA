@@ -542,8 +542,8 @@ switch(sub_state)
 
 
 Ganon2_update_3(); // GO_update_cam_vars(), GO_update_cs(), update_body_hb_1a(), update_EF11()
-
-
+PC_HB1_xl = g.pc.xl+PC_HB1_XLOFF;
+PC_HB1_yt = g.pc.yt+PC_HB1_YTOFF;
 
 
 
@@ -553,27 +553,25 @@ if (Collision_VER==2
 {
     // Trying to make it so Ganon is treated as a solid
     // *** See solid_clip_adj() and use case 4 for the switch(4) for the cs_btm_inst part(around the top of script)
-    var _x =       g.pc.csLft1X;
-    var _y =       g.pc.csTop1Y;
-    var _PC_HB_W = g.pc.csRgt1X-_x;
-    var _PC_HB_H = g.pc.csBtm1Y-_y;
-    var _C1 = rectInRect(xl,yt,ww,hh, _x,_y,_PC_HB_W,_PC_HB_H);
+    var _i, _clm,_row;
+    var _C1 = rectInRect(xl,yt,ww,hh, PC_HB1_xl,PC_HB1_yt,PC_HB1_W,PC_HB1_H);
+    
     if (pc_is_inside)
     {
         pc_is_inside = _C1;
     }
     else if (_C1) // if colliding this frame
     {
-        var _PC_HB_XL_PREV = (g.pc.x_prev-g.pc.ww_)+g.pc.csLft1_xoff;
-        var _PC_HB_YT_PREV = (g.pc.y_prev-g.pc.hh_)+g.pc.csTop1_yoff;
-        if(!rectInRect(x_prev-ww_,y_prev-hh_,ww,hh, _PC_HB_XL_PREV,_PC_HB_YT_PREV,_PC_HB_W,_PC_HB_H)) // if wasn't colliding prev frame
+        var _PC_HB_XL_PREV = (g.pc.x_prev-g.pc.ww_)+PC_HB1_XLOFF;
+        var _PC_HB_YT_PREV = (g.pc.y_prev-g.pc.hh_)+PC_HB1_YTOFF;
+        if(!rectInRect(x_prev-ww_,y_prev-hh_,ww,hh, _PC_HB_XL_PREV,_PC_HB_YT_PREV,PC_HB1_W,PC_HB1_H)) // if wasn't colliding prev frame
         {
-            _x = g.pc.x;
-            _y = g.pc.y;
-            if(!wINw(_PC_HB_XL_PREV,_PC_HB_W, x_prev-ww_,ww)) // if pc on prev frame was to the left or right of Ganon
+            var _x = g.pc.x;
+            var _y = g.pc.y;
+            if(!wINw(_PC_HB_XL_PREV,PC_HB1_W, x_prev-ww_,ww)) // if pc on prev frame was to the left or right of Ganon
             {
-                if (g.pc.x_prev<x_prev) _x = clamp(g.pc.x, pc_x_min, max(pc_x_min, xl-(_PC_HB_W>>1)));
-                else                    _x = clamp(g.pc.x, min(pc_x_max, xr+(_PC_HB_W>>1)), pc_x_max);
+                if (g.pc.x_prev<x_prev) _x = clamp(g.pc.x, pc_x_min, max(pc_x_min, xl-(PC_HB1_W>>1)));
+                else                    _x = clamp(g.pc.x, min(pc_x_max, xr+(PC_HB1_W>>1)), pc_x_max);
             }
             else
             {
@@ -584,11 +582,10 @@ if (Collision_VER==2
                 }
                 else
                 {
-                    var _MAX_Y  = min(get_ground_y(g.pc.csBtm1X,yb,1,g.pc.csBtm1Y),get_ground_y(g.pc.csBtm2X,yb,1,g.pc.csBtm2Y));
+                    var _MAX_Y  = min(get_ground_y(g.pc.csBtm1X,yb,1,g.pc.csBtm1Y,TID_SOLID1),get_ground_y(g.pc.csBtm2X,yb,1,g.pc.csBtm2Y,TID_SOLID1));
                         _MAX_Y -= g.pc.hh_;
                         _MAX_Y += 1;
-                    _y = max((yb-2)+g.pc.hh_, g.pc.y);
-                    _y = min(_y,_MAX_Y);
+                    _y = clamp(g.pc.y, (yb-2)+g.pc.hh_,_MAX_Y);
                 }
             }
             
@@ -598,9 +595,24 @@ if (Collision_VER==2
                 var _X_PREV = x;
                 var _Y_PREV = y;
                 set_xy(id, _x,_y);
-                x_change += x-_X_PREV;
-                y_change += y-_Y_PREV;
+                var _X_CHANGE = x-_X_PREV;
+                var _Y_CHANGE = y-_Y_PREV;
+                x_change += _X_CHANGE;
+                y_change += _Y_CHANGE;
                 //GO_update_cs();
+                
+                // When ganon stops pushing pc, pc's movement immediately stops which looks awkward
+                if (abs(_X_CHANGE))  // if pc was pushed
+                //&&  abs( x_change) ) // if there was any overall change
+                {
+                    hspd  = min(abs(x_change),$4);
+                    hspd  = hspd<<4;
+                    //sdm("Ganon1 push PC setting PC hspd $"+hex_str(hspd));
+                    hspd *= sign(x_change);
+                    hspd &= $FF;
+                    if (abs(x_change)) hspd_impel = sign_( x_change);
+                    else               hspd_impel = sign_(_X_CHANGE);
+                }
                 /*
                 if!(cs&$F)
                 {
@@ -617,15 +629,12 @@ if (Collision_VER==2
     
     if (Collision_VER==3)
     {
-        Ganon1_update_battle_2a();
-        //Ganon1_update_battle_2();
+        Ganon1_update_battle_2a(); // body to body collision update
     }
     
     
     
     
-    var _i;
-    var _clm,_row;
     for(_i=ds_list_size(dl_ONEWAY_RC)-1; _i>=0; _i--)
     {
         _clm = (dl_ONEWAY_RC[|_i]>>0) &$FF;

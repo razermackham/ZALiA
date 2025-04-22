@@ -285,6 +285,11 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$12,  '04'+EXL0_); /
 //data_spawn(rm+STR_PRIO,ItmE0,$1,  $07<<3,(row3-$04)<<3); // v1: Magic Jar, Red(full mp)
 
 
+_a=0;    _datakey=MAP_DATAKEY1+rm+STR_Page;
+g.dm_rm[?_datakey+"00"+STR_TSRC]   = MAP_TSRC_B0+2;
+g.dm_rm[?_datakey+"00"+STR_ScaleX] = -1;
+g.dm_rm[?_datakey+"01"+STR_TSRC]   = MAP_TSRC_B0+1;
+
 
 
 

@@ -1,7 +1,7 @@
 /// Ganon2_update_6a(hspd, hspd dir)
 
 
-if(!irandom(7))
+if(!irandom($7))
 {   // JUMP/HOP !!!!!!!!!!!
     off_ground_reason=OGR_JUMP;
     

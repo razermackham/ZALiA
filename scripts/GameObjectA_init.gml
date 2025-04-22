@@ -176,6 +176,7 @@ switch(PCSkins_SYS_VER)
     //PC_init_add_spritesheet(spr_PCSkin_Broomietunes_Gail01,                  "Gail",                "Broomietunes");
     //PC_init_add_spritesheet(spr_PCSkin_MisterMike_Ganondorf01,               "Ganondorf",           "MisterMike");
     //PC_init_add_spritesheet(spr_PCSkin_Debilitante_Jason01,                  "Jason",               "Debilitante");
+    //PC_init_add_spritesheet(spr_PCSkin_Glottal_Hepper01,                     "Hepper",              "Glottal");
     break;}
     
     

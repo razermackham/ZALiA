@@ -137,7 +137,6 @@ if (g.canDrawPalette)
     else                                 draw_sprite_part_ext( p.palette_image,0, _x0,0, _w0,_H1, _x,_y, _SCALE2,_SCALE2, c_white,1);
     
     
-    
     // ----------------------------------------------------------------
     // Background
     _x   = _X0;
@@ -157,30 +156,6 @@ if (g.canDrawPalette)
     
     
     
-    
-    /*
-    // Mobs and background(lit room)
-    _y  += _H2;
-    _x0  = PI_PC_1;
-    _w   = (p.PI_LAST_LIT+1) - _x0;
-    draw_sprite_part_ext(p.palette_image,0, _x0,0, _w,_H1, _X0,_Y1, PALS1_SCALE,PALS1_SCALE, c_white,1);
-    // Mobs and background(lit room) - permutations
-    _y  += _H2;
-    _x0 += _W1;
-    _w   = _W1;
-    draw_sprite_part_ext(p.palette_image,0, _x0,0, _w,_H1, _X0,_Y3, PALS1_SCALE,PALS1_SCALE, c_white,1);
-    
-    // Mobs and background(dark room)
-    _y  += _H2;
-    _x0 += _W1;
-    _w   = _W2;
-    draw_sprite_part_ext(p.palette_image,0, _x0,0, _w,_H1, _X0,_Y2, PALS1_SCALE,PALS1_SCALE, c_white,1);
-    // Mobs and background(dark room) - permutations
-    _y  += _H2;
-    _x0 += _W2;
-    _w   = _W2;
-    draw_sprite_part_ext(p.palette_image,0, _x0,0, _w,_H1, _X0,_Y4, PALS1_SCALE,PALS1_SCALE, c_white,1)
-    */
     
     if(!surface_exists(ObjPal_surf))
     {
@@ -250,12 +225,14 @@ ObjPal_surf = surface_create(ObjPal_surf_W,ObjPal_surf_H);
 
 
 
-if (isVal(state, STATE_PKM1,STATE_PKM2,STATE_BGR_COLOR))
+if (state==state_EDIT1A 
+||  state==state_EDIT1B 
+||  state==state_BGR_COLOR )
 {
     var _CURSOR_BLINK = g.counter0&$8;
     
-    var _PAL2_CURS_X = _X + PALS2_X2 + ((pal_curs_idx mod PAL_CNT) * PALS2_SCALE);
-    var _PAL2_CURS_Y = _Y + PALS2_Y2 + ((pal_curs_idx div PAL_CNT) * PALS2_SCALE);
+    var _PAL2_CURS_X = _X + PALS2_X2 + ((pal_curs_idx mod PAL_COUNT) * PALS2_SCALE);
+    var _PAL2_CURS_Y = _Y + PALS2_Y2 + ((pal_curs_idx div PAL_COUNT) * PALS2_SCALE);
     
     
     _x  = _X + PALS2_X;
@@ -263,19 +240,20 @@ if (isVal(state, STATE_PKM1,STATE_PKM2,STATE_BGR_COLOR))
     // draw_sprite_(p.palette_image,0, _x,_y, -1, PALS2_SCALE,PALS2_SCALE);
     _x += PI_OFFSET * PALS2_SCALE;
     // var _A = PI_OFFSET;
-    if (isVal(state, STATE_PKM1,STATE_PKM2))
+    if (state==state_EDIT1A 
+    ||  state==state_EDIT1B )
     {
-        if (global.palette_image_IS_SURFACE) draw_surface_part_ext(p.palette_image,   PI_OFFSET,0, PAL_CNT,global.COLORS_PER_PALETTE, _x,_y, PALS2_SCALE,PALS2_SCALE, c_white,1);
-        else                                 draw_sprite_part_ext( p.palette_image,0, PI_OFFSET,0, PAL_CNT,global.COLORS_PER_PALETTE, _x,_y, PALS2_SCALE,PALS2_SCALE, c_white,1);
-        //draw_sprite_part_ext(p.palette_image,0, PI_OFFSET,0, PAL_CNT,COL_PER_PAL, _x,_y, PALS2_SCALE,PALS2_SCALE, c_white,1);
+        if (global.palette_image_IS_SURFACE) draw_surface_part_ext(p.palette_image,   PI_OFFSET,0, PAL_COUNT,global.COLORS_PER_PALETTE, _x,_y, PALS2_SCALE,PALS2_SCALE, c_white,1);
+        else                                 draw_sprite_part_ext( p.palette_image,0, PI_OFFSET,0, PAL_COUNT,global.COLORS_PER_PALETTE, _x,_y, PALS2_SCALE,PALS2_SCALE, c_white,1);
+        //draw_sprite_part_ext(p.palette_image,0, PI_OFFSET,0, PAL_COUNT,COL_PER_PAL, _x,_y, PALS2_SCALE,PALS2_SCALE, c_white,1);
     }
     
     
     _x = _X + PALS2_X;
-    _y = _Y + COLOR_GRID_Y + COLOR_GRID_H2 + ($03<<3);
+    _y = _Y + ColorGrid_Y + ColorGrid_H2 + ($03<<3);
         draw_text_(_x,_y,          "OLD COLOR  "+hex_str(col_idx_old_col));
-    if (isVal(state, STATE_PKM2,STATE_BGR_COLOR))
-    //if (state == STATE_PKM2)
+    if (state==state_EDIT1B 
+    ||  state==state_BGR_COLOR )
     {   draw_text_(_x,_y+($02<<3), "NEW COLOR  "+hex_str(col_idx_new_col));  }
 }
 
@@ -285,7 +263,7 @@ switch(state)
 {
     // ---------------------------------------------------------------------
     // ---------------------------------------------------------------------
-    case STATE_IDLE:{
+    case state_IDLE:{
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     break;}
     
@@ -297,7 +275,7 @@ switch(state)
     
     // ---------------------------------------------------------------------
     // ---------------------------------------------------------------------
-    case STATE_PKM1:{
+    case state_EDIT1A:{
     if (_CURSOR_BLINK)
     {
         _x = _PAL2_CURS_X;
@@ -310,7 +288,7 @@ switch(state)
     
     // ---------------------------------------------------------------------
     // ---------------------------------------------------------------------
-    case STATE_PKM2:{
+    case state_EDIT1B:{
     _x = _X + PALS2_X2;
     _y = _Y + PALS2_Y;
     // _x = _X + PALS2_X;
@@ -322,15 +300,15 @@ switch(state)
     draw_rect(pal_curs_col, _x,_y, PALS2_SCALE,PALS2_SCALE);
     
     
-    _x = _X + COLOR_GRID_X;
-    _y = _Y + COLOR_GRID_Y;
-    draw_sprite_(COLOR_GRID_SPR,0, _x,_y, -1, COLOR_GRID_SCALE,COLOR_GRID_SCALE);
+    _x = _X + ColorGrid_X;
+    _y = _Y + ColorGrid_Y;
+    draw_sprite_(ColorGrid_SPR,0, _x,_y, -1, ColorGrid_SCALE,ColorGrid_SCALE);
     
     if (_CURSOR_BLINK)
     {
-        _x = _X + COLOR_GRID_X + ((col_curs_idx mod COLOR_GRID_W) * COLOR_GRID_SCALE);
-        _y = _Y + COLOR_GRID_Y + ((col_curs_idx div COLOR_GRID_W) * COLOR_GRID_SCALE);
-        PalettePicker_draw_cursor(CURSOR_COLOR, _x,_y, COLOR_GRID_SCALE,COLOR_GRID_SCALE);
+        _x = _X + ColorGrid_X + ((col_curs_idx mod ColorGrid_W) * ColorGrid_SCALE);
+        _y = _Y + ColorGrid_Y + ((col_curs_idx div ColorGrid_W) * ColorGrid_SCALE);
+        PalettePicker_draw_cursor(CURSOR_COLOR, _x,_y, ColorGrid_SCALE,ColorGrid_SCALE);
     }
     break;}
     
@@ -338,16 +316,16 @@ switch(state)
     
     // ---------------------------------------------------------------------
     // ---------------------------------------------------------------------
-    case STATE_BGR_COLOR:{
-    _x = _X + COLOR_GRID_X;
-    _y = _Y + COLOR_GRID_Y;
-    draw_sprite_(COLOR_GRID_SPR,0, _x,_y, -1, COLOR_GRID_SCALE,COLOR_GRID_SCALE);
+    case state_BGR_COLOR:{
+    _x = _X + ColorGrid_X;
+    _y = _Y + ColorGrid_Y;
+    draw_sprite_(ColorGrid_SPR,0, _x,_y, -1, ColorGrid_SCALE,ColorGrid_SCALE);
     
     if (_CURSOR_BLINK)
     {
-        _x = _X + COLOR_GRID_X + ((col_curs_idx mod COLOR_GRID_W) * COLOR_GRID_SCALE);
-        _y = _Y + COLOR_GRID_Y + ((col_curs_idx div COLOR_GRID_W) * COLOR_GRID_SCALE);
-        PalettePicker_draw_cursor(CURSOR_COLOR, _x,_y, COLOR_GRID_SCALE,COLOR_GRID_SCALE);
+        _x = _X + ColorGrid_X + ((col_curs_idx mod ColorGrid_W) * ColorGrid_SCALE);
+        _y = _Y + ColorGrid_Y + ((col_curs_idx div ColorGrid_W) * ColorGrid_SCALE);
+        PalettePicker_draw_cursor(CURSOR_COLOR, _x,_y, ColorGrid_SCALE,ColorGrid_SCALE);
     }
     break;}
 }

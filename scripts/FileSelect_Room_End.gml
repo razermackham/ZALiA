@@ -119,6 +119,7 @@ if (_exists)                                dm_rando_settings=undefined;
 
 
 
+
     _exists=variable_instance_exists(id,"dg_stats");
 if (_exists) _exists = !is_undefined(    dg_stats);
 if (_exists) _exists = ds_exists(        dg_stats,ds_type_grid);

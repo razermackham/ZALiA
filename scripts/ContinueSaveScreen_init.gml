@@ -6,6 +6,8 @@ var _clm,_row, _clms,_rows;
 var _text;
 
 
+timer = 0;
+
 
 /*
 MAIN_SPR    = spr_ContinueSave_Screen;

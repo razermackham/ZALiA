@@ -1,214 +1,411 @@
-/// p_init_palette_data2()
+/// init_tile_layer_data()
 
 
 var _dm = ds_map_create();
 
 
-
-
-//                  [                                      BGR1                                      ]  +  [                                      BGR2                                      ]  +  [                                      BGR3                                      ]  +  [                                      BGR4                                      ]
-// ***********************  _Title_  ***********************
-//  ----------------------------  000  ----------------------------
-_dm[?'Title_000'+dk_BGR] = build_pal('BCE89E','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCBC3C','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3E3E3E','888000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
-
-//          'BCE89E'+'747474'+'000000'+_SET1 + 
-//          'EC3820'+'005000'+'000000'+_SET1 + 
-//          'FCBC3C'+'EC3820'+'A80000'+_SET1 + 
-//          'FCFCFC'+'3E3E3E'+'888000'+_SET1 + 
-
-//          'FCFCFC'+'3898FC'+'0028D8'+_SET1 + 
-//          'FCFCFC'+'0028D8'+'000000'+_SET1 + 
-//          'FCFCFC'+'D8E800'+'000000'+_SET1 + 
-//          'FCFCFC'+'F00080'+'000000'+_SET1;
-
-//build_pal('BCE89E','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  
-//build_pal('FCBC3C','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  
-//build_pal('FCBC3C','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  
-//build_pal('FCFCFC','3E3E3E','888000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
-
-
-
-
-
-
-
-//                  [                                      BGR1                                      ]  +  [                                      BGR2                                      ]  +  [                                      BGR3                                      ]  +  [                                      BGR4                                      ]
 // ***********************  _WestA_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'WestA_000'+dk_BGR] = build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_000'+STR_Layer+'01'+STR_Name] = 'BG0101';
+_dm[?'WestA_000'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'WestA_000'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'WestA_000'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'WestA_000'+STR_Layer+'05'+STR_Name] = 'BG0603';
 //  ----------------------------  001  ----------------------------
-_dm[?'WestA_001'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_001'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'WestA_001'+STR_Layer+'02'+STR_Name] = 'FG0302';
+_dm[?'WestA_001'+STR_Layer+'03'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_01';
+_dm[?'WestA_001'+STR_Layer+'04'+STR_Name] = 'BG0402';
 //  ----------------------------  002  ----------------------------
-_dm[?'WestA_002'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_002'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_002'+STR_Layer+'02'+STR_Name] = 'BG0402';
+_dm[?'WestA_002'+STR_Layer+'03'+STR_Name] = 'BG0501';
+_dm[?'WestA_002'+STR_Layer+'04'+STR_Name] = 'BG0603';
+_dm[?'WestA_002'+STR_Layer+'05'+STR_Name] = 'BG0702';
 //  ----------------------------  003  ----------------------------
-_dm[?'WestA_003'+dk_BGR] = build_pal('A8D8FC','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_003'+STR_Layer+'01'+STR_Name] = 'FG0601';
+_dm[?'WestA_003'+STR_Layer+'02'+STR_Name] = 'FG0502';
+_dm[?'WestA_003'+STR_Layer+'03'+STR_Name] = 'FG0403, LIQUID_01 DIR_01 SPEED_02';
+_dm[?'WestA_003'+STR_Layer+'04'+STR_Name] = 'BG0204';
+_dm[?'WestA_003'+STR_Layer+'05'+STR_Name] = 'BG0404';
+_dm[?'WestA_003'+STR_Layer+'06'+STR_Name] = 'BG0501';
 //  ----------------------------  004  ----------------------------
-_dm[?'WestA_004'+dk_BGR] = build_pal('F0FC9C','888000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_004'+STR_Layer+'01'+STR_Name] = 'FG0301, LIQUID_02 SPEED_08 DIR_01';
+_dm[?'WestA_004'+STR_Layer+'02'+STR_Name] = 'FG0203';
+_dm[?'WestA_004'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'WestA_004'+STR_Layer+'04'+STR_Name] = 'BG0602';
+_dm[?'WestA_004'+STR_Layer+'05'+STR_Name] = 'BG0703, PERMUT_02';
 //  ----------------------------  005  ----------------------------
-_dm[?'WestA_005'+dk_BGR] = build_pal('747474','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_005'+STR_Layer+'01'+STR_Name] = 'FG0302';
+_dm[?'WestA_005'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_02 SPEED_04 DIR_02';
+_dm[?'WestA_005'+STR_Layer+'03'+STR_Name] = 'BG0502';
 //  ----------------------------  006  ----------------------------
-_dm[?'WestA_006'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_006'+STR_Layer+'01'+STR_Name] = 'FG0201';
+_dm[?'WestA_006'+STR_Layer+'02'+STR_Name] = 'FG0102, LIQUID_01, SPEED_02, DIR_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'WestA_007'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_007'+STR_Layer+'01'+STR_Name] = 'BG0301';
+_dm[?'WestA_007'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  008  ----------------------------
-_dm[?'WestA_008'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_008'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_008'+STR_Layer+'02'+STR_Name] = 'BG0303, BREAK__01, HIDDEN_01';
+_dm[?'WestA_008'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  009  ----------------------------
-_dm[?'WestA_009'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_009'+STR_Layer+'01'+STR_Name] = 'BG0301';
+_dm[?'WestA_009'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  010  ----------------------------
-_dm[?'WestA_010'+dk_BGR] = build_pal('48DC4C','2A7B00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','F1F2F1','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_010'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_010'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'WestA_010'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'WestA_010'+STR_Layer+'04'+STR_Name] = 'BG0504, PERMUT_03';
+_dm[?'WestA_010'+STR_Layer+'05'+STR_Name] = 'BG0602';
 //  ----------------------------  011  ----------------------------
-_dm[?'WestA_011'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_011'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_011'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  012  ----------------------------
-_dm[?'WestA_012'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_012'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_012'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  013  ----------------------------
 //  ----------------------------  014  ----------------------------
-_dm[?'WestA_014'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_014'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_014'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'WestA_014'+STR_Layer+'03'+STR_Name] = 'BG0403, LIQUID_01 SPEED_04 DIR_01';
+_dm[?'WestA_014'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'WestA_014'+STR_Layer+'05'+STR_Name] = 'BG0701';
 //  ----------------------------  015  ----------------------------
 //  ----------------------------  016  ----------------------------
 //  ----------------------------  017  ----------------------------
-_dm[?'WestA_017'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_017'+STR_Layer+'01'+STR_Name] = 'FG0302';
+_dm[?'WestA_017'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'WestA_017'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'WestA_017'+STR_Layer+'04'+STR_Name] = 'BG0603';
 //  ----------------------------  018  ----------------------------
 //  ----------------------------  019  ----------------------------
-_dm[?'WestA_019'+dk_BGR] = build_pal('A8D8FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','8C1824','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_019'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_019'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'WestA_019'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'WestA_019'+STR_Layer+'04'+STR_Name] = 'BG0504';
+_dm[?'WestA_019'+STR_Layer+'05'+STR_Name] = 'BG0604';
 //  ----------------------------  020  ----------------------------
-_dm[?'WestA_020'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_020'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_020'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'WestA_020'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  021  ----------------------------
-_dm[?'WestA_021'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_021'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_021'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'WestA_021'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  022  ----------------------------
-_dm[?'WestA_022'+dk_BGR] = build_pal('A8D8FC','3898FC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_022'+STR_Layer+'01'+STR_Name] = 'FG0403, LIQUID_01 SPEED_01 DIR_01';
+_dm[?'WestA_022'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'WestA_022'+STR_Layer+'03'+STR_Name] = 'FG0202';
+_dm[?'WestA_022'+STR_Layer+'04'+STR_Name] = 'BG0402';
 //  ----------------------------  023  ----------------------------
-_dm[?'WestA_023'+dk_BGR] = build_pal('A8D8FC','0C4CC8','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_023'+STR_Layer+'01'+STR_Name] = 'FG0403, LIQUID_01 SPEED_01 DIR_01';
+_dm[?'WestA_023'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'WestA_023'+STR_Layer+'03'+STR_Name] = 'FG0202';
+_dm[?'WestA_023'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'WestA_023'+STR_Layer+'05'+STR_Name] = 'BG0504';
 //  ----------------------------  024  ----------------------------
-_dm[?'WestA_024'+dk_BGR] = build_pal('A8D8FC','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_024'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'WestA_024'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_02 DIR_02 SPEED_08';
+_dm[?'WestA_024'+STR_Layer+'03'+STR_Name] = 'BG0204';
+_dm[?'WestA_024'+STR_Layer+'04'+STR_Name] = 'BG0404';
+_dm[?'WestA_024'+STR_Layer+'05'+STR_Name] = 'BG0501';
 //  ----------------------------  025  ----------------------------
-_dm[?'WestA_025'+dk_BGR] = build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_025'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02 SPEED_04 DIR_02';
+_dm[?'WestA_025'+STR_Layer+'02'+STR_Name] = 'FG0202';
+_dm[?'WestA_025'+STR_Layer+'03'+STR_Name] = 'FG0104';
+_dm[?'WestA_025'+STR_Layer+'04'+STR_Name] = 'BG0204';
+_dm[?'WestA_025'+STR_Layer+'05'+STR_Name] = 'BG0304, BREAK__01, HIDDEN_01';
+_dm[?'WestA_025'+STR_Layer+'06'+STR_Name] = 'BG0402';
 //  ----------------------------  026  ----------------------------
 //  ----------------------------  027  ----------------------------
-_dm[?'WestA_027'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_027'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_027'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  028  ----------------------------
-_dm[?'WestA_028'+dk_BGR] = build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','2A7B00','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','888000','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_028'+STR_Layer+'01'+STR_Name] = 'FG0503, LIQUID_02 SPEED_08 DIR_02';
+_dm[?'WestA_028'+STR_Layer+'02'+STR_Name] = 'FG0401';
+_dm[?'WestA_028'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'WestA_028'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'WestA_028'+STR_Layer+'05'+STR_Name] = 'BG0604';
+_dm[?'WestA_028'+STR_Layer+'06'+STR_Name] = 'BG0702, PERMUT_02';
+_dm[?'WestA_028'+STR_Layer+'07'+STR_Name] = 'BG0804';
 //  ----------------------------  029  ----------------------------
-_dm[?'WestA_029'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_029'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_029'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'WestA_029'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  030  ----------------------------
-_dm[?'WestA_030'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_030'+STR_Layer+'01'+STR_Name] = 'BG0201';
 //  ----------------------------  031  ----------------------------
-_dm[?'WestA_031'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_031'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'WestA_031'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'WestA_031'+STR_Layer+'03'+STR_Name] = 'FG0203, LIQUID_02, DIR_02, SPEED_08';
+_dm[?'WestA_031'+STR_Layer+'04'+STR_Name] = 'BG0201';
+_dm[?'WestA_031'+STR_Layer+'05'+STR_Name] = 'BG0401';
+_dm[?'WestA_031'+STR_Layer+'06'+STR_Name] = 'BG0502';
 //  ----------------------------  032  ----------------------------
-_dm[?'WestA_032'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_032'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_032'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  033  ----------------------------
 //  ----------------------------  034  ----------------------------
-_dm[?'WestA_034'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_034'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_034'+STR_Layer+'02'+STR_Name] = 'BG0301';
 //  ----------------------------  035  ----------------------------
-_dm[?'WestA_035'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_035'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'WestA_035'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 SPEED_04 DIR_02';
+_dm[?'WestA_035'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'WestA_035'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  036  ----------------------------
-_dm[?'WestA_036'+dk_BGR] = build_pal('FC945C','10D080','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','888000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_036'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'WestA_036'+STR_Layer+'02'+STR_Name] = 'FG0303';
+_dm[?'WestA_036'+STR_Layer+'03'+STR_Name] = 'FG0202';
+_dm[?'WestA_036'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'WestA_036'+STR_Layer+'05'+STR_Name] = 'BG0504';
+_dm[?'WestA_036'+STR_Layer+'06'+STR_Name] = 'BG0602';
 //  ----------------------------  037  ----------------------------
-_dm[?'WestA_037'+dk_BGR] = build_pal('A0FCE0','10D080','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('004400','2A7B00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','007088','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_037'+STR_Layer+'01'+STR_Name] = 'BG0204';
+_dm[?'WestA_037'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'WestA_037'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'WestA_037'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'WestA_037'+STR_Layer+'05'+STR_Name] = 'BG0604';
+_dm[?'WestA_037'+STR_Layer+'06'+STR_Name] = 'BG0702';
 //  ----------------------------  038  ----------------------------
-_dm[?'WestA_038'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_038'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_038'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'WestA_038'+STR_Layer+'03'+STR_Name] = 'BG0401';
 //  ----------------------------  039  ----------------------------
-_dm[?'WestA_039'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_039'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_039'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'WestA_039'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'WestA_039'+STR_Layer+'04'+STR_Name] = 'BG0702';
 //  ----------------------------  040  ----------------------------
-_dm[?'WestA_040'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_040'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_040'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'WestA_040'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'WestA_040'+STR_Layer+'04'+STR_Name] = 'BG0702';
 //  ----------------------------  041  ----------------------------
-_dm[?'WestA_041'+dk_BGR] = build_pal('FCFCFC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_041'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'WestA_041'+STR_Layer+'02'+STR_Name] = 'FG0203';
+_dm[?'WestA_041'+STR_Layer+'03'+STR_Name] = 'BG0203';
+_dm[?'WestA_041'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'WestA_041'+STR_Layer+'05'+STR_Name] = 'BG0402';
+_dm[?'WestA_041'+STR_Layer+'06'+STR_Name] = 'BG0703';
 //  ----------------------------  042  ----------------------------
-_dm[?'WestA_042'+dk_BGR] = build_pal('A8D8FC','F1BADC','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5800E4','003E00','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_042'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'WestA_042'+STR_Layer+'02'+STR_Name] = 'FG0303';
+_dm[?'WestA_042'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'WestA_042'+STR_Layer+'04'+STR_Name] = 'BG0403';
+_dm[?'WestA_042'+STR_Layer+'05'+STR_Name] = 'BG0702';
 //  ----------------------------  043  ----------------------------
-_dm[?'WestA_043'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_043'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_043'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'WestA_043'+STR_Layer+'03'+STR_Name] = 'BG0702';
 //  ----------------------------  044  ----------------------------
-_dm[?'WestA_044'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_044'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'WestA_044'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 SPEED_01 DIR_01';
+_dm[?'WestA_044'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'WestA_044'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  045  ----------------------------
-_dm[?'WestA_045'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_045'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_045'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  046  ----------------------------
-_dm[?'WestA_046'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_046'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_046'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'WestA_046'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'WestA_046'+STR_Layer+'04'+STR_Name] = 'BG0501';
+_dm[?'WestA_046'+STR_Layer+'05'+STR_Name] = 'BG0603';
 //  ----------------------------  047  ----------------------------
-_dm[?'WestA_047'+dk_BGR] = build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','F00080','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_047'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_047'+STR_Layer+'02'+STR_Name] = 'BG0503';
+_dm[?'WestA_047'+STR_Layer+'03'+STR_Name] = 'BG0702';
 //  ----------------------------  048  ----------------------------
-_dm[?'WestA_048'+dk_BGR] = build_pal('10D080','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_048'+STR_Layer+'01'+STR_Name] = 'FG0301, LIQUID_02 SPEED_08 DIR_01';
+_dm[?'WestA_048'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'WestA_048'+STR_Layer+'03'+STR_Name] = 'BG0502';
 //  ----------------------------  049  ----------------------------
 //  ----------------------------  050  ----------------------------
-_dm[?'WestA_050'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_050'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_050'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  051  ----------------------------
-_dm[?'WestA_051'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','10D080','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','00A800','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_051'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_051'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'WestA_051'+STR_Layer+'03'+STR_Name] = 'BG0403';
 //  ----------------------------  052  ----------------------------
-_dm[?'WestA_052'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','00A800','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_052'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_052'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'WestA_052'+STR_Layer+'03'+STR_Name] = 'BG0403';
 //  ----------------------------  053  ----------------------------
-_dm[?'WestA_053'+dk_BGR] = build_pal('009400','004400','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_053'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_053'+STR_Layer+'02'+STR_Name] = 'BG0402';
 //  ----------------------------  054  ----------------------------
-_dm[?'WestA_054'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_054'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_054'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  055  ----------------------------
 //  ----------------------------  056  ----------------------------
-_dm[?'WestA_056'+dk_BGR] = build_pal('009400','004400','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_056'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_056'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'WestA_056'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'WestA_056'+STR_Layer+'04'+STR_Name] = 'BG0504';
 //  ----------------------------  057  ----------------------------
-_dm[?'WestA_057'+dk_BGR] = build_pal('A8D8FC','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_057'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_057'+STR_Layer+'02'+STR_Name] = 'BG0301';
 //  ----------------------------  058  ----------------------------
-_dm[?'WestA_058'+dk_BGR] = build_pal('A8D8FC','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_058'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_058'+STR_Layer+'02'+STR_Name] = 'BG0301';
 //  ----------------------------  059  ----------------------------
-_dm[?'WestA_059'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3CBCF0','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_059'+STR_Layer+'01'+STR_Name] = 'FG0402';
+_dm[?'WestA_059'+STR_Layer+'02'+STR_Name] = 'FG0201. CURTAINS';
+_dm[?'WestA_059'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'WestA_059'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'WestA_059'+STR_Layer+'05'+STR_Name] = 'BG0404';
 //  ----------------------------  060  ----------------------------
-_dm[?'WestA_060'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_060'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_01 SPEED_01 DIR_02';
+_dm[?'WestA_060'+STR_Layer+'02'+STR_Name] = 'FG0202';
+_dm[?'WestA_060'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'WestA_060'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'WestA_060'+STR_Layer+'05'+STR_Name] = 'BG0501';
 //  ----------------------------  061  ----------------------------
-_dm[?'WestA_061'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','F1F2F1','BCBCBC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_061'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_061'+STR_Layer+'02'+STR_Name] = 'BG0403, BREAK__04, HIDDEN_01';
+_dm[?'WestA_061'+STR_Layer+'03'+STR_Name] = 'BG0503';
+_dm[?'WestA_061'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  062  ----------------------------
-_dm[?'WestA_062'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_062'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_01 SPEED_01, CURRENT_010102';
+_dm[?'WestA_062'+STR_Layer+'02'+STR_Name] = 'BG0204';
+_dm[?'WestA_062'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'WestA_062'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'WestA_062'+STR_Layer+'05'+STR_Name] = 'BG0501';
+_dm[?'WestA_062'+STR_Layer+'06'+STR_Name] = 'BG0701';
 //  ----------------------------  063  ----------------------------
-_dm[?'WestA_063'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','2A7B00','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_063'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_01 SPEED_01';
+_dm[?'WestA_063'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'WestA_063'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  064  ----------------------------
 //  ----------------------------  065  ----------------------------
-_dm[?'WestA_065'+dk_BGR] = build_pal('10D080','009400','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_065'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'WestA_065'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'WestA_065'+STR_Layer+'03'+STR_Name] = 'FG0203, LIQUID_02, DIR_02, SPEED_04';
+_dm[?'WestA_065'+STR_Layer+'04'+STR_Name] = 'BG0101';
+_dm[?'WestA_065'+STR_Layer+'05'+STR_Name] = 'BG0202';
+_dm[?'WestA_065'+STR_Layer+'06'+STR_Name] = 'BG0302';
+_dm[?'WestA_065'+STR_Layer+'07'+STR_Name] = 'BG0401';
+_dm[?'WestA_065'+STR_Layer+'08'+STR_Name] = 'BG0501';
+_dm[?'WestA_065'+STR_Layer+'09'+STR_Name] = 'BG0602';
+_dm[?'WestA_065'+STR_Layer+'0A'+STR_Name] = 'BG0701, PERMUT_05';
 //  ----------------------------  066  ----------------------------
 //  ----------------------------  067  ----------------------------
 //  ----------------------------  068  ----------------------------
 //  ----------------------------  069  ----------------------------
 //  ----------------------------  070  ----------------------------
-_dm[?'WestA_070'+dk_BGR] = build_pal('009400','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_070'+STR_Layer+'01'+STR_Name] = 'BG0202';
+_dm[?'WestA_070'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'WestA_070'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  071  ----------------------------
-_dm[?'WestA_071'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_071'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'WestA_071'+STR_Layer+'02'+STR_Name] = 'FG0203. LIQUID_01, DIR_02, SPEED_08';
+_dm[?'WestA_071'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'WestA_071'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  072  ----------------------------
-_dm[?'WestA_072'+dk_BGR] = build_pal('A7A9A7','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_072'+STR_Layer+'01'+STR_Name] = 'FG0403';
+_dm[?'WestA_072'+STR_Layer+'02'+STR_Name] = 'FG0204';
+_dm[?'WestA_072'+STR_Layer+'03'+STR_Name] = 'BG0203';
+_dm[?'WestA_072'+STR_Layer+'04'+STR_Name] = 'BG0301';
+_dm[?'WestA_072'+STR_Layer+'05'+STR_Name] = 'BG0401';
+_dm[?'WestA_072'+STR_Layer+'06'+STR_Name] = 'BG0502';
+_dm[?'WestA_072'+STR_Layer+'07'+STR_Name] = 'BG0604';
+_dm[?'WestA_072'+STR_Layer+'08'+STR_Name] = 'BG0704';
 //  ----------------------------  073  ----------------------------
-_dm[?'WestA_073'+dk_BGR] = build_pal('FCD4C4','F00080','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_073'+STR_Layer+'01'+STR_Name] = 'FG0403';
+_dm[?'WestA_073'+STR_Layer+'02'+STR_Name] = 'BG0204';
+_dm[?'WestA_073'+STR_Layer+'03'+STR_Name] = 'BG0304';
+_dm[?'WestA_073'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'WestA_073'+STR_Layer+'05'+STR_Name] = 'BG0601';
+_dm[?'WestA_073'+STR_Layer+'06'+STR_Name] = 'BG0702';
 //  ----------------------------  074  ----------------------------
-_dm[?'WestA_074'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_074'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_02';
+_dm[?'WestA_074'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'WestA_074'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'WestA_074'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'WestA_074'+STR_Layer+'05'+STR_Name] = 'BG0701';
 //  ----------------------------  075  ----------------------------
 //  ----------------------------  076  ----------------------------
-_dm[?'WestA_076'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_076'+STR_Layer+'01'+STR_Name] = 'BG0102';
+_dm[?'WestA_076'+STR_Layer+'02'+STR_Name] = 'BG0401';
+_dm[?'WestA_076'+STR_Layer+'03'+STR_Name] = 'BG0501';
+_dm[?'WestA_076'+STR_Layer+'04'+STR_Name] = 'BG0604';
+_dm[?'WestA_076'+STR_Layer+'05'+STR_Name] = 'BG0701, BREAK__04, HIDDEN_01';
+_dm[?'WestA_076'+STR_Layer+'06'+STR_Name] = 'BG0803';
 //  ----------------------------  077  ----------------------------
 //  ----------------------------  078  ----------------------------
-_dm[?'WestA_078'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_078'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_078'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'WestA_078'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  079  ----------------------------
 //  ----------------------------  080  ----------------------------
 //  ----------------------------  081  ----------------------------
 //  ----------------------------  082  ----------------------------
-_dm[?'WestA_082'+dk_BGR] = build_pal('007088','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_082'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_01 SPEED_02';
+_dm[?'WestA_082'+STR_Layer+'02'+STR_Name] = 'BG0101';
+_dm[?'WestA_082'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'WestA_082'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'WestA_082'+STR_Layer+'05'+STR_Name] = 'BG0501';
+_dm[?'WestA_082'+STR_Layer+'06'+STR_Name] = 'BG0603, PERMUT_02, LIQUID_03 DIR_04 SPEED_01';
+_dm[?'WestA_082'+STR_Layer+'07'+STR_Name] = 'BG0703, PERMUT_02, LIQUID_03 DIR_01 SPEED_04';
 //  ----------------------------  083  ----------------------------
 //  ----------------------------  084  ----------------------------
 //  ----------------------------  085  ----------------------------
-_dm[?'WestA_085'+dk_BGR] = build_pal('A8D8FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','8C1824','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_085'+STR_Layer+'01'+STR_Name] = 'FG0503, LIQUID_02 DIR_01 SPEED_02';
+_dm[?'WestA_085'+STR_Layer+'02'+STR_Name] = 'FG0401';
+_dm[?'WestA_085'+STR_Layer+'03'+STR_Name] = 'FG0302';
+_dm[?'WestA_085'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'WestA_085'+STR_Layer+'05'+STR_Name] = 'BG0501';
+_dm[?'WestA_085'+STR_Layer+'06'+STR_Name] = 'BG0602';
+_dm[?'WestA_085'+STR_Layer+'07'+STR_Name] = 'BG0704';
 //  ----------------------------  086  ----------------------------
-_dm[?'WestA_086'+dk_BGR] = build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('888000','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC7000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_086'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_02 SPEED_04';
+_dm[?'WestA_086'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'WestA_086'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'WestA_086'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'WestA_086'+STR_Layer+'05'+STR_Name] = 'BG0602';
+_dm[?'WestA_086'+STR_Layer+'06'+STR_Name] = 'BG0704';
 //  ----------------------------  087  ----------------------------
-_dm[?'WestA_087'+dk_BGR] = build_pal('007088','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_087'+STR_Layer+'01'+STR_Name] = 'BG0101';
+_dm[?'WestA_087'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'WestA_087'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'WestA_087'+STR_Layer+'04'+STR_Name] = 'BG0401';
+_dm[?'WestA_087'+STR_Layer+'05'+STR_Name] = 'BG0503, PERMUT_02, LIQUID_03 DIR_04 SPEED_01';
+_dm[?'WestA_087'+STR_Layer+'06'+STR_Name] = 'BG0603, PERMUT_02, LIQUID_03 DIR_01 SPEED_04';
 //  ----------------------------  088  ----------------------------
-_dm[?'WestA_088'+dk_BGR] = build_pal('F0FC9C','888000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_088'+STR_Layer+'01'+STR_Name] = 'FG0301, LIQUID_02 SPEED_08 DIR_01';
+_dm[?'WestA_088'+STR_Layer+'02'+STR_Name] = 'FG0203';
+_dm[?'WestA_088'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'WestA_088'+STR_Layer+'04'+STR_Name] = 'BG0602';
+_dm[?'WestA_088'+STR_Layer+'05'+STR_Name] = 'BG0703, PERMUT_02';
 //  ----------------------------  089  ----------------------------
 //  ----------------------------  090  ----------------------------
 //  ----------------------------  091  ----------------------------
 //  ----------------------------  092  ----------------------------
 //  ----------------------------  093  ----------------------------
-_dm[?'WestA_093'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_093'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_08 DIR_01';
+_dm[?'WestA_093'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'WestA_093'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'WestA_093'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'WestA_093'+STR_Layer+'05'+STR_Name] = 'BG0501';
 //  ----------------------------  094  ----------------------------
 //  ----------------------------  095  ----------------------------
 //  ----------------------------  096  ----------------------------
 //  ----------------------------  097  ----------------------------
-_dm[?'WestA_097'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_097'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_097'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'WestA_097'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  098  ----------------------------
 //  ----------------------------  099  ----------------------------
 //  ----------------------------  100  ----------------------------
-_dm[?'WestA_100'+dk_BGR] = build_pal('6074FC','1000A8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_100'+STR_Layer+'01'+STR_Name] = 'FG0204, BURNABLE_01';
+_dm[?'WestA_100'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'WestA_100'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  101  ----------------------------
-_dm[?'WestA_101'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_101'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_01 SPEED_04';
+_dm[?'WestA_101'+STR_Layer+'02'+STR_Name] = 'BG0201';
 //  ----------------------------  102  ----------------------------
 //  ----------------------------  103  ----------------------------
 //  ----------------------------  104  ----------------------------
@@ -346,31 +543,51 @@ _dm[?'WestA_101'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','000000', C_YLW0
 //  ----------------------------  236  ----------------------------
 //  ----------------------------  237  ----------------------------
 //  ----------------------------  238  ----------------------------
-_dm[?'WestA_238'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_238'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_238'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  239  ----------------------------
-_dm[?'WestA_239'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_239'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_239'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  240  ----------------------------
-_dm[?'WestA_240'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_240'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_240'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'WestA_240'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'WestA_240'+STR_Layer+'04'+STR_Name] = 'BG0501';
 //  ----------------------------  241  ----------------------------
-_dm[?'WestA_241'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3CBCF0','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','6074FC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_241'+STR_Layer+'01'+STR_Name] = 'FG0503';
+_dm[?'WestA_241'+STR_Layer+'02'+STR_Name] = 'FG0402';
+_dm[?'WestA_241'+STR_Layer+'03'+STR_Name] = 'FG0302';
+_dm[?'WestA_241'+STR_Layer+'04'+STR_Name] = 'BG0201';
+_dm[?'WestA_241'+STR_Layer+'05'+STR_Name] = 'BG0302';
 //  ----------------------------  242  ----------------------------
 //  ----------------------------  243  ----------------------------
-_dm[?'WestA_243'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_243'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_243'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  244  ----------------------------
 //  ----------------------------  245  ----------------------------
-_dm[?'WestA_245'+dk_BGR] = build_pal('A8D8FC','3898FC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_245'+STR_Layer+'01'+STR_Name] = 'BG0202';
+_dm[?'WestA_245'+STR_Layer+'02'+STR_Name] = 'BG0402';
 //  ----------------------------  246  ----------------------------
-_dm[?'WestA_246'+dk_BGR] = build_pal('A8D8FC','0C4CC8','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_246'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_246'+STR_Layer+'02'+STR_Name] = 'BG0402';
+_dm[?'WestA_246'+STR_Layer+'03'+STR_Name] = 'BG0503';
+_dm[?'WestA_246'+STR_Layer+'04'+STR_Name] = 'BG0603';
+_dm[?'WestA_246'+STR_Layer+'05'+STR_Name] = 'BG0701';
 //  ----------------------------  247  ----------------------------
 //  ----------------------------  248  ----------------------------
-_dm[?'WestA_248'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_248'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_248'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  249  ----------------------------
 //  ----------------------------  250  ----------------------------
 //  ----------------------------  251  ----------------------------
 //  ----------------------------  252  ----------------------------
 //  ----------------------------  253  ----------------------------
 //  ----------------------------  254  ----------------------------
-_dm[?'WestA_254'+dk_BGR] = build_pal('A8D8FC','0C4CC8','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'WestA_254'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'WestA_254'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'WestA_254'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'WestA_254'+STR_Layer+'04'+STR_Name] = 'BG0503';
+_dm[?'WestA_254'+STR_Layer+'05'+STR_Name] = 'BG0702';
 //  ----------------------------  255  ----------------------------
 
 
@@ -382,77 +599,137 @@ _dm[?'WestA_254'+dk_BGR] = build_pal('A8D8FC','0C4CC8','003E00','000000', C_YLW0
 
 // ***********************  _DthMt_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'DthMt_000'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('005000','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_000'+STR_Layer+'01'+STR_Name] = 'BG0101';
+_dm[?'DthMt_000'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_000'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'DthMt_000'+STR_Layer+'04'+STR_Name] = 'BG0401';
+_dm[?'DthMt_000'+STR_Layer+'05'+STR_Name] = 'BG0503';
+_dm[?'DthMt_000'+STR_Layer+'06'+STR_Name] = 'BG0702';
 //  ----------------------------  001  ----------------------------
-_dm[?'DthMt_001'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_001'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_001'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  002  ----------------------------
-_dm[?'DthMt_002'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_002'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_002'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  003  ----------------------------
-_dm[?'DthMt_003'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_003'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_003'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  004  ----------------------------
-_dm[?'DthMt_004'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_004'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_004'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  005  ----------------------------
-_dm[?'DthMt_005'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_005'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_005'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'DthMt_005'+STR_Layer+'03'+STR_Name] = 'BG0403, LIQUID_01, DIR_01, SPEED_01';
+_dm[?'DthMt_005'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  006  ----------------------------
-_dm[?'DthMt_006'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_006'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_006'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  007  ----------------------------
-_dm[?'DthMt_007'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_007'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01, DIR_01, SPEED_02';
+_dm[?'DthMt_007'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_007'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  008  ----------------------------
-_dm[?'DthMt_008'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_008'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_008'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  009  ----------------------------
-_dm[?'DthMt_009'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_009'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_009'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  010  ----------------------------
 //  ----------------------------  011  ----------------------------
-_dm[?'DthMt_011'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_011'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_011'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  012  ----------------------------
-_dm[?'DthMt_012'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_012'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_012'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  013  ----------------------------
-_dm[?'DthMt_013'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_013'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_04 DIR_02';
+_dm[?'DthMt_013'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_013'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'DthMt_013'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  014  ----------------------------
-_dm[?'DthMt_014'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_014'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_04 DIR_02';
+_dm[?'DthMt_014'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_014'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'DthMt_014'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  015  ----------------------------
-_dm[?'DthMt_015'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_015'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_015'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'DthMt_015'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  016  ----------------------------
-_dm[?'DthMt_016'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_016'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_016'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  017  ----------------------------
 //  ----------------------------  018  ----------------------------
 //  ----------------------------  019  ----------------------------
-_dm[?'DthMt_019'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_019'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_019'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  020  ----------------------------
-_dm[?'DthMt_020'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_020'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01, DIR_01, SPEED_02';
+_dm[?'DthMt_020'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_020'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  021  ----------------------------
-_dm[?'DthMt_021'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','0028D8','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_021'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_021'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'DthMt_021'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  022  ----------------------------
-_dm[?'DthMt_022'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_022'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_022'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'DthMt_022'+STR_Layer+'03'+STR_Name] = 'BG0403, LIQUID_01, DIR_01, SPEED_02';
+_dm[?'DthMt_022'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  023  ----------------------------
 //  ----------------------------  024  ----------------------------
 //  ----------------------------  025  ----------------------------
 //  ----------------------------  026  ----------------------------
-_dm[?'DthMt_026'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_026'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_026'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  027  ----------------------------
-_dm[?'DthMt_027'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_027'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_01 DIR_02';
+_dm[?'DthMt_027'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_027'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  028  ----------------------------
-_dm[?'DthMt_028'+dk_BGR] = build_pal('3E3E3E','F1F2F1','3CBCF0','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_028'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'DthMt_028'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'DthMt_028'+STR_Layer+'03'+STR_Name] = 'BG0703';
 //  ----------------------------  029  ----------------------------
-_dm[?'DthMt_029'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_029'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_04 DIR_02';
+_dm[?'DthMt_029'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_029'+STR_Layer+'03'+STR_Name] = 'BG0703';
 //  ----------------------------  030  ----------------------------
-_dm[?'DthMt_030'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_030'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_04 DIR_02';
+_dm[?'DthMt_030'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_030'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'DthMt_030'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  031  ----------------------------
-_dm[?'DthMt_031'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_031'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_04 DIR_02';
+_dm[?'DthMt_031'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_031'+STR_Layer+'03'+STR_Name] = 'BG0703';
 //  ----------------------------  032  ----------------------------
-_dm[?'DthMt_032'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','F1BADC','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_032'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_04 DIR_01';
+_dm[?'DthMt_032'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'DthMt_032'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'DthMt_032'+STR_Layer+'04'+STR_Name] = 'BG0404';
+_dm[?'DthMt_032'+STR_Layer+'05'+STR_Name] = 'BG0501';
 //  ----------------------------  033  ----------------------------
-_dm[?'DthMt_033'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_033'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_01 DIR_02';
+_dm[?'DthMt_033'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_033'+STR_Layer+'03'+STR_Name] = 'BG0502';
 //  ----------------------------  034  ----------------------------
 //  ----------------------------  035  ----------------------------
 //  ----------------------------  036  ----------------------------
 //  ----------------------------  037  ----------------------------
 //  ----------------------------  038  ----------------------------
-_dm[?'DthMt_038'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_038'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_01 SPEED_01 DIR_01';
+_dm[?'DthMt_038'+STR_Layer+'02'+STR_Name] = 'FG0202';
+_dm[?'DthMt_038'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'DthMt_038'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'DthMt_038'+STR_Layer+'05'+STR_Name] = 'BG0504';
 //  ----------------------------  039  ----------------------------
 //  ----------------------------  040  ----------------------------
 //  ----------------------------  041  ----------------------------
-_dm[?'DthMt_041'+dk_BGR] = build_pal('007088','B0BCFC','FCFCFC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'DthMt_041'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02, DIR_02, SPEED_08';
+_dm[?'DthMt_041'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'DthMt_041'+STR_Layer+'03'+STR_Name] = 'BG0301, PERMUT_05';
 //  ----------------------------  042  ----------------------------
 //  ----------------------------  043  ----------------------------
 //  ----------------------------  044  ----------------------------
@@ -677,262 +954,561 @@ _dm[?'DthMt_041'+dk_BGR] = build_pal('007088','B0BCFC','FCFCFC','000000', C_YLW0
 
 // ***********************  _EastA_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'EastA_000'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_000'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_000'+STR_Layer+'02'+STR_Name] = 'FG0302';
+_dm[?'EastA_000'+STR_Layer+'03'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_01';
+_dm[?'EastA_000'+STR_Layer+'04'+STR_Name] = 'BG0402';
 //  ----------------------------  001  ----------------------------
 //  ----------------------------  002  ----------------------------
-_dm[?'EastA_002'+dk_BGR] = build_pal('7DDAD4','007088','A8D8FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_002'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_002'+STR_Layer+'02'+STR_Name] = 'BG0502';
 //  ----------------------------  003  ----------------------------
-_dm[?'EastA_003'+dk_BGR] = build_pal('FCFCFC','7DDAD4','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','888000','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_003'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02 SPEED_08 DIR_02';
+_dm[?'EastA_003'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'EastA_003'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'EastA_003'+STR_Layer+'04'+STR_Name] = 'BG0503';
+_dm[?'EastA_003'+STR_Layer+'05'+STR_Name] = 'BG0602, PERMUT_02';
 //  ----------------------------  004  ----------------------------
-_dm[?'EastA_004'+dk_BGR] = build_pal('009400','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','10D080','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0028D8','A8D8FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_004'+STR_Layer+'01'+STR_Name] = 'FG0402';
+_dm[?'EastA_004'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'EastA_004'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'EastA_004'+STR_Layer+'04'+STR_Name] = 'BG0403, PERMUT_03';
+_dm[?'EastA_004'+STR_Layer+'05'+STR_Name] = 'BG0503, PERMUT_03';
+_dm[?'EastA_004'+STR_Layer+'06'+STR_Name] = 'BG0704';
 //  ----------------------------  005  ----------------------------
-_dm[?'EastA_005'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_005'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_01 SPEED_04';
+_dm[?'EastA_005'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_005'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  006  ----------------------------
-_dm[?'EastA_006'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_006'+STR_Layer+'01'+STR_Name] = 'FG0201';
+_dm[?'EastA_006'+STR_Layer+'02'+STR_Name] = 'FG0102, LIQUID_01 SPEED_04 DIR_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'EastA_007'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_007'+STR_Layer+'01'+STR_Name] = 'FG0102, LIQUID_02 SPEED_02 DIR_01';
+_dm[?'EastA_007'+STR_Layer+'02'+STR_Name] = 'BG0101';
 //  ----------------------------  008  ----------------------------
-_dm[?'EastA_008'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_008'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_008'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  009  ----------------------------
-_dm[?'EastA_009'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_009'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_009'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  010  ----------------------------
-_dm[?'EastA_010'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_010'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_010'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  011  ----------------------------
-_dm[?'EastA_011'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_011'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_011'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  012  ----------------------------
-_dm[?'EastA_012'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('002C40','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_012'+STR_Layer+'01'+STR_Name] = 'FG0702';
+_dm[?'EastA_012'+STR_Layer+'02'+STR_Name] = 'FG0601';
+_dm[?'EastA_012'+STR_Layer+'03'+STR_Name] = 'FG0402';
+_dm[?'EastA_012'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  013  ----------------------------
-_dm[?'EastA_013'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_013'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_013'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  014  ----------------------------
-_dm[?'EastA_014'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A7A9A7','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_014'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_014'+STR_Layer+'02'+STR_Name] = 'FG0302';
+_dm[?'EastA_014'+STR_Layer+'03'+STR_Name] = 'FG0203, LIQUID_02 DIR_02 SPEED_20';
+_dm[?'EastA_014'+STR_Layer+'04'+STR_Name] = 'BG0201';
+_dm[?'EastA_014'+STR_Layer+'05'+STR_Name] = 'BG0302, BREAK__01, HIDDEN_01';
+_dm[?'EastA_014'+STR_Layer+'06'+STR_Name] = 'BG0502';
+_dm[?'EastA_014'+STR_Layer+'07'+STR_Name] = 'BG0604';
+_dm[?'EastA_014'+STR_Layer+'08'+STR_Name] = 'BG0701';
 //  ----------------------------  015  ----------------------------
-_dm[?'EastA_015'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_015'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_04 DIR_02';
+_dm[?'EastA_015'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_015'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'EastA_015'+STR_Layer+'04'+STR_Name] = 'BG0504';
+_dm[?'EastA_015'+STR_Layer+'05'+STR_Name] = 'BG0602';
+_dm[?'EastA_015'+STR_Layer+'06'+STR_Name] = 'BG0703';
 //  ----------------------------  016  ----------------------------
 //  ----------------------------  017  ----------------------------
-_dm[?'EastA_017'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_017'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_017'+STR_Layer+'02'+STR_Name] = 'BG0503, LIQUID_03 DIR_04 SPEED_01';
+_dm[?'EastA_017'+STR_Layer+'03'+STR_Name] = 'BG0603, LIQUID_03 DIR_01 SPEED_04';
+_dm[?'EastA_017'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  018  ----------------------------
 //  ----------------------------  019  ----------------------------
 //  ----------------------------  020  ----------------------------
-_dm[?'EastA_020'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_020'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02, DIR_02, SPEED_02';
+_dm[?'EastA_020'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_03 DIR_04 SPEED_01';
+_dm[?'EastA_020'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'EastA_020'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  021  ----------------------------
-_dm[?'EastA_021'+dk_BGR] = build_pal('A0FCE0','10D080','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('009400','004400','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_021'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_021'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'EastA_021'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'EastA_021'+STR_Layer+'04'+STR_Name] = 'BG0503, BREAK__01, HIDDEN_01';
+_dm[?'EastA_021'+STR_Layer+'05'+STR_Name] = 'BG0604, PERMUT_02';
+_dm[?'EastA_021'+STR_Layer+'06'+STR_Name] = 'BG0701';
+_dm[?'EastA_021'+STR_Layer+'07'+STR_Name] = 'BG0802';
 //  ----------------------------  022  ----------------------------
-_dm[?'EastA_022'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','A80000','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_022'+STR_Layer+'01'+STR_Name] = 'FG0501';
+_dm[?'EastA_022'+STR_Layer+'02'+STR_Name] = 'FG0402';
+_dm[?'EastA_022'+STR_Layer+'03'+STR_Name] = 'FG0203, LIQUID_02 DIR_01 SPEED_01';
+_dm[?'EastA_022'+STR_Layer+'04'+STR_Name] = 'BG0202';
+_dm[?'EastA_022'+STR_Layer+'05'+STR_Name] = 'BG0302';
+_dm[?'EastA_022'+STR_Layer+'06'+STR_Name] = 'BG0403, VISIBLE_00, LIQUID_03 DIR_04 SPEED_01';
+_dm[?'EastA_022'+STR_Layer+'07'+STR_Name] = 'BG0504';
+_dm[?'EastA_022'+STR_Layer+'08'+STR_Name] = 'BG0602, PERMUT_02';
+_dm[?'EastA_022'+STR_Layer+'09'+STR_Name] = 'BG0803, LIQUID_03 DIR_01 SPEED_02';
 //  ----------------------------  023  ----------------------------
-_dm[?'EastA_023'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_023'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_01 DIR_02 SPEED_01';
+_dm[?'EastA_023'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_03 DIR_04 SPEED_01';
+_dm[?'EastA_023'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'EastA_023'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'EastA_023'+STR_Layer+'05'+STR_Name] = 'BG0701';
 //  ----------------------------  024  ----------------------------
-_dm[?'EastA_024'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_024'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'EastA_024'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01, DIR_01, SPEED_04';
+_dm[?'EastA_024'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'EastA_024'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  025  ----------------------------
 //  ----------------------------  026  ----------------------------
-_dm[?'EastA_026'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_026'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_026'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  027  ----------------------------
 //  ----------------------------  028  ----------------------------
 //  ----------------------------  029  ----------------------------
-_dm[?'EastA_029'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_029'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_029'+STR_Layer+'02'+STR_Name] = 'BG0302';
 //  ----------------------------  030  ----------------------------
 //  ----------------------------  031  ----------------------------
 //  ----------------------------  032  ----------------------------
 //  ----------------------------  033  ----------------------------
-_dm[?'EastA_033'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_033'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_033'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_033'+STR_Layer+'03'+STR_Name] = 'BG0602';
 //  ----------------------------  034  ----------------------------
-_dm[?'EastA_034'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','000000','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_034'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_034'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_034'+STR_Layer+'03'+STR_Name] = 'BG0401';
 //  ----------------------------  035  ----------------------------
-_dm[?'EastA_035'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_035'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'EastA_035'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_02, DIR_02, SPEED_04';
+_dm[?'EastA_035'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  036  ----------------------------
 //  ----------------------------  037  ----------------------------
-_dm[?'EastA_037'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_037'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'EastA_037'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_037'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  038  ----------------------------
-_dm[?'EastA_038'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_038'+STR_Layer+'01'+STR_Name] = 'BG0201';
 //  ----------------------------  039  ----------------------------
-_dm[?'EastA_039'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_039'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_039'+STR_Layer+'02'+STR_Name] = 'BG0202';
 //  ----------------------------  040  ----------------------------
-_dm[?'EastA_040'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_040'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_040'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  041  ----------------------------
-_dm[?'EastA_041'+dk_BGR] = build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('888000','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','A80000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B474FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_041'+STR_Layer+'01'+STR_Name] = 'FG0403, LIQUID_02 DIR_02 SPEED_04';
+_dm[?'EastA_041'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'EastA_041'+STR_Layer+'03'+STR_Name] = 'FG0202';
+_dm[?'EastA_041'+STR_Layer+'04'+STR_Name] = 'BG0201';
+_dm[?'EastA_041'+STR_Layer+'05'+STR_Name] = 'BG0302';
+_dm[?'EastA_041'+STR_Layer+'06'+STR_Name] = 'BG0402';
+_dm[?'EastA_041'+STR_Layer+'07'+STR_Name] = 'BG0704';
 //  ----------------------------  042  ----------------------------
-_dm[?'EastA_042'+dk_BGR] = build_pal('A8D8FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','8C1824','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_042'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_042'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_042'+STR_Layer+'03'+STR_Name] = 'BG0504';
+_dm[?'EastA_042'+STR_Layer+'04'+STR_Name] = 'BG0604, PERMUT_02';
+_dm[?'EastA_042'+STR_Layer+'05'+STR_Name] = 'BG0701';
 //  ----------------------------  043  ----------------------------
 //  ----------------------------  044  ----------------------------
-_dm[?'EastA_044'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_044'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_044'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'EastA_044'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  045  ----------------------------
-_dm[?'EastA_045'+dk_BGR] = build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_045'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_045'+STR_Layer+'02'+STR_Name] = 'BG0402';
+_dm[?'EastA_045'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  046  ----------------------------
 //  ----------------------------  047  ----------------------------
-_dm[?'EastA_047'+dk_BGR] = build_pal('F1F2F1','A8D8FC','3CBCF0','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_047'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'EastA_047'+STR_Layer+'02'+STR_Name] = 'FG0203';
+_dm[?'EastA_047'+STR_Layer+'03'+STR_Name] = 'BG0101';
+_dm[?'EastA_047'+STR_Layer+'04'+STR_Name] = 'BG0202';
+_dm[?'EastA_047'+STR_Layer+'05'+STR_Name] = 'BG0402';
+_dm[?'EastA_047'+STR_Layer+'06'+STR_Name] = 'BG0603';
 //  ----------------------------  048  ----------------------------
-_dm[?'EastA_048'+dk_BGR] = build_pal('10D080','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','000000','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_048'+STR_Layer+'01'+STR_Name] = 'FG0301, LIQUID_02 SPEED_08 DIR_01';
+_dm[?'EastA_048'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'EastA_048'+STR_Layer+'03'+STR_Name] = 'BG0502';
 //  ----------------------------  049  ----------------------------
-_dm[?'EastA_049'+dk_BGR] = build_pal('FCFCFC','3CBCF0','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_049'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_049'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_049'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'EastA_049'+STR_Layer+'04'+STR_Name] = 'BG0503';
+_dm[?'EastA_049'+STR_Layer+'05'+STR_Name] = 'BG0702';
 //  ----------------------------  050  ----------------------------
-_dm[?'EastA_050'+dk_BGR] = build_pal('0C4CC8','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC945C','A80000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_050'+STR_Layer+'01'+STR_Name] = 'FG0703';
+_dm[?'EastA_050'+STR_Layer+'02'+STR_Name] = 'FG0601';
+_dm[?'EastA_050'+STR_Layer+'03'+STR_Name] = 'FG0504';
+_dm[?'EastA_050'+STR_Layer+'04'+STR_Name] = 'BG0403';
+_dm[?'EastA_050'+STR_Layer+'05'+STR_Name] = 'BG0502';
+_dm[?'EastA_050'+STR_Layer+'06'+STR_Name] = 'BG0602';
+_dm[?'EastA_050'+STR_Layer+'07'+STR_Name] = 'BG0704';
 //  ----------------------------  051  ----------------------------
 //  ----------------------------  052  ----------------------------
-_dm[?'EastA_052'+dk_BGR] = build_pal('009400','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_052'+STR_Layer+'01'+STR_Name] = 'FG0701';
+_dm[?'EastA_052'+STR_Layer+'02'+STR_Name] = 'FG0603, LIQUID_02 DIR_01 SPEED_02';
+_dm[?'EastA_052'+STR_Layer+'03'+STR_Name] = 'FG0502';
+_dm[?'EastA_052'+STR_Layer+'04'+STR_Name] = 'BG0404';
+_dm[?'EastA_052'+STR_Layer+'05'+STR_Name] = 'BG0502';
+_dm[?'EastA_052'+STR_Layer+'06'+STR_Name] = 'BG0602';
+_dm[?'EastA_052'+STR_Layer+'07'+STR_Name] = 'BG0704';
 //  ----------------------------  053  ----------------------------
-_dm[?'EastA_053'+dk_BGR] = build_pal('009400','004400','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_053'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_053'+STR_Layer+'02'+STR_Name] = 'BG0402';
 //  ----------------------------  054  ----------------------------
 //  ----------------------------  055  ----------------------------
-_dm[?'EastA_055'+dk_BGR] = build_pal('F1BADC','0C4CC8','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_055'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_055'+STR_Layer+'02'+STR_Name] = 'FG0303';
+_dm[?'EastA_055'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'EastA_055'+STR_Layer+'04'+STR_Name] = 'BG0403';
+_dm[?'EastA_055'+STR_Layer+'05'+STR_Name] = 'BG0702';
 //  ----------------------------  056  ----------------------------
 //  ----------------------------  057  ----------------------------
-_dm[?'EastA_057'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_057'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_057'+STR_Layer+'02'+STR_Name] = 'BG0401';
 //  ----------------------------  058  ----------------------------
-_dm[?'EastA_058'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_058'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02, DIR_02, SPEED_04';
+_dm[?'EastA_058'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_058'+STR_Layer+'03'+STR_Name] = 'BG0301';
 //  ----------------------------  059  ----------------------------
-_dm[?'EastA_059'+dk_BGR] = build_pal('F1BADC','0C4CC8','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_059'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_059'+STR_Layer+'02'+STR_Name] = 'FG0303';
+_dm[?'EastA_059'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'EastA_059'+STR_Layer+'04'+STR_Name] = 'BG0403';
+_dm[?'EastA_059'+STR_Layer+'05'+STR_Name] = 'BG0702';
 //  ----------------------------  060  ----------------------------
-_dm[?'EastA_060'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_060'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'EastA_060'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01, DIR_01, SPEED_04';
+_dm[?'EastA_060'+STR_Layer+'03'+STR_Name] = 'BG0703';
 //  ----------------------------  061  ----------------------------
-_dm[?'EastA_061'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_061'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_061'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'EastA_061'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'EastA_061'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'EastA_061'+STR_Layer+'05'+STR_Name] = 'BG0501';
+_dm[?'EastA_061'+STR_Layer+'06'+STR_Name] = 'BG0603';
+_dm[?'EastA_061'+STR_Layer+'07'+STR_Name] = 'BG0703';
 //  ----------------------------  062  ----------------------------
-_dm[?'EastA_062'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_062'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_062'+STR_Layer+'02'+STR_Name] = 'BG0402';
+_dm[?'EastA_062'+STR_Layer+'03'+STR_Name] = 'BG0703';
 //  ----------------------------  063  ----------------------------
-_dm[?'EastA_063'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_063'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'EastA_063'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01, DIR_01, SPEED_04';
+_dm[?'EastA_063'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'EastA_063'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  064  ----------------------------
 //  ----------------------------  065  ----------------------------
 //  ----------------------------  066  ----------------------------
-_dm[?'EastA_066'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_066'+STR_Layer+'01'+STR_Name] = 'FG0102, LIQUID_02 SPEED_08 DIR_02';
+_dm[?'EastA_066'+STR_Layer+'02'+STR_Name] = 'BG0101';
+_dm[?'EastA_066'+STR_Layer+'03'+STR_Name] = 'BG0203';
 //  ----------------------------  067  ----------------------------
 //  ----------------------------  068  ----------------------------
-_dm[?'EastA_068'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_068'+STR_Layer+'01'+STR_Name] = 'FG0102, LIQUID_02 SPEED_04 DIR_02';
+_dm[?'EastA_068'+STR_Layer+'02'+STR_Name] = 'BG0201';
 //  ----------------------------  069  ----------------------------
 //  ----------------------------  070  ----------------------------
-_dm[?'EastA_070'+dk_BGR] = build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_070'+STR_Layer+'01'+STR_Name] = 'BG0203';
+_dm[?'EastA_070'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'EastA_070'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'EastA_070'+STR_Layer+'04'+STR_Name] = 'BG0503';
+_dm[?'EastA_070'+STR_Layer+'05'+STR_Name] = 'BG0601';
+_dm[?'EastA_070'+STR_Layer+'06'+STR_Name] = 'BG0702';
 //  ----------------------------  071  ----------------------------
-_dm[?'EastA_071'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_071'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_04 DIR_01';
+_dm[?'EastA_071'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'EastA_071'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  072  ----------------------------
-_dm[?'EastA_072'+dk_BGR] = build_pal('5C3C18','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','8C1824','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('888000','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_072'+STR_Layer+'01'+STR_Name] = 'FG0701';
+_dm[?'EastA_072'+STR_Layer+'02'+STR_Name] = 'FG0303';
+_dm[?'EastA_072'+STR_Layer+'03'+STR_Name] = 'BG0502';
 //  ----------------------------  073  ----------------------------
 //  ----------------------------  074  ----------------------------
-_dm[?'EastA_074'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_074'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_04 DIR_02';
+_dm[?'EastA_074'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_074'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  075  ----------------------------
-_dm[?'EastA_075'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_075'+STR_Layer+'01'+STR_Name] = 'FG0403, LIQUID_02 SPEED_04 DIR_02';
+_dm[?'EastA_075'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'EastA_075'+STR_Layer+'03'+STR_Name] = 'FG0204';
+_dm[?'EastA_075'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'EastA_075'+STR_Layer+'05'+STR_Name] = 'BG0401';
+_dm[?'EastA_075'+STR_Layer+'06'+STR_Name] = 'BG0504';
+_dm[?'EastA_075'+STR_Layer+'07'+STR_Name] = 'BG0604';
 //  ----------------------------  076  ----------------------------
-_dm[?'EastA_076'+dk_BGR] = build_pal('009400','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_076'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_01 SPEED_02 DIR_02';
+_dm[?'EastA_076'+STR_Layer+'02'+STR_Name] = 'FG0202';
+_dm[?'EastA_076'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'EastA_076'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'EastA_076'+STR_Layer+'05'+STR_Name] = 'BG0701';
 //  ----------------------------  077  ----------------------------
-_dm[?'EastA_077'+dk_BGR] = build_pal('009400','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_077'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_02';
+_dm[?'EastA_077'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'EastA_077'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'EastA_077'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'EastA_077'+STR_Layer+'05'+STR_Name] = 'BG0502, BREAK__04, HIDDEN_01';
+_dm[?'EastA_077'+STR_Layer+'06'+STR_Name] = 'BG0701';
 //  ----------------------------  078  ----------------------------
-_dm[?'EastA_078'+dk_BGR] = build_pal('009400','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_078'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'EastA_078'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 SPEED_04 DIR_02';
+_dm[?'EastA_078'+STR_Layer+'03'+STR_Name] = 'BG0201';
 //  ----------------------------  079  ----------------------------
-_dm[?'EastA_079'+dk_BGR] = build_pal('A8D8FC','3898FC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','B0BCFC','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_079'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_04 DIR_01';
+_dm[?'EastA_079'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'EastA_079'+STR_Layer+'03'+STR_Name] = 'BG0301, PERMUT_05';
+_dm[?'EastA_079'+STR_Layer+'04'+STR_Name] = 'BG0501';
 //  ----------------------------  080  ----------------------------
 //  ----------------------------  081  ----------------------------
-_dm[?'EastA_081'+dk_BGR] = build_pal('A8D8FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_081'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_081'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'EastA_081'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'EastA_081'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'EastA_081'+STR_Layer+'05'+STR_Name] = 'BG0704';
 //  ----------------------------  082  ----------------------------
-_dm[?'EastA_082'+dk_BGR] = build_pal('A8D8FC','3898FC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','B0BCFC','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_082'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_04 DIR_01';
+_dm[?'EastA_082'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'EastA_082'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'EastA_082'+STR_Layer+'04'+STR_Name] = 'BG0501';
 //  ----------------------------  083  ----------------------------
 //  ----------------------------  084  ----------------------------
-_dm[?'EastA_084'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_084'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_084'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  085  ----------------------------
 //  ----------------------------  086  ----------------------------
 //  ----------------------------  087  ----------------------------
-_dm[?'EastA_087'+dk_BGR] = build_pal('F1F2F1','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('DCB6F1','FC88CC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('002C40','000000','AD15B8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_087'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'EastA_087'+STR_Layer+'02'+STR_Name] = 'BG0304';
+_dm[?'EastA_087'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'EastA_087'+STR_Layer+'04'+STR_Name] = 'BG0501';
+_dm[?'EastA_087'+STR_Layer+'05'+STR_Name] = 'BG0603';
+_dm[?'EastA_087'+STR_Layer+'06'+STR_Name] = 'BG0704, PERMUT_03';
 //  ----------------------------  088  ----------------------------
-_dm[?'EastA_088'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','2A7B00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_088'+STR_Layer+'01'+STR_Name] = 'FG0702';
+_dm[?'EastA_088'+STR_Layer+'02'+STR_Name] = 'FG0601';
+_dm[?'EastA_088'+STR_Layer+'03'+STR_Name] = 'FG0402';
+_dm[?'EastA_088'+STR_Layer+'04'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_02';
+_dm[?'EastA_088'+STR_Layer+'05'+STR_Name] = 'BG0404';
+_dm[?'EastA_088'+STR_Layer+'06'+STR_Name] = 'BG0701';
 //  ----------------------------  089  ----------------------------
-_dm[?'EastA_089'+dk_BGR] = build_pal('10D080','009400','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_089'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02, DIR_02, SPEED_04';
+_dm[?'EastA_089'+STR_Layer+'02'+STR_Name] = 'FG0201';
+_dm[?'EastA_089'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'EastA_089'+STR_Layer+'04'+STR_Name] = 'BG0401, PERMUT_06';
+_dm[?'EastA_089'+STR_Layer+'05'+STR_Name] = 'BG0504';
 //  ----------------------------  090  ----------------------------
 //  ----------------------------  091  ----------------------------
 //  ----------------------------  092  ----------------------------
-_dm[?'EastA_092'+dk_BGR] = build_pal('10D080','009400','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_092'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_02 SPEED_04';
+_dm[?'EastA_092'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_092'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  093  ----------------------------
 //  ----------------------------  094  ----------------------------
 //  ----------------------------  095  ----------------------------
-_dm[?'EastA_095'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_095'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_095'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01, DIR_02, SPEED_08';
+_dm[?'EastA_095'+STR_Layer+'03'+STR_Name] = 'BG0703';
 //  ----------------------------  096  ----------------------------
-_dm[?'EastA_096'+dk_BGR] = build_pal('3CBCF0','00A800','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_096'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_096'+STR_Layer+'02'+STR_Name] = 'FG0201';
+_dm[?'EastA_096'+STR_Layer+'03'+STR_Name] = 'BG0101';
+_dm[?'EastA_096'+STR_Layer+'04'+STR_Name] = 'BG0203';
+_dm[?'EastA_096'+STR_Layer+'05'+STR_Name] = 'BG0302';
+_dm[?'EastA_096'+STR_Layer+'06'+STR_Name] = 'BG0503, PERMUT_05';
+_dm[?'EastA_096'+STR_Layer+'07'+STR_Name] = 'BG0602';
+_dm[?'EastA_096'+STR_Layer+'08'+STR_Name] = 'BG0703';
 //  ----------------------------  097  ----------------------------
-_dm[?'EastA_097'+dk_BGR] = build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','EC7000','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_097'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_08 DIR_01';
+_dm[?'EastA_097'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_097'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'EastA_097'+STR_Layer+'04'+STR_Name] = 'BG0604';
+_dm[?'EastA_097'+STR_Layer+'05'+STR_Name] = 'BG0703';
 //  ----------------------------  098  ----------------------------
-_dm[?'EastA_098'+dk_BGR] = build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','EC7000','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_098'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_098'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_098'+STR_Layer+'03'+STR_Name] = 'BG0604';
+_dm[?'EastA_098'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  099  ----------------------------
-_dm[?'EastA_099'+dk_BGR] = build_pal('0C4CC8','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('002C40','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC7000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_099'+STR_Layer+'01'+STR_Name] = 'FG0703, LIQUID_02 DIR_01 SPEED_04';
+_dm[?'EastA_099'+STR_Layer+'02'+STR_Name] = 'BG0204';
+_dm[?'EastA_099'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'EastA_099'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  100  ----------------------------
-_dm[?'EastA_100'+dk_BGR] = build_pal('A8D8FC','0C4CC8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3898FC','002C40','000000','3CBCF0','007088','3E3E3E', C_CYN0_)  +  build_pal('F0FC9C','EC7000','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_100'+STR_Layer+'01'+STR_Name] = 'FG0403, LIQUID_01 DIR_01 SPEED_01';
+_dm[?'EastA_100'+STR_Layer+'02'+STR_Name] = 'FG0202';
+_dm[?'EastA_100'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'EastA_100'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'EastA_100'+STR_Layer+'05'+STR_Name] = 'BG0704';
 //  ----------------------------  101  ----------------------------
-_dm[?'EastA_101'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','EC7000','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_101'+STR_Layer+'01'+STR_Name] = 'FG0603, LIQUID_01 DIR_01 SPEED_01';
+_dm[?'EastA_101'+STR_Layer+'02'+STR_Name] = 'FG0501';
+_dm[?'EastA_101'+STR_Layer+'03'+STR_Name] = 'FG0301';
+_dm[?'EastA_101'+STR_Layer+'04'+STR_Name] = 'FG0202';
+_dm[?'EastA_101'+STR_Layer+'05'+STR_Name] = 'BG0404';
+_dm[?'EastA_101'+STR_Layer+'06'+STR_Name] = 'BG0501';
 //  ----------------------------  102  ----------------------------
-_dm[?'EastA_102'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','002C40','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','EC7000','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_102'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_01';
+_dm[?'EastA_102'+STR_Layer+'02'+STR_Name] = 'BG0602';
 //  ----------------------------  103  ----------------------------
-_dm[?'EastA_103'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','EC7000','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_103'+STR_Layer+'01'+STR_Name] = 'FG0403, LIQUID_01 DIR_01 SPEED_01';
+_dm[?'EastA_103'+STR_Layer+'02'+STR_Name] = 'FG0202';
+_dm[?'EastA_103'+STR_Layer+'03'+STR_Name] = 'BG0604';
 //  ----------------------------  104  ----------------------------
-_dm[?'EastA_104'+dk_BGR] = build_pal('B0BCFC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','007088','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A7A9A7','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_104'+STR_Layer+'01'+STR_Name] = 'FG0304';
+_dm[?'EastA_104'+STR_Layer+'02'+STR_Name] = 'FG0204';
+_dm[?'EastA_104'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'EastA_104'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'EastA_104'+STR_Layer+'05'+STR_Name] = 'BG0503';
+_dm[?'EastA_104'+STR_Layer+'06'+STR_Name] = 'BG0602';
 //  ----------------------------  105  ----------------------------
-_dm[?'EastA_105'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_105'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_105'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  106  ----------------------------
 //  ----------------------------  107  ----------------------------
 //  ----------------------------  108  ----------------------------
 //  ----------------------------  109  ----------------------------
-_dm[?'EastA_109'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_109'+STR_Layer+'01'+STR_Name] = 'FG0304, LIQUID_01 SPEED_04 DIR_01';
+_dm[?'EastA_109'+STR_Layer+'02'+STR_Name] = 'FG0204, LIQUID_03 DIR_04 SPEED_01';
+_dm[?'EastA_109'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'EastA_109'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  110  ----------------------------
 //  ----------------------------  111  ----------------------------
 //  ----------------------------  112  ----------------------------
-_dm[?'EastA_112'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_112'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_112'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  113  ----------------------------
-_dm[?'EastA_113'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_113'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_113'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  114  ----------------------------
-_dm[?'EastA_114'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_114'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_114'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  115  ----------------------------
 //  ----------------------------  116  ----------------------------
-_dm[?'EastA_116'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_116'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_116'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  117  ----------------------------
-_dm[?'EastA_117'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_117'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_117'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  118  ----------------------------
-_dm[?'EastA_118'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_118'+STR_Layer+'01'+STR_Name] = 'FG0204, LIQUID_01 SPEED_04 DIR_02';
+_dm[?'EastA_118'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_118'+STR_Layer+'03'+STR_Name] = 'BG0703';
 //  ----------------------------  119  ----------------------------
-_dm[?'EastA_119'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_119'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_119'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  120  ----------------------------
-_dm[?'EastA_120'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_120'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_120'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  121  ----------------------------
-_dm[?'EastA_121'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_121'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_121'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  122  ----------------------------
-_dm[?'EastA_122'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_122'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_122'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  123  ----------------------------
-_dm[?'EastA_123'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_123'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_123'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  124  ----------------------------
 //  ----------------------------  125  ----------------------------
-_dm[?'EastA_125'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_125'+STR_Layer+'01'+STR_Name] = 'FG0204, LIQUID_02, DIR_02, SPEED_04';
+_dm[?'EastA_125'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_125'+STR_Layer+'03'+STR_Name] = 'BG0703';
 //  ----------------------------  126  ----------------------------
-_dm[?'EastA_126'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_126'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_04 DIR_01';
+_dm[?'EastA_126'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_126'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  127  ----------------------------
-_dm[?'EastA_127'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_127'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_127'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  128  ----------------------------
-_dm[?'EastA_128'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_128'+STR_Layer+'01'+STR_Name] = 'FG0204, LIQUID_01 SPEED_01 DIR_01';
+_dm[?'EastA_128'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_128'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'EastA_128'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  129  ----------------------------
-_dm[?'EastA_129'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_129'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_129'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_129'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'EastA_129'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  130  ----------------------------
-_dm[?'EastA_130'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_130'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_130'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_130'+STR_Layer+'03'+STR_Name] = 'BG0702';
 //  ----------------------------  131  ----------------------------
-_dm[?'EastA_131'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_131'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_131'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_131'+STR_Layer+'03'+STR_Name] = 'BG0702';
 //  ----------------------------  132  ----------------------------
 //  ----------------------------  133  ----------------------------
-_dm[?'EastA_133'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_133'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_133'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_133'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'EastA_133'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'EastA_133'+STR_Layer+'05'+STR_Name] = 'BG0702';
 //  ----------------------------  134  ----------------------------
 //  ----------------------------  135  ----------------------------
-_dm[?'EastA_135'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_135'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_135'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_135'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'EastA_135'+STR_Layer+'04'+STR_Name] = 'BG0702';
 //  ----------------------------  136  ----------------------------
-_dm[?'EastA_136'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_136'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_136'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_136'+STR_Layer+'03'+STR_Name] = 'BG0702';
 //  ----------------------------  137  ----------------------------
 //  ----------------------------  138  ----------------------------
-_dm[?'EastA_138'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3CBCF0','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_138'+STR_Layer+'01'+STR_Name] = 'BG0101';
+_dm[?'EastA_138'+STR_Layer+'02'+STR_Name] = 'BG0201, BREAK__01, HIDDEN_01';
+_dm[?'EastA_138'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__03, HIDDEN_01';
+_dm[?'EastA_138'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'EastA_138'+STR_Layer+'05'+STR_Name] = 'BG0502';
+_dm[?'EastA_138'+STR_Layer+'06'+STR_Name] = 'BG0601';
+_dm[?'EastA_138'+STR_Layer+'07'+STR_Name] = 'BG0702';
 //  ----------------------------  139  ----------------------------
-_dm[?'EastA_139'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_139'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'EastA_139'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_139'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  140  ----------------------------
-_dm[?'EastA_140'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_140'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'EastA_140'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_140'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  141  ----------------------------
-_dm[?'EastA_141'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_141'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_141'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  142  ----------------------------
-_dm[?'EastA_142'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_142'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_142'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_142'+STR_Layer+'03'+STR_Name] = 'BG0503, LIQUID_02 DIR_01 SPEED_01';
+_dm[?'EastA_142'+STR_Layer+'04'+STR_Name] = 'BG0704';
+_dm[?'EastA_142'+STR_Layer+'05'+STR_Name] = 'BG0801';
 //  ----------------------------  143  ----------------------------
-_dm[?'EastA_143'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A7A9A7','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_143'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_143'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'EastA_143'+STR_Layer+'03'+STR_Name] = 'BG0502, BREAK__01, HIDDEN_01';
+_dm[?'EastA_143'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  144  ----------------------------
-_dm[?'EastA_144'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_144'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_144'+STR_Layer+'02'+STR_Name] = 'FG0304, LIQUID_02 DIR_01 SPEED_02';
+_dm[?'EastA_144'+STR_Layer+'03'+STR_Name] = 'FG0204, LIQUID_03 DIR_04 SPEED_01';
+_dm[?'EastA_144'+STR_Layer+'04'+STR_Name] = 'BG0201';
+_dm[?'EastA_144'+STR_Layer+'05'+STR_Name] = 'BG0703';
 //  ----------------------------  145  ----------------------------
-_dm[?'EastA_145'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_145'+STR_Layer+'01'+STR_Name] = 'FG0304, LIQUID_01 SPEED_01 DIR_01';
+_dm[?'EastA_145'+STR_Layer+'02'+STR_Name] = 'FG0204, LIQUID_03 DIR_04 SPEED_01';
+_dm[?'EastA_145'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'EastA_145'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  146  ----------------------------
-_dm[?'EastA_146'+dk_BGR] = build_pal('B0BCFC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_146'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_146'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  147  ----------------------------
-_dm[?'EastA_147'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_147'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'EastA_147'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  148  ----------------------------
 //  ----------------------------  149  ----------------------------
 //  ----------------------------  150  ----------------------------
@@ -946,25 +1522,58 @@ _dm[?'EastA_147'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0
 //  ----------------------------  158  ----------------------------
 //  ----------------------------  159  ----------------------------
 //  ----------------------------  160  ----------------------------
-_dm[?'EastA_160'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_160'+STR_Layer+'01'+STR_Name] = 'FG0402';
+_dm[?'EastA_160'+STR_Layer+'02'+STR_Name] = 'FG0303, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'EastA_160'+STR_Layer+'03'+STR_Name] = 'FG0202';
+_dm[?'EastA_160'+STR_Layer+'04'+STR_Name] = 'BG0201';
+_dm[?'EastA_160'+STR_Layer+'05'+STR_Name] = 'BG0402';
+_dm[?'EastA_160'+STR_Layer+'06'+STR_Name] = 'BG0703';
 //  ----------------------------  161  ----------------------------
-_dm[?'EastA_161'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_161'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'EastA_161'+STR_Layer+'02'+STR_Name] = 'FG0202';
+_dm[?'EastA_161'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'EastA_161'+STR_Layer+'04'+STR_Name] = 'BG0302, BREAK__02, HIDDEN_01';
+_dm[?'EastA_161'+STR_Layer+'05'+STR_Name] = 'BG0703';
 //  ----------------------------  162  ----------------------------
-_dm[?'EastA_162'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_162'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'EastA_162'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_162'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'EastA_162'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'EastA_162'+STR_Layer+'05'+STR_Name] = 'BG0702';
 //  ----------------------------  163  ----------------------------
 //  ----------------------------  164  ----------------------------
-_dm[?'EastA_164'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_164'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'EastA_164'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'EastA_164'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'EastA_164'+STR_Layer+'04'+STR_Name] = 'BG0702';
 //  ----------------------------  165  ----------------------------
 //  ----------------------------  166  ----------------------------
-_dm[?'EastA_166'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_166'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'EastA_166'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'EastA_166'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'EastA_166'+STR_Layer+'04'+STR_Name] = 'BG0702';
 //  ----------------------------  167  ----------------------------
-_dm[?'EastA_167'+dk_BGR] = build_pal('BCBCBC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC945C','A80000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_167'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02 DIR_02 SPEED_08';
+_dm[?'EastA_167'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'EastA_167'+STR_Layer+'03'+STR_Name] = 'BG0501';
+_dm[?'EastA_167'+STR_Layer+'04'+STR_Name] = 'BG0602';
+_dm[?'EastA_167'+STR_Layer+'05'+STR_Name] = 'BG0704';
 //  ----------------------------  168  ----------------------------
-_dm[?'EastA_168'+dk_BGR] = build_pal('B0BCFC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC945C','A80000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_168'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'EastA_168'+STR_Layer+'02'+STR_Name] = 'FG0303, LIQUID_01 DIR_02 SPEED_16';
+_dm[?'EastA_168'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'EastA_168'+STR_Layer+'04'+STR_Name] = 'BG0603';
+_dm[?'EastA_168'+STR_Layer+'05'+STR_Name] = 'BG0704';
 //  ----------------------------  169  ----------------------------
-_dm[?'EastA_169'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_169'+STR_Layer+'01'+STR_Name] = 'FG0503, LIQUID_02 DIR_01 SPEED_02';
+_dm[?'EastA_169'+STR_Layer+'02'+STR_Name] = 'BG0501';
+_dm[?'EastA_169'+STR_Layer+'03'+STR_Name] = 'BG0602';
 //  ----------------------------  170  ----------------------------
-_dm[?'EastA_170'+dk_BGR] = build_pal('B0BCFC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC945C','A80000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_170'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_01 DIR_02 SPEED_16';
+_dm[?'EastA_170'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_170'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'EastA_170'+STR_Layer+'04'+STR_Name] = 'BG0603';
+_dm[?'EastA_170'+STR_Layer+'05'+STR_Name] = 'BG0704';
 //  ----------------------------  171  ----------------------------
 //  ----------------------------  172  ----------------------------
 //  ----------------------------  173  ----------------------------
@@ -1050,7 +1659,9 @@ _dm[?'EastA_170'+dk_BGR] = build_pal('B0BCFC','007088','002C40','000000', C_YLW0
 //  ----------------------------  253  ----------------------------
 //  ----------------------------  254  ----------------------------
 //  ----------------------------  255  ----------------------------
-_dm[?'EastA_255'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'EastA_255'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02, DIR_01, SPEED_08';
+_dm[?'EastA_255'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'EastA_255'+STR_Layer+'03'+STR_Name] = 'BG0701';
 
 
 
@@ -1061,18 +1672,23 @@ _dm[?'EastA_255'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0
 
 // ***********************  _MazIs_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'MazIs_000'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_000'+STR_Layer+'01'+STR_Name] = 'BG0201';
 //  ----------------------------  001  ----------------------------
-_dm[?'MazIs_001'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_001'+STR_Layer+'01'+STR_Name] = 'BG0201';
 //  ----------------------------  002  ----------------------------
-_dm[?'MazIs_002'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_002'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_002'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  003  ----------------------------
-_dm[?'MazIs_003'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_003'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'MazIs_003'+STR_Layer+'02'+STR_Name] = 'FG0304';
+_dm[?'MazIs_003'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  004  ----------------------------
-_dm[?'MazIs_004'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_004'+STR_Layer+'01'+STR_Name] = 'BG0201';
 //  ----------------------------  005  ----------------------------
 //  ----------------------------  006  ----------------------------
-_dm[?'MazIs_006'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_006'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'MazIs_006'+STR_Layer+'02'+STR_Name] = 'BG0502';
+_dm[?'MazIs_006'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  007  ----------------------------
 //  ----------------------------  008  ----------------------------
 //  ----------------------------  009  ----------------------------
@@ -1083,13 +1699,16 @@ _dm[?'MazIs_006'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0
 //  ----------------------------  014  ----------------------------
 //  ----------------------------  015  ----------------------------
 //  ----------------------------  016  ----------------------------
-_dm[?'MazIs_016'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_016'+STR_Layer+'01'+STR_Name] = 'FG0102, LIQUID_02 SPEED_02 DIR_01';
+_dm[?'MazIs_016'+STR_Layer+'02'+STR_Name] = 'BG0101';
 //  ----------------------------  017  ----------------------------
 //  ----------------------------  018  ----------------------------
 //  ----------------------------  019  ----------------------------
 //  ----------------------------  020  ----------------------------
 //  ----------------------------  021  ----------------------------
-_dm[?'MazIs_021'+dk_BGR] = build_pal('3898FC','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCBC3C','8C1824','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A0FCE0','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_021'+STR_Layer+'01'+STR_Name] = 'FG0403, LIQUID_01 SPEED_01 DIR_01';
+_dm[?'MazIs_021'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'MazIs_021'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  022  ----------------------------
 //  ----------------------------  023  ----------------------------
 //  ----------------------------  024  ----------------------------
@@ -1133,101 +1752,230 @@ _dm[?'MazIs_021'+dk_BGR] = build_pal('3898FC','002C40','000000','000000', C_YLW0
 //  ----------------------------  062  ----------------------------
 //  ----------------------------  063  ----------------------------
 //  ----------------------------  064  ----------------------------
-_dm[?'MazIs_064'+dk_BGR] = build_pal('FCFCFC','3898FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_064'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'MazIs_064'+STR_Layer+'02'+STR_Name] = 'FG0203';
+_dm[?'MazIs_064'+STR_Layer+'03'+STR_Name] = 'BG0203';
+_dm[?'MazIs_064'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'MazIs_064'+STR_Layer+'05'+STR_Name] = 'BG0402';
+_dm[?'MazIs_064'+STR_Layer+'06'+STR_Name] = 'BG0503';
+_dm[?'MazIs_064'+STR_Layer+'07'+STR_Name] = 'BG0601';
+_dm[?'MazIs_064'+STR_Layer+'08'+STR_Name] = 'BG0703';
 //  ----------------------------  065  ----------------------------
-_dm[?'MazIs_065'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_065'+STR_Layer+'01'+STR_Name] = 'FG0201';
+_dm[?'MazIs_065'+STR_Layer+'02'+STR_Name] = 'BG0102';
+_dm[?'MazIs_065'+STR_Layer+'03'+STR_Name] = 'BG0203';
+_dm[?'MazIs_065'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'MazIs_065'+STR_Layer+'05'+STR_Name] = 'BG0403';
+_dm[?'MazIs_065'+STR_Layer+'06'+STR_Name] = 'BG0501';
+_dm[?'MazIs_065'+STR_Layer+'07'+STR_Name] = 'BG0603';
 //  ----------------------------  066  ----------------------------
-_dm[?'MazIs_066'+dk_BGR] = build_pal('10D080','009400','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_066'+STR_Layer+'01'+STR_Name] = 'FG0403, LIQUID_02, DIR_02, SPEED_04';
+_dm[?'MazIs_066'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'MazIs_066'+STR_Layer+'03'+STR_Name] = 'FG0201';
+_dm[?'MazIs_066'+STR_Layer+'04'+STR_Name] = 'BG0101';
+_dm[?'MazIs_066'+STR_Layer+'05'+STR_Name] = 'BG0202';
+_dm[?'MazIs_066'+STR_Layer+'06'+STR_Name] = 'BG0302';
+_dm[?'MazIs_066'+STR_Layer+'07'+STR_Name] = 'BG0401';
+_dm[?'MazIs_066'+STR_Layer+'08'+STR_Name] = 'BG0501';
+_dm[?'MazIs_066'+STR_Layer+'09'+STR_Name] = 'BG0602';
+_dm[?'MazIs_066'+STR_Layer+'0A'+STR_Name] = 'BG0701, PERMUT_05';
 //  ----------------------------  067  ----------------------------
-_dm[?'MazIs_067'+dk_BGR] = build_pal('A8D8FC','3898FC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B474FC','00A800','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0C4CC8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0000A4','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_067'+STR_Layer+'01'+STR_Name] = 'FG0201';
+_dm[?'MazIs_067'+STR_Layer+'02'+STR_Name] = 'BG0203';
+_dm[?'MazIs_067'+STR_Layer+'03'+STR_Name] = 'BG0304';
+_dm[?'MazIs_067'+STR_Layer+'04'+STR_Name] = 'BG0404';
+_dm[?'MazIs_067'+STR_Layer+'05'+STR_Name] = 'BG0502';
+_dm[?'MazIs_067'+STR_Layer+'06'+STR_Name] = 'BG0601';
 //  ----------------------------  068  ----------------------------
-_dm[?'MazIs_068'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC88CC','F00080','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','000000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_068'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_068'+STR_Layer+'02'+STR_Name] = 'BG0602';
+_dm[?'MazIs_068'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  069  ----------------------------
-_dm[?'MazIs_069'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_069'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'MazIs_069'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  070  ----------------------------
-_dm[?'MazIs_070'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_070'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'MazIs_070'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  071  ----------------------------
-_dm[?'MazIs_071'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_071'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'MazIs_071'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  072  ----------------------------
-_dm[?'MazIs_072'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_072'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'MazIs_072'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  073  ----------------------------
-_dm[?'MazIs_073'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_073'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_073'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  074  ----------------------------
-_dm[?'MazIs_074'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('888000','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_074'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'MazIs_074'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'MazIs_074'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  075  ----------------------------
-_dm[?'MazIs_075'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_075'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_01 DIR_01';
+_dm[?'MazIs_075'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_075'+STR_Layer+'03'+STR_Name] = 'BG0504';
+_dm[?'MazIs_075'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  076  ----------------------------
-_dm[?'MazIs_076'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_076'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_076'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  077  ----------------------------
-_dm[?'MazIs_077'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC88CC','F00080','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','003E00','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_077'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02 SPEED_08 DIR_02';
+_dm[?'MazIs_077'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'MazIs_077'+STR_Layer+'03'+STR_Name] = 'BG0601, PILLAR01';
+_dm[?'MazIs_077'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  078  ----------------------------
-_dm[?'MazIs_078'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_078'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_01 SPEED_04';
+_dm[?'MazIs_078'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_078'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  079  ----------------------------
-_dm[?'MazIs_079'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_079'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_01 SPEED_04 DIR_01';
+_dm[?'MazIs_079'+STR_Layer+'02'+STR_Name] = 'FG0202';
+_dm[?'MazIs_079'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  080  ----------------------------
-_dm[?'MazIs_080'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_080'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_080'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  081  ----------------------------
-_dm[?'MazIs_081'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_081'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'MazIs_081'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_081'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'MazIs_081'+STR_Layer+'04'+STR_Name] = 'BG0702';
 //  ----------------------------  082  ----------------------------
-_dm[?'MazIs_082'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_082'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'MazIs_082'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_082'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'MazIs_082'+STR_Layer+'04'+STR_Name] = 'BG0702';
 //  ----------------------------  083  ----------------------------
-_dm[?'MazIs_083'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_083'+STR_Layer+'01'+STR_Name] = 'FG0204, LIQUID_01 SPEED_01 DIR_01';
+_dm[?'MazIs_083'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_083'+STR_Layer+'03'+STR_Name] = 'BG0703';
 //  ----------------------------  084  ----------------------------
-_dm[?'MazIs_084'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_084'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_01 DIR_01';
+_dm[?'MazIs_084'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_084'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'MazIs_084'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  085  ----------------------------
-_dm[?'MazIs_085'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_085'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'MazIs_085'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__04, HIDDEN_01';
+_dm[?'MazIs_085'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'MazIs_085'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  086  ----------------------------
-_dm[?'MazIs_086'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_086'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_086'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  087  ----------------------------
-_dm[?'MazIs_087'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_087'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_087'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  088  ----------------------------
-_dm[?'MazIs_088'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_088'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'MazIs_088'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  089  ----------------------------
-_dm[?'MazIs_089'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_089'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_089'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR_01';
+_dm[?'MazIs_089'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  090  ----------------------------
-_dm[?'MazIs_090'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_090'+STR_Layer+'01'+STR_Name] = 'FG0202';
+_dm[?'MazIs_090'+STR_Layer+'02'+STR_Name] = 'BG0101';
+_dm[?'MazIs_090'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'MazIs_090'+STR_Layer+'04'+STR_Name] = 'BG0301';
+_dm[?'MazIs_090'+STR_Layer+'05'+STR_Name] = 'BG0401';
+_dm[?'MazIs_090'+STR_Layer+'06'+STR_Name] = 'BG0501';
 //  ----------------------------  091  ----------------------------
-_dm[?'MazIs_091'+dk_BGR] = build_pal('F1BADC','0000A4','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_091'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'MazIs_091'+STR_Layer+'02'+STR_Name] = 'FG0203';
+_dm[?'MazIs_091'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'MazIs_091'+STR_Layer+'04'+STR_Name] = 'BG0403';
+_dm[?'MazIs_091'+STR_Layer+'05'+STR_Name] = 'BG0702';
 //  ----------------------------  092  ----------------------------
-_dm[?'MazIs_092'+dk_BGR] = build_pal('B0BCFC','007088','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_092'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'MazIs_092'+STR_Layer+'02'+STR_Name] = 'FG0203';
+_dm[?'MazIs_092'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'MazIs_092'+STR_Layer+'04'+STR_Name] = 'BG0403';
+_dm[?'MazIs_092'+STR_Layer+'05'+STR_Name] = 'BG0702';
 //  ----------------------------  093  ----------------------------
-_dm[?'MazIs_093'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_093'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_01 SPEED_01';
+_dm[?'MazIs_093'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'MazIs_093'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  094  ----------------------------
-_dm[?'MazIs_094'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_094'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_02';
+_dm[?'MazIs_094'+STR_Layer+'02'+STR_Name] = 'BG0301';
 //  ----------------------------  095  ----------------------------
-_dm[?'MazIs_095'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_095'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_01 SPEED_04';
+_dm[?'MazIs_095'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'MazIs_095'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  096  ----------------------------
-_dm[?'MazIs_096'+dk_BGR] = build_pal('FCFCFC','6074FC','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_096'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'MazIs_096'+STR_Layer+'02'+STR_Name] = 'FG0303';
+_dm[?'MazIs_096'+STR_Layer+'03'+STR_Name] = 'BG0203';
+_dm[?'MazIs_096'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'MazIs_096'+STR_Layer+'05'+STR_Name] = 'BG0402';
+_dm[?'MazIs_096'+STR_Layer+'06'+STR_Name] = 'BG0503';
 //  ----------------------------  097  ----------------------------
-_dm[?'MazIs_097'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A7A9A7','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A7A9A7','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_097'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'MazIs_097'+STR_Layer+'02'+STR_Name] = 'FG0203';
+_dm[?'MazIs_097'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'MazIs_097'+STR_Layer+'04'+STR_Name] = 'BG0402';
 //  ----------------------------  098  ----------------------------
-_dm[?'MazIs_098'+dk_BGR] = build_pal('10D080','009400','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_098'+STR_Layer+'01'+STR_Name] = 'FG0401';
+_dm[?'MazIs_098'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'MazIs_098'+STR_Layer+'03'+STR_Name] = 'FG0203, LIQUID_02, DIR_02, SPEED_04';
+_dm[?'MazIs_098'+STR_Layer+'04'+STR_Name] = 'BG0101';
+_dm[?'MazIs_098'+STR_Layer+'05'+STR_Name] = 'BG0204';
+_dm[?'MazIs_098'+STR_Layer+'06'+STR_Name] = 'BG0304';
+_dm[?'MazIs_098'+STR_Layer+'07'+STR_Name] = 'BG0401';
+_dm[?'MazIs_098'+STR_Layer+'08'+STR_Name] = 'BG0501';
+_dm[?'MazIs_098'+STR_Layer+'09'+STR_Name] = 'BG0602';
+_dm[?'MazIs_098'+STR_Layer+'0A'+STR_Name] = 'BG0701, PERMUT_05';
 //  ----------------------------  099  ----------------------------
-_dm[?'MazIs_099'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_099'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'MazIs_099'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'MazIs_099'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'MazIs_099'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  100  ----------------------------
-_dm[?'MazIs_100'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_100'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'MazIs_100'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_100'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  101  ----------------------------
-_dm[?'MazIs_101'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_101'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'MazIs_101'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'MazIs_101'+STR_Layer+'03'+STR_Name] = 'BG0301';
 //  ----------------------------  102  ----------------------------
-_dm[?'MazIs_102'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_102'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'MazIs_102'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'MazIs_102'+STR_Layer+'03'+STR_Name] = 'BG0301';
 //  ----------------------------  103  ----------------------------
-_dm[?'MazIs_103'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_103'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_02 DIR_01';
+_dm[?'MazIs_103'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_103'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  104  ----------------------------
-_dm[?'MazIs_104'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_104'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_01 DIR_02';
+_dm[?'MazIs_104'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_104'+STR_Layer+'03'+STR_Name] = 'BG0502';
 //  ----------------------------  105  ----------------------------
-_dm[?'MazIs_105'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_105'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_105'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'MazIs_105'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR_01';
+_dm[?'MazIs_105'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  106  ----------------------------
-_dm[?'MazIs_106'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_106'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_08 DIR_02';
+_dm[?'MazIs_106'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'MazIs_106'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  107  ----------------------------
-_dm[?'MazIs_107'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_107'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02, DIR_01, SPEED_08';
+_dm[?'MazIs_107'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_107'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  108  ----------------------------
-_dm[?'MazIs_108'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_108'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_01 DIR_02';
+_dm[?'MazIs_108'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_108'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'MazIs_108'+STR_Layer+'04'+STR_Name] = 'BG0704';
 //  ----------------------------  109  ----------------------------
-_dm[?'MazIs_109'+dk_BGR] = build_pal('3E3E3E','F1F2F1','3CBCF0','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_109'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_109'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'MazIs_109'+STR_Layer+'03'+STR_Name] = 'BG0703';
 //  ----------------------------  110  ----------------------------
-_dm[?'MazIs_110'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_110'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_110'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  111  ----------------------------
-_dm[?'MazIs_111'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_111'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'MazIs_111'+STR_Layer+'02'+STR_Name] = 'BG0703, STRUCTURE_BGWALL01_01';
 //  ----------------------------  112  ----------------------------
 //  ----------------------------  113  ----------------------------
 //  ----------------------------  114  ----------------------------
@@ -1333,58 +2081,148 @@ _dm[?'MazIs_111'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0
 //  ----------------------------  214  ----------------------------
 //  ----------------------------  215  ----------------------------
 //  ----------------------------  216  ----------------------------
-_dm[?'MazIs_216'+dk_BGR] = build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_216'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_216'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'MazIs_216'+STR_Layer+'03'+STR_Name] = 'BG0603';
 //  ----------------------------  217  ----------------------------
-_dm[?'MazIs_217'+dk_BGR] = build_pal('F1BADC','747474','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_217'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02 SPEED_08 DIR_02';
+_dm[?'MazIs_217'+STR_Layer+'02'+STR_Name] = 'FG0202, BURNABLE_01';
+_dm[?'MazIs_217'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'MazIs_217'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  218  ----------------------------
-_dm[?'MazIs_218'+dk_BGR] = build_pal('F1F2F1','A8D8FC','3898FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A7A9A7','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_218'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_04 DIR_01';
+_dm[?'MazIs_218'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_218'+STR_Layer+'03'+STR_Name] = 'BG0304';
+_dm[?'MazIs_218'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'MazIs_218'+STR_Layer+'05'+STR_Name] = 'BG0501';
 //  ----------------------------  219  ----------------------------
-_dm[?'MazIs_219'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','EC3820','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_219'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_219'+STR_Layer+'02'+STR_Name] = 'FG0204, BURNABLE_01';
+_dm[?'MazIs_219'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'MazIs_219'+STR_Layer+'04'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
 //  ----------------------------  220  ----------------------------
-_dm[?'MazIs_220'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','000000','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_220'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_08';
+_dm[?'MazIs_220'+STR_Layer+'02'+STR_Name] = 'BG0201';
 //  ----------------------------  221  ----------------------------
-_dm[?'MazIs_221'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_221'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_08';
+_dm[?'MazIs_221'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'MazIs_221'+STR_Layer+'03'+STR_Name] = 'BG0401, BREAK__02, HIDDEN_01';
+_dm[?'MazIs_221'+STR_Layer+'04'+STR_Name] = 'BG0504';
+_dm[?'MazIs_221'+STR_Layer+'05'+STR_Name] = 'BG0602';
 //  ----------------------------  222  ----------------------------
-_dm[?'MazIs_222'+dk_BGR] = build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','2A7B00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','00A800','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_222'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_222'+STR_Layer+'02'+STR_Name] = 'BG0306';
+_dm[?'MazIs_222'+STR_Layer+'03'+STR_Name] = 'BG0401, BREAK__01, HIDDEN_01';
+_dm[?'MazIs_222'+STR_Layer+'04'+STR_Name] = 'BG0503';
+_dm[?'MazIs_222'+STR_Layer+'05'+STR_Name] = 'BG0602';
+_dm[?'MazIs_222'+STR_Layer+'06'+STR_Name] = 'BG0703';
 //  ----------------------------  223  ----------------------------
-_dm[?'MazIs_223'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','000000','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_223'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_223'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_223'+STR_Layer+'03'+STR_Name] = 'BG0704';
 //  ----------------------------  224  ----------------------------
-_dm[?'MazIs_224'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_224'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_224'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_224'+STR_Layer+'03'+STR_Name] = 'BG0501';
 //  ----------------------------  225  ----------------------------
-_dm[?'MazIs_225'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_225'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_225'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_225'+STR_Layer+'03'+STR_Name] = 'BG0501';
+_dm[?'MazIs_225'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  226  ----------------------------
-_dm[?'MazIs_226'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_226'+STR_Layer+'01'+STR_Name] = 'BG0301';
+_dm[?'MazIs_226'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  227  ----------------------------
-_dm[?'MazIs_227'+dk_BGR] = build_pal('10D080','2A7B00','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_227'+STR_Layer+'01'+STR_Name] = 'BG0102';
+_dm[?'MazIs_227'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'MazIs_227'+STR_Layer+'03'+STR_Name] = 'BG0303';
+_dm[?'MazIs_227'+STR_Layer+'04'+STR_Name] = 'BG0404';
+_dm[?'MazIs_227'+STR_Layer+'05'+STR_Name] = 'BG0602';
+_dm[?'MazIs_227'+STR_Layer+'06'+STR_Name] = 'BG0709';
 //  ----------------------------  228  ----------------------------
-_dm[?'MazIs_228'+dk_BGR] = build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0028D8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_228'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'MazIs_228'+STR_Layer+'02'+STR_Name] = 'FG0201, PERMUT_04';
+_dm[?'MazIs_228'+STR_Layer+'03'+STR_Name] = 'BG0202, PERMUT_05';
+_dm[?'MazIs_228'+STR_Layer+'04'+STR_Name] = 'BG0303';
+_dm[?'MazIs_228'+STR_Layer+'05'+STR_Name] = 'BG0403, PERMUT_02';
+_dm[?'MazIs_228'+STR_Layer+'06'+STR_Name] = 'BG0502';
+_dm[?'MazIs_228'+STR_Layer+'07'+STR_Name] = 'BG0602';
+_dm[?'MazIs_228'+STR_Layer+'08'+STR_Name] = 'BG0703, PERMUT_04';
 //  ----------------------------  229  ----------------------------
-_dm[?'MazIs_229'+dk_BGR] = build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0028D8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_229'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'MazIs_229'+STR_Layer+'02'+STR_Name] = 'FG0201, PERMUT_04';
+_dm[?'MazIs_229'+STR_Layer+'03'+STR_Name] = 'BG0202, PERMUT_05';
+_dm[?'MazIs_229'+STR_Layer+'04'+STR_Name] = 'BG0303';
+_dm[?'MazIs_229'+STR_Layer+'05'+STR_Name] = 'BG0403, PERMUT_02';
+_dm[?'MazIs_229'+STR_Layer+'06'+STR_Name] = 'BG0502';
+_dm[?'MazIs_229'+STR_Layer+'07'+STR_Name] = 'BG0603';
+_dm[?'MazIs_229'+STR_Layer+'08'+STR_Name] = 'BG0703, PERMUT_04';
 //  ----------------------------  230  ----------------------------
 //  ----------------------------  231  ----------------------------
 //  ----------------------------  232  ----------------------------
-_dm[?'MazIs_232'+dk_BGR] = build_pal('888000','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_232'+STR_Layer+'01'+STR_Name] = 'BG0301';
+_dm[?'MazIs_232'+STR_Layer+'02'+STR_Name] = 'BG0404';
+_dm[?'MazIs_232'+STR_Layer+'03'+STR_Name] = 'BG0501, BREAK__02, HIDDEN_01';
 //  ----------------------------  233  ----------------------------
-_dm[?'MazIs_233'+dk_BGR] = build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','A7A9A7','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_233'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_233'+STR_Layer+'02'+STR_Name] = 'BG0303, SPIKE__01';
+_dm[?'MazIs_233'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'MazIs_233'+STR_Layer+'04'+STR_Name] = 'BG0702';
 //  ----------------------------  234  ----------------------------
-_dm[?'MazIs_234'+dk_BGR] = build_pal('5C3C18','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','004400','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('8C1824','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5800E4','EC3820','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_234'+STR_Layer+'01'+STR_Name] = 'FG0803';
+_dm[?'MazIs_234'+STR_Layer+'02'+STR_Name] = 'FG0702';
+_dm[?'MazIs_234'+STR_Layer+'03'+STR_Name] = 'FG0601';
+_dm[?'MazIs_234'+STR_Layer+'04'+STR_Name] = 'FG0502';
+_dm[?'MazIs_234'+STR_Layer+'05'+STR_Name] = 'FG0404';
+_dm[?'MazIs_234'+STR_Layer+'06'+STR_Name] = 'FG0301';
+_dm[?'MazIs_234'+STR_Layer+'07'+STR_Name] = 'BG0202';
+_dm[?'MazIs_234'+STR_Layer+'08'+STR_Name] = 'BG0304, PERMUT_03';
+_dm[?'MazIs_234'+STR_Layer+'09'+STR_Name] = 'BG0404, PERMUT_01';
+_dm[?'MazIs_234'+STR_Layer+'0A'+STR_Name] = 'BG0503, PERMUT_03';
+_dm[?'MazIs_234'+STR_Layer+'0B'+STR_Name] = 'BG0603';
+_dm[?'MazIs_234'+STR_Layer+'0C'+STR_Name] = 'BG0704';
 //  ----------------------------  235  ----------------------------
-_dm[?'MazIs_235'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_235'+STR_Layer+'01'+STR_Name] = 'BG0302';
+_dm[?'MazIs_235'+STR_Layer+'02'+STR_Name] = 'BG0402, BREAK__04, HIDDEN_01';
+_dm[?'MazIs_235'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'MazIs_235'+STR_Layer+'04'+STR_Name] = 'BG0603';
 //  ----------------------------  236  ----------------------------
 //  ----------------------------  237  ----------------------------
-_dm[?'MazIs_237'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_237'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_237'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'MazIs_237'+STR_Layer+'03'+STR_Name] = 'BG0502';
 //  ----------------------------  238  ----------------------------
-_dm[?'MazIs_238'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_238'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_238'+STR_Layer+'02'+STR_Name] = 'BG0703';
 //  ----------------------------  239  ----------------------------
-_dm[?'MazIs_239'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_239'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_239'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'MazIs_239'+STR_Layer+'03'+STR_Name] = 'BG0502';
 //  ----------------------------  240  ----------------------------
-_dm[?'MazIs_240'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_240'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_240'+STR_Layer+'02'+STR_Name] = 'BG0302';
 //  ----------------------------  241  ----------------------------
-_dm[?'MazIs_241'+dk_BGR] = build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_241'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'MazIs_241'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'MazIs_241'+STR_Layer+'03'+STR_Name] = 'BG0502';
 //  ----------------------------  242  ----------------------------
-_dm[?'MazIs_242'+dk_BGR] = build_pal('BCE89E','747474','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','007088','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B474FC','000000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_242'+STR_Layer+'01'+STR_Name] = 'BG0104';
+_dm[?'MazIs_242'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'MazIs_242'+STR_Layer+'03'+STR_Name] = 'BG0304';
+_dm[?'MazIs_242'+STR_Layer+'04'+STR_Name] = 'BG0502';
 //  ----------------------------  243  ----------------------------
-_dm[?'MazIs_243'+dk_BGR] = build_pal('5C3C18','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','004400','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('8C1824','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0028D8','EC3820','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_243'+STR_Layer+'01'+STR_Name] = 'FG0803';
+_dm[?'MazIs_243'+STR_Layer+'02'+STR_Name] = 'FG0702';
+_dm[?'MazIs_243'+STR_Layer+'03'+STR_Name] = 'FG0601';
+_dm[?'MazIs_243'+STR_Layer+'04'+STR_Name] = 'FG0502';
+_dm[?'MazIs_243'+STR_Layer+'05'+STR_Name] = 'FG0404';
+_dm[?'MazIs_243'+STR_Layer+'06'+STR_Name] = 'FG0301';
+_dm[?'MazIs_243'+STR_Layer+'07'+STR_Name] = 'BG0202';
+_dm[?'MazIs_243'+STR_Layer+'08'+STR_Name] = 'BG0304, PERMUT_03';
+_dm[?'MazIs_243'+STR_Layer+'09'+STR_Name] = 'BG0404, PERMUT_03';
+_dm[?'MazIs_243'+STR_Layer+'0A'+STR_Name] = 'BG0503, PERMUT_03';
+_dm[?'MazIs_243'+STR_Layer+'0B'+STR_Name] = 'BG0603';
+_dm[?'MazIs_243'+STR_Layer+'0C'+STR_Name] = 'BG0704';
 //  ----------------------------  244  ----------------------------
 //  ----------------------------  245  ----------------------------
 //  ----------------------------  246  ----------------------------
@@ -1396,9 +2234,23 @@ _dm[?'MazIs_243'+dk_BGR] = build_pal('5C3C18','000000','000000','000000', C_YLW0
 //  ----------------------------  252  ----------------------------
 //  ----------------------------  253  ----------------------------
 //  ----------------------------  254  ----------------------------
-_dm[?'MazIs_254'+dk_BGR] = build_pal('2A7B00','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00087C','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_254'+STR_Layer+'01'+STR_Name] = 'FG0602, PERMUT_06';
+_dm[?'MazIs_254'+STR_Layer+'02'+STR_Name] = 'FG0503';
+_dm[?'MazIs_254'+STR_Layer+'03'+STR_Name] = 'BG0203';
+_dm[?'MazIs_254'+STR_Layer+'04'+STR_Name] = 'BG0301';
+_dm[?'MazIs_254'+STR_Layer+'05'+STR_Name] = 'BG0604';
+_dm[?'MazIs_254'+STR_Layer+'06'+STR_Name] = 'BG0702';
+_dm[?'MazIs_254'+STR_Layer+'07'+STR_Name] = 'BG0803';
 //  ----------------------------  255  ----------------------------
-_dm[?'MazIs_255'+dk_BGR] = build_pal('A0FCE0','747474','003E00','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','FC88CC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','00087C','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0028D8','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'MazIs_255'+STR_Layer+'01'+STR_Name] = 'FG0402';
+_dm[?'MazIs_255'+STR_Layer+'02'+STR_Name] = 'FG0302';
+_dm[?'MazIs_255'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'MazIs_255'+STR_Layer+'04'+STR_Name] = 'BG0304';
+_dm[?'MazIs_255'+STR_Layer+'05'+STR_Name] = 'BG0401';
+_dm[?'MazIs_255'+STR_Layer+'06'+STR_Name] = 'BG0503';
+_dm[?'MazIs_255'+STR_Layer+'07'+STR_Name] = 'BG0603';
+_dm[?'MazIs_255'+STR_Layer+'08'+STR_Name] = 'BG0701';
+_dm[?'MazIs_255'+STR_Layer+'09'+STR_Name] = 'BG0804';
 
 
 
@@ -1409,30 +2261,54 @@ _dm[?'MazIs_255'+dk_BGR] = build_pal('A0FCE0','747474','003E00','000000', C_YLW0
 
 // ***********************  _PalcA_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'PalcA_000'+dk_BGR] = build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_000'+STR_Layer+'01'+STR_Name] = 'FG0603';
+_dm[?'PalcA_000'+STR_Layer+'02'+STR_Name] = 'FG0503';
+_dm[?'PalcA_000'+STR_Layer+'03'+STR_Name] = 'BG0203';
+_dm[?'PalcA_000'+STR_Layer+'04'+STR_Name] = 'BG0301, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcA_000'+STR_Layer+'05'+STR_Name] = 'BG0402';
+_dm[?'PalcA_000'+STR_Layer+'06'+STR_Name] = 'BG0703';
 //  ----------------------------  001  ----------------------------
-_dm[?'PalcA_001'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_001'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcA_001'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  002  ----------------------------
-_dm[?'PalcA_002'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_002'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcA_002'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  003  ----------------------------
 //  ----------------------------  004  ----------------------------
 //  ----------------------------  005  ----------------------------
-_dm[?'PalcA_005'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_005'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcA_005'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__04, HIDDEN_01';
+_dm[?'PalcA_005'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcA_005'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  006  ----------------------------
-_dm[?'PalcA_006'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_006'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcA_006'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'PalcA_007'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_007'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcA_007'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  008  ----------------------------
 //  ----------------------------  009  ----------------------------
-_dm[?'PalcA_009'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_009'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'PalcA_009'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcA_009'+STR_Layer+'03'+STR_Name] = 'BG0401, BREAK__02, HIDDEN_01';
+_dm[?'PalcA_009'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  010  ----------------------------
-_dm[?'PalcA_010'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_010'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE01';
+_dm[?'PalcA_010'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcA_010'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  011  ----------------------------
-_dm[?'PalcA_011'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_011'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcA_011'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcA_011'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  012  ----------------------------
-_dm[?'PalcA_012'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_012'+STR_Layer+'01'+STR_Name] = 'FG0202, CURTAIN01';
+_dm[?'PalcA_012'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcA_012'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'PalcA_012'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  013  ----------------------------
-_dm[?'PalcA_013'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_013'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcA_013'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcA_013'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  014  ----------------------------
 //  ----------------------------  015  ----------------------------
 //  ----------------------------  016  ----------------------------
@@ -1461,9 +2337,13 @@ _dm[?'PalcA_013'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0
 //  ----------------------------  039  ----------------------------
 //  ----------------------------  040  ----------------------------
 //  ----------------------------  041  ----------------------------
-_dm[?'PalcA_041'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_041'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcA_041'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'PalcA_041'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  042  ----------------------------
-_dm[?'PalcA_042'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_042'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcA_042'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcA_042'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  043  ----------------------------
 //  ----------------------------  044  ----------------------------
 //  ----------------------------  045  ----------------------------
@@ -1644,7 +2524,10 @@ _dm[?'PalcA_042'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0
 //  ----------------------------  220  ----------------------------
 //  ----------------------------  221  ----------------------------
 //  ----------------------------  222  ----------------------------
-_dm[?'PalcA_222'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_222'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcA_222'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcA_222'+STR_Layer+'03'+STR_Name] = 'BG0501, PILLAR01';
+_dm[?'PalcA_222'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  223  ----------------------------
 //  ----------------------------  224  ----------------------------
 //  ----------------------------  225  ----------------------------
@@ -1652,7 +2535,9 @@ _dm[?'PalcA_222'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0
 //  ----------------------------  227  ----------------------------
 //  ----------------------------  228  ----------------------------
 //  ----------------------------  229  ----------------------------
-_dm[?'PalcA_229'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','000000','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_229'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcA_229'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcA_229'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  230  ----------------------------
 //  ----------------------------  231  ----------------------------
 //  ----------------------------  232  ----------------------------
@@ -1677,11 +2562,25 @@ _dm[?'PalcA_229'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0
 //  ----------------------------  251  ----------------------------
 //  ----------------------------  252  ----------------------------
 //  ----------------------------  253  ----------------------------
-_dm[?'PalcA_253'+dk_BGR] = build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_253'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcA_253'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'PalcA_253'+STR_Layer+'03'+STR_Name] = 'BG0403';
 //  ----------------------------  254  ----------------------------
-_dm[?'PalcA_254'+dk_BGR] = build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_254'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcA_254'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'PalcA_254'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'PalcA_254'+STR_Layer+'04'+STR_Name] = 'BG0501, STRUCTURE_FGWALL01_01';
+_dm[?'PalcA_254'+STR_Layer+'05'+STR_Name] = 'BG0603';
+_dm[?'PalcA_254'+STR_Layer+'06'+STR_Name] = 'BG0701, PILLAR01';
+_dm[?'PalcA_254'+STR_Layer+'07'+STR_Name] = 'BG0803';
 //  ----------------------------  255  ----------------------------
-_dm[?'PalcA_255'+dk_BGR] = build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcA_255'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcA_255'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'PalcA_255'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'PalcA_255'+STR_Layer+'04'+STR_Name] = 'BG0501, STRUCTURE_FGWALL01_01';
+_dm[?'PalcA_255'+STR_Layer+'05'+STR_Name] = 'BG0603';
+_dm[?'PalcA_255'+STR_Layer+'06'+STR_Name] = 'BG0701, PILLAR01';
+_dm[?'PalcA_255'+STR_Layer+'07'+STR_Name] = 'BG0803';
 
 
 
@@ -1692,56 +2591,111 @@ _dm[?'PalcA_255'+dk_BGR] = build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0
 
 // ***********************  _PalcB_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'PalcB_000'+dk_BGR] = build_pal('F0FC9C','888000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','004400','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','000000','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_000'+STR_Layer+'01'+STR_Name] = 'FG0402';
+_dm[?'PalcB_000'+STR_Layer+'02'+STR_Name] = 'FG0303, LIQUID_02 DIR_01 SPEED_10';
+_dm[?'PalcB_000'+STR_Layer+'03'+STR_Name] = 'FG0203, PERMUT_03';
+_dm[?'PalcB_000'+STR_Layer+'04'+STR_Name] = 'FG0104, PERMUT_02';
+_dm[?'PalcB_000'+STR_Layer+'05'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcB_000'+STR_Layer+'06'+STR_Name] = 'BG0302';
+_dm[?'PalcB_000'+STR_Layer+'07'+STR_Name] = 'BG0401, BREAK__01, HIDDEN_01';
+_dm[?'PalcB_000'+STR_Layer+'08'+STR_Name] = 'BG0503, PERMUT_03';
+_dm[?'PalcB_000'+STR_Layer+'09'+STR_Name] = 'BG0603, STRUCTURE_BGWALL01_02';
+_dm[?'PalcB_000'+STR_Layer+'0A'+STR_Name] = 'BG0704, PERMUT_02';
 //  ----------------------------  001  ----------------------------
-_dm[?'PalcB_001'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_001'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcB_001'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  002  ----------------------------
-_dm[?'PalcB_002'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_002'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcB_002'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  003  ----------------------------
-_dm[?'PalcB_003'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','3CBCF0','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_003'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_04';
+_dm[?'PalcB_003'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcB_003'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcB_003'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  004  ----------------------------
-_dm[?'PalcB_004'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_004'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcB_004'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcB_004'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  005  ----------------------------
-_dm[?'PalcB_005'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_005'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcB_005'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  006  ----------------------------
-_dm[?'PalcB_006'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_006'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcB_006'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'PalcB_006'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'PalcB_007'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_007'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcB_007'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  008  ----------------------------
-_dm[?'PalcB_008'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_008'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcB_008'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcB_008'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  009  ----------------------------
-_dm[?'PalcB_009'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_009'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcB_009'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  010  ----------------------------
-_dm[?'PalcB_010'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','3CBCF0','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_010'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcB_010'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcB_010'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  011  ----------------------------
-_dm[?'PalcB_011'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_011'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcB_011'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  012  ----------------------------
-_dm[?'PalcB_012'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','3CBCF0','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_012'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcB_012'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  013  ----------------------------
-_dm[?'PalcB_013'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','3CBCF0','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_013'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcB_013'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcB_013'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  014  ----------------------------
-_dm[?'PalcB_014'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','3CBCF0','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_014'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcB_014'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  015  ----------------------------
-_dm[?'PalcB_015'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','A80000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_015'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_02';
+_dm[?'PalcB_015'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcB_015'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcB_015'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  016  ----------------------------
-_dm[?'PalcB_016'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_016'+STR_Layer+'01'+STR_Name] = 'FG0302, CURTAIN01';
+_dm[?'PalcB_016'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcB_016'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'PalcB_016'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  017  ----------------------------
-_dm[?'PalcB_017'+dk_BGR] = build_pal('F0FC9C','888000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','004400','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','000000','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_017'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02 DIR_01 SPEED_10';
+_dm[?'PalcB_017'+STR_Layer+'02'+STR_Name] = 'FG0203, PERMUT_03';
+_dm[?'PalcB_017'+STR_Layer+'03'+STR_Name] = 'FG0104, PERMUT_02';
+_dm[?'PalcB_017'+STR_Layer+'04'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcB_017'+STR_Layer+'05'+STR_Name] = 'BG0302';
+_dm[?'PalcB_017'+STR_Layer+'06'+STR_Name] = 'BG0504, PERMUT_02';
+_dm[?'PalcB_017'+STR_Layer+'07'+STR_Name] = 'BG0603, PERMUT_03';
+_dm[?'PalcB_017'+STR_Layer+'08'+STR_Name] = 'BG0704, PERMUT_02';
 //  ----------------------------  018  ----------------------------
-_dm[?'PalcB_018'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','004400','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','EC7000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_018'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 SPEED_04 DIR_01';
+_dm[?'PalcB_018'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcB_018'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  019  ----------------------------
-_dm[?'PalcB_019'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('70D43A','2A7B00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_019'+STR_Layer+'01'+STR_Name] = 'FG0403, LIQUID_02 SPEED_08 DIR_02';
+_dm[?'PalcB_019'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcB_019'+STR_Layer+'03'+STR_Name] = 'BG0302, CURTAIN01';
+_dm[?'PalcB_019'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  020  ----------------------------
 //  ----------------------------  021  ----------------------------
 //  ----------------------------  022  ----------------------------
-_dm[?'PalcB_022'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','A80000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_022'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_02';
+_dm[?'PalcB_022'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcB_022'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcB_022'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  023  ----------------------------
 //  ----------------------------  024  ----------------------------
 //  ----------------------------  025  ----------------------------
 //  ----------------------------  026  ----------------------------
-_dm[?'PalcB_026'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC88CC','F00080','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','003E00','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_026'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02 SPEED_08 DIR_02';
+_dm[?'PalcB_026'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcB_026'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  027  ----------------------------
-_dm[?'PalcB_027'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC88CC','F00080','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','003E00','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcB_027'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02 SPEED_08 DIR_02';
+_dm[?'PalcB_027'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcB_027'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  028  ----------------------------
 //  ----------------------------  029  ----------------------------
 //  ----------------------------  030  ----------------------------
@@ -1980,43 +2934,81 @@ _dm[?'PalcB_027'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0
 
 // ***********************  _PalcC_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'PalcC_000'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_000'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'PalcC_000'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcC_000'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  001  ----------------------------
-_dm[?'PalcC_001'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_001'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcC_001'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcC_001'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  002  ----------------------------
-_dm[?'PalcC_002'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_002'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcC_002'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcC_002'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcC_002'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  003  ----------------------------
-_dm[?'PalcC_003'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_003'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcC_003'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  004  ----------------------------
-_dm[?'PalcC_004'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_004'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcC_004'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcC_004'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  005  ----------------------------
-_dm[?'PalcC_005'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_005'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'PalcC_005'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcC_005'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
+_dm[?'PalcC_005'+STR_Layer+'04'+STR_Name] = 'BG0804';
 //  ----------------------------  006  ----------------------------
-_dm[?'PalcC_006'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_006'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcC_006'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcC_006'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'PalcC_007'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_007'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01, STATUE02';
+_dm[?'PalcC_007'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcC_007'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  008  ----------------------------
-_dm[?'PalcC_008'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_008'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcC_008'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  009  ----------------------------
-_dm[?'PalcC_009'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_009'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'PalcC_009'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcC_009'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcC_009'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  010  ----------------------------
 //  ----------------------------  011  ----------------------------
-_dm[?'PalcC_011'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_011'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcC_011'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcC_011'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  012  ----------------------------
-_dm[?'PalcC_012'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','000000','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_012'+STR_Layer+'01'+STR_Name] = 'FG0302, CURTAIN01';
+_dm[?'PalcC_012'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01, STATUE02';
+_dm[?'PalcC_012'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'PalcC_012'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  013  ----------------------------
 //  ----------------------------  014  ----------------------------
 //  ----------------------------  015  ----------------------------
 //  ----------------------------  016  ----------------------------
-_dm[?'PalcC_016'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_016'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcC_016'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  017  ----------------------------
-_dm[?'PalcC_017'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_017'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'PalcC_017'+STR_Layer+'02'+STR_Name] = 'FG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcC_017'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcC_017'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'PalcC_017'+STR_Layer+'05'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
+_dm[?'PalcC_017'+STR_Layer+'06'+STR_Name] = 'BG0804';
 //  ----------------------------  018  ----------------------------
-_dm[?'PalcC_018'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_018'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'PalcC_018'+STR_Layer+'02'+STR_Name] = 'FG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcC_018'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcC_018'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
+_dm[?'PalcC_018'+STR_Layer+'05'+STR_Name] = 'BG0804';
 //  ----------------------------  019  ----------------------------
-_dm[?'PalcC_019'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_019'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcC_019'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  020  ----------------------------
-_dm[?'PalcC_020'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcC_020'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcC_020'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  021  ----------------------------
 //  ----------------------------  022  ----------------------------
 //  ----------------------------  023  ----------------------------
@@ -2262,39 +3254,75 @@ _dm[?'PalcC_020'+dk_BGR] = build_pal('6074FC','0000A4','000000','000000', C_YLW0
 
 // ***********************  _PalcD_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'PalcD_000'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_000'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'PalcD_000'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcD_000'+STR_Layer+'03'+STR_Name] = 'BG0302';
 //  ----------------------------  001  ----------------------------
-_dm[?'PalcD_001'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_001'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcD_001'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcD_001'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  002  ----------------------------
-_dm[?'PalcD_002'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_002'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcD_002'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcD_002'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  003  ----------------------------
-_dm[?'PalcD_003'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_003'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcD_003'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcD_003'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  004  ----------------------------
-_dm[?'PalcD_004'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_004'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcD_004'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  005  ----------------------------
-_dm[?'PalcD_005'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_005'+STR_Layer+'01'+STR_Name] = 'FG0301, STRUCTURE_FGWALL01_01';
+_dm[?'PalcD_005'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_08';
+_dm[?'PalcD_005'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcD_005'+STR_Layer+'04'+STR_Name] = 'BG0301, BREAK__04, HIDDEN_01';
+_dm[?'PalcD_005'+STR_Layer+'05'+STR_Name] = 'BG0402';
+_dm[?'PalcD_005'+STR_Layer+'06'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  006  ----------------------------
-_dm[?'PalcD_006'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_006'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_08';
+_dm[?'PalcD_006'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE01';
+_dm[?'PalcD_006'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcD_006'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'PalcD_007'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_007'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcD_007'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  008  ----------------------------
 //  ----------------------------  009  ----------------------------
-_dm[?'PalcD_009'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_009'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcD_009'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcD_009'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  010  ----------------------------
-_dm[?'PalcD_010'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_010'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcD_010'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  011  ----------------------------
 //  ----------------------------  012  ----------------------------
-_dm[?'PalcD_012'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_012'+STR_Layer+'01'+STR_Name] = 'FG0301, STRUCTURE_FGWALL01_01';
+_dm[?'PalcD_012'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_08';
+_dm[?'PalcD_012'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  013  ----------------------------
-_dm[?'PalcD_013'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_013'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcD_013'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcD_013'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  014  ----------------------------
-_dm[?'PalcD_014'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_014'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcD_014'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'PalcD_014'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcD_014'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  015  ----------------------------
-_dm[?'PalcD_015'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_015'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_08';
+_dm[?'PalcD_015'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcD_015'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcD_015'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'PalcD_015'+STR_Layer+'05'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  016  ----------------------------
-_dm[?'PalcD_016'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_016'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcD_016'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcD_016'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  017  ----------------------------
-_dm[?'PalcD_017'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_017'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcD_017'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcD_017'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  018  ----------------------------
 //  ----------------------------  019  ----------------------------
 //  ----------------------------  020  ----------------------------
@@ -2303,9 +3331,19 @@ _dm[?'PalcD_017'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0
 //  ----------------------------  023  ----------------------------
 //  ----------------------------  024  ----------------------------
 //  ----------------------------  025  ----------------------------
-_dm[?'PalcD_025'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_025'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_04 DIR_01';
+_dm[?'PalcD_025'+STR_Layer+'02'+STR_Name] = 'FG0102, CURTAIN01';
+_dm[?'PalcD_025'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcD_025'+STR_Layer+'04'+STR_Name] = 'BG0401, BREAK__04, HIDDEN_01';
+_dm[?'PalcD_025'+STR_Layer+'05'+STR_Name] = 'BG0502';
+_dm[?'PalcD_025'+STR_Layer+'06'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  026  ----------------------------
-_dm[?'PalcD_026'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcD_026'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_04 DIR_01';
+_dm[?'PalcD_026'+STR_Layer+'02'+STR_Name] = 'FG0102, CURTAIN01';
+_dm[?'PalcD_026'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcD_026'+STR_Layer+'04'+STR_Name] = 'BG0301, BREAK__04, HIDDEN_01';
+_dm[?'PalcD_026'+STR_Layer+'05'+STR_Name] = 'BG0502';
+_dm[?'PalcD_026'+STR_Layer+'06'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  027  ----------------------------
 //  ----------------------------  028  ----------------------------
 //  ----------------------------  029  ----------------------------
@@ -2546,58 +3584,106 @@ _dm[?'PalcD_026'+dk_BGR] = build_pal('FC88CC','9C0044','000000','000000', C_YLW0
 // ***********************  _PalcE_  ***********************
 //  ----------------------------  000  ----------------------------
 //  ----------------------------  001  ----------------------------
-_dm[?'PalcE_001'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_001'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcE_001'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcE_001'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  002  ----------------------------
 //  ----------------------------  003  ----------------------------
-_dm[?'PalcE_003'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_003'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_04';
+_dm[?'PalcE_003'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcE_003'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcE_003'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  004  ----------------------------
-_dm[?'PalcE_004'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_004'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcE_004'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcE_004'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  005  ----------------------------
-_dm[?'PalcE_005'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_005'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcE_005'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  006  ----------------------------
-_dm[?'PalcE_006'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_006'+STR_Layer+'01'+STR_Name] = 'FG0202, CURTAIN01';
+_dm[?'PalcE_006'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcE_006'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'PalcE_006'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'PalcE_007'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_007'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcE_007'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  008  ----------------------------
-_dm[?'PalcE_008'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_008'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcE_008'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcE_008'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  009  ----------------------------
-_dm[?'PalcE_009'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_009'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01, STATUE02';
+_dm[?'PalcE_009'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  010  ----------------------------
-_dm[?'PalcE_010'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_010'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcE_010'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcE_010'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  011  ----------------------------
-_dm[?'PalcE_011'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_011'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcE_011'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  012  ----------------------------
-_dm[?'PalcE_012'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_012'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcE_012'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  013  ----------------------------
-_dm[?'PalcE_013'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_013'+STR_Layer+'01'+STR_Name] = 'FG0301, STRUCTURE_FGWALL01_01';
+_dm[?'PalcE_013'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_08';
+_dm[?'PalcE_013'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcE_013'+STR_Layer+'04'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcE_013'+STR_Layer+'05'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  014  ----------------------------
-_dm[?'PalcE_014'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_014'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcE_014'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  015  ----------------------------
-_dm[?'PalcE_015'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_015'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcE_015'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcE_015'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  016  ----------------------------
-_dm[?'PalcE_016'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_016'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE01';
+_dm[?'PalcE_016'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcE_016'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  017  ----------------------------
 //  ----------------------------  018  ----------------------------
-_dm[?'PalcE_018'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_018'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcE_018'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  019  ----------------------------
-_dm[?'PalcE_019'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_019'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcE_019'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'PalcE_019'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  020  ----------------------------
 //  ----------------------------  021  ----------------------------
 //  ----------------------------  022  ----------------------------
-_dm[?'PalcE_022'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_022'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 SPEED_01 DIR_02';
+_dm[?'PalcE_022'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcE_022'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  023  ----------------------------
-_dm[?'PalcE_023'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_023'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcE_023'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  024  ----------------------------
 //  ----------------------------  025  ----------------------------
-_dm[?'PalcE_025'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_025'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcE_025'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  026  ----------------------------
-_dm[?'PalcE_026'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','BCBCBC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_026'+STR_Layer+'01'+STR_Name] = 'FG0202, CURTAIN01';
+_dm[?'PalcE_026'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcE_026'+STR_Layer+'03'+STR_Name] = 'BG0302';
+_dm[?'PalcE_026'+STR_Layer+'04'+STR_Name] = 'BG0403, SPIKE__01';
+_dm[?'PalcE_026'+STR_Layer+'05'+STR_Name] = 'BG0503';
+_dm[?'PalcE_026'+STR_Layer+'06'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  027  ----------------------------
-_dm[?'PalcE_027'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FC945C','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_027'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcE_027'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcE_027'+STR_Layer+'03'+STR_Name] = 'BG0402, SPIKE__01';
+_dm[?'PalcE_027'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'PalcE_027'+STR_Layer+'05'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcE_027'+STR_Layer+'06'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  028  ----------------------------
-_dm[?'PalcE_028'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_028'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcE_028'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcE_028'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  029  ----------------------------
-_dm[?'PalcE_029'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_029'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcE_029'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  030  ----------------------------
 //  ----------------------------  031  ----------------------------
 //  ----------------------------  032  ----------------------------
@@ -2609,7 +3695,12 @@ _dm[?'PalcE_029'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0
 //  ----------------------------  038  ----------------------------
 //  ----------------------------  039  ----------------------------
 //  ----------------------------  040  ----------------------------
-_dm[?'PalcE_040'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC7000','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcE_040'+STR_Layer+'01'+STR_Name] = 'FG0402';
+_dm[?'PalcE_040'+STR_Layer+'02'+STR_Name] = 'FG0303, LIQUID_02 DIR_01 SPEED_10';
+_dm[?'PalcE_040'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcE_040'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'PalcE_040'+STR_Layer+'05'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcE_040'+STR_Layer+'06'+STR_Name] = 'BG0801';
 //  ----------------------------  041  ----------------------------
 //  ----------------------------  042  ----------------------------
 //  ----------------------------  043  ----------------------------
@@ -2835,71 +3926,138 @@ _dm[?'PalcE_040'+dk_BGR] = build_pal('48DC4C','005000','000000','000000', C_YLW0
 
 // ***********************  _PalcF_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'PalcF_000'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_000'+STR_Layer+'01'+STR_Name] = 'FG0603';
+_dm[?'PalcF_000'+STR_Layer+'02'+STR_Name] = 'FG0503';
+_dm[?'PalcF_000'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_000'+STR_Layer+'04'+STR_Name] = 'BG0303';
+_dm[?'PalcF_000'+STR_Layer+'05'+STR_Name] = 'BG0402';
+_dm[?'PalcF_000'+STR_Layer+'06'+STR_Name] = 'BG0601, PILLAR01, STATUE01';
+_dm[?'PalcF_000'+STR_Layer+'07'+STR_Name] = 'BG0703';
 //  ----------------------------  001  ----------------------------
-_dm[?'PalcF_001'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_001'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_001'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_001'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  002  ----------------------------
-_dm[?'PalcF_002'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_002'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_002'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_002'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  003  ----------------------------
-_dm[?'PalcF_003'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_003'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcF_003'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_003'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  004  ----------------------------
-_dm[?'PalcF_004'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_004'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE01';
+_dm[?'PalcF_004'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  005  ----------------------------
-_dm[?'PalcF_005'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_005'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcF_005'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  006  ----------------------------
-_dm[?'PalcF_006'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_006'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcF_006'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_006'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'PalcF_007'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_007'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcF_007'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_007'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcF_007'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  008  ----------------------------
-_dm[?'PalcF_008'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_008'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcF_008'+STR_Layer+'02'+STR_Name] = 'BG0402';
+_dm[?'PalcF_008'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  009  ----------------------------
-_dm[?'PalcF_009'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_009'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcF_009'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcF_009'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  010  ----------------------------
 //  ----------------------------  011  ----------------------------
-_dm[?'PalcF_011'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_011'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_011'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcF_011'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  012  ----------------------------
-_dm[?'PalcF_012'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_012'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'PalcF_012'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_012'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_012'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  013  ----------------------------
-_dm[?'PalcF_013'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_013'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcF_013'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  014  ----------------------------
 //  ----------------------------  015  ----------------------------
-_dm[?'PalcF_015'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_015'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcF_015'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_015'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  016  ----------------------------
-_dm[?'PalcF_016'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_016'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_016'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__04, HIDDEN_01';
+_dm[?'PalcF_016'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  017  ----------------------------
-_dm[?'PalcF_017'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_017'+STR_Layer+'01'+STR_Name] = 'FG0301, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_017'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_08';
+_dm[?'PalcF_017'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  018  ----------------------------
-_dm[?'PalcF_018'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_018'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_018'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  019  ----------------------------
-_dm[?'PalcF_019'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_019'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_01 DIR_01 SPEED_02';
+_dm[?'PalcF_019'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcF_019'+STR_Layer+'03'+STR_Name] = 'BG0302, CURTAIN01';
+_dm[?'PalcF_019'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  020  ----------------------------
-_dm[?'PalcF_020'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_020'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcF_020'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcF_020'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  021  ----------------------------
-_dm[?'PalcF_021'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_021'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE01';
+_dm[?'PalcF_021'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcF_021'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  022  ----------------------------
-_dm[?'PalcF_022'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_022'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_02';
+_dm[?'PalcF_022'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcF_022'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_022'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  023  ----------------------------
 //  ----------------------------  024  ----------------------------
-_dm[?'PalcF_024'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_024'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcF_024'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  025  ----------------------------
-_dm[?'PalcF_025'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_025'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcF_025'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  026  ----------------------------
-_dm[?'PalcF_026'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_026'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_026'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_026'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  027  ----------------------------
 //  ----------------------------  028  ----------------------------
-_dm[?'PalcF_028'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_028'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'PalcF_028'+STR_Layer+'02'+STR_Name] = 'FG0203';
+_dm[?'PalcF_028'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcF_028'+STR_Layer+'04'+STR_Name] = 'BG0303';
+_dm[?'PalcF_028'+STR_Layer+'05'+STR_Name] = 'BG0401, BREAK__01, HIDDEN_01';
 //  ----------------------------  029  ----------------------------
-_dm[?'PalcF_029'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_029'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_029'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_029'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcF_029'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  030  ----------------------------
 //  ----------------------------  031  ----------------------------
 //  ----------------------------  032  ----------------------------
-_dm[?'PalcF_032'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_032'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcF_032'+STR_Layer+'02'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  033  ----------------------------
-_dm[?'PalcF_033'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_033'+STR_Layer+'01'+STR_Name] = 'FG0401, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_033'+STR_Layer+'02'+STR_Name] = 'FG0303, LIQUID_01 DIR_01 SPEED_02';
+_dm[?'PalcF_033'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcF_033'+STR_Layer+'04'+STR_Name] = 'BG0302, CURTAIN01';
+_dm[?'PalcF_033'+STR_Layer+'05'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  034  ----------------------------
-_dm[?'PalcF_034'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_034'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_034'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_034'+STR_Layer+'03'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  035  ----------------------------
-_dm[?'PalcF_035'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcF_035'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'PalcF_035'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcF_035'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcF_035'+STR_Layer+'04'+STR_Name] = 'BG0704, STRUCTURE_BGWALL01_01';
 //  ----------------------------  036  ----------------------------
 //  ----------------------------  037  ----------------------------
 //  ----------------------------  038  ----------------------------
@@ -3130,138 +4288,282 @@ _dm[?'PalcF_035'+dk_BGR] = build_pal('B474FC','1000A8','000000','000000', C_YLW0
 
 // ***********************  _PalcG_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'PalcG_000'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00087C','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_000'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'PalcG_000'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_000'+STR_Layer+'03'+STR_Name] = 'BG0302, CURTAIN01';
+_dm[?'PalcG_000'+STR_Layer+'04'+STR_Name] = 'BG0403';
 //  ----------------------------  001  ----------------------------
-_dm[?'PalcG_001'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_001'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_001'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_001'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  002  ----------------------------
-_dm[?'PalcG_002'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_002'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_002'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  003  ----------------------------
-_dm[?'PalcG_003'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_003'+STR_Layer+'01'+STR_Name] = 'FG0301, BRIDGE01';
+_dm[?'PalcG_003'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_04';
+_dm[?'PalcG_003'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_003'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  004  ----------------------------
-_dm[?'PalcG_004'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_004'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_004'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_004'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  005  ----------------------------
-_dm[?'PalcG_005'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_005'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcG_005'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  006  ----------------------------
-_dm[?'PalcG_006'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_006'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'PalcG_006'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_006'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_006'+STR_Layer+'04'+STR_Name] = 'BG0401, BREAK__04, HIDDEN_01';
+_dm[?'PalcG_006'+STR_Layer+'05'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcG_006'+STR_Layer+'06'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'PalcG_007'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_007'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcG_007'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_007'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  008  ----------------------------
-_dm[?'PalcG_008'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_008'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_008'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_008'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  009  ----------------------------
-_dm[?'PalcG_009'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_009'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_009'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_009'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  010  ----------------------------
-_dm[?'PalcG_010'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00087C','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_010'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'PalcG_010'+STR_Layer+'02'+STR_Name] = 'BG0301, STRUCTURE_FGWALL01_01, PILLAR_01, STATUE_01';
+_dm[?'PalcG_010'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'PalcG_010'+STR_Layer+'04'+STR_Name] = 'BG0502, CURTAIN01';
 //  ----------------------------  011  ----------------------------
-_dm[?'PalcG_011'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_011'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE01';
+_dm[?'PalcG_011'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  012  ----------------------------
-_dm[?'PalcG_012'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_012'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_012'+STR_Layer+'02'+STR_Name] = 'BG0302, CURTAIN01';
+_dm[?'PalcG_012'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  013  ----------------------------
-_dm[?'PalcG_013'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_013'+STR_Layer+'01'+STR_Name] = 'FG0301, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_013'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_08';
+_dm[?'PalcG_013'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_013'+STR_Layer+'04'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcG_013'+STR_Layer+'05'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  014  ----------------------------
-_dm[?'PalcG_014'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_014'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_014'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  015  ----------------------------
-_dm[?'PalcG_015'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_015'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_015'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_015'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcG_015'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  016  ----------------------------
-_dm[?'PalcG_016'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_016'+STR_Layer+'01'+STR_Name] = 'FG0301, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_016'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_08';
+_dm[?'PalcG_016'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_016'+STR_Layer+'04'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_016'+STR_Layer+'05'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  017  ----------------------------
 //  ----------------------------  018  ----------------------------
-_dm[?'PalcG_018'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_018'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_018'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_018'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  019  ----------------------------
-_dm[?'PalcG_019'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_019'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_019'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_019'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  020  ----------------------------
-_dm[?'PalcG_020'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_020'+STR_Layer+'01'+STR_Name] = 'FG0301, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_020'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_08';
+_dm[?'PalcG_020'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_020'+STR_Layer+'04'+STR_Name] = 'BG0401, BREAK__02, HIDDEN_01';
+_dm[?'PalcG_020'+STR_Layer+'05'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  021  ----------------------------
-_dm[?'PalcG_021'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_021'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLIAR_01';
+_dm[?'PalcG_021'+STR_Layer+'02'+STR_Name] = 'BG0402';
+_dm[?'PalcG_021'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  022  ----------------------------
 //  ----------------------------  023  ----------------------------
 //  ----------------------------  024  ----------------------------
 //  ----------------------------  025  ----------------------------
-_dm[?'PalcG_025'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_025'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'PalcG_025'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_025'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_025'+STR_Layer+'04'+STR_Name] = 'BG0401, BREAK__04, HIDDEN_01';
+_dm[?'PalcG_025'+STR_Layer+'05'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcG_025'+STR_Layer+'06'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  026  ----------------------------
 //  ----------------------------  027  ----------------------------
-_dm[?'PalcG_027'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_027'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_02';
+_dm[?'PalcG_027'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_027'+STR_Layer+'03'+STR_Name] = 'BG0401, BREAK__02, HIDDEN_01';
+_dm[?'PalcG_027'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  028  ----------------------------
-_dm[?'PalcG_028'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_028'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_02';
+_dm[?'PalcG_028'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_028'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_028'+STR_Layer+'04'+STR_Name] = 'BG0501, BREAK__04, HIDDEN_01';
+_dm[?'PalcG_028'+STR_Layer+'05'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  029  ----------------------------
-_dm[?'PalcG_029'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_029'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_029'+STR_Layer+'02'+STR_Name] = 'BG0302, CURTAIN01';
+_dm[?'PalcG_029'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  030  ----------------------------
-_dm[?'PalcG_030'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_030'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcG_030'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  031  ----------------------------
-_dm[?'PalcG_031'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','000000','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_031'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_02 DIR_02 SPEED_02';
+_dm[?'PalcG_031'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_031'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  032  ----------------------------
-_dm[?'PalcG_032'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00087C','0C4CC8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','0028D8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_032'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'PalcG_032'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_032'+STR_Layer+'03'+STR_Name] = 'BG0303';
+_dm[?'PalcG_032'+STR_Layer+'04'+STR_Name] = 'BG0402, CURTAIN01';
+_dm[?'PalcG_032'+STR_Layer+'05'+STR_Name] = 'BG0601, STRUCTURE_BGWALL01_01';
+_dm[?'PalcG_032'+STR_Layer+'06'+STR_Name] = 'BG0704';
 //  ----------------------------  033  ----------------------------
 //  ----------------------------  034  ----------------------------
 //  ----------------------------  035  ----------------------------
-_dm[?'PalcG_035'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','000000','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_035'+STR_Layer+'01'+STR_Name] = 'FG0301, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_035'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_02 DIR_02 SPEED_02';
+_dm[?'PalcG_035'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_035'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  036  ----------------------------
-_dm[?'PalcG_036'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_036'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcG_036'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  037  ----------------------------
-_dm[?'PalcG_037'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_037'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_037'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_037'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  038  ----------------------------
-_dm[?'PalcG_038'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_038'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE01';
+_dm[?'PalcG_038'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  039  ----------------------------
-_dm[?'PalcG_039'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_039'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE01';
+_dm[?'PalcG_039'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  040  ----------------------------
-_dm[?'PalcG_040'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_040'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_040'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  041  ----------------------------
-_dm[?'PalcG_041'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_041'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcG_041'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_041'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  042  ----------------------------
-_dm[?'PalcG_042'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_042'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_042'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  043  ----------------------------
-_dm[?'PalcG_043'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_043'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcG_043'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcG_043'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  044  ----------------------------
-_dm[?'PalcG_044'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_044'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcG_044'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_044'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcG_044'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  045  ----------------------------
-_dm[?'PalcG_045'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_045'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcG_045'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcG_045'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  046  ----------------------------
-_dm[?'PalcG_046'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_046'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_08';
+_dm[?'PalcG_046'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_046'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_046'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  047  ----------------------------
-_dm[?'PalcG_047'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_047'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcG_047'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  048  ----------------------------
-_dm[?'PalcG_048'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_048'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_048'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  049  ----------------------------
-_dm[?'PalcG_049'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_049'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_049'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  050  ----------------------------
-_dm[?'PalcG_050'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_050'+STR_Layer+'01'+STR_Name] = 'FG0301, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_050'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_08';
+_dm[?'PalcG_050'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_050'+STR_Layer+'04'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcG_050'+STR_Layer+'05'+STR_Name] = 'BG0402';
+_dm[?'PalcG_050'+STR_Layer+'06'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  051  ----------------------------
-_dm[?'PalcG_051'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_051'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcG_051'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_051'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  052  ----------------------------
-_dm[?'PalcG_052'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_052'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_052'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcG_052'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  053  ----------------------------
-_dm[?'PalcG_053'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_053'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_053'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_053'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
+_dm[?'PalcG_053'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  054  ----------------------------
-_dm[?'PalcG_054'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_054'+STR_Layer+'01'+STR_Name] = 'FG0301, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_054'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_02';
+_dm[?'PalcG_054'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_054'+STR_Layer+'04'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_054'+STR_Layer+'05'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  055  ----------------------------
-_dm[?'PalcG_055'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_055'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_055'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  056  ----------------------------
-_dm[?'PalcG_056'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_056'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_056'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__04, HIDDEN_01';
+_dm[?'PalcG_056'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  057  ----------------------------
-_dm[?'PalcG_057'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_057'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_057'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  058  ----------------------------
-_dm[?'PalcG_058'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_058'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcG_058'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_058'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  059  ----------------------------
-_dm[?'PalcG_059'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_059'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_059'+STR_Layer+'02'+STR_Name] = 'BG0302, CURTAIN01';
+_dm[?'PalcG_059'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  060  ----------------------------
-_dm[?'PalcG_060'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_060'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE01';
+_dm[?'PalcG_060'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  061  ----------------------------
-_dm[?'PalcG_061'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_061'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_061'+STR_Layer+'02'+STR_Name] = 'BG0302, CURTAIN01';
+_dm[?'PalcG_061'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  062  ----------------------------
-_dm[?'PalcG_062'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_062'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_062'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
+_dm[?'PalcG_062'+STR_Layer+'03'+STR_Name] = 'BG0403, BRIDGE01';
+_dm[?'PalcG_062'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  063  ----------------------------
-_dm[?'PalcG_063'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_063'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'PalcG_063'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_08';
+_dm[?'PalcG_063'+STR_Layer+'03'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_063'+STR_Layer+'04'+STR_Name] = 'BG0301, BREAK__04, HIDDEN_01';
+_dm[?'PalcG_063'+STR_Layer+'05'+STR_Name] = 'BG0401, BREAK__02, HIDDEN_01';
+_dm[?'PalcG_063'+STR_Layer+'06'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  064  ----------------------------
-_dm[?'PalcG_064'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_064'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_064'+STR_Layer+'02'+STR_Name] = 'BG0302, CURTAIN01';
 //  ----------------------------  065  ----------------------------
-_dm[?'PalcG_065'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_065'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_065'+STR_Layer+'02'+STR_Name] = 'BG0302, CURTAIN01';
+_dm[?'PalcG_065'+STR_Layer+'03'+STR_Name] = 'BG0504, SPIKE__01';
+_dm[?'PalcG_065'+STR_Layer+'04'+STR_Name] = 'BG0604';
+_dm[?'PalcG_065'+STR_Layer+'05'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  066  ----------------------------
 //  ----------------------------  067  ----------------------------
-_dm[?'PalcG_067'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_067'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcG_067'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_067'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  068  ----------------------------
 //  ----------------------------  069  ----------------------------
-_dm[?'PalcG_069'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_069'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcG_069'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
+_dm[?'PalcG_069'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  070  ----------------------------
-_dm[?'PalcG_070'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcG_070'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcG_070'+STR_Layer+'02'+STR_Name] = 'BG0601';
+_dm[?'PalcG_070'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  071  ----------------------------
 //  ----------------------------  072  ----------------------------
 //  ----------------------------  073  ----------------------------
@@ -3457,20 +4759,39 @@ _dm[?'PalcG_070'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0
 
 // ***********************  _PalcH_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'PalcH_000'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_000'+STR_Layer+'01'+STR_Name] = 'FG0303';
+_dm[?'PalcH_000'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcH_000'+STR_Layer+'03'+STR_Name] = 'BG0501, PILLAR01';
+_dm[?'PalcH_000'+STR_Layer+'04'+STR_Name] = 'BG0602';
+_dm[?'PalcH_000'+STR_Layer+'05'+STR_Name] = 'BG0704';
 //  ----------------------------  001  ----------------------------
-_dm[?'PalcH_001'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_001'+STR_Layer+'01'+STR_Name] = 'FG0304';
+_dm[?'PalcH_001'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcH_001'+STR_Layer+'03'+STR_Name] = 'BG0401, BREAK__01, HIDDEN_01';
+_dm[?'PalcH_001'+STR_Layer+'04'+STR_Name] = 'BG0501, PILLAR01';
 //  ----------------------------  002  ----------------------------
 //  ----------------------------  003  ----------------------------
-_dm[?'PalcH_003'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_003'+STR_Layer+'01'+STR_Name] = 'BG0301';
+_dm[?'PalcH_003'+STR_Layer+'02'+STR_Name] = 'BG0501';
+_dm[?'PalcH_003'+STR_Layer+'03'+STR_Name] = 'BG0601';
 //  ----------------------------  004  ----------------------------
-_dm[?'PalcH_004'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_004'+STR_Layer+'01'+STR_Name] = 'BG0301';
+_dm[?'PalcH_004'+STR_Layer+'02'+STR_Name] = 'BG0501';
+_dm[?'PalcH_004'+STR_Layer+'03'+STR_Name] = 'BG0601';
 //  ----------------------------  005  ----------------------------
-_dm[?'PalcH_005'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_005'+STR_Layer+'01'+STR_Name] = 'FG0101';
+_dm[?'PalcH_005'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'PalcH_005'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'PalcH_005'+STR_Layer+'04'+STR_Name] = 'BG0501';
 //  ----------------------------  006  ----------------------------
-_dm[?'PalcH_006'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_006'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'PalcH_006'+STR_Layer+'02'+STR_Name] = 'BG0501';
+_dm[?'PalcH_006'+STR_Layer+'03'+STR_Name] = 'BG0601';
 //  ----------------------------  007  ----------------------------
-_dm[?'PalcH_007'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_007'+STR_Layer+'01'+STR_Name] = 'FG0304';
+_dm[?'PalcH_007'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'PalcH_007'+STR_Layer+'03'+STR_Name] = 'BG0603';
+_dm[?'PalcH_007'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  008  ----------------------------
 //  ----------------------------  009  ----------------------------
 //  ----------------------------  010  ----------------------------
@@ -3496,9 +4817,16 @@ _dm[?'PalcH_007'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0
 //  ----------------------------  030  ----------------------------
 //  ----------------------------  031  ----------------------------
 //  ----------------------------  032  ----------------------------
-_dm[?'PalcH_032'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_032'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'PalcH_032'+STR_Layer+'02'+STR_Name] = 'BG0502, BREAK__01, HIDDEN_01';
+_dm[?'PalcH_032'+STR_Layer+'03'+STR_Name] = 'BG0601';
+_dm[?'PalcH_032'+STR_Layer+'04'+STR_Name] = 'BG0703';
+_dm[?'PalcH_032'+STR_Layer+'05'+STR_Name] = 'BG0801, PERMUT_02';
 //  ----------------------------  033  ----------------------------
-_dm[?'PalcH_033'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_033'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'PalcH_033'+STR_Layer+'02'+STR_Name] = 'BG0302, BREAK__01, HIDDEN_01';
+_dm[?'PalcH_033'+STR_Layer+'03'+STR_Name] = 'BG0501';
+_dm[?'PalcH_033'+STR_Layer+'04'+STR_Name] = 'BG0601';
 //  ----------------------------  034  ----------------------------
 //  ----------------------------  035  ----------------------------
 //  ----------------------------  036  ----------------------------
@@ -3530,7 +4858,10 @@ _dm[?'PalcH_033'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0
 //  ----------------------------  062  ----------------------------
 //  ----------------------------  063  ----------------------------
 //  ----------------------------  064  ----------------------------
-_dm[?'PalcH_064'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5800E4','0000A4','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','0000A4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_064'+STR_Layer+'01'+STR_Name] = 'FG0502';
+_dm[?'PalcH_064'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'PalcH_064'+STR_Layer+'03'+STR_Name] = 'BG0303';
+_dm[?'PalcH_064'+STR_Layer+'04'+STR_Name] = 'BG0501';
 //  ----------------------------  065  ----------------------------
 //  ----------------------------  066  ----------------------------
 //  ----------------------------  067  ----------------------------
@@ -3722,7 +5053,9 @@ _dm[?'PalcH_064'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0
 //  ----------------------------  253  ----------------------------
 //  ----------------------------  254  ----------------------------
 //  ----------------------------  255  ----------------------------
-_dm[?'PalcH_255'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','00087C','5800E4','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'PalcH_255'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'PalcH_255'+STR_Layer+'02'+STR_Name] = 'BG0501';
+_dm[?'PalcH_255'+STR_Layer+'03'+STR_Name] = 'BG0601';
 
 
 
@@ -3733,63 +5066,156 @@ _dm[?'PalcH_255'+dk_BGR] = build_pal('6074FC','3E3E3E','000000','000000', C_YLW0
 
 // ***********************  _TownA_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'TownA_000'+dk_BGR] = build_pal('FCFCFC','10D080','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_000'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_000'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_000'+STR_Layer+'03'+STR_Name] = 'BG0404';
+_dm[?'TownA_000'+STR_Layer+'04'+STR_Name] = 'BG0503';
+_dm[?'TownA_000'+STR_Layer+'05'+STR_Name] = 'BG0603';
+_dm[?'TownA_000'+STR_Layer+'06'+STR_Name] = 'BG0703';
+_dm[?'TownA_000'+STR_Layer+'07'+STR_Name] = 'BG0802';
 //  ----------------------------  001  ----------------------------
-_dm[?'TownA_001'+dk_BGR] = build_pal('FCFCFC','10D080','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_001'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_001'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_001'+STR_Layer+'03'+STR_Name] = 'BG0404';
+_dm[?'TownA_001'+STR_Layer+'04'+STR_Name] = 'BG0503';
+_dm[?'TownA_001'+STR_Layer+'05'+STR_Name] = 'BG0603';
+_dm[?'TownA_001'+STR_Layer+'06'+STR_Name] = 'BG0703';
+_dm[?'TownA_001'+STR_Layer+'07'+STR_Name] = 'BG0802';
 //  ----------------------------  002  ----------------------------
-_dm[?'TownA_002'+dk_BGR] = build_pal('FCFCFC','3CBCF0','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','6074FC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_002'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_002'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_002'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  003  ----------------------------
 //  ----------------------------  004  ----------------------------
-_dm[?'TownA_004'+dk_BGR] = build_pal('A8D8FC','48DC4C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_004'+STR_Layer+'01'+STR_Name] = 'FG0204, LIQUID_01 DIR_02 SPEED_02';
+_dm[?'TownA_004'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'TownA_004'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'TownA_004'+STR_Layer+'04'+STR_Name] = 'BG0503';
 //  ----------------------------  005  ----------------------------
-_dm[?'TownA_005'+dk_BGR] = build_pal('A8D8FC','48DC4C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','888000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','00A800','000000','000000','FCFCFC','D8E800','EC7000','000000')  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_005'+STR_Layer+'01'+STR_Name] = 'FG0304, LIQUID_01 DIR_02 SPEED_04';
+_dm[?'TownA_005'+STR_Layer+'02'+STR_Name] = 'FG0202, BRIDGE_01';
+_dm[?'TownA_005'+STR_Layer+'03'+STR_Name] = 'BG0101';
+_dm[?'TownA_005'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'TownA_005'+STR_Layer+'05'+STR_Name] = 'BG0603';
 //  ----------------------------  006  ----------------------------
-_dm[?'TownA_006'+dk_BGR] = build_pal('A8D8FC','48DC4C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','888000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','00A800','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_006'+STR_Layer+'01'+STR_Name] = 'FG0304, LIQUID_01 DIR_02 SPEED_04';
+_dm[?'TownA_006'+STR_Layer+'02'+STR_Name] = 'FG0202';
+_dm[?'TownA_006'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'TownA_006'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'TownA_006'+STR_Layer+'05'+STR_Name] = 'BG0603';
 //  ----------------------------  007  ----------------------------
-_dm[?'TownA_007'+dk_BGR] = build_pal('FC945C','FCFCFC','A8D8FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_007'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_007'+STR_Layer+'02'+STR_Name] = 'BG0602';
+_dm[?'TownA_007'+STR_Layer+'03'+STR_Name] = 'BG0704';
 //  ----------------------------  008  ----------------------------
 //  ----------------------------  009  ----------------------------
-_dm[?'TownA_009'+dk_BGR] = build_pal('FC945C','FCFCFC','A8D8FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_009'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_009'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_009'+STR_Layer+'03'+STR_Name] = 'BG0604';
 //  ----------------------------  010  ----------------------------
-_dm[?'TownA_010'+dk_BGR] = build_pal('A0FCE0','10D080','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','EC7000','000000','FCFCFC','D8E800','EC7000','000000')  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_010'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_010'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_010'+STR_Layer+'03'+STR_Name] = 'BG0404';
+_dm[?'TownA_010'+STR_Layer+'04'+STR_Name] = 'BG0501';
+_dm[?'TownA_010'+STR_Layer+'05'+STR_Name] = 'BG0604';
 //  ----------------------------  011  ----------------------------
-_dm[?'TownA_011'+dk_BGR] = build_pal('A0FCE0','10D080','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','EC7000','000000','FCFCFC','D8E800','EC7000','000000')  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_011'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_011'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_011'+STR_Layer+'03'+STR_Name] = 'BG0604';
 //  ----------------------------  012  ----------------------------
-_dm[?'TownA_012'+dk_BGR] = build_pal('A0FCE0','10D080','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','EC7000','000000','FCFCFC','D8E800','EC7000','000000')  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_012'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_012'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_012'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_012'+STR_Layer+'04'+STR_Name] = 'BG0504';
+_dm[?'TownA_012'+STR_Layer+'05'+STR_Name] = 'BG0604';
 //  ----------------------------  013  ----------------------------
-_dm[?'TownA_013'+dk_BGR] = build_pal('FCFCFC','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','009400','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','F1F2F1','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_013'+STR_Layer+'01'+STR_Name] = 'BG0203';
+_dm[?'TownA_013'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'TownA_013'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'TownA_013'+STR_Layer+'04'+STR_Name] = 'BG0604';
 //  ----------------------------  014  ----------------------------
-_dm[?'TownA_014'+dk_BGR] = build_pal('FCFCFC','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','009400','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','F1F2F1','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_014'+STR_Layer+'01'+STR_Name] = 'BG0203';
+_dm[?'TownA_014'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'TownA_014'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'TownA_014'+STR_Layer+'04'+STR_Name] = 'BG0604';
 //  ----------------------------  015  ----------------------------
-_dm[?'TownA_015'+dk_BGR] = build_pal('FCFCFC','3898FC','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','009400','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','F1F2F1','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_015'+STR_Layer+'01'+STR_Name] = 'BG0203';
+_dm[?'TownA_015'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'TownA_015'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'TownA_015'+STR_Layer+'04'+STR_Name] = 'BG0604';
 //  ----------------------------  016  ----------------------------
-_dm[?'TownA_016'+dk_BGR] = build_pal('10D080','2A7B00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00A800','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_016'+STR_Layer+'01'+STR_Name] = 'BG0301';
+_dm[?'TownA_016'+STR_Layer+'02'+STR_Name] = 'BG0401';
+_dm[?'TownA_016'+STR_Layer+'03'+STR_Name] = 'BG0504';
+_dm[?'TownA_016'+STR_Layer+'04'+STR_Name] = 'BG0602';
+_dm[?'TownA_016'+STR_Layer+'05'+STR_Name] = 'BG0703';
 //  ----------------------------  017  ----------------------------
-_dm[?'TownA_017'+dk_BGR] = build_pal('10D080','2A7B00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00A800','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','002C40','000000','000000','FCFCFC','D8E800','EC7000','000000')  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_017'+STR_Layer+'01'+STR_Name] = 'BG0401';
+_dm[?'TownA_017'+STR_Layer+'02'+STR_Name] = 'BG0504';
+_dm[?'TownA_017'+STR_Layer+'03'+STR_Name] = 'BG0602';
+_dm[?'TownA_017'+STR_Layer+'04'+STR_Name] = 'BG0703';
 //  ----------------------------  018  ----------------------------
 //  ----------------------------  019  ----------------------------
-_dm[?'TownA_019'+dk_BGR] = build_pal('8C1824','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_019'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_019'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_019'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'TownA_019'+STR_Layer+'04'+STR_Name] = 'BG0602';
 //  ----------------------------  020  ----------------------------
 //  ----------------------------  021  ----------------------------
-_dm[?'TownA_021'+dk_BGR] = build_pal('8C1824','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_021'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_021'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_021'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'TownA_021'+STR_Layer+'04'+STR_Name] = 'BG0603';
 //  ----------------------------  022  ----------------------------
 //  ----------------------------  023  ----------------------------
 //  ----------------------------  024  ----------------------------
-_dm[?'TownA_024'+dk_BGR] = build_pal('FCFCFC','3CBCF0','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A7A9A7','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_024'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_024'+STR_Layer+'02'+STR_Name] = 'BG0402';
+_dm[?'TownA_024'+STR_Layer+'03'+STR_Name] = 'BG0503';
+_dm[?'TownA_024'+STR_Layer+'04'+STR_Name] = 'BG0704';
 //  ----------------------------  025  ----------------------------
-_dm[?'TownA_025'+dk_BGR] = build_pal('A0FCE0','10D080','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_025'+STR_Layer+'01'+STR_Name] = 'FG0603';
+_dm[?'TownA_025'+STR_Layer+'02'+STR_Name] = 'FG0501';
+_dm[?'TownA_025'+STR_Layer+'03'+STR_Name] = 'FG0401';
+_dm[?'TownA_025'+STR_Layer+'04'+STR_Name] = 'FG0303';
+_dm[?'TownA_025'+STR_Layer+'05'+STR_Name] = 'FG0203, BREAK__01, HIDDEN_01';
+_dm[?'TownA_025'+STR_Layer+'06'+STR_Name] = 'BG0201';
+_dm[?'TownA_025'+STR_Layer+'07'+STR_Name] = 'BG0402';
+_dm[?'TownA_025'+STR_Layer+'08'+STR_Name] = 'BG0603';
+_dm[?'TownA_025'+STR_Layer+'09'+STR_Name] = 'BG0703';
+_dm[?'TownA_025'+STR_Layer+'0A'+STR_Name] = 'BG0801';
 //  ----------------------------  026  ----------------------------
-_dm[?'TownA_026'+dk_BGR] = build_pal('10D080','2A7B00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00A800','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_026'+STR_Layer+'01'+STR_Name] = 'FG0501';
+_dm[?'TownA_026'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_026'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'TownA_026'+STR_Layer+'04'+STR_Name] = 'BG0604';
+_dm[?'TownA_026'+STR_Layer+'05'+STR_Name] = 'BG0703';
 //  ----------------------------  027  ----------------------------
-_dm[?'TownA_027'+dk_BGR] = build_pal('10D080','2A7B00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00A800','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_027'+STR_Layer+'01'+STR_Name] = 'FG0501';
+_dm[?'TownA_027'+STR_Layer+'02'+STR_Name] = 'FG0404';
+_dm[?'TownA_027'+STR_Layer+'03'+STR_Name] = 'FG0302';
+_dm[?'TownA_027'+STR_Layer+'04'+STR_Name] = 'FG0201';
+_dm[?'TownA_027'+STR_Layer+'05'+STR_Name] = 'BG0602';
+_dm[?'TownA_027'+STR_Layer+'06'+STR_Name] = 'BG0703';
 //  ----------------------------  028  ----------------------------
-_dm[?'TownA_028'+dk_BGR] = build_pal('10D080','2A7B00','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00A800','005000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_028'+STR_Layer+'01'+STR_Name] = 'FG0501';
+_dm[?'TownA_028'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_028'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'TownA_028'+STR_Layer+'04'+STR_Name] = 'BG0604';
+_dm[?'TownA_028'+STR_Layer+'05'+STR_Name] = 'BG0703';
 //  ----------------------------  029  ----------------------------
-_dm[?'TownA_029'+dk_BGR] = build_pal('FCFCFC','3CBCF0','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','007088','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','6074FC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_029'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_029'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_029'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  030  ----------------------------
-_dm[?'TownA_030'+dk_BGR] = build_pal('FC945C','FCFCFC','A8D8FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_030'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_030'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_030'+STR_Layer+'03'+STR_Name] = 'BG0604';
 //  ----------------------------  031  ----------------------------
-_dm[?'TownA_031'+dk_BGR] = build_pal('8C1824','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_031'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_031'+STR_Layer+'02'+STR_Name] = 'BG0302';
+_dm[?'TownA_031'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'TownA_031'+STR_Layer+'04'+STR_Name] = 'BG0603';
 //  ----------------------------  032  ----------------------------
 //  ----------------------------  033  ----------------------------
 //  ----------------------------  034  ----------------------------
@@ -3822,71 +5248,177 @@ _dm[?'TownA_031'+dk_BGR] = build_pal('8C1824','0C4CC8','000000','000000', C_YLW0
 //  ----------------------------  061  ----------------------------
 //  ----------------------------  062  ----------------------------
 //  ----------------------------  063  ----------------------------
-_dm[?'TownA_063'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FC945C','6074FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_063'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_063'+STR_Layer+'02'+STR_Name] = 'BG0304';
+_dm[?'TownA_063'+STR_Layer+'03'+STR_Name] = 'BG0503';
+_dm[?'TownA_063'+STR_Layer+'04'+STR_Name] = 'BG0602';
+_dm[?'TownA_063'+STR_Layer+'05'+STR_Name] = 'BG0701';
 //  ----------------------------  064  ----------------------------
-_dm[?'TownA_064'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_064'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_064'+STR_Layer+'02'+STR_Name] = 'BG0401';
+_dm[?'TownA_064'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'TownA_064'+STR_Layer+'04'+STR_Name] = 'BG0601';
 //  ----------------------------  065  ----------------------------
-_dm[?'TownA_065'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_065'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_065'+STR_Layer+'02'+STR_Name] = 'BG0401';
+_dm[?'TownA_065'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'TownA_065'+STR_Layer+'04'+STR_Name] = 'BG0601';
 //  ----------------------------  066  ----------------------------
-_dm[?'TownA_066'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_066'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_066'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_066'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_066'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_066'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  067  ----------------------------
-_dm[?'TownA_067'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_067'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_067'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_067'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_067'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_067'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  068  ----------------------------
-_dm[?'TownA_068'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_068'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_068'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_068'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_068'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_068'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  069  ----------------------------
-_dm[?'TownA_069'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_069'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_069'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_069'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_069'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_069'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  070  ----------------------------
-_dm[?'TownA_070'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_070'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_070'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_070'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_070'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_070'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  071  ----------------------------
-_dm[?'TownA_071'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_071'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_071'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_071'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_071'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_071'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  072  ----------------------------
-_dm[?'TownA_072'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FC945C','6074FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_072'+STR_Layer+'01'+STR_Name] = 'BG0101, BREAK__01, HIDDEN_01';
+_dm[?'TownA_072'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_072'+STR_Layer+'03'+STR_Name] = 'BG0304';
+_dm[?'TownA_072'+STR_Layer+'04'+STR_Name] = 'BG0503';
+_dm[?'TownA_072'+STR_Layer+'05'+STR_Name] = 'BG0602';
+_dm[?'TownA_072'+STR_Layer+'06'+STR_Name] = 'BG0701';
 //  ----------------------------  073  ----------------------------
 //  ----------------------------  074  ----------------------------
-_dm[?'TownA_074'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','EC7000','8C1824','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_074'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_074'+STR_Layer+'02'+STR_Name] = 'BG0401';
+_dm[?'TownA_074'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'TownA_074'+STR_Layer+'04'+STR_Name] = 'BG0601';
 //  ----------------------------  075  ----------------------------
-_dm[?'TownA_075'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_075'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_075'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_075'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_075'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_075'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  076  ----------------------------
 //  ----------------------------  077  ----------------------------
-_dm[?'TownA_077'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_077'+STR_Layer+'01'+STR_Name] = 'BG0101';
+_dm[?'TownA_077'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_077'+STR_Layer+'03'+STR_Name] = 'BG0303';
+_dm[?'TownA_077'+STR_Layer+'04'+STR_Name] = 'BG0401';
+_dm[?'TownA_077'+STR_Layer+'05'+STR_Name] = 'BG0502';
+_dm[?'TownA_077'+STR_Layer+'06'+STR_Name] = 'BG0601';
+_dm[?'TownA_077'+STR_Layer+'07'+STR_Name] = 'BG0704';
 //  ----------------------------  078  ----------------------------
 //  ----------------------------  079  ----------------------------
 //  ----------------------------  080  ----------------------------
 //  ----------------------------  081  ----------------------------
 //  ----------------------------  082  ----------------------------
 //  ----------------------------  083  ----------------------------
-_dm[?'TownA_083'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','6074FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','007088','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_083'+STR_Layer+'01'+STR_Name] = 'FG0304';
+_dm[?'TownA_083'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_083'+STR_Layer+'03'+STR_Name] = 'BG0303';
+_dm[?'TownA_083'+STR_Layer+'04'+STR_Name] = 'BG0504';
+_dm[?'TownA_083'+STR_Layer+'05'+STR_Name] = 'BG0602';
+_dm[?'TownA_083'+STR_Layer+'06'+STR_Name] = 'BG0701';
+_dm[?'TownA_083'+STR_Layer+'07'+STR_Name] = 'BG0804';
 //  ----------------------------  084  ----------------------------
-_dm[?'TownA_084'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_084'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_084'+STR_Layer+'02'+STR_Name] = 'BG0401';
+_dm[?'TownA_084'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'TownA_084'+STR_Layer+'04'+STR_Name] = 'BG0601';
 //  ----------------------------  085  ----------------------------
-_dm[?'TownA_085'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0000A4','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_085'+STR_Layer+'01'+STR_Name] = 'FG0404, BURNABLE_01';
+_dm[?'TownA_085'+STR_Layer+'02'+STR_Name] = 'BG0101';
+_dm[?'TownA_085'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'TownA_085'+STR_Layer+'04'+STR_Name] = 'BG0303';
+_dm[?'TownA_085'+STR_Layer+'05'+STR_Name] = 'BG0401';
+_dm[?'TownA_085'+STR_Layer+'06'+STR_Name] = 'BG0502';
+_dm[?'TownA_085'+STR_Layer+'07'+STR_Name] = 'BG0601';
+_dm[?'TownA_085'+STR_Layer+'08'+STR_Name] = 'BG0702, PERMUT_02';
 //  ----------------------------  086  ----------------------------
-_dm[?'TownA_086'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_086'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_086'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_086'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_086'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_086'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  087  ----------------------------
-_dm[?'TownA_087'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_087'+STR_Layer+'01'+STR_Name] = 'BG0101';
+_dm[?'TownA_087'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_087'+STR_Layer+'03'+STR_Name] = 'BG0303';
+_dm[?'TownA_087'+STR_Layer+'04'+STR_Name] = 'BG0401';
+_dm[?'TownA_087'+STR_Layer+'05'+STR_Name] = 'BG0502';
+_dm[?'TownA_087'+STR_Layer+'06'+STR_Name] = 'BG0601';
+_dm[?'TownA_087'+STR_Layer+'07'+STR_Name] = 'BG0704';
 //  ----------------------------  088  ----------------------------
-_dm[?'TownA_088'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_088'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_088'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_088'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_088'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_088'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  089  ----------------------------
-_dm[?'TownA_089'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_089'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_089'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_089'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_089'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_089'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  090  ----------------------------
 //  ----------------------------  091  ----------------------------
 //  ----------------------------  092  ----------------------------
-_dm[?'TownA_092'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_092'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_092'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_092'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownA_092'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownA_092'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  093  ----------------------------
 //  ----------------------------  094  ----------------------------
 //  ----------------------------  095  ----------------------------
-_dm[?'TownA_095'+dk_BGR] = build_pal('8C1824','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC945C','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A80000','EC7000','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','5C3C18','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_095'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_095'+STR_Layer+'02'+STR_Name] = 'BG0301, PERMUT_03';
+_dm[?'TownA_095'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'TownA_095'+STR_Layer+'04'+STR_Name] = 'BG0504';
+_dm[?'TownA_095'+STR_Layer+'05'+STR_Name] = 'BG0602';
+_dm[?'TownA_095'+STR_Layer+'06'+STR_Name] = 'BG0701';
 //  ----------------------------  096  ----------------------------
-_dm[?'TownA_096'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_096'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_096'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  097  ----------------------------
-_dm[?'TownA_097'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','007088','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_097'+STR_Layer+'01'+STR_Name] = 'FG0404, BURNABLE_01';
+_dm[?'TownA_097'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_097'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  098  ----------------------------
 //  ----------------------------  099  ----------------------------
-_dm[?'TownA_099'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','A80000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_099'+STR_Layer+'01'+STR_Name] = 'FG0301';
+_dm[?'TownA_099'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'TownA_099'+STR_Layer+'03'+STR_Name] = 'BG0201';
+_dm[?'TownA_099'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  100  ----------------------------
-_dm[?'TownA_100'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_100'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_100'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  101  ----------------------------
-_dm[?'TownA_101'+dk_BGR] = build_pal('F1F2F1','747474','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','6074FC','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','007088','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_101'+STR_Layer+'01'+STR_Name] = 'FG0304';
+_dm[?'TownA_101'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_101'+STR_Layer+'03'+STR_Name] = 'BG0604';
+_dm[?'TownA_101'+STR_Layer+'04'+STR_Name] = 'BG0703';
+_dm[?'TownA_101'+STR_Layer+'05'+STR_Name] = 'BG0801';
 //  ----------------------------  102  ----------------------------
 //  ----------------------------  103  ----------------------------
 //  ----------------------------  104  ----------------------------
@@ -3896,35 +5428,64 @@ _dm[?'TownA_101'+dk_BGR] = build_pal('F1F2F1','747474','002C40','000000', C_YLW0
 //  ----------------------------  108  ----------------------------
 //  ----------------------------  109  ----------------------------
 //  ----------------------------  110  ----------------------------
-_dm[?'TownA_110'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000','3CBCF0','002C40', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','000000','F1F2F1','BCBCBC','3E3E3E', C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','000000','F1F2F1','007088','002C40', C_CYN0_);
+_dm[?'TownA_110'+STR_Layer+'01'+STR_Name] = 'FG0302';
+_dm[?'TownA_110'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_110'+STR_Layer+'03'+STR_Name] = 'BG0301, PERMUT_RBGWYMBC';
+_dm[?'TownA_110'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  111  ----------------------------
-_dm[?'TownA_111'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','2A7B00','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','8C1824','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_111'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_111'+STR_Layer+'02'+STR_Name] = 'BG0302, BREAK__01, HIDDEN_01';
+_dm[?'TownA_111'+STR_Layer+'03'+STR_Name] = 'BG0402, BREAK__03, HIDDEN_01';
+_dm[?'TownA_111'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  112  ----------------------------
 //  ----------------------------  113  ----------------------------
 //  ----------------------------  114  ----------------------------
 //  ----------------------------  115  ----------------------------
 //  ----------------------------  116  ----------------------------
 //  ----------------------------  117  ----------------------------
-_dm[?'TownA_117'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','002C40','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_117'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_117'+STR_Layer+'02'+STR_Name] = 'BG0402';
+_dm[?'TownA_117'+STR_Layer+'03'+STR_Name] = 'BG0701';
 //  ----------------------------  118  ----------------------------
-_dm[?'TownA_118'+dk_BGR] = build_pal('6074FC','0028D8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_118'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownA_118'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownA_118'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'TownA_118'+STR_Layer+'04'+STR_Name] = 'BG0601';
 //  ----------------------------  119  ----------------------------
 //  ----------------------------  120  ----------------------------
 //  ----------------------------  121  ----------------------------
-_dm[?'TownA_121'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000','3CBCF0','002C40', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','000000','F1F2F1','BCBCBC','3E3E3E', C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','000000','F1F2F1','007088','002C40', C_CYN0_);
+_dm[?'TownA_121'+STR_Layer+'01'+STR_Name] = 'FG0302';
+_dm[?'TownA_121'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_121'+STR_Layer+'03'+STR_Name] = 'BG0301, PERMUT_RBGWYMBC';
+_dm[?'TownA_121'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  122  ----------------------------
-_dm[?'TownA_122'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000','3CBCF0','002C40', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','000000','F1F2F1','BCBCBC','3E3E3E', C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','000000','F1F2F1','007088','002C40', C_CYN0_);
+_dm[?'TownA_122'+STR_Layer+'01'+STR_Name] = 'FG0302';
+_dm[?'TownA_122'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_122'+STR_Layer+'03'+STR_Name] = 'BG0301, PERMUT_RBGWYMBC';
+_dm[?'TownA_122'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  123  ----------------------------
-_dm[?'TownA_123'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000','3CBCF0','002C40', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','000000','F1F2F1','BCBCBC','3E3E3E', C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','000000','F1F2F1','007088','002C40', C_CYN0_);
+_dm[?'TownA_123'+STR_Layer+'01'+STR_Name] = 'FG0302';
+_dm[?'TownA_123'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_123'+STR_Layer+'03'+STR_Name] = 'BG0301, PERMUT_RBGWYMBC';
+_dm[?'TownA_123'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  124  ----------------------------
 //  ----------------------------  125  ----------------------------
 //  ----------------------------  126  ----------------------------
 //  ----------------------------  127  ----------------------------
 //  ----------------------------  128  ----------------------------
 //  ----------------------------  129  ----------------------------
-_dm[?'TownA_129'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('A8D8FC','002C40','000000','000000','A8D8FC','002C40', C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','A80000','000000','000000','FCE4A8','A80000', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','000000','F1F2F1','007088','002C40', C_CYN0_);
+_dm[?'TownA_129'+STR_Layer+'01'+STR_Name] = 'FG0502';
+_dm[?'TownA_129'+STR_Layer+'02'+STR_Name] = 'FG0402';
+_dm[?'TownA_129'+STR_Layer+'03'+STR_Name] = 'FG0303, LIQUID_01 SPEED_04 DIR_02';
+_dm[?'TownA_129'+STR_Layer+'04'+STR_Name] = 'BG0201';
+_dm[?'TownA_129'+STR_Layer+'05'+STR_Name] = 'BG0302';
+_dm[?'TownA_129'+STR_Layer+'06'+STR_Name] = 'BG0601, PERMUT_RBGWYMBC';
+_dm[?'TownA_129'+STR_Layer+'07'+STR_Name] = 'BG0701';
 //  ----------------------------  130  ----------------------------
-_dm[?'TownA_130'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('3CBCF0','002C40','000000','000000','3CBCF0','002C40', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','000000','F1F2F1','BCBCBC','3E3E3E', C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','000000','F1F2F1','007088','002C40', C_CYN0_);
+_dm[?'TownA_130'+STR_Layer+'01'+STR_Name] = 'FG0302';
+_dm[?'TownA_130'+STR_Layer+'02'+STR_Name] = 'BG0201';
+_dm[?'TownA_130'+STR_Layer+'03'+STR_Name] = 'BG0301, PERMUT_RBGWYMBC';
+_dm[?'TownA_130'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  131  ----------------------------
 //  ----------------------------  132  ----------------------------
 //  ----------------------------  133  ----------------------------
@@ -4047,11 +5608,20 @@ _dm[?'TownA_130'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000','D8E800
 //  ----------------------------  250  ----------------------------
 //  ----------------------------  251  ----------------------------
 //  ----------------------------  252  ----------------------------
-_dm[?'TownA_252'+dk_BGR] = build_pal('2A7B00','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','000000','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','0000A4','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownA_252'+STR_Layer+'01'+STR_Name] = 'FG0202, PERMUT_06';
+_dm[?'TownA_252'+STR_Layer+'02'+STR_Name] = 'FG0104, PERMUT_04';
+_dm[?'TownA_252'+STR_Layer+'03'+STR_Name] = 'BG0104, PERMUT_04';
+_dm[?'TownA_252'+STR_Layer+'04'+STR_Name] = 'BG0202';
+_dm[?'TownA_252'+STR_Layer+'05'+STR_Name] = 'BG0301';
+_dm[?'TownA_252'+STR_Layer+'06'+STR_Name] = 'BG0403';
 //  ----------------------------  253  ----------------------------
 //  ----------------------------  254  ----------------------------
 //  ----------------------------  255  ----------------------------
-_dm[?'TownA_255'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','000000','FCFCFC','A80000','EC3820', C_CYN0_)  +  build_pal('F1F2F1','009400','005000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','002C40','3898FC','000000','00087C','000000', C_BLK0_, C_CYN0_);
+_dm[?'TownA_255'+STR_Layer+'01'+STR_Name] = 'FG0304';
+_dm[?'TownA_255'+STR_Layer+'02'+STR_Name] = 'FG0202, LIQUID_01, DIR_01, SPEED_02';
+_dm[?'TownA_255'+STR_Layer+'03'+STR_Name] = 'BG0301';
+_dm[?'TownA_255'+STR_Layer+'04'+STR_Name] = 'BG0504';
+_dm[?'TownA_255'+STR_Layer+'05'+STR_Name] = 'BG0603';
 
 
 
@@ -4062,11 +5632,29 @@ _dm[?'TownA_255'+dk_BGR] = build_pal('A8D8FC','0C4CC8','000000','000000', C_YLW0
 
 // ***********************  _TownB_  ***********************
 //  ----------------------------  000  ----------------------------
-_dm[?'TownB_000'+dk_BGR] = build_pal('A8D8FC','0C4CC8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownB_000'+STR_Layer+'01'+STR_Name] = 'FG0401, PERMUT_05';
+_dm[?'TownB_000'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'TownB_000'+STR_Layer+'03'+STR_Name] = 'BG0303, PERMUT_02';
+_dm[?'TownB_000'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'TownB_000'+STR_Layer+'05'+STR_Name] = 'BG0503';
+_dm[?'TownB_000'+STR_Layer+'06'+STR_Name] = 'BG0602';
+_dm[?'TownB_000'+STR_Layer+'07'+STR_Name] = 'BG0704';
 //  ----------------------------  001  ----------------------------
-_dm[?'TownB_001'+dk_BGR] = build_pal('A8D8FC','0C4CC8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownB_001'+STR_Layer+'01'+STR_Name] = 'FG0401, PERMUT_05';
+_dm[?'TownB_001'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'TownB_001'+STR_Layer+'03'+STR_Name] = 'BG0303, PERMUT_02';
+_dm[?'TownB_001'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'TownB_001'+STR_Layer+'05'+STR_Name] = 'BG0503';
+_dm[?'TownB_001'+STR_Layer+'06'+STR_Name] = 'BG0602';
+_dm[?'TownB_001'+STR_Layer+'07'+STR_Name] = 'BG0704';
 //  ----------------------------  002  ----------------------------
-_dm[?'TownB_002'+dk_BGR] = build_pal('A8D8FC','0C4CC8','3E3E3E','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('000000','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownB_002'+STR_Layer+'01'+STR_Name] = 'FG0401, PERMUT_03';
+_dm[?'TownB_002'+STR_Layer+'02'+STR_Name] = 'FG0301';
+_dm[?'TownB_002'+STR_Layer+'03'+STR_Name] = 'BG0303, PERMUT_02';
+_dm[?'TownB_002'+STR_Layer+'04'+STR_Name] = 'BG0402';
+_dm[?'TownB_002'+STR_Layer+'05'+STR_Name] = 'BG0503';
+_dm[?'TownB_002'+STR_Layer+'06'+STR_Name] = 'BG0602';
+_dm[?'TownB_002'+STR_Layer+'07'+STR_Name] = 'BG0704';
 //  ----------------------------  003  ----------------------------
 //  ----------------------------  004  ----------------------------
 //  ----------------------------  005  ----------------------------
@@ -4125,13 +5713,29 @@ _dm[?'TownB_002'+dk_BGR] = build_pal('A8D8FC','0C4CC8','3E3E3E','000000', C_YLW0
 //  ----------------------------  058  ----------------------------
 //  ----------------------------  059  ----------------------------
 //  ----------------------------  060  ----------------------------
-_dm[?'TownB_060'+dk_BGR] = build_pal('0C4CC8','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownB_060'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownB_060'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownB_060'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownB_060'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownB_060'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  061  ----------------------------
-_dm[?'TownB_061'+dk_BGR] = build_pal('0C4CC8','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','3E3E3E','0028D8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownB_061'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownB_061'+STR_Layer+'02'+STR_Name] = 'BG0301, PERMUT_03';
+_dm[?'TownB_061'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'TownB_061'+STR_Layer+'04'+STR_Name] = 'BG0501';
+_dm[?'TownB_061'+STR_Layer+'05'+STR_Name] = 'BG0602';
+_dm[?'TownB_061'+STR_Layer+'06'+STR_Name] = 'BG0701';
 //  ----------------------------  062  ----------------------------
-_dm[?'TownB_062'+dk_BGR] = build_pal('0C4CC8','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownB_062'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownB_062'+STR_Layer+'02'+STR_Name] = 'BG0301';
+_dm[?'TownB_062'+STR_Layer+'03'+STR_Name] = 'BG0403';
+_dm[?'TownB_062'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownB_062'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  063  ----------------------------
-_dm[?'TownB_063'+dk_BGR] = build_pal('0C4CC8','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownB_063'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownB_063'+STR_Layer+'02'+STR_Name] = 'BG0401';
+_dm[?'TownB_063'+STR_Layer+'03'+STR_Name] = 'BG0502';
+_dm[?'TownB_063'+STR_Layer+'04'+STR_Name] = 'BG0601';
 //  ----------------------------  064  ----------------------------
 //  ----------------------------  065  ----------------------------
 //  ----------------------------  066  ----------------------------
@@ -4147,7 +5751,11 @@ _dm[?'TownB_063'+dk_BGR] = build_pal('0C4CC8','00087C','000000','000000', C_YLW0
 //  ----------------------------  076  ----------------------------
 //  ----------------------------  077  ----------------------------
 //  ----------------------------  078  ----------------------------
-_dm[?'TownB_078'+dk_BGR] = build_pal('0C4CC8','00087C','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownB_078'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownB_078'+STR_Layer+'02'+STR_Name] = 'BG0303';
+_dm[?'TownB_078'+STR_Layer+'03'+STR_Name] = 'BG0401';
+_dm[?'TownB_078'+STR_Layer+'04'+STR_Name] = 'BG0502';
+_dm[?'TownB_078'+STR_Layer+'05'+STR_Name] = 'BG0601';
 //  ----------------------------  079  ----------------------------
 //  ----------------------------  080  ----------------------------
 //  ----------------------------  081  ----------------------------
@@ -4166,10 +5774,12 @@ _dm[?'TownB_078'+dk_BGR] = build_pal('0C4CC8','00087C','000000','000000', C_YLW0
 //  ----------------------------  094  ----------------------------
 //  ----------------------------  095  ----------------------------
 //  ----------------------------  096  ----------------------------
-_dm[?'TownB_096'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownB_096'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownB_096'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  097  ----------------------------
 //  ----------------------------  098  ----------------------------
-_dm[?'TownB_098'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','00087C','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','000000','000000', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
+_dm[?'TownB_098'+STR_Layer+'01'+STR_Name] = 'BG0201';
+_dm[?'TownB_098'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  099  ----------------------------
 //  ----------------------------  100  ----------------------------
 //  ----------------------------  101  ----------------------------
@@ -4331,7 +5941,7 @@ _dm[?'TownB_098'+dk_BGR] = build_pal('D8E800','888000','5C3C18','000000', C_YLW0
 
 
 
-ds_map_copy(dm_scene_palette, _dm);
+ds_map_copy(global.dm_tile_layer_data,_dm);
 ds_map_destroy(_dm); _dm=undefined;
 
 

@@ -6,6 +6,7 @@ with(g.QUIT_APP_MENU)
     switch(sub_state)
     {   // ---------------------------------------------------------------------------------------------
         case sub_state_IDLE_CLOSED:{ // ---------------------------------------------------------------------------------------------
+        will_go_to_continuesave = false;
         if (timer){timer--; break;}
         
         if (g.gui_state!=g.gui_state_QUIT_APP)
@@ -22,7 +23,7 @@ with(g.QUIT_APP_MENU)
                 {
                     with(Dev_PalettePicker)
                     {   // exiting these Dev_PalettePicker states gets priority
-                        _qual = state!=STATE_PKM1 && state!=STATE_PKM2 && state!=STATE_BGR_COLOR;
+                        _qual = state!=state_EDIT1A && state!=state_EDIT1B && state!=state_BGR_COLOR;
                     }
                 }
                 
@@ -133,12 +134,16 @@ with(g.QUIT_APP_MENU)
                     
                     f.death_count += lives;
                     lives = 0;
+                    
                     //sdm("update_QuitAppMenu() -> case sub_state_IDLE_CLOSED -> game_end()");
                     Audio.mus_rm_body = 0; // Need to do this so ContinueScreen music will play
-                    room_goto_(rmB_ContinueSave);
+                    
+                    will_go_to_continuesave = true;
+                    // Seems like the combination of get_saved_value() and room_goto_() can crash the app so I moved room_goto_(rmB_ContinueSave) to sub_state_CLOSING3
+                    //room_goto_(rmB_ContinueSave);
                 }
                 
-                break;//case sub_state_OPEN1
+                //break;//case sub_state_OPEN1
             }
             
             
@@ -207,7 +212,10 @@ with(g.QUIT_APP_MENU)
         anim_frame    = 0;
         cnt_draw_rows = 0;
         cursor_option = 0;
-        g.gui_state   = gui_state_backup;
+        g.gui_state = gui_state_backup;
+        
+        if (will_go_to_continuesave) room_goto_(rmB_ContinueSave);
+        will_go_to_continuesave = false;
         
         timer = 0;
         sub_state = sub_state_IDLE_CLOSED;

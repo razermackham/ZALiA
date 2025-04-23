@@ -22,7 +22,7 @@ if (state==STATE_PKM1
 
 // --------------------------------------------------------------------------------------
 // STATE_IDLE ONLY -------------------------------------------------------------
-if (isVal(state, STATE_PKM1,STATE_PKM2,STATE_BGR_COLOR)) // if in an edit mode
+if (isVal(state, state_EDIT1A,state_EDIT1B,state_BGR_COLOR)) // if in an edit mode
 {
     g.canDrawPalette = false;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

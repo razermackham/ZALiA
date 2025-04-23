@@ -4,9 +4,12 @@
 //if (keyboard_check_pressed(vk_f7))
 var _i,_j,_k,_m, _idx, _count, _area, _scene_name;
 var _str, _pos;
-var _dl_ts_data, _dm_ts_data, _dl_tile, _dl_layer_data, _dm_layer_data, _file, _file_name,_file_name1, _file_data;
+var _file, _file_name,_file_name1, _file_data;
+var _layer_count, _layer_name, _layer, _dl_layer_data, _dm_layer_data;
+
+var _dl_ts_data, _dm_ts_data, _dl_tile;
+var _tile_count, _tile_data, _tsrc, _tsrc_found, _ts_idx, _ts_name;
 var _dm_ts_info = ds_map_create();
-var _layer_count, _layer_name, _layer, _tile_count, _tile_data, _tsrc, _tsrc_found, _ts_idx, _ts_name;
 var _dl_tsrc  = ds_list_create();
 var _dl_tsrc1 = ds_list_create();
 var _dl_tiles1 = ds_list_create();

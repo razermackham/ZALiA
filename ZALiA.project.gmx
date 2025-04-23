@@ -11898,6 +11898,7 @@
       <script>scripts\scene_enter_add_tiles.gml</script>
       <script>scripts\tile_data_init.gml</script>
       <script>scripts\tile_data_init_1.gml</script>
+      <script>scripts\init_tile_layer_data.gml</script>
       <script>scripts\tile_add_.gml</script>
       <script>scripts\tile_add_2a.gml</script>
       <script>scripts\tile_delete_.gml</script>
@@ -13649,6 +13650,11 @@
       <script>scripts\Rando_randomize_items_1a.gml</script>
       <script>scripts\Rando_randomize_items_1a_1.gml</script>
       <script>scripts\Rando_randomize_items_2.gml</script>
+      <script>scripts\Rando_generate_hints.gml</script>
+      <script>scripts\Rando_randomize_dungeon_tilesets.gml</script>
+      <script>scripts\Rando_randomize_overworld_biomes.gml</script>
+      <script>scripts\Rando_randomize_scenes.gml</script>
+      <script>scripts\Rando_randomize_enemies.gml</script>
       <script>scripts\Rando_place_container_pieces.gml</script>
       <script>scripts\Rando_init_location_data.gml</script>
       <script>scripts\Rando_add_location.gml</script>
@@ -13704,14 +13710,11 @@
       <script>scripts\p_init.gml</script>
       <script>scripts\p_init_add_more_colors.gml</script>
       <script>scripts\p_Room_Start.gml</script>
-      <script>scripts\p_Room_Start_1.gml</script>
       <script>scripts\p_Room_End.gml</script>
       <script>scripts\p_Draw.gml</script>
       <script>scripts\p_Draw_1.gml</script>
       <script>scripts\p_Game_End.gml</script>
       <script>scripts\p_init_palette_data.gml</script>
-      <script>scripts\p_init_palette_data2.gml</script>
-      <script>scripts\palette_data_init.gml</script>
       <script>scripts\update_Pallete_1a.gml</script>
       <script>scripts\update_Pallete_1b.gml</script>
       <script>scripts\p_update_pal_seq.gml</script>
@@ -13722,13 +13725,11 @@
       <script>scripts\fall_scene_get_y_base.gml</script>
       <script>scripts\draw_falling_scene.gml</script>
       <script>scripts\palSpr_changeColors.gml</script>
-      <script>scripts\isPalSprColor.gml</script>
       <script>scripts\get_pi.gml</script>
       <script>scripts\add_pi_permut.gml</script>
       <script>scripts\get_pal_color.gml</script>
       <script>scripts\get_pal_pos.gml</script>
       <script>scripts\get_pal_col_pos.gml</script>
-      <script>scripts\request_pal_change.gml</script>
       <script>scripts\update_scene_palette.gml</script>
       <script>scripts\change_pal.gml</script>
       <script>scripts\set_pc_pal.gml</script>
@@ -13953,6 +13954,7 @@
         <script>scripts\db_Overworld_Draw_2a.gml</script>
       </scripts>
       <scripts name="tile">
+        <script>scripts\dev_automate_tile_layer_data.gml</script>
         <script>scripts\dev_list_tile_liquid_layers.gml</script>
         <script>scripts\debug_list_rms_using_permut_ts.gml</script>
         <script>scripts\dev_find_scenes_using_certain_tiles.gml</script>

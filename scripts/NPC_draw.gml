@@ -10,10 +10,12 @@ if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // Draw "?" over head of NPC that has an undescovered hint
-if (RandoHint_hint_num)
+if (global.RandoHints_enabled 
+&&  RandoHint_hint_num )
 {
     draw_text_(x-4, yt+RandoHint_ytoff, "?");
 }
+//val(_dm_Rando[?STR_Item+STR_Location+STR_Hint]);val(_dm_Rando[?STR_Zelda+STR_Hint]);
 /*
 if(!RandoHint_given)
 {

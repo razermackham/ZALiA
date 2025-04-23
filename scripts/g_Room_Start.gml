@@ -1894,7 +1894,7 @@ if (_ROOM_B1)
 if (_ROOM_A)
 {
     if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-    &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
+    &&  global.RandoHints_enabled )
     {
         _count = val(f.dm_rando[?STR_Rando+STR_Hint+STR_Count]);
         for(_i=1; _i<=_count; _i++)

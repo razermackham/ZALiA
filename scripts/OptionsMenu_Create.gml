@@ -633,6 +633,11 @@ ds_grid_resize(dg_RandoOptions, ds_grid_width(dg_RandoOptions)+1,ds_grid_height(
 dg_RandoOptions[#ds_grid_width(dg_RandoOptions)-1,0] = "MARK ACQUIRED ITEM";
 dg_RandoOptions[#ds_grid_width(dg_RandoOptions)-1,1] = _font;
 //                                          //
+RandoOptions_HINTS            = ds_grid_width(dg_RandoOptions);
+ds_grid_resize(dg_RandoOptions, ds_grid_width(dg_RandoOptions)+1,ds_grid_height(dg_RandoOptions));
+dg_RandoOptions[#ds_grid_width(dg_RandoOptions)-1,0] = "ITEM LOCATION HINTS";
+dg_RandoOptions[#ds_grid_width(dg_RandoOptions)-1,1] = _font;
+//                                          //
 RandoOptions_MAPS_SHOW_KEYS   = ds_grid_width(dg_RandoOptions);
 ds_grid_resize(dg_RandoOptions, ds_grid_width(dg_RandoOptions)+1,ds_grid_height(dg_RandoOptions));
 dg_RandoOptions[#ds_grid_width(dg_RandoOptions)-1,0] = "KEYSANITY - MAPS SHOW KEYS";
@@ -641,6 +646,11 @@ dg_RandoOptions[#ds_grid_width(dg_RandoOptions)-1,1] = _font;
 RandoOptions_RANDO_ENEMY      = ds_grid_width(dg_RandoOptions);
 ds_grid_resize(dg_RandoOptions, ds_grid_width(dg_RandoOptions)+1,ds_grid_height(dg_RandoOptions));
 dg_RandoOptions[#ds_grid_width(dg_RandoOptions)-1,0] = "ENEMY RANDO       ";
+dg_RandoOptions[#ds_grid_width(dg_RandoOptions)-1,1] = _font;
+//                                          //
+RandoOptions_DUNGEON_TILESETS = ds_grid_width(dg_RandoOptions);
+ds_grid_resize(dg_RandoOptions, ds_grid_width(dg_RandoOptions)+1,ds_grid_height(dg_RandoOptions));
+dg_RandoOptions[#ds_grid_width(dg_RandoOptions)-1,0] = "RANDO DUNGEON TILSETS";
 dg_RandoOptions[#ds_grid_width(dg_RandoOptions)-1,1] = _font;
 //                                          //
 RandoOptions_RANDO_OW_TILES   = ds_grid_width(dg_RandoOptions);

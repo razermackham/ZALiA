@@ -110,7 +110,7 @@ if (g.dungeon_num
     case  7:{TILESET=ts_DungeonG01; break;}
     }//switch(_DUNGEON_NUM)
     
-    if (val(f.dm_rando[?STR_Randomize+STR_Dungeon+STR_Tileset]))
+    if (global.RandoDungeonTilesets_enabled)
     {
         TILESET = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(TILESET)], TILESET)
     }

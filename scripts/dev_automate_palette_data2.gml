@@ -27,10 +27,10 @@ var _SINGLE_SCENE = undefined;
 _SINGLE_SCENE = Area_TownA+"129"; // use this line only for getting data for a single scene
 
 
-sdm("");
+repeat(1) sdm("");
 
 //sdm("var _SET1 = global.PAL_COL_SET_A;");
-sdm("");sdm("");sdm("");sdm("");
+repeat(4) sdm("");
 
 //sdm("//                                [             BGR1            ] +  [             BGR2            ] +  [             BGR3            ] +  [             BGR4            ] +  [           MOB_ORG           ] +  [           MOB_RED           ] +  [           MOB_BLU           ] +  [           MOB_PUR           ]");
 
@@ -152,7 +152,7 @@ for(_i=0; _i<_AREA_COUNT; _i++)
         if(!is_undefined(_SINGLE_SCENE)) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     
-    sdm("");sdm("");sdm("");sdm("");sdm("");sdm("");sdm("");sdm("");
+    repeat(8) sdm("");
 }
 //dm_scene_palette[?'WestA_000'] = build_pal('FCFCFC'+'BCBCBC'+'747474'+C_BLK0_ +C_YLW0_ +C_MGN0_ +C_BLK0_ +C_CYN0_   +  'FC88CC'+'9C0044'+C_BLK0_ +C_BLK0_ +C_YLW0_ +C_MGN0_ +C_BLK0_ +C_CYN0_   +  'B0BCFC'+'0028D8'+'00087C'+C_BLK0_ +C_YLW0_ +C_MGN0_ +C_BLK0_ +C_CYN0_   +  'FCFCFC'+'D8E800'+'5C3C18'+C_BLK0_ +C_YLW0_ +C_MGN0_ +C_BLK0_ +C_CYN0_ ;
 

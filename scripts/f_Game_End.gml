@@ -182,6 +182,11 @@ if (_exists)                 ds_map_destroy(dm_target_game);
 if (_exists)                                dm_target_game = undefined;
 */
 
+if (ds_exists( global.dm_save_file_data,ds_type_map)){
+ds_map_destroy(global.dm_save_file_data);
+               global.dm_save_file_data=undefined;
+}
+
 
 
 

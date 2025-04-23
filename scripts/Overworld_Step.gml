@@ -8,7 +8,8 @@ var _clm,_row, _rm_clm,_rm_row, _pc_clm,_pc_row, _owrc,_owrc1, _ow_clm,_ow_row, 
 var _dir;
 var _tsrc,_tsrc1, _tid;
 var _str, _datakey, _data;
-var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
+var _RANDO_TSRC_ACTIVE = global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
+//var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
 
 
 // -------------------------------------------------------------------
@@ -83,80 +84,34 @@ if (_C1  // _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
                 mot       = MOT_WALK;
                 move_distance = 0;
                 
-                _tsrc = dg_tsrc[#_pc_clm,_pc_row];
+                _tsrc  = dg_tsrc[#_pc_clm,_pc_row];
                 _tsrc1 = _tsrc&$FF;
                 
-                if (_RANDO_TSRC_ACTIVE)
+                if (_tsrc1==TSRC_SWAM01 
+                ||  _tsrc1==TSRC_SWAM02 
+                ||  _tsrc1==TSRC_SWAM03 
+                ||  _tsrc1==TSRC_SWAM04 )
                 {
-                    move_spd = MOVE_SPD_1;
-                    move_speed = move_SPEED1;
-                }
-                else
-                {
-                    if (_tsrc1==TSRC_SWAM01 
-                    ||  _tsrc1==TSRC_SWAM02 
-                    ||  _tsrc1==TSRC_SWAM03 
-                    ||  _tsrc1==TSRC_SWAM04 )
-                    {
-                        move_spd = MOVE_SPD_2;
-                        move_speed = move_SPEED2;
-                        if (f.items&ITM_BOOT 
-                        &&  val(f.dm_rando[?STR_Rando+STR_Active]) )
-                        {
-                            if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-                            ||  val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations]) 
-                            ||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Method]) )
-                            //||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawner])
-                            //||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_ENIGMA]) )
-                            {
-                                move_speed = move_SPEED3;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        move_spd = MOVE_SPD_1;
-                        move_speed = move_SPEED1;
-                    }
-                }
-                /*
-                if (_RANDO_TSRC_ACTIVE)
-                {
-                    _val1 = ((_tsrc&$FF)>>2)<<2;
-                    _val1 = val(dm_Rando_TSRC[?hex_str(_val1)]);
-                    if (_val1) _tsrc = _val1;
-                }
-                
-                if (_tsrc==TSRC_SWAM01 
-                ||  _tsrc==TSRC_SWAM02 
-                ||  _tsrc==TSRC_SWAM03 
-                ||  _tsrc==TSRC_SWAM04 )
-                {
-                    move_spd = MOVE_SPD_2;
+                    move_spd   = MOVE_SPD_2;
                     move_speed = move_SPEED2;
-                    if (f.items&ITM_BOOT 
-                    &&  val(f.dm_rando[?STR_Rando+STR_Active]) )
+                    
+                    if (_RANDO_TSRC_ACTIVE)
                     {
-                        if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-                        ||  val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations]) 
-                        ||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Method]) )
-                        //||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawner])
-                        //||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_ENIGMA]) )
-                        {
-                            move_speed = move_SPEED3;
-                        }
+                        move_spd   = MOVE_SPD_1;
+                        move_speed = move_SPEED1;
+                        //move_speed = move_SPEED3;
                     }
                 }
                 else
                 {
-                    move_spd = MOVE_SPD_1;
+                    move_spd   = MOVE_SPD_1;
                     move_speed = move_SPEED1;
                 }
-                */
             }
         }
     }
 }
+
 
 
 
@@ -386,6 +341,7 @@ if(!dest_dist
 
 
 
+
 // --------------------------------------------------------------------------------
 if(!flute_timer)
 {
@@ -418,11 +374,6 @@ if(!flute_timer)
     pc_sprite_idx = pc_sprite_idx<<1;
     if (dest_dist && dest_dist<(T_SIZE>>1)) pc_sprite_idx++;
 }
-
-
-
-
-
 
 
 
@@ -470,10 +421,17 @@ if (_IS_MOVE_FRAME)
 
 
 
+
+
+
+
+
 // --------------------------------------------------------------------------------
 // UPDATE ENCOUNTER OBJS --------------------------------------------------
 Overworld_enc_spawn_update();
 Overworld_enc_inst_update();
+
+
 
 
 
@@ -542,9 +500,6 @@ if (_IS_MOVE_FRAME)
         }
     }
 }
-
-
-
 
 
 
@@ -627,6 +582,9 @@ if (flute_timer)
         }
     }
 }
+
+
+
 
 
 
@@ -726,6 +684,7 @@ switch(Warp_state)
 }
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
+
 
 
 
@@ -925,13 +884,6 @@ if (g.anarkhyaOverworld_MAIN
 
 
 
-
-
-
-
-
-
-
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
 if (g.room_type=="C" 
@@ -959,8 +911,6 @@ if (g.room_type=="C"
     // if lined up with the grid this frame after moving, relative to T_SIZE
     if!(dest_dist&_OFF) Overworld_refresh_tiles(_ow_x,_ow_y);
 }
-// -------------------------------------------------------------------
-// -------------------------------------------------------------------
 
 
 

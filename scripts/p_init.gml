@@ -1583,7 +1583,7 @@ if (0) // *** Turning this off because rando seems to be picking them too often
 
 // Record palettes in each scene's Tiled file into dm_scene_palette 
 // so it's quicker to get palette data.
-p_init_palette_data2();
+p_init_palette_data();
 //dev_automate_palette_data2(); // automates code for p_init_palette_data2()
 
 

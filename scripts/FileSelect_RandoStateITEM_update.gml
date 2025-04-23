@@ -32,12 +32,17 @@ if (input_select_pressed
             ||  RandoITEM_cursor==RandoITEM_KEYS 
             ||  RandoITEM_cursor==RandoITEM_DARKROOM 
             ||  RandoITEM_cursor==RandoITEM_OBSCURE_LOCS 
-            //||  RandoITEM_cursor==RandoITEM_METHOD 
             ||  RandoITEM_cursor==RandoITEM_HINTS 
             ||  RandoITEM_cursor==RandoITEM_ZELDA_HINT )
             {
-                continue;
+                continue;//_i
             }
+        }
+        
+        if(!dg_RandoITEM_Options[#RandoITEM_HINTS,2] 
+        &&  RandoITEM_cursor!=RandoITEM_ZELDA_HINT )
+        {
+            continue;//_i
         }
         
         if (dg_RandoITEM_Options[#RandoITEM_cursor,2]>=0) break; // option is available
@@ -128,7 +133,7 @@ switch(RandoITEM_cursor)
     case RandoITEM_ZELDA_HINT:{
     if (_InputConfirm_pressed2)
     {
-        _val  = dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2];
+        _val = dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2];
         for(var _i=0; _i<RandoITEM_ZELDA_HINT_COUNT; _i++)
         {
             _val += RandoITEM_ZELDA_HINT_COUNT;

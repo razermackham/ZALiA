@@ -824,11 +824,24 @@ switch(g.cutscene_part)
             
             
             
+            
+            
+            
+            
+            var _settings = "";
+            
+            var _SEED = get_saved_value(_FILE_NUM, get_file_seed_dk(_FILE_NUM,_QUEST_NUM), "undefined");
+            if (is_string(_SEED))
+            {   // Just in case a value wasn't found.
+                _SEED = val(f.dm_rando[?STR_Rando+STR_Seed], RUN_RANDOMIZATION_SEED);
+                if (f.quest_num==1) _SEED ^= $FFFFFFFF;
+            }
+            
             //sdm("val(f.dm_rando[?STR_Rando+STR_Active]) = "+string(val(f.dm_rando[?STR_Rando+STR_Active]))+",  is_undefined(f.dm_rando[?STR_Rando+STR_Settings]) = "+string(is_undefined(f.dm_rando[?STR_Rando+STR_Settings])));
             if (val(f.dm_rando[?STR_Rando+STR_Active]))
             //if (get_saved_value(_FILE_NUM, STR_Rando+STR_Active, false))
             {
-                var _settings = f.dm_rando[?STR_Rando+STR_Settings]; // json encoded map
+                _settings = f.dm_rando[?STR_Rando+STR_Settings]; // json encoded map
                 if(!is_undefined(_settings))
                 {
                     var _spell_bit, _spell_name, _datakey;
@@ -942,10 +955,11 @@ switch(g.cutscene_part)
                     ds_map_destroy(_dm_SETTINGS);_dm_SETTINGS=undefined;
                     //f.dm_rando[?STR_Rando+STR_Settings] = _settings;
                     
+                    /*
                     var _SEED = get_saved_value(_FILE_NUM, get_file_seed_dk(_FILE_NUM,_QUEST_NUM), "undefined");
                     if (is_string(_SEED))
                     {   // Just in case a value wasn't found.
-                        _SEED  = val(f.dm_rando[?STR_Rando+STR_Seed], RUN_RANDOMIZATION_SEED);
+                        _SEED = val(f.dm_rando[?STR_Rando+STR_Seed], RUN_RANDOMIZATION_SEED);
                         if (f.quest_num==1) _SEED ^= $FFFFFFFF;
                     }
                     //var _SEED = get_saved_value(_FILE_NUM, get_file_seed_dk(_FILE_NUM,_QUEST_NUM), RUN_RANDOMIZATION_SEED);
@@ -956,7 +970,15 @@ switch(g.cutscene_part)
                         Rando_randomize_file(_FILE_NUM, _QUEST_NUM, _SEED, _settings);
                         instance_destroy();
                     }
+                    */
                 }
+            }
+            
+            
+            with(instance_create(0,0,Rando))
+            {
+                Rando_randomize_file(_FILE_NUM, _QUEST_NUM, _SEED, _settings);
+                instance_destroy();
             }
         }
         

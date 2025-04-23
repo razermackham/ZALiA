@@ -14,7 +14,7 @@ if(!_CLOSE
 if (_CLOSE)
 {
     aud_play_sound(get_audio_theme_track(BACK_SOUND_THEME1));
-    timer=0;
+    timer = 0;
     sub_state=sub_state_CLOSING1; // Start close menu
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -42,8 +42,8 @@ switch(MainOption)
                 can_play_boss_music_at_open_RandomCustom = Audio.can_play_boss_music;
                 Audio.can_play_boss_music  = false;
                 
-                timer=0;
-                Menu_in_focus=Menu_AUDIO_CUSTOM;
+                timer = 0;
+                Menu_in_focus = Menu_AUDIO_CUSTOM;
                 exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
         }
@@ -58,8 +58,8 @@ switch(MainOption)
     {
         InputConfigOption = InputConfigOption_RIGHT;
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
-        timer=0;
-        Menu_in_focus=Menu_INPUT_CONFIG;
+        timer = 0;
+        Menu_in_focus = Menu_INPUT_CONFIG;
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     break;}//case MainOption_INPUT_CONFIG
@@ -72,8 +72,8 @@ switch(MainOption)
     {
         DevTools_cursor = DevTools_DEV_TOOLS_STATE;
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
-        timer=0;
-        Menu_in_focus=Menu_DEV_TOOLS;
+        timer = 0;
+        Menu_in_focus = Menu_DEV_TOOLS;
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     break;}//case MainOption_DEV_TOOLS
@@ -84,11 +84,17 @@ switch(MainOption)
     ||  keyboard_check_pressed(vk_space) 
     ||  keyboard_check_pressed(vk_enter) )
     {
+        for(RandoOptions_cursor=0; RandoOptions_cursor<RandoOptions_COUNT; RandoOptions_cursor++)
+        {
+            if (OptionsMenu_option_is_avail(Menu_RANDO_OPTIONS,RandoOptions_cursor))
+            {
+                break;//RandoOptions_cursor
+            }
+        }
         RandoOptions_state = RandoOptions_state_MAIN;
-        RandoOptions_cursor = 0;
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
-        timer=0;
-        Menu_in_focus=Menu_RANDO_OPTIONS;
+        timer = 0;
+        Menu_in_focus = Menu_RANDO_OPTIONS;
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     break;}//case MainOption_RANDO_OPTIONS

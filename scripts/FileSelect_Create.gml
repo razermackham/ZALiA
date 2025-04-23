@@ -8,6 +8,7 @@ var _X,_Y;
 var _ver, _file_num;
 var _default=0;
 var _datakey1,_datakey2;
+var _file_name, _file, _file_data;
 
 //instance_create(0,0, ValDispaly);
 
@@ -55,7 +56,6 @@ State_ELIMINATE = _i++;
 state           = State_NULL;
 state_pending   = State_MAIN;
 state_previous  = state;
-
 
 
 
@@ -380,8 +380,8 @@ for(_file_num=1; _file_num<=SAVE_FILE_MAX; _file_num++)
 
 // -------------------------------------------------
 dg_stats = ds_grid_create(SAVE_FILE_MAX,7);
-//for(_i=SAVE_FILE_MAX-1;_i>=0;_i--){for(_j=6;_j>=0;_j--) stats[_i,_j]=0;}
 FS_set_stats();
+
 
 dl_spr_statIcon = ds_list_create();
 ds_list_add(dl_spr_statIcon,global.SPR_ICON_ATK);

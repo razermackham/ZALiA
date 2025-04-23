@@ -35,7 +35,7 @@ InputBack_pressed    = input_b_pressed || keyboard_check_pressed(vk_escape) || k
 if (state==State_NULL 
 &&  g.counter1==cue_change_state )
 {
-    state       = state_pending;
+    state = state_pending;
     cursor_name = 0;
     cursor_char = 0;
     cue_change_state = -1;
@@ -49,8 +49,8 @@ if (state==State_NULL
     FileSelect_cursor_move(state,1);
     
     
-    if (state_previous != State_RANDO 
-    &&  state_pending  != State_RANDO )
+    if (state_previous!=State_RANDO 
+    &&  state_pending !=State_RANDO )
     { // In case of a scenario where changing/creating a save file name was not finalized
         for(_i=0; _i<SAVE_FILE_MAX; _i++)
         {
@@ -60,16 +60,10 @@ if (state==State_NULL
     
     
     
-    if (state==State_MAIN) FS_set_stats();
-    /*
-    switch(state){
-    default:{sprite_index=0; break;}
-    case   State_MAIN:     {sprite_index=SPR_MAIN; break;}
-    case   State_REGISTER: {sprite_index=SPR_REGI; break;}
-    //case   State_RANDO:    {sprite_index=SPR_RAND; break;}
-    case   State_ELIMINATE:{sprite_index=SPR_ELIM; break;}
+    if (state==State_MAIN)
+    {
+        FS_set_stats();
     }
-    */
     
     if (state!=State_REGISTER 
     &&  state!=State_RANDO )

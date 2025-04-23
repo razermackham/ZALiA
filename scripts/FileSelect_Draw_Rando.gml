@@ -221,8 +221,10 @@ switch(RandoState)
             
             // -------------------------------------------------
             case RandoITEM_ZELDA_HINT:{
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2]) _pi= PI_MENU;
-            else                                         _pi=_PI_DARK1;
+            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2] 
+            &&  dg_RandoITEM_Options[#RandoITEM_HINTS,2] )
+            {    _pi= PI_MENU;  }
+            else _pi=_PI_DARK1;
             draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
             
             

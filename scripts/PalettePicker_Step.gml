@@ -46,24 +46,30 @@ var _EDIT_REQUESTED_BGR = (Input.GP_Other5_held && Input.GP_Other3_held && Input
 if (timer) timer--;
 
 
+// This updates here in case `global.palette_image_w` has changed since `PalettePicker_Create()`
+PALS2_w = global.palette_image_w * PALS2_SCALE;
+
+
 
 
 // --------------------------------------------------------------------
-if (isVal(state, STATE_PKM1,STATE_PKM2,STATE_BGR_COLOR))
+if (state==state_EDIT1A 
+||  state==state_EDIT1B 
+||  state==state_BGR_COLOR )
 {
     var _CANCEL = keyboard_check_pressed(vk_backspace) || keyboard_check_pressed(vk_escape);
     
     
     g.canDrawPalette = false;
     
-    if (state==STATE_PKM1)
+    if (state==state_EDIT1A)
     {
         //col_idx_old_col = str_hex(p.pal_rm_curr, PalettePicker_pal_col_pos()-1);
         col_idx_old_col = str_hex(string_copy(p.pal_rm_curr, PalettePicker_pal_col_pos(), 2));
         pal_curs_col    = p.dl_COLOR[|col_idx_old_col];
     }
     
-    col_idx_new_col = ((col_curs_idx div COLOR_GRID_W)<<4) | (col_curs_idx mod COLOR_GRID_W);
+    col_idx_new_col = ((col_curs_idx div ColorGrid_W)<<4) | (col_curs_idx mod ColorGrid_W);
     col_curs_col    = p.dl_COLOR[|col_idx_new_col];
 }
 
@@ -92,7 +98,7 @@ switch(state)
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
-    case STATE_IDLE:{
+    case state_IDLE:{
     if (timer) break;
     
     
@@ -103,7 +109,7 @@ switch(state)
             pal_at_sess_start = p.pal_rm_curr;
             
             timer = DELAY1_DUR; // Delay any input reaction in next state.
-            state = STATE_PKM1;
+            state = state_EDIT1A;
             break;
         }
         
@@ -112,7 +118,7 @@ switch(state)
             bgr_at_sess_start = max(0,ds_list_find_index(p.dl_COLOR,background_colour));
             
             timer = DELAY1_DUR; // Delay any input reaction in next state.
-            state = STATE_BGR_COLOR;
+            state = state_BGR_COLOR;
             break;
         }
         
@@ -138,7 +144,7 @@ switch(state)
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
-    case STATE_PKM1:{ // Choose a palette's color to change
+    case state_EDIT1A:{ // Choose a palette's color to change
     if (timer) break;
     
     
@@ -170,7 +176,7 @@ switch(state)
         
         
         timer = DELAY1_DUR; // Delay any input reaction in next state.
-        state = STATE_IDLE;
+        state = state_IDLE;
         break;
     }
     
@@ -184,10 +190,10 @@ switch(state)
     {
         pal_before_edit_color = p.pal_rm_curr;
         pal_in_editor         = p.pal_rm_curr;
-        col_curs_idx = ((col_idx_old_col>>4)*COLOR_GRID_W) + (col_idx_old_col&$F);
+        col_curs_idx = ((col_idx_old_col>>4)*ColorGrid_W) + (col_idx_old_col&$F);
         
         timer = DELAY2_DUR; // DELAY2_DUR: $20.  Delay any input reaction in next state.
-        state = STATE_PKM2;
+        state = state_EDIT1B;
         break; // Selecting a palette color to edit gets priority.
     }
     
@@ -236,7 +242,7 @@ switch(state)
         if (_Input1_HELD   //  Input.trig_LH
         && !_Input2_HELD ) // !Input.trig_RH
         {
-            var _POS  = (pal_curs_idx mod PAL_CNT) + PI_OFFSET;
+            var _POS  = (pal_curs_idx mod PAL_COUNT) + PI_OFFSET;
                 _POS *= global.COLORS_PER_PALETTE;
                 //_POS += COL_PER_PAL-COL_PER_PAL_;
                 _POS  = (_POS<<1)+1; // because string pos
@@ -305,7 +311,7 @@ switch(state)
         
         if (_Input1_HELD) // Input.trig_LH
         {
-            var _POS  = (pal_curs_idx mod PAL_CNT) + PI_OFFSET;
+            var _POS  = (pal_curs_idx mod PAL_COUNT) + PI_OFFSET;
                 _POS *= global.COLORS_PER_PALETTE;
                 _POS += 1;
                 _POS  = (_POS<<1)+1; // because string pos
@@ -322,7 +328,7 @@ switch(state)
             
             if (_Input1_HELD) // Input.trig_LH
             {    _hms = _i;  }
-            else _hms = pal_curs_idx mod PAL_CNT;
+            else _hms = pal_curs_idx mod PAL_COUNT;
             
             switch(_hms)
             {
@@ -360,7 +366,7 @@ switch(state)
     
     // MOVE CURSOR  ------------------------------------------------------
     // --------------------------------------------------------------------------
-    pal_curs_idx = PalettePicker_update_cursor(pal_curs_idx, PAL_CNT,COL_PER_PAL_);
+    pal_curs_idx = PalettePicker_update_cursor(pal_curs_idx, PAL_COUNT,global.COLORS_PER_PALETTE);
     break;}
     
     
@@ -381,7 +387,7 @@ switch(state)
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
-    case STATE_PKM2:{ // Choose a new color for the palette color
+    case state_EDIT1B:{ // Choose a new color for the palette color
     PalettePicker_Step_1a();
     
     
@@ -411,7 +417,7 @@ switch(state)
             //pal_before_edit_color = "";
             
             timer = DELAY1_DUR; // Delay any input reaction in next state.
-            state = STATE_PKM1;
+            state = state_EDIT1A;
             break;
         }
         
@@ -426,7 +432,7 @@ switch(state)
             }
             
             timer = DELAY2_DUR; // Delay any input reaction in next state.
-            state = STATE_PKM1;
+            state = state_EDIT1A;
             break; // Selecting a palette color to edit gets priority.
         }
     }
@@ -435,11 +441,11 @@ switch(state)
     
     // MOVE CURSOR ------------------------------------------------------------------
         col_curs_idx_prev = col_curs_idx;
-        col_curs_idx  = PalettePicker_update_cursor(col_curs_idx, COLOR_GRID_W,COLOR_GRID_H);
+        col_curs_idx  = PalettePicker_update_cursor(col_curs_idx, ColorGrid_W,ColorGrid_H);
     
     if (col_curs_idx!=col_curs_idx_prev)
     {
-        var _COL = ((col_curs_idx div COLOR_GRID_W)<<4) | (col_curs_idx mod COLOR_GRID_W);
+        var _COL = ((col_curs_idx div ColorGrid_W)<<4) | (col_curs_idx mod ColorGrid_W);
         var _POS = PalettePicker_pal_col_pos();
         pal_in_editor = change_pal(strReplaceAt(p.pal_rm_new, _POS, 2, hex_str(_COL)));
         
@@ -469,7 +475,7 @@ switch(state)
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
-    case STATE_BGR_COLOR:{ // Choose a new color for the background
+    case state_BGR_COLOR:{ // Choose a new color for the background
     if (timer) break;
     
     PalettePicker_Step_1a();
@@ -502,7 +508,7 @@ switch(state)
         //ds_list_clear(dl_hist_sess);
         
         timer = DELAY1_DUR; // Delay any input reaction in next state.
-        state = STATE_IDLE;
+        state = state_IDLE;
         break;
     }
     
@@ -528,13 +534,13 @@ switch(state)
     
     // MOVE CURSOR ------------------------------------------------------------------
         col_curs_idx_prev = col_curs_idx;
-        col_curs_idx = PalettePicker_update_cursor(col_curs_idx, COLOR_GRID_W,COLOR_GRID_H);
+        col_curs_idx = PalettePicker_update_cursor(col_curs_idx, ColorGrid_W,ColorGrid_H);
     
     if (col_curs_idx!=col_curs_idx_prev)
     {
-        //var _COL = ((col_curs_idx div COLOR_GRID_W)<<4) | (col_curs_idx mod COLOR_GRID_W);
+        //var _COL = ((col_curs_idx div ColorGrid_W)<<4) | (col_curs_idx mod ColorGrid_W);
         //var _POS = PalettePicker_pal_col_pos();
-        bgr_in_editor = ((col_curs_idx div COLOR_GRID_W)<<4) | (col_curs_idx mod COLOR_GRID_W);
+        bgr_in_editor = ((col_curs_idx div ColorGrid_W)<<4) | (col_curs_idx mod ColorGrid_W);
         //bgr_in_editor = col_curs_idx;
         set_background_color(p.dl_COLOR[|bgr_in_editor]);
         //p.background_color_index = bgr_in_editor;

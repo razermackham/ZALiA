@@ -22,7 +22,8 @@ var _dk, _str;
 var _tsrc;
 var _rm_name;
 var _biome;
-var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
+var _RANDO_TSRC_ACTIVE = global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
+//var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
 
 var _PC_DIR_SIGN_X = bit_dir(pc_dir&$3);
 var _PC_DIR_SIGN_Y = bit_dir(pc_dir&$C);

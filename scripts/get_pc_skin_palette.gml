@@ -36,8 +36,8 @@ if (_Skin_IDX>=0)
             //var _Skin_palette = p.PAL_PC_1+p.PAL_PC_2+p.PAL_PC_3; // default
                 _Skin_palette = val(g.pc.dm_skins[?string(_DATAKEY)  +STR_Palette], _Skin_palette);
                 _Skin_palette = val(g.pc.dm_skins[?hex_str(_Skin_IDX)+STR_Palette], _Skin_palette);
-            if (g.RandoPalette_state 
-            &&  val(f.dm_rando[?STR_Randomize+STR_Palette]) )
+            if (g.RandoPalette_state)
+            //&&  val(f.dm_rando[?STR_Randomize+STR_Palette]) )
             {
                 var _PC_RANDO_PALETTE = f.dm_rando[?STR_Palette+"_PC"+"01"];
                 if(!is_undefined(_PC_RANDO_PALETTE))

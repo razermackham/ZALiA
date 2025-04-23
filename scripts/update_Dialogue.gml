@@ -196,30 +196,33 @@ switch(g.menu_state)
     
     var _RANDO_HINT_DIALOGUE_DK = undefined;
     
-    if (val(f.dm_rando[?STR_Zelda+STR_Hint]) 
-    &&  ((_TYPE==TYPE_ZLDA2 && dialogue_ver=="01") || g.dialogue_source.dialogue_datakey==STR_Zelda+STR_Hint) )
+    if (global.RandoHints_enabled)
     {
-        _dialogue_is_special = true;
-        _RANDO_HINT_DIALOGUE_DK = STR_Zelda+STR_Hint;
-        dialogue = val(f.dm_rando[?_RANDO_HINT_DIALOGUE_DK+STR_Dialogue]);
-    }
-    else
-    {
-        if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-        &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
+        if (val(f.dm_rando[?STR_Zelda+STR_Hint]) 
+        &&  ((_TYPE==TYPE_ZLDA2 && dialogue_ver=="01") || g.dialogue_source.dialogue_datakey==STR_Zelda+STR_Hint) )
         {
-            _val = f.dm_rando[?STR_Rando+STR_Hint+g.dialogue_source.dialogue_datakey];
-            if(!is_undefined(_val))
+            _dialogue_is_special = true;
+            _RANDO_HINT_DIALOGUE_DK = STR_Zelda+STR_Hint;
+            dialogue = val(f.dm_rando[?_RANDO_HINT_DIALOGUE_DK+STR_Dialogue]);
+        }
+        else
+        {
+            if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
+            &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
             {
-                _dialogue_is_special = true;
-                _RANDO_HINT_DIALOGUE_DK = g.dialogue_source.dialogue_datakey;
-                dialogue = _val;
-            }
-            else if (val(dm_dialogue[?_DIALOGUE_DK+STR_Hint]))
-            {
-                if (isVal(g.town_name,STR_Rauru,STR_Saria,STR_Darunia))
-                {    dialogue = "SORRY,<NOTHING.";  }
-                else dialogue = "SORRY.<I KNOW<NOTHING.";
+                _val = f.dm_rando[?STR_Rando+STR_Hint+g.dialogue_source.dialogue_datakey];
+                if(!is_undefined(_val))
+                {
+                    _dialogue_is_special = true;
+                    _RANDO_HINT_DIALOGUE_DK = g.dialogue_source.dialogue_datakey;
+                    dialogue = _val;
+                }
+                else if (val(dm_dialogue[?_DIALOGUE_DK+STR_Hint]))
+                {
+                    if (isVal(g.town_name,STR_Rauru,STR_Saria,STR_Darunia))
+                    {    dialogue = "SORRY,<NOTHING.";  }
+                    else dialogue = "SORRY.<I KNOW<NOTHING.";
+                }
             }
         }
     }

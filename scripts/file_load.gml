@@ -104,22 +104,47 @@ ds_map_clear(g.dm_RandoHintsRecorder);
 
 
 
+
+
+// ===================================================================
+// RANDO -----------------------------------------------------------
 ds_map_clear(f.dm_rando);
-//ds_map_clear(g.overworld.dm_rando_locations);
-//p.Rando_palettes = 0;
-
-
 var _QUEST_KEY = STR_Quest+hex_str(f.quest_num);
+
+var              _rando_data = _dm_file_data[?_QUEST_KEY+STR_Rando+STR_Data];
+if(!is_undefined(_rando_data))
+{
+    var _dm_rando = json_decode(_rando_data);
+    ds_map_copy(f.dm_rando,_dm_rando);
+    ds_map_destroy(_dm_rando); _dm_rando=undefined;
+}
+
+
+
+
+// Hints ---------------------------------------------------------
+ds_map_clear(g.dm_RandoHintsRecorder);
+var _FOUND_HINTS = _dm_file_data[?STR_Found+STR_Hint];
+if(!is_undefined(_FOUND_HINTS)) g.dm_RandoHintsRecorder = json_decode(_FOUND_HINTS);
+
+
+
+
+// Overworld Biomes ----------------------------------------------
+_val = f.dm_rando[?STR_Overworld+STR_TSRC+STR_Randomized];
+if(!is_undefined(_val))
+{
+    ds_map_clear(g.overworld.dm_Rando_TSRC);
+    g.overworld.dm_Rando_TSRC = json_decode(_val);
+}
+
+
+
+
 if (val(_dm_file_data[?STR_Rando+STR_Active]))
 //if (val(_dm_file_data[?_QUEST_KEY+STR_Rando+STR_Active]))
 {
-    var _DEBUG_RANDO=true;
-    
-    
-    ds_map_clear(g.dm_RandoHintsRecorder);
-    var _FOUND_HINTS = _dm_file_data[?STR_Found+STR_Hint];
-    if(!is_undefined(_FOUND_HINTS)) g.dm_RandoHintsRecorder=json_decode(_FOUND_HINTS);
-    
+    var _DEBUG_RANDO = true;
     
     var              _rando_data = _dm_file_data[?_QUEST_KEY+STR_Rando+STR_Data];
     if(!is_undefined(_rando_data))
@@ -127,89 +152,46 @@ if (val(_dm_file_data[?STR_Rando+STR_Active]))
         var _obj, _str;
         var _item_id, _item_datakey,_item_datakey1, _item_datakey_base, _spawn_datakey,_spawn_datakey1;
         var _town_name;
-        var _dm_rando = json_decode(_rando_data);
-        
-        ds_map_copy(f.dm_rando,_dm_rando);
-        f.dm_rando[?STR_Rando+STR_Active]=true;
         
         
+        f.dm_rando[?STR_Rando+STR_Active] = true;
         
         
-        // Overworld Biomes ----------------------------------------------
-        _val=f.dm_rando[?STR_Overworld+STR_TSRC+STR_Randomized];
-        if(!is_undefined(_val))
-        {
-            ds_map_clear(g.overworld.dm_Rando_TSRC);
-            g.overworld.dm_Rando_TSRC=json_decode(_val);
-        }
-        
-        
-        
-        
-        
-        
-        
-        // Palettes ----------------------------------------------
-        /*
-        _datakey=STR_Palette;
-        if (val(_dm_rando[?STR_Randomize+_datakey]))
-        {
-            _datakey += STR_Dungeon;
-            for(_i=0; _i<=7; _i++)
-            {
-                _val  = _dm_rando[?_datakey+hex_str(_i+1)];
-                if(!is_undefined(_val))
-                {
-                    
-                }
-            }
-        }
-        */
-        
-        
-        
-        
-        
-        
-        // Enemy Characters ----------------------------------------------
-        //_datakey=STR_Enemy+STR_Character;
-        //if (val(_dm_rando[?STR_Randomize+_datakey]))
         
         
         // Enemy HP ----------------------------------------------
         _datakey=STR_Enemy+STR_HP;
-        if (val(_dm_rando[?STR_Randomize+_datakey]))
+        if (val(f.dm_rando[?STR_Randomize+_datakey]))
         {
             for(_i=ds_list_size(g.dl_HP)-1; _i>=0; _i--)
             {
-                g.dl_HP[|_i] = val(_dm_rando[?_datakey+hex_str(_i)]);
+                g.dl_HP[|_i] = val(f.dm_rando[?_datakey+hex_str(_i)]);
             }
         }
         
         
+        
+        
         // Enemy Damage -------------------------------------------
         _datakey=STR_Enemy+STR_Damage;
-        if (val(_dm_rando[?STR_Randomize+_datakey]))
+        if (val(f.dm_rando[?STR_Randomize+_datakey]))
         {
             var _EnemyDamage_level_COUNT=ds_grid_height(g.dg_enemy_damage);
             for(_i=ds_grid_width(g.dg_enemy_damage)-1; _i>=0; _i--) // LIFE Level
             {
                 for(_j=_EnemyDamage_level_COUNT-1; _j>=0; _j--) // Enemy Damage Level
                 {
-                    g.dg_enemy_damage[#_i,_j] = val(_dm_rando[?_datakey+hex_str(_i)+hex_str(_j)], g.dg_enemy_damage[#_i,_j]);
+                    g.dg_enemy_damage[#_i,_j] = val(f.dm_rando[?_datakey+hex_str(_i)+hex_str(_j)], g.dg_enemy_damage[#_i,_j]);
                 }
             }
         }
-    
-    
-    
         
         
         
         
         // Level Costs ----------------------------------------------
         _datakey=STR_Level+STR_Cost;
-        if (val(_dm_rando[?STR_Randomize+_datakey]))
+        if (val(f.dm_rando[?STR_Randomize+_datakey]))
         {
             _count1 = ds_grid_width( f.dg_xp_next);
             _count2 = ds_grid_height(f.dg_xp_next);
@@ -218,30 +200,30 @@ if (val(_dm_file_data[?STR_Rando+STR_Active]))
                 for(_j=0; _j<_count2; _j++)
                 {
                     _datakey1 = _datakey+hex_str(_i)+hex_str(_j);
-                    f.dg_xp_next[#_i,_j] = val(_dm_rando[?_datakey1], f.dg_xp_next[#_i,_j]);
+                    f.dg_xp_next[#_i,_j] = val(f.dm_rando[?_datakey1], f.dg_xp_next[#_i,_j]);
                 }
             }
         }
         
         
         
+        
         // XP ----------------------------------------------
         _datakey=STR_XP;
-        if (val(_dm_rando[?STR_Randomize+_datakey]))
+        if (val(f.dm_rando[?STR_Randomize+_datakey]))
         {
             for(_i=ds_list_size(g.dl_XP)-1; _i>=0; _i--)
             {
-                g.dl_XP[|_i] = val(_dm_rando[?_datakey+hex_str(_i)]);
+                g.dl_XP[|_i] = val(f.dm_rando[?_datakey+hex_str(_i)]);
             }
         }
         
         
         
         
-        
         // Spell Costs -------------------------------------------------
         _datakey=STR_Spell+STR_Cost;
-        if (val(_dm_rando[?STR_Randomize+_datakey]))
+        if (val(f.dm_rando[?STR_Randomize+_datakey]))
         {
             _count1 = ds_grid_width( g.dg_spell_cost);
             _count2 = ds_grid_height(g.dg_spell_cost);
@@ -250,7 +232,7 @@ if (val(_dm_file_data[?STR_Rando+STR_Active]))
                 _spell = sign(_i)<<max(_i-1,0); // spell bit
                 for(_j=0; _j<_count2; _j++)
                 {
-                        _val = val(_dm_rando[?_datakey+hex_str(_i)+hex_str(_j)]);
+                        _val = val(f.dm_rando[?_datakey+hex_str(_i)+hex_str(_j)]);
                     if (_val)
                     {
                         _val1 = val(g.dm_Spell[?hex_str(_spell)+STR_Rando+STR_Cost+STR_Max], _val);
@@ -263,8 +245,9 @@ if (val(_dm_file_data[?STR_Rando+STR_Active]))
         
         
         
+        
         // Spell Locations ------------------------------------------------
-        if (val(_dm_rando[?STR_Randomize+STR_Spell+STR_Locations]))
+        if (val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations]))
         {                                                              _i=0;
             while(!is_undefined(g.dm_town[?STR_Town+STR_Name+hex_str(++_i)]))
             {
@@ -272,7 +255,7 @@ if (val(_dm_file_data[?STR_Rando+STR_Active]))
                 _spawn_datakey = g.dm_spawn[?"_Wise"+"_Man"+STR_Spawn+STR_Datakey+_town_name];
                 if(!is_undefined(_spawn_datakey))
                 {
-                    _spell_name = val(_dm_rando[?_town_name+STR_Spell], "undefined");
+                    _spell_name = val(f.dm_rando[?_town_name+STR_Spell], "undefined");
                     _val = val(g.dm_Spell[?STR_Bit+_spell_name]);
                     if (_val)
                     {
@@ -288,17 +271,16 @@ if (val(_dm_file_data[?STR_Rando+STR_Active]))
         
         
         
-        
         // Items ----------------------------------------------------
-        if (val(_dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
+        if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
         {
-            var           _COUNT = val(_dm_rando[?STR_Total+STR_Location+STR_Count]);
+            var           _COUNT = val(f.dm_rando[?STR_Total+STR_Location+STR_Count]);
             for(_i=1; _i<=_COUNT; _i++)
             {   // change spawn data to match what was randomized on file creation
                 _datakey1 = STR_Location+hex_str(_i);
                 
-                _spawn_datakey = _dm_rando[?_datakey1+STR_Spawn+STR_Datakey];
-                _item_id       = _dm_rando[?_datakey1+STR_Item+STR_ID+STR_Randomized];
+                _spawn_datakey = f.dm_rando[?_datakey1+STR_Spawn+STR_Datakey];
+                _item_id       = f.dm_rando[?_datakey1+STR_Item+STR_ID+STR_Randomized];
                 if(!is_undefined(_spawn_datakey) 
                 && !is_undefined(_item_id) )
                 {
@@ -312,9 +294,9 @@ if (val(_dm_file_data[?STR_Rando+STR_Active]))
         
         
         
-        if (val(_dm_rando[?STR_Randomize+STR_Spell+STR_Locations]) 
-        ||  val(_dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-        ||  val(_dm_rando[?STR_Randomize+STR_Spell+STR_Cost]) )
+        if (val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations]) 
+        ||  val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
+        ||  val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Cost]) )
         {
             _count1 = ds_grid_width( g.dg_spell_cost);
             _count2 = ds_grid_height(g.dg_spell_cost);
@@ -329,10 +311,6 @@ if (val(_dm_file_data[?STR_Rando+STR_Active]))
                 }
             }
         }
-        
-        
-        
-        ds_map_destroy(_dm_rando); _dm_rando=undefined;
     }
     
     

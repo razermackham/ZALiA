@@ -342,6 +342,9 @@ Rando_FLUTE_WARPING=true;
 //Rando_FLUTE_WARPING=false;
 
 global.Rando_SpellSequence_SPELL_COUNT = 3;
+global.RandoHints_enabled = false;
+global.RandoDungeonTilesets_enabled = false;
+global.SceneRando_enabled = false;
 
 
 use_8x8_ow_menu_map=true;
@@ -367,10 +370,6 @@ if (FileCleaning01_STATE)
     //FileCleaning01_current_file_name = 0;
     FileCleaning01_rm_name = Area_MazIs+"C0";
 }
-
-
-
-global.SceneRando_enabled = false;
 
 
 // CamZoom1: Simulate a resolution of 398.222.. x 224. Scale application surface by (VIEW_H_WD/VIEW_H_OG)..
@@ -408,7 +407,7 @@ global.CamZoom1_state = -1; // -1: App will not include this option, 0/1: Off/On
 // for options menu toggle
 // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
 RandoPalette_state = 0;
-RandoPalette_state = 2;
+//RandoPalette_state = 2;
 RandoPalette_STATE_COUNT = 3;
 
 // for options menu toggle
@@ -718,6 +717,12 @@ global.USE_PLAYER_NAME_INDICATOR = "@@@";
 // --------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------
 // ------------------------   TILE   ------------------------------------
+global.dm_tile_layer_data = ds_map_create();
+
+// init_tile_layer_data(): The data within is pre-baked with dev_automate_tile_layer_data() so Rando_randomize_palettes() can access the data faster
+init_tile_layer_data();
+
+
 rm_tile_count = 0;
 
 tile_pal_swap_ver = 1; // tracks which depths have tiles that need pal swapping
@@ -1221,6 +1226,7 @@ dg_RmTile_solid     = ds_grid_create(0,0); // the current room's 8x8 grid of val
 dg_RmTile_solid_def = ds_grid_create(0,0); // the current room's 8x8 grid of values representing if the tile is not solid, solid, or a oneway platform
 dg_RmTile_solid_w   = 0;
 dg_RmTile_solid_h   = 0;
+
 
 dl_solid_inst = ds_list_create();
 
@@ -3288,6 +3294,7 @@ ds_list_add(dl_rando_seed_SPRITES, val(dm_ITEM[?STR_SWORD   +STR_Sprite], _defau
 //db_test_various_1a(); // for testing various basic coding things
 //debug_ds_grids_1a();
 //db_spawnData_Automate_code_1a();
+//dev_automate_tile_layer_data();
 
 
 

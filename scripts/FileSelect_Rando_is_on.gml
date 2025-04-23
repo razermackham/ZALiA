@@ -46,7 +46,6 @@ if (argument[0]<0
 
 
 
-
 if (argument[0]<0 
 ||  argument[0]==RandoMAIN_DUNGEONS )
 {
@@ -68,8 +67,6 @@ if (argument[0]<0
         return false;
     }
 }
-
-
 
 
 
@@ -97,9 +94,6 @@ if (argument[0]<0
 
 
 
-
-
-
 if (argument[0]<0 
 ||  argument[0]==RandoMAIN_LVLCOST )
 {
@@ -109,14 +103,13 @@ if (argument[0]<0
 
 
 
+
 if (argument[0]<0 
 ||  argument[0]==RandoMAIN_XP )
 {
     if (dg_RandoMAIN_Options[#RandoMAIN_XP,2]) return true;
     if (argument[0]==RandoMAIN_XP) return false;
 }
-
-
 
 
 

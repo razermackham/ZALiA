@@ -16,7 +16,7 @@ col_curs_idx = 0;
 timer = DELAY4_DUR; // Delay any input reaction in next state.
 
 
-state = STATE_IDLE;
+state = state_IDLE;
 
 
 

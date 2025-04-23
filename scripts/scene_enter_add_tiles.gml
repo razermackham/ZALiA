@@ -574,7 +574,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 }
             }
             
-            if (val(f.dm_rando[?STR_Randomize+STR_Dungeon+STR_Tileset]))
+            if (global.RandoDungeonTilesets_enabled)
             {
                 _ts = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(_ts)], _ts);
             }

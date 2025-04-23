@@ -64,6 +64,16 @@ switch(RandoOptions_cursor)
     break;}
     
     // -------------------------------------------------
+    case RandoOptions_HINTS:{
+    if (_InputConfirm_pressed2)
+    {
+        global.RandoHints_enabled = !global.RandoHints_enabled;
+        save_game_pref();
+        aud_play_sound(_SOUND2);
+    }
+    break;}
+    
+    // -------------------------------------------------
     case RandoOptions_MAPS_SHOW_KEYS:{
     if (_InputConfirm_pressed2)
     {
@@ -78,6 +88,16 @@ switch(RandoOptions_cursor)
     if (_InputConfirm_pressed2)
     {
         g.Rando_enemy = !g.Rando_enemy;
+        save_game_pref();
+        aud_play_sound(_SOUND2);
+    }
+    break;}
+    
+    // -------------------------------------------------
+    case RandoOptions_DUNGEON_TILESETS:{
+    if (_InputConfirm_pressed2)
+    {
+        global.RandoDungeonTilesets_enabled = !global.RandoDungeonTilesets_enabled;
         save_game_pref();
         aud_play_sound(_SOUND2);
     }

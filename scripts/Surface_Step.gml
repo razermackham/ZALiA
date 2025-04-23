@@ -140,7 +140,8 @@ if (g.room_type=="A"
     
     if (_HINT_REQUESTED 
     && !_KEYS_REQUESTED 
-    &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
+    &&  global.RandoHints_enabled 
+    &&  val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) )
     {
         can_draw_hints = true;
     }

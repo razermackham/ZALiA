@@ -467,7 +467,7 @@ if(!is_undefined(                                dialogue_datakey)
 
 
 if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-&&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
+&&  global.RandoHints_enabled )
 {
     if (is_ancestor(object_index,Zelda))
     {

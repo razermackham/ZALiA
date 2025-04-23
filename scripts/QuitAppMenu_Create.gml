@@ -33,6 +33,9 @@ TEXT_WARNING    = "ANY UNSAVED PROGRESS WILL BE LOST.";
 cursor_option   = 0; // 0: No, 1: Yes
 
 
+will_go_to_continuesave = false;
+
+
 CLMS  = max(string_length(TEXT_CONFIRM),string_length(TEXT_WARNING));
 CLMS += 4;
 //CLMS  = g.GUI_WIN_CLMS2; // g.GUI_WIN_CLMS2 = 24

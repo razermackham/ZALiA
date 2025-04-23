@@ -1,10 +1,11 @@
 /// Rando_generate(quest num, seed, encoded rando settings)
+// Rando_generate(quest num, seed, encoded rando settings)
 
 
 var                      _arg=0;
 QUEST_NUM     = argument[_arg++];
 Rando_SEED    = argument[_arg++];
-var _SETTINGS = argument[_arg++]; // encoded rando settings
+//var _SETTINGS = argument[_arg++]; // encoded rando settings
 
 
 
@@ -249,7 +250,7 @@ dl_KEYS=ds_list_create();
 
 
 
-
+/*
 var _dm_SETTINGS = json_decode(_SETTINGS);
 
                                                         _datakey=dk_LimitObscure;
@@ -388,15 +389,15 @@ if (Scenes_WILL_RANDOMIZE)               dm_save_data[?_datakey] = Scenes_WILL_R
 
 
 
+
+
 Attack_LEVEL = val(_dm_SETTINGS[?STR_Quest+hex_str(QUEST_NUM)+STR_Start+STR_Level+STR_Attack], 1);
 Magic_LEVEL  = val(_dm_SETTINGS[?STR_Quest+hex_str(QUEST_NUM)+STR_Start+STR_Level+STR_Magic],  1);
 Life_LEVEL   = val(_dm_SETTINGS[?STR_Quest+hex_str(QUEST_NUM)+STR_Start+STR_Level+STR_Life],   1);
 
 
 ds_map_destroy(_dm_SETTINGS); _dm_SETTINGS=undefined;
-
-
-
+*/
 
 
 
@@ -407,6 +408,10 @@ SpellLocation_COUNT = 0;
 KeyLocation_COUNT   = 0;
 
 INCLUDE_BOTTLE_LOCATION = false; // Can't let the player make it to ShadowBoss w/out BOTTLE
+
+dm_save_data[?STR_Rando+STR_Seed] = Rando_SEED;
+
+
 
 
 
@@ -421,17 +426,6 @@ sdm(debug_str);      dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] =
 sdm(debug_str);      dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
            //sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=" ";
 }
-
-
-
-
-
-
-
-dm_save_data[?STR_Rando+STR_Seed] = Rando_SEED;
-
-
-
 
 
 if (DEBUG)
@@ -642,294 +636,33 @@ if (SpellLocations_WILL_RANDOMIZE
 
 
 // ======================================================================================
-// ======================================================================================
-// ======================================================================================
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//============================================================================
+// Overworld Biomes --------------------------------------------------------------------
 // TODO: Add this as an option in the rando setup.
-if (true) // testing
-//if (OverworldBiomes_WILL_RANDOMIZE)
-{
-    random_set_seed(Rando_SEED);
-    
-    var _dm_RANDO_OW_TSRC=ds_map_create();
-    var _dl_RANDO_OW_BIOME_A=ds_list_create();
-    var _dl_RANDO_OW_BIOME_B=ds_list_create();
-    _dk1 = STR_Rando+STR_Biome;
-    
-    with(g.overworld)
-    {
-        for(_i=ds_list_size(dl_biome_enc)-1; _i>=0; _i--)
-        {
-            _val1 = dl_biome_enc[|_i]; // biome
-            if (val(dm_enc[?_dk1+string(_val1)]))
-            {
-                ds_list_add(_dl_RANDO_OW_BIOME_A,_val1);
-            }
-        }
-        
-        ds_list_copy(   _dl_RANDO_OW_BIOME_B,_dl_RANDO_OW_BIOME_A);
-        ds_list_shuffle(_dl_RANDO_OW_BIOME_B);
-        
-        for(_i=ds_list_size(_dl_RANDO_OW_BIOME_A)-1; _i>=0; _i--)
-        {
-            _val1 = _dl_RANDO_OW_BIOME_A[|_i];
-            _val2 = _dl_RANDO_OW_BIOME_B[|_i];
-            _val4 = dm_enc[?_dk1+_val2+STR_TSRC+STR_Primary];
-            if(!is_undefined(_val4))
-            {
-                _val3 = dm_enc[?_dk1+_val1+STR_TSRC+STR_Primary];
-                if(!is_undefined(_val3)) _dm_RANDO_OW_TSRC[?hex_str(_val3)] = val(dm_enc[?_dk1+_val2+STR_TSRC+STR_Primary],   _val4);
-                
-                _val3 = dm_enc[?_dk1+_val1+STR_TSRC+STR_Secondary];
-                if(!is_undefined(_val3)) _dm_RANDO_OW_TSRC[?hex_str(_val3)] = val(dm_enc[?_dk1+_val2+STR_TSRC+STR_Secondary], _val4);
-                
-                _val3 = dm_enc[?_dk1+_val1+STR_TSRC+STR_Tertiary];
-                if(!is_undefined(_val3)) _dm_RANDO_OW_TSRC[?hex_str(_val3)] = val(dm_enc[?_dk1+_val2+STR_TSRC+STR_Tertiary],  _val4);
-                
-                _val3 = dm_enc[?_dk1+_val1+STR_TSRC+STR_Special];
-                if(!is_undefined(_val3)) _dm_RANDO_OW_TSRC[?hex_str(_val3)] = val(dm_enc[?_dk1+_val2+STR_TSRC+STR_Special],   _val4);
-            }
-        }
-    }
-    
-    _val = json_encode(_dm_RANDO_OW_TSRC);
-    dm_save_data[?STR_Overworld+STR_TSRC+STR_Randomized] = _val;
-    
-    
-    ds_map_destroy(_dm_RANDO_OW_TSRC); _dm_RANDO_OW_TSRC=undefined;
-    ds_list_destroy(_dl_RANDO_OW_BIOME_A); _dl_RANDO_OW_BIOME_A=undefined;
-    ds_list_destroy(_dl_RANDO_OW_BIOME_B); _dl_RANDO_OW_BIOME_B=undefined;
-    /*
-    var _dm_RANDO_OW_TSRC=ds_map_create();
-    var _dl_RANDO_OW_TSRC_A=ds_list_create();
-    var _dl_RANDO_OW_TSRC_B=ds_list_create();
-    
-    ds_list_add(_dl_RANDO_OW_TSRC_A,$20); // grass
-    ds_list_add(_dl_RANDO_OW_TSRC_A,$24); // desert
-    ds_list_add(_dl_RANDO_OW_TSRC_A,$28); // volcano
-    ds_list_add(_dl_RANDO_OW_TSRC_A,$2C); // grave
-    ds_list_add(_dl_RANDO_OW_TSRC_A,$30); // trees
-    ds_list_add(_dl_RANDO_OW_TSRC_A,$38); // swamp
-    ds_list_add(_dl_RANDO_OW_TSRC_A,$40); // beach
-    
-    ds_list_copy(_dl_RANDO_OW_TSRC_B,_dl_RANDO_OW_TSRC_A);
-    ds_list_shuffle(_dl_RANDO_OW_TSRC_B);
-    
-    for(_i=ds_list_size(_dl_RANDO_OW_TSRC_A)-1; _i>=0; _i--)
-    {
-        _val1=_dl_RANDO_OW_TSRC_A[|_i];
-        _val2=_dl_RANDO_OW_TSRC_B[|_i];
-        _dm_RANDO_OW_TSRC[?hex_str(_val1)]=_val2;
-    }
-    
-    _val=json_encode(_dm_RANDO_OW_TSRC);
-    dm_save_data[?STR_Overworld+STR_TSRC+STR_Randomized]=_val;
-    
-    
-    ds_map_destroy(_dm_RANDO_OW_TSRC); _dm_RANDO_OW_TSRC=undefined;
-    ds_list_destroy(_dl_RANDO_OW_TSRC_A); _dl_RANDO_OW_TSRC_A=undefined;
-    ds_list_destroy(_dl_RANDO_OW_TSRC_B); _dl_RANDO_OW_TSRC_B=undefined;
-    */
-}
-//============================================================================
-
-
-
-
-
-
-
-
-
-
-
+Rando_randomize_overworld_biomes();
+// -------------------------------------------------------------------------------------
 
 
 
 
 // ======================================================================================
+// Scene Rando -------------------------------------------------------------------------
+Rando_randomize_scenes();
 // -------------------------------------------------------------------------------------
-if (true) // testing
-//if (Scenes_WILL_RANDOMIZE)
-{
-    random_set_seed(Rando_SEED);
-    
-    
-    _dk1 = dk_SceneRando+STR_Scene+STR_Type;
-    _count1 = val(global.dm_scene_rando[?_dk1+STR_Count]);
-    for(_i=1; _i<=_count1; _i++) // number of scene types
-    {
-        _val1 = global.dm_scene_rando[?_dk1+hex_str(_i)];
-        if(!is_undefined(_val1))
-        {
-            ds_list_clear(dl_list1);
-            _count2 = val(global.dm_scene_rando[?_val1+STR_Count]);
-            for(_j=1; _j<=_count2; _j++) // number of matching scenes for this type
-            {
-                _scene_name = global.dm_scene_rando[?_val1+"-"+hex_str(_j)+STR_Scene];
-                if(!is_undefined(_scene_name)) ds_list_add(dl_list1,_scene_name);
-            }
-            
-            
-            _count3 = ds_list_size(dl_list1);
-            if (_count3>1)
-            {
-                ds_list_copy(dl_list2,dl_list1);
-                ds_list_shuffle(dl_list2);
-                for(_j=0; _j<_count3; _j++)
-                {
-                    _scene_name1 = dl_list1[|_j];
-                    _scene_name2 = dl_list2[|_j];
-                    dm_save_data[?dk_SceneRando+STR_Scene+STR_Randomized+_scene_name1] = _scene_name2;
-                    //if (string_pos(STR_Pit+"8",_val1)) sdm(""); sdm(_scene_name1+" - "+_scene_name2);
-                }
-            }
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 // ======================================================================================
+// Dungeon Tilesets --------------------------------------------------------------------
+Rando_randomize_dungeon_tilesets();
 // -------------------------------------------------------------------------------------
-if (DungeonTileset_WILL_RANDOMIZE)
-{
-    random_set_seed(Rando_SEED);
-    
-    
-    ds_list_clear(dl_list1);
-    ds_list_add(  dl_list1,ts_DungeonA01);
-    ds_list_add(  dl_list1,ts_DungeonB01);
-    ds_list_add(  dl_list1,ts_DungeonC01);
-    ds_list_add(  dl_list1,ts_DungeonD01);
-    ds_list_add(  dl_list1,ts_DungeonE01);
-    ds_list_add(  dl_list1,ts_DungeonF01);
-    ds_list_add(  dl_list1,ts_DungeonG01);
-    
-    ds_list_clear(dl_list2);
-    ds_list_copy( dl_list2,dl_list1);
-    
-    ds_list_add(  dl_list2,ts_DungeonAlt01);
-    ds_list_add(  dl_list2,ts_DungeonAlt02);
-    ds_list_add(  dl_list2,ts_DungeonAlt03);
-    ds_list_add(  dl_list2,ts_DungeonAlt04);
-    ds_list_add(  dl_list2,ts_DungeonAlt05);
-    ds_list_add(  dl_list2,ts_DungeonAlt06);
-    
-    ds_list_add(  dl_list2,ts_Cave01);
-    
-    ds_list_clear(dl_list3);
-    
-    
-    _datakey = "_User"+STR_Custom+STR_Dungeon+STR_Tileset;
-    _count = val(g.dm_tileset[?_datakey+STR_Count]);
-    if (_count)
-    {
-        var _background;
-        for(_i=1; _i<=_count; _i++)
-        {
-            _background = g.dm_tileset[?_datakey+hex_str(_i)+STR_Asset];
-            if(!is_undefined(        _background) 
-            &&  background_exists(   _background) )
-            {
-                ds_list_add(dl_list3,_background);
-            }
-        }
-        
-        if (ds_list_size(dl_list3))
-        {
-            if (1) // testing. So that '"_User"+STR_Custom+STR_Dungeon+STR_Tileset' are guaranteed to be used.
-            {
-                ds_list_shuffle(dl_list2);
-                _count1 = ds_list_size(dl_list1)-ds_list_size(dl_list3);
-                for(_i=0; _i<_count1; _i++) ds_list_add(dl_list3,dl_list2[|_i]);
-                ds_list_copy(dl_list2,dl_list3);
-            }
-            else
-            {
-                for(_i=ds_list_size(dl_list3)-1; _i>=0; _i--) ds_list_add(dl_list2,dl_list3[|_i]);
-            }
-        }
-    }
-    
-    
-    ds_list_shuffle(dl_list2);
-    
-    //_count1 = ds_list_size(dl_list1);
-    for(_i=ds_list_size(dl_list1)-1; _i>=0; _i--)
-    {
-        _datakey = STR_Rando+STR_Tileset+background_get_name(dl_list1[|_i]);
-        dm_save_data[?_datakey] = dl_list2[|_i];
-    }
-    
-    /*
-    ds_list_clear(dl_list1);
-    ds_list_add(  dl_list1,ts_DungeonA01);
-    ds_list_add(  dl_list1,ts_DungeonB01);
-    ds_list_add(  dl_list1,ts_DungeonC01);
-    ds_list_add(  dl_list1,ts_DungeonD01);
-    ds_list_add(  dl_list1,ts_DungeonE01);
-    ds_list_add(  dl_list1,ts_DungeonF01);
-    ds_list_add(  dl_list1,ts_DungeonG01);
-    
-    ds_list_clear(dl_list2);
-    ds_list_copy( dl_list2,dl_list1);
-    
-    if (0)
-    //if (DungeonTileset_WILL_RANDOMIZE==2)
-    {
-        ds_list_add(dl_list2,ts_DungeonAlt01);
-        ds_list_add(dl_list2,ts_DungeonAlt02);
-        //ds_list_add(dl_list2,ts_DungeonAlt03);
-    }
-    
-    
-    _datakey = "_User"+STR_Custom+STR_Dungeon+STR_Tileset;
-    _count = val(g.dm_tileset[?_datakey+STR_Count]);
-    if (_count)
-    {
-        if (1) // testing
-        {
-            ds_list_clear(dl_list2);
-            for(_i=(ds_list_size(dl_list1)-_count)-1; _i>=0; _i--) ds_list_add(dl_list2,dl_list1[|_i]);
-        }
-        
-        var _background;
-        for(_i=1; _i<=_count; _i++)
-        {
-            _background = g.dm_tileset[?_datakey+hex_str(_i)+STR_Asset];
-            if(!is_undefined(        _background) 
-            &&  background_exists(   _background) )
-            {
-                ds_list_add(dl_list2,_background);
-            }
-        }
-    }
-    
-    
-    ds_list_shuffle(dl_list2);
-    
-    for(_i=ds_list_size(dl_list1)-1; _i>=0; _i--)
-    {
-        _datakey = STR_Rando+STR_Tileset+background_get_name(dl_list1[|_i]);
-        dm_save_data[?_datakey] = dl_list2[|_i];
-    }
-    */
-}
+
+
+
+
+// ======================================================================================
+// Palettes ----------------------------------------------------------------------------
+Rando_randomize_palettes();
 // -------------------------------------------------------------------------------------
 
 
@@ -939,288 +672,12 @@ if (DungeonTileset_WILL_RANDOMIZE)
 
 
 
-
-
-
-
-// Palettes ----------------------------------------------
-if (Palette_WILL_RANDOMIZE)
-{
-    Rando_randomize_palettes();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ======================================================================================
 // ======================================================================================
 // ======================================================================================
 // ======================================================================================
-if (EnemyChars_WILL_RANDOMIZE)
-{
-    //if (DEBUG){sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=" ";}
-    random_set_seed(Rando_SEED);
-    
-    
-    
-    ds_list_clear(dl_list1);
-    ds_list_clear(dl_list2);
-    
-    _datakey = STR_Randomize+STR_Enemy;
-    
-    dm_save_data[?_datakey+STR_Method]     = EnemyChars_WILL_RANDOMIZE;
-    dm_save_data[?_datakey+STR_Difficulty] = Enemy_DIFFICULTY;
-    
-    
-    
-    switch(EnemyChars_WILL_RANDOMIZE)
-    {   // ====================================================================
-        case 1:{ // SPAWNS --------------------------------------------
-        _datakey1 = _datakey+STR_Spawn;
-        
-            _count = val(g.dm_RandoEnemy[?_datakey1+STR_Count]);
-        if (_count<2) break;
-        
-        
-        var _DEBUG1=0;
-        if (_DEBUG1){
-        var _dl1=ds_list_create();
-        var _dl2=ds_list_create();
-        var _dl3=ds_list_create();
-        }
-        var _difficulty, _scene_name;
-        var _spawn_datakey1,_spawn_datakey2;
-        var _dl_SPAWN_DATAKEY_A1=ds_list_create();
-        var _dl_SPAWN_DATAKEY_A2=ds_list_create();
-        var _dl_SPAWN_DATAKEY_A3=ds_list_create();
-        var _dl_SPAWN_DATAKEY_b1=ds_list_create();
-        var _dl_SPAWN_DATAKEY_b2=ds_list_create();
-        
-        for(_i=0; _i<_count; _i++)
-        {   //_datakey1 = STR_Randomize+STR_Enemy+STR_Spawn;
-            _spawn_datakey1 = val(g.dm_RandoEnemy[?_datakey1+hex_str(_i+1)+STR_Spawn+STR_Datakey]);
-            _spawn_datakey1 = string( _spawn_datakey1);
-            _objver1    = g.dm_spawn[?_spawn_datakey1+STR_OBJVER];
-            _scene_name = g.dm_spawn[?_spawn_datakey1+STR_Rm+STR_Name];
-            if(!is_undefined(_objver1) 
-            &&  is_string(   _objver1) 
-            && !is_undefined(_scene_name) 
-            &&  is_string(   _scene_name) )
-            {
-                if (        string_copy(_scene_name,1,AreaID_LEN)!=Area_MazIs 
-                ||  str_hex(string_copy(_scene_name,AreaID_LEN+2,2))<$80 )
-                {
-                        _difficulty = val(g.dm_RandoEnemy[?_objver1+STR_Difficulty],1);
-                    if (_difficulty<=Enemy_DIFFICULTY)
-                    {   //RandoEnemy_difficulty_MAX
-                        if (ds_list_find_index(g.dl_RandoEnemy_OBJVER1,_objver1)!=-1) // 
-                        {   ds_list_add(_dl_SPAWN_DATAKEY_A1,_spawn_datakey1); continue;  }
-                        
-                        if (ds_list_find_index(g.dl_RandoEnemy_OBJVER2,_objver1)!=-1) // Flying enemies
-                        {   ds_list_add(_dl_SPAWN_DATAKEY_A2,_spawn_datakey1); continue;  }
-                        
-                        if (ds_list_find_index(g.dl_RandoEnemy_OBJVER3,_objver1)!=-1) // Spawners
-                        {   ds_list_add(_dl_SPAWN_DATAKEY_A3,_spawn_datakey1); continue;  }
-                    }
-                }
-            }
-        }
-        
-        
-        for(_i=1; _i<=3; _i++)
-        {
-            switch(_i){
-            case 1:{ds_list_copy(_dl_SPAWN_DATAKEY_b1,_dl_SPAWN_DATAKEY_A1); break;}
-            case 2:{ds_list_copy(_dl_SPAWN_DATAKEY_b1,_dl_SPAWN_DATAKEY_A2); break;} // Flying enemies
-            case 3:{ds_list_copy(_dl_SPAWN_DATAKEY_b1,_dl_SPAWN_DATAKEY_A3); break;} // Spawners
-            }
-            
-            if (_dl_SPAWN_DATAKEY_b1[|0]==_dl_SPAWN_DATAKEY_A3[|0]  // if it's a spawner
-            && !EnemySpawners_WILL_RANDOMIZE )                      // if NOT randomizing spawners
-            {
-                continue;
-            }
-            
-            
-            ds_list_copy(   _dl_SPAWN_DATAKEY_b2,_dl_SPAWN_DATAKEY_b1);
-            ds_list_shuffle(_dl_SPAWN_DATAKEY_b2);
-                         _count = ds_list_size(_dl_SPAWN_DATAKEY_b2);
-            for(_j=0; _j<_count; _j++)
-            {
-                _spawn_datakey1 = string(_dl_SPAWN_DATAKEY_b1[|_j]); // original
-                _spawn_datakey2 = string(_dl_SPAWN_DATAKEY_b2[|_j]); // shuffled
-                _objver1 = g.dm_spawn[?_spawn_datakey1+STR_OBJVER];
-                _objver2 = g.dm_spawn[?_spawn_datakey2+STR_OBJVER];
-                if(!is_undefined(_objver1) 
-                &&  is_string(   _objver1) 
-                && !is_undefined(_objver2) 
-                &&  is_string(   _objver2) )
-                {
-                    dm_save_data[?_datakey1+_spawn_datakey1+STR_Spawn+STR_Datakey+STR_Randomized] = _spawn_datakey2;
-                    dm_save_data[?_datakey1+_spawn_datakey1+STR_OBJVER+STR_Randomized] = _objver2;
-                    //dm_save_data[?_datakey1+_spawn_datakey2+STR_OBJVER+STR_Randomized] = _objver1; // This is overwriting data and causing too many or too little of an objver
-                    if (_DEBUG1){
-                    ds_list_add(_dl1,_spawn_datakey1);
-                    ds_list_add(_dl2,_objver1);
-                    }
-                }
-            }
-        }
-        
-        ds_list_destroy(_dl_SPAWN_DATAKEY_A1); _dl_SPAWN_DATAKEY_A1=undefined;
-        ds_list_destroy(_dl_SPAWN_DATAKEY_A2); _dl_SPAWN_DATAKEY_A2=undefined;
-        ds_list_destroy(_dl_SPAWN_DATAKEY_A3); _dl_SPAWN_DATAKEY_A3=undefined;
-        ds_list_destroy(_dl_SPAWN_DATAKEY_b1); _dl_SPAWN_DATAKEY_b1=undefined;
-        ds_list_destroy(_dl_SPAWN_DATAKEY_b2); _dl_SPAWN_DATAKEY_b2=undefined;
-        
-        if (_DEBUG1){
-        ds_list_sort(_dl2,true);
-        sdm("");
-        for(_i=ds_list_size(_dl1)-1; _i>=0; _i--) ds_list_add(_dl3,dm_save_data[?_datakey1+_dl1[|_i]+STR_OBJVER+STR_Randomized]);
-        ds_list_sort(_dl3,true);
-        _val=_dl2[|0];
-        _count=ds_list_size(_dl2);
-        for(_i=0; _i<_count; _i++){
-        if(_val!=_dl2[|_i]){_val=_dl2[|_i]; sdm("");}
-        sdm(_dl2[|_i]+"  -  "+_dl3[|_i]);
-        }
-        sdm("");
-        
-        ds_list_destroy(_dl1); _dl1=undefined;
-        ds_list_destroy(_dl2); _dl2=undefined;
-        ds_list_destroy(_dl3); _dl3=undefined;
-        }
-        break;}//case 1:
-        
-        
-        
-        
-        
-        // ====================================================================
-        case 2:{ // TYPES ---------------------------------------------
-        _datakey1 = _datakey+STR_Type;
-        
-        for(_i=1; _i<=3; _i++)
-        {
-            ds_list_clear(dl_list1);
-            
-            switch(_i){
-            default:{ds_list_copy(dl_list2,g.dl_RandoEnemy_OBJVER1); break;}
-            case  2:{ds_list_copy(dl_list2,g.dl_RandoEnemy_OBJVER2); break;} // Flying
-            case  3:{ds_list_copy(dl_list2,g.dl_RandoEnemy_OBJVER3); break;} // Spawners
-            }
-            
-            if (dl_list2[|0]==g.dl_RandoEnemy_OBJVER3[|0] 
-            && !EnemySpawners_WILL_RANDOMIZE )
-            {
-                continue;
-            }
-            
-                         _count=ds_list_size(dl_list2);
-            for(_j=0; _j<_count; _j++)
-            {
-                _objver1=dl_list2[|_j];
-                if(!is_undefined(_objver1) 
-                &&  is_string(   _objver1) )
-                {
-                        _difficulty = val(g.dm_RandoEnemy[?_objver1+STR_Difficulty],1);
-                    if (_difficulty<=Enemy_DIFFICULTY 
-                    &&  ds_list_find_index(dl_list1,_objver1)==-1 )
-                    {   ds_list_add(       dl_list1,_objver1);  }
-                }
-            }
-            
-            if (ds_list_size(dl_list1)>=2)
-            {
-                ds_list_copy(       dl_list2,dl_list1);
-                ds_list_shuffle(    dl_list2);
-                for(_j=ds_list_size(dl_list2)-1; _j>=0; _j--)
-                {
-                    _objver1 =      dl_list1[|_j];
-                    _objver2 =      dl_list2[|_j];
-                    if(!is_undefined(_objver1) 
-                    &&  is_string(   _objver1) 
-                    && !is_undefined(_objver2) 
-                    &&  is_string(   _objver2) )
-                    {   //            _datakey = STR_Randomize+STR_Enemy
-                        dm_save_data[?_datakey+STR_Type+_objver1+STR_OBJVER+STR_Randomized] = _objver2;
-                        dm_save_data[?_datakey+STR_Type+_objver2+STR_OBJVER+STR_Randomized] = _objver1;
-                    }
-                }
-            }
-        }
-        break;}//case 2:
-    }//switch(EnemyChars_WILL_RANDOMIZE)
-}
-
-
-
-if (EnemyHP_WILL_RANDOMIZE)
-{
-    //if (DEBUG){sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=" ";}
-    
-    random_set_seed(Rando_SEED);
-    
-    _datakey = STR_Enemy+STR_HP;
-    
-                 _count=ds_list_size(g.dl_HP);
-    for(_i=0; _i<_count; _i++)
-    {
-            _val  = g.dl_HP[|_i];
-        if (_val)
-        {
-            _val0 = max(round(_val*.25), 1);
-            _max  = _val + _val0;
-            _min  = _val - _val0;
-            _val  = _min + irandom(_max-_min);
-            _val  = max(_val,1);
-        }
-        
-        dm_save_data[?_datakey+hex_str(_i)] = _val;
-    }
-}
-
-
-
-if (EnemyDamage_WILL_RANDOMIZE)
-{
-    //if (DEBUG){sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=" ";}
-    
-    random_set_seed(Rando_SEED);
-    
-    _datakey = STR_Enemy+STR_Damage;
-    
-    var _EnemyDamage_level_COUNT=ds_grid_height(g.dg_enemy_damage);
-    for(_i=ds_grid_width(g.dg_enemy_damage)-1; _i>=0; _i--) // LIFE Level
-    {
-        for(_j=_EnemyDamage_level_COUNT-1; _j>=0; _j--) // Enemy Damage Level
-        {
-                _val  = g.dg_enemy_damage[#_i,_j];
-            if (_val)
-            {
-                _val0 = max(round(_val*.1), 1);
-                _max  = _val + _val0;
-                _min  = _val - _val0;
-                _val  = _min + irandom(_max-_min);
-                _val  = max(_val,1);
-            }
-            
-            dm_save_data[?_datakey+hex_str(_i)+hex_str(_j)] = _val;
-        }
-    }
-}
+// Enemies -----------------------------------------------------------------------------
+Rando_randomize_enemies(); // also all enemy rando options
 // -------------------------------------------------------------------------------------
 
 
@@ -2145,18 +1602,15 @@ for(_i=ds_list_size(dl_SPELLS)-1; _i>=0; _i--)
 // since most keys would need to be placed in their own dungeon.
 if (ItemLocations_WILL_RANDOMIZE)
 {
-    // Randomize items
-    dl_locnum_that_gave_prog=ds_list_create();
+    dl_locnum_that_gave_prog = ds_list_create();
+    
     Rando_randomize_items();
     
+    // HINTS ----------------------------------------------------------------
+    Rando_generate_hints();
+    // ----------------------------------------------------------------------
     
-    
-    
-    
-    
-    
-    
-
+    ds_list_destroy(dl_locnum_that_gave_prog); dl_locnum_that_gave_prog=undefined;
 }
 
 

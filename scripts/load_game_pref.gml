@@ -102,6 +102,12 @@ if(!is_undefined(_val)) global.can_rando_ow_tsrc = _val;
 _val = _dm_FILE_DATA[?STR_Rando+STR_Scene];
 if(!is_undefined(_val)) global.SceneRando_enabled = _val;
 
+_val = _dm_FILE_DATA[?STR_Rando+STR_Hint];
+if(!is_undefined(_val)) global.RandoHints_enabled = _val;
+
+_val = _dm_FILE_DATA[?STR_Rando+STR_Dungeon+STR_Tileset];
+if(!is_undefined(_val)) global.RandoDungeonTilesets_enabled = _val;
+
 _val = _dm_FILE_DATA[?STR_Halloween+"01"];
 if(!is_undefined(_val)) global.Halloween1_enabled = _val;
 

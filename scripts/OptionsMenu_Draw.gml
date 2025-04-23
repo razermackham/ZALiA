@@ -676,8 +676,10 @@ switch(Menu_in_focus)
         _text2=0;
         switch(_i){
         case RandoOptions_MARK_ACQUIRED:   {if (_option_is_avail){_text2=_dg_state_text[#0,sign(g.can_mark_acquired_item_locations)];} break;}
+        case RandoOptions_HINTS:           {if (_option_is_avail){_text2=_dg_state_text[#0,sign(global.RandoHints_enabled)];} break;}
         case RandoOptions_MAPS_SHOW_KEYS:  {if (_option_is_avail){_text2=_dg_state_text[#0,sign(g.RandoKeys_MAP_items_show_keys)];} break;}
         case RandoOptions_RANDO_ENEMY:     {if (_option_is_avail){_text2=_dg_state_text[#0,sign(g.Rando_enemy)];} break;}
+        case RandoOptions_DUNGEON_TILESETS:{if (_option_is_avail){_text2=_dg_state_text[#0,sign(global.RandoDungeonTilesets_enabled)];} break;}
         case RandoOptions_RANDO_OW_TILES:  {if (_option_is_avail){_text2=_dg_state_text[#0,sign(global.can_rando_ow_tsrc)];} break;}
         case RandoOptions_SCENES:          {if (_option_is_avail){_text2=_dg_state_text[#0,sign(global.SceneRando_enabled)];} break;}
         case RandoOptions_RANDO_PALETTE:   {if (_option_is_avail){_text2=string(g.RandoPalette_state);} break;}

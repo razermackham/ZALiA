@@ -9,6 +9,7 @@ var _val, _val1,_val2,_val3;
 var _str,_str1,_str2,_str3, _pos,_pos1, _pos_offset, _len1,_len2;
 var _dk;
 var _pal,_pal1, _pi;
+var _layer_name, _depth;
 var _color,_color1,_color2;
 var _ci,_ci1,_ci2;
 var _dungeon_num;
@@ -43,8 +44,8 @@ if (g.room_type=="A"
     
     if(!_qualifies 
     &&  g.view_y_page_min==g.view_y_page_max 
-    &&  g.RandoPalette_state  // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
-    &&  val(f.dm_rando[?STR_Randomize+STR_Palette]) )
+    &&  g.RandoPalette_state ) // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
+    //&&  val(f.dm_rando[?STR_Randomize+STR_Palette]) )
     {
         if (global.BackgroundColor_scene==C_VLT2   // Town sky
         ||  global.BackgroundColor_scene==C_BLU2   // Encounter sky
@@ -238,8 +239,6 @@ if (g.room_type=="A"
 &&  g.dungeon_num 
 &&  g.dungeon_num<8 )
 {
-    var _layer_name, _depth;
-    
     _count = ds_list_size(g.dl_TILE_DEPTH_NAMES);
     for(_i=0; _i<_count; _i++)
     {
@@ -290,139 +289,100 @@ if (g.room_type=="A"
 if (room!=rmB_Title 
 &&  room!=rmB_FileSelect )
 {
-    if (g.RandoPalette_state  // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
-    &&  val(f.dm_rando[?STR_Randomize+STR_Palette]) )
+    if (g.RandoPalette_state) // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
     {
         if (g.room_type=="A")
         {
-            _pal = f.dm_rando[?STR_Palette+STR_Rando+g.rm_name];
-            //_pal = f.dm_rando[?g.rm_name+STR_Palette];
-            //_palette = dm_save_data[?STR_Palette+STR_Rando+_b_scene_name];
-            if (g.dungeon_num)
+            if (g.dungeon_num 
+            ||  g.RandoPalette_state==2 ) // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
             {
-                // Dungeon Palette ----------------------------------------------------------------------------
-                //_pal = f.dm_rando[?STR_Palette+STR_Dungeon+hex_str(g.dungeon_num)]; // This is the full palette for  PI_BGR_1, PI_BGR_2, PI_BGR_3, PI_BGR_4
-                //_pal = val(f.dm_rando[?g.rm_name+STR_Palette], _pal);
+                _pal = f.dm_rando[?STR_Palette+STR_Rando+g.rm_name];
                 if(!is_undefined(_pal))
                 {
-                    var _layer_name, _depth, _pos;
-                    var _solid_wall_pi_pos = get_pal_pos(global.PI_BGR1);
-                    var _dl_TILE_DEPTH_NAMES_COUNT = ds_list_size(g.dl_TILE_DEPTH_NAMES);
-                    
-                    
                     pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_BGR1), string_length(_pal),_pal);
                     
-                    
-                    for(_i=0; _i<_dl_TILE_DEPTH_NAMES_COUNT; _i++)
+                    if (g.dungeon_num)
                     {
-                        _dk         = g.dl_TILE_DEPTH_NAMES[|_i]; // "BG01, BG02, ..."
-                        _depth      = g.dm_TILE_DEPTH[?_dk];
-                        _layer_name = g.dm_tile_file[? _dk+STR_Depth+STR_Layer+STR_Name];
-                        if(!is_undefined(_depth) 
-                        && !is_undefined(_layer_name) 
-                        &&  string_pos("STRUCTURE_FGWALL01_01",_layer_name) ) // use "STRUCTURE_BGWALL01_02" in the layer name so this doesn't run
+                        var _solid_wall_pi_pos = get_pal_pos(global.PI_BGR1);
+                        
+                        var _dl_TILE_DEPTH_NAMES_COUNT = ds_list_size(g.dl_TILE_DEPTH_NAMES);
+                        for(_i=0; _i<_dl_TILE_DEPTH_NAMES_COUNT; _i++)
                         {
-                            _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
-                            if (_idx!=-1)
+                            _dk         = g.dl_TILE_DEPTH_NAMES[|_i]; // "BG01, BG02, ..."
+                            _depth      = g.dm_TILE_DEPTH[?_dk];
+                            _layer_name = g.dm_tile_file[? _dk+STR_Depth+STR_Layer+STR_Name];
+                            if(!is_undefined(_depth) 
+                            && !is_undefined(_layer_name) 
+                            &&  string_pos("STRUCTURE_FGWALL01_01",_layer_name) ) // use "STRUCTURE_BGWALL01_02" in the layer name so this doesn't run
                             {
-                                _pi = dg_depth_pi[#_idx,1];
-                                _solid_wall_pi_pos = get_pal_pos(_pi);
-                                break;//_i
+                                _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
+                                if (_idx!=-1)
+                                {
+                                    _pi = dg_depth_pi[#_idx,1];
+                                    _solid_wall_pi_pos = get_pal_pos(_pi);
+                                    break;//_i
+                                }
                             }
                         }
-                    }
-                    
-                    
-                    for(_i=0; _i<_dl_TILE_DEPTH_NAMES_COUNT; _i++)
-                    {
-                        _dk         = g.dl_TILE_DEPTH_NAMES[|_i]; // "BG01, BG02, ..."
-                        _depth      = g.dm_TILE_DEPTH[?_dk];
-                        _layer_name = g.dm_tile_file[? _dk+STR_Depth+STR_Layer+STR_Name];
-                        if(!is_undefined(_depth) 
-                        && !is_undefined(_layer_name) 
-                        &&  string_pos("STRUCTURE_BGWALL01_01",_layer_name) ) // use "STRUCTURE_BGWALL01_02" in the layer name if you dont want this to run
+                        
+                        
+                        for(_i=0; _i<_dl_TILE_DEPTH_NAMES_COUNT; _i++)
                         {
-                            _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
-                            if (_idx!=-1)
+                            _dk         = g.dl_TILE_DEPTH_NAMES[|_i]; // "BG01, BG02, ..."
+                            _depth      = g.dm_TILE_DEPTH[?_dk];
+                            _layer_name = g.dm_tile_file[? _dk+STR_Depth+STR_Layer+STR_Name];
+                            if(!is_undefined(_depth) 
+                            && !is_undefined(_layer_name) 
+                            &&  string_pos("STRUCTURE_BGWALL01_01",_layer_name) ) // use "STRUCTURE_BGWALL01_02" in the layer name if you dont want this to run
                             {
-                                _pi  = dg_depth_pi[#_idx,1]; // pi for bgr wall
-                                _pos = get_pal_pos(_pi);
-                                
-                                var _COLOR_DATA1 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*1), global.PAL_CHAR_PER_COLOR); // 2nd to last color, mid-tone, base color
-                                var _COLOR_DATA2 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*2), global.PAL_CHAR_PER_COLOR); // last color, and last 2 str chars of a palette
-                                var _color_data  = _COLOR_DATA1;
-                                
-                                // If the mid-tone (_ci_) IS black, make the bgr wall full black to contrast the fgr wall
-                                if (_COLOR_DATA1!=color_str(C_BLK1))
+                                _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
+                                if (_idx!=-1)
                                 {
-                                    if (_COLOR_DATA2==color_str(C_BLK1)) _color_data = _COLOR_DATA1;
-                                    else                                 _color_data = _COLOR_DATA2;
+                                    _pi  = dg_depth_pi[#_idx,1]; // pi for bgr wall
+                                    _pos = get_pal_pos(_pi);
                                     
-                                    if (ds_list_find_index(p.dl_COLOR,str_hex(_color_data))>=$40) _color_data = color_str(C_BLK1); // temp fix for new colors
+                                    var _COLOR_DATA1 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*1), global.PAL_CHAR_PER_COLOR); // 2nd to last color, mid-tone, base color
+                                    var _COLOR_DATA2 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*2), global.PAL_CHAR_PER_COLOR); // last color, and last 2 str chars of a palette
+                                    var _color_data  = _COLOR_DATA1;
                                     
-                                    _pos += global.PAL_CHAR_PER_COLOR*2;
-                                    _pal1 = _color_data;
-                                    
-                                    if (_color_data!=color_str(C_BLK1))
+                                    // If the mid-tone (_ci_) IS black, make the bgr wall full black to contrast the fgr wall
+                                    if (_COLOR_DATA1!=color_str(C_BLK1))
                                     {
-                                        _color_data = ds_list_find_index(p.dl_COLOR,str_hex(_color_data));
-                                        _color_data = hex_str(_color_data);
-                                        _val1 = string_char_at(_color_data,2);
-                                             if (isVal(_val1,"0","D"))     _pal1 = CI_GRY4_; // CI_GRY4_: darkest grey. if white or grey
-                                        else if (isVal(_val1,"9","A","B")) _pal1 = CI_GRB4_; // CI_GRB4_: darkest green tone
-                                        else if (isVal(_val1,"5","6","7")) _pal1 = CI_ORG4_; // CI_ORG4_: darkest red tone
-                                        else if (isVal(_val1,"1","2"))     _pal1 = CI_VLT4_; // CI_VLT4_: darkest blue/purple tone
-                                        else                               _pal1 = "0"+_val1; // use darkest of this color
+                                        if (_COLOR_DATA2==color_str(C_BLK1)) _color_data = _COLOR_DATA1;
+                                        else                                 _color_data = _COLOR_DATA2;
+                                        
+                                        if (ds_list_find_index(p.dl_COLOR,str_hex(_color_data))>=$40) _color_data = color_str(C_BLK1); // temp fix for new colors
+                                        
+                                        _pos += global.PAL_CHAR_PER_COLOR*2;
+                                        _pal1 = _color_data;
+                                        
+                                        if (_color_data!=color_str(C_BLK1))
+                                        {
+                                            _color_data = ds_list_find_index(p.dl_COLOR,str_hex(_color_data));
+                                            _color_data = hex_str(_color_data);
+                                            _val1 = string_char_at(_color_data,2);
+                                                 if (isVal(_val1,"0","D"))     _pal1 = CI_GRY4_; // CI_GRY4_: darkest grey. if white or grey
+                                            else if (isVal(_val1,"9","A","B")) _pal1 = CI_GRB4_; // CI_GRB4_: darkest green tone
+                                            else if (isVal(_val1,"5","6","7")) _pal1 = CI_ORG4_; // CI_ORG4_: darkest red tone
+                                            else if (isVal(_val1,"1","2"))     _pal1 = CI_VLT4_; // CI_VLT4_: darkest blue/purple tone
+                                            else                               _pal1 = "0"+_val1; // use darkest of this color
+                                        }
+                                        
+                                        _pal1 = color_str(dl_COLOR[|str_hex(_pal1)]);
+                                    }
+                                    else
+                                    {
+                                        _pal1 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2);
                                     }
                                     
-                                    _pal1 = color_str(dl_COLOR[|str_hex(_pal1)]);
+                                    
+                                    pal_rm_def = strReplaceAt(pal_rm_def, _pos, string_length(_pal1),_pal1);
+                                    break;//_i
                                 }
-                                else
-                                {
-                                    _pal1 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2);
-                                }
-                                
-                                
-                                pal_rm_def = strReplaceAt(pal_rm_def, _pos, string_length(_pal1),_pal1);
-                                break;//_i
                             }
                         }
                     }
                 }
-                /*switch(g.dungeon_num){ // DEFAULT PALETTES
-                case 1:{_pal = CI_BLK1_+CI_WHT2_+CI_GRY2_+CI_GRY4_  +  CI_BLK1_+CI_CYN1_+CI_CYN3_+CI_CYN4_; break;} // Parapa Palace
-                case 2:{_pal = CI_BLK1_+CI_CYN1_+CI_CYN3_+CI_CYN4_  +  CI_BLK1_+    "36"+    "16"+    "06"; break;} // Midoro Palace
-                case 3:{_pal = CI_BLK1_+    "26"+    "06"+CI_BLK1_  +  CI_BLK1_+    "34"+    "14"+    "04"; break;} // Island Palace
-                case 4:{_pal = CI_BLK1_+    "23"+    "03"+CI_BLK1_  +  CI_BLK1_+    "37"+    "27"+    "07"; break;} // Maze Isl Palace
-                case 5:{_pal = CI_BLK1_+    "2A"+    "0A"+CI_BLK1_  +  CI_BLK1_+    "32"+    "22"+    "02"; break;} // Palace on the Sea
-                case 6:{_pal = CI_BLK1_+    "25"+    "05"+CI_BLK1_  +  CI_BLK1_+    "30"+    "10"+    "00"; break;} // 3-Eye-Rock Palace
-                case 7:{_pal = CI_BLK1_+    "37"+    "27"+    "07"  +  CI_BLK1_+CI_CYN1_+CI_CYN3_+CI_CYN4_; break;} // Great Palace
-                case 8:{_pal = CI_BLK1_+    "26"+    "2D"+CI_BLK1_  +  CI_BLK1_+    "31"+    "0C"+CI_BLK1_; break;} // Dragmire Tower
-                }*/
-            }
-            else if (g.RandoPalette_state==2) // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
-            {
-                var             _dl1=ds_list_create();
-                ds_list_add(    _dl1,global.PI_BGR1,global.PI_BGR2,global.PI_BGR3,global.PI_BGR4);
-                ds_list_shuffle(_dl1);
-                
-                var             _dl2=ds_list_create();
-                ds_list_copy(   _dl2,dl_various_pals2);
-                ds_list_shuffle(_dl2);
-                
-                _count  = 1;
-                _count += !irandom($F);
-                //_count += !irandom($F);
-                
-                _count = min(_count, ds_list_size(_dl1), ds_list_size(_dl2));
-                for(_i=0; _i<_count; _i++)
-                {
-                    _val = _dl2[|_i];
-                    pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(_dl1[|_i]), string_length(_val),_val);
-                }
-                
-                ds_list_destroy(_dl1); _dl1=undefined;
-                ds_list_destroy(_dl2); _dl2=undefined;
             }
         }
         

@@ -84,7 +84,7 @@ _dm_save_data[?f.SDNAME_exploredRooms]          = json_encode(f.dm_explored);
 //                                                                              // 
 //                                                                              // 
 if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-&&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) 
+//&&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) 
 &&  ds_map_size(g.dm_RandoHintsRecorder) )
 {
     _dm_save_data[?STR_Found+STR_Hint] = json_encode(g.dm_RandoHintsRecorder);
@@ -102,6 +102,8 @@ if (file_exists(_FILE_NAME))
             file_text_write_string(_file,_SAVE_DATA);
             file_text_close(       _file);
     //
+    global.dm_save_file_data[?STR_Save+STR_File+hex_str(_FILE_NUM)+"_Encoded"] = _SAVE_DATA;
+    
     if (DEV){sdm("");
         var _str  = "Save File  ";
             _str += "'"+_FILE_NAME +"'" + ", Save Name  ";

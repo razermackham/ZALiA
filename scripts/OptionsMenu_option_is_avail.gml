@@ -89,6 +89,10 @@ switch(argument0)
             || val(f.dm_rando[?STR_Randomize+STR_Key +STR_Locations]);
         break;}
         
+        case RandoOptions_HINTS:{
+        return val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]);
+        break;}
+        
         case RandoOptions_MAPS_SHOW_KEYS:{
         return val(f.dm_rando[?STR_Randomize+STR_Key+STR_Locations]);
         break;}
@@ -96,6 +100,10 @@ switch(argument0)
         case RandoOptions_RANDO_ENEMY:{
         return val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Method]);
         //return val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Method]) || val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawner]) || val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_ENIGMA]);
+        break;}
+        
+        case RandoOptions_DUNGEON_TILESETS:{
+        return true;
         break;}
         
         case RandoOptions_RANDO_OW_TILES:{
@@ -109,7 +117,8 @@ switch(argument0)
         break;}
         
         case RandoOptions_RANDO_PALETTE:{
-        return val(f.dm_rando[?STR_Randomize+STR_Palette]);
+        return true;
+        //return val(f.dm_rando[?STR_Randomize+STR_Palette]);
         break;}
         
         case RandoOptions_MARK_HIDDEN_EXIT:{

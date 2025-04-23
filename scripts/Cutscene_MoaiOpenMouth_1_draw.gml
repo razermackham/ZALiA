@@ -10,39 +10,43 @@ if (TurnedIn_count)
         if(!dg_TurnedIn[#_i,0]) continue;
         
         // if turned in -----------------------------------
-        _x =dg_TurnedIn[#_i,3];
-        _y =dg_TurnedIn[#_i,4];
+        _x = dg_TurnedIn[#_i,3];
+        _y = dg_TurnedIn[#_i,4];
         
-        if (dg_TurnedIn[#_i,2]) // stun timer
-        {    _pi  = p.dg_PI_SEQ[#0, (dg_TurnedIn[#_i,2]>>1) & $3];  } // stun flash
-        else _pi  = global.PI_MOB_PUR; // PI_MOB_PUR: will be grey-scale
-        //else _pi  = PI_MOB_ORG;
+        // 2: stun timer
+        if (dg_TurnedIn[#_i,2]) _pi = p.dg_PI_SEQ[#0, (dg_TurnedIn[#_i,2]>>1) &$3]; // stun flash
+        else                    _pi = global.PI_GUI2; // PI_GUI2: grey-scale
+        //else                    _pi = global.PI_MOB_PUR; // PI_MOB_PUR: will be grey-scale
         
         switch(dg_TurnedIn[#_i,1]) // kakusu graphic type
         {
             // --------------------------------------
             case 0:{ // NORM
+            pal_swap_set(p.palette_image, _pi);
             draw_sprite_(spr_Bot2_Norm,    0, _x,_y, _pi);
             draw_sprite_(spr_Bot_Eyes_1a_1,0, _x,_y, _pi);
-            draw_sprite_(spr_1x1_WHT,0, _x-1,_y+3, -1, 2,1, get_pal_color(p.pal_rm_curr, _pi, "B"));
-            //draw_rect(get_pal_color(_pi,3), _x-1,_y+3, 2,1); // mouth
+            pal_swap_reset();
+            draw_sprite_(spr_1x1_WHT,0, _x-1,_y+3, -1, 2,1, get_pal_color(p.pal_rm_new, _pi, "B"));
             break;}
             
             
             // --------------------------------------
             case 1:{ // CYCLOPES EYE
+            pal_swap_set(p.palette_image, _pi);
             draw_sprite_(spr_Bot2_Norm,        0, _x,_y,   _pi);
             //draw_sprite_(spr_Eye_Closed_1a_WRB,0, _x,_y+2, _pi); // eye closed
             draw_sprite_(spr_Eye_Open_1b_WRB,0, _x,_y+2, _pi); // eye half open
-            draw_sprite_(spr_1x1_WHT,0, _x-1,_y+1, -1, 2,1, get_pal_color(p.pal_rm_curr, _pi, "B"));
-            //draw_rect(get_pal_color(_pi,3), _x-1,_y+1, 2,1); // pupil
+            pal_swap_reset();
+            draw_sprite_(spr_1x1_WHT,0, _x-1,_y+1, -1, 2,1, get_pal_color(p.pal_rm_new, _pi, "B"));
             break;}
             
             
             // --------------------------------------
             case 2:{ // TRANSPARENT
+            pal_swap_set(p.palette_image, _pi);
             draw_sprite_(spr_Slime_Small_1b_WRB,      0, _x,_y, _pi); // small slime
             draw_sprite_(spr_Slime_Transparent_1a_WRB,0, _x,_y, _pi); // transparent body
+            pal_swap_reset();
             break;}
         }
     }

@@ -47,7 +47,7 @@ ds_list_add(dl_COLOR_ID,color_str(p.C_RED3)); // 3: red
 
 // THIS ALGORITHM IS CORRECT, BUT YOU 
 // NEED TO KNOW THE CORRECT DEPTH FOR THE CRYSTAL HOLDER.
-midtone_PALDATA_POS = p.PAL_POS_BGR2 + (global.PAL_CHAR_PER_COLOR*(string_pos(global.PAL_BASE_COLOR_ORDER,"R")-1));
+midtone_PALDATA_POS = p.PAL_POS_BGR2 + (global.PAL_CHAR_PER_COLOR*(string_pos("R",global.PAL_BASE_COLOR_ORDER)-1));
 midtone_colorID_DEF = string_copy(p.pal_rm_def, midtone_PALDATA_POS, global.PAL_CHAR_PER_COLOR);
 midtone_colorID_cur = midtone_colorID_DEF;
 

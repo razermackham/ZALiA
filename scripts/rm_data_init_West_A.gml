@@ -2572,7 +2572,7 @@ rm_num  = $51;
 //   --------------------------  52  ---------------------------  
 //    Saria Lake, BAIT Path Entrance
 rm_num  = $52;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR7_, STR_Tile+area_EA+'099', STR_ow_axis+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+p.CI_VLT3_, STR_Tile+area_EA+'099', STR_ow_axis+'00');
 
 
 row3=row0+$15; y3=row3<<3; // PC yt right exit

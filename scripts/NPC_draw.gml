@@ -10,8 +10,12 @@ if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // Draw "?" over head of NPC that has an undescovered hint
-if (1 
-&&  has_rando_hint )
+if (RandoHint_hint_num)
+{
+    draw_text_(x-4, yt+RandoHint_ytoff, "?");
+}
+/*
+if(!RandoHint_given)
 {
     var _NUM = val(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey+STR_Hint+STR_Num]);
     if (_NUM 
@@ -20,6 +24,7 @@ if (1
         draw_text_(x-4, yt-6, "?");
     }
 }
+*/
 
 
 

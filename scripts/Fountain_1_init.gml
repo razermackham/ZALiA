@@ -4,8 +4,10 @@
 scr_draw = Fountain_1_draw;
 
 
-Water_SPR1 = spr_Fountain_Water_1a; // anim frame 1
-Water_SPR2 = spr_Fountain_Water_1b_2; // anim frame 2
+Water_SPR1 = spr_Fountain_Water_1a_1; // anim frame 1
+Water_SPR2 = spr_Fountain_Water_1b_1; // anim frame 2
+//Water_SPR1 = spr_Fountain_Water_1a; // anim frame 1
+//Water_SPR2 = spr_Fountain_Water_1b_2; // anim frame 2
 GO_sprite_init(Water_SPR1);
 ANIM_SPEED = (1<<3);
 
@@ -18,8 +20,8 @@ if (_DEPTH == -1)
 GO_depth_init(_DEPTH+_DEPTH_ADD);
 
 
-var _pi_base   = global.PI_GUI1;
-var _pi_permut = 1;
+var _pi_base   = global.PI_BGR3;
+var _pi_permut = 0;
 
 if(    !is_undefined(         dk_spawn)){
     if (val(         g.dm_rm[?dk_spawn+STR_pal_idx]))

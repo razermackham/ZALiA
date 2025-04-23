@@ -27,7 +27,7 @@ scr_step = Cutscene_MoaiOpenMouth_1_update;
 
 
 
-var _MAX_KAKUSU = val(g.dm_spawn[?STR_Kakusu+STR_Count], $C); // 12
+var _MAX_KAKUSU = val(g.dm_spawn[?STR_Kakusu+STR_Count], 12);
 
 DEFEATED_GOAL = _MAX_KAKUSU;
 DEFEATED_GOAL = get_saved_value(f.file_num, STR_Kakusu+STR_Required+STR_Count, DEFEATED_GOAL);

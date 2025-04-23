@@ -17,7 +17,9 @@ timer_a1        = 0;     // 05BD[eIndex]
 is_talking      = false; // 05C3[eIndex]
 talked_to_count = 0;     // 05A5[eIndex]
 HylianText_read = false;
-has_rando_hint  = false;
+
+RandoHint_hint_num = 0;
+RandoHint_ytoff    = -7;
 
 
 GROUND_Y = cam_yb_max()-$18;

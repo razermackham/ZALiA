@@ -394,7 +394,8 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($10<<3)+0,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($53<<3)+0,y5-($01<<3));
-data_NIAO_1a(rm+STR_NIAO+string(_a++), (row3<<8)|$0055, 1,Fountain_1_init, global.PI_MOB_BLU,0); //  
+data_NIAO_1a(rm+STR_NIAO+string(_a++), (row3<<8)|$0055, 1,Fountain_1_init);
+//data_NIAO_1a(rm+STR_NIAO+string(_a++), (row3<<8)|$0055, 1,Fountain_1_init, global.PI_MOB_BLU,0);
 
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3); // NPC Spawner
 data_spawn(rm+STR_PRIO,NPC_5,$1,  $2A<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0502,STR_Sprite+STR_Zoey,STR_Quest+STR_ID+hex_str(QUEST_SPELL_LIFE)); // Quest 
@@ -622,7 +623,8 @@ _a=0;
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($1F<<3)+0,y5);
-data_NIAO_1a(rm+STR_NIAO+string(_a++),  $1768,  1,Fountain_1_init,  global.PI_BGR3,0);
+data_NIAO_1a(rm+STR_NIAO+string(_a++),  $1768,  1,Fountain_1_init);
+//data_NIAO_1a(rm+STR_NIAO+string(_a++),  $1768,  1,Fountain_1_init,  global.PI_BGR3,0);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $20<<3,y3,  dk_PI+hex_str(global.PI_BGR4),STR_Dialogue+DK0004); // Sign
 data_spawn(rm+STR_PRXM,NPC_3,$3,  $4A<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0309,STR_Sprite+STR_Mary); // Special Walker, Big lady, Red
@@ -673,7 +675,8 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($42<<3)+0,y5-($01<<3));
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($5E<<3)+4,y5);
-data_NIAO_1a(rm+STR_NIAO+string(_a++),  $1744,  1,Fountain_1_init, global.PI_BGR3,0);
+data_NIAO_1a(rm+STR_NIAO+string(_a++),  $1744,  1,Fountain_1_init);
+//data_NIAO_1a(rm+STR_NIAO+string(_a++),  $1744,  1,Fountain_1_init, global.PI_BGR3,0);
 data_spawn(rm+STR_PRIO,SpNPA,$1,   $1E<<3,y3);
 data_spawn(rm+STR_PRXM,NPC_3,$1,   $32<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0302,STR_Sprite+STR_Joey); // Special Walker, Child, Purple
 data_spawn(rm+STR_PRIO,NPC_5,$1,  clm3<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0504,STR_Sprite+STR_Jill,STR_Quest+STR_ID+hex_str(QUEST_SPELL_FIRE)); // Quest 
@@ -708,7 +711,8 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($29<<3)+4,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($69<<3)+4,y5);
-data_NIAO_1a(rm+STR_NIAO+string(_a++),  (row3<<8)|$46,  1,Fountain_1_init,  global.PI_BGR3,0);
+data_NIAO_1a(rm+STR_NIAO+string(_a++),  (row3<<8)|$46,  1,Fountain_1_init);
+//data_NIAO_1a(rm+STR_NIAO+string(_a++),  (row3<<8)|$46,  1,Fountain_1_init,  global.PI_BGR3,0);
 clm5=$38;
 //data_spawn(rm+STR_PRIO,TorchA,$3,  ((clm5-$02)<<3)+4,y3-4,  dk_PI+hex_str(_PI3),STR_Lit); // v3: shorter torch. Fast travel house indicator
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3); // NPC Spawner
@@ -937,7 +941,8 @@ _a=0;
 data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC_NEWK, 1, Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($54<<3)+4,y5);
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $1766, 1,Fountain_1_init, global.PI_MOB_BLU,0); //  
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $1766, 1,Fountain_1_init);
+//data_NIAO_1a(rm+STR_NIAO+string(_a++), $1766, 1,Fountain_1_init, global.PI_MOB_BLU,0);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);                    // NPC Spawner
 data_spawn(rm+STR_PRXM,NPC_3,$3,  $2E<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK030A,STR_Sprite+STR_Bill); // 
 data_spawn(rm+STR_PRXM,NPC_3,$1,  $6C<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0304,STR_Sprite+STR_Jack); // 
@@ -998,6 +1003,7 @@ _town_name1 = STR_Old_Kasuto;
 rm_num  = $15;
 set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR5_, STR_Tile+area_TA+'019', STR_ow_axis+hex_str(ow_axis), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_KASUTO);
 g.dm_rm[?rm+STR_Town+STR_Outside] = true;
+p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET5;
 
 
 row5=row0+$1A; y5=row5<<3;
@@ -1065,6 +1071,7 @@ _town_name1 = STR_Old_Kasuto;
 rm_num  = $16;
 set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR5_, STR_Tile+area_TA+'031', STR_ow_axis+hex_str(ow_axis), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_KASUTO);
 g.dm_rm[?rm+STR_Town+STR_Outside] = true;
+p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET5;
 
 
 row3=row0+$17; y3=row3<<3;
@@ -1172,6 +1179,7 @@ _town_name1 = STR_Old_Kasuto;
 rm_num  = $17;
 set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR5_, STR_Tile+area_TA+'021', STR_ow_axis+hex_str(ow_axis), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_KASUTO);
 g.dm_rm[?rm+STR_Town+STR_Outside] = true;
+p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET5;
 
 
 row5=row0+$1A; y5=row5<<3;
@@ -1268,6 +1276,7 @@ _town_name1 = STR_Nabooru;
 rm_num  = $19;
 set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR2_, STR_Tile+area_TA+'025', STR_ow_axis+hex_str(1), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_NABOORU);
 g.dm_rm[?rm+STR_Town+STR_Outside] = true;
+p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET1;
 
 
 row5=row0+$1A; y5=row5<<3;
@@ -3146,6 +3155,7 @@ rm_name = area + hex_str(rm_num);
 //                  Saria,  Target Minigame 1
 rm_num  = $90;
 set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Color+COLOR2_, STR_Tile+area_TA+'255', STR_ow_axis+hex_str(0), STR_Town+STR_Saria, MapAreaName_DATAKEY+MapAreaName_SARIA);
+p.dm_scene_palette[?rm+dk_MOB] = p.PAL_NPC_SET3; // purple mob brown outline
 
 
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 

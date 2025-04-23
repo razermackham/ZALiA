@@ -469,20 +469,26 @@ if(!is_undefined(                                dialogue_datakey)
 if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
 &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
 {
-    _val = dialogue_datakey;
     if (is_ancestor(object_index,Zelda))
     {
-        _val = STR_Zelda+STR_Hint;
-        if(!is_undefined(f.dm_rando[?_val+STR_Dialogue]))
+        if(!is_undefined(f.dm_rando[?STR_Zelda+STR_Hint+STR_Dialogue]))
         {
-            has_rando_hint = true;
+            //RandoHint_given = false;
         }
     }
-    else if(!is_undefined(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey]))
+    else
     {
-        has_rando_hint = true;
+        RandoHint_hint_num = val(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey+STR_Hint+STR_Num]);
+        if(!is_undefined(g.dm_RandoHintsRecorder[?STR_Hint+hex_str(RandoHint_hint_num)+STR_Dialogue]))
+        {
+            RandoHint_hint_num = 0; // 0: tells draw not to draw the question mark
+        }
+        
+        //if(!is_undefined(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey])) RandoHint_given = false;
     }
 }
+//val(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey+STR_Hint+STR_Num])
+//is_undefined(g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_NUM)+STR_Dialogue])
 //f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey]
 //_num = val(f.dm_rando[?STR_Rando+STR_Hint+_RANDO_HINT_DIALOGUE_DK+STR_Hint+STR_Num]);
 //var _dialogue = g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Dialogue];

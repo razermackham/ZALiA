@@ -88,14 +88,14 @@ curtain_frame = CURTAIN_FRAMES;
 
 
 
-DLG_DEPTH_DEF   = g.DIALOGUE_WINDOW.depth; // backup
-DLG_DEPTH       = 0; // So curtain is in front of text.
+DLG_DEPTH_DEF = g.DIALOGUE_WINDOW.depth; // backup
+DLG_DEPTH     = 0; // So curtain is in front of text.
 
 
 
-THE_END_can_draw    = 0;
-THE_END_TEXT        = "THE END";
-THE_END_PI          = global.PI_GUI1;
+THE_END_can_draw = 0;
+THE_END_TEXT     = "THE END";
+THE_END_PI       = global.PI_GUI1;
 
 // writ_dlg            = "";
 
@@ -144,21 +144,21 @@ PAL_LEN = string_length(CREDITS_TITL_PAL1);
 
 
 
-CREDITS_DUR0    = $C0;
-CREDITS_DUR1    = CREDITS_DUR0;
-CREDITS_DUR1    = CREDITS_DUR1-$10; // Speeding up credits b/c of many Patreon names
+CREDITS_DUR0  = $C0;
+CREDITS_DUR1  = CREDITS_DUR0;
+CREDITS_DUR1 -= $10; // Speeding up credits b/c of many Patreon names
 //CREDITS_DUR1    = CREDITS_DUR1-(CREDITS_DUR1>>2); // Speeding up credits b/c of many Patreon names
-CREDITS_DUR2    = $08;
-CREDITS_DUR3    = $07;
-//CREDITS_DUR4    = CREDITS_DUR1-(CREDITS_DUR1>>2);
+CREDITS_DUR2  = $08;
+CREDITS_DUR3  = $07;
+//CREDITS_DUR4  = CREDITS_DUR1-(CREDITS_DUR1>>2);
 /*
-CREDITS_CLM1    = (viewXC()>>3)-6; // NAME, "STAFF"
-CREDITS_CLM2    = (viewXC()>>3)-8; // JOB TITLE
+CREDITS_CLM1 = (viewXC()>>3)-6; // NAME, "STAFF"
+CREDITS_CLM2 = (viewXC()>>3)-8; // JOB TITLE
 CREDITS_CLM2++; // MOD
 */
 
-CREDITS_CLM1    = (viewXC()>>3) - 5; // NAME, "STAFF"
-CREDITS_CLM2    = CREDITS_CLM1  - 4; // JOB TITLE
+CREDITS_CLM1  = (viewXC()>>3) - 5; // NAME, "STAFF"
+CREDITS_CLM2  = CREDITS_CLM1  - 4; // JOB TITLE
 CREDITS_CLM2++; // MOD
 
 
@@ -166,19 +166,19 @@ CREDITS_CLM2++; // MOD
 //INDICATOR1 = "~";
 
 
-credits_idx     = 0;
+credits_idx    = 0;
 
-CREDITS_CNT1    = 1;
-//CREDITS_CNT1    = 11;
-//CREDITS_CNT1    = 10;
-CREDITS_CNT2    = 7;
-//CREDITS_CNT2    = 6;
-dg_CREDITS      = ds_grid_create(0,CREDITS_CNT2);
-_idx=ds_grid_width(dg_CREDITS)-1;
+CREDITS_COUNT1 = 1;
+//CREDITS_COUNT1 = 11;
+//CREDITS_COUNT1 = 10;
+CREDITS_COUNT2 = 7;
+//CREDITS_COUNT2 = 6;
+dg_CREDITS = ds_grid_create(0,CREDITS_COUNT2);
+_idx = ds_grid_width(dg_CREDITS)-1;
 //                                                  // 
 //                                                  // 
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
-sdm("_idx $"+hex_str(_idx)+", ds_grid_width(dg_CREDITS): $"+hex_str(ds_grid_width(dg_CREDITS)));
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
+//sdm("_idx $"+hex_str(_idx)+", ds_grid_width(dg_CREDITS): $"+hex_str(ds_grid_width(dg_CREDITS)));
 dg_CREDITS[#0,0] = 0; // dg_CREDITS grid x idx
 dg_CREDITS[#0,1] = 0; // state
 dg_CREDITS[#0,2] = 0; // timer
@@ -190,7 +190,7 @@ dg_CREDITS[#0,5] = 0; // name  can draw
 //                                                  //
 // ------------------- ME -------------------
 _text="LINK IS ADVENTURESOME CREATOR";
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "HOVERBAT";         // 
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  // 
@@ -199,12 +199,12 @@ dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  //
 // ------------------- MADE WITH -------------------
 _text="MADE WITH";
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "GAMEMAKER STUDIO";
 dg_CREDITS[#_idx,2] = "TILED MAP EDITOR";
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 dg_CREDITS[#_idx,6] = 1; // Center credit text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "PALETTE SWAPPER BY PIXELATED POPE";
 dg_CREDITS[#_idx,2] = "GMSCHED BY SKYFLOOGLE";
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
@@ -215,17 +215,17 @@ dg_CREDITS[#_idx,6] = 1; // Center credit text
 //                                                  //
 // ------------------- ADDITIONAL MUSIC -------------------
 _text="ADDITIONAL MUSIC AND SOUND";
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "BROOMIETUNES";
 dg_CREDITS[#_idx,2] = "ISABELLE CHIMING (VRC6 OST)";
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 dg_CREDITS[#_idx,6] = 1; // Center credit text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "NIKOS8BITSTEREO (NIKOTENGOKU)";
 dg_CREDITS[#_idx,2] = SteelCrescents_NAME;
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 dg_CREDITS[#_idx,6] = 1; // Center credit text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "WYNG (ORCHESTRAL SOUNDTRACK)";
 dg_CREDITS[#_idx,2] = "KOJI KONDO (ZELDA 1 AUDIO)";
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
@@ -235,7 +235,7 @@ dg_CREDITS[#_idx,6] = 1; // Center credit text
 //                                                  //
 // ------------------- PATRONS -------------------
 _text="PATRONS";
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 //dg_CREDITS[#_idx,1] = "WOLFZEN SKIIGH";  
 dg_CREDITS[#_idx,1] = "WOLFZEN 'XIB' SKIIGH";  
 dg_CREDITS[#_idx,2] = "CAPTAIN BOZO"; // 
@@ -243,7 +243,7 @@ dg_CREDITS[#_idx,3] = "GUARDIAN";
 dg_CREDITS[#_idx,4] = "BLACKMAGE14"; // 
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 dg_CREDITS[#_idx,6] = 1; // Center credit text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "X570 BELMONT";            //
 dg_CREDITS[#_idx,2] = "TECHTONIC IMPROV"; // BREN 
 dg_CREDITS[#_idx,3] = "ROBIN AM"; // 
@@ -251,14 +251,14 @@ dg_CREDITS[#_idx,4] = "KOEBI"; //
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 dg_CREDITS[#_idx,6] = 1; // Center credit text
 //                                                  //
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "FLUFFY TAIL"; // 
 dg_CREDITS[#_idx,2] = "REINEKE"; // 
 dg_CREDITS[#_idx,3] = "JERBERJER"; // JERBINS JARMAN
 dg_CREDITS[#_idx,4] = "DRALKKIN"; // 
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 dg_CREDITS[#_idx,6] = 1; // Center credit text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "JACOB THE MOO"; // 
 dg_CREDITS[#_idx,2] = "ATOMIC DRACULA"; // 
 dg_CREDITS[#_idx,3] = "AARON"; // 
@@ -270,36 +270,28 @@ dg_CREDITS[#_idx,6] = 1; // Center credit text
 //                                                  //
 // ------------------- SPECIAL THANKS -------------------
 _text="SPECIAL THANKS";
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "MOM"; // 
 dg_CREDITS[#_idx,2] = "DAD"; // 
+dg_CREDITS[#_idx,3] = "PATRICK"; // 
+dg_CREDITS[#_idx,4] = "ERIN"; // 
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 dg_CREDITS[#_idx,6] = 1; // Center credit text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
-dg_CREDITS[#_idx,1] = "PATRICK"; // 
-dg_CREDITS[#_idx,2] = "ERIN"; // 
-dg_CREDITS[#_idx,5] = _text; // 5: staff text
-dg_CREDITS[#_idx,6] = 1; // Center credit text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "VINNY"; // 
 dg_CREDITS[#_idx,2] = "SCHMIDTTYGAMES"; // 
+dg_CREDITS[#_idx,3] = "TRAILZ"; // 
+dg_CREDITS[#_idx,4] = "ALTERNA4091"; // 
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 dg_CREDITS[#_idx,6] = 1; // Center credit text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
-dg_CREDITS[#_idx,1] = "TRAILZ"; // 
-dg_CREDITS[#_idx,2] = "ALTERNA4091"; // 
-dg_CREDITS[#_idx,5] = _text; // 5: staff text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "SOPHILAUTIA"; // 
 dg_CREDITS[#_idx,2] = "BROOMIETUNES"; // 
+dg_CREDITS[#_idx,3] = "ANARKHYA"; // 
+dg_CREDITS[#_idx,4] = SteelCrescents_NAME; // 
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 dg_CREDITS[#_idx,6] = 1; // Center credit textdg_CREDITS[#_idx,6] = 1; // Center credit text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
-dg_CREDITS[#_idx,1] = "ANARKHYA"; // 
-dg_CREDITS[#_idx,2] = SteelCrescents_NAME; // 
-dg_CREDITS[#_idx,5] = _text; // 5: staff text
-dg_CREDITS[#_idx,6] = 1; // Center credit text
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,1] = "LINK IS ADVENTURESOME COMMUNITY"; // 
 dg_CREDITS[#_idx,2] = "AND ANYONE ELSE THAT I MISSED!"; // 
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
@@ -310,19 +302,19 @@ dg_CREDITS[#_idx,6] = 1; // Center credit text
 // ------------------- ORIGINAL GAME STAFF -------------------
 var _USE_PSEUDO_NAMES = false;
 _text="ORIGINAL GAME STAFF";
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,0] = "EXECUTIVE PRODUCER"; // 
 if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,1] = "H.YAMAUCHI";
 else                   dg_CREDITS[#_idx,1] = "HIROSHI YAMAUCHI";
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  //
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,0] = "PRODUCER";
 if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,1] = "MIYAHON";
 else                   dg_CREDITS[#_idx,1] = "SHIGERU MIYAMOTO";
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  //
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,0] = "DIRECTOR";
 if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,1] = "SUGIYEN";
 else                   dg_CREDITS[#_idx,1] = "TADASHI SUGIYAMA";
@@ -330,19 +322,19 @@ if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,2] = "YAMAHEN";
 else                   dg_CREDITS[#_idx,2] = "YASUHISA YAMAMURA";
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  //
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,0] = "DESIGNER";
 if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,1] = "ISSHIN";  
 else                   dg_CREDITS[#_idx,1] = "KAZUNOBU SHIMIZU";  
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  //
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,0] = "SOUND COMPOSER";
 if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,1] = "TSUKASAN";
 else                   dg_CREDITS[#_idx,1] = "AKITO NAKATSUKA";
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  //
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,0] = "PROGRAMER";
 if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,1] = "MORIKAZU";
 else                   dg_CREDITS[#_idx,1] = "KAZUAKI MORITA";
@@ -350,7 +342,7 @@ if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,2] = "MARUMARU";
 else                   dg_CREDITS[#_idx,2] = "TATSUO NISHIYAMA";
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  //
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,0] = "PROGRAMER";
 if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,1] = "SHIGECHAN";
 else                   dg_CREDITS[#_idx,1] = "SHIGEHIRO KASAMATSU";
@@ -358,7 +350,7 @@ if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,2] = "NISHIYAN";
 else                   dg_CREDITS[#_idx,2] = "YASUNARI NISHIDA";
 dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  //
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,0] = "PROGRAMER";
 if (_USE_PSEUDO_NAMES) dg_CREDITS[#_idx,1] = "NAKAZOO";
 else                   dg_CREDITS[#_idx,1] = "TOSHIHIKO NAKAGO";
@@ -366,7 +358,7 @@ dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  // 
 //                                                  // 
 //                                                  // 
-ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_CNT2);
+ds_grid_resize(dg_CREDITS, (++_idx)+1, CREDITS_COUNT2);
 dg_CREDITS[#_idx,0] = "THANKS A MILLION!";  // MOD
 //dg_CREDITS[#_idx,0] = "THANKS A MILLION.";  // OG
 dg_CREDITS[#_idx,1] = "START  - 2ND QUEST";
@@ -375,7 +367,7 @@ dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  // 
 //                                                  // 
 //                                                  // 
-CREDITS_CNT1 = ds_grid_width(dg_CREDITS);
+CREDITS_COUNT1 = ds_grid_width(dg_CREDITS);
 sdm("_idx $"+hex_str(_idx)+", ds_grid_width(dg_CREDITS): $"+hex_str(ds_grid_width(dg_CREDITS)));
 
 

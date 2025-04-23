@@ -966,41 +966,47 @@ PAL_CUC5 = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // cucco disguise
 
 
 
-PAL_MOB_ORG1  = build_pal(C_WHT1,C_ORG2,C_RED3,C_BLK1,-2,-2,-2,-2); // orange  mob
+PAL_MOB_ORG1 = build_pal(C_WHT1,C_ORG2,C_RED3,C_BLK1,-2,-2,-2,-2); // orange  mob
 //                                                                          //
-PAL_MOB_RED1  = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // red     mob
-PAL_MOB_RED2  = build_pal(C_WHT1,C_RED3,C_ORG4,C_BLK1,-2,-2,-2,-2); // red     mob (dungeon)
+PAL_MOB_RED1 = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // red     mob
+PAL_MOB_RED2 = build_pal(C_WHT1,C_RED3,C_ORG4,C_BLK1,-2,-2,-2,-2); // red     mob (dungeon)
 //                                                                          //
-PAL_MOB_BLU1  = build_pal(C_WHT1,C_CYN2,C_CYN4,C_BLK1,-2,-2,-2,-2); // blue    mob (non-dungeon)
-PAL_MOB_BLU2  = build_pal(C_WHT1,C_BLU2,C_BLU4,C_BLK1,-2,-2,-2,-2); // blue    mob (dungeon)
+PAL_MOB_BLU1 = build_pal(C_WHT1,C_CYN2,C_CYN4,C_BLK1,-2,-2,-2,-2); // blue    mob (non-dungeon)
+PAL_MOB_BLU2 = build_pal(C_WHT1,C_BLU2,C_BLU4,C_BLK1,-2,-2,-2,-2); // blue    mob (dungeon)
+PAL_MOB_BLU3 = build_pal(C_WHT1,C_CYN2,C_BLU3,C_BLK1,-2,-2,-2,-2); // blue    mob (old kasuto fire)
 //                                                                          //
-PAL_MOB_PUR1  = build_pal(C_WHT1,C_PUR3,C_PUR4,C_BLK1,-2,-2,-2,-2); // purple  mob
-PAL_MOB_PUR2  = strReplaceAt(PAL_MOB_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_BLK1)); // purple  mob
-PAL_MOB_PUR2  = strReplaceAt(PAL_MOB_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_MOB_PUR2,0,"B")));
-//                                                                          //
-//                                                                          //
-PAL_NPC_ORG1  = PAL_MOB_ORG1;                                       // orange  npc
-//                                                                          //
-PAL_NPC_RED1  = build_pal(C_RED1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // red     npc
-//                                                                          //
-PAL_NPC_BLU1  = build_pal(C_RED1,C_VLT3,C_BLK1,C_BLK1,-2,-2,-2,-2); // blue    npc
-PAL_NPC_BLU2  = PAL_MOB_BLU1; // Bulblin
-//                                                                          //
-PAL_NPC_PUR1  = build_pal(C_RED1,C_PUR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // purple  npc
-PAL_NPC_PUR2  = strReplaceAt(PAL_NPC_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_PUR4));
-PAL_NPC_PUR2  = strReplaceAt(PAL_NPC_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_NPC_PUR2,0,"B")));
-PAL_NPC_PUR3  = strReplaceAt(PAL_NPC_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_YLW4)); // dark brown outline
-PAL_NPC_PUR3  = strReplaceAt(PAL_NPC_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_NPC_PUR2,0,"B")));
-PAL_NPC_PUR4  = build_pal(C_RED1,C_GRY2,C_PUR4,C_BLK1,-2,-2,-2,-2); // purple  npc. Skill Knights
-//                                                                          //
-PAL_NPC_SET1  = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU1 + PAL_NPC_PUR1;
-PAL_NPC_SET2  = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU2 + PAL_NPC_PUR1; // Bulblin
+PAL_MOB_PUR1 = build_pal(C_WHT1,C_PUR3,C_PUR4,C_BLK1,-2,-2,-2,-2); // purple  mob
+PAL_MOB_PUR2 = strReplaceAt(PAL_MOB_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_BLK1)); // purple  mob
+PAL_MOB_PUR2 = strReplaceAt(PAL_MOB_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_MOB_PUR2,0,"B")));
 //                                                                          //
 //                                                                          //
+PAL_NPC_ORG1 = PAL_MOB_ORG1;                                       // orange  npc
 //                                                                          //
-PAL_MOB_SET1  = PAL_MOB_ORG1 + PAL_MOB_RED1 + PAL_MOB_BLU1 + PAL_MOB_PUR1; // non-dungeon
-PAL_MOB_SET2  = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU2 + PAL_MOB_PUR1; // dungeon
-PAL_MOB_SET3  = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU1 + PAL_MOB_PUR2; // 
+PAL_NPC_RED1 = build_pal(C_RED1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // red     npc
+//                                                                          //
+PAL_NPC_BLU1 = build_pal(C_RED1,C_VLT3,C_BLK1,C_BLK1,-2,-2,-2,-2); // blue    npc
+PAL_NPC_BLU2 = PAL_MOB_BLU1; // Bulblin
+//                                                                          //
+PAL_NPC_PUR1 = build_pal(C_RED1,C_PUR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // purple  npc
+PAL_NPC_PUR2 = strReplaceAt(PAL_NPC_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_PUR4));
+PAL_NPC_PUR2 = strReplaceAt(PAL_NPC_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_NPC_PUR2,0,"B")));
+PAL_NPC_PUR3 = strReplaceAt(PAL_NPC_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_YLW4)); // dark brown outline
+PAL_NPC_PUR3 = strReplaceAt(PAL_NPC_PUR3, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_NPC_PUR3,0,"B")));
+PAL_NPC_PUR4 = build_pal(C_RED1,C_GRY2,C_PUR4,C_BLK1,-2,-2,-2,-2); // purple  npc. Skill Knights
+//                                                                          //
+PAL_NPC_SET1 = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU1 + PAL_NPC_PUR1;
+PAL_NPC_SET2 = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU2 + PAL_NPC_PUR1; // Bulblin
+PAL_NPC_SET3 = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU2 + PAL_NPC_PUR3; // Target Game(Saria Mini Game)
+//                                                                          //
+//                                                                          //
+//                                                                          //
+PAL_MOB_SET1 = PAL_MOB_ORG1 + PAL_MOB_RED1 + PAL_MOB_BLU1 + PAL_MOB_PUR2; // non-dungeon
+//PAL_MOB_SET1 = PAL_MOB_ORG1 + PAL_MOB_RED1 + PAL_MOB_BLU1 + PAL_MOB_PUR1; // non-dungeon
+PAL_MOB_SET2 = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU2 + PAL_MOB_PUR2; // dungeon
+//PAL_MOB_SET2 = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU2 + PAL_MOB_PUR1; // dungeon
+PAL_MOB_SET3 = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU1 + PAL_MOB_PUR2; // 
+PAL_MOB_SET4 = PAL_MOB_ORG1 + PAL_MOB_RED1 + PAL_MOB_BLU1 + PAL_MOB_PUR2; // 
+PAL_MOB_SET5 = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU3 + PAL_MOB_PUR2; // old kasuto
 //                                                                          //
 
 

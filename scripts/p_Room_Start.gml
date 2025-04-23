@@ -348,9 +348,9 @@ if (room!=rmB_Title
                                 _pi  = dg_depth_pi[#_idx,1]; // pi for bgr wall
                                 _pos = get_pal_pos(_pi);
                                 
-                                var _COLOR_DATA1 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*2), global.PAL_CHAR_PER_COLOR); // 2nd to last color, mid-tone, base color
-                                var _COLOR_DATA2 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*3), global.PAL_CHAR_PER_COLOR); // last color, and last 2 str chars of a palette
-                                var _color_data = _COLOR_DATA1;
+                                var _COLOR_DATA1 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*1), global.PAL_CHAR_PER_COLOR); // 2nd to last color, mid-tone, base color
+                                var _COLOR_DATA2 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*2), global.PAL_CHAR_PER_COLOR); // last color, and last 2 str chars of a palette
+                                var _color_data  = _COLOR_DATA1;
                                 
                                 // If the mid-tone (_ci_) IS black, make the bgr wall full black to contrast the fgr wall
                                 if (_COLOR_DATA1!=color_str(C_BLK1))
@@ -360,7 +360,7 @@ if (room!=rmB_Title
                                     
                                     if (ds_list_find_index(p.dl_COLOR,str_hex(_color_data))>=$40) _color_data = color_str(C_BLK1); // temp fix for new colors
                                     
-                                    _pos += global.PAL_CHAR_PER_COLOR*3;
+                                    _pos += global.PAL_CHAR_PER_COLOR*2;
                                     _pal1 = _color_data;
                                     
                                     if (_color_data!=color_str(C_BLK1))
@@ -375,8 +375,7 @@ if (room!=rmB_Title
                                         else                               _pal1 = "0"+_val1; // use darkest of this color
                                     }
                                     
-                                    _pal1 = p.dl_COLOR[|str_hex(_pal1)];
-                                    _pal1 = color_str(_pal1);
+                                    _pal1 = color_str(dl_COLOR[|str_hex(_pal1)]);
                                 }
                                 else
                                 {

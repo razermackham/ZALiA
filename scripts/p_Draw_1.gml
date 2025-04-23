@@ -92,7 +92,9 @@ if (_C1&$3)
         _h1  = viewH();
         _surf = surface_create(_w1,_h1);
         surface_set_target(_surf);
-        draw_sprite_(spr_1x1_WHT,0, 0,0, -1, _w1,_h1, c_black);
+        _color = C_GRN0; // GRN0 will be pal swapped to black. Otherwise c_black could be swapped to something else because it's the same value as C_BLK0.
+        //_color = c_black;
+        draw_sprite_(spr_1x1_WHT,0, 0,0, -1, _w1,_h1, _color);
         
         _ts_x = $F<<3;
         _ts_y = $C<<3;

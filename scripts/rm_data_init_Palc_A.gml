@@ -357,6 +357,7 @@ data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
 //    
 rm_num  = $09;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PA+'009', STR_ow_axis+hex_str(ow_axis));
+//g.dm_rm[?"liquid_is_fire_"+rm] = true;
 
 
 row3=row0+$16; y3=row3<<3;

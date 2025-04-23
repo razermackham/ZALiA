@@ -11464,6 +11464,8 @@
       <sprite>sprites\spr_Fire_1a_2</sprite>
       <sprite>sprites\spr_Fountain_Water_1a</sprite>
       <sprite>sprites\spr_Fountain_Water_1b_2</sprite>
+      <sprite>sprites\spr_Fountain_Water_1a_1</sprite>
+      <sprite>sprites\spr_Fountain_Water_1b_1</sprite>
       <sprite>sprites\spr_Chain_link_01a</sprite>
       <sprite>sprites\spr_Chain_link_02a</sprite>
       <sprite>sprites\spr_Spike_ball_1a</sprite>

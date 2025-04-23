@@ -14,7 +14,6 @@ if (g.ChangeRoom_timer>0)
 
 
 
-
 var _i,_j, _idx, _val;
 
 
@@ -23,8 +22,8 @@ var _i,_j, _idx, _val;
 
 g.pc_lock = PC_LOCK_ALL;
 
-THE_END_can_draw    = 0;
-triforce_can_draw   = 0;
+THE_END_can_draw  = 0;
+triforce_can_draw = 0;
 
 
 if (g.gui_state)
@@ -45,6 +44,8 @@ if (g.gui_state)
 
 if(!g.cutscene_part)
 {   g.cutscene_part = SUB_STATE_INIT_1A;  }
+
+
 
 
 
@@ -72,17 +73,16 @@ switch(g.cutscene_part)
     
     // ---------------------------------------------------
     g.pc_lock      = PC_LOCK_ALL;
-    
     g.view_lock_rm = $F;
     g.view_lock   |= g.view_lock_rm;
     
     set_camera_xy(g.rm_w_-viewW_(), viewYT());
     
     
-    GROUND_Y  = (g.pc.spawn_y>>3)<<3;
-    GROUND_Y  = get_ground_y(viewXC(),GROUND_Y,  1, GROUND_Y+PC_H);
-    CEILNG_Y  = find_row_solid(TID_SOLID1, viewXC()>>3,(GROUND_Y>>3)-4, -1, 0, $08);
-    CEILNG_Y  = (CEILNG_Y+1)<<3;
+    GROUND_Y = (g.pc.spawn_y>>3)<<3;
+    GROUND_Y = get_ground_y(viewXC(),GROUND_Y,  1, GROUND_Y+PC_H);
+    CEILNG_Y = find_row_solid(TID_SOLID1, viewXC()>>3,(GROUND_Y>>3)-4, -1, 0, $08);
+    CEILNG_Y = (CEILNG_Y+1)<<3;
     
     
     // ---------------------------------------------------
@@ -106,8 +106,7 @@ switch(g.cutscene_part)
         
         
         _CURTAIN_DEPTH = _depth;
-        
-        break; // for _i
+        break;//_i
     }
     
     
@@ -153,7 +152,7 @@ switch(g.cutscene_part)
     
     
     // ---------------------------------------------------
-    g.cutscene_timer  = 0;
+    g.cutscene_timer = 0;
     g.cutscene_part = SUB_STATE_INIT_2A;
     break;}
     
@@ -192,10 +191,10 @@ switch(g.cutscene_part)
             depth = g.pc.depth-1;
         }
         
-        sub_state   = SUB_STATE_TALK1; // So correct sprite is drawn
+        sub_state = SUB_STATE_TALK1; // So correct sprite is drawn
         
         
-        g.cutscene_timer  = other.DUR1; // DUR1: $5F 1.583s
+        g.cutscene_timer = other.DUR1; // DUR1: $5F 1.583s
         g.cutscene_part = other.SUB_STATE_DLOG_1A;
     }
     break;}
@@ -233,7 +232,7 @@ switch(g.cutscene_part)
     
     g.DIALOGUE_WINDOW.depth = DLG_DEPTH;
     
-    g.cutscene_timer  = 4; // wait for dlg window to build
+    g.cutscene_timer = 4; // wait for dlg window to build
     g.cutscene_part = SUB_STATE_DLOG_1B;
     break;}
     
@@ -254,7 +253,7 @@ switch(g.cutscene_part)
     if (Zelda_update_talk_sound()) break; // Updates the talk sound.
     
     
-    g.cutscene_timer  = DUR1; // DUR1: $5F 1.583s
+    g.cutscene_timer = DUR1; // DUR1: $5F 1.583s
     g.cutscene_part = SUB_STATE_CURT_1B;
     break;}
     
@@ -272,7 +271,7 @@ switch(g.cutscene_part)
     if (g.cutscene_timer) break;
     
     
-    g.cutscene_timer  = 0;
+    g.cutscene_timer = 0;
     g.cutscene_part = SUB_STATE_CURT_1B;
     break;}
     */
@@ -296,7 +295,7 @@ switch(g.cutscene_part)
     if(!Cutscene_GameEnd_1B_update_1a(3,1, 2)) break;
     
     
-    g.cutscene_timer  = DUR1; // Kiss delay. DUR1: $5F 1.583s
+    g.cutscene_timer = DUR1; // Kiss delay. DUR1: $5F 1.583s
     g.cutscene_part = SUB_STATE_KISS_1A;
     break;}
     
@@ -321,17 +320,17 @@ switch(g.cutscene_part)
     
     with(g.pc)
     {
-        set_xy(id, x + (_DIST * xScale), y);
+        set_xy(id, x + (_DIST*xScale), y);
     }
+    
     with(Zelda)
     {
-        set_xy(id, x + (_DIST * xScale), y);
-        
+        set_xy(id, x + (_DIST*xScale), y);
         sub_state = SUB_STATE_KISS;
     }
     
     
-    g.cutscene_timer  = DUR1; // 'THE END' text delay. DUR1: $5F 1.583s
+    g.cutscene_timer = DUR1; // 'THE END' text delay. DUR1: $5F 1.583s
     g.cutscene_part = SUB_STATE_OTHR_1A;
     break;}
     
@@ -352,13 +351,10 @@ switch(g.cutscene_part)
     if (g.cutscene_timer) break; // 'THE END' text delay
     
     
-    // aud_play_sound(g.MUS_END_CREDT, Audio.PRI_TOP, true);
+    //aud_play_sound(g.MUS_END_CREDT, Audio.PRI_TOP, true);
     
-    
-    g.cutscene_timer  = 0;
+    g.cutscene_timer = 0;
     g.cutscene_part = SUB_STATE_OTHR_1A;
-    
-    
     break;}
     */    
     
@@ -379,7 +375,7 @@ switch(g.cutscene_part)
     if (g.cutscene_timer) break; // 'THE END' text delay
     
     
-    g.cutscene_timer  = 0;
+    g.cutscene_timer = 0;
     g.cutscene_part = SUB_STATE_OTHR_1B;
     break;}
     
@@ -418,7 +414,7 @@ switch(g.cutscene_part)
     aud_play_sound(_MUSIC, Audio.PRIORITY_TOP, _will_loop, -1, dk_Credits);
     
     
-    g.cutscene_timer  = DUR1; // DUR1: $5F 1.583s
+    g.cutscene_timer = DUR1; // DUR1: $5F 1.583s
     g.cutscene_part = SUB_STATE_CURT_2A;
     break;}
     
@@ -439,7 +435,7 @@ switch(g.cutscene_part)
     if (g.cutscene_timer) break;
     
     
-    g.cutscene_timer  = 0; // 
+    g.cutscene_timer = 0; // 
     g.cutscene_part = SUB_STATE_CURT_2B;
     break;}
     
@@ -472,7 +468,7 @@ switch(g.cutscene_part)
     //with(Zelda) state =  0;
     
     
-    g.cutscene_timer  = DUR1; // DUR1: $5F 1.583s
+    g.cutscene_timer = DUR1; // DUR1: $5F 1.583s
     g.cutscene_part = SUB_STATE_CURT_3A;
     break;}
     
@@ -514,7 +510,7 @@ switch(g.cutscene_part)
             if (_clm_found)
             {
                 dg_curtain[#_idx,0] = 0;
-                continue; // _j
+                continue;//_j
             }
             
             
@@ -527,13 +523,13 @@ switch(g.cutscene_part)
         _clm_found = false;
         _dir  = -_dir; // flip dirs
         
-        _idx2 =  _IDX1 - !_dir; // - !_dir: Start at the left middle curtain and search left.
+        _idx2 = _IDX1 - !_dir; // - !_dir: Start at the left middle curtain and search left.
     }
     
     
-    g.DIALOGUE_WINDOW.depth  = DLG_DEPTH_DEF;
+    g.DIALOGUE_WINDOW.depth = DLG_DEPTH_DEF;
     
-    g.cutscene_timer  = 0;
+    g.cutscene_timer = 0;
     g.cutscene_part = SUB_STATE_CURT_3B;
     break;}
     
@@ -582,7 +578,7 @@ switch(g.cutscene_part)
     dg_CREDITS[#0,0] = 1; // credits idx
     
     
-    g.cutscene_timer  = 0;
+    g.cutscene_timer = 0;
     g.cutscene_part = SUB_STATE_CRDT_1B;
     break;}
     
@@ -601,7 +597,7 @@ switch(g.cutscene_part)
     case SUB_STATE_CRDT_1B:{ // CREDITS SEQUENCE
     if (g.cutscene_timer) break;
     
-    if (    dg_CREDITS[#0,2])    // timer
+    if (dg_CREDITS[#0,2])    // timer
     {
             dg_CREDITS[#0,2]--;
         if(!dg_CREDITS[#0,2])
@@ -633,7 +629,7 @@ switch(g.cutscene_part)
                 
                 case 4:{ // ------------
                 change_pal(strReplaceAt(p.pal_rm_new, CREDITS_TITL_PAL_POS, PAL_LEN, CREDITS_TITL_PAL4));
-                dg_CREDITS[#0,2] = CREDITS_DUR1; // CREDITS_DUR1=$C0 // Delay name text
+                dg_CREDITS[#0,2] = CREDITS_DUR1; // Delay name text
                 break;}
                 
                 
@@ -658,10 +654,10 @@ switch(g.cutscene_part)
                 case 8:{ // ------------
                 change_pal(strReplaceAt(p.pal_rm_new, CREDITS_NAME_PAL_POS, PAL_LEN, CREDITS_NAME_PAL4));
                 dg_CREDITS[#0,2] = CREDITS_DUR1; // timer
-                if (dg_CREDITS[#0,0] == CREDITS_CNT1-2)  // credits idx
+                if (dg_CREDITS[#0,0] == CREDITS_COUNT1-2)  // credits idx
                 {   dg_CREDITS[#0,3]  = 0;  } // STAFF text state
-                if (dg_CREDITS[#0,0] == CREDITS_CNT1-1)  // credits idx
-                {   dg_CREDITS[#0,0]  = CREDITS_CNT1;  } // credits idx
+                if (dg_CREDITS[#0,0] == CREDITS_COUNT1-1)  // credits idx
+                {   dg_CREDITS[#0,0]  = CREDITS_COUNT1;  } // credits idx
                 break;}
                 
                 
@@ -677,7 +673,7 @@ switch(g.cutscene_part)
                 change_pal(strReplaceAt(p.pal_rm_new, CREDITS_TITL_PAL_POS, PAL_LEN, CREDITS_TITL_PAL2));
                 change_pal(strReplaceAt(p.pal_rm_new, CREDITS_NAME_PAL_POS, PAL_LEN, CREDITS_NAME_PAL2));
                 dg_CREDITS[#0,2]  = CREDITS_DUR2;
-                if (dg_CREDITS[#0,0]+1 < CREDITS_CNT1 
+                if (dg_CREDITS[#0,0]+1 < CREDITS_COUNT1 
                 &&  dg_CREDITS[#dg_CREDITS[#0,0],5] != dg_CREDITS[#dg_CREDITS[#0,0]+1,5] ) // next credit's staff is diff
                 {   dg_CREDITS[#0,3]++  }
                 break;}
@@ -706,28 +702,28 @@ switch(g.cutscene_part)
     
     
     
-    var _CAN_SKIP_TO_END=false;
+    var _CAN_SKIP_TO_END = false;
     if (Input.Pause_pressed 
     &&  (dg_CREDITS[#0,0]>1 || dg_CREDITS[#0,1]>=9) )
     {
-        _CAN_SKIP_TO_END=true;
+        _CAN_SKIP_TO_END = true;
         change_pal(strReplaceAt(p.pal_rm_new, CREDITS_TITL_PAL_POS, PAL_LEN, CREDITS_TITL_PAL4));
         change_pal(strReplaceAt(p.pal_rm_new, CREDITS_NAME_PAL_POS, PAL_LEN, CREDITS_NAME_PAL4));
     }
     
     
-    if (dg_CREDITS[#0,0] >= CREDITS_CNT1 
+    if (dg_CREDITS[#0,0]>=CREDITS_COUNT1 
     ||  _CAN_SKIP_TO_END )
     {
-        dg_CREDITS[#0,1]  =  0; // state/case
-        dg_CREDITS[#0,3]  =  0; // "STAFF" can draw
-        dg_CREDITS[#0,4]  =  1; // 4: job title can draw
-        dg_CREDITS[#0,5]  = dg_CREDITS[#0,4]; // 5: name can draw
+        dg_CREDITS[#0,1] = 0; // state/case
+        dg_CREDITS[#0,3] = 0; // "STAFF" can draw
+        dg_CREDITS[#0,4] = 1; // 4: job title can draw
+        dg_CREDITS[#0,5] = dg_CREDITS[#0,4]; // 5: name can draw
         
-        dg_CREDITS[#0,0]  = CREDITS_CNT1-1; // keep drawing 'PRESS START TO REPLAY'
+        dg_CREDITS[#0,0] = CREDITS_COUNT1-1; // keep drawing 'PRESS START TO REPLAY'
         
         
-        g.cutscene_timer  = $20; // 8
+        g.cutscene_timer = $20; // 8
         g.cutscene_part = SUB_STATE_TRIF_1A;
     }
     break;} // case SUB_STATE_CRDT_1B:{ // CREDITS SEQUENCE
@@ -752,7 +748,7 @@ switch(g.cutscene_part)
     triforce_pal_update();
     
     
-    g.cutscene_timer  = 8;
+    g.cutscene_timer = 8;
     g.cutscene_part = SUB_STATE_RPLY_1A;
     break;}
     
@@ -965,7 +961,7 @@ switch(g.cutscene_part)
         }
         
         
-        g.cutscene_timer  = DUR1;
+        g.cutscene_timer = DUR1;
         g.cutscene_part = SUB_STATE_RSET_1A;
     }
     break;}
@@ -1030,14 +1026,6 @@ with(Zelda)
     
     with(g.pc) other.depth = depth-1;
 }
-
-
-
-
-
-
-
-
 
 
 

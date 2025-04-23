@@ -2368,6 +2368,7 @@ data_spawn(rm+STR_PRIO,ItmE0,$1,  $25<<3,(row0+$0D)<<3); // Magic Jar (Full)
 //     NECKLACE item
 rm_num  = $51;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_EA+'077', STR_ow_axis+'01', STR_show_ow_pos+'00');
+p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET2;
 
 
 x4 = clm1<<3; // arena center x
@@ -2820,6 +2821,7 @@ rm_num  = $60;
 //   Nabooru quest cave system. 
 rm_num  = $61;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_EA+'035', STR_Dark+"01", STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00');
+p.dm_scene_palette[?rm+dk_MOB] = p.PAL_NPC_SET1;
 
 
 row3=row0+$18; y3=row3<<3;
@@ -3032,6 +3034,7 @@ data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
 //    House in forest NW of bridge to MazeIs.     165,71 = $A5,$47 = $47A5
 rm_num  = $6B;
 set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Tile+area_TA+'075', STR_ow_axis+hex_str(0));
+p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET4;
 
 
 row3=row0+$17; y3=row3<<3;

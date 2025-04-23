@@ -186,7 +186,8 @@ var _CHANCE2 = $01;
 var _COLOR_pc_skin    = string_copy(p.PAL_PC_1, (global.PAL_CHAR_PER_COLOR*0)+1, global.PAL_CHAR_PER_COLOR); // pc skin
 var _COLOR_pc_outline = string_copy(p.PAL_PC_1, (global.PAL_CHAR_PER_COLOR*2)+1, global.PAL_CHAR_PER_COLOR); // pc outline
 var _COLOR_cucco_legs = string_copy(p.PAL_CUC1, (global.PAL_CHAR_PER_COLOR*0)+1, global.PAL_CHAR_PER_COLOR); // cucco legs/beak
-var _COLOR_cucco_body = string_copy(p.PAL_CUC1, (global.PAL_CHAR_PER_COLOR*2)+1, global.PAL_CHAR_PER_COLOR); // cucco body
+var _COLOR_cucco_body = string_copy(p.PAL_CUC1, (global.PAL_CHAR_PER_COLOR*1)+1, global.PAL_CHAR_PER_COLOR); // cucco body
+//var _COLOR_cucco_body = string_copy(p.PAL_CUC1, (global.PAL_CHAR_PER_COLOR*2)+1, global.PAL_CHAR_PER_COLOR); // cucco body
 
 var         _dl_tunic_colors = ds_list_create(); // acceptable tunic colors
 ds_list_add(_dl_tunic_colors, p.C_WHT2,p.C_GRY4,p.C_BLK1)
@@ -214,6 +215,22 @@ ds_list_shuffle(_dl_tunic_colors);
 
 
 _i=0;
+
+// PC -------------
+_val  = build_pal(_COLOR_pc_skin, color_str(_dl_tunic_colors[|_i++]), _COLOR_pc_outline, _C_BLK1_, -2,-2,-2,-2);
+_val += build_pal(_COLOR_pc_skin, color_str(_dl_tunic_colors[|_i++]), _COLOR_pc_outline, _C_BLK1_, -2,-2,-2,-2);
+_val += build_pal(_COLOR_pc_skin, color_str(_dl_tunic_colors[|_i++]), _COLOR_pc_outline, _C_BLK1_, -2,-2,-2,-2);
+dm_save_data[?STR_Palette+"_PC"+"01"] = _val;
+
+// CUCCO -------------
+_val  = build_pal(_COLOR_cucco_legs, _COLOR_cucco_body, color_str(_dl_tunic_colors[|_i++]), _C_BLK1_, -2,-2,-2,-2);
+_val += build_pal(_COLOR_cucco_legs, _COLOR_cucco_body, color_str(_dl_tunic_colors[|_i++]), _C_BLK1_, -2,-2,-2,-2);
+_val += build_pal(_COLOR_cucco_legs, _COLOR_cucco_body, color_str(_dl_tunic_colors[|_i++]), _C_BLK1_, -2,-2,-2,-2);
+dm_save_data[?STR_Palette+STR_Cucco+"01"] = _val;
+/*
+_i=0;
+
+// PC -------------
 _val = "";
 
 //
@@ -245,7 +262,7 @@ dm_save_data[?STR_Palette+"_PC"+"01"] = _val;
 
 
 
-
+// CUCCO -------------
 _val = "";
 
 _color1 = _COLOR_cucco_legs;
@@ -273,6 +290,7 @@ if(!irandom(_CHANCE1)){
 _val += build_pal(_color1, color_str(_dl_tunic_colors[|_i++]), _color2, _C_BLK1_, -2,-2,-2,-2);
 
 dm_save_data[?STR_Palette+STR_Cucco+"01"] = _val;
+*/
 
 
 

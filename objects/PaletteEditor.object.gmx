@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PalettePicker_Create();
+            <string>PaletteEditor_Create();
 </string>
           </argument>
         </arguments>
@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PalettePicker_Step();
+            <string>PaletteEditor_Step();
 </string>
           </argument>
         </arguments>
@@ -71,7 +71,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PalettePicker_Room_Start();
+            <string>PaletteEditor_Room_Start();
 </string>
           </argument>
         </arguments>
@@ -94,7 +94,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PalettePicker_Game_End();
+            <string>PaletteEditor_Game_End();
 </string>
           </argument>
         </arguments>
@@ -117,7 +117,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PalettePicker_Draw();
+            <string>PaletteEditor_Draw();
 </string>
           </argument>
         </arguments>

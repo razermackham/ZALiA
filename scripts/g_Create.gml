@@ -219,8 +219,6 @@ can_draw_Exit_destination   = false;
 canDraw_ogXY                = false;
 can_draw_hp                 = false;
 canDrawSprOutline           = 0; // 0,1,2
-canDrawPalette              = false;
-canRandomizePalette         = false;
 can_use_FrameIndicator      = false;
 can_draw_og_cam_outline     = false;
 BodyHB_COLOR                = c_fuchsia;
@@ -3216,6 +3214,7 @@ gui_state_DIALOGUE2 = _a++; //
 gui_state_DIALOGUE3 = _a++; // 
 gui_state_OPTIONS   = _a++; // 
 gui_state_QUIT_APP  = _a++; // 
+gui_state_EDIT_PAL  = _a++; // 
 gui_state           = 0; // 074C. GUI Window. 1 PauseMenu, 2 LevelUp, 3 Dialogue
 
 

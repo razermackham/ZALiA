@@ -10,7 +10,7 @@ var _str, _len, _pos;
 var _pi,_palette_index, _pal1,_pal2,_pal3,_pal4,_pal5,_pal6,_pal7,_pal8, _palette;
 var _dk,_datakey,_datakey1,_datakey2,_datakey3,_datakey4,_datakey5;
 var _adj = 0;
-var _color,_color1,_color2,_color3;
+var _color,_color1,_color2,_color3, _brightness;
 var _base_color_char, _c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn;
 var _file, _data;
 // ci: Color Index
@@ -428,86 +428,86 @@ repeat($100) ds_list_add(dl_COLOR, C_ERR0);
                                 //                                          // 
 // $00-0F                       //                                          // 
             _a=-1;              //                                          // 
-dl_COLOR[|++_a] = C_GRY3; // Luminosity $74/$74.  Grey 3. Mid grey. 3rd brightest grey. 2nd darkest grey.
-dl_COLOR[|++_a] = C_VLT4; // Luminosity $8C/$23.  Violet.      Darkest 
-dl_COLOR[|++_a] = C_BLU4; // Luminosity $A8/$0C.  Blue.        Darkest 
-dl_COLOR[|++_a] = C_PUR4; // Luminosity $9C/$1A.  Purple.      Darkest 
-dl_COLOR[|++_a] = C_MGN4; // Luminosity $8C/$26.  Magenta.     Darkest 
-dl_COLOR[|++_a] = C_PNK4; // Luminosity $A8/$25.  Pink.        Darkest 
-dl_COLOR[|++_a] = C_RED4; // Luminosity $A4/$23.  Red.         Darkest 
-dl_COLOR[|++_a] = C_ORG4; // Luminosity $7C/$20.  Orange.      Darkest 
+dl_COLOR[|++_a] = C_GRY3; // Luminosity/Brightness $74/$74.  Grey 3. Mid grey. 3rd brightest grey. 2nd darkest grey.
+dl_COLOR[|++_a] = C_VLT4; // Luminosity/Brightness $8C/$23.  Violet.      Darkest 
+dl_COLOR[|++_a] = C_BLU4; // Luminosity/Brightness $A8/$0C.  Blue.        Darkest 
+dl_COLOR[|++_a] = C_PUR4; // Luminosity/Brightness $9C/$1A.  Purple.      Darkest 
+dl_COLOR[|++_a] = C_MGN4; // Luminosity/Brightness $8C/$26.  Magenta.     Darkest 
+dl_COLOR[|++_a] = C_PNK4; // Luminosity/Brightness $A8/$25.  Pink.        Darkest 
+dl_COLOR[|++_a] = C_RED4; // Luminosity/Brightness $A4/$23.  Red.         Darkest 
+dl_COLOR[|++_a] = C_ORG4; // Luminosity/Brightness $7C/$20.  Orange.      Darkest 
                                 //                                          // 
-dl_COLOR[|++_a] = C_YLW4; // Luminosity $40/$2D.  Yellow.      Darkest 
-dl_COLOR[|++_a] = C_YGR4; // Luminosity $44/$31.  Yellow-Green. Darkest 
-dl_COLOR[|++_a] = C_GRN4; // Luminosity $50/$39.  Green.       Darkest 
-dl_COLOR[|++_a] = C_GRB4; // Luminosity $3E/$2C.  Green-Blue.  Darkest 
-dl_COLOR[|++_a] = C_CYN4; // Luminosity $5C/$37.  Teal.        Darkest 
-dl_COLOR[|++_a] = C_BLK1; // Luminosity $00/$00.  B-000,G-000,R-000.   full black
-//dl_COLOR[|++_a] = C_WHT0; // Luminosity $.  B-255,G-255,R-255.   full white
-//dl_COLOR[|++_a] = C_BLK0; // Luminosity $.  B-000,G-000,R-000.   full black
+dl_COLOR[|++_a] = C_YLW4; // Luminosity/Brightness $40/$2D.  Yellow.      Darkest 
+dl_COLOR[|++_a] = C_YGR4; // Luminosity/Brightness $44/$31.  Yellow-Green. Darkest 
+dl_COLOR[|++_a] = C_GRN4; // Luminosity/Brightness $50/$39.  Green.       Darkest 
+dl_COLOR[|++_a] = C_GRB4; // Luminosity/Brightness $3E/$2C.  Green-Blue.  Darkest 
+dl_COLOR[|++_a] = C_CYN4; // Luminosity/Brightness $5C/$37.  Teal.        Darkest 
+dl_COLOR[|++_a] = C_BLK1; // Luminosity/Brightness $00/$00.  B-000,G-000,R-000.   full black
+//dl_COLOR[|++_a] = C_WHT0; // Luminosity/Brightness $.  B-255,G-255,R-255.   full white
+//dl_COLOR[|++_a] = C_BLK0; // Luminosity/Brightness $.  B-000,G-000,R-000.   full black
                                 //                                          // 
                                 //                                          // 
 // $10-1F                       //                                          // 
             _a = (_a&$F0)+$0F;  //                                         // 
-dl_COLOR[|++_a] = C_GRY1; // Luminosity $BC/$BC.  Grey 1. Brightest grey
-dl_COLOR[|++_a] = C_BLU3; // Luminosity $EC/$61.  Blue. 
-dl_COLOR[|++_a] = C_VLT3; // Luminosity $EC/$40.  Violet. 
-dl_COLOR[|++_a] = C_PUR3; // Luminosity $F0/$2D.  Purple. 
-dl_COLOR[|++_a] = C_MGN3; // Luminosity $B8/$43.  Magenta. 
-dl_COLOR[|++_a] = C_PNK3; // Luminosity $E4/$37.  Pink. Mid-Dark
-dl_COLOR[|++_a] = C_RED3; // Luminosity $D8/$4B.  Red. 
-dl_COLOR[|++_a] = C_ORG3; // Luminosity $C8/$62.  Orange.  
+dl_COLOR[|++_a] = C_GRY1; // Luminosity/Brightness $BC/$BC.  Grey 1. Brightest grey
+dl_COLOR[|++_a] = C_BLU3; // Luminosity/Brightness $EC/$61.  Blue. 
+dl_COLOR[|++_a] = C_VLT3; // Luminosity/Brightness $EC/$40.  Violet. 
+dl_COLOR[|++_a] = C_PUR3; // Luminosity/Brightness $F0/$2D.  Purple. 
+dl_COLOR[|++_a] = C_MGN3; // Luminosity/Brightness $B8/$43.  Magenta. 
+dl_COLOR[|++_a] = C_PNK3; // Luminosity/Brightness $E4/$37.  Pink. Mid-Dark
+dl_COLOR[|++_a] = C_RED3; // Luminosity/Brightness $D8/$4B.  Red. 
+dl_COLOR[|++_a] = C_ORG3; // Luminosity/Brightness $C8/$62.  Orange.  
                                 //                                          // 
-dl_COLOR[|++_a] = C_YLW3; // Luminosity $88/$6D.  Yellow. 
-dl_COLOR[|++_a] = C_YGR3; // Luminosity $94/$6A.  Yellow-Green. 
-dl_COLOR[|++_a] = C_GRN3; // Luminosity $A8/$78.  Green. 
-dl_COLOR[|++_a] = C_GRB3; // Luminosity $7B/$5B.  Green-Blue. 
-dl_COLOR[|++_a] = C_CYN3; // Luminosity $88/$65.  Teal
-dl_COLOR[|++_a] = C_BLK1; // Luminosity $00/$00.  
-// dl_COLOR[|++_a] = C_BLU0; // Luminosity $.  B-255,G-000,R-000.   full blue
-// dl_COLOR[|++_a] = C_BLK0; // Luminosity $.  B-000,G-000,R-000.   full black
+dl_COLOR[|++_a] = C_YLW3; // Luminosity/Brightness $88/$6D.  Yellow. 
+dl_COLOR[|++_a] = C_YGR3; // Luminosity/Brightness $94/$6A.  Yellow-Green. 
+dl_COLOR[|++_a] = C_GRN3; // Luminosity/Brightness $A8/$78.  Green. 
+dl_COLOR[|++_a] = C_GRB3; // Luminosity/Brightness $7B/$5B.  Green-Blue. 
+dl_COLOR[|++_a] = C_CYN3; // Luminosity/Brightness $88/$65.  Teal
+dl_COLOR[|++_a] = C_BLK1; // Luminosity/Brightness $00/$00.  
+// dl_COLOR[|++_a] = C_BLU0; // Luminosity/Brightness $.  B-255,G-000,R-000.   full blue
+// dl_COLOR[|++_a] = C_BLK0; // Luminosity/Brightness $.  B-000,G-000,R-000.   full black
                                 //                                          // 
                                 //                                          // 
 // $20-2F                       //                                          // 
             _a = (_a&$F0)+$0F;  //                                         // 
-dl_COLOR[|++_a] = C_WHT2; // Luminosity $F2/$F2.  White 2. SLIGHTLY grey. SLIGHTLY less bright than white 1
-dl_COLOR[|++_a] = C_BLU2; // Luminosity $FC/$A5.  Blue. 
-dl_COLOR[|++_a] = C_VLT2; // Luminosity $FC/$90.  Violet. 
-dl_COLOR[|++_a] = C_PUR2; // Luminosity $FC/$9F.  Purple. 
-dl_COLOR[|++_a] = C_MGN2; // Luminosity $FC/$9C.  Magenta. 
-dl_COLOR[|++_a] = C_PNK2; // Luminosity $FC/$96.  Pink. Mid-Bright
-dl_COLOR[|++_a] = C_RED2; // Luminosity $FC/$8F.  Red. 
-dl_COLOR[|++_a] = C_ORG2; // Luminosity $FC/$A6.  Orange. mob orange.
+dl_COLOR[|++_a] = C_WHT2; // Luminosity/Brightness $F2/$F2.  White 2. SLIGHTLY grey. SLIGHTLY less bright than white 1
+dl_COLOR[|++_a] = C_BLU2; // Luminosity/Brightness $FC/$A5.  Blue. 
+dl_COLOR[|++_a] = C_VLT2; // Luminosity/Brightness $FC/$90.  Violet. 
+dl_COLOR[|++_a] = C_PUR2; // Luminosity/Brightness $FC/$9F.  Purple. 
+dl_COLOR[|++_a] = C_MGN2; // Luminosity/Brightness $FC/$9C.  Magenta. 
+dl_COLOR[|++_a] = C_PNK2; // Luminosity/Brightness $FC/$96.  Pink. Mid-Bright
+dl_COLOR[|++_a] = C_RED2; // Luminosity/Brightness $FC/$8F.  Red. 
+dl_COLOR[|++_a] = C_ORG2; // Luminosity/Brightness $FC/$A6.  Orange. mob orange.
                                 //                                          // 
-dl_COLOR[|++_a] = C_YLW2; // Luminosity $F0/$BE.  Yellow. Map paper.
-dl_COLOR[|++_a] = C_YGR2; // Luminosity $D0/$B1.  Yellow/Green. 
-dl_COLOR[|++_a] = C_GRN2; // Luminosity $DC/$B3.  Green. 
-dl_COLOR[|++_a] = C_GRB2; // Luminosity $D4/$AC.  Green-Blue. 
-dl_COLOR[|++_a] = C_CYN2; // Luminosity $E8/$B6.  Teal
-dl_COLOR[|++_a] = C_GRY4; // Luminosity $3E/$3E.  Grey 4. Darkest grey.
-// dl_COLOR[|++_a] = C_RED0; // Luminosity $.  B-000,G-000,R-255.   full red
-// dl_COLOR[|++_a] = C_BLK0; // Luminosity $.  B-000,G-000,R-000.   full black
+dl_COLOR[|++_a] = C_YLW2; // Luminosity/Brightness $F0/$BE.  Yellow. Map paper.
+dl_COLOR[|++_a] = C_YGR2; // Luminosity/Brightness $D0/$B1.  Yellow/Green. 
+dl_COLOR[|++_a] = C_GRN2; // Luminosity/Brightness $DC/$B3.  Green. 
+dl_COLOR[|++_a] = C_GRB2; // Luminosity/Brightness $D4/$AC.  Green-Blue. 
+dl_COLOR[|++_a] = C_CYN2; // Luminosity/Brightness $E8/$B6.  Teal
+dl_COLOR[|++_a] = C_GRY4; // Luminosity/Brightness $3E/$3E.  Grey 4. Darkest grey.
+// dl_COLOR[|++_a] = C_RED0; // Luminosity/Brightness $.  B-000,G-000,R-255.   full red
+// dl_COLOR[|++_a] = C_BLK0; // Luminosity/Brightness $.  B-000,G-000,R-000.   full black
                                 //                                          // 
                                 //                                          // 
 // $30-3F                       //                                          // 
             _a = (_a&$F0)+$0F;  //                                         // 
-dl_COLOR[|++_a] = C_WHT1; // Luminosity $FC/$FC.  White 1. Brightest NES white.
-dl_COLOR[|++_a] = C_BLU1; // Luminosity $FC/$D9.  Blue. Brightest
-dl_COLOR[|++_a] = C_VLT1; // Luminosity $FC/$D3.  Violet. Brightest
-dl_COLOR[|++_a] = C_PUR1; // Luminosity $F1/$C5.  Purple. 
-dl_COLOR[|++_a] = C_MGN1; // Luminosity $FC/$D4.  Magenta. 
-dl_COLOR[|++_a] = C_PNK1; // Luminosity $F1/$C5.  Pink.    Brightest
-dl_COLOR[|++_a] = C_RED1; // Luminosity $FC/$C9.  Red.     Brightest
-dl_COLOR[|++_a] = C_ORG1; // Luminosity $FC/$DC.  Orange.  Brightest
+dl_COLOR[|++_a] = C_WHT1; // Luminosity/Brightness $FC/$FC.  White 1. Brightest NES white.
+dl_COLOR[|++_a] = C_BLU1; // Luminosity/Brightness $FC/$D9.  Blue. Brightest
+dl_COLOR[|++_a] = C_VLT1; // Luminosity/Brightness $FC/$D3.  Violet. Brightest
+dl_COLOR[|++_a] = C_PUR1; // Luminosity/Brightness $F1/$C5.  Purple. 
+dl_COLOR[|++_a] = C_MGN1; // Luminosity/Brightness $FC/$D4.  Magenta. 
+dl_COLOR[|++_a] = C_PNK1; // Luminosity/Brightness $F1/$C5.  Pink.    Brightest
+dl_COLOR[|++_a] = C_RED1; // Luminosity/Brightness $FC/$C9.  Red.     Brightest
+dl_COLOR[|++_a] = C_ORG1; // Luminosity/Brightness $FC/$DC.  Orange.  Brightest
                                 //                                          // 
-dl_COLOR[|++_a] = C_YLW1; // Luminosity $DA/$D2.  Yellow. 
-dl_COLOR[|++_a] = C_YGR1; // Luminosity $FC/$EF.  Yellow/Green. 
-dl_COLOR[|++_a] = C_GRN1; // Luminosity $E8/$D6.  Green. 
-dl_COLOR[|++_a] = C_GRB1; // Luminosity $E8/$D5.  Green-Blue. 
-dl_COLOR[|++_a] = C_CYN1; // Luminosity $FC/$E7.  Teal. 
-dl_COLOR[|++_a] = C_GRY2; // Luminosity $A9/$A8.  Grey 2. 2nd Brightest grey
-// dl_COLOR[|++_a] = C_GRN0; // Luminosity $.  B-000,G-255,R-000.   full green
-// dl_COLOR[|++_a] = C_BLK0; // Luminosity $.  B-000,G-000,R-000.   full black
+dl_COLOR[|++_a] = C_YLW1; // Luminosity/Brightness $DA/$D2.  Yellow. 
+dl_COLOR[|++_a] = C_YGR1; // Luminosity/Brightness $FC/$EF.  Yellow/Green. 
+dl_COLOR[|++_a] = C_GRN1; // Luminosity/Brightness $E8/$D6.  Green. 
+dl_COLOR[|++_a] = C_GRB1; // Luminosity/Brightness $E8/$D5.  Green-Blue. 
+dl_COLOR[|++_a] = C_CYN1; // Luminosity/Brightness $FC/$E7.  Teal. 
+dl_COLOR[|++_a] = C_GRY2; // Luminosity/Brightness $A9/$A8.  Grey 2. 2nd Brightest grey
+// dl_COLOR[|++_a] = C_GRN0; // Luminosity/Brightness $.  B-000,G-255,R-000.   full green
+// dl_COLOR[|++_a] = C_BLK0; // Luminosity/Brightness $.  B-000,G-000,R-000.   full black
                                 //                                          // 
                                 //                                          // 
 // $F0-FF                       //
@@ -708,6 +708,29 @@ for(_i=0; _i<_count; _i++)
 CI_TONE_HGH = CI_WHT0; // Highlight
 CI_TONE_MID = CI_RED0; // Midtone
 CI_TONE_LOW = CI_BLU0; // Shadow
+
+
+dl_colors_h = ds_list_create(); // recommended colors for a highlight tone
+dl_colors_m = ds_list_create(); // recommended colors for a midtone
+dl_colors_s = ds_list_create(); // recommended colors for a shadow tone
+for(_i=ds_list_size(dl_COLOR)-1; _i>=0; _i--)
+{
+    _color = dl_COLOR[|_i];
+    if (_color!=C_WHT0 
+    &&  _color!=C_RED0 
+    &&  _color!=C_BLU0 
+    &&  _color!=C_GRN0 
+    &&  _color!=C_YLW0 
+    &&  _color!=C_MGN0 
+    &&  _color!=C_BLK0 
+    &&  _color!=C_CYN0 )
+    {
+        _brightness = get_color_brightness(_color);
+             if (_brightness<$40) ds_list_add(dl_colors_s,_color);
+        else if (_brightness<$80) ds_list_add(dl_colors_m,_color);
+        else                      ds_list_add(dl_colors_h,_color);
+    }
+}
 
 
 
@@ -1595,7 +1618,7 @@ p_init_palette_data();
 
 
 
-instance_create(0,0, Dev_PalettePicker);
+instance_create(0,0, PaletteEditor);
 
 
 

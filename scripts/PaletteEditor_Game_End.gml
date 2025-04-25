@@ -1,7 +1,10 @@
-/// PalettePicker_Game_End()
+/// PaletteEditor_Game_End()
 
 
 if (surface_exists(ObjPal_surf)) surface_free(ObjPal_surf);
+if (surface_exists(PalEdit_Outline_surf)) surface_free(PalEdit_Outline_surf);
+if (surface_exists(Cursor_surf)) surface_free(Cursor_surf);
+if (surface_exists(ColorGrid_surf)) surface_free(ColorGrid_surf);
 
 
 /*
@@ -52,14 +55,20 @@ if (_exists) _exists =                ds_exists(      dl_hist_room, ds_type_list
 if (_exists)                          ds_list_destroy(dl_hist_room);
 if (_exists)                                          dl_hist_room = undefined;
 
+    _exists=variable_instance_exists(id,"ColorGrid_dl_colors");
+if (_exists) _exists = !is_undefined(    ColorGrid_dl_colors);
+if (_exists) _exists = ds_exists(        ColorGrid_dl_colors,ds_type_list);
+if (_exists)           ds_list_destroy(  ColorGrid_dl_colors);
+if (_exists)                             ColorGrid_dl_colors=undefined;
 
 
 
-    _exists=variable_instance_exists(id,"dm_pal_edit");
-if (_exists) _exists = !is_undefined(    dm_pal_edit);
-if (_exists) _exists = ds_exists(        dm_pal_edit,ds_type_map);
-if (_exists)           ds_map_destroy(   dm_pal_edit);
-if (_exists)                             dm_pal_edit=undefined;
+
+    _exists=variable_instance_exists(id,"PalEdit_dm");
+if (_exists) _exists = !is_undefined(    PalEdit_dm);
+if (_exists) _exists = ds_exists(        PalEdit_dm,ds_type_map);
+if (_exists)           ds_map_destroy(   PalEdit_dm);
+if (_exists)                             PalEdit_dm=undefined;
 
 
 

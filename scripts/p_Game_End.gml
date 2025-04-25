@@ -95,6 +95,24 @@ if (_exists) _exists =       ds_exists(      dl_COLORS_USED, ds_type_list);
 if (_exists)                 ds_list_destroy(dl_COLORS_USED);
 if (_exists)                                 dl_COLORS_USED = undefined;
 
+    _exists=variable_instance_exists(id,"dl_colors_h");
+if (_exists) _exists = !is_undefined(    dl_colors_h);
+if (_exists) _exists = ds_exists(        dl_colors_h,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_colors_h);
+if (_exists)                             dl_colors_h=undefined;
+
+    _exists=variable_instance_exists(id,"dl_colors_m");
+if (_exists) _exists = !is_undefined(    dl_colors_m);
+if (_exists) _exists = ds_exists(        dl_colors_m,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_colors_m);
+if (_exists)                             dl_colors_m=undefined;
+
+    _exists=variable_instance_exists(id,"dl_colors_s");
+if (_exists) _exists = !is_undefined(    dl_colors_s);
+if (_exists) _exists = ds_exists(        dl_colors_s,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_colors_s);
+if (_exists)                             dl_colors_s=undefined;
+
              _exists = variable_instance_exists(id,  "dl_PAL_POS");
 if (_exists) _exists =               !is_undefined(   dl_PAL_POS);
 if (_exists) _exists =                ds_exists(      dl_PAL_POS, ds_type_list);

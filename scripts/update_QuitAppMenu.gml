@@ -21,7 +21,7 @@ with(g.QUIT_APP_MENU)
                 &&  keyboard_check_pressed(vk_escape) 
                 && !g.Fullscreen_toggled ) // toggling fullscreen can happen earlier in the frame, window_get_fullscreen() will not be accurate here
                 {
-                    with(Dev_PalettePicker)
+                    with(PaletteEditor)
                     {   // exiting these Dev_PalettePicker states gets priority
                         _qual = state!=state_EDIT1A && state!=state_EDIT1B && state!=state_BGR_COLOR;
                     }

@@ -1,6 +1,9 @@
-/// dev_randomize_palette_highlight()
+/// get_random_color_highlight(use game colors)
 
 
+if (argument0) return p.dl_colors_h[|irandom(ds_list_size(p.dl_colors_h)-1)];
+else           return irandom($FFFFFF); // TODO: this color's brightness should be >=$80 for a highlight color
+/*
 var _return  = 0;
 _return  = !irandom($01) + !irandom($03) + !irandom($05);
 //_return  = !irandom($01) + !irandom($03) + !irandom($05);
@@ -10,6 +13,7 @@ _return  = _return<<4;
 _return |= irandom($D);
 
 return _return;
+*/
 
 
 

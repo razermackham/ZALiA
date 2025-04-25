@@ -13732,18 +13732,20 @@
       <script>scripts\get_pal_col_pos.gml</script>
       <script>scripts\update_scene_palette.gml</script>
       <script>scripts\change_pal.gml</script>
-      <script>scripts\set_pc_pal.gml</script>
       <script>scripts\get_pc_skin_palette.gml</script>
-      <script>scripts\get_pc_sword_palette.gml</script>
       <script>scripts\build_pal.gml</script>
       <script>scripts\get_palette_via_file_data.gml</script>
       <script>scripts\update_rm_brightness.gml</script>
       <script>scripts\set_rm_brightness.gml</script>
-      <script>scripts\rm_is_fully_lit.gml</script>
       <script>scripts\rm_pal_qual_lit.gml</script>
       <script>scripts\triforce_pal_update.gml</script>
       <script>scripts\get_color_brightness.gml</script>
       <script>scripts\color_str.gml</script>
+      <script>scripts\get_random_color.gml</script>
+      <script>scripts\get_random_color_highlight.gml</script>
+      <script>scripts\get_random_color_midtone.gml</script>
+      <script>scripts\get_random_color_shadow.gml</script>
+      <script>scripts\randomize_palette.gml</script>
       <scripts name="palette_swap">
         <script>scripts\pal_swap_draw_palette.gml</script>
         <script>scripts\pal_swap_enable_override.gml</script>
@@ -13916,20 +13918,18 @@
         <script>scripts\Dev_StabToCheat_Room_End.gml</script>
       </scripts>
       <scripts name="Dev_Palette">
-        <script>scripts\PalettePicker_Game_End.gml</script>
-        <script>scripts\PalettePicker_Create.gml</script>
-        <script>scripts\PalettePicker_Room_Start.gml</script>
-        <script>scripts\PalettePicker_Step.gml</script>
-        <script>scripts\PalettePicker_Step_1a.gml</script>
-        <script>scripts\PalettePicker_update_cursor.gml</script>
-        <script>scripts\PalettePicker_pal_col_pos.gml</script>
-        <script>scripts\PalettePicker_Draw.gml</script>
-        <script>scripts\PalettePicker_draw_cursor.gml</script>
-        <script>scripts\dev_randomize_palette_1a.gml</script>
-        <script>scripts\dev_randomize_palette_1b.gml</script>
-        <script>scripts\dev_randomize_palette_highlight.gml</script>
-        <script>scripts\dev_randomize_palette_midtone.gml</script>
-        <script>scripts\dev_randomize_palette_shadow.gml</script>
+        <script>scripts\PaletteEditor_Game_End.gml</script>
+        <script>scripts\PaletteEditor_Create.gml</script>
+        <script>scripts\PaletteEditor_Room_Start.gml</script>
+        <script>scripts\PaletteEditor_Step.gml</script>
+        <script>scripts\PaletteEditor_Step_1.gml</script>
+        <script>scripts\PaletteEditor_update_cursor.gml</script>
+        <script>scripts\PaletteEditor_get_cursor_color.gml</script>
+        <script>scripts\PaletteEditor_udp.gml</script>
+        <script>scripts\PaletteEditor_Draw.gml</script>
+        <script>scripts\PaletteEditor_draw_PalView.gml</script>
+        <script>scripts\PaletteEditor_draw_PalView1.gml</script>
+        <script>scripts\PaletteEditor_draw_cursor.gml</script>
         <script>scripts\dev_output_colors_1a.gml</script>
         <script>scripts\dev_automate_palette_data.gml</script>
         <script>scripts\dev_automate_palette_data2.gml</script>
@@ -14573,7 +14573,7 @@
       <object>objects\FrameIndicator</object>
       <object>objects\ValDisplay2</object>
       <object>objects\Tester1</object>
-      <object>objects\Dev_PalettePicker</object>
+      <object>objects\PaletteEditor</object>
       <object>objects\Dev_RmWarper</object>
       <object>objects\RandoDebug01</object>
     </objects>
@@ -14599,7 +14599,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1024">
+  <constants number="1025">
     <constant name="DEV">true</constant>
     <constant name="USE_FRAME_DELAY">1</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
@@ -14889,6 +14889,7 @@
     <constant name="STR_Depth">"_Depth"</constant>
     <constant name="STR_Other">"_Other"</constant>
     <constant name="STR_Destination">"_Destination"</constant>
+    <constant name="STR_Group">"_Group"</constant>
     <constant name="STR_Order">"_Order"</constant>
     <constant name="STR_Path">"_Path"</constant>
     <constant name="STR_Base">"_Base"</constant>

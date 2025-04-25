@@ -3,17 +3,18 @@
 
 if (is_string(argument0))
 {
-    return argument0;
+    return string_repeat("0", 6-string_length(argument0)) + argument0;
 }
 
 
 var _byte;
 var _return = "";
 
-for(var _i=0; _i<3; _i++)
+for(var _i=2; _i>=0; _i--)
 {
-    _byte = (argument0>>(_i<<3)) &$FF;
-    _return = hex_str(_byte) + _return;
+    _byte  = argument0>>(_i<<3);
+    _byte &= $FF;
+    _return += hex_str(_byte);
 }
 
 

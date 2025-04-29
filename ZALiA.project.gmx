@@ -13335,14 +13335,10 @@
       <script>scripts\update_GameObjectMgr.gml</script>
       <script>scripts\spawn_data_set_default.gml</script>
       <script>scripts\go_spawn_enter_room.gml</script>
-      <script>scripts\update_go_spawn_1a.gml</script>
       <script>scripts\go_spawn_priorities.gml</script>
       <script>scripts\update_go_spawn_1b.gml</script>
-      <script>scripts\update_go_spawn_1c.gml</script>
       <script>scripts\update_go_spawn_1d.gml</script>
       <script>scripts\get_spawn_datakey.gml</script>
-      <script>scripts\qual_spawn_1a.gml</script>
-      <script>scripts\qual_spawn_2a.gml</script>
       <script>scripts\qual_spawn_3a.gml</script>
     </scripts>
     <scripts name="niao">
@@ -13448,7 +13444,12 @@
       <scripts name="options_menu">
         <script>scripts\OptionsMenu_Create.gml</script>
         <script>scripts\OptionsMenu_Draw.gml</script>
+        <script>scripts\OptionsMenu_Draw_Main.gml</script>
         <script>scripts\OptionsMenu_Draw_AudioCustom.gml</script>
+        <script>scripts\OptionsMenu_Draw_InputConfig.gml</script>
+        <script>scripts\OptionsMenu_Draw_DevTools.gml</script>
+        <script>scripts\OptionsMenu_Draw_RandoOptions.gml</script>
+        <script>scripts\OptionsMenu_Draw_Other.gml</script>
         <script>scripts\OptionsMenu_Game_End.gml</script>
         <script>scripts\update_OptionsMenu.gml</script>
         <script>scripts\OptionsMenu_Main_update.gml</script>
@@ -13456,7 +13457,7 @@
         <script>scripts\OptionsMenu_InputConfig_update.gml</script>
         <script>scripts\OptionsMenu_DevTools_update.gml</script>
         <script>scripts\OptionsMenu_RandoOptions_update.gml</script>
-        <script>scripts\OptionsMenu_update_1a.gml</script>
+        <script>scripts\OptionsMenu_Other_update.gml</script>
         <script>scripts\udp_OptionsMenu.gml</script>
         <script>scripts\OptionsMenu_option_is_avail.gml</script>
         <script>scripts\OptionsMenu_AudioCustom_refresh_indicator_states.gml</script>
@@ -13629,10 +13630,8 @@
       <script>scripts\cont_piece_cnt_mp.gml</script>
       <script>scripts\cont_cnt_hp.gml</script>
       <script>scripts\cont_cnt_mp.gml</script>
-      <script>scripts\get_bottle_amt.gml</script>
       <script>scripts\get_jar_restore_dur.gml</script>
       <script>scripts\quest_is_complete.gml</script>
-      <script>scripts\second_quest_init.gml</script>
       <script>scripts\get_file_seed_dk.gml</script>
     </scripts>
     <scripts name="rando">
@@ -13930,6 +13929,7 @@
         <script>scripts\PaletteEditor_draw_PalView.gml</script>
         <script>scripts\PaletteEditor_draw_PalView1.gml</script>
         <script>scripts\PaletteEditor_draw_cursor.gml</script>
+        <script>scripts\PaletteEditor_initiate_pal_edit_mode.gml</script>
         <script>scripts\dev_output_colors_1a.gml</script>
         <script>scripts\dev_automate_palette_data.gml</script>
         <script>scripts\dev_automate_palette_data2.gml</script>

@@ -17,7 +17,7 @@ switch(state)
     if (_pressed_enable_editor)
     {
         GraphicsEffectsEditor_reset_cursors(Main_ENABLE);
-        menu_focus = menu_focus_Main;
+        menu_state = menu_focus_Main;
         timer = DURATION1;
         state = state_OPEN;
     }
@@ -57,14 +57,14 @@ switch(state)
     pressed_move_cursor_v = pressed_up || pressed_down;
     //pressed_move_cursor_v = pressed_up || pressed_down || pressed_select;
     
-    switch(menu_focus){
+    switch(menu_state){
     case menu_focus_Main:{      GraphicsEffectsEditor_update_Main();       break;}//case menu_focus_Main
     case menu_focus_Brightness:{GraphicsEffectsEditor_update_Brightness(); break;}//case menu_focus_Brightness
     case menu_focus_Saturation:{GraphicsEffectsEditor_update_Saturation(); break;}//case menu_focus_Saturation
     case menu_focus_Scanlines:{ GraphicsEffectsEditor_update_Scanlines();  break;}//case menu_focus_Scanlines
     case menu_focus_Bloom:{     GraphicsEffectsEditor_update_Bloom();      break;}//case menu_focus_Bloom
     case menu_focus_Blur:{      GraphicsEffectsEditor_update_Blur();       break;}//case menu_focus_Blur
-    }//switch(menu_focus)
+    }//switch(menu_state)
     break;}//case state_CLOSED
 }//switch(state)
 

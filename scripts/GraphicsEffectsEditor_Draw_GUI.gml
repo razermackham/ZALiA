@@ -52,8 +52,8 @@ for (_i=0; _i<_Main_COUNT; _i++)
     
     if (_i==Main_cursor)
     {
-        if (menu_focus 
-        &&  menu_focus==dg_Main[#_i,$9] )
+        if (menu_state 
+        &&  menu_state==dg_Main[#_i,$9] )
         {
             _sprite = spr_arrow_6_dwn;
             _pi = PI_DARK1;
@@ -82,7 +82,7 @@ for (_i=0; _i<_Main_COUNT; _i++)
     }
     */
     if (is_string(_text) 
-    &&  (menu_focus==menu_focus_Main || !menu_focus || menu_focus!=dg_Main[#_i,$9]) )
+    &&  (menu_state==menu_focus_Main || !menu_state || menu_state!=dg_Main[#_i,$9]) )
     {
         _x = Values_XR - (string_length(_text)*_char_w);
         
@@ -111,8 +111,8 @@ for (_i=0; _i<_Main_COUNT; _i++)
     
     
     
-    if (menu_focus 
-    &&  menu_focus==dg_Main[#_i,$9] )
+    if (menu_state 
+    &&  menu_state==dg_Main[#_i,$9] )
     {
         //_dg[#$0,$0] = -1;
         _cursor = -1;

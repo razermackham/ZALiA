@@ -49,7 +49,7 @@ with(DIALOGUE_WINDOW)
 }
 
 
-with(OPTIONS_MENU) // options menu
+with(global.OPTIONS_MENU) // options menu
 {
     cnt_draw_rows = 0;
 }

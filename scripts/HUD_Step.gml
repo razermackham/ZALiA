@@ -108,7 +108,7 @@ MeterFill_w_HP = ceil(f.hp / MeterFill_AMOUNT_PER_PIXEL); // _w will be AT LEAST
 
 
 
-can_draw_self = g.ChangeRoom_timer<=0 && g.HUD_state;
+can_draw_self = g.ChangeRoom_timer<=0 && global.HUD_state;
 
 
 

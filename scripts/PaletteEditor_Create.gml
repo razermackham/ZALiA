@@ -30,13 +30,11 @@ gui_xl    = 0;
 gui_yt    = 0;
 
 
+// TODO: Need text says what input to confirm changes, and cancel
 Font1_sprite = spr_Font2_1;
 //Font1_sprite = spr_Font1;
 Font1_W = sprite_get_width( Font1_sprite);
 Font1_H = sprite_get_height(Font1_sprite);
-// TODO: Need text says what input to confirm changes, and cancel
-
-
 color_old = 0;
 color_new = 0;
 
@@ -88,11 +86,6 @@ ColorGrid_dl_colors = ds_list_create();
 _count1 = ColorGrid_CLMS*ColorGrid_ROWS;
 for(_i=0; _i<_count1; _i++) ds_list_add(ColorGrid_dl_colors,p.dl_COLOR[|_i]);
 //ColorGrid_Cursor_color = 0;
-/*
-ColorGrid_SPR   = spr_color_grid_2c;
-ColorGrid_W     = sprite_get_width( ColorGrid_SPR);
-ColorGrid_H     = sprite_get_height(ColorGrid_SPR);
-*/
 
 
 // GameObject Palettes
@@ -118,7 +111,6 @@ ObjPal_FONT_H     = sprite_get_height(ObjPal_FONT);
 Cursor_can_draw = false;
 Cursor_COLOR = c_orange;
 //Cursor_COLOR = $00A0FF;
-//Cursor_COLOR = p.C_ORG2; // $27 orange, bright
 Cursor_W     = _SCALE1 + 4;
 Cursor_H     = Cursor_W;
 Cursor_xl    = 0;
@@ -133,9 +125,9 @@ Cursor_surf  = 0;
 
 
 // Edit mode
-PalEdit_SCALE  = _SCALE1;
-PalEdit_xl     = 0;
-PalEdit_yt     = 0;
+PalEdit_SCALE = _SCALE1;
+PalEdit_xl    = 0;
+PalEdit_yt    = 0;
 PalEdit_Outline_W = 2;
 PalEdit_Outline_surf = 0;
 PalEdit_color_before_edit = 0;

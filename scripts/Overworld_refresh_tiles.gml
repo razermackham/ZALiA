@@ -8,7 +8,7 @@ var _tile_data;
 
 
 if (g.anarkhyaOverworld_MAIN 
-&&  g.anarkhyaOverworld_use )
+&&  g.anarkhyaOverworld_enabled )
 {
     tile_layer_delete(anarkhya_TILE_DEPTH1);
     tile_layer_delete(anarkhya_TILE_DEPTH2);

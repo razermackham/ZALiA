@@ -162,7 +162,7 @@ if(!dest_dist
                     aud_play_sound(get_audio_theme_track(dk_Fanfare), -1,false,-1, dk_Fanfare);
                     
                     if (g.anarkhyaOverworld_MAIN 
-                    &&  g.anarkhyaOverworld_use )
+                    &&  g.anarkhyaOverworld_enabled )
                     {
                         Overworld_tile_change_3(anarkhya_TSRC_NEWKAS, _rm_clm<<SHIFT,_rm_row<<SHIFT, anarkhya_TILE_DEPTH1, 0);
                         dg_anarkhya_tsrc[#_ow_clm,_ow_row] = anarkhya_TSRC_NEWKAS;
@@ -211,7 +211,7 @@ if(!dest_dist
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
                 
                 if (g.anarkhyaOverworld_MAIN 
-                &&  g.anarkhyaOverworld_use )
+                &&  g.anarkhyaOverworld_enabled )
                 {
                     if (ds_list_find_index(dl_BoulderCircle_OWRC,_owrc)==-1)
                     {
@@ -265,7 +265,7 @@ if(!dest_dist
                                 aud_play_sound(get_audio_theme_track(STR_Secret));
                                 
                                 if (g.anarkhyaOverworld_MAIN 
-                                &&  g.anarkhyaOverworld_use )
+                                &&  g.anarkhyaOverworld_enabled )
                                 {
                                     Overworld_tile_change_3(anarkhya_TSRC_HOLE, _rm_clm<<SHIFT,_rm_row<<SHIFT, anarkhya_TILE_DEPTH1, 0);
                                     dg_anarkhya_tsrc[#_ow_clm,_ow_row] = anarkhya_TSRC_HOLE;
@@ -546,7 +546,7 @@ if (flute_timer)
             Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
             
             if (g.anarkhyaOverworld_MAIN 
-            &&  g.anarkhyaOverworld_use )
+            &&  g.anarkhyaOverworld_enabled )
             {
                 Overworld_tile_change_3(0, _rm_clm<<SHIFT,_rm_row<<SHIFT, anarkhya_TILE_DEPTH2, -1);
                 dg_anarkhya_tsrc_detail[#_ow_clm,_ow_row]=0;
@@ -573,7 +573,7 @@ if (flute_timer)
                 Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                 
                 if (g.anarkhyaOverworld_MAIN 
-                &&  g.anarkhyaOverworld_use )
+                &&  g.anarkhyaOverworld_enabled )
                 {
                     Overworld_tile_change_3(anarkhya_TSRC_PALACE, _rm_clm<<SHIFT,_rm_row<<SHIFT, anarkhya_TILE_DEPTH2, 0);
                     dg_anarkhya_tsrc_detail[#_ow_clm,_ow_row]=anarkhya_TSRC_PALACE;
@@ -853,7 +853,7 @@ switch((g.counter0&$7F)>>5)
 }
 /*
 if (g.anarkhyaOverworld_MAIN 
-&&  g.anarkhyaOverworld_use )
+&&  g.anarkhyaOverworld_enabled )
 {
     switch((g.counter0&$7F)>>5)
     {
@@ -902,7 +902,7 @@ if (g.room_type=="C"
     tile_layer_shift(Tile_DEPTH1, move_x,move_y);
     
     if (g.anarkhyaOverworld_MAIN 
-    &&  g.anarkhyaOverworld_use )
+    &&  g.anarkhyaOverworld_enabled )
     {
         tile_layer_shift(anarkhya_TILE_DEPTH1, move_x,move_y);
         tile_layer_shift(anarkhya_TILE_DEPTH2, move_x,move_y);

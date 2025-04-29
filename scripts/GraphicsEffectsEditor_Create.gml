@@ -664,7 +664,7 @@ for(_i=ds_grid_width(dg_Blur)-1; _i>=0; _i--)
 
 
 
-menu_focus = menu_focus_Main;
+menu_state = menu_focus_Main;
 
 
 

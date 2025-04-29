@@ -82,7 +82,7 @@ _val = _dm_FILE_DATA[?STR_Torch+STR_Lighting];
 if(!is_undefined(_val)) g.torch_lighting_method = _val;
 
 _val = _dm_FILE_DATA[?STR_HUD+STR_Type];
-if(!is_undefined(_val)) g.HUD_state = _val;
+if(!is_undefined(_val)) global.HUD_state = _val;
 
 _val = _dm_FILE_DATA[?STR_Frenzy+STR_Stab];
 if(!is_undefined(_val)) g.mod_StabFrenzy = _val;

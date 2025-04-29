@@ -75,7 +75,7 @@ if (_C1
     tile_layer_shift(Tile_DEPTH1, move_x,move_y);
     
     if (g.anarkhyaOverworld_MAIN 
-    &&  g.anarkhyaOverworld_use )
+    &&  g.anarkhyaOverworld_enabled )
     {
         tile_layer_shift(anarkhya_TILE_DEPTH1, move_x,move_y);
         tile_layer_shift(anarkhya_TILE_DEPTH2, move_x,move_y);

@@ -1,5 +1,7 @@
-/// OptionsMenu_Draw_AudioCustom()
+/// OptionsMenu_Draw_AudioCustom(YT)
 
+
+var _YT0 = argument[0];
 
 var _i,_j, _idx, _val, _count, _size, _state;
 var _x,_y, _x0,_y0, _x1,_y1, _x2,_y2;
@@ -27,8 +29,10 @@ var _ScrollArea_YB  = drawY+Window_H;
     _ScrollArea_YB -= $8;    // Window frame
     _ScrollArea_YB -= _Info_H; // Information area
     _ScrollArea_YB -= $8;      // Divider
+//
 var _Info_YT        = _ScrollArea_YB;
     _ScrollArea_YB -= $6;    // Padding
+//
 var _ScrollArea_YT  = drawY+ScrollArea_Y_MIN;
 var _ScrollArea_H   = _ScrollArea_YB -_ScrollArea_YT;
 var _ScrollArea_YC  = _ScrollArea_YT+(_ScrollArea_H>>1);

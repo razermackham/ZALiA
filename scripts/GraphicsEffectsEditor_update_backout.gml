@@ -1,4 +1,4 @@
-/// GraphicsEffectsEditor_update_backout(cursor is Back, *new menu_focus)
+/// GraphicsEffectsEditor_update_backout(cursor is Back, *new menu_state)
 
 
 if (pressed_backout 
@@ -8,9 +8,9 @@ if (pressed_backout
     
     aud_play_sound(SOUND_BACK, -1,-1, SOUND_VOLUME);
     timer = DURATION1;
-    if (menu_focus==menu_focus_Main) state = state_CLOSED;
-    if (argument_count>1) menu_focus = argument[1];
-    else                  menu_focus = menu_focus_Main;
+    if (menu_state==menu_focus_Main) state = state_CLOSED;
+    if (argument_count>1) menu_state = argument[1];
+    else                  menu_state = menu_focus_Main;
     
     return true;
 }

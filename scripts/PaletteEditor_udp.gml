@@ -49,6 +49,7 @@ if (state==state_EDIT1A
         ColorGrid_yt  = gui_yt;
         ColorGrid_yt -= ColorGrid_Outline_W;
         
+        
         // cursor is only on the color grid in these states
         Cursor_xl  = ColorGrid_xl;
         Cursor_xl += ColorGrid_Outline_W;

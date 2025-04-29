@@ -150,7 +150,6 @@ if (state==state_EDIT1B
     }
     
     draw_surface(ColorGrid_surf, ColorGrid_xl,ColorGrid_yt);
-    //draw_sprite_(ColorGrid_SPR,0, ColorGrid_xl,ColorGrid_yt, -1, ColorGrid_SCALE,ColorGrid_SCALE);
 }
 
 
@@ -187,13 +186,7 @@ if (state==state_EDIT1A
         _XL0 += _PAD2;
     var _YT0  = PalEdit_yt;
         _YT0 += PalEdit_PALS_H;
-        _YT0 += $8 + _PAD2; // palette pad
-    /*
-    var _XL0  = PalEdit_xl + PalEdit_PALS_W;
-        _XL0 += $02<<3; // palette pad
-    var _YT0  = viewYT() + gui_YTOFF;
-        _YT0 += $04;
-    */
+        _YT0 += $8 + _PAD2; // pad
     var _yt1  = _YT0;
     var _ALPHA = .7;
     
@@ -241,38 +234,6 @@ if (state==state_EDIT1A
         draw_text_(_XL0,_yt1, _text, Font1_sprite);
     }
 }
-
-
-/*
-switch(state)
-{
-    // ---------------------------------------------------------------------
-    // ---------------------------------------------------------------------
-    case state_IDLE:{
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    break;}
-    
-    
-    // ---------------------------------------------------------------------
-    case state_EDIT1A:{
-    if (Cursor_can_draw) PaletteEditor_draw_cursor(Cursor_xl,Cursor_yt);
-    break;}
-    
-    
-    // ---------------------------------------------------------------------
-    case state_EDIT1B:{
-    draw_sprite_(ColorGrid_SPR,0, ColorGrid_xl,ColorGrid_yt, -1, ColorGrid_SCALE,ColorGrid_SCALE);
-    if (Cursor_can_draw) PaletteEditor_draw_cursor(Cursor_xl,Cursor_yt);
-    break;}
-    
-    
-    // ---------------------------------------------------------------------
-    case state_BGR_COLOR:{
-    draw_sprite_(ColorGrid_SPR,0, ColorGrid_xl,ColorGrid_yt, -1, ColorGrid_SCALE,ColorGrid_SCALE);
-    if (Cursor_can_draw) PaletteEditor_draw_cursor(Cursor_xl,Cursor_yt);
-    break;}
-}
-*/
 
 
 

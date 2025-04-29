@@ -49,11 +49,11 @@ if (DEV) {sdm("");sdm("");sdm("");sdm(""); sdm(" obj_start_Create()"); sdm("");s
 //                                      // 
 //                                      // 
 //                                      // 
-g.PAUSE_MENU      = instance_create(0,0,PauseMenu);
-g.LEVEL_MENU      = instance_create(0,0,LevelUpMenu);
-g.DIALOGUE_WINDOW = instance_create(0,0,DialogueWindow);
-g.OPTIONS_MENU    = instance_create(0,0,OptionsMenu);
-g.QUIT_APP_MENU   = instance_create(0,0,QuitAppMenu);
+g.PAUSE_MENU        = instance_create(0,0,PauseMenu);
+g.LEVEL_MENU        = instance_create(0,0,LevelUpMenu);
+g.DIALOGUE_WINDOW   = instance_create(0,0,DialogueWindow);
+global.OPTIONS_MENU = instance_create(0,0,OptionsMenu);
+g.QUIT_APP_MENU     = instance_create(0,0,QuitAppMenu);
 //                                      // 
 //                                      // 
                     instance_create(0,0,Surface);

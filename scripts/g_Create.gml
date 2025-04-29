@@ -201,7 +201,7 @@ DevTools_state = 0;
 
 // Frame Delay: An option that delays the game's render by 1 frame to simulate what I think happens in fceux.
 // Draws the state of the frame delay. -1: App will not include this option, 0: Don't draw the Frame Delay's state, 1: Draw the Frame Delay's state
-global.RenderFrameDelay_state = -1;
+//global.RenderFrameDelay_state = -1;
 global.RenderFrameDelay_timer =  0; // Display state when > 0
 
 view_update_order = 1; // 1: OG, 2: update after gob update
@@ -313,24 +313,24 @@ torch_lighting_method   = 0; // 0: stab: light torches by stabbing only
 torch_lighting_method   = 1; // 1: auto: light torches by touching or stabbing
 
 
-// HUD_state: true: on, false: off
-HUD_state = true;
-//                  _i=0;
-//HUD_state       = _i++; // 0: HUD will NOT draw
-//HUD_state       = _i++; // 1: ZALiA G00 and before. Displays key count above HP in dungeons.
-//HUD_state       = _i++; // 2: ZALiA G01 and beyond. Displays key count above HP in dungeons. Displays lives count above HP.
-//HUD_state_COUNT = _i;
+
+
+                         _i=0;
+global.HUD_state       = _i++; // 0: HUD will NOT draw
+global.HUD_state       = _i++; // 1: HUD displays info only OG does
+global.HUD_state       = _i++; // 2: Displays key count above HP in dungeons. Displays lives count above HP.
+global.HUD_state_COUNT = _i;
 
 
 
 
 
-TargetGame_case=0; // 0: off
-//TargetGame_case=1; // 1: different every time
-//TargetGame_case=2;
+TargetGame_case = 0; // 0: off
+//TargetGame_case = 1; // 1: different every time
+//TargetGame_case = 2;
 
 
-//use_old_pixel_art=0;
+//use_old_pixel_art = 0;
 
 
 global.can_rando_ow_tsrc = false;
@@ -355,8 +355,8 @@ use_8x8_ow_menu_map=true;
 
 
 
-anarkhyaOverworld_MAIN = true;
-anarkhyaOverworld_use  = false;
+anarkhyaOverworld_MAIN    = true;
+anarkhyaOverworld_enabled = false;
 
 
 
@@ -3231,7 +3231,6 @@ level_up_idx     = 2; // 074E. Level Up menu selector Index
 PAUSE_MENU      = 0; // Pause/Spell Menu instance
 LEVEL_MENU      = 0; // Level Up menu instance
 DIALOGUE_WINDOW = 0; // Dialogue Window instance
-OPTIONS_MENU    = 0; // Options Menu instance
 QUIT_APP_MENU   = 0; // Quit App Menu instance
 
 

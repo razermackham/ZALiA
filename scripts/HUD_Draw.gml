@@ -5,6 +5,7 @@ if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
+
 // ----------------------------------------------------------------------------------
 var _i, _x,_y, _w,_h;
 var _xscale = 1;
@@ -19,7 +20,6 @@ var _Y2     = viewYT() + Y_LINE2;
 
 
 pal_swap_set(p.palette_image, PI_MENU);
-
 
 
 // ----------------------------------------------------------------------------------
@@ -61,9 +61,6 @@ for(_i=MeterContainer_count_HP-1; _i>=0; _i--)
 
 
 
-
-
-
 // ----------------------------------------------------------------------------------
 // LEVELS  ---------------------------------------------------------------
 _y = _Y1;
@@ -86,10 +83,6 @@ draw_text_(_x+8,_y, string(f.level_lif), -1,-1);
 
 
 
-
-
-
-
 // ----------------------------------------------------------------------------------
 // XP  -------------------------------------------------------------------
 _x = _X_BASE + XP_X;
@@ -98,7 +91,8 @@ draw_text_(_x,_y, XP_text, -1,-1);
 
 
 // Next level-up stat icon
-if (NextLevel_sprite)
+if (global.HUD_state>=2 
+&&  NextLevel_sprite )
 {
     _x = _X_BASE + XPNextIcon_X;
     draw_spr_aligned(NextLevel_sprite, _x,_y, -1,-1, -1, NextLevel_sprite_xscale);
@@ -108,32 +102,29 @@ if (NextLevel_sprite)
 
 
 // -------------------------------------------------------------------
-//  LIVES  ---------------------------------------------------
+//  LIVES & KEYS  ------------------------------------------------
 var _x1 = _X_BASE + HP_X;
-if (g.HUD_state)
-{   // This will show lives, then keys after
+if (global.HUD_state>=2)
+{
+    // lives
     _x = _x1;
     _y = _Y1;
     draw_spr_aligned(spr_Lives_icon, _x,_y, -1,-1, -1, -1);
     _x += 8;
-    
     draw_text_(_x,_y, Lives_text, -1,-1);
-    
     _x1 += $05<<3; // for keys position
     //_x1 += 4;
-}
-// -------------------------------------------------------------------
-//  KEYS  ---------------------------------------------------
-if (g.dungeon_num) // if in a dungeon
-{
-    _x = _x1;
-    _y = _Y1;
-    draw_spr_aligned(spr_Key_icon, _x,_y, -1,-1);
-    _x += 8;
     
-    draw_text_(_x,_y, Keys_text, -1,-1);
+    // keys
+    if (g.dungeon_num) // if in a dungeon
+    {
+        _x = _x1;
+        _y = _Y1;
+        draw_spr_aligned(spr_Key_icon, _x,_y, -1,-1);
+        _x += 8;
+        draw_text_(_x,_y, Keys_text, -1,-1);
+    }
 }
-
 
 
 pal_swap_reset();
@@ -141,17 +132,13 @@ pal_swap_reset();
 
 
 
-
-
-
-
 // -------------------------------------------------------------------
-if (g.mod_HUD_SPELL_READY)
+if (global.HUD_state>=2 
+&&  g.mod_HUD_SPELL_READY )
 {
-    _x = _X_BASE  + SpellQueued_ICON_X;
+    _x = _X_BASE + SpellQueued_ICON_X;
     _y = _Y1;
     draw_spr_aligned(SpellQueued_ICON_SPR, _x,_y, -1,-1, PI_MENU);
-    
     
     _x = _X_BASE + SpellQueued_TEXT_X;
     draw_text_(_x,_y, SpellQueued_text, -1, SpellQueued_palidx);
@@ -160,12 +147,8 @@ if (g.mod_HUD_SPELL_READY)
 
 
 
-
-
-
-
-
 /*
+// -------------------------------------------------------------------
 if (g.DoubleJump_state 
 &&  f.items&ITM_FTHR )
 {

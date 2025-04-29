@@ -113,8 +113,8 @@ with(g.QUIT_APP_MENU)
                     cnt_draw_rows = 0;
                     cursor_option = 0;
                     
-                    with(g.OPTIONS_MENU) sub_state = sub_state_IDLE_CLOSED;
-                    with(g.OPTIONS_MENU) gui_state_backup = 0;
+                    with(global.OPTIONS_MENU) sub_state = sub_state_IDLE_CLOSED;
+                    with(global.OPTIONS_MENU) gui_state_backup = 0;
                     gui_state_backup = 0;
                     g.gui_state = 0;
                     

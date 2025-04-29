@@ -3,7 +3,11 @@
 
 if (g.counter1&$7F) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if (available_update_idx_gob(MAX_GOB1)==UIDX_NULL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if (instance_number(Boggnipp)>=3) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+var            _count  = 0;
+with(Boggnipp) _count += sign(state);
+if (_count>=3) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//if (instance_number(Boggnipp)>=3) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // ---------------------------------------------------

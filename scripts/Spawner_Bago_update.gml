@@ -4,6 +4,12 @@
 if (g.counter1&$7F) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if (available_update_idx_gob(MAX_GOB1)==UIDX_NULL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+var         _count  = 0;
+with(BagoA) _count += sign(state);
+//with(BagoA) _count += state==state_NORMAL;
+if (_count>=6) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//if (instance_number(BagoA)>=6) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 // ---------------------------------------------------
 var _DIR = -sign_(rand()&$1);

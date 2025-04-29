@@ -9,8 +9,13 @@ if (g.counter1&$7F   // every 128 frames: 2.133s
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
+var         _count  = 0;
+with(WosuA) _count += sign(state);
+if (_count>=4) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//if (instance_number(WosuA)>=6) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
+// ---------------------------------------------------
 var _RAND = rand();
 
 var _YT = get_ground_y(g.rm_w_,GROUND_Y_BASE, -1,GROUND_Y);

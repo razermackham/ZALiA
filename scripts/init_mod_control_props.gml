@@ -89,7 +89,8 @@ mod_START_RUN_LIVES         =  1; // 1: Start with 3 + any acquired life dolls
 // 0: OG, 5: Max(next char delay = 0)
 // The higher the value, the faster the dialogue.
 // Users can set this in options menu.
-mod_DLG_SPEED = 2;
+mod_DLG_SPEED     = 2;
+mod_DLG_SPEED_MAX = 5;
 
 
 

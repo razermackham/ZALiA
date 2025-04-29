@@ -1,7 +1,7 @@
 /// update_OptionsMenu()
 
 
-with(g.OPTIONS_MENU)
+with(global.OPTIONS_MENU)
 {
     if (PCSpriteWalk_timer)
     {
@@ -32,7 +32,6 @@ with(g.OPTIONS_MENU)
     
     
     
-    
     // --------------------------------------------------------------------------------
     switch(sub_state)
     {
@@ -54,7 +53,7 @@ with(g.OPTIONS_MENU)
                 gui_state_backup = g.gui_state;
                 g.gui_state      = g.gui_state_OPTIONS;
                 
-                Menu_in_focus     = Menu_MAIN;
+                menu_state        = menu_state_MAIN;
                 InputConfigState  = InputConfigState_MAIN;
                 InputConfigOption = InputConfigOption_RIGHT;
                 
@@ -69,28 +68,11 @@ with(g.OPTIONS_MENU)
         
         
         
-        
         // =========================================================================
         case sub_state_OPENING1:{ // ------------------------------------------
         if (timer){timer--; break;}
         
-        if (OptionsMenu_option_is_avail(Menu_RANDO_OPTIONS,RandoOptions_MARK_ACQUIRED) 
-        ||  OptionsMenu_option_is_avail(Menu_RANDO_OPTIONS,RandoOptions_MAPS_SHOW_KEYS) 
-        ||  OptionsMenu_option_is_avail(Menu_RANDO_OPTIONS,RandoOptions_RANDO_ENEMY) 
-        ||  OptionsMenu_option_is_avail(Menu_RANDO_OPTIONS,RandoOptions_RANDO_OW_TILES) 
-        ||  OptionsMenu_option_is_avail(Menu_RANDO_OPTIONS,RandoOptions_SCENES) 
-        ||  OptionsMenu_option_is_avail(Menu_RANDO_OPTIONS,RandoOptions_RANDO_PALETTE) 
-        ||  OptionsMenu_option_is_avail(Menu_RANDO_OPTIONS,RandoOptions_MARK_HIDDEN_EXIT) )
-        {
-            RandoOptionsMenu_is_available = true;
-        }
-        else
-        {
-            RandoOptionsMenu_is_available = false;
-        }
-        
         aud_play_sound(get_audio_theme_track(dk_OpenGUI));
-        
         timer = 2;
         sub_state = sub_state_OPENING_ANIM;
         break;}//case sub_state_OPENING1
@@ -98,11 +80,9 @@ with(g.OPTIONS_MENU)
         
         
         
-        
         // =========================================================================
         case sub_state_OPENING_ANIM:{ // ------------------------------------------
         udp_OptionsMenu();
-        
         if (timer){timer--; break;}
         
             anim_frame++;
@@ -116,29 +96,28 @@ with(g.OPTIONS_MENU)
         
         
         
-        
         // =========================================================================
         case sub_state_OPEN1:{ // ------------------------------------------
         if (g.gui_state==g.gui_state_OPTIONS) // To prevent game lock, in case QuitAppMenu was triggered this frame
         {
             udp_OptionsMenu();
-            
             if (timer){timer--; break;}
             
             if (OpenClose_Key_pressed)
             {   // Close options menu from any sub menu.
-                timer=0;
-                sub_state=sub_state_CLOSING1; // Start close menu
+                timer = 0;
+                sub_state = sub_state_CLOSING1; // Start close menu
                 break;//case sub_state_OPEN1
             }
             
             
-            switch(Menu_in_focus){
-            case   Menu_MAIN:         {OptionsMenu_Main_update();        break;}
-            case   Menu_AUDIO_CUSTOM: {OptionsMenu_AudioCustom_update(); break;}
-            case   Menu_INPUT_CONFIG: {OptionsMenu_InputConfig_update(); break;}
-            case   Menu_DEV_TOOLS:    {OptionsMenu_DevTools_update();    break;}
-            case   Menu_RANDO_OPTIONS:{OptionsMenu_RandoOptions_update();break;}
+            switch(menu_state){
+            case   menu_state_MAIN:         {OptionsMenu_Main_update();        break;}
+            case   menu_state_AUDIO_CUSTOM: {OptionsMenu_AudioCustom_update(); break;}
+            case   menu_state_INPUT_CONFIG: {OptionsMenu_InputConfig_update(); break;}
+            case   menu_state_DEV_TOOLS:    {OptionsMenu_DevTools_update();    break;}
+            case   menu_state_RANDO_OPTIONS:{OptionsMenu_RandoOptions_update();break;}
+            case   menu_state_OTHER:        {OptionsMenu_Other_update();       break;}
             }
         }
         break;}//case sub_state_OPEN1
@@ -146,20 +125,15 @@ with(g.OPTIONS_MENU)
         
         
         
-        
         // =========================================================================
         case sub_state_CLOSING1:{ // ------------------------------------------
         udp_OptionsMenu();
-        
         //if (timer){timer--; break;}
         
-        
         aud_play_sound(get_audio_theme_track(dk_OpenGUI));
-        
         timer = 0;
         sub_state = sub_state_CLOSING_ANIM;
         break;}//case sub_state_CLOSING1
-        
         
         
         
@@ -184,23 +158,14 @@ with(g.OPTIONS_MENU)
         
         
         
-        
         // =========================================================================
         case sub_state_CLOSING3:{ // ------------------------------------------
         //if (timer){timer--; break;}
         
-        
         anim_frame      = 0;
         draw_rows_count = 0;
         MainOption      = 0;
-        //cursor_op       = 0;
-        
         g.gui_state     = gui_state_backup;
-        
-        
-        
-        save_game_pref();
-        //file_save_pref(f.file_num);
         
         timer = 0;
         sub_state = sub_state_IDLE_CLOSED;

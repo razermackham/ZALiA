@@ -53,10 +53,6 @@ if (timer) timer--;
 if(!timer) PaletteEditor_Step_1();
 
 
-// This updates here in case `global.palette_image_w` has changed since `PalettePicker_Create()`
-//PALS2_w = global.palette_image_w * PALS2_SCALE;
-
-
 
 
 // --------------------------------------------------------------------
@@ -66,7 +62,6 @@ if (state==state_EDIT1A
 {
     PalView_enabled = false;
     
-    //if (keyboard_check(vk_f8)){sdm(""); sdm("color_old $"+hex_str(color_old)+"-"+color_str(color_old)+"-"+string(color_old)+", color_new $"+hex_str(color_new)+"-"+color_str(color_new)+"-"+string(color_new));}
     switch(state){
     case state_EDIT1A:   {color_old=PaletteEditor_get_cursor_color(true); break;}
     //case state_EDIT1B:   {color_old=PaletteEditor_get_cursor_color(true); break;}
@@ -74,7 +69,6 @@ if (state==state_EDIT1A
     }
     
     color_new = PaletteEditor_get_cursor_color(false);
-    //if (keyboard_check(vk_f8)) sdm("color_old $"+hex_str(color_old)+"-"+color_str(color_old)+"-"+string(color_old)+", color_new $"+hex_str(color_new)+"-"+color_str(color_new)+"-"+string(color_new));
 }
 
 
@@ -101,18 +95,11 @@ switch(state)
     case state_IDLE:{
     if (timer) break;
     
-    
     if(!g.gui_state)
     {
         if (_EDIT_REQUESTED_PAL)
         {
-            gui_state_at_sess_start = g.gui_state;
-            g.gui_state = g.gui_state_EDIT_PAL;
-            pal_before_edit_sess = p.pal_rm_curr;
-            pal_during_edit = pal_before_edit_sess;
-            
-            timer = DELAY1_DUR; // Delay any input reaction in next state.
-            state = state_EDIT1A;
+            PaletteEditor_initiate_pal_edit_mode();
             break;//case state_IDLE
         }
         

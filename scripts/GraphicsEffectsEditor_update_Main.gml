@@ -94,7 +94,7 @@ switch(Main_cursor)
     {
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
-        menu_focus = menu_focus_Brightness;
+        menu_state = menu_focus_Brightness;
     }
     break;}
     
@@ -106,7 +106,7 @@ switch(Main_cursor)
     {
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
-        menu_focus = menu_focus_Saturation;
+        menu_state = menu_focus_Saturation;
     }
     break;}
     
@@ -118,7 +118,7 @@ switch(Main_cursor)
     {
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
-        menu_focus = menu_focus_Scanlines;
+        menu_state = menu_focus_Scanlines;
     }
     break;}
     
@@ -130,7 +130,7 @@ switch(Main_cursor)
     {
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
-        menu_focus = menu_focus_Bloom;
+        menu_state = menu_focus_Bloom;
     }
     break;}
     
@@ -142,7 +142,7 @@ switch(Main_cursor)
     {
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
-        menu_focus = menu_focus_Blur;
+        menu_state = menu_focus_Blur;
     }
     break;}
     

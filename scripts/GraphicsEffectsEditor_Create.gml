@@ -26,7 +26,7 @@ dg_menu_idx = -1;
 
 
 
-PI_MENU  = global.PI_GUI1;
+PI_MENU1 = global.PI_GUI1;
 PI_DARK1 = global.PI_GUI2;
 
 
@@ -255,7 +255,7 @@ Brightness_cursor = 0;
 
 for(_i=ds_grid_width(dg_Brightness)-1; _i>=0; _i--)
 {
-    if(!dg_Brightness[#_i,$B]) dg_Brightness[#_i,$B] = PI_MENU;
+    if(!dg_Brightness[#_i,$B]) dg_Brightness[#_i,$B] = PI_MENU1;
     _x  = dg_Brightness[#_i,$0];
     _x += string_length(dg_Brightness[#_i,$2])*sprite_get_width(dg_Brightness[#_i,$3]);
     _values_xl = max(_values_xl, _x);
@@ -330,7 +330,7 @@ Saturation_cursor = 0;
 
 for(_i=ds_grid_width(dg_Saturation)-1; _i>=0; _i--)
 {
-    if(!dg_Saturation[#_i,$B]) dg_Saturation[#_i,$B] = PI_MENU;
+    if(!dg_Saturation[#_i,$B]) dg_Saturation[#_i,$B] = PI_MENU1;
     _x  = dg_Saturation[#_i,$0];
     _x += string_length(dg_Saturation[#_i,$2])*sprite_get_width(dg_Saturation[#_i,$3]);
     _values_xl = max(_values_xl, _x);
@@ -408,7 +408,7 @@ Scanlines_cursor = 0;
 
 for(_i=ds_grid_width(dg_Scanlines)-1; _i>=0; _i--)
 {
-    if(!dg_Scanlines[#_i,$B]) dg_Scanlines[#_i,$B] = PI_MENU;
+    if(!dg_Scanlines[#_i,$B]) dg_Scanlines[#_i,$B] = PI_MENU1;
     _x  = dg_Scanlines[#_i,$0];
     _x += string_length(dg_Scanlines[#_i,$2])*sprite_get_width(dg_Scanlines[#_i,$3]);
     _values_xl = max(_values_xl, _x);
@@ -581,7 +581,7 @@ Bloom_cursor = 0;
 
 for(_i=ds_grid_width(dg_Bloom)-1; _i>=0; _i--)
 {
-    if(!dg_Bloom[#_i,$B]) dg_Bloom[#_i,$B] = PI_MENU;
+    if(!dg_Bloom[#_i,$B]) dg_Bloom[#_i,$B] = PI_MENU1;
     _x  = dg_Bloom[#_i,$0];
     _x += string_length(dg_Bloom[#_i,$2])*sprite_get_width(dg_Bloom[#_i,$3]);
     _values_xl = max(_values_xl, _x);
@@ -656,7 +656,7 @@ Blur_cursor = 0;
 
 for(_i=ds_grid_width(dg_Blur)-1; _i>=0; _i--)
 {
-    if(!dg_Blur[#_i,$B]) dg_Blur[#_i,$B] = PI_MENU;
+    if(!dg_Blur[#_i,$B]) dg_Blur[#_i,$B] = PI_MENU1;
     _x  = dg_Blur[#_i,$0];
     _x += string_length(dg_Blur[#_i,$2])*sprite_get_width(dg_Blur[#_i,$3]);
     _values_xl = max(_values_xl, _x);

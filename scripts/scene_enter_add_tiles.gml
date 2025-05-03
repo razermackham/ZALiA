@@ -667,8 +667,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 }
                 else
                 {//G 02
-                    if (inRange(_tsrc,$30,$37) 
-                    ||  inRange(_tsrc,$52,$53) )
+                    if ((_tsrc>=$30 && _tsrc<=$37) 
+                    ||  (_tsrc>=$52 && _tsrc<=$53) )
                     {
                         ds_list_add(g.dl_ceiling_bottom_rc, _tile_id);
                         //ds_list_add(g.dl_ceiling_bottom_rc, (_row<<8)|_clm);
@@ -688,7 +688,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         if (_pos)
         {
                 _val = string_copy(_layer_name, _pos+string_length(STR_VISIBLE)+1, 2);
-                _val = !!str_hex(_val); // 0 or 1
+                _val = str_hex(_val)!=0; // 0 or 1
             if(!_val) tile_layer_hide(_depth);
         }
         
@@ -733,7 +733,16 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 
                 with(g.burnable_mgr)
                 {
-                    if (isVal(_tsrc,$50,$51,$52,$53,$98,$99,$A8,$A9,$B1)) // vine graphics
+                    // these tsrc values are vine graphics
+                    if (_tsrc==$50 
+                    ||  _tsrc==$51 
+                    ||  _tsrc==$52 
+                    ||  _tsrc==$53 
+                    ||  _tsrc==$98 
+                    ||  _tsrc==$99 
+                    ||  _tsrc==$A8 
+                    ||  _tsrc==$A9 
+                    ||  _tsrc==$B1 )
                     {    _val=BURNABLE_A;  } // this could be BURNABLE_A or BURNABLE_B but that will have to be decided after the _i loop
                     else _val=BURNABLE_C;    // extra graphic detail around a vine graphic tile
                     dg_RmTile_Burnable    [#_clm,_row] = (_depth_idx<<8) | _val;
@@ -824,60 +833,64 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         }
         
         
-        if (g.mod_ANIMATE_LIQUID 
-        &&  isVal(_val,TID_LQUID1,TID_LQUID2,TID_LQUID3) )
+        if (g.mod_ANIMATE_LIQUID)
         {
-                _idx = ds_list_find_index(_dl_liquid_depth,_depth);
-            if (_idx+1 
-            ||  string_pos(_STR_SPEED_,_layer_name) ) // if the file indicates the liquid should be animated
+            if (_val==TID_LQUID1 
+            ||  _val==TID_LQUID2 
+            ||  _val==TID_LQUID3 )
             {
-                if!(_idx+1) // if this is a new layer
+                    _idx = ds_list_find_index(_dl_liquid_depth,_depth);
+                if (_idx+1 
+                ||  string_pos(_STR_SPEED_,_layer_name) ) // if the file indicates the liquid should be animated
                 {
-                    // "DIR_01": RGT, "DIR_02": LFT, 04: DWN, 08: UP, or a combo of dirs
-                        _pos = string_pos(_STR_DIR_,_layer_name);
-                    if (_pos) _dir = str_hex(string_copy(_layer_name, _pos+string_length(_STR_DIR_), 2));
-                    else      _dir = BIT_RGT; // RGT: default
-                    
-                                     _dir &= $F;
-                    if (_dir&$3==$3) _dir  = (_dir&$C) | BIT_RGT;
-                    if (_dir&$C==$C) _dir  = (_dir&$3) | BIT_DWN;
-                    
-                    
-                    ds_list_add(_dl_liquid_dir, _dir);
-                    
-                    
-                    if ( _val==TID_LQUID1 
-                    && !(_dir&$C) )
-                    {    _val2 = 1;  }
-                    else _val2 = 0;
-                    ds_list_add(_dl_liquid_yoff, _val2);
-                    
-                    
-                    _pos  = string_pos(   _STR_SPEED_,_layer_name);
-                    _pos += string_length(_STR_SPEED_);
-                    ds_list_add(_dl_liquid_speed, str_hex(string_copy(_layer_name, _pos, 2)));
-                    ds_list_add(_dl_liquid_depth, _depth);
-                    
-                    _idx = ds_list_size(_dl_liquid_depth)-1;
-                }
-                
-                
-                // In case any liquid is at edge of rm, this 
-                // will prevent empty space when animating.
-                // ** Note that any liquid tiles that will be animated must 
-                // have an extra clm of themselves at their front.
-                // Also liquid layers must have something obstructing its offset.
-                if (tile_exists(_tile_id))
-                {
-                         _dir = bit_dir(_dl_liquid_dir[|_idx]);
-                                  _clm = tile_get_x(_tile_id)>>3;
-                    if ((_dir && !_clm) 
-                    || (!_dir &&  _clm==_CLMS-1) )
+                    if!(_idx+1) // if this is a new layer
                     {
-                        if (_dir) _x = -8;
-                        else      _x = _CLMS<<3;
-                                  _y = tile_get_y(_tile_id);
-                        tile_add(tile_get_background(_tile_id), tile_get_left(_tile_id),tile_get_top(_tile_id), 8,8, _x,_y, _depth);
+                        // "DIR_01": RGT, "DIR_02": LFT, 04: DWN, 08: UP, or a combo of dirs
+                            _pos = string_pos(_STR_DIR_,_layer_name);
+                        if (_pos) _dir = str_hex(string_copy(_layer_name, _pos+string_length(_STR_DIR_), 2));
+                        else      _dir = BIT_RGT; // RGT: default
+                        
+                                         _dir &= $F;
+                        if (_dir&$3==$3) _dir  = (_dir&$C) | BIT_RGT;
+                        if (_dir&$C==$C) _dir  = (_dir&$3) | BIT_DWN;
+                        
+                        
+                        ds_list_add(_dl_liquid_dir, _dir);
+                        
+                        
+                        if ( _val==TID_LQUID1 
+                        && !(_dir&$C) )
+                        {    _val2 = 1;  }
+                        else _val2 = 0;
+                        ds_list_add(_dl_liquid_yoff, _val2);
+                        
+                        
+                        _pos  = string_pos(   _STR_SPEED_,_layer_name);
+                        _pos += string_length(_STR_SPEED_);
+                        ds_list_add(_dl_liquid_speed, str_hex(string_copy(_layer_name, _pos, 2)));
+                        ds_list_add(_dl_liquid_depth, _depth);
+                        
+                        _idx = ds_list_size(_dl_liquid_depth)-1;
+                    }
+                    
+                    
+                    // In case any liquid is at edge of rm, this 
+                    // will prevent empty space when animating.
+                    // ** Note that any liquid tiles that will be animated must 
+                    // have an extra clm of themselves at their front.
+                    // Also liquid layers must have something obstructing its offset.
+                    if (tile_exists(_tile_id))
+                    {
+                             _dir = bit_dir(_dl_liquid_dir[|_idx]);
+                                      _clm = tile_get_x(_tile_id)>>3;
+                        if ((_dir && !_clm) 
+                        || (!_dir &&  _clm==_CLMS-1) )
+                        {
+                            if (_dir) _x = -8;
+                            else      _x = _CLMS<<3;
+                                      _y = tile_get_y(_tile_id);
+                            tile_add(tile_get_background(_tile_id), tile_get_left(_tile_id),tile_get_top(_tile_id), 8,8, _x,_y, _depth);
+                        }
                     }
                 }
             }
@@ -886,7 +899,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         
         
         if (g.mod_CLOUD_MOVEMENT 
-        &&  isVal(_val,TID_CLOUDS1) )
+        &&  _val==TID_CLOUDS1 )
         {
                 _idx = ds_list_find_index(_dl_cloud_depth, _depth);
             if (_idx+1 

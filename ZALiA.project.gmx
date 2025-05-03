@@ -11789,7 +11789,6 @@
       <script>scripts\Overworld_init_data.gml</script>
       <script>scripts\Overworld_init_data_1.gml</script>
       <script>scripts\Overworld_init_data_2.gml</script>
-      <script>scripts\Overworld_init_data_3.gml</script>
       <script>scripts\Overworld_init_data_anarkhya.gml</script>
       <script>scripts\ow_pc_xy.gml</script>
       <script>scripts\is_exiting_ow.gml</script>
@@ -11845,7 +11844,6 @@
       <script>scripts\rm_get_file_data.gml</script>
       <script>scripts\rm_get_wh.gml</script>
       <script>scripts\rm_is_bottom_page_locked.gml</script>
-      <script>scripts\get_rm_name.gml</script>
       <script>scripts\room_is_type.gml</script>
       <script>scripts\get_dk_dungeon_entrance.gml</script>
       <script>scripts\get_dungeon_num.gml</script>
@@ -12727,6 +12725,7 @@
             <script>scripts\NPC_init1.gml</script>
             <script>scripts\NPC_init2.gml</script>
             <script>scripts\NPC_udp_1.gml</script>
+            <script>scripts\NPC_udp_2.gml</script>
             <script>scripts\NPC_udp_Girubokku.gml</script>
             <script>scripts\NPC_draw.gml</script>
             <script>scripts\NPC_0_update.gml</script>
@@ -13443,6 +13442,7 @@
       </scripts>
       <scripts name="options_menu">
         <script>scripts\OptionsMenu_Create.gml</script>
+        <script>scripts\OptionsMenu_Create_1.gml</script>
         <script>scripts\OptionsMenu_Draw.gml</script>
         <script>scripts\OptionsMenu_Draw_Main.gml</script>
         <script>scripts\OptionsMenu_Draw_AudioCustom.gml</script>
@@ -13726,6 +13726,7 @@
       <script>scripts\palSpr_changeColors.gml</script>
       <script>scripts\get_pi.gml</script>
       <script>scripts\add_pi_permut.gml</script>
+      <script>scripts\get_pi_palette.gml</script>
       <script>scripts\get_pal_color.gml</script>
       <script>scripts\get_pal_pos.gml</script>
       <script>scripts\get_pal_col_pos.gml</script>

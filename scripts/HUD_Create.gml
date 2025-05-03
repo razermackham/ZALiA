@@ -6,7 +6,7 @@ depth = DEPTH_HUD;
 can_draw_self = true;
 
 
-PI_MENU = global.PI_GUI1;
+PI_MENU1 = global.PI_GUI1;
 
 NextLevel_sprite = global.SPR_ICON_ATK;
 //icon_next_spr = global.SPR_ICON_ATK;
@@ -99,7 +99,7 @@ SpellQueued_TEXT_X   = SpellQueued_ICON_X + ($01<<3);
 //                                                                          //
 SpellQueued_NONE     = "...";
 SpellQueued_text     = SpellQueued_NONE;
-SpellQueued_palidx   = PI_MENU;
+SpellQueued_palidx   = PI_MENU1;
 //                                                                          //
 //                                                                          //
 //                                                                          //

@@ -10,13 +10,14 @@ var _sprite, _pi, _color,_color1;
 var _tsrc, _ts_x,_ts_y;
 var _font, _text;
 var _NO_ACTION_TEXT = "---";
-var _FONT = Font2;
-var _FONT_SIZE = sprite_get_width(Font2);
+var _FONT = FONT2;
+var _FONT_SIZE = sprite_get_width(FONT2);
 var _LEADING1 = $6;
 var _LEADING2 = $4;
 var _PAD1 = $2;
 var _DIST1 = _FONT_SIZE+_LEADING1;
-var _DIST2 = _DIST1-3;
+var _DIST2 = _DIST1-1;
+//var _DIST2 = _DIST1-3;
 var _BLINK_TIMING = $40;
 
 //var _PI_DARK1 = get_pi(global.PI_GUI2,3);
@@ -30,9 +31,11 @@ var _ScrollArea_YB  = drawY+Window_H;
     _ScrollArea_YB -= _Info_H; // Information area
     _ScrollArea_YB -= $8;      // Divider
 //
-var _Info_YT        = _ScrollArea_YB;
-    _ScrollArea_YB -= $6;    // Padding
+//var _Info_YT        = _ScrollArea_YB;
+//    _Info_YT       += $4; // micro adj
+    _ScrollArea_YB -= $6; // Padding
 //
+//var _InfoBar_YT     = _Info_YT - $4;
 var _ScrollArea_YT  = drawY+ScrollArea_Y_MIN;
 var _ScrollArea_H   = _ScrollArea_YB -_ScrollArea_YT;
 var _ScrollArea_YC  = _ScrollArea_YT+(_ScrollArea_H>>1);
@@ -130,7 +133,8 @@ for(_i=draw_clms_count-2; _i>=1; _i--) // 8x8. each column of the row
     _ts_x = ((_tsrc>>0)&$F) <<3;
     _ts_y = ((_tsrc>>4)&$F) <<3;
     _x    = drawX + (_i<<3);
-    _y    = _Info_YT;
+    _y    = Info_Divider_yt;
+    //_y    = _Info_YT;
     draw_background_part(g.TS_MENU, _ts_x,_ts_y, 8,8, _x,_y);
 }
 
@@ -142,7 +146,7 @@ for(_i=draw_clms_count-2; _i>=1; _i--) // 8x8. each column of the row
 
 
 
-//pal_swap_set(p.pal_spr, PI_MENU, false);
+//pal_swap_set(p.pal_spr, PI_MENU1, false);
 //pal_swap_reset();
 // ------------------------------------------------------------------------------
 for(_i=0; _i<AudioCustom_COUNT; _i++)
@@ -177,7 +181,7 @@ for(_i=0; _i<AudioCustom_COUNT; _i++)
         if (_SUB_MENU_IS_OPEN 
         && !dg_AudioCustom[#_i,2] ) // 2: open state
         {    _pi = PI_DARK2;  }
-        else _pi = PI_MENU;
+        else _pi = PI_MENU1;
         
         //if (_i==AudioCustom_cursor) _color = c_white;
         //else                        _color = -1;
@@ -220,7 +224,7 @@ for(_i=0; _i<AudioCustom_COUNT; _i++)
                 else
                 {
                     _sprite = spr_arrow_6_rgt;
-                    _pi = PI_MENU;
+                    _pi = PI_MENU1;
                 }
                 _x -= $C;
                 _x -= $1;
@@ -295,7 +299,7 @@ for(_i=0; _i<AudioCustom_COUNT; _i++)
                     _x -= $4;            // arrow center x
                     _x -= $1;
                     _y += _FONT_SIZE>>1; // arrow center y
-                    draw_sprite_(_sprite,0, _x,_y, PI_MENU);
+                    draw_sprite_(_sprite,0, _x,_y, PI_MENU1);
                 }
             }
             
@@ -321,6 +325,8 @@ for(_i=0; _i<AudioCustom_COUNT; _i++)
 
 
 // ------------------------------------------------------------------------------
+var _DIST3  = Info_FONT_H;
+    _DIST3 += $3; // line spacing
 _color  = p.C_WHT2;
 _color1 = p.C_GRY2;
 //_color1 = p.C_GRY1;
@@ -375,17 +381,15 @@ switch(AudioCustom_cursor)
 }
 
 
-
 _x0  = drawX;
 _x0 += $8; // Window frame
 _x0 += $2; // Padding
-_y0  = _Info_YT;
-_y0 += $8; // Divider
+_y0 = Info_yt;
 
 _x  = _x0;
 _y  = _y0;
-draw_text_(_x,_y, _text,_FONT, -1,_color);
-_y0 += _DIST2;
+draw_text_(_x,_y, _text,Info_FONT, -1,_color);
+_y0 += _DIST3;
 
 
 
@@ -403,8 +407,8 @@ else                  _text += _NO_ACTION_TEXT;
 //_text = "XBOX 'Y': PLAY/STOP TRACK";
 if (_CURSOR_ON_THEME) _color = p.C_WHT1;
 else                  _color = _color1;
-draw_text_(_x,_y, _text,_FONT, -1,_color);
-_y0 += _DIST2;
+draw_text_(_x,_y, _text,Info_FONT, -1,_color);
+_y0 += _DIST3;
 
 
 
@@ -412,7 +416,7 @@ _y0 += _DIST2;
 if (_CURSOR_HAS_SUBMENU)
 {
     _color = p.C_WHT1;
-    _pi = PI_MENU;
+    _pi = PI_MENU1;
 }
 else
 {
@@ -421,35 +425,36 @@ else
 }
 
 _x  = _x0;
-_x += $4; // arrow center
+_x += ARROW_SPRITE_W>>1; // arrow center
 _y  = _y0;
-_y += $4; // arrow center
+_y += ARROW_SPRITE_H>>1; // arrow center
 _y -= $1; // micro adjustment
-draw_sprite_(spr_arrow_1b,0, _x-1,_y, _pi, -1);
+draw_sprite_(ARROW_SPRITE,0, _x-1,_y, _pi, -1);
 
-_x += $4; // text xl
+_x += ARROW_SPRITE_W>>1; // text xl
 _y  = _y0;
-_text  = ",";
-draw_text_(_x,_y, _text,_FONT, -1,_color);
+_text = ",";
+draw_text_(_x,_y, _text,Info_FONT, -1,_color);
 
-_x += $C; // arrow center
+_x += $8;
+_x += ARROW_SPRITE_W>>1; // arrow center
 _y  = _y0;
-_y += $4; // arrow center
+_y += ARROW_SPRITE_H>>1; // arrow center
 _y -= $1; // micro adjustment
-draw_sprite_(spr_arrow_1b,0, _x-1,_y, _pi);
+draw_sprite_(ARROW_SPRITE,0, _x-1,_y, _pi);
 
-_x += $4; // text xl
+_x += ARROW_SPRITE_W>>1; // text xl
 _y  = _y0;
-_text  = ": ";
+_text = ": ";
 if (_CURSOR_HAS_SUBMENU) _text += "OPEN/CLOSE SUB-MENU";
 else                     _text += _NO_ACTION_TEXT;
-draw_text_(_x,_y, _text,_FONT, -1,_color);
+draw_text_(_x,_y, _text,Info_FONT, -1,_color);
 
 //_text = "RIGHT AND LEFT: SUB-MENU";
 //_text = "RIGHT AND LEFT: OPEN AND CLOSE SUB-MENU";
 //_text = "RIGHT/LEFT: OPEN/CLOSE SUB-MENU";
-//draw_text_(_x,_y, _text,_FONT);
-_y0 += _DIST2;
+//draw_text_(_x,_y, _text,Info_FONT);
+_y0 += _DIST3;
 
 
 //"BACK: XBOX B, ESCAPE" + "LEFT"

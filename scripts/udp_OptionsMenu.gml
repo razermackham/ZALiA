@@ -25,7 +25,10 @@ drawY = viewYT() + viewYT_OFF;
 
 MenuWindow_w  = draw_clms_count<<3;
 MenuWindow_h  = draw_rows_count<<3;
-MenuWindow_yb = drawY + MenuWindow_h;
+MenuWindow_xl = drawX;
+MenuWindow_xr = MenuWindow_xl + MenuWindow_w;
+MenuWindow_yt = drawY;
+MenuWindow_yb = MenuWindow_yt + MenuWindow_h;
 
 
 Cursor_xl  = drawX;
@@ -47,6 +50,23 @@ TextArea2_xr -= $4; // pad
 
 //TextArea2_xl  = TextArea2_xr;
 //TextArea2_xl -= Font2_CHAR_SIZE * 4; // dist of 4 chars
+
+
+
+
+Info_Divider_can_draw = menu_state==menu_state_MAIN || menu_state==menu_state_DEV_TOOLS || menu_state==menu_state_RANDO || menu_state==menu_state_OTHER;
+Info_Divider_row      = draw_rows_max - $6;
+Info_Divider_yt       = drawY + (Info_Divider_row<<3);
+
+Info_xl  = TextArea1_xl;
+
+Info_xr  = MenuWindow_xr;
+Info_xr -= $8; // window border
+Info_xr -= $8; // pad
+
+Info_yt  = Info_Divider_yt;
+Info_yt += $8; // divider bar
+Info_yt += $1; // pad
 
 
 

@@ -9,6 +9,11 @@ dg_NPC_SPR[#_idx,$01] = spr_Girubokku1; // spr_Girubokku1: eye open
 dm_NPC[?STR_Sprite+_datakey+"01"] = dg_NPC_SPR[#_idx,$00];
 dm_NPC[?STR_Sprite+_datakey+"02"] = dg_NPC_SPR[#_idx,$01];
 */
+
+
+NPC_udp_2(); // update `RandoHint_hint_num`
+
+
 draw_yoff = -$06;
 
 

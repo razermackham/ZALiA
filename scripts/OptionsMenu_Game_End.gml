@@ -79,13 +79,13 @@ if (_exists) _exists = !is_undefined(    dg_DevTools);
 if (_exists) _exists = ds_exists(        dg_DevTools,ds_type_grid);
 if (_exists)           ds_grid_destroy(  dg_DevTools);
 if (_exists)                             dg_DevTools=undefined;
-
+/*
     _exists=variable_instance_exists(id,"dg_RandoOptions");
 if (_exists) _exists = !is_undefined(    dg_RandoOptions);
 if (_exists) _exists = ds_exists(        dg_RandoOptions,ds_type_grid);
 if (_exists)           ds_grid_destroy(  dg_RandoOptions);
 if (_exists)                             dg_RandoOptions=undefined;
-
+*/
     _exists=variable_instance_exists(id,"Other_dg");
 if (_exists) _exists = !is_undefined(    Other_dg);
 if (_exists) _exists = ds_exists(        Other_dg,ds_type_grid);

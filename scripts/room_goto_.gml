@@ -14,20 +14,3 @@ room_goto(     argument[0]);
 
 
 
-/*
-/// room_goto_(room, *width, *height)
-
-
-var                   _W = g.VIEW_W;
-if (argument_count>1) _W = argument[1];
-//
-var                   _H = g.VIEW_H;
-if (argument_count>2) _H = argument[2];
-//
-room_set_view_(argument[0], _W,_H);
-room_goto(     argument[0]);
-*/
-
-
-
-

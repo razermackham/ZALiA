@@ -9,7 +9,7 @@ var _pi;
 var _text, _font, _font_w,_font_h;
 
 
-_pi = PI_MENU;
+_pi = PI_MENU1;
 _yt1 = drawY+$20;
 
 for(_i=0; _i<InputConfigOption_COUNT; _i++)
@@ -20,7 +20,10 @@ for(_i=0; _i<InputConfigOption_COUNT; _i++)
     _font_h = sprite_get_height(_font);
     
     _xl = TextArea1_xl;
-    if (_i==InputConfigOption_DEFAULT) _yt1 += $8; // extra pad
+    switch(_i){
+    case InputConfigOption_DEFAULT: {_yt1+=$8; break;} // extra pad
+    //case InputConfigOption_BACK:    {_yt1+=$6; break;} // extra pad
+    }
     
     if (_yt1+_font_h >= MenuWindow_yb)
     {
@@ -32,8 +35,17 @@ for(_i=0; _i<InputConfigOption_COUNT; _i++)
     
     if (InputConfigState==InputConfigState_EDITING 
     &&  _i!=InputConfigOption )
-    {    _pi = global.PI_GUI2;  }
-    else _pi = PI_MENU;
+    {
+        _pi = PI_DARK2;
+    }
+    else if (_i==InputConfigOption)
+    {
+        _pi = PI_MENU1;
+    }
+    else
+    {
+        _pi = PI_MENU2;
+    }
     draw_text_(_xl,_yt1, _text, _font, _pi);
     
     
@@ -63,7 +75,7 @@ for(_i=0; _i<InputConfigOption_COUNT; _i++)
     {
         _x = Cursor_xl + (Cursor_W>>1);
         _y = _yt1 + (_font_h>>1); // text yc
-        draw_sprite_(Cursor_SPRITE,0, _x,_y, PI_MENU);
+        draw_sprite_(Cursor_SPRITE,0, _x,_y, PI_MENU1);
     }
     
     

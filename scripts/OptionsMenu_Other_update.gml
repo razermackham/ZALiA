@@ -166,6 +166,19 @@ switch(Other_cursor)
     break;}
     
     // -------------------------------------------------
+    case Other_BLACK_BGR:{
+    if (timer) break;
+    
+    if (_InputConfirm_pressed2)
+    {
+        g.all_bg_black_only = !g.all_bg_black_only;
+        save_game_pref();
+        aud_play_sound(_SOUND2);
+        timer = DURATION1;
+    }
+    break;}
+    
+    // -------------------------------------------------
     case Other_STAB_FRENZY:{
     if (timer) break;
     

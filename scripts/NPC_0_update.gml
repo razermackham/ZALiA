@@ -8,7 +8,11 @@
 
 
 // ------------------------------------------------------------------
-can_draw_self = is_ver(id,NPC_0,2); // Town sign
+can_draw_self = true;
+//can_draw_self = object_index==NPC_0 && ver==2; // Town sign
+
+
+NPC_udp_2(); // update `RandoHint_hint_num`
 
 
 
@@ -21,7 +25,11 @@ if (is_talking)
     is_talking = false;
     
     // Mirror under table
-    if (is_ver(id,NPC_0,3)) state = 0;
+    if (object_index==NPC_0 
+    &&  ver==3 )
+    {
+        state = 0;
+    }
 }
 
 

@@ -44,7 +44,7 @@ case  2:{dg_menu[#dg_menu_idx,$A]=string_format(dg_menu[#dg_menu_idx,$5], 1,4); 
 //case  3:{dg_menu[#dg_menu_idx,$A]=; break;}
 }
 
-dg_menu[#dg_menu_idx,$B] = PI_MENU;
+dg_menu[#dg_menu_idx,$B] = PI_MENU1;
 
 
 

@@ -99,6 +99,9 @@ else
     && !abs(bit_dir(gui_tmr_cursor_v())) )
     {
         if (Input.Jump_pressed 
+        ||  Input.Pause_pressed 
+        ||  keyboard_check_pressed(vk_enter) 
+        ||  keyboard_check_pressed(vk_space) 
         ||  abs(bit_dir(gui_tmr_cursor_h())) )
         {
             _WILL_TOGGLE_FULLSCREEN = true;

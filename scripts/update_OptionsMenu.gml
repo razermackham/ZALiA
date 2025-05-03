@@ -45,11 +45,10 @@ with(global.OPTIONS_MENU)
             {
                 OpenClose_Key_pressed = false;
                 
-                anim_frame      = 0;
-                MainOption      = 0;
-                //cursor_op       = 0;
-                draw_rows_count = 0;
-                
+                anim_frame       = 0;
+                MainOption       = 0;
+                draw_rows_count  = 0;
+                //GUI3_pal_backup  = get_pi_palette(global.PI_GUI3);
                 gui_state_backup = g.gui_state;
                 g.gui_state      = g.gui_state_OPTIONS;
                 
@@ -116,7 +115,7 @@ with(global.OPTIONS_MENU)
             case   menu_state_AUDIO_CUSTOM: {OptionsMenu_AudioCustom_update(); break;}
             case   menu_state_INPUT_CONFIG: {OptionsMenu_InputConfig_update(); break;}
             case   menu_state_DEV_TOOLS:    {OptionsMenu_DevTools_update();    break;}
-            case   menu_state_RANDO_OPTIONS:{OptionsMenu_RandoOptions_update();break;}
+            case   menu_state_RANDO:        {OptionsMenu_RandoOptions_update();break;}
             case   menu_state_OTHER:        {OptionsMenu_Other_update();       break;}
             }
         }

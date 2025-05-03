@@ -19,7 +19,7 @@ var _Y2     = viewYT() + Y_LINE2;
 
 
 
-pal_swap_set(p.palette_image, PI_MENU);
+pal_swap_set(p.palette_image, PI_MENU1);
 
 
 // ----------------------------------------------------------------------------------
@@ -138,7 +138,7 @@ if (global.HUD_state>=2
 {
     _x = _X_BASE + SpellQueued_ICON_X;
     _y = _Y1;
-    draw_spr_aligned(SpellQueued_ICON_SPR, _x,_y, -1,-1, PI_MENU);
+    draw_spr_aligned(SpellQueued_ICON_SPR, _x,_y, -1,-1, PI_MENU1);
     
     _x = _X_BASE + SpellQueued_TEXT_X;
     draw_text_(_x,_y, SpellQueued_text, -1, SpellQueued_palidx);

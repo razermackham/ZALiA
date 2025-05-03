@@ -342,7 +342,7 @@ if (_ROOM_A
 if (_ROOM_A 
 ||  _ROOM_B1 ) // Title-Screen
 {
-    var                      _DATA = rm_get_file_data(_SceneRando_scene, file_data_quest_num);
+    var                      _DATA = rm_get_file_data(_SceneRando_scene, file_data_quest_num); // _SceneRando_scene==rm_name here if this scene isn't rando'd
     if (is_undefined(_DATA)) _DATA = rm_get_file_data(_rm_name_PREV,     file_data_quest_num);
     if (is_undefined(_DATA)) _DATA = rm_get_file_data(RM_NAME_NPALACE,   file_data_quest_num);
     if(!is_undefined(_DATA))  dm_tile_file = json_decode(_DATA);
@@ -1426,42 +1426,6 @@ if (_ROOM_A)
 
 
 
-
-
-
-
-if (_ROOM_A 
-&&  pc.use_disguise )
-{
-    for(_i=ds_list_size(g.dl_TILE_DEPTH_NAMES)-1; _i>=0; _i--)
-    {
-        _val = g.dm_tile_file[?g.dl_TILE_DEPTH_NAMES[|_i]+STR_Depth+STR_Layer+STR_Name];
-        if(!is_undefined(_val) 
-        &&  is_string(_val) )
-        {
-            if (string_pos(STR_BREAK_,_val) 
-            ||  string_pos(STR_BURNABLE,_val) )
-            {   // So that pc can stab blocks, burn vines, etc...
-                pc.use_disguise = false;
-                break;//_i
-            }
-        }
-    }
-    
-    
-    // TODO: What if the scene will have enemies?
-    //dg_spawn_prxm
-}
-
-
-
-
-
-
-
-
-
-
 if (_ROOM_A 
 ||  _ROOM_B1 ) // w/out this here, view coords will be wrong when going from end credits to title screen.
 {
@@ -1519,6 +1483,36 @@ if (_ROOM_A
 if (_ROOM_A)
 {
     scene_enter_add_tiles();
+}
+
+
+
+
+
+
+
+
+if (_ROOM_A 
+&&  pc.use_disguise )
+{
+    for(_i=ds_list_size(g.dl_TILE_DEPTH_NAMES)-1; _i>=0; _i--)
+    {
+        _val = g.dm_tile_file[?g.dl_TILE_DEPTH_NAMES[|_i]+STR_Depth+STR_Layer+STR_Name];
+        if(!is_undefined(_val) 
+        &&  is_string(_val) )
+        {
+            if (string_pos(STR_BREAK_,_val) 
+            ||  string_pos(STR_BURNABLE,_val) )
+            {   // So that pc can stab blocks, burn vines, etc...
+                pc.use_disguise = false;
+                break;//_i
+            }
+        }
+    }
+    
+    
+    // TODO: What if the scene will have enemies?
+    //dg_spawn_prxm
 }
 
 
@@ -1893,8 +1887,8 @@ if (_ROOM_B1)
 // Rando item location hints
 if (_ROOM_A)
 {
-    if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-    &&  global.RandoHints_enabled )
+    if (global.RandoHints_enabled 
+    &&  val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) )
     {
         _count = val(f.dm_rando[?STR_Rando+STR_Hint+STR_Count]);
         for(_i=1; _i<=_count; _i++)

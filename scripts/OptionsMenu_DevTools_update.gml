@@ -170,7 +170,7 @@ switch(DevTools_cursor)
         timer = DURATION1;
     }
     break;}
-    
+    /*
     // -------------------------------------------------
     case DevTools_OCS:{
     if (timer) break;
@@ -182,7 +182,7 @@ switch(DevTools_cursor)
         timer = DURATION1;
     }
     break;}
-    
+    */
     // -------------------------------------------------
     case DevTools_OG_CAM:{
     if (timer) break;
@@ -238,7 +238,7 @@ switch(DevTools_cursor)
         timer = DURATION1;
     }
     break;}
-    
+    /*
     // -------------------------------------------------
     case DevTools_BGR_BLACK:{
     if (timer) break;
@@ -251,7 +251,7 @@ switch(DevTools_cursor)
         timer = DURATION1;
     }
     break;}
-    
+    */
     // -------------------------------------------------
     case DevTools_EXITS:{
     if (timer) break;
@@ -312,7 +312,7 @@ switch(DevTools_cursor)
         timer = DURATION1;
     }
     break;}
-    
+    /*
     // -------------------------------------------------
     case DevTools_DOUBLE_JUMP:{
     if (timer) break;
@@ -328,7 +328,7 @@ switch(DevTools_cursor)
         timer = DURATION1;
     }
     break;}
-    
+    */
     // -------------------------------------------------
     case DevTools_PC_DASH:{
     if (timer) break;
@@ -341,7 +341,7 @@ switch(DevTools_cursor)
         timer = DURATION1;
     }
     break;}
-    
+    /*
     // -------------------------------------------------
     case DevTools_INVULNERABILITY:{
     //if (timer) break;
@@ -361,7 +361,7 @@ switch(DevTools_cursor)
         timer = DURATION1;
     }
     break;}
-    
+    */
     
     
     // -------------------------------------------------

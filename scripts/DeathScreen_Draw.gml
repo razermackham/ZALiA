@@ -24,10 +24,8 @@ if (counter<DEATH_FLASH_START_CUE)
 // During Flashing ---------------------------------------------------
 if (deathFlashTimer>0)
 {
-    if(!p.BackgroundFlash_setting)
-    {    set_background_color(p.dg_color_seq[#0,g.counter1&$3]);  }
-    else set_background_color(p.C_RED3); // 11/07/23. I think this should only be red for death and matches the gameover bgr color
-    //else set_background_color(p.dl_BackgroundFlash_COLORS[|p.BackgroundFlash_setting]);
+    if (p.BackgroundFlash_setting==1) set_background_color(p.dg_color_seq[#0,g.counter1&$3]);
+    else                              set_background_color(p.C_RED3); // 20231107. I think this should only be red for death and matches the gameover bgr color
     
     
     with(g.pc)

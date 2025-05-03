@@ -61,20 +61,12 @@ SaveFlash_PAL = build_pal(p.C_RED2,p.C_RED3,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
 change_pal(strReplaceAt(p.pal_rm_curr, p.PAL_POS_BGR1, string_length(SaveFlash_PAL), SaveFlash_PAL));
 
 
-                  _a=0;
-ST_NUL          = _a++; // Only first couple frames draw solid black screen
-ST_FRE          = _a++; // Free to navigate options
-ST_SEL          = _a++; // An option has been selected
-state           = ST_NUL;
+         _a=0;
+ST_NUL = _a++; // Only first couple frames draw solid black screen
+ST_FRE = _a++; // Free to navigate options
+ST_SEL = _a++; // An option has been selected
+state  = ST_NUL;
 
-/*
-                  _a=0;
-OP_CONT         = _a++; // Continue session. New set of lives
-OP_SAVE         = _a++; // Go to TitleScreen AND     save
-OP_QUIT         = _a++; // Go to TitleScreen WITHOUT save
-Options_idx     = OP_CONT;
-Options_COUNT   = _a;
-*/
 
 
 
@@ -111,6 +103,7 @@ Caution_H  = Caution_H<<3;
 
 
 
+
 dg_Options = ds_grid_create(0,4);
 //                                              //
 //                                              //
@@ -140,6 +133,9 @@ Options_COUNT   = ds_grid_width(dg_Options);
 
 
 
+
+
+
 var _ROWS1 = $2;
 PAD1 = $02<<3;
 
@@ -149,29 +145,13 @@ ROWS  = Caution_H>>3;
 ROWS += Options_COUNT<<1;
 ROWS += _ROWS1; // pad between option text and warning
 
-Options_XL = viewXC() - ($05<<3);
-Options_YT = viewYC() - ((ROWS<<3)>>1);
+Options_XL  = viewXC() - ($05<<3);
+Options_YT  = viewYC() - ((ROWS<<3)>>1);
 
 Caution_XL  = viewXC() - (Caution_W>>1);
 Caution_YT  = Options_YT;
 Caution_YT +=(Options_COUNT<<1)<<3;
 Caution_YT += _ROWS1<<3; // pad between option text and warning
-/*
-PAD1 = $02<<3;
-
-CLMS  = sprite_get_width( Caution_SPR)>>3;
-
-ROWS  = sprite_get_height(Caution_SPR)>>3;
-ROWS += Options_COUNT<<1;
-ROWS += 2; // pad between option text and warning
-
-Options_XL = viewXC() - ($05<<3);
-Options_YT = viewYC() - ((ROWS<<3)>>1);
-
-Caution_XC = viewXC();
-Caution_XL =  Caution_XC -              (sprite_get_width( Caution_SPR)>>1);
-Caution_YC = (Options_YT + (ROWS<<3)) - (sprite_get_height(Caution_SPR)>>1);
-*/
 
 
 
@@ -180,13 +160,12 @@ Caution_YC = (Options_YT + (ROWS<<3)) - (sprite_get_height(Caution_SPR)>>1);
 
 
 
-Cursor_XC           = Options_XL - ($01<<3);
-Cursor_XC          += 4;
-Cursor_XC          -= 1; // Text padding
+Cursor_XC  = Options_XL - ($01<<3);
+Cursor_XC += 4;
+Cursor_XC -= 1; // Text padding
 
-Cursor_YC           = Options_YT + 4;
-Cursor_yc           = Cursor_YC + (Options_idx*PAD1);
-
+Cursor_YC  = Options_YT + 4;
+Cursor_yc  = Cursor_YC + (Options_idx*PAD1);
 
 
 

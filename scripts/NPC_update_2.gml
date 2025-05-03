@@ -27,9 +27,9 @@ if (g.gui_state
 }
 */
 
-if (g.pc.state != g.pc.state_NORMAL  // MOD
-||  g.pc.HoldItem_timer              // MOD
-||  g.EnterRoom_control_timer )      // MOD
+if (g.pc.state!=g.pc.state_NORMAL  // MOD
+||  g.pc.HoldItem_timer            // MOD
+||  g.EnterRoom_control_timer )    // MOD
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -54,7 +54,7 @@ if!(cs&CS_BD1)
 // --------------------------------------------------------------------------------------------
 // ----------------------------------------------------------
 // RESTORE HOUSE DIALOGUE -----------------------
-if (object_index==NPC_4  // Healer, Saver
+if (object_index==NPC_4  // 4: Healer, Saver
 &&  pc_can_enter )       // NPC waiting in house for UP held
 {
     if (Input.Up_held 
@@ -84,16 +84,17 @@ if (Input.Attack_pressed
 {
     var _qualifies = false;
     
-    if (isVal(object_index,NPC_4,NPC_5)) // if IS Healer, Saver, Quest
+    if (object_index==NPC_4   // 4: healer, saver
+    ||  object_index==NPC_5 ) // 5: quest
     {
-        if (abs(x-DOOR_XC) >= $14  // spr at least 4 away from door
-        && !g.pc.ogr )             // PC on ground
+        if(!g.pc.ogr              // PC on ground
+        &&  abs(x-DOOR_XC)>=$14 ) // spr at least 4 away from door
         {
             _qualifies = true;
         }
     }
-    else if (is_ver(id,NPC_9,4)   // Ache NPC
-         ||  is_ver(id,NPC_8,1)   // Fairy NPC
+    else if (is_ver(id,NPC_9,4) // Ache NPC
+         ||  is_ver(id,NPC_8,1) // Fairy NPC
          ||  sprite_datakey==STR_Ache )
     {
         _qualifies = true;
@@ -114,16 +115,24 @@ if (Input.Attack_pressed
         // interupt a dialogue that was started this frame.
         if (g.gui_state==g.gui_state_DIALOGUE1 
         &&  g.dialogue_started_this_frame 
-        &&  isVal(object_index,NPC_3,NPC_4,NPC_5)  // if IS Special Walker, Healer, Saver, Quest
-        &&  g.dialogue_source 
-        &&  isVal(g.dialogue_source.object_index,NPC_2,NPC_3) ) // if IS Traffic, Special Walker
+        &&  g.dialogue_source )
         {
-            if (g.dialogue_source.object_index==NPC_2  // if is Traffic
-            ||  isVal(object_index,NPC_4,NPC_5) )      // if IS Healer, Saver, Quest
+            if (object_index==NPC_3   // 3: special walker
+            ||  object_index==NPC_4   // 4: healer, saver
+            ||  object_index==NPC_5 ) // 5: quest
             {
-                g.dialogue_source.is_talking = false;
-                g.dialogue_source.talked_to_count--;
-                _qualifies = true;
+                if (g.dialogue_source.object_index==NPC_2   // 2: traffic
+                ||  g.dialogue_source.object_index==NPC_3 ) // 3: special walker
+                {
+                    if (g.dialogue_source.object_index==NPC_2  // 2: traffic
+                    ||  object_index==NPC_4   // 4: healer, saver
+                    ||  object_index==NPC_5 ) // 5: quest
+                    {
+                        g.dialogue_source.is_talking = false;
+                        g.dialogue_source.talked_to_count--;
+                        _qualifies = true;
+                    }
+                }
             }
         }
     }

@@ -11,13 +11,13 @@ switch(state)
     // -----------------------------------------------------
     // -----------------------------------------------
     case ST_NUL:{
-    if (timer) break;
+    if (timer) break;//case ST_NUL
     
     if (counter>=READY_CUE)
     {
         state = ST_FRE;
     }
-    break;}
+    break;}//case ST_NUL
     
     
     
@@ -26,27 +26,27 @@ switch(state)
     // -----------------------------------------------------
     // -----------------------------------------------
     case ST_FRE:{
-    if (timer) break;
+    if (timer) break;//case ST_FRE
     
     var _cursor_dir = 0;
     switch(global.GUI_NAV1_VER)
     {
         default:{
         _cursor_dir = Input.GP_Select_pressed || Input.Magic_pressed;
-        break;}
+        break;}//default
         
         case 2:{
             _cursor_dir = bit_dir(gui_tmr_cursor_v());
         if (_cursor_dir==0)
         {   _cursor_dir = Input.GP_Select_pressed || Input.Magic_pressed;  }
-        break;}
+        break;}//case 2
     }//switch(global.GUI_NAV1_VER)
     
     if (_cursor_dir!=0)
     {
         Options_idx = (Options_idx+_cursor_dir+Options_COUNT) mod Options_COUNT;
         aud_play_sound(get_audio_theme_track(dk_CursorSpellMenu));
-        break;
+        break;//case ST_FRE
     }
     
     if (Input.GP_Start_pressed 
@@ -64,11 +64,11 @@ switch(state)
         }
         
         
-        state = ST_SEL; // An option has been selected
         counter = Options_idx;
         aud_play_sound(get_audio_theme_track(dk_ItemDrop));
+        state = ST_SEL; // An option has been selected
     }
-    break;}
+    break;}//case ST_FRE
     
     
     

@@ -175,7 +175,6 @@ with(g.QUIT_APP_MENU)
         QuitAppMenu_udp();
         
         aud_play_sound(get_audio_theme_track(dk_OpenGUI));
-        
         timer = 0;
         sub_state = sub_state_CLOSING_ANIM;
         break;}//case sub_state_CLOSING1
@@ -212,7 +211,8 @@ with(g.QUIT_APP_MENU)
         anim_frame    = 0;
         cnt_draw_rows = 0;
         cursor_option = 0;
-        g.gui_state = gui_state_backup;
+        g.gui_state   = 0;
+        //g.gui_state   = gui_state_backup;
         
         if (will_go_to_continuesave) room_goto_(rmB_ContinueSave);
         will_go_to_continuesave = false;

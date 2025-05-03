@@ -4,6 +4,9 @@
 can_draw_self = true;
 
 
+NPC_udp_2(); // update `RandoHint_hint_num`
+
+
 switch(sub_state)
 {
     // --------------------------------------------------------------------

@@ -136,8 +136,8 @@ if (save_num_selected
     if(!val(f.dm_quests[?_datakey]))
     {   // Everytime a save file is loaded, this will be done 
         // until the user saves their progress.
-            f.dm_quests[?_datakey] = 1;
-        //
+        f.dm_quests[?_datakey] = 1;
+        
         var              _dl_order=ds_list_create();
         if (f.quest_num==1)
         {    ds_list_add(_dl_order, $2,$6,$9,$9,$A,$B,$B,  $4,$5,$8);  } // difficulty 1,2
@@ -153,7 +153,7 @@ if (save_num_selected
         }
         f.dm_quests[?_DATAKEY1+STR_Reset] = _order;
         f.dm_quests[?_DATAKEY1]           = _order;
-        ds_list_destroy(_dl_order);_dl_order=undefined;
+        ds_list_destroy(_dl_order); _dl_order=undefined;
     }
     
     
@@ -184,7 +184,7 @@ if (covered
 &&  g.counter1==cue_cover_stop )
 {
     covered = false;
-    cue_cover_stop  = -1;
+    cue_cover_stop = -1;
 }
 
 
@@ -207,7 +207,7 @@ if(!covered
         // ------------------------------------------------------------------------
         case State_MAIN:{  // FILE SELECT
         FileSelect_Main_update();
-        break;}
+        break;}//case State_MAIN
         
         
         
@@ -216,7 +216,7 @@ if(!covered
         // ------------------------------------------------------------------------
         case State_REGISTER:{  // REGISTER YOUR NAME
         FileSelect_Register_update();
-        break;}
+        break;}//case State_REGISTER
         
         
         
@@ -225,15 +225,15 @@ if(!covered
         // ------------------------------------------------------------------------
         case State_RANDO:{  // RANDO
         switch(RandoState){
-        case RandoState_MAIN:   {FileSelect_RandoStateMAIN_update();    break;}
-        case RandoState_ITEM:   {FileSelect_RandoStateITEM_update();    break;}
-        case RandoState_SPELL:  {FileSelect_RandoStateSPELL_update();   break;}
-        case RandoState_DUNGEON:{FileSelect_RandoStateDUNGEON_update(); break;}
-        case RandoState_ENEMY:  {FileSelect_RandoStateENEMY_update();   break;}
-        case RandoState_OTHER:  {FileSelect_RandoStateOTHER_update();   break;}
-        case RandoState_SEED:   {FileSelect_RandoStateSEED_update();    break;}
+        case   RandoState_MAIN:   {FileSelect_RandoStateMAIN_update();    break;}
+        case   RandoState_ITEM:   {FileSelect_RandoStateITEM_update();    break;}
+        case   RandoState_SPELL:  {FileSelect_RandoStateSPELL_update();   break;}
+        case   RandoState_DUNGEON:{FileSelect_RandoStateDUNGEON_update(); break;}
+        case   RandoState_ENEMY:  {FileSelect_RandoStateENEMY_update();   break;}
+        case   RandoState_OTHER:  {FileSelect_RandoStateOTHER_update();   break;}
+        case   RandoState_SEED:   {FileSelect_RandoStateSEED_update();    break;}
         }
-        break;}
+        break;}//case State_RANDO
         
         
         
@@ -242,8 +242,8 @@ if(!covered
         // ------------------------------------------------------------------------
         case State_ELIMINATE:{  // ELIMINATION MODE
         FileSelect_Eliminate_update();
-        break;}
-    }
+        break;}//case State_ELIMINATE
+    }//switch(state)
 }
 
 
@@ -270,8 +270,8 @@ if (state)
     
     var                   _CURSOR=0;
     switch(state){
-    case State_MAIN:{     _CURSOR=Main_cursor; break;}
-    case State_REGISTER:{ _CURSOR=Register_cursor; break;}
+    case State_MAIN:{     _CURSOR=Main_cursor;      break;}
+    case State_REGISTER:{ _CURSOR=Register_cursor;  break;}
     //case State_RANDO:{    _CURSOR=Rando_cursor; break;}
     case State_ELIMINATE:{_CURSOR=Eliminate_cursor; break;}
     }//switch(state)

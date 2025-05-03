@@ -14,7 +14,7 @@ if (g.mod_SHOW_MAGIC_REMAINING_NUM
     _x  = Window_spell_menu_window_xl;
     _y  = drawY;
     _y -= 1; // micro adj
-    PauseMenu_draw_spell(_spell_bit,_text,_amount, _x,_y, PI_MENU);
+    PauseMenu_draw_spell(_spell_bit,_text,_amount, _x,_y, PI_MENU1);
     
     if (Window_vertical_draw_section_count>1)
     {
@@ -22,7 +22,7 @@ if (g.mod_SHOW_MAGIC_REMAINING_NUM
         var _X1 = Window_spell_menu_window_xl;
         var _Y1 = drawY + ($02<<3);
         
-        pal_swap_set(p.palette_image, PI_MENU);
+        pal_swap_set(p.palette_image, PI_MENU1);
         for(_i=1; _i<CLMS_WIN_SPL-1; _i++) // 
         {
             _tsrc = TSRC_HORZ;
@@ -72,7 +72,7 @@ for(_i=0; _i<Window_vertical_draw_section_count-1; _i++) // Each section
     }
     else
     {
-        _pi = PI_MENU;
+        _pi = PI_MENU1;
     }
     
     _amount = _amount>>1;

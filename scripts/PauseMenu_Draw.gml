@@ -38,7 +38,7 @@ draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, Window_w,Window_h, global.Backgroun
 
 // ----------------------------------------------------------------------------------
 // Draw GUI Window Frame
-pal_swap_set(p.palette_image, PI_MENU);
+pal_swap_set(p.palette_image, PI_MENU1);
 _base_x = drawX;
 for(_i=0; _i<Window_vertical_draw_section_count; _i++) // Each vertical section
 {
@@ -206,7 +206,7 @@ if (Window_vertical_draw_section_count-1==ANIM_FRAMES_DEF-1)
     case ST_MAP:{_sprite1=SPR_ICON_ITM; _sprite2=SPR_ICON_SPL; break;}
     }
     
-    pal_swap_set(p.palette_image, PI_MENU);
+    pal_swap_set(p.palette_image, PI_MENU1);
     _dist_x = $5<<3; // dist from menu centerx to center of sprite
     draw_sprite_(_sprite1,0, _x-_dist_x, _y);
     draw_sprite_(_sprite2,0, _x+_dist_x, _y);

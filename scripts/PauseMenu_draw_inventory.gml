@@ -60,7 +60,7 @@ if (_base_y+8<Window_yb)
 {
     _base_x = _ITEMX + Crystals_PAD1;
     
-    pal_swap_set(p.palette_image, PI_MENU);
+    pal_swap_set(p.palette_image, PI_MENU1);
     for(_i=0; _i<f.CRYSTAL_MAX; _i++)
     {
         if (f.crystals&($1<<_i)) _spr = SPR_CRYSTAL2; // Crystal     placed

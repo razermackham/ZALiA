@@ -16,7 +16,7 @@ var _str;
 var _dk;
 
 
-PI_MENU = global.PI_GUI1;
+PI_MENU1 = global.PI_GUI1;
 
 
 timer = 0;
@@ -130,14 +130,14 @@ dg_icons1[#_i,0] = SPR_ICON_PC1;
 dg_icons1[#_i,1] = g.CHAR_TIMES + "X";
 dg_icons1[#_i,2] =  0; // xoff
 dg_icons1[#_i,3] =  0; // yoff
-dg_icons1[#_i,4] = PI_MENU; // 
+dg_icons1[#_i,4] = PI_MENU1; // 
 
 ds_grid_resize(dg_icons1, (++_i)+1, ds_grid_height(dg_icons1));
 dg_icons1[#_i,0] = SPR_ICON_KEY;
 dg_icons1[#_i,1] = g.CHAR_TIMES + "X";
 dg_icons1[#_i,2] =  0; // xoff
 dg_icons1[#_i,3] =  0; // yoff
-dg_icons1[#_i,4] = PI_MENU; // 
+dg_icons1[#_i,4] = PI_MENU1; // 
 
 ds_grid_resize(dg_icons1, (++_i)+1, ds_grid_height(dg_icons1));
 dg_icons1[#_i,0] = SPR_ICON_KSU;

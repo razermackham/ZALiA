@@ -54,9 +54,9 @@ else
     if (Flash_Bgr_timer 
     ||  Flash_Bgr_timer2 ) // for Ganon3 spell and boss explosion
     {
-             if (Flash_Bgr_timer2)        _color = C_RED3; // Ganon3_ProjRain_update() updates the bgr color
-        else if(!BackgroundFlash_setting) _color = dg_color_seq[#0,(Flash_Bgr_timer-1)&$3]; // Spell flash
-        else                              _color = dl_BackgroundFlash_COLORS[|BackgroundFlash_setting];
+             if (Flash_Bgr_timer2)           _color = C_RED3; // Ganon3_ProjRain_update() updates the bgr color
+        else if (BackgroundFlash_setting==1) _color = dg_color_seq[#0,(Flash_Bgr_timer-1)&$3]; // Spell flash
+        else if (BackgroundFlash_setting)    _color = dl_BackgroundFlash_COLORS[|BackgroundFlash_setting];
     }
 }
 

@@ -299,8 +299,8 @@ if (room!=rmB_Title
                 _pal = f.dm_rando[?STR_Palette+STR_Rando+g.rm_name];
                 if(!is_undefined(_pal))
                 {
-                    pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_BGR1), string_length(_pal),_pal);
-                    
+                    pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_BGR1), string_length(_pal), _pal);
+                    //sdm(g.rm_name+": "+_pal); sdm("");
                     if (g.dungeon_num)
                     {
                         var _solid_wall_pi_pos = get_pal_pos(global.PI_BGR1);
@@ -376,7 +376,7 @@ if (room!=rmB_Title
                                     }
                                     
                                     
-                                    pal_rm_def = strReplaceAt(pal_rm_def, _pos, string_length(_pal1),_pal1);
+                                    pal_rm_def = strReplaceAt(pal_rm_def, _pos, string_length(_pal1), _pal1);
                                     break;//_i
                                 }
                             }
@@ -391,21 +391,21 @@ if (room!=rmB_Title
         _pal = f.dm_rando[?STR_Palette+"_PC"+"01"];
         if(!is_undefined(_pal))
         {
-            pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_PC1), string_length(_pal),_pal);
+            pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_PC1), string_length(_pal), _pal);
         }
         
         // Cucco Palette ----------------------------------------------------------------------
         _pal = f.dm_rando[?STR_Palette+STR_Cucco+"01"];
         if(!is_undefined(_pal))
         {
-            pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_CUCCO1), string_length(_pal),_pal);
+            pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_CUCCO1), string_length(_pal), _pal);
         }
     }
     
     
     _idx = val(g.pc.dm_skins[?STR_Current+STR_Idx]);
     _pal = get_pc_skin_palette(_idx);
-    pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_PC1), string_length(_pal),_pal);
+    pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_PC1), string_length(_pal), _pal);
     //if (g.AltDungeonTiles_TEST1 && g.room_type=="A" && isVal(g.dungeon_num,1)) pal_rm_def = strReplaceAt(pal_rm_def,get_pal_pos(PI_BGR_1)+2, 6,CI_PUR2_+CI_PUR3_+CI_CYN4_); // Testing
 }
 

@@ -38,9 +38,11 @@ if (RandoDUNGEON_DIFF>=0)
     {   dg_RandoDUNGEON_Options[#RandoDUNGEON_DIFF,2] = 1;  }
 }
 //                                                          //
+/*
 if (dg_RandoDUNGEON_Options[#RandoDUNGEON_TILESET, 2]>-1)
 {   dg_RandoDUNGEON_Options[#RandoDUNGEON_TILESET, 2] = 0;  }
 //                                                          //
+*/
 if (RandoDUNGEON_ROOM>=0)
 {
     if (dg_RandoDUNGEON_Options[#RandoDUNGEON_ROOM,2]>-1)
@@ -72,7 +74,7 @@ dg_RandoENEMY_Options[#RandoENEMY_BACK,    2] = 0;
 //                                                          //
 dg_RandoOTHER_Options[#RandoOTHER_MAIN_WARP_PENALTY,  2] = 1;
 dg_RandoOTHER_Options[#RandoOTHER_MAIN_PALETTE,       2] = 0;
-//dg_RandoOTHER_Options[#RandoOTHER_MAIN_DUNGEON_TS,    2] = 0;
+dg_RandoOTHER_Options[#RandoOTHER_MAIN_DUNGEON_TS,    2] = 0;
 dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_QUEST,  2] = 1;
 dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_ATTACK, 2] = 1;
 dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_MAGIC,  2] = 1;

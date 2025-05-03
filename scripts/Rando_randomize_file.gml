@@ -54,9 +54,6 @@ var _dm_SETTINGS = json_decode(_RANDO_SETTINGS);
                                                         _datakey=dk_LimitObscure;
     ItemLocations_LIMIT_OBSCURE      =val(_dm_SETTINGS[?_datakey]);
 if (ItemLocations_LIMIT_OBSCURE)          dm_save_data[?_datakey] = ItemLocations_LIMIT_OBSCURE;
-//                                                        _datakey=STR_Randomize+STR_Item+STR_Method;
-//    ItemLocations_RANDO_METHOD       =val(_dm_SETTINGS[?_datakey]);
-//if (ItemLocations_RANDO_METHOD)           dm_save_data[?_datakey] = ItemLocations_RANDO_METHOD;
 
                                                         _datakey=STR_Dark_Room+STR_Difficulty;
     ItemLocations_DARKROOM_DIFFICULTY=val(_dm_SETTINGS[?_datakey]);
@@ -135,10 +132,6 @@ if (EnemyDamage_WILL_RANDOMIZE)           dm_save_data[?_datakey] = EnemyDamage_
     DungeonRooms_WILL_RANDOMIZE      =val(_dm_SETTINGS[?_datakey]);
 if (DungeonRooms_WILL_RANDOMIZE)          dm_save_data[?_datakey] = DungeonRooms_WILL_RANDOMIZE;
 
-                                                        _datakey=STR_Randomize+STR_Dungeon+STR_Tileset;
-    DungeonTileset_WILL_RANDOMIZE    =val(_dm_SETTINGS[?_datakey]);
-if (DungeonTileset_WILL_RANDOMIZE)        dm_save_data[?_datakey] = DungeonTileset_WILL_RANDOMIZE;
-
                                                         _datakey=STR_Randomize+STR_Dungeon+STR_Locations;
     DungeonLocations_WILL_RANDOMIZE  =val(_dm_SETTINGS[?_datakey]);
 if (DungeonLocations_WILL_RANDOMIZE)      dm_save_data[?_datakey] = DungeonLocations_WILL_RANDOMIZE;
@@ -170,6 +163,10 @@ if (XP_WILL_RANDOMIZE)                    dm_save_data[?_datakey] = XP_WILL_RAND
                                                         _datakey=STR_Randomize+STR_Palette;
     Palette_WILL_RANDOMIZE           =val(_dm_SETTINGS[?_datakey]);
 if (Palette_WILL_RANDOMIZE)               dm_save_data[?_datakey] = Palette_WILL_RANDOMIZE;
+
+                                                        _datakey=STR_Randomize+STR_Dungeon+STR_Tileset;
+    DungeonTileset_WILL_RANDOMIZE    =val(_dm_SETTINGS[?_datakey]);
+if (DungeonTileset_WILL_RANDOMIZE)        dm_save_data[?_datakey] = DungeonTileset_WILL_RANDOMIZE;
 
 
 

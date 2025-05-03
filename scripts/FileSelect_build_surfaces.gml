@@ -23,7 +23,7 @@ switch(state)
         var _text;
         var _tsrc, _ts_x,_ts_y;
         
-        pal_swap_set(p.palette_image, PI_MENU);
+        pal_swap_set(p.palette_image, PI_MENU1);
         
         // HEADER =======================
         _text = "S E L E C T";
@@ -126,15 +126,7 @@ switch(state)
     
     // ---------------------------------------------------
     case State_REGISTER:{
-    /*
-    else
-    {
-        pal_swap_set(p.palette_image, PI_GUI_1, false);
-        if (surface_exists(surf_REGISTER))
-        {   draw_surface(  surf_REGISTER, surf_MAIN_XL,surf_MAIN_YT);  }
-        pal_swap_reset();
-    }
-    */
+    
     break;}//case State_REGISTER
     
     
@@ -168,8 +160,6 @@ switch(state)
 
 
 
-//if ((state==State_REGISTER  && (!surface_exists(surf_REGISTER)  || surface_get_width(surf_REGISTER) ==1)) 
-//||  (state==State_ELIMINATE && (!surface_exists(surf_ELIMINATE) || surface_get_width(surf_ELIMINATE)==1)) )
 if (state==State_REGISTER 
 ||  state==State_ELIMINATE )
 {
@@ -225,7 +215,6 @@ if (state==State_REGISTER
         var _Y3  = _Y2;    // YT of "END"
             _Y3 += $02<<3; // YT of window border
         //
-        //var _surf_H  = viewH();
         _rows  = _Y3>>3;                           // YT of window border
         _rows += $02;                              // + top & bottom window borders
         _rows += ds_list_size(_dl_CHAR_TABLE);     // + rows of text
@@ -246,7 +235,7 @@ if (state==State_REGISTER
         }
         
         
-        pal_swap_set(p.palette_image, PI_MENU);
+        pal_swap_set(p.palette_image, PI_MENU1);
         
         
         
@@ -291,9 +280,12 @@ if (state==State_REGISTER
         // "RANDO" & "END" =======================
         _x  = SAVE_NAME_X2;
         _x -= viewXC() - (_DrawArea_W>>1); // Because we're drawing on a surface, adjust for possible offset
-        if (state==State_REGISTER) draw_text_(_x,_Y1, "RANDO");
-        draw_text_(_x,_Y2, "DONE");
-        //draw_text_(_x,_Y2, "END");
+        _y  = _Y1;
+        _y += RandoOptions_YOFF1;
+        if (state==State_REGISTER) draw_text_(_x,_y, "RANDO");
+        _y  = _Y2;
+        _y += RandoOptions_YOFF1;
+        draw_text_(_x,_y, "DONE");
         
         
         

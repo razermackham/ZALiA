@@ -77,7 +77,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         
         
         
-        pal_swap_set(p.palette_image, PI_MENU);
+        pal_swap_set(p.palette_image, PI_MENU1);
         
         for(_i=0; _i<2; _i++)
         {
@@ -294,8 +294,8 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         _y += _DIST3;
         
         
-        if (val(_dm_Rando[?STR_Randomize+STR_Dungeon+STR_Tileset]) 
-        ||  val(_dm_Rando[?STR_Randomize+STR_Dungeon+STR_Locations]) 
+        if (val(_dm_Rando[?STR_Randomize+STR_Dungeon+STR_Locations]) 
+        //||  val(_dm_Rando[?STR_Randomize+STR_Dungeon+STR_Tileset]) 
         ||  val(_dm_Rando[?STR_Randomize+STR_Dungeon+STR_Boss]) 
         ||  val(_dm_Rando[?STR_Randomize+STR_Dungeon+STR_Room]) 
         ||  val(_dm_Rando[?STR_Randomize+STR_Town+STR_Locations]) )
@@ -522,13 +522,13 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         draw_sprite_(spr_Crystal_1a,0, _x+4,_y+4, _pi);
         
         _x += $8;
-        draw_text_(_x,_y, "*", -1,PI_MENU);
-        //draw_sprite_(spr_Times_symbol,0, _x,_y, PI_MENU);
+        draw_text_(_x,_y, "*", -1,PI_MENU1);
+        //draw_sprite_(spr_Times_symbol,0, _x,_y, PI_MENU1);
         
         _x += $8;
         _val = val(_dm_FILE[?STR_Crystal+STR_Required+STR_Count], f.CRYSTAL_MAX);
         _text = string(_val);
-        draw_text_(_x,_y, _text, spr_Font1,PI_MENU);
+        draw_text_(_x,_y, _text, spr_Font1,PI_MENU1);
         
         
         
@@ -540,14 +540,14 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         draw_sprite_(spr_1x1_WHT,0, _x-1,_y+3+_yoff, -1, 2,1, get_pal_color(p.pal_rm_curr, _pi, "B"));
         
         _x += $9;
-        draw_text_(_x,_y, "*", -1,PI_MENU);
-        //draw_sprite_(spr_Times_symbol,0, _x,_y, PI_MENU);
+        draw_text_(_x,_y, "*", -1,PI_MENU1);
+        //draw_sprite_(spr_Times_symbol,0, _x,_y, PI_MENU1);
         
         _x += $8;
         _val = val(g.dm_spawn[?STR_Kakusu+STR_Count], 12);
         _val = val(_dm_FILE[?STR_Kakusu+STR_Required+STR_Count], _val);
         _text = string(_val);
-        draw_text_(_x,_y, _text, spr_Font1,PI_MENU);
+        draw_text_(_x,_y, _text, spr_Font1,PI_MENU1);
         
         
         
@@ -591,19 +591,19 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         // Attack level
         _x += (string_length(_text)*sprite_get_width(_font_sprite));
         _x += -2;
-        draw_spr_aligned(global.SPR_ICON_ATK, _x,_y,  -1,-1, PI_MENU);
+        draw_spr_aligned(global.SPR_ICON_ATK, _x,_y,  -1,-1, PI_MENU1);
         draw_text_(_x+8,_y, string(val(_dm_FILE[?_datakey1+STR_Attack])));
         
         // Magic level
         _x += $02<<3;
-        draw_spr_aligned(global.SPR_ICON_MAG, _x,_y,  -1,-1, PI_MENU);
+        draw_spr_aligned(global.SPR_ICON_MAG, _x,_y,  -1,-1, PI_MENU1);
         //_x += 1;
         draw_text_(_x+8,_y, string(val(_dm_FILE[?_datakey1+STR_Magic])));
         
         // Life level
         _x += $02<<3;
         _x += 1;
-        draw_spr_aligned(global.SPR_ICON_LIF, _x,_y,  -1,-1, PI_MENU);
+        draw_spr_aligned(global.SPR_ICON_LIF, _x,_y,  -1,-1, PI_MENU1);
         draw_text_(_x+8,_y, string(val(_dm_FILE[?_datakey1+STR_Life])));
         
         
@@ -679,12 +679,12 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         _x += _w;
         
         _x += 1;
-        draw_text_(_x,_y-2, "*", -1,PI_MENU);
-        //draw_sprite_(spr_Times_symbol,0, _x,_y-2, PI_MENU);
+        draw_text_(_x,_y-2, "*", -1,PI_MENU1);
+        //draw_sprite_(spr_Times_symbol,0, _x,_y-2, PI_MENU1);
         
         _x += 4;
         _text=string(_count);
-        draw_text_(_x+(_w>>1)-4, _y-2, _text, -1,PI_MENU);
+        draw_text_(_x+(_w>>1)-4, _y-2, _text, -1,PI_MENU1);
         _x += 8;
         
         
@@ -702,12 +702,12 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         _x += _w;
         
         _x += -1;
-        draw_text_(_x,_y-2, "*", -1,PI_MENU);
-        //draw_sprite_(spr_Times_symbol,0, _x,_y-2, PI_MENU);
+        draw_text_(_x,_y-2, "*", -1,PI_MENU1);
+        //draw_sprite_(spr_Times_symbol,0, _x,_y-2, PI_MENU1);
         
         _x += 4;
         _text=string(_count);
-        draw_text_(_x+(_w>>1)-4, _y-2, _text, -1,PI_MENU);
+        draw_text_(_x+(_w>>1)-4, _y-2, _text, -1,PI_MENU1);
         _x += 8;
         
         
@@ -725,12 +725,12 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         _x += _w;
         
         _x += 1;
-        draw_text_(_x,_y-2, "*", -1,PI_MENU);
-        //draw_sprite_(spr_Times_symbol,0, _x,_y-2, PI_MENU);
+        draw_text_(_x,_y-2, "*", -1,PI_MENU1);
+        //draw_sprite_(spr_Times_symbol,0, _x,_y-2, PI_MENU1);
         
         _x += 8;
         _text=string(_count);
-        draw_text_(_x+(_w>>1)-4, _y-2, _text, -1,PI_MENU);
+        draw_text_(_x+(_w>>1)-4, _y-2, _text, -1,PI_MENU1);
         _x += 8;
         
         

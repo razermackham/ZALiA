@@ -49,7 +49,7 @@ pal_swap_reset();
 // ---------------------------------------------------------------------------------------------
 for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
 {
-    if (_dl_CAN_COLOR_FILE[|_i]) _pi = PI_MENU;
+    if (_dl_CAN_COLOR_FILE[|_i]) _pi = PI_MENU1;
     else                         _pi = global.PI_GUI2;
     _text = f.dl_save_names[|_i];
     _x = saveNameX;
@@ -116,7 +116,7 @@ switch(state)
     if (_STATE) _text = Text_ON;
     else        _text = Text_OFF;
     var _len = string_length(_text);
-    draw_text_(_x,_y, _text, -1,PI_MENU);
+    draw_text_(_x,_y, _text, -1,PI_MENU1);
     
     // Rando seed
     if (_STATE)
@@ -178,8 +178,8 @@ if (state)
         _y = FAIRY_Y2;
         switch(Register_cursor){
         default:{                  _y+=Register_cursor*SAVE_FILE_PAD; break;}
-        case RegisterOption_RANDO:{_y+=(SAVE_FILE_MAX*SAVE_FILE_PAD)+8; break;}
-        case RegisterOption_END:  {_y+=(SAVE_FILE_MAX*SAVE_FILE_PAD)+8; _y+=$02<<3; break;}
+        case RegisterOption_RANDO:{_y+=(SAVE_FILE_MAX*SAVE_FILE_PAD)+8; _y+=RandoOptions_YOFF1; break;}
+        case RegisterOption_END:  {_y+=(SAVE_FILE_MAX*SAVE_FILE_PAD)+8; _y+=RandoOptions_YOFF1; _y+=$02<<3; break;}
         }//switch(Register_cursor)
         break;}//case State_REGISTER
         
@@ -225,6 +225,7 @@ if (state)
                 // ---------------------------------------------
                 case RandoOTHER_state_ITEMS:{
                 _x  = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_cursor_ITEM,0] - _val;
+                _x -= $3; // micro adj
                 _y  = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_cursor_ITEM,1] + 1;
                 switch(RandoOTHER_ITEMS_cursor){
                 case RandoOTHER_ITEMS_cursor_ITEM:{_x+=0; _y+=0; break;}
@@ -240,8 +241,9 @@ if (state)
                 
                 // ---------------------------------------------
                 case RandoOTHER_state_REQUIRE:{
-                _x = dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor,0] - _val;
-                _y = dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor,1] + 1;
+                _x  = dg_RandoOTHER_REQUIRE[#0,0] - _val;
+                _x -= $3; // micro adj
+                _y  = dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor,1] + 1;
                 break;}//case RandoOTHER_state_REQUIRE
             }//switch(RandoOTHER_state)
             break;}//case RandoState_OTHER
@@ -303,13 +305,11 @@ ds_list_destroy(_dl_CAN_COLOR_FILE); _dl_CAN_COLOR_FILE=undefined;
 
 
 /*
-if (0)
-{   // Debug stuff
-    _x = surf_MAIN_XL+(surf_MAIN_CLMS<<3);
-    draw_line_colour(surf_MAIN_XL,viewYT(), surf_MAIN_XL,viewYB(), c_fuchsia,c_fuchsia); // surf xl
-    draw_line_colour(          _x,viewYT(),           _x,viewYB(), c_fuchsia,c_fuchsia); // surf xr
-    draw_line_colour(    viewXC(),viewYT(),     viewXC(),viewYB(), c_orange, c_orange);
-}
+// Debug stuff
+_x = surf_MAIN_XL+(surf_MAIN_CLMS<<3);
+draw_line_colour(surf_MAIN_XL,viewYT(), surf_MAIN_XL,viewYB(), c_fuchsia,c_fuchsia); // surf xl
+draw_line_colour(          _x,viewYT(),           _x,viewYB(), c_fuchsia,c_fuchsia); // surf xr
+draw_line_colour(    viewXC(),viewYT(),     viewXC(),viewYB(), c_orange, c_orange);
 */
 
 

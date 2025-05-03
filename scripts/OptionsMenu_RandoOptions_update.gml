@@ -14,7 +14,7 @@ var _SOUND2 = CONFIRM_SOUND1;
 if(!timer)
 {
     if (Backout_requested 
-    ||  (RandoOptions_cursor==RandoOptions_BACK && _InputConfirm_pressed) )
+    ||  (Rando_cursor==Rando_BACK && _InputConfirm_pressed) )
     {
         aud_play_sound(BACK_SOUND1);
         timer = DURATION1;
@@ -32,13 +32,14 @@ if(!timer2)
     if (select_button_pressed 
     ||  Input.pressedV )
     {
+        var _COUNT0 = val(dm_options[?"Rando"+STR_Count]);
         var _DIR = sign_(select_button_pressed || Input.Down_pressed);
-        for(_i=0; _i<RandoOptions_COUNT; _i++)
+        for(_i=0; _i<_COUNT0; _i++)
         {
-            RandoOptions_cursor += _DIR;
-            RandoOptions_cursor += RandoOptions_COUNT;
-            RandoOptions_cursor  = RandoOptions_cursor mod RandoOptions_COUNT;
-            if (OptionsMenu_option_is_avail(menu_state_RANDO_OPTIONS,RandoOptions_cursor))
+            Rando_cursor += _DIR;
+            Rando_cursor += _COUNT0;
+            Rando_cursor  = Rando_cursor mod _COUNT0;
+            if (OptionsMenu_option_is_avail(menu_state_RANDO,Rando_cursor))
             {
                 aud_play_sound(_SOUND1);
                 break;//_i
@@ -58,10 +59,10 @@ if(!timer2)
 
 
 // -------------------------------------------------------------------------------
-switch(RandoOptions_cursor)
+switch(Rando_cursor)
 {
     // -------------------------------------------------
-    case RandoOptions_MARK_ACQUIRED:{
+    case Rando_MARK_ACQUIRED:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -74,7 +75,7 @@ switch(RandoOptions_cursor)
     break;}
     
     // -------------------------------------------------
-    case RandoOptions_HINTS:{
+    case Rando_HINTS:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -87,7 +88,7 @@ switch(RandoOptions_cursor)
     break;}
     
     // -------------------------------------------------
-    case RandoOptions_MAPS_SHOW_KEYS:{
+    case Rando_MAPS_SHOW_KEYS:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -100,7 +101,7 @@ switch(RandoOptions_cursor)
     break;}
     
     // -------------------------------------------------
-    case RandoOptions_RANDO_ENEMY:{
+    case Rando_ENEMY_RANDO:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -113,7 +114,7 @@ switch(RandoOptions_cursor)
     break;}
     
     // -------------------------------------------------
-    case RandoOptions_DUNGEON_TILESETS:{
+    case Rando_DUNGEON_TILESETS:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -126,7 +127,7 @@ switch(RandoOptions_cursor)
     break;}
     
     // -------------------------------------------------
-    case RandoOptions_RANDO_OW_TILES:{
+    case Rando_OW_BIOMES:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -139,7 +140,7 @@ switch(RandoOptions_cursor)
     break;}
     
     // -------------------------------------------------
-    case RandoOptions_SCENES:{
+    case Rando_SCENES:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -152,7 +153,7 @@ switch(RandoOptions_cursor)
     break;}
     
     // -------------------------------------------------
-    case RandoOptions_RANDO_PALETTE:{
+    case Rando_PALETTE:{
     //if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -181,7 +182,7 @@ switch(RandoOptions_cursor)
     */
     
     // -------------------------------------------------
-    case RandoOptions_BACK:{
+    case Rando_BACK:{
     if (timer) break;
     
     if (_InputConfirm_pressed)
@@ -191,7 +192,7 @@ switch(RandoOptions_cursor)
         menu_state = menu_state_MAIN;
     }
     break;}
-}//switch(RandoOptions_cursor)
+}//switch(Rando_cursor)
 
 
 

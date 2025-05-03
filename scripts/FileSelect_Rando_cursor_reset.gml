@@ -58,14 +58,8 @@ switch(argument[0])
 
 if (argument[0]==RandoState_ITEM)
 {
-    if(!dg_RandoITEM_Options[#RandoITEM_LOCS,2]) // Must be turned on to interact with the other options
-    {
-        RandoITEM_cursor = RandoITEM_LOCS;
-    }
-    else
-    {
-        RandoITEM_cursor = 0;
-    }
+    if(!dg_RandoITEM_Options[#RandoITEM_LOCS,2]) RandoITEM_cursor = RandoITEM_LOCS; // Must be turned on to interact with the other options
+    else                                         RandoITEM_cursor = 0;
 }
 else
 {

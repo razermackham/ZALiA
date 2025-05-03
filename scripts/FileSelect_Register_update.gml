@@ -57,6 +57,7 @@ else if (Register_cursor==SAVE_FILE_MAX) // RANDO
 {
     if (input_start_pressed)
     {
+        g.counter1 = 0;
         RandoMAIN_cursor = 0;
         
         cue_change_state = CUE_CHANGE_STATE_1B;
@@ -64,7 +65,6 @@ else if (Register_cursor==SAVE_FILE_MAX) // RANDO
         cue_cover_stop   = CUE_COVER_STOP_1B;
         
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
-        g.counter1 = 0;
         state_pending = State_RANDO;
         state         = State_NULL;
     }

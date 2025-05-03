@@ -3,10 +3,10 @@
 
 var _YT0 = argument[0];
 
-var _i,_j, _idx, _val;
+var _i,_j, _idx, _val, _count;
 var _x,_y, _xl,_yt, _xl1,_yt1;
 var _pi;
-var _text,_text2, _font, _font_w,_font_h;
+var _text,_text0,_text1,_text2, _font, _font_w,_font_h;
 var _len, _pos;
 var _lvl, _color;
 var _skin_sprite_yb = 0;
@@ -19,7 +19,7 @@ _yt1 = _YT0;
 
 
 
-pal_swap_set(p.palette_image, PI_MENU);
+pal_swap_set(p.palette_image, PI_MENU1);
 for(_i=0; _i<MainOption_COUNT; _i++)
 {
     if(!OptionsMenu_option_is_avail(menu_state_MAIN,_i))
@@ -39,7 +39,8 @@ for(_i=0; _i<MainOption_COUNT; _i++)
     switch(_i){
     default:                     {_yt1+=_DIST1; break;} // extra pad
     case MainOption_SND_VOL:     {_yt1+=$0;     break;} // extra pad
-    case MainOption_MUS_VOL:     {_yt1+=$0;     break;} // extra pad
+    case MainOption_MUS_VOL:     {_yt1+=$1;     break;} // extra pad
+    //case MainOption_MUS_VOL:     {_yt1+=$0;     break;} // extra pad
     case MainOption_MUSIC_SET:   {_yt1+=_DIST1; break;} // extra pad
     case MainOption_PC_SPRITES:  {_yt1+=_DIST2; break;} // extra pad
     case MainOption_INPUT_CONFIG:{_yt1+=$2;     break;} // extra pad
@@ -61,6 +62,9 @@ for(_i=0; _i<MainOption_COUNT; _i++)
     switch(_i)
     {   // --------------------------------------------------------------------
         default:{
+        if (_i==MainOption) _pi = PI_MENU1;
+        else                _pi = PI_MENU2;
+        
         if (_i==MainOption_SND_VOL 
         ||  _i==MainOption_MUS_VOL  )
         {
@@ -73,15 +77,16 @@ for(_i=0; _i<MainOption_COUNT; _i++)
             _text += string(_lvl);
             _xl = TextArea1_xl;
             _yt = _yt1;
-            draw_text_(_xl,_yt, _text, _font, PI_MENU);
+            draw_text_(_xl,_yt, _text, _font, _pi);
             
             if (_lvl)
             {
                 _xl += string_length(MainOptions_dg[#_i,0])*_font_w;
                 _yt = _yt1;
+                _color = get_pal_color(p.pal_rm_curr, _pi, "W");
                 repeat(_lvl)
                 {
-                    draw_sprite_(spr_1x1_WHT,0, _xl+1,_yt+1, -1, _font_w-2,_font_h-2);
+                    draw_sprite_(spr_1x1_WHT,0, _xl+1,_yt+1, -1, _font_w-2,_font_h-2, _color);
                     _xl += _font_w;
                 }
             }
@@ -90,7 +95,7 @@ for(_i=0; _i<MainOption_COUNT; _i++)
         {
             _xl = TextArea1_xl;
             _yt = _yt1;
-            draw_text_(_xl,_yt, _text, _font, PI_MENU);
+            draw_text_(_xl,_yt, _text, _font, _pi);
         }
         break;}//default
         
@@ -105,7 +110,9 @@ for(_i=0; _i<MainOption_COUNT; _i++)
         if (Audio.audio_set==dk_RandomCustom) _text += " (PRESS START)";
         _xl = TextArea1_xl;
         _yt = _yt1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
+        if (_i==MainOption) _pi = PI_MENU1;
+        else                _pi = PI_MENU2;
+        draw_text_(_xl,_yt, _text, _font, _pi);
         break;}//case MainOption_MUSIC_SET
         
         
@@ -117,18 +124,22 @@ for(_i=0; _i<MainOption_COUNT; _i++)
         var _PAD1 = 1; // player skin yt,yb pad
         var _DIST3 = (g.pc.Spritesheet_H>>1) - $8;
         
+        if (_i==MainOption) _pi = PI_MENU1;
+        else                _pi = PI_MENU2;
+        
         _idx = val(g.pc.dm_skins[?STR_Current+STR_Idx]);
-        _text += string(_idx+1)+"/"+string(val(g.pc.dm_skins[?STR_Set+STR_Count]));
+        _text += " "+string(_idx+1)+"/"+string(val(g.pc.dm_skins[?STR_Set+STR_Count]));
+        //_text += string(_idx+1)+"/"+string(val(g.pc.dm_skins[?STR_Set+STR_Count]));
         _text += ": " + val(g.pc.dm_skins[?hex_str(_idx)+STR_Name], STR_undefined);;
         _xl = TextArea1_xl;
         _yt = _yt1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
+        draw_text_(_xl,_yt, _text, _font, _pi);
         
         _text = "BY: ";
         _xl  = TextArea1_xl + (_DIST3<<1);
         _yt  = _yt1 + _font_h;
         _yt += _DIST1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
+        draw_text_(_xl,_yt, _text, _font, _pi);
         
         _xl += _font_w*string_length(_text);
         _text2 = val(g.pc.dm_skins[?hex_str(_idx)+STR_Creator], STR_undefined);
@@ -149,7 +160,7 @@ for(_i=0; _i<MainOption_COUNT; _i++)
                 _text  = _text2;
             }
             
-            draw_text_(_xl,_yt, _text, _font, PI_MENU);
+            draw_text_(_xl,_yt, _text, _font, _pi);
             _yt += _font_h+2;
             
             if(!_pos) break;//while (_j)
@@ -176,14 +187,16 @@ for(_i=0; _i<MainOption_COUNT; _i++)
         case MainOption_FULLSCREEN:{
         _xl = TextArea1_xl;
         _yt = _yt1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
+        if (_i==MainOption) _pi = PI_MENU1;
+        else                _pi = PI_MENU2;
+        draw_text_(_xl,_yt, _text, _font, _pi);
         
         if (window_get_fullscreen()) _text = "FULLSCREEN";
         else                         _text = "WINDOWED";
         _xl  = TextArea2_xr;
         _xl -= string_length(_text)*_font_w;
         _yt = _yt1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
+        draw_text_(_xl,_yt, _text, _font, _pi);
         break;}//case MainOption_FULLSCREEN
         
         
@@ -193,7 +206,9 @@ for(_i=0; _i<MainOption_COUNT; _i++)
         case MainOption_APP_SCALE:{
         _xl = TextArea1_xl;
         _yt = _yt1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
+        if (_i==MainOption) _pi = PI_MENU1;
+        else                _pi = PI_MENU2;
+        draw_text_(_xl,_yt, _text, _font, _pi);
         
         if(!window_get_fullscreen())
         {
@@ -201,73 +216,34 @@ for(_i=0; _i<MainOption_COUNT; _i++)
             _text += " ";
             _text += "("+string(window_get_width())+"x"+string(window_get_height())+")";
             _xl  = TextArea2_xr;
-            _xl -= string_length(_text)*_font_w;
+            _xl -= string_length(_text) * _font_w;
             _yt = _yt1;
-            draw_text_(_xl,_yt, _text, _font, PI_MENU);
+            draw_text_(_xl,_yt, _text, _font, _pi);
         }
         break;}//case MainOption_APP_SCALE
         
         
         
         
-        /*
         // --------------------------------------------------------------------
-        case MainOption_FLASHING:{
-        _xl  = drawX+MenuWindow_w; // window xr
-        _xl -= 8; // window border
-        _xl -= 4; // pad
-        _xl -= BackgroundFlash_W;
-        
-        _yt  = _yt1;       // text yt
-        _yt += _font_h>>1; // text yc
-        _yt -= BackgroundFlash_H>>1; // color box yt
-        
-        if(!p.BackgroundFlash_setting) _color = p.dg_color_seq[#0,g.counter0&$3];
-        else                           _color = p.dl_BackgroundFlash_COLORS[|p.BackgroundFlash_setting];
-        draw_sprite_(spr_1x1_WHT,0, _xl,_yt, -1, BackgroundFlash_W,BackgroundFlash_H, _color);
-        
+        case MainOption_RANDO:{
+        if (_i==MainOption) _pi = PI_MENU1;
+        else                _pi = PI_MENU2;
         _xl = TextArea1_xl;
         _yt = _yt1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
-        break;}//case MainOption_FLASHING
-        */
-        
-        
-        
-        
-        /*
-        // --------------------------------------------------------------------
-        case MainOption_DIALOGUE_SPEED:{
-        _xl = TextArea1_xl;
-        _yt = _yt1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
-        
-        _text = string(g.mod_DLG_SPEED+1);
-        _xl  = TextArea2_xr;
-        _xl -= string_length(_text)*_font_w;
-        _yt = _yt1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
-        break;}//case MainOption_DIALOGUE_SPEED
-        */
-        
-        
-        
-        
-        // --------------------------------------------------------------------
-        case MainOption_RANDO_OPTIONS:{
-        _xl = TextArea1_xl;
-        _yt = _yt1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
-        break;}//case MainOption_RANDO_OPTIONS
+        draw_text_(_xl,_yt, _text, _font, _pi);
+        break;}//case MainOption_RANDO
         
         
         
         
         // --------------------------------------------------------------------
         case MainOption_PAL_EDITOR:{
+        if (_i==MainOption) _pi = PI_MENU1;
+        else                _pi = PI_MENU2;
         _xl = TextArea1_xl;
         _yt = _yt1;
-        draw_text_(_xl,_yt, _text, _font, PI_MENU);
+        draw_text_(_xl,_yt, _text, _font, _pi);
         break;}//case MainOption_RANDO_OPTIONS
     }//switch(_i)
     
@@ -282,10 +258,63 @@ for(_i=0; _i<MainOption_COUNT; _i++)
     }
     
     
-    if (_i==MainOption_PC_SPRITES) _yt1 = _skin_sprite_yb;
+    if (_i==MainOption_PC_SPRITES) _yt1  = _skin_sprite_yb;
     else                           _yt1 += _font_h;
 }
 pal_swap_reset();
+
+
+
+
+
+
+
+
+// OPTION INFO -----------------------------------------------------------
+_yt1 = Info_yt;
+if (_yt1+Info_FONT_H < MenuWindow_yb)
+{
+    pal_swap_set(p.palette_image, PI_MENU1);
+    for(_i=2; _i<MainOptions_dg_H; _i++)
+    {
+        if (_yt1+Info_FONT_H >= MenuWindow_yb)
+        {
+            break;//_i
+        }
+        
+        _text = MainOptions_dg[#MainOption,_i];
+        if(!is_string(_text))
+        {
+            break;//_i
+        }
+        
+        _xl = TextArea1_xl;
+        _yt = _yt1;
+        if (_i==2)
+        {
+            if (MainOption==MainOption_MUSIC_SET 
+            ||  MainOption==MainOption_PC_SPRITES 
+            ||  MainOption==MainOption_APP_SCALE )
+            {
+                _x  = _xl;
+                _x += ARROW_SPRITE_W>>1; // arrow center
+                _y  = _yt;
+                _y += ARROW_SPRITE_H>>1; // arrow center
+                _y += -$1; // micro adjustment
+                draw_sprite_(ARROW_SPRITE,0, _x,_y, -1, -1); // left arrow
+                _x += ARROW_SPRITE_W;
+                _x += $6; // arrow spacing
+                draw_sprite_(ARROW_SPRITE,0, _x,_y);         // right arrow
+                _xl  = _x + (ARROW_SPRITE_W>>1); // arrow xr
+                _xl += $1; // text xl
+            }
+        }
+        
+        _yt1  = draw_text_plus(_xl,Info_xr, _yt, _text, Info_FONT);
+        _yt1 += Info_PAD1; // line spacing
+    }
+    pal_swap_reset();
+}
 
 
 

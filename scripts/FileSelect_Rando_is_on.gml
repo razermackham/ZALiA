@@ -117,8 +117,8 @@ if (argument[0]<0
 if (argument[0]<0 
 ||  argument[0]==RandoMAIN_OTHER )
 {
-    if (dg_RandoOTHER_Options[#RandoOTHER_MAIN_PALETTE,2])    return true;
-    //if (dg_RandoOTHER_Options[#RandoOTHER_MAIN_DUNGEON_TS,2]) return true;
+    if (dg_RandoOTHER_Options[#RandoOTHER_MAIN_PALETTE,2]) return true;
+    if (dg_RandoOTHER_Options[#RandoOTHER_MAIN_DUNGEON_TS,2]) return true;
     if (argument[0]==RandoMAIN_OTHER) return false;
 }
 

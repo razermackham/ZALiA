@@ -89,23 +89,24 @@ switch(MainOption)
     break;}//case MainOption_DEV_TOOLS
     
     // ---------------------------------------------------------
-    case MainOption_RANDO_OPTIONS:{
+    case MainOption_RANDO:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
     {
-        for(RandoOptions_cursor=0; RandoOptions_cursor<RandoOptions_COUNT; RandoOptions_cursor++)
+        var _COUNT0 = val(dm_options[?"Rando"+STR_Count]);
+        for(Rando_cursor=0; Rando_cursor<_COUNT0; Rando_cursor++)
         {
-            if (OptionsMenu_option_is_avail(menu_state_RANDO_OPTIONS,RandoOptions_cursor))
+            if (OptionsMenu_option_is_avail(menu_state_RANDO,Rando_cursor))
             {
                 break;//RandoOptions_cursor
             }
         }
-        RandoOptions_cursor = 0;
-        RandoOptions_state = RandoOptions_state_MAIN;
+        Rando_cursor = 0;
+        Rando_state = Rando_state_MAIN;
         aud_play_sound(CONFIRM_SOUND1);
         timer = DURATION1;
-        menu_state = menu_state_RANDO_OPTIONS;
+        menu_state = menu_state_RANDO;
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     break;}//case MainOption_RANDO_OPTIONS
@@ -135,12 +136,14 @@ switch(MainOption)
         draw_rows_count = 0;
         MainOption      = 0;
         g.gui_state     = 0;
-        
-        timer = 0;
-        sub_state = sub_state_IDLE_CLOSED;
+        //if(!is_undefined(GUI3_pal_backup)) change_pal(strReplaceAt(p.pal_rm_curr, get_pal_pos(global.PI_GUI3), string_length(GUI3_pal_backup), GUI3_pal_backup));
+        //GUI3_pal_backup = undefined;
         with(PaletteEditor) PaletteEditor_initiate_pal_edit_mode();
+        
         aud_play_sound(get_audio_theme_track(dk_OpenGUI));
         //aud_play_sound(CONFIRM_SOUND1);
+        timer = 0;
+        sub_state = sub_state_IDLE_CLOSED;
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     break;}//case MainOption_RANDO_OPTIONS
@@ -151,9 +154,14 @@ switch(MainOption)
     
     if (_InputConfirm_pressed2)
     {
+        //if(!is_undefined(GUI3_pal_backup)) change_pal(strReplaceAt(p.pal_rm_curr, get_pal_pos(global.PI_GUI3), string_length(GUI3_pal_backup), GUI3_pal_backup));
+        //GUI3_pal_backup = undefined;
         with(QuitAppMenu) QuitAppMenu_trigger_open();
+        
         aud_play_sound(get_audio_theme_track(dk_OpenGUI));
         //aud_play_sound(CONFIRM_SOUND1);
+        timer = 0;
+        sub_state = sub_state_IDLE_CLOSED;
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     break;}//case MainOption_RANDO_OPTIONS

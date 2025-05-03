@@ -70,7 +70,7 @@ for(_i=0; _i<_count; _i++)
     _item_id  = dm_save_data[?_dk_loc+STR_Item+STR_ID+STR_Randomized];
     _dk_spawn = dm_save_data[?_dk_loc+STR_Spawn+STR_Datakey];
     
-    if (ItemLocations_ZELDA_HINT==1 
+    if (ItemLocations_ZELDA_HINT==1  // 1: ALLKEY hint
     &&  _item_id==STR_ALLKEY )
     {
         continue;//_i
@@ -79,10 +79,9 @@ for(_i=0; _i<_count; _i++)
     ds_list_clear(_dl_choices);
     _j=1;
     while (true)
-    //for(_j=1; _j<=$20; _j++)
     {   // different kinds of hints for an item location
         _val = dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(_j++)];
-        if (is_undefined(_val)) break;//_j
+        if (is_undefined(_val)) break;//while (true)
         ds_list_add(_dl_choices,_val);
     }
     
@@ -226,8 +225,8 @@ _dialogue = undefined;
 
 
 switch(ItemLocations_ZELDA_HINT)
-{
-    default:{
+{   // ------------------------------------------------------------------------------
+    default:{ // 1: ALLKEY hint
     _item_id = STR_ALLKEY;
     
     if (ALLKEY_LOC_NUM)
@@ -255,8 +254,8 @@ switch(ItemLocations_ZELDA_HINT)
     }
     break;}//default
     
-    
-    case 2:{
+    // ------------------------------------------------------------------------------
+    case 2:{ // JUMP hint
     _item_id = STR_JUMP;
     //sdm("");sdm("STR_JUMP+STR_Location: "+string(val(dm_save_data[?STR_JUMP+STR_Location])));sdm("");
     switch(val(dm_save_data[?STR_JUMP+STR_Location]))

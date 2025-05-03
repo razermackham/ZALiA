@@ -80,8 +80,8 @@ global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
 global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
 global.PI_GUI3 = val(global.dm_pi[?_datakey+"3"+_datakey1], -1);
 
-//global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
-//global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
 global.PI_GUI4 = val(global.dm_pi[?_datakey+"4"+_datakey1], -1);
 
 
@@ -796,10 +796,11 @@ GameOverScreen_BGR_COLOR = C_RED3;
 
             dl_BackgroundFlash_COLORS=ds_list_create();
 ds_list_add(dl_BackgroundFlash_COLORS,C_BLK1);
+ds_list_add(dl_BackgroundFlash_COLORS,C_GRY4);
 ds_list_add(dl_BackgroundFlash_COLORS,C_RED3);
 ds_list_add(dl_BackgroundFlash_COLORS,C_VLT3);
 ds_list_add(dl_BackgroundFlash_COLORS,C_GRN2);
-BackgroundFlash_setting = $1;
+BackgroundFlash_setting = $2;
 
 
 
@@ -960,7 +961,7 @@ PAL_BASE = build_pal(C_WHT0,C_RED0,C_BLU0,C_GRN0,C_YLW0,C_MGN0,C_BLK0,C_CYN0);
 //                                                                          //
 PAL_GUI1 = build_pal(C_WHT1,C_RED3,C_VLT3); // standard
 PAL_GUI2 = build_pal(C_GRY1,C_GRY4,C_BLK1); // grey
-PAL_GUI3 = build_pal(C_ORG1,C_ORG3,C_BLK1); // ?
+PAL_GUI3 = build_pal(C_GRY1,C_RED4,C_VLT4); // darker version of PAL_GUI1
 PAL_GUI4 = build_pal(C_WHT1,C_RED3,C_VLT3); // ?
 //                                                                          //
 PAL_MENU_BLU1 = build_pal(C_WHT1,C_BLU2,C_VLT3); // blue    menu
@@ -1456,7 +1457,6 @@ for(_i=1; _i<=_COUNT0; _i++)
             
             _clm = _clm0+_k;
             for(_m=1; _m<4; _m++) // each color(_m) of the palette(_k). Note that the 1st color is skipped because Tile file is in old palette format.
-            //for(_m=0; _m<global.COLORS_PER_PALETTE; _m++) // each color(_m) of the palette(_k)
             {
                 _base_color_char = string_char_at(global.PAL_BASE_COLOR_ORDER,_m);
                 _row = _row0+_m;
@@ -1466,17 +1466,13 @@ for(_i=1; _i<=_COUNT0; _i++)
                 if (_tsrc!=0) // 0 means no tile here
                 {
                     _tile_was_found = true;
-                    _tsrc--; // Because Tiled adds 1
+                    _tsrc--; // because Tiled adds 1
                     _tsrc  = abs(_tsrc&$3FFFFFFF); // just incase x or y flipped
                     _tsrc &= $FF;
                     _color = color_str(dl_COLOR[|_tsrc]);
-                    //_palette += hex_str(_tsrc);
                 }
                 else
                 {
-                    //if (_base_color_char=="G") _color = p.C_BLK1;
-                    //else                       _color = get_pal_color(p.PAL_BASE,0,_base_color_char);
-                    //_palette  = "";
                     _k=_CLMS*_ROWS; // move on to next palette_group(_j)
                     break;//_m
                 }
@@ -1493,12 +1489,10 @@ for(_i=1; _i<=_COUNT0; _i++)
                 }
             }
             
-            //_palette = build_pal(_c_wht,_c_red,_c_blu,p.C_BLK1, _c_ylw,_c_mgn,_c_blk,_c_cyn);
-            
             if (_tile_was_found)
-            //if (string_length(_palette))
             {
-                _palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_ylw,_c_mgn,_c_blk,_c_cyn);
+                _palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_wht,_c_red,_c_blu,_c_cyn);
+                //_palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_ylw,_c_mgn,_c_blk,_c_cyn);
                 
                 switch(_i){
                 case 1:{ds_list_add(dl_various_pals1,_palette); break;}

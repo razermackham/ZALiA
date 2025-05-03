@@ -40,7 +40,7 @@ if (f.quest_num>=2)
     
     Boss_can_draw   = false;
     Boss_SPR        = 0;
-    Boss_PI         = global.PI_GUI3; // Greyscale, like PI_GUI2
+    Boss_PI         = global.PI_GUI4; // Greyscale, like PI_GUI2
     //Boss_PI         = global.PI_MOB_PUR;
     Boss_pi         = Boss_PI;
     Boss_x          = 0;

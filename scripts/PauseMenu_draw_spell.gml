@@ -15,7 +15,7 @@ if (g.spell_selected == argument0)
 {
     _x = argument3 + ($01<<3);
     _y = argument4 + ($01<<3);
-    draw_spr_aligned(SPR_ICON_SPL, _x,_y, -1,-1, PI_MENU);
+    draw_spr_aligned(SPR_ICON_SPL, _x,_y, -1,-1, PI_MENU1);
 }
 
 

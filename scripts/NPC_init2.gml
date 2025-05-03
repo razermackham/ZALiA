@@ -58,7 +58,6 @@ var _i, _a, _val;
 var _datakey;
 
 
-
 if (g.town_num 
 &&  g.town_name==STR_Bulblin 
 && !g.pc.use_disguise )
@@ -466,8 +465,9 @@ if(!is_undefined(                                dialogue_datakey)
 
 
 
-if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-&&  global.RandoHints_enabled )
+
+if (global.RandoHints_enabled 
+&&  val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) )
 {
     if (is_ancestor(object_index,Zelda))
     {
@@ -487,15 +487,6 @@ if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations])
         //if(!is_undefined(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey])) RandoHint_given = false;
     }
 }
-//val(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey+STR_Hint+STR_Num])
-//is_undefined(g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_NUM)+STR_Dialogue])
-//f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey]
-//_num = val(f.dm_rando[?STR_Rando+STR_Hint+_RANDO_HINT_DIALOGUE_DK+STR_Hint+STR_Num]);
-//var _dialogue = g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Dialogue];
-//dialogue = val(f.dm_rando[?STR_Zelda+STR_Hint+STR_Dialogue]);
-//has_rando_hint = true;
-
-
 
 
 
@@ -505,8 +496,12 @@ set_xlyt(id, _xl,_yt);
 
 
 
-// NPC_2: traffic
-if (object_index!=NPC_2) db_NPC_create_1a(id);
+
+if (DEV 
+&&  object_index!=NPC_2 ) // NPC_2: traffic
+{
+    db_NPC_create_1a(id);
+}
 
 
 

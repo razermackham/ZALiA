@@ -70,7 +70,7 @@ if (SpellQueued_text!=SpellQueued_NONE)
 }
 
 
-SpellQueued_palidx = PI_MENU;
+SpellQueued_palidx = PI_MENU1;
 if (SpellQueued_text!=SpellQueued_NONE)
 {
     if (p.SpellReady_flash_timer)

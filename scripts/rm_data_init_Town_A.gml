@@ -2305,6 +2305,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '13'+'00'); // LFT
 rm_num  = $5A;
 set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Tile+area_TA+'063', STR_ow_axis+hex_str(1), STR_Town+STR_Mido);
 g.dm_rm[?rm+STR_Town+STR_House] = true;
+//global.MIDO_CHURCH_UPPER_FLOOR_SCENE = rm;
 
 
 row3=row0+$17; y3=row3<<3;

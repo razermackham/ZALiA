@@ -2,7 +2,8 @@
 
 
 //g.RandoPalette_state = dg_RandoOTHER_Options[#RandoOTHER_MAIN_PALETTE,2];
-g.RandoPalette_state = Palette_WILL_RANDOMIZE;
+if (Palette_WILL_RANDOMIZE) g.RandoPalette_state = 2; // 2: Full palette rando
+else                        g.RandoPalette_state = 0; // 0: Palette rando off
 save_game_pref();
 
 
@@ -14,7 +15,7 @@ random_set_seed(Rando_SEED);
 var _i,_j,_k, _idx, _count;
 var _val,_val1,_val2;
 var _layer_count, _layer_name, _layer, _layer_data_num, _dl_layer_data, _dm_layer_data;
-var _file, _file_name,_file_name1, _file_data;
+var _file, _file_name,_file_name1,_file_name2, _file_data;
 var _scene_name;
 var _dk;
 var _palette;
@@ -162,7 +163,8 @@ for(_i=1; _i<=_dl_DUNGEON_AREAS_COUNT; _i++) // each dungeon
     
     
     // The main color scheme palette of the dungeon
-    _val2 = build_pal(_color1,_color2,_color3,_C_BLK1_, -2,-2,-2,-2);
+    _val2 = build_pal(_color1,_color2,_color3,_C_BLK1_, _color1,_color2,_color3,-2);
+    //_val2 = build_pal(_color1,_color2,_color3,_C_BLK1_, -2,-2,-2,-2);
     //_val2 = _color1 + _color2 + _color3 + _C_BLK1_;
     
     
@@ -184,25 +186,37 @@ for(_i=1; _i<=_dl_DUNGEON_AREAS_COUNT; _i++) // each dungeon
         }
         
         // file name data example: "PalcA_003"
-        _file_name1 = g.dm_rm[?_scene_name+STR_file_name+STR_Quest+hex_str(QUEST_NUM)];
+        _file_name1 = g.dm_rm[?_scene_name+STR_file_name+STR_Quest+"01"];
+        _file_name2 = g.dm_rm[?_scene_name+STR_file_name+STR_Quest+"02"];
         if (is_undefined(_file_name1))
         {
             continue;//_j
         }
         
-        _palette = p.dm_scene_palette[?_file_name1+dk_BGR];
+        if (QUEST_NUM==2 
+        && !is_undefined(_file_name2) )
+        {
+            _file_name = _file_name2;
+        }
+        else
+        {
+            _file_name = _file_name1;
+        }
+        
+        _palette = p.dm_scene_palette[?_file_name+dk_BGR];
         if (is_undefined(_palette))
         {
             continue;//_j
         }
         
         //if (_j<8) sdm("_scene_name "+_scene_name);
+        // BGR1
         _pos  = global.PI_BGR1;
         _pos -= global.PI_BGR1;
         _pos *= global.PAL_CHAR_PER_PAL;
         _pos++;
         _palette = strReplaceAt(_palette, _pos, string_length(_val2), _val2);
-        
+        // BGR2
         _pos  = global.PI_BGR2;
         _pos -= global.PI_BGR1;
         _pos *= global.PAL_CHAR_PER_PAL;
@@ -224,7 +238,7 @@ ds_list_destroy(_dl_pals2); _dl_pals2=undefined;
 
 
 
-
+//var _debug1=true;
 var          _AREA_COUNT = ds_list_size(g.dl_AREA_NAME);
 for(_i=0; _i<_AREA_COUNT; _i++) // Each area
 {
@@ -239,20 +253,32 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
         _scene_name = _area+hex_str(_j);
         
         // file name data example: "PalcA_003"
-        _file_name1 = g.dm_rm[?_scene_name+STR_file_name+STR_Quest+hex_str(QUEST_NUM)];
+        _file_name1 = g.dm_rm[?_scene_name+STR_file_name+STR_Quest+"01"];
+        _file_name2 = g.dm_rm[?_scene_name+STR_file_name+STR_Quest+"02"];
         if (is_undefined(_file_name1))
         {
             continue;//_j
         }
         
-        _palette = p.dm_scene_palette[?_file_name1+dk_BGR];
+        if (QUEST_NUM==2 
+        && !is_undefined(_file_name2) )
+        {
+            _file_name = _file_name2;
+        }
+        else
+        {
+            _file_name = _file_name1;
+        }
+        
+        
+        _palette = p.dm_scene_palette[?_file_name+dk_BGR];
         if (is_undefined(_palette))
         {
             continue;//_j
         }
         
         
-        _datakey1  = _file_name1;
+        _datakey1  = _file_name;
         _datakey1 += STR_Layer;
         _layer_data_num = $01;
         ds_list_clear(_dl_1);
@@ -280,7 +306,14 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
                 case $05:{_pi=global.PI_BGR5; break;}
                 }
                 
-                if (ds_list_find_index(_dl_1,_pi)==-1) ds_list_add(_dl_1,_pi);
+                if (ds_list_find_index(_dl_1,_pi)==-1)
+                {
+                    ds_list_add(_dl_1,_pi);
+                    if (ds_list_size(_dl_1)>=val(global.dm_pi[?"BGR"+STR_Count]))
+                    {
+                        break;//while (true)
+                    }
+                }
             }
         }
         /*
@@ -329,6 +362,7 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
                 _pos++;
                 _palette = strReplaceAt(_palette, _pos, string_length(_dl_2[|_k]), _dl_2[|_k]);
                 dm_save_data[?STR_Palette+STR_Rando+_scene_name] = _palette;
+                //if (_debug1){_debug1=false; sdm(_scene_name+": "+_palette);}
             }
         }
     }

@@ -156,6 +156,7 @@ set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+_COLOR1_, STR_Tile+area
 
                                 _a=0;
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 y5=((row0+$16)<<3)+4; _y     = hex_str((y5>>8)&$FF)+hex_str((y5>>0)&$FF);
 x5=($15<<3)+4;        _data  = hex_str((x5>>8)&$FF)+hex_str((x5>>0)&$FF) + _y;
 x5=($3F<<3)+4;        _data += hex_str((x5>>8)&$FF)+hex_str((x5>>0)&$FF) + _y;
@@ -209,6 +210,7 @@ set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+_COLOR1_, STR_Tile+area
 
                                 _a=0;
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 y5=((row0+$16)<<3)+4; _y     = hex_str((y5>>8)&$FF)+hex_str((y5>>0)&$FF);
 x5=($23<<3)+4;        _data  = hex_str((x5>>8)&$FF)+hex_str((x5>>0)&$FF) + _y;
 x5=($2B<<3)+4;        _data += hex_str((x5>>8)&$FF)+hex_str((x5>>0)&$FF) + _y;
@@ -259,6 +261,7 @@ set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+_COLOR1_, STR_Tile+area
 
                                 _a=0;
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 y5=((row0+$16)<<3)+4; _y     = hex_str((y5>>8)&$FF)+hex_str((y5>>0)&$FF);
 x5=($26<<3)+4;        _data  = hex_str((x5>>8)&$FF)+hex_str((x5>>0)&$FF) + _y;
 x5=($48<<3)+4;        _data += hex_str((x5>>8)&$FF)+hex_str((x5>>0)&$FF) + _y;

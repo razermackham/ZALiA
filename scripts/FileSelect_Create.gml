@@ -37,7 +37,13 @@ depth       = DEPTH_FILE_SELECT;
 DEPTH_PIECE = depth-1;
 
 
-PI_MENU = global.PI_GUI1;
+PI_MENU1 = global.PI_GUI1;
+PI_MENU2 = global.PI_GUI3; // darker version of global.PI_GUI1
+PI_DARK0 = global.PI_GUI2;
+PI_DARK1 = add_pi_permut(global.PI_GUI2, "WBRGYKMC", "OptionsMenu dark text 1");
+PI_DARK2 = add_pi_permut(global.PI_GUI2, "RWBGMKYC", "OptionsMenu dark text 2");
+PI_DARK3 = add_pi_permut(global.PI_GUI2, "RBWGMKYC", "OptionsMenu dark text 3");
+
 
 //FONT_SPRITE1=spr_Font3_1;
 FONT_SPRITE1 = spr_Font2;

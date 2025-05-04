@@ -12,16 +12,19 @@ var _spr;
 GO_depth_init(g.DEPTH_CLOUD);
 
 
-var                   _RM_BGR_COLOR_IDX = p.CI_BLK1;
-if (g.room_type=="A") _RM_BGR_COLOR_IDX = val(g.dm_rm[?g.rm_name+STR_Background_color], _RM_BGR_COLOR_IDX);
-
 GO_init_palidx(global.PI_CLOUD_1); // PI_CLOUD_1==PI_BGR_4(@040921).
 
-if (get_color_brightness(p.dl_COLOR[|_RM_BGR_COLOR_IDX])<$40)
-//if (isVal(_RM_BGR_COLOR_IDX, $01,$02,$03, $08, $09,$0B, $0C, $0D,$1D,$2D))
-{
-    palidx_permut = 5; // 5: SMH/BRW
-}
+
+var                      _SCENE_BGR_COLOR = p.C_BLK1;
+if (g.room_type=="A")    _SCENE_BGR_COLOR = global.BackgroundColor_scene;
+if (get_color_brightness(_SCENE_BGR_COLOR)<$40) palidx_permut = 5; // 5: SMH/BRW
+/*
+GO_init_palidx(global.PI_CLOUD_1); // PI_CLOUD_1==PI_BGR_4(@040921).
+var                   _RM_BGR_COLOR_IDX = p.CI_BLK1;
+if (g.room_type=="A") _RM_BGR_COLOR_IDX = val(g.dm_rm[?g.rm_name+STR_Background_color], _RM_BGR_COLOR_IDX);
+if (get_color_brightness(p.dl_COLOR[|_RM_BGR_COLOR_IDX])<$40) palidx_permut = 5; // 5: SMH/BRW
+//if (isVal(_RM_BGR_COLOR_IDX, $01,$02,$03, $08, $09,$0B, $0C, $0D,$1D,$2D)) palidx_permut = 5; // 5: SMH/BRW
+*/
 
 if(!is_undefined(dk_spawn))
 {

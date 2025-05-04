@@ -22,8 +22,8 @@ if (state==state_IDLE)
     if (PP && ALT && CTL)
     {
         change_pal(p.pal_rm_def);
-        var _IDX = val(g.dm_rm[?g.rm_name+STR_Background_color], p.CI_ERR0);
-        set_background_color(p.dl_COLOR[|_IDX]);
+        var _COLOR = val(g.dm_rm[?g.rm_name+STR_Background_color], p.C_ERR0);
+        set_background_color(_COLOR);
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     

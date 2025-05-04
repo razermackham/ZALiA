@@ -6,8 +6,8 @@ var _datakey,_datakey1,_datakey2, _spawn_datakey;
 
 var _area, _rm_name, _exit_num,_exit_name;
 
-var _music1, _color_idx1, _show_ow_pos1,_ow_axis1,_owrc1, _dark_idx1, _encounter1, _view_data1, _town_num1,_town_name1, _dungeon_num1;
-var _music2, _color_idx2, _show_ow_pos2,_ow_axis2,_owrc2, _dark_idx2, _encounter2, _view_data2, _town_num2,_town_name2, _dungeon_num2;
+var _music1, _color1, _show_ow_pos1,_ow_axis1,_owrc1, _dark_idx1, _encounter1, _view_data1, _town_num1,_town_name1, _dungeon_num1;
+var _music2, _color2, _show_ow_pos2,_ow_axis2,_owrc2, _dark_idx2, _encounter2, _view_data2, _town_num2,_town_name2, _dungeon_num2;
 
 var _obj_name1,_obj1, _ver1, _objver1, _xl1,_yt1, _pi1;
 var _obj_name2,_obj2, _ver2, _objver2, _xl2,_yt2, _pi2;
@@ -89,9 +89,9 @@ for(_i=0; _i<_AREA_COUNT; _i++) // each area
         _music2       = val(g.dm_rm[?     _rm_name+STR_Music]);
         if (_music1!=_music2) {_mismatch=true; sdm(_rm_name+": "+STR_Music+" Data Mismatch.  "+"_music1="+string(_music1)+", "+"_music2="+string(_music2));}
         //                                                  //
-        _color_idx1   = val( _dm_rm_data_COPY[?_rm_name+STR_Background_color], -1);
-        _color_idx2   = val(g.dm_rm[?     _rm_name+STR_Background_color], -1);
-        if (_color_idx1+1 && _color_idx1!=_color_idx2) {_mismatch=true; sdm(_rm_name+": "+STR_Background_color+" Data Mismatch.  "+"_color_idx1="+string(_color_idx1)+", "+"_color_idx2="+string(_color_idx2));}
+        _color1   = val( _dm_rm_data_COPY[?_rm_name+STR_Background_color], -1);
+        _color2   = val(g.dm_rm[?     _rm_name+STR_Background_color], -1);
+        if (_color1+1 && _color1!=_color2) {_mismatch=true; sdm(_rm_name+": "+STR_Background_color+" Data Mismatch.  "+"_color1="+color_str(_color1)+", "+"_color2="+color_str(_color2));}
         //                                                  //
         _dark_idx1    = val( _dm_rm_data_COPY[?_rm_name+STR_Dark_Room], -1);
         _dark_idx2    = val(g.dm_rm[?     _rm_name+STR_Dark_Room], -1);

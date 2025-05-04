@@ -32,7 +32,7 @@ SpellReady_flash_timer = 0;
 
 if (room!=rmB_Death) global.BackgroundColor_at_death = -1;
 
-     if (g.room_type=="A")   global.BackgroundColor_scene = dl_COLOR[|val(g.dm_rm[?g.rm_name+STR_Background_color], CI_BLK1)];
+     if (g.room_type=="A")   global.BackgroundColor_scene = val(g.dm_rm[?g.rm_name+STR_Background_color], C_BLK1);
 else if (room==rmB_GameOver) global.BackgroundColor_scene = GameOverScreen_BGR_COLOR;
 else                         global.BackgroundColor_scene = C_BLK1;
 
@@ -71,9 +71,8 @@ if (global.SceneRando_enabled)
     var _SceneRando_scene = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name);
     if (_SceneRando_scene!=g.rm_name)
     {
-        _idx = max(0,ds_list_find_index(dl_COLOR,global.BackgroundColor_scene));
-        _idx = val(g.dm_rm[?_SceneRando_scene+STR_Background_color], _idx);
-        if (_idx==CI_BLK1) global.BackgroundColor_scene = C_BLK1;
+        _color = val(g.dm_rm[?_SceneRando_scene+STR_Background_color], global.BackgroundColor_scene);
+        if (_color==C_BLK1) global.BackgroundColor_scene = C_BLK1;
     }
 }
 
@@ -262,17 +261,17 @@ if (g.room_type=="A"
                 
                 _dungeon_num = val(f.dm_rando[?g.rm_name+STR_Dungeon+STR_Num], g.dungeon_num);
                 switch(_dungeon_num){
-                default:{_ci=CI_GRY4; break;}
-                case  1:{_ci=CI_GRY4; break;}
-                case  2:{_ci=CI_CYN4; break;}
-                case  3:{_ci=CI_ORG4; break;}
-                case  4:{_ci=CI_PUR4; break;}
-                case  5:{_ci=CI_GRB4; break;}
-                case  6:{_ci=CI_ORG4; break;}
-                case  7:{_ci=CI_ORG4; break;}
+                default:{_color=C_GRY4; break;}
+                case  1:{_color=C_GRY4; break;}
+                case  2:{_color=C_CYN4; break;}
+                case  3:{_color=C_ORG4; break;}
+                case  4:{_color=C_PUR4; break;}
+                case  5:{_color=C_GRB4; break;}
+                case  6:{_color=C_ORG4; break;}
+                case  7:{_color=C_ORG4; break;}
                 }//switch(_dungeon_num)
                 
-                _color = color_str(dl_COLOR[|_ci]);
+                _color = color_str(_color);
                 pal_rm_def = strReplaceAt(pal_rm_def, get_pal_col_pos(_pi,"B"), string_length(_color), _color);
             }
         }
@@ -343,22 +342,52 @@ if (room!=rmB_Title
                                     
                                     var _COLOR_DATA1 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*1), global.PAL_CHAR_PER_COLOR); // 2nd to last color, mid-tone, base color
                                     var _COLOR_DATA2 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*2), global.PAL_CHAR_PER_COLOR); // last color, and last 2 str chars of a palette
-                                    var _color_data  = _COLOR_DATA1;
                                     
                                     // If the mid-tone (_ci_) IS black, make the bgr wall full black to contrast the fgr wall
                                     if (_COLOR_DATA1!=color_str(C_BLK1))
                                     {
-                                        if (_COLOR_DATA2==color_str(C_BLK1)) _color_data = _COLOR_DATA1;
-                                        else                                 _color_data = _COLOR_DATA2;
+                                        if (_COLOR_DATA2==color_str(C_BLK1)) _color = str_hex(_COLOR_DATA1);
+                                        else                                 _color = str_hex(_COLOR_DATA2);
                                         
-                                        if (ds_list_find_index(p.dl_COLOR,str_hex(_color_data))>=$40) _color_data = color_str(C_BLK1); // temp fix for new colors
+                                        if (_color==C_WHT0 
+                                        ||  _color==C_RED0 
+                                        ||  _color==C_BLU0 
+                                        ||  _color==C_GRN0 
+                                        ||  _color==C_YLW0 
+                                        ||  _color==C_MGN0 
+                                        ||  _color==C_BLK0 
+                                        ||  _color==C_CYN0 )
+                                        {
+                                            _color = C_BLK1;
+                                        }
+                                        //if (ds_list_find_index(dl_COLOR,str_hex(_color_data))>=$40) _color_data = color_str(C_BLK1); // temp fix for new colors
                                         
                                         _pos += global.PAL_CHAR_PER_COLOR*2;
-                                        _pal1 = _color_data;
                                         
-                                        if (_color_data!=color_str(C_BLK1))
+                                        if (_color!=C_BLK1)
                                         {
-                                            _color_data = ds_list_find_index(p.dl_COLOR,str_hex(_color_data));
+                                            // find the color with the closest hue out of `dl_colors_s`
+                                            _val1 = colour_get_hue(_color);
+                                            _val2 = $FF; // hue difference
+                                            for(_j=ds_list_size(dl_colors_s)-1; _j>=0; _j--)
+                                            {
+                                                _val3 = colour_get_hue(dl_colors_s[|_j]);
+                                                _val3 = abs(_val3-_val1);
+                                                if (_val3<_val2) // if hue diff _val3 < hue diff _val2
+                                                {
+                                                    _val2 = _val3;
+                                                    _color = dl_colors_s[|_j];
+                                                }
+                                            }
+                                        }
+                                        _pal1 = color_str(_color);
+                                        /*
+                                        _pos += global.PAL_CHAR_PER_COLOR*2;
+                                        _pal1 = color_str(_color);
+                                        
+                                        if (_color_data!=C_BLK1)
+                                        {
+                                            _color_data = ds_list_find_index(dl_COLOR,str_hex(_color_data));
                                             _color_data = hex_str(_color_data);
                                             _val1 = string_char_at(_color_data,2);
                                                  if (isVal(_val1,"0","D"))     _pal1 = CI_GRY4_; // CI_GRY4_: darkest grey. if white or grey
@@ -367,8 +396,8 @@ if (room!=rmB_Title
                                             else if (isVal(_val1,"1","2"))     _pal1 = CI_VLT4_; // CI_VLT4_: darkest blue/purple tone
                                             else                               _pal1 = "0"+_val1; // use darkest of this color
                                         }
-                                        
                                         _pal1 = color_str(dl_COLOR[|str_hex(_pal1)]);
+                                        */
                                     }
                                     else
                                     {

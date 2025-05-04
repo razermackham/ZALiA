@@ -12,8 +12,6 @@ var _theme;
 dm_options = ds_map_create();
 
 
-
-
 timer2 = 0;
 
 
@@ -32,8 +30,6 @@ FONT2 = spr_Font2_1;
 FONT3 = spr_Font2_1;
 
 
-
-
 Info_PAD1   = $4;
 
 Info_FONT   = spr_Font3;
@@ -49,8 +45,6 @@ Info_Divider_yt       = 0;
 Info_xl = 0;
 Info_xr = 0;
 Info_yt = 0;
-
-
 
 
 ARROW_SPRITE   = spr_arrow_1b;

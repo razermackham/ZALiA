@@ -9,8 +9,12 @@ if (argument0)
 }
 else
 {
+    var _IDX = (ColorGrid_Cursor_row*ColorGrid_CLMS) + ColorGrid_Cursor_clm;
+    return ColorGrid_dl_colors[|_IDX];
+    /*
     var _IDX = (ColorGrid_Cursor_row<<4) | ColorGrid_Cursor_clm;
     return p.dl_COLOR[|_IDX];
+    */
 }
 
 

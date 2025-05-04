@@ -6,7 +6,13 @@ if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 if (1)
 {
-    var _color = p.dl_COLOR[| $35 + ((stun_timer>>1)&3)];
+    var     _color=p.C_BLK1;
+    switch((stun_timer>>1)&$3){
+    case 0:{_color=p.C_PNK1; break;}
+    case 1:{_color=p.C_PNK2; break;}
+    case 2:{_color=p.C_PNK3; break;}
+    case 3:{_color=p.C_PNK4; break;}
+    }
     draw_sprite_(spr_1x1_WHT,0, drawX-ww_,drawY-hh_, -1, ww,hh-3, _color);
     
     var _x = drawX+((ww_-6)*xScale);

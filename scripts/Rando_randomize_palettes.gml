@@ -38,37 +38,37 @@ var _dl_2 = ds_list_create();
 var         _dl_colors1 = ds_list_create();
 ds_list_add(_dl_colors1,color_str(p.C_BLK1));
 ds_list_add(_dl_colors1,color_str(p.C_GRY4));
-ds_list_add(_dl_colors1,color_str(p.dl_COLOR[|$01])); // blue-violet
-ds_list_add(_dl_colors1,color_str(p.dl_COLOR[|$02])); // blue
-ds_list_add(_dl_colors1,color_str(p.dl_COLOR[|$08])); // yellow
-ds_list_add(_dl_colors1,color_str(p.dl_COLOR[|$09])); // yellow-green
-ds_list_add(_dl_colors1,color_str(p.dl_COLOR[|$0B])); // blue-green
-ds_list_add(_dl_colors1,color_str(p.dl_COLOR[|$0C])); // cyan/teal
+ds_list_add(_dl_colors1,color_str(p.C_VLT4)); // blue-violet
+ds_list_add(_dl_colors1,color_str(p.C_BLU4)); // blue
+ds_list_add(_dl_colors1,color_str(p.C_YLW4)); // yellow
+ds_list_add(_dl_colors1,color_str(p.C_YGR4)); // yellow-green
+ds_list_add(_dl_colors1,color_str(p.C_GRB4)); // blue-green
+ds_list_add(_dl_colors1,color_str(p.C_CYN4)); // cyan/teal
 //                                                      //
 var         _dl_colors2 = ds_list_create();
 ds_list_add(_dl_colors2,color_str(p.C_BLK1));
 ds_list_add(_dl_colors2,color_str(p.C_GRY4));
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$01])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$02])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$03])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$04])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$05])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$06])); // 
+ds_list_add(_dl_colors2,color_str(p.C_VLT4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_BLU4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_PUR4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_MGN4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_PNK4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_RED4)); // 
 //                                                      //
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$07])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$08])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$09])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$0A])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$0B])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$0C])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$12])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$13])); // 
+ds_list_add(_dl_colors2,color_str(p.C_ORG4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_YLW4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_YGR4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_GRN4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_GRB4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_CYN4)); // 
+ds_list_add(_dl_colors2,color_str(p.C_VLT3)); // 
+ds_list_add(_dl_colors2,color_str(p.C_PUR3)); // 
 //                                                      //
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$17])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$18])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$19])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$1B])); // 
-ds_list_add(_dl_colors2,color_str(p.dl_COLOR[|$1C])); // 
+ds_list_add(_dl_colors2,color_str(p.C_ORG3)); // 
+ds_list_add(_dl_colors2,color_str(p.C_YLW3)); // 
+ds_list_add(_dl_colors2,color_str(p.C_YGR3)); // 
+ds_list_add(_dl_colors2,color_str(p.C_GRB3)); // 
+ds_list_add(_dl_colors2,color_str(p.C_CYN3)); // 
 /*
 var _COLORS1  = p.CI_BLK1_+p.CI_GRY4_; // darkest colors
     _COLORS1 += "0C"+"0B"+"09"+"08"+"02"+"01"; // darkest colors

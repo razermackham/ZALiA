@@ -19,6 +19,7 @@ var _ci2="";
 var _ci3="";
 var _ci4="";
 
+var _dl = ds_list_create();
 dm = ds_map_create();
 dm_pal_data = ds_map_create();
 dl_PAL_POS = ds_list_create();
@@ -529,10 +530,175 @@ dl_COLOR[| $FF] = C_ERR0; // Error, Missing data, ..   full green
 
 
 
+
+// *** If the color grid changes, look for code near the bottom of `p_Draw_1()` to automate the following, but make sure `ts_SolidColor01` has been updated
+global.dl_COLOR01 = ds_list_create();
+// ROW $00                                                              //
+ds_list_add(global.dl_COLOR01,$2B2749); // Hue-$FA,  Sat-$77,  Bright-$2E
+ds_list_add(global.dl_COLOR01,$1000A8); // Hue-$FB,  Sat-$FF,  Bright-$24
+ds_list_add(global.dl_COLOR01,$5800E4); // Hue-$EF,  Sat-$FF,  Bright-$36
+ds_list_add(global.dl_COLOR01,$B474FC); // Hue-$EB,  Sat-$8A,  Bright-$95
+ds_list_add(global.dl_COLOR01,$DCB6F1); // Hue-$E4,  Sat-$3E,  Bright-$C5
+ds_list_add(global.dl_COLOR01,$5D1C83); // Hue-$E4,  Sat-$C8,  Bright-$36
+ds_list_add(global.dl_COLOR01,$5424C3); // Hue-$F2,  Sat-$D0,  Bright-$49
+ds_list_add(global.dl_COLOR01,$784FF0); // Hue-$F4,  Sat-$AB,  Bright-$74
+ds_list_add(global.dl_COLOR01,$8181F6); // Hue-$00,  Sat-$79,  Bright-$99
+ds_list_add(global.dl_COLOR01,$90A7FC); // Hue-$09,  Sat-$6D,  Bright-$B7
+// ROW $01                                                              //
+ds_list_add(global.dl_COLOR01,$41184B); // Hue-$DD,  Sat-$AD,  Bright-$25
+ds_list_add(global.dl_COLOR01,$74008C); // Hue-$DC,  Sat-$FF,  Bright-$26
+ds_list_add(global.dl_COLOR01,$AD15B8); // Hue-$D7,  Sat-$E2,  Bright-$42
+ds_list_add(global.dl_COLOR01,$FC78F4); // Hue-$D2,  Sat-$86,  Bright-$9B
+ds_list_add(global.dl_COLOR01,$FCC4FC); // Hue-$D5,  Sat-$39,  Bright-$D3
+ds_list_add(global.dl_COLOR01,$543C75); // Hue-$ED,  Sat-$7C,  Bright-$49
+ds_list_add(global.dl_COLOR01,$6F4BA2); // Hue-$ED,  Sat-$89,  Bright-$60
+ds_list_add(global.dl_COLOR01,$7F65CF); // Hue-$F5,  Sat-$83,  Bright-$7D
+ds_list_add(global.dl_COLOR01,$9980ED); // Hue-$F5,  Sat-$75,  Bright-$98
+ds_list_add(global.dl_COLOR01,$9DA5D6); // Hue-$06,  Sat-$44,  Bright-$AE
+// ROW $02                                                              //
+ds_list_add(global.dl_COLOR01,$501931); // Hue-$BD,  Sat-$AF,  Bright-$22
+ds_list_add(global.dl_COLOR01,$9C0044); // Hue-$BD,  Sat-$FF,  Bright-$19
+ds_list_add(global.dl_COLOR01,$F00080); // Hue-$C1,  Sat-$FF,  Bright-$2C
+ds_list_add(global.dl_COLOR01,$FC88CC); // Hue-$C3,  Sat-$75,  Bright-$9E
+ds_list_add(global.dl_COLOR01,$F1BADC); // Hue-$C4,  Sat-$3A,  Bright-$C5
+ds_list_add(global.dl_COLOR01,$3F2945); // Hue-$DE,  Sat-$67,  Bright-$30
+ds_list_add(global.dl_COLOR01,$753E6B); // Hue-$CD,  Sat-$78,  Bright-$4B
+ds_list_add(global.dl_COLOR01,$A95E90); // Hue-$C6,  Sat-$71,  Bright-$6E
+ds_list_add(global.dl_COLOR01,$F384A8); // Hue-$B8,  Sat-$74,  Bright-$93
+ds_list_add(global.dl_COLOR01,$EDADEA); // Hue-$D3,  Sat-$45,  Bright-$BE
+// ROW $03                                                              //
+ds_list_add(global.dl_COLOR01,$501919); // Hue-$AA,  Sat-$AF,  Bright-$1C
+ds_list_add(global.dl_COLOR01,$A80000); // Hue-$AA,  Sat-$FF,  Bright-$0C
+ds_list_add(global.dl_COLOR01,$EC3820); // Hue-$A5,  Sat-$DC,  Bright-$3F
+ds_list_add(global.dl_COLOR01,$FC945C); // Hue-$9B,  Sat-$A2,  Bright-$8F
+ds_list_add(global.dl_COLOR01,$FCD4C4); // Hue-$9E,  Sat-$39,  Bright-$D3
+ds_list_add(global.dl_COLOR01,$2F222E); // Hue-$D1,  Sat-$47,  Bright-$25
+ds_list_add(global.dl_COLOR01,$46353E); // Hue-$C1,  Sat-$3E,  Bright-$38
+ds_list_add(global.dl_COLOR01,$655562); // Hue-$CD,  Sat-$28,  Bright-$58
+ds_list_add(global.dl_COLOR01,$6C6C96); // Hue-$00,  Sat-$47,  Bright-$74
+ds_list_add(global.dl_COLOR01,$7A94AB); // Hue-$17,  Sat-$49,  Bright-$97
+// ROW $04                                                              //
+ds_list_add(global.dl_COLOR01,$4B2630); // Hue-$B5,  Sat-$7E,  Bright-$2A
+ds_list_add(global.dl_COLOR01,$8C1824); // Hue-$AE,  Sat-$D3,  Bright-$22
+ds_list_add(global.dl_COLOR01,$EC7000); // Hue-$96,  Sat-$FF,  Bright-$61
+ds_list_add(global.dl_COLOR01,$FCBC3C); // Hue-$8E,  Sat-$C2,  Bright-$A5
+ds_list_add(global.dl_COLOR01,$FCE4A8); // Hue-$8C,  Sat-$55,  Bright-$D8
+ds_list_add(global.dl_COLOR01,$624F69); // Hue-$E0,  Sat-$3F,  Bright-$55
+ds_list_add(global.dl_COLOR01,$8A707F); // Hue-$C3,  Sat-$30,  Bright-$75
+ds_list_add(global.dl_COLOR01,$B2AB9B); // Hue-$8C,  Sat-$21,  Bright-$A8
+ds_list_add(global.dl_COLOR01,$D0DCC7); // Hue-$67,  Sat-$18,  Bright-$D6
+ds_list_add(global.dl_COLOR01,$DDE8DB); // Hue-$5C,  Sat-$0E,  Bright-$E4
+// ROW $05                                                              //
+ds_list_add(global.dl_COLOR01,$382A1A); // Hue-$93,  Sat-$89,  Bright-$27
+ds_list_add(global.dl_COLOR01,$5C3C18); // Hue-$93,  Sat-$BC,  Bright-$36
+ds_list_add(global.dl_COLOR01,$888000); // Hue-$82,  Sat-$FF,  Bright-$65
+ds_list_add(global.dl_COLOR01,$D8E800); // Hue-$7D,  Sat-$FF,  Bright-$B5
+ds_list_add(global.dl_COLOR01,$F0FC9C); // Hue-$7A,  Sat-$61,  Bright-$E6
+ds_list_add(global.dl_COLOR01,$533332); // Hue-$A9,  Sat-$65,  Bright-$35
+ds_list_add(global.dl_COLOR01,$774A48); // Hue-$A8,  Sat-$65,  Bright-$4C
+ds_list_add(global.dl_COLOR01,$B4654D); // Hue-$A0,  Sat-$92,  Bright-$65
+ds_list_add(global.dl_COLOR01,$E69B4D); // Hue-$94,  Sat-$AA,  Bright-$8F
+ds_list_add(global.dl_COLOR01,$FFD38F); // Hue-$90,  Sat-$70,  Bright-$C7
+// ROW $06                                                              //
+ds_list_add(global.dl_COLOR01,$2A331B); // Hue-$70,  Sat-$78,  Bright-$2D
+ds_list_add(global.dl_COLOR01,$003E00); // Hue-$55,  Sat-$FF,  Bright-$2C
+ds_list_add(global.dl_COLOR01,$2A7B00); // Hue-$64,  Sat-$FF,  Bright-$5B
+ds_list_add(global.dl_COLOR01,$70D43A); // Hue-$64,  Sat-$B9,  Bright-$AC
+ds_list_add(global.dl_COLOR01,$BCE89E); // Hue-$66,  Sat-$51,  Bright-$D5
+ds_list_add(global.dl_COLOR01,$655E0B); // Hue-$83,  Sat-$E3,  Bright-$4C
+ds_list_add(global.dl_COLOR01,$8F8A0B); // Hue-$81,  Sat-$EB,  Bright-$6F
+ds_list_add(global.dl_COLOR01,$9BAF0E); // Hue-$7A,  Sat-$EB,  Bright-$8B
+ds_list_add(global.dl_COLOR01,$B9E130); // Hue-$76,  Sat-$C9,  Bright-$B8
+ds_list_add(global.dl_COLOR01,$E2F88F); // Hue-$77,  Sat-$6C,  Bright-$E0
+// ROW $07                                                              //
+ds_list_add(global.dl_COLOR01,$133213); // Hue-$55,  Sat-$9E,  Bright-$29
+ds_list_add(global.dl_COLOR01,$005000); // Hue-$55,  Sat-$FF,  Bright-$39
+ds_list_add(global.dl_COLOR01,$00A800); // Hue-$55,  Sat-$FF,  Bright-$78
+ds_list_add(global.dl_COLOR01,$48DC4C); // Hue-$54,  Sat-$AC,  Bright-$B2
+ds_list_add(global.dl_COLOR01,$96E8AF); // Hue-$48,  Sat-$5A,  Bright-$D5
+ds_list_add(global.dl_COLOR01,$383631); // Hue-$8C,  Sat-$20,  Bright-$35
+ds_list_add(global.dl_COLOR01,$4A4E37); // Hue-$78,  Sat-$4B,  Bright-$48
+ds_list_add(global.dl_COLOR01,$647E54); // Hue-$65,  Sat-$55,  Bright-$73
+ds_list_add(global.dl_COLOR01,$84A992); // Hue-$45,  Sat-$38,  Bright-$A1
+ds_list_add(global.dl_COLOR01,$90BAB2); // Hue-$33,  Sat-$3A,  Bright-$B5
+// ROW $08                                                              //
+ds_list_add(global.dl_COLOR01,$1F281F); // Hue-$55,  Sat-$39,  Bright-$25
+ds_list_add(global.dl_COLOR01,$004400); // Hue-$55,  Sat-$FF,  Bright-$30
+ds_list_add(global.dl_COLOR01,$009400); // Hue-$55,  Sat-$FF,  Bright-$69
+ds_list_add(global.dl_COLOR01,$10D080); // Hue-$3C,  Sat-$EB,  Bright-$B1
+ds_list_add(global.dl_COLOR01,$A0FCE0); // Hue-$37,  Sat-$5D,  Bright-$EF
+ds_list_add(global.dl_COLOR01,$4C5A16); // Hue-$77,  Sat-$C1,  Bright-$4A
+ds_list_add(global.dl_COLOR01,$639023); // Hue-$6E,  Sat-$C1,  Bright-$75
+ds_list_add(global.dl_COLOR01,$73BC1E); // Hue-$6C,  Sat-$D6,  Bright-$95
+ds_list_add(global.dl_COLOR01,$69DB91); // Hue-$46,  Sat-$85,  Bright-$C3
+ds_list_add(global.dl_COLOR01,$6CDFCD); // Hue-$31,  Sat-$84,  Bright-$D2
+// ROW $09                                                              //
+ds_list_add(global.dl_COLOR01,$0F232C); // Hue-$1D,  Sat-$A8,  Bright-$23
+ds_list_add(global.dl_COLOR01,$002C40); // Hue-$1D,  Sat-$FF,  Bright-$2D
+ds_list_add(global.dl_COLOR01,$007088); // Hue-$23,  Sat-$FF,  Bright-$6D
+ds_list_add(global.dl_COLOR01,$3CBCF0); // Hue-$1E,  Sat-$BF,  Bright-$BD
+ds_list_add(global.dl_COLOR01,$7DDAD4); // Hue-$2D,  Sat-$6D,  Bright-$D2
+ds_list_add(global.dl_COLOR01,$243E4C); // Hue-$1C,  Sat-$86,  Bright-$3F
+ds_list_add(global.dl_COLOR01,$336667); // Hue-$2A,  Sat-$81,  Bright-$62
+ds_list_add(global.dl_COLOR01,$47A9A2); // Hue-$2E,  Sat-$94,  Bright-$A0
+ds_list_add(global.dl_COLOR01,$4BE0D5); // Hue-$2E,  Sat-$AA,  Bright-$D2
+ds_list_add(global.dl_COLOR01,$86FFFB); // Hue-$2C,  Sat-$79,  Bright-$F5
+// ROW $0A                                                              //
+ds_list_add(global.dl_COLOR01,$0F1E36); // Hue-$10,  Sat-$B8,  Bright-$22
+ds_list_add(global.dl_COLOR01,$1A375E); // Hue-$12,  Sat-$B8,  Bright-$3D
+ds_list_add(global.dl_COLOR01,$1B4461); // Hue-$19,  Sat-$B8,  Bright-$47
+ds_list_add(global.dl_COLOR01,$406485); // Hue-$16,  Sat-$84,  Bright-$68
+ds_list_add(global.dl_COLOR01,$5286B1); // Hue-$17,  Sat-$89,  Bright-$8B
+ds_list_add(global.dl_COLOR01,$45307A); // Hue-$F3,  Sat-$9B,  Bright-$41
+ds_list_add(global.dl_COLOR01,$39459E); // Hue-$05,  Sat-$A3,  Bright-$57
+ds_list_add(global.dl_COLOR01,$3D68CD); // Hue-$0D,  Sat-$B3,  Bright-$7A
+ds_list_add(global.dl_COLOR01,$4E90E6); // Hue-$12,  Sat-$A9,  Bright-$9D
+ds_list_add(global.dl_COLOR01,$54B9FB); // Hue-$1A,  Sat-$AA,  Bright-$BF
+// ROW $0B                                                              //
+ds_list_add(global.dl_COLOR01,$0F194D); // Hue-$07,  Sat-$CD,  Bright-$23
+ds_list_add(global.dl_COLOR01,$00087C); // Hue-$03,  Sat-$FF,  Bright-$20
+ds_list_add(global.dl_COLOR01,$0C4CC8); // Hue-$0E,  Sat-$F0,  Bright-$61
+ds_list_add(global.dl_COLOR01,$3898FC); // Hue-$15,  Sat-$C6,  Bright-$A6
+ds_list_add(global.dl_COLOR01,$A8D8FC); // Hue-$18,  Sat-$55,  Bright-$DC
+ds_list_add(global.dl_COLOR01,$3423AE); // Hue-$FA,  Sat-$CC,  Bright-$41
+ds_list_add(global.dl_COLOR01,$3B3BE8); // Hue-$00,  Sat-$BE,  Bright-$5F
+ds_list_add(global.dl_COLOR01,$1D6BFB); // Hue-$0F,  Sat-$E2,  Bright-$83
+ds_list_add(global.dl_COLOR01,$17A5F7); // Hue-$1B,  Sat-$E7,  Bright-$AC
+ds_list_add(global.dl_COLOR01,$2BC2F9); // Hue-$1F,  Sat-$D3,  Bright-$C2
+// ROW $0C                                                              //
+ds_list_add(global.dl_COLOR01,$0F135A); // Hue-$02,  Sat-$D5,  Bright-$21
+ds_list_add(global.dl_COLOR01,$0000A4); // Hue-$00,  Sat-$FF,  Bright-$22
+ds_list_add(global.dl_COLOR01,$0028D8); // Hue-$08,  Sat-$FF,  Bright-$4A
+ds_list_add(global.dl_COLOR01,$6074FC); // Hue-$05,  Sat-$9E,  Bright-$8F
+ds_list_add(global.dl_COLOR01,$B0BCFC); // Hue-$07,  Sat-$4D,  Bright-$C8
+ds_list_add(global.dl_COLOR01,$27276E); // Hue-$00,  Sat-$A5,  Bright-$36
+ds_list_add(global.dl_COLOR01,$3138B3); // Hue-$02,  Sat-$B9,  Bright-$51
+ds_list_add(global.dl_COLOR01,$364FEA); // Hue-$06,  Sat-$C4,  Bright-$6E
+ds_list_add(global.dl_COLOR01,$4A7DF5); // Hue-$0D,  Sat-$B2,  Bright-$92
+ds_list_add(global.dl_COLOR01,$B0CBFD); // Hue-$0F,  Sat-$4E,  Bright-$D3
+// ROW $0D                                                              //
+ds_list_add(global.dl_COLOR01,$080808); // Hue-$00,  Sat-$00,  Bright-$08
+ds_list_add(global.dl_COLOR01,$1A1A1A); // Hue-$00,  Sat-$00,  Bright-$19
+ds_list_add(global.dl_COLOR01,$2B2B2B); // Hue-$00,  Sat-$00,  Bright-$2A
+ds_list_add(global.dl_COLOR01,$3E3E3E); // Hue-$00,  Sat-$00,  Bright-$3E
+ds_list_add(global.dl_COLOR01,$585858); // Hue-$00,  Sat-$00,  Bright-$58
+ds_list_add(global.dl_COLOR01,$747474); // Hue-$00,  Sat-$00,  Bright-$74
+ds_list_add(global.dl_COLOR01,$A8A8A8); // Hue-$00,  Sat-$00,  Bright-$A8
+ds_list_add(global.dl_COLOR01,$D9D9D9); // Hue-$00,  Sat-$00,  Bright-$D9
+ds_list_add(global.dl_COLOR01,$EDEDED); // Hue-$00,  Sat-$00,  Bright-$ED
+ds_list_add(global.dl_COLOR01,$FCFCFC); // Hue-$00,  Sat-$00,  Bright-$FB
+//                                                                      //
+ColorGrid_CLMS = $0A;
+ColorGrid_ROWS = $0E;
+
+
+
+
+// ---------------------------------------------------------------------------------------------
 // CI: Color Index (of dl_COLOR)
 CI_ERR0  = $FF; // ERROR. full green
 CI_ERR0_ = hex_str(CI_ERR0);
-// CI_ERR0 = ds_list_find_index(dl_COLOR, C_ERR0); // ERROR. full green
+//CI_ERR0 = ds_list_find_index(dl_COLOR, C_ERR0); // ERROR. full green
 CI_BLK0  = ds_list_find_index(dl_COLOR, C_BLK0); // full black
 CI_BLK0_ = hex_str(CI_BLK0);
 CI_WHT0  = ds_list_find_index(dl_COLOR, C_WHT0); // full white
@@ -685,7 +851,7 @@ C_SWDM = C_ORG2;
 C_SWDS = C_ORG4;
 
 
-dl_COLORS_USED=ds_list_create();
+dl_COLORS_USED = ds_list_create();
              _count=ds_list_size(dl_COLOR);
 for(_i=0; _i<_count; _i++)
 {
@@ -713,9 +879,11 @@ CI_TONE_LOW = CI_BLU0; // Shadow
 dl_colors_h = ds_list_create(); // recommended colors for a highlight tone
 dl_colors_m = ds_list_create(); // recommended colors for a midtone
 dl_colors_s = ds_list_create(); // recommended colors for a shadow tone
-for(_i=ds_list_size(dl_COLOR)-1; _i>=0; _i--)
+ds_list_copy(_dl,global.dl_COLOR01);
+//ds_list_copy(_dl,dl_COLOR);
+for(_i=ds_list_size(_dl)-1; _i>=0; _i--)
 {
-    _color = dl_COLOR[|_i];
+    _color = _dl[|_i];
     if (_color!=C_WHT0 
     &&  _color!=C_RED0 
     &&  _color!=C_BLU0 
@@ -735,10 +903,9 @@ for(_i=ds_list_size(dl_COLOR)-1; _i>=0; _i--)
 
 
 
-
-//background_color_index = CI_BLK1; // The dl_COLOR index for this room's bg color
 global.BackgroundColor_scene    = C_BLK1;
 global.BackgroundColor_at_death = -1;
+
 
 
 
@@ -1515,7 +1682,7 @@ ds_map_destroy(_dm_data); _dm_data=undefined;
 // This adds a bunch of extra palettes with a black mid-tone.
 if (0) // *** Turning this off because rando seems to be picking them too often
 {
-    var _dl=ds_list_create();
+    ds_list_clear(_dl);
     
     var _dl_COLORS1=ds_list_create();
     ds_list_add(_dl_COLORS1, CI_BLK1_,CI_GRY4_,CI_CYN4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,CI_ORG4_,CI_BLU4_,CI_VLT4_);
@@ -1586,7 +1753,6 @@ if (0) // *** Turning this off because rando seems to be picking them too often
             }//switch(_i)
         }
     }
-    ds_list_destroy(_dl); _dl=undefined;
     ds_list_destroy(_dl_COLORS1); _dl_COLORS1=undefined;
     ds_list_destroy(_dl_COLORS2); _dl_COLORS2=undefined;
 }
@@ -1613,6 +1779,15 @@ p_init_palette_data();
 
 
 instance_create(0,0, PaletteEditor);
+
+
+
+
+
+
+
+
+ds_list_destroy(_dl); _dl=undefined;
 
 
 

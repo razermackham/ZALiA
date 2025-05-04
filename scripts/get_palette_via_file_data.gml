@@ -112,7 +112,17 @@ if(!is_undefined(_dl_layer))
                             _tsrc--;
                             _tsrc  = abs(_tsrc&$3FFFFFFF); // just incase x or y flipped
                             _tsrc &= $FF;
-                            _color = color_str(p.dl_COLOR[|_tsrc]);
+                            if (string_pos("palette v2",_layer_name))
+                            {
+                                _idx  = (_tsrc>>4)&$F;
+                                _idx *= p.ColorGrid_CLMS;
+                                _idx += _tsrc&$F;
+                                _color = color_str(global.dl_COLOR01[|_idx]);
+                            }
+                            else
+                            {
+                                _color = color_str(p.dl_COLOR[|_tsrc]);
+                            }
                         }
                         else
                         {

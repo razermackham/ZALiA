@@ -95,6 +95,11 @@ if (_exists) _exists =       ds_exists(      dl_COLORS_USED, ds_type_list);
 if (_exists)                 ds_list_destroy(dl_COLORS_USED);
 if (_exists)                                 dl_COLORS_USED = undefined;
 
+             _exists = !is_undefined(  global.dl_COLOR01);
+if (_exists) _exists = ds_exists(      global.dl_COLOR01,ds_type_list);
+if (_exists)           ds_list_destroy(global.dl_COLOR01);
+if (_exists)                           global.dl_COLOR01=undefined;
+
     _exists=variable_instance_exists(id,"dl_colors_h");
 if (_exists) _exists = !is_undefined(    dl_colors_h);
 if (_exists) _exists = ds_exists(        dl_colors_h,ds_type_list);
@@ -227,10 +232,10 @@ if (_exists) _exists =       ds_exists(      dg_depth_pi, ds_type_grid);
 if (_exists)                 ds_grid_destroy(dg_depth_pi);
 if (_exists)                                 dg_depth_pi = undefined;
 
-             _exists = !is_undefined(    global.dg_pi_permuts);
-if (_exists) _exists = ds_exists(        global.dg_pi_permuts,ds_type_grid);
-if (_exists)           ds_grid_destroy(  global.dg_pi_permuts);
-if (_exists)                             global.dg_pi_permuts=undefined;
+             _exists = !is_undefined(  global.dg_pi_permuts);
+if (_exists) _exists = ds_exists(      global.dg_pi_permuts,ds_type_grid);
+if (_exists)           ds_grid_destroy(global.dg_pi_permuts);
+if (_exists)                           global.dg_pi_permuts=undefined;
 
 
 

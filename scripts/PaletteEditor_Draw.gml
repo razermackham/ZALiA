@@ -132,8 +132,8 @@ if (state==state_EDIT1B
         ColorGrid_surf = surface_create(ColorGrid_W,ColorGrid_H);
         surface_set_target(ColorGrid_surf);
         draw_clear_alpha(c_black,0);
-        if (_w1>1) draw_sprite_(spr_1x1_WHT,0,        0,       0, -1, ColorGrid_W,    ColorGrid_H,     c_white);
-        if (_w1>0) draw_sprite_(spr_1x1_WHT,0, (_w1>>1),(_w1>>1), -1, ColorGrid_W-_w1,ColorGrid_H-_w1, c_black);
+        if (_w1>1) draw_sprite_(spr_1x1_WHT,0,        0,       0, -1, ColorGrid_W,    ColorGrid_H,     c_white); // outline
+        if (_w1>0) draw_sprite_(spr_1x1_WHT,0, (_w1>>1),(_w1>>1), -1, ColorGrid_W-_w1,ColorGrid_H-_w1, c_black); // outline
         _w = ColorGrid_SCALE;
         _h = _w;
         for(_i=0; _i<ColorGrid_ROWS; _i++)
@@ -142,8 +142,9 @@ if (state==state_EDIT1B
             {
                 _xl = (_w*_j) + _w1;
                 _yt = (_h*_i) + _w1;
-                _color = ColorGrid_dl_colors[|(ColorGrid_CLMS*_i)+_j];
-                draw_sprite_(spr_1x1_WHT,0, _xl,_yt, -1, _w,_h, _color);
+                _idx = (ColorGrid_CLMS*_i) + _j;
+                _color = ColorGrid_dl_colors[|_idx];
+                draw_sprite_(spr_1x1_WHT,0, _xl,_yt, -1, _w,_h, _color); // color square
             }
         }
         surface_reset_target();
@@ -151,7 +152,6 @@ if (state==state_EDIT1B
     
     draw_surface(ColorGrid_surf, ColorGrid_xl,ColorGrid_yt);
 }
-
 
 
 

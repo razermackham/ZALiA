@@ -260,6 +260,16 @@ mus1          = 0;
 
 
 
+COLOR0_ = color_str(p.C_GRY4);
+COLOR1_ = color_str(p.C_BLK1);
+COLOR2_ = color_str(p.C_VLT2); // Violet/Blue. Town sky
+COLOR3_ = color_str(p.C_BLU2); // Blue.      Field encounter sky
+COLOR4_ = color_str(p.C_PUR3); // Purple.    Cemetary sky
+COLOR5_ = color_str(p.C_BLU4); // Dark blue. Old Kasuto sky
+COLOR6_ = color_str(p.C_MGN3);
+COLOR7_ = color_str(p.C_BLU3);
+//                              //
+/*
 COLOR0  = $2D;       // '2D' Dark Grey
 COLOR0_ = hex_str(COLOR0);
 //                              //
@@ -286,6 +296,7 @@ COLOR7_ = hex_str(COLOR7);
 //                              //
 color0  = COLOR0;
 color1  = COLOR1;
+*/
 
 
 
@@ -1253,8 +1264,8 @@ RoomData_Create_2a();
 // --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
 // Give FileSelect & ContinueSave scenes a bg color
-g.dm_rm[?Area_FileS+"00"+STR_Background_color] = p.CI_BLK1;
-g.dm_rm[?Area_ContS+"00"+STR_Background_color] = p.CI_BLK1;
+g.dm_rm[?Area_FileS+"00"+STR_Background_color] = p.C_BLK1;
+g.dm_rm[?Area_ContS+"00"+STR_Background_color] = p.C_BLK1;
 
 // TITLE SCREEN
 rm_name = RM_NAME_TITLSCR;

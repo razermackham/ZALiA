@@ -1,9 +1,11 @@
 /// PaletteEditor_Create()
 
 
-var _i, _a, _count,_count1;
+var _i,_j, _a, _idx, _val1,_val2, _count,_count1;
 var _x,_y, _xl,_yt;
+var _color;
 var _dk,_dk1,_dk2;
+var _dl = ds_list_create();
 
 
 depth = DEPTH_HUD;
@@ -19,6 +21,7 @@ state           = state_IDLE;
 
 
 
+
 var _SCALE1 = 6;
 
 // -1 Upper left, 0 Center left, 1 Bottom left
@@ -31,12 +34,19 @@ gui_yt    = 0;
 
 
 // TODO: Need text says what input to confirm changes, and cancel
-Font1_sprite = spr_Font2_1;
+Font1_sprite = spr_Font3_1;
+//Font1_sprite = spr_Font2_1;
 //Font1_sprite = spr_Font1;
 Font1_W = sprite_get_width( Font1_sprite);
 Font1_H = sprite_get_height(Font1_sprite);
 color_old = 0;
 color_new = 0;
+
+
+
+
+
+
 
 
 ColorOutline1_surf   = 0;
@@ -47,7 +57,13 @@ ColorOutline1_W  = _SCALE1 + (ColorOutline1_Outline_W<<1);
 ColorOutline1_H  = ColorOutline1_W;
 
 
-// PalView: For viewing whole palette
+
+
+
+
+
+
+// PalView: For viewing whole palette ---------------------------------------
 PalView_enabled = false;
 PalView_SCALE1  = 2;
 PalView_SCALE2  = PalView_SCALE1<<1;
@@ -69,26 +85,73 @@ PalView_Outline_COLOR1   = c_black;
 PalView_Outline_COLOR2   = c_white;
 
 
-// Color Grid
+
+
+
+
+
+
+// Color Grid ----------------------------------------------------------
+ColorGrid_VER   = 2;
 ColorGrid_surf  = 0;
-//ColorGrid_SCALE = 4;
 ColorGrid_SCALE = _SCALE1;
-ColorGrid_CLMS  = $10;
-ColorGrid_ROWS  = $04;
 ColorGrid_Outline_W = 2;
-ColorGrid_W     = (ColorGrid_CLMS*ColorGrid_SCALE) + (ColorGrid_Outline_W<<1);
-ColorGrid_H     = (ColorGrid_ROWS*ColorGrid_SCALE) + (ColorGrid_Outline_W<<1);;
-ColorGrid_xl    = 0;
-ColorGrid_yt    = 0;
+ColorGrid_dl_colors = ds_list_create();
+switch(ColorGrid_VER)
+{
+    default:{
+    ColorGrid_CLMS = sprite_get_width( spr_color_grid_2c);
+    ColorGrid_ROWS = sprite_get_height(spr_color_grid_2c);
+    for(_i=0; _i<ColorGrid_ROWS; _i++)
+    {
+        for(_j=0; _j<ColorGrid_CLMS; _j++)
+        {
+            _idx = (_i<<4)|_j;
+            _color = p.dl_COLOR[|_idx];
+            ds_list_add(ColorGrid_dl_colors,_color);
+        }
+    }
+    break;}//default
+    
+    case 2:{
+    ColorGrid_CLMS = p.ColorGrid_CLMS;
+    ColorGrid_ROWS = p.ColorGrid_ROWS;
+    ds_list_copy(ColorGrid_dl_colors,global.dl_COLOR01);
+    if (ColorGrid_ROWS>ColorGrid_CLMS)
+    {   // grid is in portrait layout, change it to landscape so it isn't getting in the way of the background too much
+        ds_list_clear(_dl);
+        for(_j=0; _j<ColorGrid_CLMS; _j++)
+        {
+            for(_i=ColorGrid_ROWS-1; _i>=0; _i--)
+            {
+                _idx = (ColorGrid_CLMS*_i) + _j;
+                ds_list_add(_dl, ColorGrid_dl_colors[|_idx]);
+            }
+        }
+        ds_list_copy(ColorGrid_dl_colors, _dl);
+        _val1 = ColorGrid_CLMS;
+        _val2 = ColorGrid_ROWS;
+        ColorGrid_CLMS = _val2;
+        ColorGrid_ROWS = _val1;
+    }
+    break;}//case 2
+}//switch(ColorGrid_VER)
 ColorGrid_Cursor_clm = 0;
 ColorGrid_Cursor_row = 0;
-ColorGrid_dl_colors = ds_list_create();
-_count1 = ColorGrid_CLMS*ColorGrid_ROWS;
-for(_i=0; _i<_count1; _i++) ds_list_add(ColorGrid_dl_colors,p.dl_COLOR[|_i]);
+ColorGrid_W  = (ColorGrid_CLMS*ColorGrid_SCALE) + (ColorGrid_Outline_W<<1);
+ColorGrid_H  = (ColorGrid_ROWS*ColorGrid_SCALE) + (ColorGrid_Outline_W<<1);;
+ColorGrid_xl = 0;
+ColorGrid_yt = 0;
 //ColorGrid_Cursor_color = 0;
 
 
-// GameObject Palettes
+
+
+
+
+
+
+// GameObject Palettes ------------------------------------------
 ObjPal_COL_SIZE   = 4;
 ObjPalOutline_W   = 1;
 ObjPal_DIST1      = ObjPal_COL_SIZE +  ObjPalOutline_W;
@@ -107,7 +170,12 @@ ObjPal_FONT_W     = sprite_get_width( ObjPal_FONT);
 ObjPal_FONT_H     = sprite_get_height(ObjPal_FONT);
 
 
-// 
+
+
+
+
+
+
 Cursor_can_draw = false;
 Cursor_COLOR = c_orange;
 //Cursor_COLOR = $00A0FF;
@@ -334,6 +402,11 @@ pal_during_edit       = ""; // Current palette affecting screen while in edit mo
 
 BgrColor_before_edit = global.BackgroundColor_scene;
 BgrColor_during_edit = BgrColor_before_edit;
+
+
+
+
+ds_list_destroy(_dl); _dl=undefined;
 
 
 

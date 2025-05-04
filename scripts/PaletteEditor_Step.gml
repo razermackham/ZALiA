@@ -150,7 +150,7 @@ switch(state)
     
     // CLOSE PaletteEditor ----------------------------------------------------------
     if (_Input_CANCEL 
-    || _EDIT_REQUESTED_PAL )
+    ||  _EDIT_REQUESTED_PAL )
     {
         change_pal(pal_before_edit_sess);
         ds_list_clear(dl_hist_sess);

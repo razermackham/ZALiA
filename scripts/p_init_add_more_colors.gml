@@ -1,6 +1,7 @@
 /// p_init_add_more_colors()
 
 
+/*
 switch(5)
 {   // ----------------------------------------------------------
     case 1:{  _a=$40;
@@ -21,57 +22,6 @@ switch(5)
     dl_COLOR[|_a++] = $2B4D70; // 
     dl_COLOR[|_a++] = $1E2340; // 
     dl_COLOR[|_a++] = $151015; // 
-    //                              //
-    //                              //
-    //                              //
-    //                              //
-    /*
-              _a=$40;
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    //                              //
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    dl_COLOR[|_a++] = $; // 
-    //                              //
-    //                              //
-    //                              //
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    //                              //
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    dl_COLOR[|_a++] = $
-    //                              //
-    //                              //
-    //                              //
-    */
-    //                              //
-    //                              //
-    //                              //
-    //                              //
     break;}
     
     
@@ -98,7 +48,6 @@ switch(5)
     dl_COLOR[|_a++] = $4821C3; // Magenta, Mid
     //                              //
     //                              //
-    //                              //
     dl_COLOR[|_a++] = $3D4BE3; // Red-Orange, Mid
     dl_COLOR[|_a++] = $3470FF; // Orange-Red, Mid
     dl_COLOR[|_a++] = $70A1FF; // Orange, Mid-Light
@@ -118,7 +67,6 @@ switch(5)
     dl_COLOR[|_a++] = $507083; // 
     //                              //
     //                              //
-    //                              //
     dl_COLOR[|_a++] = $5B8F9D; // 
     dl_COLOR[|_a++] = $6EA8BA; // 
     dl_COLOR[|_a++] = $8CCDDA; // 
@@ -136,7 +84,6 @@ switch(5)
     dl_COLOR[|_a++] = $BDB700; // 
     dl_COLOR[|_a++] = $9E8B00; // 
     dl_COLOR[|_a++] = $816200; // 
-    //                              //
     //                              //
     //                              //
     dl_COLOR[|_a++] = $663300; // 
@@ -172,7 +119,6 @@ switch(5)
     dl_COLOR[|_a++] = $84A3BF; // 
     dl_COLOR[|_a++] = $6D8CA8; // 
     //                              //
-    //                              //
     // $50-5F                       //
     dl_COLOR[|_a++] = $556F91; // 
     dl_COLOR[|_a++] = $4C618A; // 
@@ -191,7 +137,6 @@ switch(5)
     dl_COLOR[|_a++] = $523C12; // 
     dl_COLOR[|_a++] = $D2E0BF; // 
     dl_COLOR[|_a++] = $ACB584; // 
-    //                              //
     //                              //
     // $60-6F                       //
     dl_COLOR[|_a++] = $ABA97D; // 
@@ -212,7 +157,6 @@ switch(5)
     dl_COLOR[|_a++] = $3B2C5C; // 
     dl_COLOR[|_a++] = $5E2E30; // 
     //                              //
-    //                              //
     // $70-7F                       //
     dl_COLOR[|_a++] = $AD9F69; // 
     dl_COLOR[|_a++] = $8E703A; // 
@@ -231,9 +175,6 @@ switch(5)
     dl_COLOR[|_a++] = $2B4D70; // 
     dl_COLOR[|_a++] = $1E2340; // 
     dl_COLOR[|_a++] = $151015; // 
-    //                              //
-    //                              //
-    //                              //
     break;}
     
     
@@ -262,7 +203,6 @@ switch(5)
     dl_COLOR[|_a++] = $5252B4; // 
     //                              //
     //                              //
-    //                              //
     dl_COLOR[|_a++] = $6E536A; // 
     dl_COLOR[|_a++] = $58414B; // 
     dl_COLOR[|_a++] = $3A4980; // 
@@ -280,9 +220,6 @@ switch(5)
     dl_COLOR[|_a++] = $6A555F; // 
     dl_COLOR[|_a++] = $1E2340; // 
     dl_COLOR[|_a++] = $151015; // 
-    //                              //
-    //                              //
-    //                              //
     break;}
     
     
@@ -319,7 +256,7 @@ switch(5)
     }
     break;}
 }
-
+*/
 
 
 

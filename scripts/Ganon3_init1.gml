@@ -205,30 +205,30 @@ vspd_grav = VSPD_GRAV;
 
 STUN_DURATION2  = STUN_DURATION1 - (STUN_DURATION1 div 3);
 
-StunMovement_DURATION1  = $100;
-StunMovement_timer      = 0;
+StunMovement_DURATION1 = $100;
+StunMovement_timer     = 0;
 
 
-DURATION1   = $28;
-DURATION2   = $28;
-DURATION3   = DURATION2+$40;
-DURATION4   = $40;
+DURATION1 = $28;
+DURATION2 = $28;
+DURATION3 = DURATION2+$40;
+DURATION4 = $40;
 
 
 
-//BackgroundColor_
-COLOR_IDX0 = val(g.dm_rm[?g.rm_name+STR_Background_color], p.CI_BLK1);
-COLOR_IDX1 = p.CI_RED4;
-COLOR_IDX2 = p.CI_ORG4;
+
+COLOR0 = val(g.dm_rm[?g.rm_name+STR_Background_color], p.C_BLK1);
+COLOR1 = p.C_RED4;
+COLOR2 = p.C_ORG4;
 
 
 Oil_HP = $08;
 Oil_hp = Oil_HP;
 
 
-Fire_DURATION1  = $40;
-Fire_DURATION2  = $0C;
-Fire_DURATION3  = $0C;
+Fire_DURATION1 = $40;
+Fire_DURATION2 = $0C;
+Fire_DURATION3 = $0C;
 
 dg_fire=ds_grid_create((ww>>3)*(hh>>3),6);
 for(_i=ds_grid_width(dg_fire)-1; _i>=0; _i--)

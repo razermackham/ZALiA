@@ -290,15 +290,11 @@ switch(sub_state)
     // ==================================================================
     // -----------------------------------------------------------
     case sub_state_SUMMON6:{ // change palette
-    global.BackgroundColor_scene = p.dl_COLOR[|Background_COLOR_IDX1];
-    //p.background_color_index = Background_COLOR_IDX1;
+    global.BackgroundColor_scene = Background_COLOR01;
     if (p.Flash_Bgr_timer==$2)
     {
-        var _PAL = build_pal(p.C_GRY4,p.C_ORG2,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
+        var _PAL = build_pal(p.C_GRY4,p.C_ORG2,p.C_BLK1,p.C_BLK1, p.C_GRY4,p.C_ORG2,p.C_BLK1,-2);
         change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(global.PI_BGR4), string_length(_PAL), _PAL));
-        //var _LEN = string_length(_PAL);
-        //var _POS = get_pal_pos(global.PI_BGR4+1)-_LEN;
-        //change_pal(strReplaceAt(p.pal_rm_new, _POS,_LEN,_PAL));
     }
     if (g.counter1&$2) palidx_def=PALIDX1;
     else               palidx_def=PALIDX2;

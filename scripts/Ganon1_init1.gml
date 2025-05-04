@@ -26,7 +26,7 @@ projectile     = projectile_OBJ;
 projectile_ver = projectile_VER;
 
 
-Background_COLOR_IDX1 = p.CI_BLK1;
+Background_COLOR01 = p.C_BLK1;
 //solid_type  = TID_SOLID1;
 
 pc_is_inside = false;

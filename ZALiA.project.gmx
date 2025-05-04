@@ -11621,6 +11621,7 @@
     </sprites>
     <sprites name="palettes">
       <sprite>sprites\spr_color_grid_2c</sprite>
+      <sprite>sprites\spr_ColorGrid01</sprite>
     </sprites>
     <sprites name="overworld">
       <sprite>sprites\spr_OW_enc_char_1_1a</sprite>
@@ -11667,6 +11668,7 @@
         <background>background\ts_tile_marker_1a_8x8</background>
         <background>background\ts_tile_marker_1a_16x16</background>
         <background>background\ts_solid_color_1a_8x8</background>
+        <background>background\ts_SolidColors01_8x8</background>
       </backgrounds>
       <backgrounds name="overworld">
         <background>background\ts_Overworld_1</background>
@@ -11689,6 +11691,7 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\script1823.gml</script>
     <script>scripts\d_l0__oo__0l_b.gml</script>
     <script>scripts\scr_temp1.gml</script>
     <script>scripts\scr_temp2.gml</script>

@@ -110,7 +110,7 @@ switch(DevTools_cursor)
         g.use_StabToCheat  = false;
         g.DoubleJump_state = false;
         //f.items           &= ~ITM_FTHR;
-        g.DevDash_state    = false;
+        g.DevDash_state    = 0; // 0: Off, 1: On, 2: On and dash input held
         g.dev_invState     = 0;
         
         save_game_pref();
@@ -335,7 +335,7 @@ switch(DevTools_cursor)
     
     if (_InputConfirm_pressed2)
     {
-        g.DevDash_state = !g.DevDash_state;
+        g.DevDash_state = !sign(g.DevDash_state); // 0: Off, 1: On, 2: On and dash input held
         save_game_pref();
         aud_play_sound(_SOUND2);
         timer = DURATION1;

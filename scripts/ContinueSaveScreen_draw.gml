@@ -2,7 +2,9 @@
 
 
 set_background_color(p.C_BLK1);
-if (state==ST_NUL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+if (state==state_DELAY1) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
@@ -67,20 +69,20 @@ if (surface_exists(Caution_srf))
 
 
 // -------------------------------------------------------------------------------
-if (state==ST_SEL 
+if (state==state_SELECTED 
 &&  Options_idx==Option_SAVE 
-&&  saveFlashCount<=SAVE_FLASH_LIMIT 
+&&  SaveFlash_count<=SaveFlash_LIMIT 
 &&  counter&$4 )
 {    _pi = global.PI_BGR1;  }
 else _pi = global.PI_GUI1;
-dg_Options[#Option_SAVE,3] = _pi;
+Options_dg[#Option_SAVE,3] = _pi;
 
 for(_i=0; _i<Options_COUNT; _i++)
 {
-    _text = dg_Options[#_i,0];
-    _xl   = dg_Options[#_i,1];
-    _yt   = dg_Options[#_i,2];
-    _pi   = dg_Options[#_i,3];
+    _text = Options_dg[#_i,0];
+    _xl   = Options_dg[#_i,1];
+    _yt   = Options_dg[#_i,2];
+    _pi   = Options_dg[#_i,3];
     draw_text_(_xl,_yt, _text,-1, _pi);
 }
 
@@ -88,7 +90,7 @@ for(_i=0; _i<Options_COUNT; _i++)
 
 
 // -------------------------------------------------------------------------------
-draw_sprite_(BOTTLE_SPR,0, Cursor_XC, Cursor_YC+(Options_idx*PAD1), global.PI_GUI1);
+draw_sprite_(Cursor_SPRITE,0, Cursor_XC, Cursor_YC+(Options_idx*PAD1), global.PI_GUI1);
 
 
 

@@ -163,6 +163,7 @@ if (ChangeRoom_timer<=0)
     else
     {   // --------------------------------------------------------------------------------------------------
         // --------------------  FINISHED CHANGING ROOMS  ------------------------------------------------------------------------------------
+        if (DEV) sdm("update_change_room(). FINISHED CHANGING ROOMS");
         FallScene_timer  = FallScene_INACTIVE;
         ChangeRoom_timer = 0;
         if (room_type=="A") counter1 = $26; // simulating OG

@@ -15,7 +15,7 @@ var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
 
 if(!file_exists(_FILE_NAME))
 {
-    sdm("CANNOT LOAD FILE "+string(_FILE_NUM)+"  '"+_FILE_NAME+"'.  FILE DOES NOT EXIST.");
+    show_debug_message("CANNOT LOAD FILE "+string(_FILE_NUM)+"  '"+_FILE_NAME+"'.  FILE DOES NOT EXIST.");
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
@@ -261,8 +261,7 @@ if (val(_dm_file_data[?STR_Rando+STR_Active]))
                     {
                         g.dm_spawn[?STR_Spell+STR_Bit+_spawn_datakey] = _val;
                         _str = string_repeat(" ", string_length(STR_Old_Kasuto)-string_length(_town_name));
-                        sdm(_town_name+_str+_spell_name+",      "+_spawn_datakey);
-                        //sdm(_town_name+_str+_spell_name);
+                        //sdm(_town_name+_str+_spell_name+",      "+_spawn_datakey);
                     }
                 }
             }
@@ -389,9 +388,9 @@ ds_map_destroy(_dm_file_data); _dm_file_data=undefined;
 
 
 
-sdm("");
-sdm("file num "+string(f.file_num)+"  LOADED!");
-sdm(""); 
+show_debug_message("");
+show_debug_message("file num "+string(f.file_num)+"  LOADED!");
+show_debug_message("");
 
 
 /*

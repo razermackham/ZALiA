@@ -1,76 +1,35 @@
 /// ContinueSaveScreen_init()
 
-
-var _i, _a, _x,_y;
-var _clm,_row, _clms,_rows;
-var _text;
+show_debug_message("ContinueSaveScreen_init(). start");
 
 
-timer = 0;
+var _i, _clms,_rows;
 
 
-/*
-MAIN_SPR    = spr_ContinueSave_Screen;
-BOTTLE_SPR  = spr_menu_bottle_icon;
-SAVE_SPR    = spr_SaveTextRed;
-
-x  = viewXC() - (sprite_get_width( MAIN_SPR)>>1);  // centered
-y  = viewYC() - (sprite_get_height(MAIN_SPR)>>1); // centered
+                 _i=0;
+state_DELAY1   = _i++; // Only first couple frames draw solid black screen
+state_IDLE     = _i++; // Waiting for user input
+state_SELECTED = _i++; // Action of selection made
+state          = state_DELAY1;
 
 
-BOTTLE_BASEX = x + ($0A<<3);
-BOTTLE_BASEY = y + ($05<<3);
-BOTTLE_SAVEY = BOTTLE_BASEY + ($02<<3);
-bottleX = BOTTLE_BASEX;
-bottleY = BOTTLE_BASEY;
+timer   = 0;
+counter = 0;
 
 
-SAVEX = viewXC() - (sprite_get_width(SAVE_SPR)>>1) - ($02<<3);
-// SAVEX = BOTTLE_BASEX + ($02<<3);
-SAVEY = BOTTLE_BASEY + ($02<<3);
-*/
+READY_CUE            = $02;
+TITLE_SCREEN_CUE1    = $48;
+TITLE_SCREEN_CUE2    = $20;
+NEXT_LIFE_SCREEN_CUE = $08;
 
 
-
-
-BOTTLE_SPR  = spr_menu_bottle_icon;
-
-//Caution_SPR = spr_ContinueScreen_Warning;
-
-counter   = 0;
-READY_CUE = 2;
-
-
-SAVE_FLASH_LIMIT = 8;
-saveFlashCount   = 0;
-
-TITLE_SCREEN_CUE1    = $48; // 72
-TITLE_SCREEN_CUE2    = $20; // 
-NEXT_LIFE_SCREEN_CUE = 8;
-
-
-
-
-if (g.mod_ContinueScreen_Music==1)
-{
-    //aud_play_sound(get_music_theme_track(dk_GameOver), Audio.PRIORITY_TOP, true);
-}
-
-
-SaveFlash_PAL = build_pal(p.C_RED2,p.C_RED3,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
-change_pal(strReplaceAt(p.pal_rm_curr, p.PAL_POS_BGR1, string_length(SaveFlash_PAL), SaveFlash_PAL));
-
-
-         _a=0;
-ST_NUL = _a++; // Only first couple frames draw solid black screen
-ST_FRE = _a++; // Free to navigate options
-ST_SEL = _a++; // An option has been selected
-state  = ST_NUL;
-
-
-
-
-
+SaveFlash_LIMIT = 8;
+SaveFlash_count = 0;
+if(global.DB0)show_debug_message("ContinueSaveScreen_init(). A");
+//SaveFlash_PAL   = build_pal(p.C_RED2,p.C_RED3,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
+if(global.DB0)show_debug_message("ContinueSaveScreen_init(). B");
+//change_pal(strReplaceAt(p.pal_rm_curr, p.PAL_POS_BGR1, string_length(SaveFlash_PAL), SaveFlash_PAL));
+if(global.DB0)show_debug_message("ContinueSaveScreen_init(). C");
 
 
 
@@ -96,43 +55,35 @@ Caution_W  = _clms<<3;
 Caution_H  = ds_list_size(Caution_dl_text) + (ds_list_size(Caution_dl_text)-1);
 Caution_H += $4;
 Caution_H  = Caution_H<<3;
+if(global.DB0)show_debug_message("ContinueSaveScreen_init(). D");
 
 
 
-
-
-
-
-
-dg_Options = ds_grid_create(0,4);
+Options_dg = ds_grid_create(0,4);
 //                                              //
 //                                              //
-   ds_grid_resize(dg_Options, ds_grid_width(dg_Options)+1, ds_grid_height(dg_Options));
-_i=ds_grid_width( dg_Options)-1;
-Option_CONT=_i;
-dg_Options[#_i,0] = "CONTINUE";
+     ds_grid_resize(Options_dg, ds_grid_width(Options_dg)+1, ds_grid_height(Options_dg));
+_i = ds_grid_width( Options_dg)-1;
+Option_CONT = _i;
+Options_dg[#_i,0] = "CONTINUE";
 //                                              //
 //                                              //
-   ds_grid_resize(dg_Options, ds_grid_width(dg_Options)+1, ds_grid_height(dg_Options));
-_i=ds_grid_width( dg_Options)-1;
-Option_SAVE=_i;
-dg_Options[#_i,0] = "SAVE & QUIT";
+     ds_grid_resize(Options_dg, ds_grid_width(Options_dg)+1, ds_grid_height(Options_dg));
+_i = ds_grid_width( Options_dg)-1;
+Option_SAVE = _i;
+Options_dg[#_i,0] = "SAVE & QUIT";
 //                                              //
 //                                              //
-   ds_grid_resize(dg_Options, ds_grid_width(dg_Options)+1, ds_grid_height(dg_Options));
-_i=ds_grid_width( dg_Options)-1;
-Option_QUIT=_i;
-dg_Options[#_i,0] = "QUIT ONLY";
+     ds_grid_resize(Options_dg, ds_grid_width(Options_dg)+1, ds_grid_height(Options_dg));
+_i = ds_grid_width( Options_dg)-1;
+Option_QUIT = _i;
+Options_dg[#_i,0] = "QUIT ONLY";
 //                                              //
 //                                              //
 
-Options_idx     = Option_CONT;
-Options_COUNT   = ds_grid_width(dg_Options);
-
-
-
-
-
+Options_idx   = Option_CONT;
+Options_COUNT = ds_grid_width(Options_dg);
+if(global.DB0)show_debug_message("ContinueSaveScreen_init(). E");
 
 
 
@@ -156,26 +107,28 @@ Caution_YT += _ROWS1<<3; // pad between option text and warning
 
 
 
-
-
-
+Cursor_SPRITE = spr_menu_bottle_icon;
 
 Cursor_XC  = Options_XL - ($01<<3);
 Cursor_XC += 4;
 Cursor_XC -= 1; // Text padding
 
 Cursor_YC  = Options_YT + 4;
-Cursor_yc  = Cursor_YC + (Options_idx*PAD1);
+Cursor_yc  = Cursor_YC;
+Cursor_yc += Options_idx * PAD1;
 
 
 
 
 for(_i=0; _i<Options_COUNT; _i++)
 {
-    dg_Options[#_i,1] = Options_XL;
-    dg_Options[#_i,2] = Options_YT + (PAD1*_i);
-    dg_Options[#_i,3] = global.PI_GUI1;
+    Options_dg[#_i,1] = Options_XL;
+    Options_dg[#_i,2] = Options_YT + (PAD1*_i);
+    Options_dg[#_i,3] = global.PI_GUI1;
 }
+
+
+show_debug_message("ContinueSaveScreen_init(). end");
 
 
 

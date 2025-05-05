@@ -10,8 +10,8 @@ var _pos  = string_pos(_COLOR_CHAR, global.PAL_BASE_COLOR_ORDER);
     _pos *= global.PAL_CHAR_PER_COLOR;
     _pos  = get_pal_pos(_pi) + _pos;
 //
-var _color = string_copy(_PALETTE, _pos, global.PAL_CHAR_PER_COLOR);
-    _color = str_hex(_color);
+var    _color = string_copy(_PALETTE, _pos, global.PAL_CHAR_PER_COLOR);
+       _color = str_hex(_color);
 return _color;
 
 

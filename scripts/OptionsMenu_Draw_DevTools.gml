@@ -80,7 +80,7 @@ for(_i=0; _i<DevTools_COUNT; _i++)
     case DevTools_ADD_ITEMS:      {_text=_dg_state_text[#0,sign(g.use_StabToCheat)]; break;}
     //case DevTools_DOUBLE_JUMP:    {_text=_dg_state_text[#0,sign(g.DoubleJump_state)]; break;}
     //case DevTools_DOUBLE_JUMP:    {_text=_dg_state_text[#0,sign(f.items&ITM_FTHR)]; break;}
-    case DevTools_PC_DASH:        {_text=_dg_state_text[#0,sign(g.DevDash_state)]; break;}
+    case DevTools_PC_DASH:        {_text=_dg_state_text[#0,sign(g.DevDash_state)]; break;} // 0: Off, 1: On, 2: On and dash input held
     //case DevTools_INVULNERABILITY:{_text=string(g.dev_invState&$F); break;}
     }//switch(_i)
     

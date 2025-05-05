@@ -1,25 +1,22 @@
 /// NIAO_Room_End()
 
 
-var _o;
-for (var i = ds_list_size(g.dl_niao)-1; i >= 0; i--)
+for(var _i=ds_list_size(g.dl_niao)-1; _i>=0; _i--)
 {
-    if (g.dl_niao[| i])
+    if (g.dl_niao[|_i])
     {
-        with (g.dl_niao[| i]) 
+        with(g.dl_niao[|_i])
         {
-            // rmen: Room_End
-            if (!is_undefined( scr_room_end) 
+            if(!is_undefined(  scr_room_end) 
             &&  script_exists( scr_room_end) ) 
             {   script_execute(scr_room_end);  }
         }
         
-        instance_destroy(g.dl_niao[| i]);
+        instance_destroy(g.dl_niao[|_i]);
     }
     
-    g.dl_niao[| i] = 0;
+    g.dl_niao[|_i] = 0;
 }
-
 
 
 

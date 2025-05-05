@@ -594,12 +594,31 @@ if (global.Halloween1_enabled
 
 
 
-
-if (room==rmB_GameOver)
+// These are here, instead of the create events, because the objects are in the room assets causing their create events to call before `p_Room_Start()`
+switch(room)
 {
+    case rmB_Title:{
+    break;}//case rmB_Title
+    
+    case rmB_FileSelect:{
+    break;}//case rmB_FileSelect
+    
+    case rmB_NextLife:{
+    break;}//case rmB_NextLife
+    
+    case rmB_Death:{
+    break;}//case rmB_Death
+    
+    case rmB_GameOver:{
     _pal = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2);
-    pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_MOB_RED), string_length(_pal), _pal);
-}
+    pal_rm_def = strReplaceAt(pal_rm_def, PAL_POS_MOB2, string_length(_pal), _pal); // PAL_POS_MOB2: MOB RED
+    break;}//case rmB_GameOver
+    
+    case rmB_ContinueSave:{
+    _pal = build_pal(C_RED2,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2);
+    pal_rm_def = strReplaceAt(pal_rm_def, PAL_POS_BGR1, string_length(_pal), _pal);
+    break;}//case rmB_ContinueSave
+}//switch(room)
 
 
 

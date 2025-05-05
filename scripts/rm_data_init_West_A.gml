@@ -1459,7 +1459,8 @@ data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
 data_spawn(rm+STR_PRXM,MegmA,$1,  $10<<3,y4); // Megmat  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $14<<3,y4); // Megmat  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $1C<<3,y4); // Megmat  1 
-data_spawn(rm+STR_PRXM,MegmA,$1,  $4C<<3,y4); // Megmat  1 
+data_spawn(rm+STR_PRXM,MegmA,$1,  $40<<3,y4); // Megmat  1 
+//data_spawn(rm+STR_PRXM,MegmA,$1,  $4C<<3,y4); // Megmat  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $5E<<3,y4); // Megmat  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $66<<3,y4); // Megmat  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $74<<3,y4); // Megmat  1 

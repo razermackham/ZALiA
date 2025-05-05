@@ -78,51 +78,20 @@ if (true) // 2024/09/16. This was supposed to be available to everyone?
 
 // ----------------------------------------------------------------------------
 // --------------------------------------------------------------------
-
+//HSPD_MAX1_DASH Cucco_HSPD_MAX1_DASH Cucco_HSPD_MAX2_DASH
 if (DEV)
 {   // Give PC faster hspd
-    _val = $10;
-    
-    if (GP_Other6_pressed  // GP_Other6: trig R
+    if (GP_Other6_held    // GP_Other6: trig R
     &&  g.DevTools_state 
-    &&  g.DevDash_state    // g.DevDash_state: toggle in options menu
-    && !g.app_paused )
+    &&  g.DevDash_state   // g.DevDash_state: toggle in options menu
+    && !g.app_paused 
+    && !g.pc.ogr )        // pc on ground
     {
-        HSPD_MAX_1_backup    = g.pc.HSPD_MAX1;
-        HSPD_MAX_1_curr      = HSPD_MAX_1_backup + _val;
-        g.pc.HSPD_MAX1       = HSPD_MAX_1_curr;
-        
-        HSPD_MAX_CUC1_backup = g.pc.Cucco_HSPD_MAX1;
-        HSPD_MAX_CUC1_curr   = HSPD_MAX_CUC1_backup + _val;
-        g.pc.Cucco_HSPD_MAX1 = HSPD_MAX_CUC1_curr;
-        
-        HSPD_MAX_CUC2_backup = g.pc.Cucco_HSPD_MAX2;
-        HSPD_MAX_CUC2_curr   = HSPD_MAX_CUC2_backup + _val;
-        g.pc.HSPD_MAX_CUC2   = HSPD_MAX_CUC2_curr;
+        g.DevDash_state = 2; // 0: Off, 1: On, 2: On and dash input held
     }
-    
-    if (GP_Other6_released 
-    || !g.DevTools_state 
-    || !g.DevDash_state 
-    ||  g.app_paused )
+    else
     {
-        if (HSPD_MAX_1_backup){
-            g.pc.HSPD_MAX1       = HSPD_MAX_1_backup;
-            HSPD_MAX_1_backup    = 0;
-            HSPD_MAX_1_curr      = 0;
-        }
-        
-        if (HSPD_MAX_CUC1_backup){
-            g.pc.Cucco_HSPD_MAX1 = HSPD_MAX_CUC1_backup;
-            HSPD_MAX_CUC1_backup = 0;
-            HSPD_MAX_CUC1_curr   = 0;
-        }
-        
-        if (HSPD_MAX_CUC2_backup){
-            g.pc.HSPD_MAX_CUC2   = HSPD_MAX_CUC2_backup;
-            HSPD_MAX_CUC2_backup = 0;
-            HSPD_MAX_CUC2_curr   = 0;
-        }
+        g.DevDash_state = sign(g.DevDash_state); // 0 or 1. // 0: Off, 1: On, 2: On and dash input held
     }
 }
 

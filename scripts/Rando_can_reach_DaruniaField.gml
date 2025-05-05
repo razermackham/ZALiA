@@ -7,6 +7,7 @@ if (Rando_can_reach_East()
     return true;
 }
 
+
 return false;
 
 

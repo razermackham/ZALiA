@@ -10,23 +10,22 @@ switch(state)
 {
     // -----------------------------------------------------
     // -----------------------------------------------
-    case ST_NUL:{
-    if (timer) break;//case ST_NUL
+    case state_DELAY1:{
+    if (timer) break;//case state_DELAY1
     
     if (counter>=READY_CUE)
     {
-        state = ST_FRE;
+        state = state_IDLE;
     }
-    break;}//case ST_NUL
-    
+    break;}//case state_DELAY1
     
     
     
     
     // -----------------------------------------------------
     // -----------------------------------------------
-    case ST_FRE:{
-    if (timer) break;//case ST_FRE
+    case state_IDLE:{
+    if (timer) break;//case state_IDLE
     
     var _cursor_dir = 0;
     switch(global.GUI_NAV1_VER)
@@ -46,7 +45,7 @@ switch(state)
     {
         Options_idx = (Options_idx+_cursor_dir+Options_COUNT) mod Options_COUNT;
         aud_play_sound(get_audio_theme_track(dk_CursorSpellMenu));
-        break;//case ST_FRE
+        break;//case state_IDLE
     }
     
     if (Input.GP_Start_pressed 
@@ -66,17 +65,16 @@ switch(state)
         
         counter = Options_idx;
         aud_play_sound(get_audio_theme_track(dk_ItemDrop));
-        state = ST_SEL; // An option has been selected
+        state = state_SELECTED; // An option has been selected
     }
-    break;}//case ST_FRE
-    
+    break;}//case state_IDLE
     
     
     
     
     // -----------------------------------------------------
     // -----------------------------------------------
-    case ST_SEL:{
+    case state_SELECTED:{
         switch(Options_idx)
         {   // -----------------------------------------------------
             case Option_CONT:{
@@ -101,7 +99,7 @@ switch(state)
                 goto_title_rm();
             }
             
-            if (counter&$7==$4) saveFlashCount++;
+            if (counter&$7==$4) SaveFlash_count++;
             break;}
             
             
@@ -116,7 +114,7 @@ switch(state)
             }
             break;}
         }//switch(Options_idx)
-    break;}//case ST_SEL
+    break;}//case state_SELECTED
 }//switch(state)
 
 

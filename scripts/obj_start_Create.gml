@@ -1,6 +1,7 @@
 /// obj_start_Create()
 
 
+global.DB0=false; // DB: DeBug. 
 //global.Split_00 = false;
 //global.Split_01 = false;
 //global.save_file_selected = false;

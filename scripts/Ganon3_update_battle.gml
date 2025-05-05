@@ -1002,7 +1002,8 @@ switch(BattleState)
     if (timer) break;
     if (StunMovement_timer) break;
     
-    Ganon2_update_6(max($28,g.pc.hspd_max+$10), hspd_dir); // update x, y, jump
+    Ganon2_update_6(max($28,g.pc.HSPD_MAX1+$10), hspd_dir); // update x, y, jump
+    //Ganon2_update_6(max($28,g.pc.hspd_max+$10), hspd_dir); // update x, y, jump
     
     if (Ganon3_update_battle_2a()  // if hit wall (cs3)
     && !Ganon2_update_4()  // returns: y+Slime_H_ >= GROUND_Y

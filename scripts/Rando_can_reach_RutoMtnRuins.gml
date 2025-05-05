@@ -3,7 +3,8 @@
 
 if (Rando_is_qual_location(STR_Ruto))
 {
-    if (Rando_is_attainable(STR_JUMP)  // Get to Ruto Mtn Lake
+    if (Rando_can_traverse_Ruto_town()  // in case Ruto is Old Kasuto and don't have CROSS
+    &&  Rando_is_attainable(STR_JUMP)   // Get to Ruto Mtn Lake
     &&  Rando_is_attainable(STR_STABDOWN,STR_FAIRY) ) // Cross Ruto Mtn Lake
     {
         // Get through cave to bottom of ruins

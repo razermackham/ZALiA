@@ -11691,7 +11691,6 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\script1823.gml</script>
     <script>scripts\d_l0__oo__0l_b.gml</script>
     <script>scripts\scr_temp1.gml</script>
     <script>scripts\scr_temp2.gml</script>
@@ -13688,6 +13687,15 @@
       <script>scripts\Rando_can_reach_Dragmire.gml</script>
       <script>scripts\Rando_can_reach_CrystalHolder.gml</script>
       <script>scripts\Rando_can_get_inside_P7.gml</script>
+      <script>scripts\Rando_can_traverse_Rauru_town.gml</script>
+      <script>scripts\Rando_can_traverse_Ruto_town.gml</script>
+      <script>scripts\Rando_can_traverse_Saria_town.gml</script>
+      <script>scripts\Rando_can_traverse_Mido_town.gml</script>
+      <script>scripts\Rando_can_traverse_Nabooru_town.gml</script>
+      <script>scripts\Rando_can_traverse_Darunia_town.gml</script>
+      <script>scripts\Rando_can_traverse_NewKasuto_town.gml</script>
+      <script>scripts\Rando_can_traverse_OldKasuto_town.gml</script>
+      <script>scripts\Rando_can_traverse_Bulblin_town.gml</script>
       <script>scripts\Rando_can_traverse_RauruPass.gml</script>
       <script>scripts\Rando_can_traverse_RauruToMidoroCave.gml</script>
       <script>scripts\Rando_can_traverse_JUMPCave.gml</script>

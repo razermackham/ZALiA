@@ -240,7 +240,7 @@ adv_frame_held_counter = 0;
 global.GUI_NAV1_VER = 2;
 
 
-DevDash_state    = false;
+DevDash_state    = 0; // 0: Off, 1: On, 2: On and dash input held
 DoubleJump_state = false;
 use_StabToCheat  = false;
 

@@ -15,7 +15,8 @@ if (is_cucco)
         set_xy(id, x,y);
     }
     
-    hspd_max = Cucco_HSPD_MAX1;
+    if (g.DevDash_state==2) hspd_max = Cucco_HSPD_MAX1_DASH;
+    else                    hspd_max = Cucco_HSPD_MAX1;
     //cucco_is_slowfalling_prev = Cucco_is_slowfalling;
     //Cucco_is_slowfalling = 0;
     
@@ -48,8 +49,8 @@ if (is_cucco)
     }
     else
     {
-        SwordHB_w   = Cucco_SwordHB_W;
-        SwordHB_h   = Cucco_SwordHB_H;
+        SwordHB_w = Cucco_SwordHB_W;
+        SwordHB_h = Cucco_SwordHB_H;
         
         if (g.mod_PCSword2 
         &&  f.items&ITM_SWRD 
@@ -77,8 +78,8 @@ else if (pc_is_fairy())
         set_xy(id, x,y);
     }
     
-    hspd_max   = HSPD_MAX1;
-    
+    if (g.DevDash_state==2) hspd_max = HSPD_MAX1_DASH;
+    else                    hspd_max = HSPD_MAX1;
     
     cs_off_idx = Fairy_CS_OFF_IDX;
     
@@ -100,15 +101,15 @@ else
         set_xy(id, x,y);
     }
     
-    hspd_max   = HSPD_MAX1;
-    
+    if (g.DevDash_state==2) hspd_max = HSPD_MAX1_DASH;
+    else                    hspd_max = HSPD_MAX1;
     
     cs_off_idx = CS_OFF_IDX;
     
     BodyHB_idx = BodyHB_IDX1;
     
-    SwordHB_w  = SwordHB_W;
-    SwordHB_h  = SwordHB_H;
+    SwordHB_w = SwordHB_W;
+    SwordHB_h = SwordHB_H;
     
     if (g.mod_PCSword2 
     &&  f.items&ITM_SWRD )

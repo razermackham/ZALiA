@@ -7,10 +7,10 @@ if (is_string(argument0))
 }
 
 
-var _byte;
+var _i, _byte;
 var _return = "";
 
-for(var _i=2; _i>=0; _i--)
+for(_i=2; _i>=0; _i--)
 {
     _byte  = argument0>>(_i<<3);
     _byte &= $FF;

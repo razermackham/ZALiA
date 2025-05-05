@@ -542,12 +542,15 @@ dl_ATTACK_DAMAGE[|$09] = $1C; // attack level 9
 // ------------------------------------------------------
 // ------------------------------------------------------
 HSPD_MAX1       = $18;
+HSPD_MAX1_DASH  = HSPD_MAX1 + $10;
 HSPD_ENTRY      = $10; // When entering a room from side
 HSPD_JUMP_HIGH  = min($13,HSPD_MAX1);
 HSPD_FAIRY      = HSPD_MAX1;
 
 Cucco_HSPD_MAX1 = HSPD_MAX1;
+Cucco_HSPD_MAX1_DASH = Cucco_HSPD_MAX1 + floor(Cucco_HSPD_MAX1*(HSPD_MAX1/HSPD_MAX1_DASH));
 Cucco_HSPD_MAX2 = $0C; // Crouching
+Cucco_HSPD_MAX2_DASH = Cucco_HSPD_MAX2 + floor(Cucco_HSPD_MAX2*(HSPD_MAX1/HSPD_MAX1_DASH));
 
 hspd_max        = HSPD_MAX1;
 hspd_dir        = xScale; // 005F

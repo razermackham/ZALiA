@@ -411,8 +411,8 @@ _y = g.rm_h - viewH() - 3;
 rm_set_cam_1a(g.rm_w_, _y);
 set_camera_xy(g.rm_w_-viewW_(), _y);
 
-
-if (0 && !(g.counter1&$7F)){
+/*
+if(!(g.counter1&$7F)){
 var _str  =   'viewXL() '+string(viewXL()) + ', viewYT() '+string(viewYT());
     _str += ', viewW() ' +string(viewW())  + ', viewH() ' +string(viewH());
     _str += ', room_width ' +string(room_width) + ', room_height '+string(room_height);
@@ -420,6 +420,7 @@ var _str  =   'viewXL() '+string(viewXL()) + ', viewYT() '+string(viewYT());
     _str += ', x '+string(x)+', y '+string(y);
 sdm(_str);
 }
+*/
 
 
 

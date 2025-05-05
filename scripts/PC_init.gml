@@ -1,4 +1,8 @@
-/// GameObjectA_init()
+/// PC_init()
+
+
+var _i,_j,_k, _a, _idx,_idx1,_idx2, _val, _count1,_count2;
+var _datakey, _name, _creator, _char, _str, _pos, _len;
 
 
 init_vars_draw_1a();
@@ -30,14 +34,6 @@ scr_inst_end = PC_end;
 
 
 // ---------------------------------------------------------------------------------------------
-var _i,_j,_k, _a, _idx,_idx1,_idx2, _val, _count1,_count2;
-var _datakey, _name, _creator, _char, _str, _pos, _len;
-
-
-
-
-
-
                        _a=0;
 behavior_WALK1       = _a++;  //  0 spr_Link_walk3
 behavior_WALK2       = _a++;  //  1 spr_Link_walk1
@@ -206,7 +202,7 @@ var _DIRECTORY="custom_playercharacter_graphics";
 if(!directory_exists(_DIRECTORY))
 {
     directory_create(_DIRECTORY);
-    sdm(_DIRECTORY+" created!"+"  -  GameObjectA_init()");
+    sdm(_DIRECTORY+" created!"+"  -  PC_init()");
 }
 else
 {
@@ -282,12 +278,15 @@ if (file_exists(_FILE_NAME))
 
 
 
-
-
-
-disguise_idx = 0;
-DISGUISE_COUNT = 2;
-use_disguise = false;
+Disguise_enabled    = false;
+Disguise_Head_idx   = 0; // which disguise head graphic to draw
+Disguise_Head_COUNT = 2;
+            Disguise_dl_behaviors = ds_list_create();
+ds_list_add(Disguise_dl_behaviors,behavior_IDLE);
+ds_list_add(Disguise_dl_behaviors,behavior_WALK1);
+ds_list_add(Disguise_dl_behaviors,behavior_WALK2);
+ds_list_add(Disguise_dl_behaviors,behavior_WALK3);
+ds_list_add(Disguise_dl_behaviors,behavior_CROUCH);
 
 
 
@@ -450,32 +449,32 @@ Draw_rotation2 = 0;
 
 
 
-walk_frame  = 0; // $00AE. Walk Animation Frame
+walk_frame = 0; // $00AE. Walk Animation Frame
 
 fairy_sprite = 0; // The fairy sprite to draw
 
 xScale       = 1; // 009F
 x_scale_prev = xScale;
 
-x_prev       = 0;
-y_prev       = 0;
-drop_y       = 0;
+x_prev = 0;
+y_prev = 0;
+drop_y = 0;
 
 
-RescueFairy_sprite    = 0;
-RescueFairy_draw_x    = 0;
-RescueFairy_draw_y    = 0;
+RescueFairy_sprite = 0;
+RescueFairy_draw_x = 0;
+RescueFairy_draw_y = 0;
 // The row & clm of the ground where Rescue Fairy will place PC.
-RescueDropOff_rc = -1;
-RescueDropOff_elevator = noone;
+RescueDropOff_rc         = -1;
+RescueDropOff_elevator   = noone;
 RescueDropOff_solid_inst = noone;
 
 //  The elevator instance pc entered the rm on.
 RmEnter_elevator = noone;
 
 Shadow_can_draw = false; // during boss explosions
-Shadow_DEPTH = DEPTH_BG1-1;
-Shadow_xoff  = 8;
+Shadow_DEPTH    = DEPTH_BG1-1;
+Shadow_xoff     = 8;
 
 
 
@@ -592,43 +591,30 @@ GRAVITY_JUMP1     = $F0;  // Base Gravity REGular.           $9476 #$F0
 GRAVITY_JUMP1_RUN = $80;  // Base Gravity REGular RUNning.   $9477 #$80
 GRAVITY_JUMP2     = $80;  // Base Gravity High JumP.         $9474 #$80
 GRAVITY_JUMP2_RUN = 0;    // Base Gravity High JumP RUNning. $9475 #$00
+GRAVITY1          = $30;
+GRAVITY2          = $48;
+vspd_grav         = GRAVITY2; // $03E6
 
-
-GRAVITY1    = $30;
-GRAVITY2    = $48;
-vspd_grav   = GRAVITY2; // $03E6
+vspd_prev      = vspd;
+vspd_dir       = 1; // 
+vspd_dir_spawn = vspd_dir;
+y_change       = 0; // 
+y_change_prev  = 0; // FOR DEBUG. previous frame vChange
 
 // false: obj uses updateY2(). Only PC, ShadowBoss, Lowder, Megmat
 // true:  obj uses updateY()
 uses_vspd_sub = false;
 
 
-
-vspd_dir        = 1; // 
-vspd_dir_spawn  = vspd_dir;
-y_change        = 0; // 
-y_change_prev   = 0; // FOR DEBUG. previous frame vChange
-
-vspd_prev       = vspd;
-
-
-
-
-
-
-
-
-
-
-// ------------------------------------------------------
-// ------------------------------------------------------
-jump_tokens = 1 + (f.items&ITM_FTHR != 0);
+jump_tokens = 1 + (f.items&ITM_FTHR!=0);
 
 
 // ogr: Off Ground Reason
 ogr = 0; // $0479. 0: NOT off ground, 1: reason other than jump, 2: jumped
 
 
+// ------------------------------------------------------
+// ------------------------------------------------------
 DamageFlash_DURATION = $20; // 4 cycles of 4 colors, 2 frames each
 
 //HoldItem_can_draw = false;
@@ -667,7 +653,7 @@ colliding_locked_door = $00;   // 05E7
 //jumpActive = 0; // 00D0
 
 //cucco_knockback_testing=0;
-CUCCO_KNOCKBACK_REDUCTION=1;
+CUCCO_KNOCKBACK_REDUCTION = 1;
 Stun_DURATION1  = $20; // 
 Stun_DURATION2  = $1A; // For Cucco
 stun_timer      = 0; // 050C

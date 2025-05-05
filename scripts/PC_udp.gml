@@ -12,43 +12,19 @@ var _datakey;
 Draw_can_rando1 = g._YwY_ || global.SloofLirpa_ENABLED;
 Draw_can_rando2 = Draw_can_rando1; // random rotation, random behavior
 
-if (Draw_can_rando2) Draw_behavior = dl_UwU_[|behavior];
-else                 Draw_behavior = behavior;
-/*
 if (Draw_can_rando2)
 {
-    if (use_disguise)
-    {
-        var _SIZE = ds_list_size(dl_UwU_);
-        for(_i=0; _i<_SIZE; _i++)
-        {
-            if (dl_UwU_[|_i]==behavior_WALK1 
-            ||  dl_UwU_[|_i]==behavior_WALK2 
-            ||  dl_UwU_[|_i]==behavior_WALK3 
-            ||  dl_UwU_[|_i]==behavior_IDLE )
-            {
-                Draw_behavior = dl_UwU_[|_i];
-                break;//_i
-            }
-        }
-    }
-    else
-    {
-        Draw_behavior = dl_UwU_[|behavior];
-    }
+    Draw_behavior = dl_UwU_[|behavior];
 }
 else
 {
     Draw_behavior = behavior;
+    if (Disguise_enabled 
+    &&  ds_list_find_index(Disguise_dl_behaviors,Draw_behavior)==-1 )
+    {
+        Draw_behavior = behavior_CROUCH;
+    }
 }
-*/
-
-
-//HoldItem_can_draw = false;
-
-//var _SWORD_IDX  = sign(f.items&ITM_SWRD);
-////    _SWORD_IDX &= Sword2_SpriteTesting1;
-//var _SHIELD_IDX = sign(f.items&ITM_SHLD);
 
 
 // EC0A

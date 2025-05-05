@@ -60,7 +60,7 @@ var _datakey;
 
 if (g.town_num 
 &&  g.town_name==STR_Bulblin 
-&& !g.pc.use_disguise )
+&& !g.pc.Disguise_enabled )
 //&& !(f.items&ITM_MASK) )
 {
     state = 0;

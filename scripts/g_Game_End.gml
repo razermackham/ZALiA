@@ -1,6 +1,9 @@
 /// g_Game_End()
 
 
+var _i;
+
+
 /*
 var _exists = false;
 
@@ -32,6 +35,21 @@ if (_exists)                             ds_=undefined;
 
 
 var _exists = false;
+
+
+
+
+    _exists=variable_instance_exists(id,"StarSky_dl_surfaces");
+if (_exists) _exists = !is_undefined(    StarSky_dl_surfaces);
+if (_exists) _exists = ds_exists(        StarSky_dl_surfaces, ds_type_list);
+if (_exists)
+{
+    for(_i=ds_list_size(StarSky_dl_surfaces)-1; _i>=0; _i--)
+    {
+        if (surface_exists(StarSky_dl_surfaces[|_i])) surface_free(StarSky_dl_surfaces[|_i]);
+    }
+    ds_list_destroy(StarSky_dl_surfaces); StarSky_dl_surfaces=undefined;
+}
 
 
 
@@ -278,19 +296,6 @@ if (_exists) _exists = !is_undefined(    dl_LOREM);
 if (_exists) _exists = ds_exists(        dl_LOREM, ds_type_list);
 if (_exists)           ds_list_destroy(  dl_LOREM);
 if (_exists)                             dl_LOREM=undefined;
-
-/*
-    _exists=variable_instance_exists(id,"dl_StarSky_SPR2");
-if (_exists) _exists = !is_undefined(    dl_StarSky_SPR2);
-if (_exists) _exists = ds_exists(        dl_StarSky_SPR2, ds_type_list);
-if (_exists)           ds_list_destroy(  dl_StarSky_SPR2);
-if (_exists)                             dl_StarSky_SPR2=undefined;
-*/
-    _exists=variable_instance_exists(id,"StarSky_dl_surfaces");
-if (_exists) _exists = !is_undefined(    StarSky_dl_surfaces);
-if (_exists) _exists = ds_exists(        StarSky_dl_surfaces, ds_type_list);
-if (_exists)           ds_list_destroy(  StarSky_dl_surfaces);
-if (_exists)                             StarSky_dl_surfaces=undefined;
 
     _exists=variable_instance_exists(id,"dl_Spell_STR");
 if (_exists) _exists = !is_undefined(    dl_Spell_STR);

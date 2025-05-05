@@ -119,7 +119,7 @@ var _C2 = (_ogr_COPY && _vspd_COPY&$80)  // is off ground && moving up
 var _QUAL_DOWNTHRUST =  Input.dHeld 
                     &&  f.skills&SKILL_THD 
                     && !(g.pc_lock&PC_LOCK_ATK3) 
-                    && !use_disguise 
+                    && !Disguise_enabled 
                     && (!is_cucco || f.Cucco_skills&f.CuccoSkill_THRUST_D);
 //
 if (_C2)
@@ -168,7 +168,7 @@ if (_C2)
             && !stun_timer 
             //&& (!Cucco_STUNNED_BEHAVIOR || !stun_timer) 
             && !_QUAL_DOWNTHRUST 
-            && (!use_disguise || global.Halloween1_enabled) 
+            && (!Disguise_enabled || global.Halloween1_enabled) 
             &&  _C1   // !HoldItem_timer && !g.EnterRoom_control_timer
             && !(g.pc_lock&PC_LOCK_FLOT) )
             {
@@ -290,7 +290,7 @@ if (_C1
             if (Input.Up_held 
             &&  f.skills&SKILL_THU 
             && !(g.pc_lock&PC_LOCK_ATK4) 
-            && !use_disguise 
+            && !Disguise_enabled 
             && (!is_cucco || f.Cucco_skills&f.CuccoSkill_THRUST_U) )
             {   // Tested it. Can't upthrust if ogr==OGR_OTHR, even when vspd<0
                  PC_set_behavior(behavior_STAB_UP);

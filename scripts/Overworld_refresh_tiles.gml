@@ -1,7 +1,7 @@
 /// Overworld_refresh_tiles(ow x, ow y)
 
 
-var _i,_j, _idx, _x,_y;
+var _i,_j, _x,_y;
 var _ow_clm, _ow_row;
 var _tile_data;
 
@@ -45,8 +45,6 @@ else
     var _val;
     var _ts, _tsrc0, _tid;
     var _scale_x,_scale_y;
-    var _RANDO_TSRC_ACTIVE = global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
-    //var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
     
     tile_layer_delete_(Tile_DEPTH1);
     
@@ -65,28 +63,10 @@ else
             
             _tile_data = dg_tsrc[#_ow_clm,_ow_row];
             
-            if (_RANDO_TSRC_ACTIVE)
+            if (RandoTSRC_active)
             {
                 _val = dm_Rando_TSRC[?hex_str(_tile_data)];
                 if(!is_undefined(_val)) _tile_data = (_val>>2)<<2;
-                /*
-                _val = ((_tile_data&$FF)>>2)<<2;
-                _val = dm_Rando_TSRC[?hex_str(_val)];
-                if(!is_undefined(_val)) _tile_data = _val;
-                //if(!is_undefined(_val)) _tile_data = (_tile_data&$FF00) | _val;
-                */
-                /*
-                if (_val)
-                {
-                    switch(_val){
-                    case $24:{_val=choose($24,$25);break;}     // Desert
-                    case $2C:{_val=choose($2C,$2D,$2F);break;} // Cemetery
-                    case $30:{_val=choose($30,$33);break;}     // Forest
-                    case $40:{_val=choose($40,$41);break;}     // Beach
-                    }
-                    _tile_data = (_tile_data&$FF00) | _val;
-                }
-                */
             }
             
             _tsrc0 = _tile_data&$FF;
@@ -123,7 +103,6 @@ else
             
             _ts = g.dl_tileset[|(_tile_data>>8)&$FF];
             _tid = tile_change_2a(T_SIZE, _ts,_tsrc0, _x,_y, Tile_DEPTH1, 0);
-            //_tid = tile_change_2a(T_SIZE, TILESET1,_tile_data, _x,_y, Tile_DEPTH1, 0);
             dg_tid[#_j,_i] = _tid;
             
             if (tile_exists(_tid)) tile_set_scale(_tid, _scale_x,_scale_y);
@@ -131,7 +110,6 @@ else
         }
     }
 }
-
 
 
 

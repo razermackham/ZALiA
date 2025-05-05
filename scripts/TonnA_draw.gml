@@ -20,7 +20,7 @@ if (1)
     //var _spr = spr_Eye_Open_1a_WRB; // open full
     var _spr = spr_Eye_Open_1b_WRB; // open half
     draw_sprite_(_spr,0, _x,_y, palidx);
-    draw_sprite_(spr_1x1_WHT,0, _x-1,_y-1, -1, 2,2, c_black);
+    draw_sprite_(spr_1x1_WHT,0, _x-1,_y-1, -1, 2,2, p.C_BLK1);
 }
 
 

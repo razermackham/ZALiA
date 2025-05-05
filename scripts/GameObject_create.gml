@@ -128,7 +128,7 @@ with(instance_create(_XL,_YT, _OBJECT))
         xScale    = facingDir;
         hspd      = 0;
         
-        if(!IS_HOLD_ITEM) g.pc.use_disguise = false; // So pc can stab item.
+        if(!IS_HOLD_ITEM) g.pc.Disguise_enabled = false; // So pc can stab item.
     }
     else if (is_ancestor(object_index,Boss))
     {
@@ -178,12 +178,12 @@ with(instance_create(_XL,_YT, _OBJECT))
         
         g.go_mgr.uIdxSwap_gob = UIDX_NULL;
         
-        if (g.pc.use_disguise)
+        if (g.pc.Disguise_enabled)
         {
             if (is_ancestor(object_index,NPC_B)  // NPC_B: Minigame
             ||  is_ancestor(object_index,NPC_D) )// NPC_D: Shop
             {
-                g.pc.use_disguise = false;
+                g.pc.Disguise_enabled = false;
             }
         }
     }
@@ -253,7 +253,7 @@ with(instance_create(_XL,_YT, _OBJECT))
     
     
     if (g.town_name==STR_Bulblin 
-    &&  g.pc.use_disguise 
+    &&  g.pc.Disguise_enabled 
     //&&  f.items&ITM_MASK 
     &&  is_ancestor(object_index,GOB1) )
     {

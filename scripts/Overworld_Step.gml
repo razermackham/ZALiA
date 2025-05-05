@@ -8,23 +8,20 @@ var _clm,_row, _rm_clm,_rm_row, _pc_clm,_pc_row, _owrc,_owrc1, _ow_clm,_ow_row, 
 var _dir;
 var _tsrc,_tsrc1, _tid;
 var _str, _datakey, _data;
-var _RANDO_TSRC_ACTIVE = global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
-//var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
+
+var _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
+
+
 
 
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
-// -------------------------------------------------------------------
-// -------------------------------------------------------------------
+RandoTSRC_active = global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
+
 
 move_x = 0;
 move_y = 0;
 
-
-
-
-
-var _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
 
 if (_C1)
 {
@@ -95,7 +92,7 @@ if (_C1  // _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
                     move_spd   = MOVE_SPD_2;
                     move_speed = move_SPEED2;
                     
-                    if (_RANDO_TSRC_ACTIVE)
+                    if (RandoTSRC_active)
                     {
                         move_spd   = MOVE_SPD_1;
                         move_speed = move_SPEED1;
@@ -139,15 +136,10 @@ if(!dest_dist
             
             _tsrc   = dg_tsrc[#_ow_clm,_ow_row];
             _tsrc1  = _tsrc&$FF;
-            if (_RANDO_TSRC_ACTIVE)
+            if (RandoTSRC_active)
             {
                 _val1 = dm_Rando_TSRC[?hex_str(_tsrc)];
                 if(!is_undefined(_val1)) _tsrc = (_val1>>2)<<2;
-                //_val1 = dm_Rando_TSRC[?hex_str((_tsrc1>>2)<<2)];
-                //_val1 = val(dm_Rando_TSRC[?hex_str(_val1)]);
-                //if (_val1) _tsrc = _val1;
-                //dm_rando_biome
-                //dm_data[?STR_TSRC+_tsrc_+STR_Biome]
             }
             
             
@@ -288,34 +280,33 @@ if(!dest_dist
             && (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) || val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations])) 
             &&  val(f.dm_quests[?STR_Warp+STR_Qualified]) ) // if any warp locations have been opened
             {
-                if(!exit_grid_xy 
-                &&  isVal(Warp_state,0,Warp_state_FLUTE,Warp_state_SPIN_UP) )
-                //&& !Warp_timer ) // change destination cooldown timer
+                if(!exit_grid_xy)
                 {
-                    if(!Warp_state)
+                    if(!Warp_state 
+                    ||  Warp_state==Warp_state_FLUTE 
+                    ||  Warp_state==Warp_state_SPIN_UP )
                     {
-                        var _INST = aud_play_sound(get_audio_theme_track(Warp_FLUTE_THEME));
-                        flute_timer = round(audio_sound_length(_INST)*room_speed) + 8;
-                        Warp_timer = flute_timer;
-                        Warp_owrc  = pcrc;
-                        Warp_state = Warp_state_FLUTE;
-                    }
-                    
-                    // change destination cooldown timer
-                    //Warp_timer = 2;
-                    //if(!Warp_destination_num) Warp_timer += 2;
-                    
-                    // change destination
-                    _count=ds_grid_width(dg_Warp_DESTINATIONS);
-                    for(_i=0; _i<_count; _i++)
-                    {
-                        Warp_destination_num++;
-                        if (Warp_destination_num>_count) Warp_destination_num=1;
-                        
-                        _val = dg_Warp_DESTINATIONS[#Warp_destination_num-1,0];
-                        if (val(f.dm_quests[?STR_Warp+STR_Qualified+_val]))
+                        if(!Warp_state)
                         {
-                            break;//_i
+                            var _INST = aud_play_sound(get_audio_theme_track(Warp_FLUTE_THEME));
+                            flute_timer = round(audio_sound_length(_INST)*room_speed) + 8;
+                            Warp_timer = flute_timer;
+                            Warp_owrc  = pcrc;
+                            Warp_state = Warp_state_FLUTE;
+                        }
+                        
+                        // change destination
+                        _count = ds_grid_width(dg_Warp_DESTINATIONS);
+                        for(_i=0; _i<_count; _i++)
+                        {
+                            Warp_destination_num++;
+                            if (Warp_destination_num>_count) Warp_destination_num=1;
+                            
+                            _val = dg_Warp_DESTINATIONS[#Warp_destination_num-1,0];
+                            if (val(f.dm_quests[?STR_Warp+STR_Qualified+_val]))
+                            {
+                                break;//_i
+                            }
                         }
                     }
                 }
@@ -345,34 +336,23 @@ if(!dest_dist
 // --------------------------------------------------------------------------------
 if(!flute_timer)
 {
-    pc_sprite_idx = bitNum(pc_dir)-1;
-    if (mot==MOT_RAFT) pc_sprite_idx += 4;
+    // For using spritesheets
+    pc_sprite_idx  = bitNum(pc_dir)-1;
+    pc_sprite_idx += 4 * (mot==MOT_RAFT);
     pc_sprite_idx  = pc_sprite_idx<<1;
-    if (dest_dist && dest_dist<(T_SIZE>>1)) pc_sprite_idx++;
-}
-
-if(!flute_timer)
-{
+    pc_sprite_idx += dest_dist && dest_dist<(T_SIZE>>1);
+    
+    
     //  mot: Mode Of Transportation
     if (mot==MOT_RAFT)
     {
-        //pc_spr = dg_RAFT_SPR[#bitNum(pc_dir)-1, 0];
         if (pc_dir&$3) pc_x_scale = _PC_DIR_SIGN_X;
         else           pc_x_scale = 1;
     }
     else
     {
-        //_idx = dest_dist && dest_dist<(T_SIZE>>1);
-        //pc_spr = dg_pc_spr[#bitNum(pc_dir)-1, _idx];
         pc_x_scale = 1;
     }
-    
-    
-    // For using spritesheets
-    pc_sprite_idx = bitNum(pc_dir)-1;
-    if (mot==MOT_RAFT) pc_sprite_idx += 4;
-    pc_sprite_idx = pc_sprite_idx<<1;
-    if (dest_dist && dest_dist<(T_SIZE>>1)) pc_sprite_idx++;
 }
 
 
@@ -699,7 +679,7 @@ if(!flute_timer)
         WaterSparkle_timer--;
         if(!WaterSparkle_timer)
         {
-            WaterSparkle_timer=WaterSparkle_DURATION0;
+            WaterSparkle_timer = WaterSparkle_DURATION0;
             WaterSparkle_refresh(pcrc);
         }
     }
@@ -840,42 +820,12 @@ if (exit_grid_xy)
 
 
 // -------------------------------------------------------------------
-//if (g.counter0&$40) background_assign(ts_Overworld_1,ts_Overworld_1_2);
-//else                background_assign(ts_Overworld_1,ts_Overworld_1_1_2);
-
-
-switch((g.counter0&$7F)>>5)
-{
-    case 0:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_00); break;}
-    case 1:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_01); break;}
-    case 2:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_02); break;}
-    case 3:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_03); break;}
+switch((g.counter0&$7F)>>5){
+case 0:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_00); break;}
+case 1:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_01); break;}
+case 2:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_02); break;}
+case 3:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_03); break;}
 }
-/*
-if (g.anarkhyaOverworld_MAIN 
-&&  g.anarkhyaOverworld_enabled )
-{
-    switch((g.counter0&$7F)>>5)
-    {
-        case 0:{
-        background_assign(ts_Overworld_anark01, ts_Overworld_anark01_00);
-        background_assign(ts_Overworld_anark02, ts_Overworld_anark02_00);
-        break;}
-        case 1:{
-        background_assign(ts_Overworld_anark01, ts_Overworld_anark01_01);
-        background_assign(ts_Overworld_anark02, ts_Overworld_anark02_01);
-        break;}
-        case 2:{
-        background_assign(ts_Overworld_anark01, ts_Overworld_anark01_02);
-        background_assign(ts_Overworld_anark02, ts_Overworld_anark02_02);
-        break;}
-        case 3:{
-        background_assign(ts_Overworld_anark01, ts_Overworld_anark01_03);
-        background_assign(ts_Overworld_anark02, ts_Overworld_anark02_03);
-        break;}
-    }
-}
-*/
 
 
 
@@ -911,6 +861,11 @@ if (g.room_type=="C"
     // if lined up with the grid this frame after moving, relative to T_SIZE
     if!(dest_dist&_OFF) Overworld_refresh_tiles(_ow_x,_ow_y);
 }
+
+
+
+
+Overworld_udp();
 
 
 

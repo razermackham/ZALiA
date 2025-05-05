@@ -311,22 +311,17 @@ else
 // 4 colors means   24 permutations per palette
 //                          // 
 //                          // 
-C_BLK0  = $000000; // B-000,G-000,R-000.   full black
-C_BLK0_ = color_str(C_BLK0);
-//                          // 
 C_WHT0  = $FFFFFF; // B-255,G-255,R-255.   full white
 C_WHT0_ = color_str(C_WHT0);
-//                          // 
 //                          // 
 C_RED0  = $0000FF; // B-000,G-000,R-255.   full red
 C_RED0_ = color_str(C_RED0);
 //                          // 
-C_GRN0  = $00FF00; // B-000,G-255,R-000.   full green
-C_GRN0_ = color_str(C_GRN0);
-//                          // 
 C_BLU0  = $FF0000; // B-255,G-000,R-000.   full blue
 C_BLU0_ = color_str(C_BLU0);
 //                          // 
+C_GRN0  = $00FF00; // B-000,G-255,R-000.   full green
+C_GRN0_ = color_str(C_GRN0);
 //                          // 
 C_YLW0  = $00FFFF; // B-000,G-255,R-255.   full yellow
 C_YLW0_ = color_str(C_YLW0);
@@ -334,15 +329,19 @@ C_YLW0_ = color_str(C_YLW0);
 C_MGN0  = $FF00FF; // B-255,G-000,R-255.   full magenta
 C_MGN0_ = color_str(C_MGN0);
 //                          // 
+C_BLK0  = $000000; // B-000,G-000,R-000.   full black
+C_BLK0_ = color_str(C_BLK0);
+//                          // 
 C_CYN0  = $FFFF00; // B-255,G-255,R-000.   full cyan
 C_CYN0_ = color_str(C_CYN0);
 //                          // 
-C_ERR0  =  C_YLW0; // Error, Missing data, ..
+C_ERR0  = C_YLW0; // Error, Missing data, ..
 //                          // 
 //                          // 
 //                          // 
 //                          // 
-C_BLK1 = $000000; // NES black. B-000,G-000,R-000
+C_BLK1 = $010101; // Closest to $000000 so that pal swap doesn't consider it the base color $000000
+//C_BLK1 = $000000; // NES black
 //                          // 
 C_WHT1 = $FCFCFC; // $30. White 1. Brightest NES white.
 C_WHT2 = $F1F2F1; // $20. White 2. SLIGHTLY grey. SLIGHTLY less bright than white 1
@@ -443,7 +442,8 @@ dl_COLOR[|++_a] = C_YGR4; // Luminosity/Brightness $44/$31.  Yellow-Green. Darke
 dl_COLOR[|++_a] = C_GRN4; // Luminosity/Brightness $50/$39.  Green.       Darkest 
 dl_COLOR[|++_a] = C_GRB4; // Luminosity/Brightness $3E/$2C.  Green-Blue.  Darkest 
 dl_COLOR[|++_a] = C_CYN4; // Luminosity/Brightness $5C/$37.  Teal.        Darkest 
-dl_COLOR[|++_a] = C_BLK1; // Luminosity/Brightness $00/$00.  B-000,G-000,R-000.   full black
+dl_COLOR[|++_a] = C_BLK1; // $010101. closest thing to full black
+//dl_COLOR[|++_a] = C_BLK1; // Luminosity/Brightness $00/$00.  B-000,G-000,R-000.   full black
 //dl_COLOR[|++_a] = C_WHT0; // Luminosity/Brightness $.  B-255,G-255,R-255.   full white
 //dl_COLOR[|++_a] = C_BLK0; // Luminosity/Brightness $.  B-000,G-000,R-000.   full black
                                 //                                          // 
@@ -464,7 +464,8 @@ dl_COLOR[|++_a] = C_YGR3; // Luminosity/Brightness $94/$6A.  Yellow-Green.
 dl_COLOR[|++_a] = C_GRN3; // Luminosity/Brightness $A8/$78.  Green. 
 dl_COLOR[|++_a] = C_GRB3; // Luminosity/Brightness $7B/$5B.  Green-Blue. 
 dl_COLOR[|++_a] = C_CYN3; // Luminosity/Brightness $88/$65.  Teal
-dl_COLOR[|++_a] = C_BLK1; // Luminosity/Brightness $00/$00.  
+dl_COLOR[|++_a] = C_BLK1; // $010101. closest thing to full black
+//dl_COLOR[|++_a] = C_BLK1; // Luminosity/Brightness $00/$00.  
 // dl_COLOR[|++_a] = C_BLU0; // Luminosity/Brightness $.  B-255,G-000,R-000.   full blue
 // dl_COLOR[|++_a] = C_BLK0; // Luminosity/Brightness $.  B-000,G-000,R-000.   full black
                                 //                                          // 
@@ -1775,112 +1776,12 @@ p_init_palette_data();
 
 
 
-
-
-
 instance_create(0,0, PaletteEditor);
 
 
 
 
-
-
-
-
 ds_list_destroy(_dl); _dl=undefined;
-
-
-
-
-
-/*
-// print luminosity of all nes colors
-for(_i=0; _i<$40; _i++){
-    if!(_i&$7) sdm("");
-    if!(_i&$F) sdm("");
-    _str  = "$"+hex_str(_i)+": ";
-    _str += "color-$"+color_str(dl_COLOR[|_i]); // RGB value of color
-    _str += ", value-$"+hex_str(colour_get_value(dl_COLOR[|_i])); // value/luminosity
-    _str += ", lum-$"+hex_str(get_color_brightness(dl_COLOR[|_i])); // percieved brightness
-    sdm(_str);
-}
-*/
-/*
-sdm("$01-C_VLT4 lum: $"+hex_str(colour_get_value(C_VLT4))); // $8C-$23
-sdm("$02-C_BLU4 lum: $"+hex_str(colour_get_value(C_BLU4))); // $A8-$0C
-sdm("$03-C_PUR4 lum: $"+hex_str(colour_get_value(C_PUR4))); // $9C-$1A
-sdm("$08-C_YLW4 lum: $"+hex_str(colour_get_value(C_YLW4))); // $40-$2D
-sdm("$09-C_YGR4 lum: $"+hex_str(colour_get_value(C_YGR4))); // $44-$31
-sdm("$0B-C_GRB4 lum: $"+hex_str(colour_get_value(C_GRB4))); // $3E-$2C
-sdm("$0C-C_CYN4 lum: $"+hex_str(colour_get_value(C_CYN4))); // $5C-$37
-sdm("$2D-C_GRY4 lum: $"+hex_str(colour_get_value(C_GRY4))); // $3E-$3E
-*/
-/*
-$00: color-$747474, value-$74, lum-$74
-$01: color-$8C1824, value-$8C, lum-$23
-$02: color-$A80000, value-$A8, lum-$0C
-$03: color-$9C0044, value-$9C, lum-$1A
-$04: color-$74008C, value-$8C, lum-$26
-$05: color-$1000A8, value-$A8, lum-$25
-$06: color-$0000A4, value-$A4, lum-$23
-$07: color-$00087C, value-$7C, lum-$20
-
-$08: color-$002C40, value-$40, lum-$2D
-$09: color-$004400, value-$44, lum-$31
-$0A: color-$005000, value-$50, lum-$39
-$0B: color-$003E00, value-$3E, lum-$2C
-$0C: color-$5C3C18, value-$5C, lum-$37
-
-
-$10: color-$BCBCBC, value-$BC, lum-$BC
-$11: color-$EC7000, value-$EC, lum-$61
-$12: color-$EC3820, value-$EC, lum-$40
-$13: color-$F00080, value-$F0, lum-$2D
-$14: color-$AD15B8, value-$B8, lum-$43
-$15: color-$5800E4, value-$E4, lum-$37
-$16: color-$0028D8, value-$D8, lum-$4B
-$17: color-$0C4CC8, value-$C8, lum-$62
-
-$18: color-$007088, value-$88, lum-$6D
-$19: color-$009400, value-$94, lum-$6A
-$1A: color-$00A800, value-$A8, lum-$78
-$1B: color-$2A7B00, value-$7B, lum-$5B
-$1C: color-$888000, value-$88, lum-$65
-
-
-$20: color-$F1F2F1, value-$F2, lum-$F2
-$21: color-$FCBC3C, value-$FC, lum-$A5
-$22: color-$FC945C, value-$FC, lum-$90
-$23: color-$FC88CC, value-$FC, lum-$9F
-$24: color-$FC78F4, value-$FC, lum-$9C
-$25: color-$B474FC, value-$FC, lum-$96
-$26: color-$6074FC, value-$FC, lum-$8F
-$27: color-$3898FC, value-$FC, lum-$A6
-
-$28: color-$3CBCF0, value-$F0, lum-$BE
-$29: color-$10D080, value-$D0, lum-$B1
-$2A: color-$48DC4C, value-$DC, lum-$B3
-$2B: color-$70D43A, value-$D4, lum-$AC
-$2C: color-$D8E800, value-$E8, lum-$B6
-$2D: color-$3E3E3E, value-$3E, lum-$3E
-
-
-$30: color-$FCFCFC, value-$FC, lum-$FC
-$31: color-$FCE4A8, value-$FC, lum-$D9
-$32: color-$FCD4C4, value-$FC, lum-$D3
-$33: color-$F1BADC, value-$F1, lum-$C5
-$34: color-$FCC4FC, value-$FC, lum-$D4
-$35: color-$DCB6F1, value-$F1, lum-$C5
-$36: color-$B0BCFC, value-$FC, lum-$C9
-$37: color-$A8D8FC, value-$FC, lum-$DC
-
-$38: color-$7DDAD4, value-$DA, lum-$D2
-$39: color-$A0FCE0, value-$FC, lum-$EF
-$3A: color-$96E8AF, value-$E8, lum-$D6
-$3B: color-$BCE89E, value-$E8, lum-$D5
-$3C: color-$F0FC9C, value-$FC, lum-$E7
-$3D: color-$A7A9A7, value-$A9, lum-$A8
-*/
 
 
 

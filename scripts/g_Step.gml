@@ -22,7 +22,7 @@ global.App_frame_count++;
 
 // --------------------------------------------------------------------
 with(Input) Input_update1(); // Gamepad input checks. gp1,2,3,4, bumpers, triggers, fpb: frame pause buttons, keypressed_prev, keypressed_curr
-with(Input) input_GameTesting_1a();
+with(Input) Input_GameTesting();
 
 
 update_game_window_1a(); // app window scale and positioning

@@ -67,7 +67,7 @@ switch(g.menu_state)
     
     if (g.town_name==STR_Bulblin 
     //if (g.area_name==Area_TownB 
-    && !g.pc.use_disguise )
+    && !g.pc.Disguise_enabled )
     //&& !(f.items&ITM_MASK) )
     {
         MapAreaName = MapAreaName_DEF;

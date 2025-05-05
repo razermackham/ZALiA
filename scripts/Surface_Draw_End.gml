@@ -22,8 +22,8 @@ if (can_update_frame_)
         if (g.MaskWideView 
         &&  g.MaskWideView_w>0 )
         {
-            draw_sprite_(spr_1x1_WHT,0, viewXL(),                 viewYT(), -1, g.MaskWideView_w,viewH(), c_black);
-            draw_sprite_(spr_1x1_WHT,0, viewXR()-g.MaskWideView_w,viewYT(), -1, g.MaskWideView_w,viewH(), c_black);
+            draw_sprite_(spr_1x1_WHT,0, viewXL(),                 viewYT(), -1, g.MaskWideView_w,viewH(), p.C_BLK1);
+            draw_sprite_(spr_1x1_WHT,0, viewXR()-g.MaskWideView_w,viewYT(), -1, g.MaskWideView_w,viewH(), p.C_BLK1);
         }
         
         

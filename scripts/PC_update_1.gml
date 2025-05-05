@@ -519,10 +519,10 @@ if (is_cucco
     var _C1 = Input.dHeld  // down is held
            && !ogr         // is on ground
            &&  cs&$4       // CS_BTM colliding w/ solid
-           && (!use_disguise || global.Halloween1_enabled);
+           && (!Disguise_enabled || global.Halloween1_enabled);
     var _C2 =  cs&$4 
            &&  cs&$8       // Both CS_BTM && CS_TOP colliding w/ solid (Cucco is in 1 tile high space)
-           && (!use_disguise || global.Halloween1_enabled);
+           && (!Disguise_enabled || global.Halloween1_enabled);
     //
     if (_C1 
     ||  _C2 )

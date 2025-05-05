@@ -333,8 +333,8 @@ if (map_anim_idx+1==ds_list_size(dl_map_anim_data))
     {   // PC OW FIGURE -------------------------
         _w = CLMS_MAP_PAPER<<3;
         _h = ROWS_MAP_PAPER<<3;
-        _x = (drawX+8) + (_w>>1);
-        _y = (drawY+8) + (_h>>1) + g.overworld.PC_DRAWY_OFF;
+        _x = (drawX+8) + (_w>>1) + g.overworld.PC_draw_XOFF;
+        _y = (drawY+8) + (_h>>1) + g.overworld.PC_draw_YOFF;
         if (g.use_8x8_ow_menu_map) _y += 1; // micro adjustment
         //if (g.use_8x8_ow_menu_map) _y -= 2; // micro adjustment
         

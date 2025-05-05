@@ -32,8 +32,6 @@ if (mot
 var _i, _idx, _count, _val,_val1,_val2, _num;
 var _clm, _row, _clms, _rows, _pc_clm, _pc_row, _owrc, _ow_clm, _ow_row;
 var _data, _str;
-var _RANDO_TSRC_ACTIVE = global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
-//var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
 
 
 
@@ -82,7 +80,7 @@ if (dest_dist){
 
 var _tsrc = dg_tsrc[#_ow_clm,_ow_row];
 
-if (_RANDO_TSRC_ACTIVE)
+if (RandoTSRC_active)
 {
     _val1 = dm_Rando_TSRC[?hex_str(_tsrc)];
     if(!is_undefined(_val1)) _tsrc = (_val1>>2)<<2;

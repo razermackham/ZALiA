@@ -13,7 +13,7 @@ with(g.pc)
     if (argument_count>_arg && argument[_arg++]>=0) _BEHAVIOR     = argument[_arg-1];
                                                     _BEHAVIOR     = val(dm_skins[?STR_Clm+hex_str(_BEHAVIOR)]);
     //
-    var                                             _USE_DISGUISE = use_disguise;
+    var                                             _USE_DISGUISE = Disguise_enabled;
     if (argument_count>_arg && argument[_arg++]>=0) _USE_DISGUISE = argument[_arg-1];
     
     var                                             _SHIELD_LEVEL = 1 + sign(f.items&ITM_SHLD);
@@ -55,7 +55,7 @@ with(g.pc)
         // Head
         if (_USE_DISGUISE)
         {
-            _val = $5 + (disguise_idx*$5);
+            _val = $5 + (Disguise_Head_idx*$5);
             _sub_image_index = (val(dm_skins[?STR_Row+STR_Body+"02"]) * $10) + _val + _BEHAVIOR;
             draw_sprite_(Skin_image,_sub_image_index, _X,_Y, -1, _X_SCALE,_Y_SCALE, _COLOR,1, _ROTATION);
         }
@@ -97,7 +97,7 @@ with(g.pc)
         
         // Head
         _val = 4;
-        if (_USE_DISGUISE) _val = 5 + disguise_idx;
+        if (_USE_DISGUISE) _val = 5 + Disguise_Head_idx;
         _Sheet_y = _val * Spritesheet_H;
         draw_sprite_part_(Skin_image,0, _Sheet_X,_Sheet_y, Spritesheet_W,Spritesheet_H, _x,_y, -1, _X_SCALE,_Y_SCALE, _COLOR);
         pal_swap_reset();

@@ -294,13 +294,13 @@ if (room==rmB_NextLife
 
 
 
-pc.use_disguise = false;
+pc.Disguise_enabled = false;
 if (_ROOM_A 
 && !is_undefined(town_name) )
 {
     if (town_name==STR_Bulblin)
     {
-        if (f.items&ITM_MASK) pc.use_disguise = true;
+        if (f.items&ITM_MASK) pc.Disguise_enabled = true;
     }
     else if (global.Halloween1_enabled)
     {
@@ -312,7 +312,7 @@ if (_ROOM_A
         ||  town_name==STR_Darunia 
         ||  town_name==STR_New_Kasuto )
         {
-            pc.use_disguise = true;
+            pc.Disguise_enabled = true;
         }
     }
 }
@@ -1493,7 +1493,7 @@ if (_ROOM_A)
 
 
 if (_ROOM_A 
-&&  pc.use_disguise )
+&&  pc.Disguise_enabled )
 {
     for(_i=ds_list_size(g.dl_TILE_DEPTH_NAMES)-1; _i>=0; _i--)
     {
@@ -1504,7 +1504,7 @@ if (_ROOM_A
             if (string_pos(STR_BREAK_,_val) 
             ||  string_pos(STR_BURNABLE,_val) )
             {   // So that pc can stab blocks, burn vines, etc...
-                pc.use_disguise = false;
+                pc.Disguise_enabled = false;
                 break;//_i
             }
         }

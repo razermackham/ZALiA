@@ -11691,6 +11691,8 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\ver_count.gml</script>
+    <script>scripts\Audio_Room_End.gml</script>
     <script>scripts\d_l0__oo__0l_b.gml</script>
     <script>scripts\scr_temp1.gml</script>
     <script>scripts\scr_temp2.gml</script>
@@ -11711,14 +11713,13 @@
       <script>scripts\Input_update2b.gml</script>
       <script>scripts\Input_update2c.gml</script>
       <script>scripts\Input_update2d.gml</script>
-      <script>scripts\input_GameTesting_1a.gml</script>
+      <script>scripts\Input_GameTesting.gml</script>
       <script>scripts\gamepad_set_default.gml</script>
     </scripts>
     <scripts name="sound">
       <scripts name="event">
         <script>scripts\Audio_Create.gml</script>
         <script>scripts\Audio_Room_Start.gml</script>
-        <script>scripts\Audio_Room_End.gml</script>
         <script>scripts\Audio_Game_End.gml</script>
       </scripts>
       <scripts name="sound_combos">
@@ -11786,6 +11787,7 @@
       <script>scripts\Overworld_Step.gml</script>
       <script>scripts\Overworld_enc_spawn_update.gml</script>
       <script>scripts\Overworld_enc_inst_update.gml</script>
+      <script>scripts\Overworld_udp.gml</script>
       <script>scripts\Overworld_Draw.gml</script>
       <script>scripts\Overworld_Game_End.gml</script>
       <script>scripts\Overworld_init_data.gml</script>
@@ -12006,14 +12008,12 @@
         <script>scripts\GO_update_pal_flash.gml</script>
         <script>scripts\GO_pal_qual_lit.gml</script>
         <script>scripts\is_ver.gml</script>
-        <script>scripts\ver_count.gml</script>
         <script>scripts\set_xlyt.gml</script>
         <script>scripts\set_xy.gml</script>
         <script>scripts\set_xy_len_ang.gml</script>
         <script>scripts\updateX.gml</script>
         <script>scripts\updateY.gml</script>
         <script>scripts\updateY2.gml</script>
-        <script>scripts\updateY3.gml</script>
         <script>scripts\pushback_pc.gml</script>
         <script>scripts\pushback_pc_and_go.gml</script>
         <script>scripts\set_go_hspd_pushbback.gml</script>
@@ -12036,7 +12036,7 @@
       <scripts name="goa">
         <script>scripts\PC_end.gml</script>
         <script>scripts\PC_create.gml</script>
-        <script>scripts\GameObjectA_init.gml</script>
+        <script>scripts\PC_init.gml</script>
         <script>scripts\PC_add_skin.gml</script>
         <script>scripts\PC_init_add_spritesheet.gml</script>
         <script>scripts\PC_init_sprite_data.gml</script>

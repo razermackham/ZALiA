@@ -22,8 +22,6 @@ var _dk, _str;
 var _tsrc;
 var _rm_name;
 var _biome;
-var _RANDO_TSRC_ACTIVE = global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
-//var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
 
 var _PC_DIR_SIGN_X = bit_dir(pc_dir&$3);
 var _PC_DIR_SIGN_Y = bit_dir(pc_dir&$C);
@@ -231,7 +229,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
         // -------------------------------------------------------------
         _tsrc  = dg_tsrc[#_pc_clm,_pc_row];
         
-        if (_RANDO_TSRC_ACTIVE)
+        if (RandoTSRC_active)
         {
             _val1 = dm_Rando_TSRC[?hex_str(_tsrc)];
             if(!is_undefined(_val1)) _tsrc = (_val1>>2)<<2;

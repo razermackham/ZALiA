@@ -25,7 +25,7 @@ else if (SpellFlash_PC_timer)
     if (pc_is_cucco()) _pi = dg_PI_SEQ[#$5,_idx];
     else               _pi = dg_PI_SEQ[#$4,_idx];
 }
-else if (g.pc.use_disguise)
+else if (g.pc.Disguise_enabled)
 {
     if (pc_is_cucco()) _pi = global.PI_DISGUISE_CUCCO;
     else               _pi = global.PI_DISGUISE_PC;
@@ -47,7 +47,7 @@ var _color = global.BackgroundColor_scene;
 
 if (g.all_bg_black_only)
 {
-    _color = c_black; // For patreon user Guardian's bg color issue
+    _color = p.C_BLK1; // For patreon user Guardian's bg color issue
 }
 else
 {

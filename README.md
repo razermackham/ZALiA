@@ -35,7 +35,7 @@ When it's time to release the project, or if you would like to include any of th
 1. Download [**files_for_importing_player_skins**](https://drive.google.com/file/d/1zvKcnBdjs-6mfKKPTBxRmiQo6pVYciEb/view?usp=sharing) folder and unzip. It contains all the player skin .gmx files and the .png image files that go with them.
 2. In **GameMaker:Studio** > In the assets tree > In the **Sprites** folder > Right click on the **player_character** folder > Click **Add Existing Sprite**.
 3. In the window that pops up, navigate to the downloaded skins folder > Select the .gmx files of which skins you want (Do not select **spr_PCSkin_KazunobuShimizu_Link01.sprite.gmx** as it's the default skin already in the project)
-4. In **GameMaker:Studio** > In the assets tree > In the **Scripts** folder > In the **game_object** folder > In the **goa** folder > Open the **GameObjectA_init** script > Find the comment `// UNCOMMENT WHICH SKINS YOU WILL USE HERE` > Uncomment which skins you're going to use.
+4. In **GameMaker:Studio** > In the assets tree > In the **Scripts** folder > In the **game_object** folder > In the **goa** folder > Open the **PC_init** script > Find the comment `// UNCOMMENT WHICH SKINS YOU WILL USE HERE` > Uncomment which skins you're going to use.
 
 # Alternate Audio Sets
 The largest files are audio, and there are 9 extra audio sets added by the community. Because this can slow down development time, I have removed most of them until a new release.

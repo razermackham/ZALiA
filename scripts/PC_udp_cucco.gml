@@ -19,7 +19,7 @@ draw_yoff  = 0;
 
 
     Cucco_disguise_sprite = 0;
-if (use_disguise)
+if (Disguise_enabled)
 {
     var _IDX = !(g.counter1&$10);
     Cucco_disguise_sprite = dg_Cucco_DISGUISE_SPRITES[#dg_Cucco_DISGUISE_SPRITES_idx1,_IDX];

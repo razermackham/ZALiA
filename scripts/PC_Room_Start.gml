@@ -60,7 +60,7 @@ for(_i=ds_grid_width(dg_UwU_)-1; _i>=0; _i--)
 
 
 ds_list_shuffle(dl_UwU_); // shuffle behaviors
-if (use_disguise)
+if (Disguise_enabled)
 {
     var _SIZE = ds_list_size(dl_UwU_);
     var _dl1 = ds_list_create();
@@ -101,7 +101,7 @@ state = state_NULL; // 00B5
 Head_sprite = 0;
 Head_xoff   = 0;
 Head_yoff   = 0;
-disguise_idx = irandom(DISGUISE_COUNT-1);
+Disguise_Head_idx = irandom(Disguise_Head_COUNT-1);
 
 Cucco_disguise_sprite = 0;
 dg_Cucco_DISGUISE_SPRITES_idx1 = irandom(ds_grid_width(dg_Cucco_DISGUISE_SPRITES)-1);

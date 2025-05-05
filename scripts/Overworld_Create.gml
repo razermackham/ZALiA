@@ -20,6 +20,15 @@ var _dl_1 = ds_list_create();
 //OVERWORLD_INIT_METHOD = 3;
 OVERWORLD_INIT_METHOD = 2;
 
+
+Pause_ALLOW_BUFFERING = true;
+Pause_FONT   = spr_Font1;
+Pause_TEXT   = "PAUSED!";
+Pause_TEXT_W = sprite_get_width(Pause_FONT) * string_length(Pause_TEXT);
+Pause_xl = 0;
+Pause_yt = 0;
+
+
 can_draw_exits = 1;
 
 
@@ -44,7 +53,15 @@ TSRC_WATER01 = (TILESET2_TS_IDX<<8) | TSRC_WATE01; // deep water
 TSRC_WATER02 = (TILESET2_TS_IDX<<8) | TSRC_WATE02; // shallow water
 
 
-PC_DRAWY_OFF = -2;
+PC_draw_XOFF   = 0;
+PC_draw_YOFF   = -2;
+PC_draw_x_base = 0;
+PC_draw_y_base = 0;
+
+
+// to correct an unintended 1 pixel offset while pc is moving.
+draw_move_offset_x = 0;
+draw_move_offset_y = 0;
 
 
 COLOR_IDX_BG1 = $11;
@@ -213,8 +230,50 @@ flute_timer = 0; // 0566
 
 
 
+// -------------------------------------------------------------
+MEAT_SPRITE    = val(g.dm_ITEM[?hex_str(bitNum(ITM_MEAT))+STR_Sprite], spr_Item_Meat_1a);
+MEAT_DUR       = $100;
+MEAT_timer     = 0;
+MEAT_countdown = 2;
+MEAT_owrc      = $0000;
+MEAT_ow_x      = 0;
+MEAT_ow_y      = 0;
+MEAT_draw_x    = 0;
+MEAT_draw_y    = 0;
 
 
+// -------------------------------------------------------------
+dg_map = ds_grid_create($00,$0A);
+TreasureMaps_Kakusu_sprite = spr_Slime_Small_1a_1;
+TreasureMaps_Kakusu_PI = global.PI_MOB_ORG;
+TreasureMaps_Kakusu_YOFF = -4; // -4: because graphic is aligned to bottom of image
+
+TreasureMaps_Heart_sprite = spr_Heart_1a;
+TreasureMaps_Heart_PI = global.PI_MOB_RED;
+TreasureMaps_Heart_YOFF = 0;
+
+TreasureMaps_Magic_sprite0 = spr_Bottle_6a; // empty bottle
+TreasureMaps_Magic_sprite1 = spr_Bottle_6a_Liquid_1a;
+TreasureMaps_Magic_PI = global.PI_MOB_ORG;
+TreasureMaps_Magic_YOFF = -1;
+
+TreasureMaps_1up_sprite = spr_Item_LifeDoll_1a;
+TreasureMaps_1up_PI = global.PI_PC1;
+TreasureMaps_1up_YOFF = 0;
+
+TreasureMaps_Key_sprite = val(g.dm_ITEM[?STR_KEY+STR_Sprite], spr_0);
+TreasureMaps_Key_PI = global.PI_MOB_ORG;
+TreasureMaps_Key_YOFF = 0;
+
+
+// -------------------------------------------------------------
+Pause_SOUND1 = get_audio_theme_track(dk_ChooseChar);
+Pause_SOUND2 = get_audio_theme_track(dk_CursorFileSelect);
+
+
+
+
+// -------------------------------------------------------------
 // These get set in init_data_overworld() using data from the OW Tiled file.
 dm_data = ds_map_create();
 dm_data[?MK_OWRC_NPAL1]     = 0; // 
@@ -1056,25 +1115,6 @@ dg_enc_obj_id_spawn_data_2[#_idx,3] = g.ENC_FARY; // _idx_obj:  F
 
 
 enc_objs_spawned_count = 0;
-MEAT_SPR   = val(g.dm_ITEM[?hex_str(bitNum(ITM_MEAT))+STR_Sprite], spr_Item_Meat_1a);
-MEAT_DUR   = $100;
-MEAT_timer = 0;
-MEAT_owrc  = $0000;
-MEAT_ow_x  = 0;
-MEAT_ow_y  = 0;
-MEAT_countdown = 2;
-
-
-
-
-
-
-dg_map = ds_grid_create($00,$0A);
-// -------------------------------------------------------------
-
-
-Pause_SOUND1 = get_audio_theme_track(dk_ChooseChar);
-Pause_SOUND2 = get_audio_theme_track(dk_CursorFileSelect);
 
 
 
@@ -1088,10 +1128,9 @@ Pause_SOUND2 = get_audio_theme_track(dk_CursorFileSelect);
 // 4: owrc
 // 5: -
 dm_rando_locations = ds_map_create();
-
-
 dm_Rando_TSRC = ds_map_create();
 //dm_rando_biome = ds_map_create();
+RandoTSRC_active = false;
 
 
 
@@ -1100,10 +1139,7 @@ dm_Rando_TSRC = ds_map_create();
 
 
 
-
-
-
-
+// -------------------------------------------------------------
                          _i=1;
 Warp_state_FLUTE       = _i++;
 Warp_state_SPIN_UP     = _i++;

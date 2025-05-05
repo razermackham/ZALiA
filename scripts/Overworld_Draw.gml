@@ -12,13 +12,10 @@ if(!_C1
 }
 
 
-var _ALLOW_PAUSE_BUFFERING=true;
-var _C2 = _ALLOW_PAUSE_BUFFERING && g.overworld_paused;
-if(!_ALLOW_PAUSE_BUFFERING 
-&&  g.overworld_paused)
+if(!Pause_ALLOW_BUFFERING 
+&&  g.overworld_paused )
 {
-    var _TEXT = "PAUSED!";
-    draw_text_(viewXC()-((string_length(_TEXT)<<3)>>1), viewYC()-4, _TEXT);
+    draw_text_(Pause_xl,Pause_yt, Pause_TEXT, Pause_FONT);
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
@@ -43,9 +40,6 @@ var _spr, _pi, _text, _font_spr;
 
 var _tid, _tsrc, _anim;
 
-//var _ADD_MOVE_OFFSET = true;
-var _ADD_MOVE_OFFSET = false;
-
 //  T_SIZE      is $8 or $10
 // _OFF         is $7 or $F
 //  SHIFT       is  3 or 4
@@ -53,9 +47,6 @@ var _OFF = T_SIZE-1;
 
 var _SIGN_X = sign(move_x);
 var _SIGN_Y = sign(move_y);
-
-var _PC_X = ow_pc_xy(0); // pc view x
-var _PC_Y = ow_pc_xy(1); // pc view y
 
 //  _pcrc   =   pcrc;
 var _pc_clm = ( pcrc>>0)&$FF;
@@ -67,32 +58,17 @@ var _ow_y   = (_pc_row<<SHIFT) + (T_SIZE>>1);
 var _owrc;
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
-/*// *** This has been moved to Overworld_Step because it doesn't need to be in Draw ***
+/*
 if (_C1 
-&& !g.overworld_paused 
-&&  (move_x!=0 || move_y!=0) ) // if movement happened this frame
+&& !g.overworld_paused )
 {
-    tile_layer_shift(Tile_DEPTH1, move_x,move_y);
-    
-    if (g.anarkhyaOverworld_MAIN 
-    &&  g.anarkhyaOverworld_enabled )
-    {
-        tile_layer_shift(anarkhya_TILE_DEPTH1, move_x,move_y);
-        tile_layer_shift(anarkhya_TILE_DEPTH2, move_x,move_y);
+    if (move_x!=0 
+    ||  move_y!=0 )
+    {   // if movement happened this frame
+        Overworld_Draw_debug_1a(); // Output existing tile counts
     }
-    
-    // if lined up with the grid this frame after moving, relative to T_SIZE
-    if!(dest_dist&_OFF) Overworld_refresh_tiles(_ow_x,_ow_y);
 }
 */
-
-
-if (0&&_C1 
-&& !g.overworld_paused 
-&&  (move_x!=0 || move_y!=0) ) // if movement happened this frame
-{
-    Overworld_Draw_debug_1a(); // Output existing tile counts
-}
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
@@ -114,8 +90,9 @@ if (g.room_type=="C"
 
 
 // -------------------------------------------------------------------
+// Indicate dungeon is cleared ---------------------------------
 /*
-if (0&&g.room_type=="C")
+if (g.room_type=="C")
 {
     for(_i=1; _i<=7; _i++)
     {
@@ -125,17 +102,13 @@ if (0&&g.room_type=="C")
             if(!is_undefined(_owrc))
             {
                 _x  = ((_owrc>>0)&$FF) <<SHIFT;
-                _y  = ((_owrc>>8)&$FF) <<SHIFT;
-                _x  = _PC_X + (_x-pc_ow_x);
-                _y  = _PC_Y + (_y-pc_ow_y);
-                if (_ADD_MOVE_OFFSET)
-                {
-                    // This is to adjust an unintended 1 pixel offset while pc is moving.
-                    _x += -move_x;
-                    _y += -move_y;
-                }
-                
+                _x += draw_move_offset_x; // adjust an unintended 1 pixel offset while pc is moving
+                _x  = PC_draw_x_base + (_x-pc_ow_x);
                 //_x  = (_x>>SHIFT)<<SHIFT;
+                
+                _y  = ((_owrc>>8)&$FF) <<SHIFT;
+                _y += draw_move_offset_y; // adjust an unintended 1 pixel offset while pc is moving
+                _y  = PC_draw_y_base + (_y-pc_ow_y);
                 //_y  = (_y>>SHIFT)<<SHIFT;
                 
                 if (rectInView(_x+T_SIZE,_y+T_SIZE, T_SIZE,T_SIZE))
@@ -158,25 +131,17 @@ if (0&&g.room_type=="C")
 // -------------------------------------------------------------------
 if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
 {
-    var _item_id;
-    
-    
     // ITM_MAP1,ITM_MAP2.   Kakusu, HP/MP containers, Life dolls
     // -------------------------------------------------------------------
     for(_i=ds_grid_width(dg_map)-1; _i>=0; _i--)
     {
-        //_item_id   =   dg_map[#_i,$07];
-        _item_type =   dg_map[#_i,$08];
+        _item_type = dg_map[#_i,$08];
         
-        _x  = _PC_X + (dg_map[#_i,$02]-pc_ow_x); // 2: ow x
-        _y  = _PC_Y + (dg_map[#_i,$03]-pc_ow_y); // 3: ow y
+        _x  = PC_draw_x_base + (dg_map[#_i,$02]-pc_ow_x); // 2: ow x
+        _x += draw_move_offset_x; // adjust an unintended 1 pixel offset while pc is moving
         
-        if (_ADD_MOVE_OFFSET)
-        {
-            // This is to adjust an unintended 1 pixel offset while pc is moving.
-            _x += -move_x;
-            _y += -move_y;
-        }
+        _y  = PC_draw_y_base + (dg_map[#_i,$03]-pc_ow_y); // 3: ow y
+        _y += draw_move_offset_y; // adjust an unintended 1 pixel offset while pc is moving
         
         
         if(!rectInView((_x>>SHIFT)<<SHIFT,(_y>>SHIFT)<<SHIFT, T_SIZE,T_SIZE))
@@ -185,59 +150,53 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
         }
         
         
-        _spr  = spr_0;
-        _yoff = 0;
-        _pi   = global.PI_MOB_ORG;
-        
         switch(_item_type)
         {   //-------------------------------------------
+            default:{
+            _spr  = spr_0;
+            _pi   = global.PI_MOB_ORG;
+            _yoff = 0;
+            break;}
+            
+            //-------------------------------------------
             case STR_Kakusu:{
-            if (g.counter1&$10) _spr=spr_Slime_Small_1a_1;
-            else                _spr=spr_Slime_Small_1b_1;
-            _pi = global.PI_MOB_ORG;
-            _yoff = -4; // bc graphic is aligned to bottom of img
+            _spr  = TreasureMaps_Kakusu_sprite;
+            _pi   = TreasureMaps_Kakusu_PI;
+            _yoff = TreasureMaps_Kakusu_YOFF; // because graphic is aligned to bottom of image
             break;}
             
             //-------------------------------------------
             case STR_HEART:{
-                           _val = $28; // timing for beating heart anim
-            if (g.counter0&_val==_val) _spr=spr_Heart_1a;
-            else                       _spr=spr_Heart_1b;
-            _pi = global.PI_MOB_RED;
+            _spr  = TreasureMaps_Heart_sprite;
+            _pi   = TreasureMaps_Heart_PI;
+            _yoff = TreasureMaps_Heart_YOFF;
             break;}
             
             //-------------------------------------------
             case STR_MAGIC:{
-            //sdm("_x $"+hex_str(_x)+" _y $"+hex_str(_y)+", _PC_X $"+hex_str(_PC_X)+" _PC_Y $"+hex_str(_PC_Y)+", dg_map[#_i,$02] $"+hex_str(dg_map[#_i,$02])+" dg_map[#_i,$03] $"+hex_str(dg_map[#_i,$03])+", pc_ow_x $"+hex_str(pc_ow_x)+" pc_ow_y $"+hex_str(pc_ow_y));
-            switch(get_bottle_bubbling_frame()){
-            case 0:{_spr=spr_Bottle_6a_Liquid_1a; break;}
-            case 1:{_spr=spr_Bottle_6a_Liquid_1b; break;}
-            case 2:{_spr=spr_Bottle_6a_Liquid_1c; break;}
-            }
-            _pi = global.PI_MOB_ORG;
-            _yoff = -1;
-            draw_sprite_(_spr,0, _x,_y+_yoff, _pi); // bubbling liquid
-            _spr=spr_Bottle_6a; // empty bottle
+            _spr  = TreasureMaps_Magic_sprite0;
+            _pi   = TreasureMaps_Magic_PI;
+            _yoff = TreasureMaps_Magic_YOFF;
+            draw_sprite_(TreasureMaps_Magic_sprite1,0, _x,_y+_yoff, _pi); // bubbling liquid
             break;}
             
             //-------------------------------------------
             case STR_1UP:{
-            if (g.counter1&$10) _spr=spr_Item_LifeDoll_1a;
-            else                _spr=spr_Item_LifeDoll_1b;
-            _pi = global.PI_PC1;
+            _spr  = TreasureMaps_1up_sprite;
+            _pi   = TreasureMaps_1up_PI;
+            _yoff = TreasureMaps_1up_YOFF;
             break;}
             
             //-------------------------------------------
             case STR_KEY:{
-            _spr = val(g.dm_ITEM[?STR_KEY+STR_Sprite], _spr);
-            _pi = global.PI_MOB_ORG;
+            _spr  = TreasureMaps_Key_sprite;
+            _pi   = TreasureMaps_Key_PI;
+            _yoff = TreasureMaps_Key_YOFF;
             break;}
         }
         
         draw_sprite_(_spr,0, _x,_y+_yoff, _pi);
-    }
-    
-    
+    }//for(_i)
     
     
     
@@ -250,16 +209,7 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
     // -------------------------------------------------------------------
     if (MEAT_timer)
     {
-        _x  = _PC_X + (MEAT_ow_x-pc_ow_x);
-        _y  = _PC_Y + (MEAT_ow_y-pc_ow_y);
-        
-        if (_ADD_MOVE_OFFSET)
-        {
-            // This is to adjust an unintended 1 pixel offset while pc is moving.
-            _x += -move_x;
-            _y += -move_y;
-        }
-        draw_sprite_(MEAT_SPR,0, _x,_y, global.PI_MOB_ORG);
+        draw_sprite_(MEAT_SPRITE,0, MEAT_draw_x,MEAT_draw_y, global.PI_MOB_ORG);
     }
     
     
@@ -275,8 +225,8 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
     if (_DEBUG_ENC){ // debug draw enc trigger hb
         for(_i=ds_grid_width(dg_enc_inst)-1; _i>=0; _i--){
             if(!dg_enc_inst[#_i,0]) continue;
-            _x = _PC_X - (ENC_TRIG_HB_W>>1);
-            _y = _PC_Y - (ENC_TRIG_HB_H>>1);
+            _x = PC_draw_x_base - (ENC_TRIG_HB_W>>1);
+            _y = PC_draw_y_base - (ENC_TRIG_HB_H>>1);
             draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, ENC_TRIG_HB_W,ENC_TRIG_HB_H, c_orange);
             break;//_i
         }
@@ -314,14 +264,14 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
     
     // PC
     // -------------------------------------------------------------------
-    if (pcrc!=Warp_owrc 
+    if (Warp_owrc!=pcrc 
     || !isVal(Warp_state, Warp_state_VANISH,Warp_state_OWRC_CHANGE,Warp_state_APPEAR) )
     {
-        drawX = _PC_X;
-        drawY = _PC_Y;
+        drawX = PC_draw_x_base;
+        drawY = PC_draw_y_base;
         // Calculate this frame's offsets
-        drawX_off = 0;
-        drawY_off = PC_DRAWY_OFF; // PC_DRAWY_OFF = -2
+        drawX_off = PC_draw_XOFF;
+        drawY_off = PC_draw_YOFF; // PC_draw_YOFF = -2
         // Add this frame's offsets
         drawX += drawX_off;
         drawY += drawY_off;
@@ -443,18 +393,14 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
         ||  (Warp_state==Warp_state_APPEAR && Warp_timer<$10) )
         {
             _x  = ((Warp_owrc>>0)&$FF) <<SHIFT;
-            _y  = ((Warp_owrc>>8)&$FF) <<SHIFT;
             _x += T_SIZE>>1;
-            _y += T_SIZE>>1;
-            _x  = _PC_X + (_x-pc_ow_x);
-            _y  = _PC_Y + (_y-pc_ow_y);
+            _x  = PC_draw_x_base + (_x-pc_ow_x);
+            _x += draw_move_offset_x; // adjust an unintended 1 pixel offset while pc is moving
             
-            if (_ADD_MOVE_OFFSET)
-            {
-                // This is to adjust an unintended 1 pixel offset while pc is moving.
-                _x += -move_x;
-                _y += -move_y;
-            }
+            _y  = ((Warp_owrc>>8)&$FF) <<SHIFT;
+            _y += T_SIZE>>1;
+            _y  = PC_draw_y_base + (_y-pc_ow_y);
+            _y += draw_move_offset_y; // adjust an unintended 1 pixel offset while pc is moving
             
             if (_spr)
             {
@@ -492,11 +438,10 @@ if (_C1) // _C1:  g.room_type=="C" && !exit_grid_xy
     
     
     
-    if (_ALLOW_PAUSE_BUFFERING 
+    if (Pause_ALLOW_BUFFERING 
     &&  g.overworld_paused)
     {
-        var _TEXT = "PAUSED!";
-        draw_text_(viewXC()-((string_length(_TEXT)<<3)>>1), viewYC()-4, _TEXT);
+        draw_text_(Pause_xl,Pause_yt, Pause_TEXT, Pause_FONT);
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 }
@@ -530,20 +475,15 @@ if (_C1  // _C1:  g.room_type=="C" && !exit_grid_xy
         {
             for(_i=ds_grid_width(dg_hidden_exits_help)-1; _i>=0; _i--)
             {
-                _clm=dg_hidden_exits_help[#_i,0];
-                _row=dg_hidden_exits_help[#_i,1];
+                _clm = dg_hidden_exits_help[#_i,0];
+                _row = dg_hidden_exits_help[#_i,1];
                 
                 _x  = ow_pc_xy(0) + ((_clm<<4)-pc_ow_x);
-                _y  = ow_pc_xy(1) + ((_row<<4)-pc_ow_y);
-                
-                if (_ADD_MOVE_OFFSET)
-                {
-                    // This is to adjust an unintended 1 pixel offset while pc is moving.
-                    _x += -move_x;
-                    _y += -move_y;
-                }
-                
+                _x += draw_move_offset_x; // adjust an unintended 1 pixel offset while pc is moving
                 _x += 8;
+                
+                _y  = ow_pc_xy(1) + ((_row<<4)-pc_ow_y);
+                _y += draw_move_offset_y; // adjust an unintended 1 pixel offset while pc is moving
                 _y += 8;
                 //if(!_val) sdm("_x $"+hex_str(_x)+", _y $"+hex_str(_y));
                 if (rectInView((_x>>4)<<4,(_y>>4)<<4, T_SIZE,T_SIZE))
@@ -602,16 +542,12 @@ if (_C1  // _C1:  g.room_type=="C" && !exit_grid_xy
             && !is_undefined(_item_id) )
             {
                 _x  = ow_pc_xy(0) + ((byte(_owrc>>0)<<SHIFT)-pc_ow_x);
-                _y  = ow_pc_xy(1) + ((byte(_owrc>>8)<<SHIFT)-pc_ow_y);
+                _x += draw_move_offset_x; // adjust an unintended 1 pixel offset while pc is moving
                 _x += 8;
-                _y += 8;
                 
-                if (_ADD_MOVE_OFFSET)
-                {
-                    // This is to adjust an unintended 1 pixel offset while pc is moving.
-                    _x += -move_x;
-                    _y += -move_y;
-                }
+                _y  = ow_pc_xy(1) + ((byte(_owrc>>8)<<SHIFT)-pc_ow_y);
+                _y += draw_move_offset_y; // adjust an unintended 1 pixel offset while pc is moving
+                _y += 8;
                 
                 if (rectInView((_x>>SHIFT)<<SHIFT,(_y>>SHIFT)<<SHIFT, T_SIZE,T_SIZE))
                 {

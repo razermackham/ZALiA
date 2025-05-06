@@ -14611,7 +14611,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1025">
+  <constants number="1026">
     <constant name="DEV">true</constant>
     <constant name="USE_FRAME_DELAY">1</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
@@ -15635,6 +15635,7 @@
     <constant name="dk_BGR">"_BGR"</constant>
     <constant name="dk_MOB">"_MOB"</constant>
     <constant name="dk_PI">"_PI"</constant>
+    <constant name="dk_can_draw">"_can_draw"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
   </constants>

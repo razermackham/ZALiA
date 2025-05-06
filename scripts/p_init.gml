@@ -523,7 +523,7 @@ dl_COLOR[|++_a] = C_MGN0; // B-255,G-000,R-255.   full magenta
 dl_COLOR[|++_a] = C_CYN0; // B-000,G-255,R-255.   full cyan
 dl_COLOR[|++_a] = C_YLW0; // B-255,G-255,R-000.   full yellow
                                 // 
-dl_COLOR[| $FF] = C_ERR0; // Error, Missing data, ..   full green 
+dl_COLOR[| $FF] = C_ERR0; // Error, Missing data, ..
 
 
 
@@ -533,7 +533,7 @@ dl_COLOR[| $FF] = C_ERR0; // Error, Missing data, ..   full green
 
 
 // *** If the color grid changes, look for code near the bottom of `p_Draw_1()` to automate the following, but make sure `ts_SolidColor01` has been updated
-global.dl_COLOR01 = ds_list_create();
+            global.dl_COLOR01 = ds_list_create();
 // ROW $00                                                              //
 ds_list_add(global.dl_COLOR01,$2B2749); // Hue-$FA,  Sat-$77,  Bright-$2E
 ds_list_add(global.dl_COLOR01,$1000A8); // Hue-$FB,  Sat-$FF,  Bright-$24
@@ -678,16 +678,18 @@ ds_list_add(global.dl_COLOR01,$364FEA); // Hue-$06,  Sat-$C4,  Bright-$6E
 ds_list_add(global.dl_COLOR01,$4A7DF5); // Hue-$0D,  Sat-$B2,  Bright-$92
 ds_list_add(global.dl_COLOR01,$B0CBFD); // Hue-$0F,  Sat-$4E,  Bright-$D3
 // ROW $0D                                                              //
-ds_list_add(global.dl_COLOR01,$080808); // Hue-$00,  Sat-$00,  Bright-$08
-ds_list_add(global.dl_COLOR01,$1A1A1A); // Hue-$00,  Sat-$00,  Bright-$19
-ds_list_add(global.dl_COLOR01,$2B2B2B); // Hue-$00,  Sat-$00,  Bright-$2A
-ds_list_add(global.dl_COLOR01,$3E3E3E); // Hue-$00,  Sat-$00,  Bright-$3E
-ds_list_add(global.dl_COLOR01,$585858); // Hue-$00,  Sat-$00,  Bright-$58
-ds_list_add(global.dl_COLOR01,$747474); // Hue-$00,  Sat-$00,  Bright-$74
-ds_list_add(global.dl_COLOR01,$A8A8A8); // Hue-$00,  Sat-$00,  Bright-$A8
-ds_list_add(global.dl_COLOR01,$D9D9D9); // Hue-$00,  Sat-$00,  Bright-$D9
-ds_list_add(global.dl_COLOR01,$EDEDED); // Hue-$00,  Sat-$00,  Bright-$ED
+ds_list_add(global.dl_COLOR01,$010101); // Hue-$00,  Sat-$00,  Bright-$01. C_BLK1
+ds_list_add(global.dl_COLOR01,$171717); // Hue-$00,  Sat-$00,  Bright-$17
+ds_list_add(global.dl_COLOR01,$2A2A2A); // Hue-$00,  Sat-$00,  Bright-$2A
+ds_list_add(global.dl_COLOR01,$3A3A3A); // Hue-$00,  Sat-$00,  Bright-$3A
+ds_list_add(global.dl_COLOR01,$4C4C4C); // Hue-$00,  Sat-$00,  Bright-$4C
+ds_list_add(global.dl_COLOR01,$646464); // Hue-$00,  Sat-$00,  Bright-$64
+ds_list_add(global.dl_COLOR01,$888888); // Hue-$00,  Sat-$00,  Bright-$88
+ds_list_add(global.dl_COLOR01,$B2B2B2); // Hue-$00,  Sat-$00,  Bright-$B1
+ds_list_add(global.dl_COLOR01,$DCDCDC); // Hue-$00,  Sat-$00,  Bright-$DC
 ds_list_add(global.dl_COLOR01,$FCFCFC); // Hue-$00,  Sat-$00,  Bright-$FB
+// ROW $0E                                                              //
+// ROW $0F                                                              //
 //                                                                      //
 ColorGrid_CLMS = $0A;
 ColorGrid_ROWS = $0E;

@@ -296,13 +296,13 @@ if(!dest_dist
                         }
                         
                         // change destination
-                        _count = ds_grid_width(dg_Warp_DESTINATIONS);
+                        _count = ds_grid_width(Warp_dg_DESTINATIONS);
                         for(_i=0; _i<_count; _i++)
                         {
                             Warp_destination_num++;
                             if (Warp_destination_num>_count) Warp_destination_num=1;
                             
-                            _val = dg_Warp_DESTINATIONS[#Warp_destination_num-1,0];
+                            _val = Warp_dg_DESTINATIONS[#Warp_destination_num-1,0];
                             if (val(f.dm_quests[?STR_Warp+STR_Qualified+_val]))
                             {
                                 break;//_i
@@ -619,8 +619,8 @@ switch(Warp_state)
     case Warp_state_OWRC_CHANGE:{
     g.surf.draw_clear_color = p.C_BLK1;
     if (Warp_timer) break; // solid black screen during this time
-    _idx = clamp(Warp_destination_num-1,0,ds_grid_width(dg_Warp_DESTINATIONS)-1);
-    pcrc = dg_Warp_DESTINATIONS[#_idx,1];
+    _idx = clamp(Warp_destination_num-1,0,ds_grid_width(Warp_dg_DESTINATIONS)-1);
+    pcrc = Warp_dg_DESTINATIONS[#_idx,1];
     var _OW_X  = ((pcrc>>0)&$FF)<<SHIFT;
     var _OW_Y  = ((pcrc>>8)&$FF)<<SHIFT;
         _OW_X += T_SIZE>>1;
@@ -629,10 +629,10 @@ switch(Warp_state)
         _OW_Y -= DRAW_H_;
     Overworld_refresh_tiles(_OW_X,_OW_Y);
     
-    MEAT_timer = 0;
-    MEAT_owrc  = $0000;
-    MEAT_ow_x  = 0;
-    MEAT_ow_y  = 0;
+    BAIT_timer = 0;
+    BAIT_owrc  = $0000;
+    BAIT_ow_x  = 0;
+    BAIT_ow_y  = 0;
     
     // enc_spawn_timer decrements every $14 frames when g.timer_b reaches -1 in update_game_timers()
     enc_spawn_timer     = 8;

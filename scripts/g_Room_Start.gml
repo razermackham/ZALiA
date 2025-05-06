@@ -484,9 +484,9 @@ if (room==rmB_NextLife)
         
         if (coming_from==coming_from_FILE)
         {
-            for(_i=ds_grid_width(overworld.dg_map)-1; _i>=0; _i--)
+            for(_i=ds_grid_width(overworld.TreasureMaps_dg)-1; _i>=0; _i--)
             {   // Mark as NOT acquired. Overworld_Room_Start() will check what has been acquired and update this.
-                overworld.dg_map[#_i,$05]=0;
+                overworld.TreasureMaps_dg[#_i,$05]=0;
             }
         }
         

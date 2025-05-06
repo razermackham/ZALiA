@@ -78,8 +78,8 @@ ds_grid_clear( dg_area, -1);
 ds_grid_resize(dg_AreaNames, OW_CLMS, OW_ROWS);
 ds_grid_clear( dg_AreaNames, MapAreaName_DEF);
 
-ds_grid_resize(dg_hidden_exits_help, 0,ds_grid_height(dg_hidden_exits_help));
-ds_grid_clear (dg_hidden_exits_help, 0);
+ds_grid_resize(HiddenExitIndicator_dg, 0,ds_grid_height(HiddenExitIndicator_dg));
+ds_grid_clear (HiddenExitIndicator_dg, 0);
 
 
 ds_grid_clear(dg_tsrc_def,$0580);
@@ -7297,83 +7297,83 @@ for(_j=0; _j<_count2; _j++) // Each row of tiles
 
 
 
-ds_grid_resize(dg_hidden_exits_help, $18,$02);
-ds_grid_clear (dg_hidden_exits_help, 0);
+ds_grid_resize(HiddenExitIndicator_dg, $18,ds_grid_height(HiddenExitIndicator_dg));
+ds_grid_clear (HiddenExitIndicator_dg, 0);
 
-dg_hidden_exits_help[#$00,$00] = $5E;
-dg_hidden_exits_help[#$00,$01] = $3A;
+HiddenExitIndicator_dg[#$00,$00] = $5E;
+HiddenExitIndicator_dg[#$00,$01] = $3A;
 
-dg_hidden_exits_help[#$01,$00] = $A3;
-dg_hidden_exits_help[#$01,$01] = $46;
+HiddenExitIndicator_dg[#$01,$00] = $A3;
+HiddenExitIndicator_dg[#$01,$01] = $46;
 
-dg_hidden_exits_help[#$02,$00] = $3C;
-dg_hidden_exits_help[#$02,$01] = $49;
+HiddenExitIndicator_dg[#$02,$00] = $3C;
+HiddenExitIndicator_dg[#$02,$01] = $49;
 
-dg_hidden_exits_help[#$03,$00] = $3F;
-dg_hidden_exits_help[#$03,$01] = $56;
+HiddenExitIndicator_dg[#$03,$00] = $3F;
+HiddenExitIndicator_dg[#$03,$01] = $56;
 
-dg_hidden_exits_help[#$04,$00] = $C3;
-dg_hidden_exits_help[#$04,$01] = $5F;
+HiddenExitIndicator_dg[#$04,$00] = $C3;
+HiddenExitIndicator_dg[#$04,$01] = $5F;
 
-dg_hidden_exits_help[#$05,$00] = $D3;
-dg_hidden_exits_help[#$05,$01] = $61;
+HiddenExitIndicator_dg[#$05,$00] = $D3;
+HiddenExitIndicator_dg[#$05,$01] = $61;
 
-dg_hidden_exits_help[#$06,$00] = $8D;
-dg_hidden_exits_help[#$06,$01] = $69;
+HiddenExitIndicator_dg[#$06,$00] = $8D;
+HiddenExitIndicator_dg[#$06,$01] = $69;
 
-dg_hidden_exits_help[#$07,$00] = $3E;
-dg_hidden_exits_help[#$07,$01] = $6A;
+HiddenExitIndicator_dg[#$07,$00] = $3E;
+HiddenExitIndicator_dg[#$07,$01] = $6A;
 
-dg_hidden_exits_help[#$08,$00] = $AA;
-dg_hidden_exits_help[#$08,$01] = $6C;
+HiddenExitIndicator_dg[#$08,$00] = $AA;
+HiddenExitIndicator_dg[#$08,$01] = $6C;
 
-dg_hidden_exits_help[#$09,$00] = $4F;
-dg_hidden_exits_help[#$09,$01] = $6D;
+HiddenExitIndicator_dg[#$09,$00] = $4F;
+HiddenExitIndicator_dg[#$09,$01] = $6D;
 
-dg_hidden_exits_help[#$0A,$00] = $30;
-dg_hidden_exits_help[#$0A,$01] = $6E;
+HiddenExitIndicator_dg[#$0A,$00] = $30;
+HiddenExitIndicator_dg[#$0A,$01] = $6E;
 
-dg_hidden_exits_help[#$0B,$00] = $3D;
-dg_hidden_exits_help[#$0B,$01] = $73;
+HiddenExitIndicator_dg[#$0B,$00] = $3D;
+HiddenExitIndicator_dg[#$0B,$01] = $73;
 
-dg_hidden_exits_help[#$0C,$00] = $AF;
-dg_hidden_exits_help[#$0C,$01] = $81;
+HiddenExitIndicator_dg[#$0C,$00] = $AF;
+HiddenExitIndicator_dg[#$0C,$01] = $81;
 
-dg_hidden_exits_help[#$0D,$00] = $5E;
-dg_hidden_exits_help[#$0D,$01] = $82;
+HiddenExitIndicator_dg[#$0D,$00] = $5E;
+HiddenExitIndicator_dg[#$0D,$01] = $82;
 
-dg_hidden_exits_help[#$0E,$00] = $35;
-dg_hidden_exits_help[#$0E,$01] = $85;
+HiddenExitIndicator_dg[#$0E,$00] = $35;
+HiddenExitIndicator_dg[#$0E,$01] = $85;
 
-dg_hidden_exits_help[#$0F,$00] = $96;
-dg_hidden_exits_help[#$0F,$01] = $89;
-
-
+HiddenExitIndicator_dg[#$0F,$00] = $96;
+HiddenExitIndicator_dg[#$0F,$01] = $89;
 
 
-dg_hidden_exits_help[#$10,$00] = $4E;
-dg_hidden_exits_help[#$10,$01] = $8D;
 
-dg_hidden_exits_help[#$11,$00] = $94;
-dg_hidden_exits_help[#$11,$01] = $91;
 
-dg_hidden_exits_help[#$12,$00] = $B8;
-dg_hidden_exits_help[#$12,$01] = $95;
+HiddenExitIndicator_dg[#$10,$00] = $4E;
+HiddenExitIndicator_dg[#$10,$01] = $8D;
 
-dg_hidden_exits_help[#$13,$00] = $7E;
-dg_hidden_exits_help[#$13,$01] = $9B;
+HiddenExitIndicator_dg[#$11,$00] = $94;
+HiddenExitIndicator_dg[#$11,$01] = $91;
 
-dg_hidden_exits_help[#$14,$00] = $B0;
-dg_hidden_exits_help[#$14,$01] = $9B;
+HiddenExitIndicator_dg[#$12,$00] = $B8;
+HiddenExitIndicator_dg[#$12,$01] = $95;
 
-dg_hidden_exits_help[#$15,$00] = $4F;
-dg_hidden_exits_help[#$15,$01] = $9E;
+HiddenExitIndicator_dg[#$13,$00] = $7E;
+HiddenExitIndicator_dg[#$13,$01] = $9B;
 
-dg_hidden_exits_help[#$16,$00] = $AA;
-dg_hidden_exits_help[#$16,$01] = $A7;
+HiddenExitIndicator_dg[#$14,$00] = $B0;
+HiddenExitIndicator_dg[#$14,$01] = $9B;
 
-dg_hidden_exits_help[#$17,$00] = $48;
-dg_hidden_exits_help[#$17,$01] = $B4;
+HiddenExitIndicator_dg[#$15,$00] = $4F;
+HiddenExitIndicator_dg[#$15,$01] = $9E;
+
+HiddenExitIndicator_dg[#$16,$00] = $AA;
+HiddenExitIndicator_dg[#$16,$01] = $A7;
+
+HiddenExitIndicator_dg[#$17,$00] = $48;
+HiddenExitIndicator_dg[#$17,$01] = $B4;
 
 
 

@@ -109,6 +109,31 @@ if (file_exists(_FILE_NAME))
         
         
         var _START_CONT_HP = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,2];
+        _val="";
+        for(_i=1; _i<=_START_CONT_HP; _i++)
+        {
+            for(_j=1; _j<=f.CONT_PIECE_PER_HP; _j++)
+            {
+                _val += hex_str(_i)+hex_str(_j);
+            }
+        }
+        _dm_save_data[?f.SDNAME_cont_pieces_hp] = _val;
+        _dm_save_data[?STR_File+STR_Start+STR_Container+STR_HP] = _START_CONT_HP;
+        
+        
+        var _START_CONT_MP = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,2];
+        _val="";
+        for(_i=1; _i<=_START_CONT_MP; _i++)
+        {
+            for(_j=1; _j<=f.CONT_PIECE_PER_MP; _j++)
+            {
+                _val += hex_str(_i)+hex_str(_j);
+            }
+        }
+        _dm_save_data[?f.SDNAME_cont_pieces_mp] = _val;
+        _dm_save_data[?STR_File+STR_Start+STR_Container+STR_MP] = _START_CONT_MP;
+        /*
+        var _START_CONT_HP = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,2];
         if (_START_CONT_HP>cont_cnt_hp())
         {
             _val="";
@@ -140,6 +165,7 @@ if (file_exists(_FILE_NAME))
             _dm_save_data[?f.SDNAME_cont_pieces_mp] = _val;
         }
         _dm_save_data[?STR_File+STR_Start+STR_Container+STR_MP] = _START_CONT_MP;
+        */
         
         
         

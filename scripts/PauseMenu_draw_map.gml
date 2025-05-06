@@ -351,29 +351,7 @@ if (map_anim_idx+1==ds_list_size(dl_map_anim_data))
             _idx = val(dm_skins[?STR_Current+STR_Idx]);
             if(!val(dm_skins[?hex_str(_idx)+"_source_is_file"]))
             {
-                switch(PCSkins_SYS_VER)
-                {
-                    case 1:{
-                    draw_sprite_(Skin_image,$60|_frame_index, _x,_y, global.PI_PC1);
-                    break;}
-                    
-                    
-                    
-                    case 2:{
-                    var _dk = val(dm_skins[?hex_str(_idx)+STR_Datakey]);
-                    _dk += STR_Overworld+hex_str(_frame_index);
-                    _w = dm_skins[?_dk+'_w'];
-                    if(!is_undefined(_w))
-                    {
-                        _h   = val(dm_skins[?_dk+'_h']);
-                        _xl2 = val(dm_skins[?_dk+STR_Placed+'_xl']); // relative to spr_PCSkins_Full01
-                        _yt2 = val(dm_skins[?_dk+STR_Placed+'_yt']); // relative to spr_PCSkins_Full01
-                        _xl1 = _x - (_w>>1);
-                        _yt1 = _y - (_h>>1);
-                        draw_sprite_part_(Skin_image,0, _xl2,_yt2, _w,_h, _xl1,_yt1, global.PI_PC1);
-                    }
-                    break;}
-                }
+                draw_sprite_(Skin_image,$60|_frame_index, _x,_y, global.PI_PC1);
             }
             else
             {

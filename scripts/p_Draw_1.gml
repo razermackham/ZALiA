@@ -163,7 +163,6 @@ if (_C1&$4) // On 1st frame after app start
                 }
                 else
                 {
-                    if (PCSkins_SYS_VER==2) continue;//_i
                     draw_sprite_(_sprite,$3F, Spritesheet_W>>1,Spritesheet_H>>1);
                 }
                 

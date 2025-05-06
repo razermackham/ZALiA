@@ -952,6 +952,13 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,2] = f.CONT_MIN_MP; // 2
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,3] = STR_MAGIC;  // 3: text
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,4] = "HOW MANY MAGIC CONTAINERS TO START WITH";
 //                                                          //
+RandoContainerHP_MIN = 1;
+//RandoContainerHP_MIN = f.CONT_MIN_HP;
+RandoContainerHP_MAX = f.CONT_MAX_HP;
+
+RandoContainerMP_MIN = 1;
+//RandoContainerMP_MIN = f.CONT_MIN_MP;
+RandoContainerMP_MAX = f.CONT_MAX_MP;
 
 
 

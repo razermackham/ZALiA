@@ -1,7 +1,7 @@
 /// GameObject_create(XL, YT, object_index, version, *spawn datakey, *palette idx, *dlg datakey)
 
 
-var _i, _val, _count, _len, _pos;
+var _i, _val;
 
 var                     _arg=0;
 var _XL      = argument[_arg++];

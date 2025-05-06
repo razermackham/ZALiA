@@ -102,7 +102,7 @@ switch(Other_cursor)
     
     if (_InputConfirm_pressed2)
     {
-        g.hidden_item_exits_help = !g.hidden_item_exits_help;
+        g.HiddenExitIndicator_enabled = !g.HiddenExitIndicator_enabled;
         save_game_pref();
         aud_play_sound(_SOUND2);
         timer = DURATION1;

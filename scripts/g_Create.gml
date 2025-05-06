@@ -298,7 +298,7 @@ DisplayOWPosOnMap_VER = 0; // 0: ow map will show pcrc as last uncovered(outside
 // For rando, will draw a check on ow tile if item there has been acquired.
 can_mark_acquired_item_locations = 0;
 
-hidden_item_exits_help = 0;
+HiddenExitIndicator_enabled = false;
 
 
 // For users having background tile issues

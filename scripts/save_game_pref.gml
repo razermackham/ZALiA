@@ -37,7 +37,7 @@ _dm_save_data[?STR_Rando+STR_Hint]                      = global.RandoHints_enab
 _dm_save_data[?STR_Rando+STR_Dungeon+STR_Tileset]       = global.RandoDungeonTilesets_enabled;
 _dm_save_data[?STR_Map+STR_Show+STR_Key]                = g.RandoKeys_MAP_items_show_keys;
 _dm_save_data[?STR_Overworld+STR_Mark+STR_Acquired]     = g.can_mark_acquired_item_locations;
-_dm_save_data[?STR_Overworld+STR_Mark+STR_Hidden+STR_Exit] = g.hidden_item_exits_help;
+_dm_save_data[?STR_Overworld+STR_Mark+STR_Hidden+STR_Exit] = g.HiddenExitIndicator_enabled;
 _dm_save_data[?STR_Halloween+"01"]                      = global.Halloween1_enabled;
 
 _dm_save_data[?STR_Input+STR_Preferences]               = json_encode(Input.dm_UserInputConfig);

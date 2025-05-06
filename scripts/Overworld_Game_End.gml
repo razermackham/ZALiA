@@ -193,11 +193,11 @@ if (_exists) _exists =       ds_exists(      dg_AreaNames, ds_type_grid);
 if (_exists)                 ds_grid_destroy(dg_AreaNames);
 if (_exists)                                 dg_AreaNames=undefined;
 
-    _exists = variable_instance_exists(id,  "dg_map");
-if (_exists) _exists =      !is_undefined(   dg_map);
-if (_exists) _exists =       ds_exists(      dg_map, ds_type_grid);
-if (_exists)                 ds_grid_destroy(dg_map);
-if (_exists)                                 dg_map=undefined;
+    _exists = variable_instance_exists(id,  "TreasureMaps_dg");
+if (_exists) _exists =      !is_undefined(   TreasureMaps_dg);
+if (_exists) _exists =       ds_exists(      TreasureMaps_dg, ds_type_grid);
+if (_exists)                 ds_grid_destroy(TreasureMaps_dg);
+if (_exists)                                 TreasureMaps_dg=undefined;
 
     _exists = variable_instance_exists(id,  "dg_ChangeTiles_Boots");
 if (_exists) _exists =      !is_undefined(   dg_ChangeTiles_Boots);
@@ -205,17 +205,17 @@ if (_exists) _exists =       ds_exists(      dg_ChangeTiles_Boots, ds_type_grid)
 if (_exists)                 ds_grid_destroy(dg_ChangeTiles_Boots);
 if (_exists)                                 dg_ChangeTiles_Boots=undefined;
 
-    _exists = variable_instance_exists(id,  "dg_hidden_exits_help");
-if (_exists) _exists =      !is_undefined(   dg_hidden_exits_help);
-if (_exists) _exists =       ds_exists(      dg_hidden_exits_help,ds_type_grid);
-if (_exists)                 ds_grid_destroy(dg_hidden_exits_help);
-if (_exists)                                 dg_hidden_exits_help=undefined;
+    _exists = variable_instance_exists(id,  "HiddenExitIndicator_dg");
+if (_exists) _exists =      !is_undefined(   HiddenExitIndicator_dg);
+if (_exists) _exists =       ds_exists(      HiddenExitIndicator_dg,ds_type_grid);
+if (_exists)                 ds_grid_destroy(HiddenExitIndicator_dg);
+if (_exists)                                 HiddenExitIndicator_dg=undefined;
 
-    _exists = variable_instance_exists(id,  "dg_Warp_DESTINATIONS");
-if (_exists) _exists =      !is_undefined(   dg_Warp_DESTINATIONS);
-if (_exists) _exists =       ds_exists(      dg_Warp_DESTINATIONS,ds_type_grid);
-if (_exists)                 ds_grid_destroy(dg_Warp_DESTINATIONS);
-if (_exists)                                 dg_Warp_DESTINATIONS=undefined;
+    _exists = variable_instance_exists(id,  "Warp_dg_DESTINATIONS");
+if (_exists) _exists =      !is_undefined(   Warp_dg_DESTINATIONS);
+if (_exists) _exists =       ds_exists(      Warp_dg_DESTINATIONS,ds_type_grid);
+if (_exists)                 ds_grid_destroy(Warp_dg_DESTINATIONS);
+if (_exists)                                 Warp_dg_DESTINATIONS=undefined;
 
     _exists = variable_instance_exists(id,  "dg_boulders");
 if (_exists) _exists =      !is_undefined(   dg_boulders);

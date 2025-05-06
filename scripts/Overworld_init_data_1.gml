@@ -251,11 +251,11 @@ if(Z)sdm("ds_grid_resize(dg_AreaNames, OW_CLMS, OW_ROWS);");
 if(Z)sdm("ds_grid_clear( dg_AreaNames, MapAreaName_DEF);");
 
 
-ds_grid_resize(dg_hidden_exits_help, 0,ds_grid_height(dg_hidden_exits_help));
-ds_grid_clear (dg_hidden_exits_help, 0);
+ds_grid_resize(HiddenExitIndicator_dg, 0,ds_grid_height(HiddenExitIndicator_dg));
+ds_grid_clear (HiddenExitIndicator_dg, 0);
 if(Z)repeat($1) sdm("");
-if(Z)sdm("ds_grid_resize(dg_hidden_exits_help, 0,ds_grid_height(dg_hidden_exits_help));");
-if(Z)sdm("ds_grid_clear (dg_hidden_exits_help, 0);");
+if(Z)sdm("ds_grid_resize(HiddenExitIndicator_dg, 0,ds_grid_height(HiddenExitIndicator_dg));");
+if(Z)sdm("ds_grid_clear (HiddenExitIndicator_dg, 0);");
 
 
 
@@ -723,10 +723,10 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             
             if (string_pos("_Hidden_Exits_Help",_layer_name))
             {
-                _idx = ds_grid_width(dg_hidden_exits_help);
-                ds_grid_resize(dg_hidden_exits_help, _idx+1, ds_grid_height(dg_hidden_exits_help));
-                dg_hidden_exits_help[#_idx,0] = _ow_clm;
-                dg_hidden_exits_help[#_idx,1] = _ow_row;
+                _idx = ds_grid_width(HiddenExitIndicator_dg);
+                ds_grid_resize(HiddenExitIndicator_dg, _idx+1, ds_grid_height(HiddenExitIndicator_dg));
+                HiddenExitIndicator_dg[#_idx,0] = _ow_clm;
+                HiddenExitIndicator_dg[#_idx,1] = _ow_row;
                 _dg_hidden_exits_help_started = true;
                 continue;//_j
             }
@@ -1326,21 +1326,22 @@ if(Z)
     
     
     
-    _count1 = ds_grid_width( dg_hidden_exits_help);
-    _count2 = ds_grid_height(dg_hidden_exits_help);
+    _count1 = ds_grid_width( HiddenExitIndicator_dg);
+    _count2 = ds_grid_height(HiddenExitIndicator_dg);
     repeat($8) sdm("");
-    sdm("ds_grid_resize(dg_hidden_exits_help, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
-    sdm("ds_grid_clear (dg_hidden_exits_help, 0);");
+    sdm("ds_grid_resize(HiddenExitIndicator_dg, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
+    sdm("ds_grid_clear (HiddenExitIndicator_dg, 0);");
     repeat($1) sdm("");
     for(_i=0; _i<_count1; _i++)
     {
         _values_were_set = false;
         
-        for(_j=0; _j<_count2; _j++)
+        for(_j=0; _j<2; _j++) // 2: just need ow clm and ow row
+        //for(_j=0; _j<_count2; _j++)
         {
             if (_i && !(_i&$F) && !_j) repeat($3) sdm("");
-            _val = dg_hidden_exits_help[#_i,_j];
-            sdm("dg_hidden_exits_help[#$"+hex_str(_i)+",$"+hex_str(_j)+"] = $"+hex_str(_val)+";");
+            _val = HiddenExitIndicator_dg[#_i,_j];
+            sdm("HiddenExitIndicator_dg[#$"+hex_str(_i)+",$"+hex_str(_j)+"] = $"+hex_str(_val)+";");
             _values_were_set = true;
         }
         if (_values_were_set) repeat($1) sdm("");

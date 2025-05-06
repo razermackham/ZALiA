@@ -38,10 +38,10 @@ var _pc_row  = (pcrc>>8)&$FF;
 var _target_x  = ow_pc_xy(0);
 var _target_y  = ow_pc_xy(1);
 
-if (MEAT_timer)
+if (BAIT_timer)
 {
-    _target_x += MEAT_ow_x-pc_ow_x;
-    _target_y += MEAT_ow_y-pc_ow_y;
+    _target_x += BAIT_ow_x-pc_ow_x;
+    _target_y += BAIT_ow_y-pc_ow_y;
 }
 
 
@@ -105,7 +105,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
                 var _DISTX = abs(_x-_target_x);
                 var _DISTY = abs(_y-_target_y);
                 
-                if (MEAT_timer)
+                if (BAIT_timer)
                 {
                      if (_DISTX >= _DISTY) dg_enc_inst[#_i,3] = sign_(_x<_target_x); // x movement
                      else                  dg_enc_inst[#_i,4] = sign_(_y<_target_y); // y movement
@@ -140,7 +140,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
                 var _DISTX = abs(_x-_target_x);
                 var _DISTY = abs(_y-_target_y);
                 
-                if(!MEAT_timer 
+                if(!BAIT_timer 
                 &&  _DISTX>_DIST 
                 &&  _DISTY>_DIST )
                 {
@@ -320,7 +320,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
 if (1&&_UpdateMovementDir_VER==2 
 &&  _is_new_dir_frame 
 && !_use_rand_count  // if none picked a random movement dir
-&& !MEAT_timer 
+&& !BAIT_timer 
 && !irandom(1) ) // chance to change movement dir to a diff dir
 {
     var _dl_options = ds_list_create();
@@ -384,7 +384,7 @@ if (1&&_UpdateMovementDir_VER==2
             var _DISTX = abs(_x-_target_x);
             var _DISTY = abs(_y-_target_y);
             
-            if (MEAT_tmr)
+            if (BAIT_tmr)
             {
                  if (_DISTX >= _DISTY) dg_enc_inst[#_i,3] = sign_(_x<_target_x); // x movement
                  else                  dg_enc_inst[#_i,4] = sign_(_y<_target_y); // y movement
@@ -427,7 +427,7 @@ if (1&&_UpdateMovementDir_VER==2
             var _DISTX = abs(_x-_target_x);
             var _DISTY = abs(_y-_target_y);
             
-            if (MEAT_tmr)
+            if (BAIT_tmr)
             {
                  if (_DISTX>=_DISTY) dg_enc_inst[#_i,3] = sign_(_x<_target_x); // x movement
                  else                dg_enc_inst[#_i,4] = sign_(_y<_target_y); // y movement
@@ -470,7 +470,7 @@ if (1&&_UpdateMovementDir_VER==2
             var _DISTX = abs(_x-_target_x);
             var _DISTY = abs(_y-_target_y);
             
-            if (MEAT_tmr)
+            if (BAIT_tmr)
             {
                  if (_DISTX>=_DISTY) dg_enc_inst[#_i,3] = sign_(_x<_target_x); // x movement
                  else                dg_enc_inst[#_i,4] = sign_(_y<_target_y); // y movement

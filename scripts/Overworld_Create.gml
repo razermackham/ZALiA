@@ -53,26 +53,12 @@ TSRC_WATER01 = (TILESET2_TS_IDX<<8) | TSRC_WATE01; // deep water
 TSRC_WATER02 = (TILESET2_TS_IDX<<8) | TSRC_WATE02; // shallow water
 
 
-PC_draw_XOFF   = 0;
-PC_draw_YOFF   = -2;
-PC_draw_x_base = 0;
-PC_draw_y_base = 0;
-
-
-// to correct an unintended 1 pixel offset while pc is moving.
 draw_move_offset_x = 0;
 draw_move_offset_y = 0;
 
 
 COLOR_IDX_BG1 = $11;
 color_idx_bg  = 0;
-
-DRAWX_OFF = 0; // default draw XOff
-DRAWY_OFF = 0; // default draw YOff. 
-drawX_off = 0;
-drawY_off = 0;
-drawX     = 0;
-drawY     = 0;
 
 
 
@@ -137,6 +123,7 @@ ROOM_H = DRAW_H;   // what room_height get set to in Overworld_Room_Start()
 
 
 
+
 // ------------------------------------------------
 pcrc       = 0; // current room's overworld grid xy
 pcrc_spawn = pcrc;
@@ -145,6 +132,22 @@ pc_ow_x    = 0;
 pc_ow_y    = 0;
 pc_dir     = $1; // $1,2,4,8
 dest_dist  = 0; // The remaining distance pc will move once movement starts
+
+PC_draw_image_idx = 0;
+PC_draw_XOFF      = 0;
+PC_draw_YOFF      = -2;
+PC_draw_xoff      = PC_draw_XOFF;
+PC_draw_yoff      = PC_draw_YOFF;
+PC_draw_x_base    = 0;
+PC_draw_y_base    = 0;
+PC_draw_x         = 0;
+PC_draw_y         = 0;
+PC_draw_is_sheet  = false;
+PC_draw_sheet_xl  = 0;
+PC_draw_sheet_yt  = 0;
+
+
+
 
 move_SYS = 1;
                  _a=0;
@@ -168,36 +171,10 @@ move_distance = 0.0;
 
 
 
-
-
 exit_grid_xy = 0;
 
 
-/*
-var _ar_pc_spr = 0;
-    _ar_pc_spr[3,1] = spr_OW_Lonk_4b_WRB; // Facing UP.     right-leg frwd
-    _ar_pc_spr[3,0] = spr_OW_Lonk_4a_WRB; // Facing UP.      left-leg frwd
-    _ar_pc_spr[2,1] = spr_OW_Lonk_3b_WRB; // Facing DOWN.   right-leg frwd
-    _ar_pc_spr[2,0] = spr_OW_Lonk_3a_WRB; // Facing DOWN.    left-leg frwd
-    _ar_pc_spr[1,1] = spr_OW_Lonk_2b_WRB; // Facing LEFT.   legs open
-    _ar_pc_spr[1,0] = spr_OW_Lonk_2a_WRB; // Facing LEFT
-    _ar_pc_spr[0,1] = spr_OW_Lonk_1b_WRB; // Facing RIGHT.  legs open
-    _ar_pc_spr[0,0] = spr_OW_Lonk_1a_WRB; // Facing RIGHT
-_clms = array_height_2d(_ar_pc_spr);
-_rows = array_length_2d(_ar_pc_spr, 0);
-dg_pc_spr = ds_grid_create(_clms, max(_rows,3));
-
-for(_i=_clms-1; _i>=0; _i--)
-{
-    for(_j=_rows-1; _j>=0; _j--)
-    {
-        dg_pc_spr[#_i,_j] = _ar_pc_spr[_i,_j];
-    }
-}
-_ar_pc_spr = 0;
-*/
-
-USE_SPRITESHEETS = true;
+PC_can_draw = false;
 pc_sprite_idx = 0;
 //pc_spr = dg_pc_spr[#pc_sprite_idx,0];
 
@@ -215,7 +192,7 @@ pc_x_scale = 1;
 
 
 
-// mot: Mode Of Transportation. 
+// mot: Mode Of Transport. 
            _a=1;
 MOT_WALK = _a++;
 MOT_RAFT = _a++;
@@ -224,26 +201,29 @@ mot      =  0; // 0: not moving
 pc_step_counter = 0;
 
 
-FLUTE_DUR   = $88 + $8; // This is, at worst, an approximation
-flute_timer = 0; // 0566
+FLUTE_DURATION1 = $88 + $8; // This is, at worst, an approximation
+flute_timer     = 0; // 0566
 
 
 
 
 // -------------------------------------------------------------
-MEAT_SPRITE    = val(g.dm_ITEM[?hex_str(bitNum(ITM_MEAT))+STR_Sprite], spr_Item_Meat_1a);
-MEAT_DUR       = $100;
-MEAT_timer     = 0;
-MEAT_countdown = 2;
-MEAT_owrc      = $0000;
-MEAT_ow_x      = 0;
-MEAT_ow_y      = 0;
-MEAT_draw_x    = 0;
-MEAT_draw_y    = 0;
+BAIT_can_draw  = false;
+BAIT_SPRITE    = val(g.dm_ITEM[?hex_str(bitNum(ITM_MEAT))+STR_Sprite], spr_Item_Meat_1a);
+BAIT_DURATION1 = $100;
+BAIT_timer     = 0;
+BAIT_countdown = 2;
+BAIT_owrc      = $0000;
+BAIT_ow_x      = 0;
+BAIT_ow_y      = 0;
+BAIT_draw_x    = 0;
+BAIT_draw_y    = 0;
 
 
 // -------------------------------------------------------------
-dg_map = ds_grid_create($00,$0A);
+TreasureMaps_dg = ds_grid_create($0,$E);
+TreasureMaps_can_draw = false;
+
 TreasureMaps_Kakusu_sprite = spr_Slime_Small_1a_1;
 TreasureMaps_Kakusu_PI = global.PI_MOB_ORG;
 TreasureMaps_Kakusu_YOFF = -4; // -4: because graphic is aligned to bottom of image
@@ -384,6 +364,8 @@ var _tsrc, _tsrc_count;
 var _area, _biome;
 var _TS1_DATA = TILESET1_TS_IDX<<8;
 var _TS2_DATA = TILESET2_TS_IDX<<8;
+
+Encounters_can_draw = false;
 
 dm_enc                     = ds_map_create();
 dl_biome_enc               = ds_list_create();
@@ -884,14 +866,23 @@ ENC_PAL = build_pal(p.C_WHT1,p.C_BLK1,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
 
 
 
+
+// -------------------------------------------------------------------------
 dg_AreaNames_DEF = ds_grid_create(0,0);
 dg_AreaNames     = ds_grid_create(0,0);
 
 
-dg_hidden_exits_help = ds_grid_create(0,2);
-hidden_exits_help_xoff=0;
-hidden_exits_help_yoff=0;
-hidden_exits_help_counter=0;
+
+
+// -------------------------------------------------------------------------
+HiddenExitIndicator_dg       = ds_grid_create($0,$5);
+HiddenExitIndicator_counter  = 0;
+HiddenExitIndicator_can_draw = false;
+HiddenExitIndicator_sprite   = 0;
+HiddenExitIndicator_xoff     = 0;
+HiddenExitIndicator_yoff     = 0;
+HiddenExitIndicator_xscale   = 1;
+HiddenExitIndicator_yscale   = 1;
 
 
 
@@ -915,6 +906,7 @@ Overworld_init_data();
 // Draw indicator on walkable water tiles that are always deep water graphic.
 // BTI: Boots Tile Indicator
 BootsTileIndicator_VER = 2;
+BootsTileIndicator_can_draw = false;
 
 WaterSparkle_CUE1       = $08;
 WaterSparkle_DURATION1  = $20;
@@ -1132,6 +1124,11 @@ dm_Rando_TSRC = ds_map_create();
 //dm_rando_biome = ds_map_create();
 RandoTSRC_active = false;
 
+ItemAcquiredIndicator_can_draw = false;
+ItemAcquiredIndicator_FONT     = spr_Font3_1;
+ItemAcquiredIndicator_FONT_W   = sprite_get_width( ItemAcquiredIndicator_FONT);
+ItemAcquiredIndicator_FONT_H   = sprite_get_height(ItemAcquiredIndicator_FONT);
+
 
 
 
@@ -1149,10 +1146,11 @@ Warp_state_APPEAR      = _i++;
 Warp_state_SPIN_DOWN   = _i++;
 Warp_state             = 0;
 
-Warp_is_warping = false;
 Warp_FLUTE_THEME = STR_Warp+STR_Flute;
 //Warp_FLUTE_THEME = dk_MagicalKeyHouse;
 //Warp_FLUTE_THEME = "_Jingle"+"01";
+
+Warp_is_warping = false;
 
 Warp_DURATION1 = $70;
 Warp_DURATION2 = $40;
@@ -1167,65 +1165,83 @@ Warp_yoff = 0;
 Warp_speed     = 0;
 Warp_speed_MAX = 7;
 
-Warp_destination_num = 0;
+Warp_can_draw = false;
+Warp_sprite   = 0;
+Warp_pi       = global.PI_MOB_ORG;
+Warp_xscale   = 1;
+Warp_yscale   = 1;
+Warp_draw_x   = 0;
+Warp_draw_y   = 0;
+
+
+Warp_destination_num = 1;
 _i=0;
 var _GRID_HEIGHT = 3;
-dg_Warp_DESTINATIONS=ds_grid_create(_i,  _GRID_HEIGHT);
+Warp_dg_DESTINATIONS=ds_grid_create(_i,  _GRID_HEIGHT);
 //                                              //
-ds_grid_resize(dg_Warp_DESTINATIONS,_i+1,_GRID_HEIGHT);
-dg_Warp_DESTINATIONS[#_i,0] = STR_Rauru;
-dg_Warp_DESTINATIONS[#_i,1] = g.OWRC_TOWN_RAUR1;
-dg_Warp_DESTINATIONS[#_i,2] = MapAreaName_RAURU;
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+Warp_dg_DESTINATIONS[#_i,0] = STR_Rauru;
+Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_RAUR1;
+Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_RAURU;
 _i++;
 //                                              //
-ds_grid_resize(dg_Warp_DESTINATIONS,_i+1,_GRID_HEIGHT);
-dg_Warp_DESTINATIONS[#_i,0] = STR_Ruto;
-dg_Warp_DESTINATIONS[#_i,1] = g.OWRC_TOWN_RUTO1;
-dg_Warp_DESTINATIONS[#_i,2] = MapAreaName_RUTO;
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+Warp_dg_DESTINATIONS[#_i,0] = STR_Ruto;
+Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_RUTO1;
+Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_RUTO;
 _i++;
 //                                              //
-ds_grid_resize(dg_Warp_DESTINATIONS,_i+1,_GRID_HEIGHT);
-dg_Warp_DESTINATIONS[#_i,0] = STR_Saria;
-dg_Warp_DESTINATIONS[#_i,1] = g.OWRC_TOWN_SARI1;
-dg_Warp_DESTINATIONS[#_i,2] = MapAreaName_SARIA;
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+Warp_dg_DESTINATIONS[#_i,0] = STR_Saria;
+Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_SARI1;
+Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_SARIA;
 _i++;
 //                                              //
-ds_grid_resize(dg_Warp_DESTINATIONS,_i+1,_GRID_HEIGHT);
-dg_Warp_DESTINATIONS[#_i,0] = STR_Mido;
-dg_Warp_DESTINATIONS[#_i,1] = g.OWRC_TOWN_MIDO1;
-dg_Warp_DESTINATIONS[#_i,2] = MapAreaName_MIDO;
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+Warp_dg_DESTINATIONS[#_i,0] = STR_Mido;
+Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_MIDO1;
+Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_MIDO;
 _i++;
 //                                              //
-ds_grid_resize(dg_Warp_DESTINATIONS,_i+1,_GRID_HEIGHT);
-dg_Warp_DESTINATIONS[#_i,0] = STR_Nabooru;
-dg_Warp_DESTINATIONS[#_i,1] = g.OWRC_TOWN_NABO1;
-dg_Warp_DESTINATIONS[#_i,2] = MapAreaName_NABOORU;
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+Warp_dg_DESTINATIONS[#_i,0] = STR_Nabooru;
+Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_NABO1;
+Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_NABOORU;
 _i++;
 //                                              //
-ds_grid_resize(dg_Warp_DESTINATIONS,_i+1,_GRID_HEIGHT);
-dg_Warp_DESTINATIONS[#_i,0] = STR_Darunia;
-dg_Warp_DESTINATIONS[#_i,1] = g.OWRC_TOWN_DARU1;
-dg_Warp_DESTINATIONS[#_i,2] = MapAreaName_DARUNIA;
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+Warp_dg_DESTINATIONS[#_i,0] = STR_Darunia;
+Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_DARU1;
+Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_DARUNIA;
 _i++;
 //                                              //
-ds_grid_resize(dg_Warp_DESTINATIONS,_i+1,_GRID_HEIGHT);
-dg_Warp_DESTINATIONS[#_i,0] = STR_New_Kasuto;
-dg_Warp_DESTINATIONS[#_i,1] = g.OWRC_TOWN_NEWK1;
-dg_Warp_DESTINATIONS[#_i,2] = MapAreaName_NEW_KASUTO;
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+Warp_dg_DESTINATIONS[#_i,0] = STR_New_Kasuto;
+Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_NEWK1;
+Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_NEW_KASUTO;
 _i++;
 //                                              //
-ds_grid_resize(dg_Warp_DESTINATIONS,_i+1,_GRID_HEIGHT);
-dg_Warp_DESTINATIONS[#_i,0] = STR_Old_Kasuto;
-dg_Warp_DESTINATIONS[#_i,1] = g.OWRC_TOWN_OLDK1;
-dg_Warp_DESTINATIONS[#_i,2] = MapAreaName_KASUTO;
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+Warp_dg_DESTINATIONS[#_i,0] = STR_Old_Kasuto;
+Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_OLDK1;
+Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_KASUTO;
 _i++;
 //                                              //
-ds_grid_resize(dg_Warp_DESTINATIONS,_i+1,_GRID_HEIGHT);
-dg_Warp_DESTINATIONS[#_i,0] = STR_Bulblin;
-dg_Warp_DESTINATIONS[#_i,1] = g.OWRC_TOWN_BULB1;
-dg_Warp_DESTINATIONS[#_i,2] = MapAreaName_BULBLIN;
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+Warp_dg_DESTINATIONS[#_i,0] = STR_Bulblin;
+Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_BULB1;
+Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_BULBLIN;
 _i++;
 //                                              //
+
+
+WarpText_can_draw = false;
+WarpText_FONT     = spr_Font1;
+WarpText_FONT_W   = sprite_get_width( WarpText_FONT);
+WarpText_FONT_H   = sprite_get_height(WarpText_FONT);
+WarpText_text     = Warp_dg_DESTINATIONS[#Warp_destination_num-1,2];
+WarpText_draw_xl  = 0;
+WarpText_draw_yt  = 0;
 
 
 

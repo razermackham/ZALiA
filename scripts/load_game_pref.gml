@@ -118,7 +118,7 @@ _val = _dm_FILE_DATA[?STR_Overworld+STR_Mark+STR_Acquired];
 if(!is_undefined(_val)) g.can_mark_acquired_item_locations = _val;
 
 _val = _dm_FILE_DATA[?STR_Overworld+STR_Mark+STR_Hidden+STR_Exit];
-if(!is_undefined(_val)) g.hidden_item_exits_help = _val;
+if(!is_undefined(_val)) g.HiddenExitIndicator_enabled = _val;
 
 
 _val = _dm_FILE_DATA[?STR_PC+STR_Sprite+STR_Set];

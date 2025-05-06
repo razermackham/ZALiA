@@ -45,7 +45,7 @@ switch(RandoOTHER_ITEMS_cursor)
     if (InputConfirm_pressed 
     ||  Input.pressedV )
     {
-        var _DIR = sign_(!input_up_pressed);
+        var _DIR = sign_(input_up_pressed);
         
         switch(RandoOTHER_ITEMS_item_cursor)
         {
@@ -57,23 +57,22 @@ switch(RandoOTHER_ITEMS_cursor)
             case RandoOTHER_ITEMS_item_cursor_DOLLS:{
             var _MAX = 3 + (dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_QUEST,2]==1);
             _val = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_DOLLS,2];
-            _val = (_val+_DIR+(_MAX+1)) mod (_MAX+1);
+            _val = clamp(_val+_DIR, 0,_MAX);
+            //_val = (_val+_DIR+(_MAX+1)) mod (_MAX+1);
             dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_DOLLS,2] = _val;
             aud_play_sound(Audio.SND_TYPE_CHR2);
             break;}
             
             case RandoOTHER_ITEMS_item_cursor_HEART:{
             _val = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,2];
-            _val = (_val+_DIR+f.CONT_MAX_HP) mod f.CONT_MAX_HP;
-            _val =  clamp(_val, f.CONT_MIN_HP,f.CONT_MAX_HP);
+            _val = clamp(_val+_DIR, RandoContainerHP_MIN,RandoContainerHP_MAX);
             dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,2] = _val;
             aud_play_sound(Audio.SND_TYPE_CHR2);
             break;}
             
             case RandoOTHER_ITEMS_item_cursor_MAGIC:{
             _val = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,2];
-            _val = (_val+_DIR+f.CONT_MAX_MP) mod f.CONT_MAX_MP;
-            _val =  clamp(_val, f.CONT_MIN_MP,f.CONT_MAX_MP);
+            _val = clamp(_val+_DIR, RandoContainerMP_MIN,RandoContainerMP_MAX);
             dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,2] = _val;
             aud_play_sound(Audio.SND_TYPE_CHR2);
             break;}

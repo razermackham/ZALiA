@@ -13,8 +13,8 @@ if (flute_timer) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
-if (MEAT_timer)
-{   MEAT_timer--;  }
+if (BAIT_timer)
+{   BAIT_timer--;  }
 
 
 
@@ -208,9 +208,9 @@ for(_i=0; _i<_count; _i++)
         
         if (_enemy_spawned 
         &&  f.items&ITM_MEAT 
-        && !MEAT_timer 
-        &&  MEAT_countdown )
-        {   MEAT_countdown--;  }
+        && !BAIT_timer 
+        &&  BAIT_countdown )
+        {   BAIT_countdown--;  }
     }
     
     
@@ -218,8 +218,8 @@ for(_i=0; _i<_count; _i++)
     
     if (_enemy_spawned 
     &&  f.items&ITM_MEAT 
-    && !MEAT_timer 
-    && !MEAT_countdown 
+    && !BAIT_timer 
+    && !BAIT_countdown 
     && (!mot || mot==MOT_WALK) )
     //&&  enc_objs_spawned_count >= 2+(!!irandom(2)) 
     //&&  enc_objs_spawned_count >= 2+(!!irandom(2))+(!irandom(2)) 
@@ -228,21 +228,21 @@ for(_i=0; _i<_count; _i++)
     //&&  mot==MOT_WALK )
     {
         //enc_objs_spawned_count = 0;
-        MEAT_countdown = 3;
-        if(!irandom($3)) MEAT_countdown += sign_(!irandom($1));
-        //MEAT_countdown = 2 + irandom($1); // 2-3
-        MEAT_timer     = MEAT_DUR;
+        BAIT_countdown = 3;
+        if(!irandom($3)) BAIT_countdown += sign_(!irandom($1));
+        //BAIT_countdown = 2 + irandom($1); // 2-3
+        BAIT_timer     = BAIT_DURATION1;
         
-        MEAT_owrc  = pcrc;
+        BAIT_owrc  = pcrc;
         // Place the MEAT 1 tile behind PC so enemy can discern what 
         // side of the PC to spawn on to get to the MEAT.
-        MEAT_owrc += (abs(bit_dir(pc_dir&$3))<<0) * -bit_dir(pc_dir&$3);
-        MEAT_owrc += (abs(bit_dir(pc_dir&$C))<<8) * -bit_dir(pc_dir&$C);
+        BAIT_owrc += (abs(bit_dir(pc_dir&$3))<<0) * -bit_dir(pc_dir&$3);
+        BAIT_owrc += (abs(bit_dir(pc_dir&$C))<<8) * -bit_dir(pc_dir&$C);
         
-        MEAT_ow_x  = ((MEAT_owrc>>0)&$FF) <<SHIFT;
-        MEAT_ow_y  = ((MEAT_owrc>>8)&$FF) <<SHIFT;
-        MEAT_ow_x += T_SIZE>>1;
-        MEAT_ow_y += T_SIZE>>1;
+        BAIT_ow_x  = ((BAIT_owrc>>0)&$FF) <<SHIFT;
+        BAIT_ow_y  = ((BAIT_owrc>>8)&$FF) <<SHIFT;
+        BAIT_ow_x += T_SIZE>>1;
+        BAIT_ow_y += T_SIZE>>1;
     }
     
     
@@ -261,11 +261,11 @@ for(_i=0; _i<_count; _i++)
     _val *= sign_(_idx_xy&$2); // +/-($20,40)
     
     
-    if (MEAT_timer 
+    if (BAIT_timer 
     &&  isVal(dg_enc_inst[#_i,0], g.ENC_WEAK,g.ENC_STRG) ) // Only hostile type
     {   // Spawn on whatever side of PC the meat is on.
-        if (_idx_xy&$1) _val = abs(_val) * sign_(MEAT_ow_x-pc_ow_x);
-        else            _val = abs(_val) * sign_(MEAT_ow_y-pc_ow_y);
+        if (_idx_xy&$1) _val = abs(_val) * sign_(BAIT_ow_x-pc_ow_x);
+        else            _val = abs(_val) * sign_(BAIT_ow_y-pc_ow_y);
     }
     
     

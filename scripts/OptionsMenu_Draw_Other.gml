@@ -92,10 +92,10 @@ for(_i=0; _i<_COUNT0; _i++)
         
         // --------------------------------------------------------------------
         case Other_HIDDEN_OW_EXITS:{
-        _text = val(dm_options[?_dk+hex_str(g.hidden_item_exits_help)   +STR_Text],_STR_UNDEFINED);
-             if (_i==Other_cursor)         _pi = PI_MENU1;
-        else if(!g.hidden_item_exits_help) _pi = PI_DARK1;
-        else                               _pi = PI_MENU2;
+        _text = val(dm_options[?_dk+hex_str(g.HiddenExitIndicator_enabled)+STR_Text],_STR_UNDEFINED);
+             if (_i==Other_cursor)              _pi = PI_MENU1;
+        else if(!g.HiddenExitIndicator_enabled) _pi = PI_DARK1;
+        else                                    _pi = PI_MENU2;
         break;}
         
         // --------------------------------------------------------------------

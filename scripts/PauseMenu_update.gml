@@ -24,7 +24,7 @@ switch(g.menu_state)
     
     // A31C
     g._074F = $C0;
-    LifeDoll_count          = get_life_doll_count();
+    LifeDolls_count         = get_life_doll_count();
     ContainerPiece_count_hp = cont_piece_cnt_hp();
     ContainerPiece_count_mp = cont_piece_cnt_mp();
     
@@ -141,11 +141,12 @@ switch(g.menu_state)
     var                      _count = ANIM_FRAMES_DEF; // Going to spell or item
     if (state&$3==state_MAP) _count = ANIM_FRAMES_MAP; // Going to Map
     
-    var _C1 = Input.GP_Other6_pressed; // testing. slow down animation
+    var _C1 = true;
+        //_C1 = Input.GP_Other6_pressed; // for testing. animation advances only 1 frame with button press
     if (_C1)
     {
-        g.menu_built_count += (g.menu_built_count<_count);
-        g.menu_built_count -= (g.menu_built_count>_count);
+        g.menu_built_count += g.menu_built_count<_count;
+        g.menu_built_count -= g.menu_built_count>_count;
     }
     
     PauseMenu_udp();

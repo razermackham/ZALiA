@@ -18,15 +18,17 @@ if(!canDrawSections)
 
 // ----------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------
-var _xl,_yt, _xl1, _w,_w0;
+//var _xl,_yt, _xl1, _w;
 
 
 
 
 // ----------------------------------------------------------------------------------
 // Draw bg color of menu
-draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, Window_w,Window_h, global.BackgroundColor_scene);
+if (WindowBackground_can_draw)
+{
+    draw_sprite_(spr_1x1_WHT,0, WindowBackground_xl,WindowBackground_yt, -1, WindowBackground_w,WindowBackground_h, WindowBackground_color,WindowBackground_alpha);
+}
 
 
 
@@ -36,41 +38,20 @@ draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, Window_w,Window_h, global.Backgroun
 PauseMenu_Draw_1(); // create surfaces
 
 pal_swap_set(p.palette_image, PI_MENU1);
-_yt = drawY;
-if (Window_extra_draw_clms) _w0 = MenuFrameSeparator1_W; // spell/item: frame left clm. map: area-name/menu-navigation separator. 1st clm of `Window_xl0`
-else                        _w0 = $0;
 switch(Window_draw_data_state){
-case state_SPELL:{_w=MenuFrame_srf_SPELL_W; break;}
-case state_ITEM: {_w=MenuFrame_srf_ITEM_W;  break;}
-case state_MAP:  {_w=MenuFrame_srf_MAP_W;   break;}
-}
-_xl1  = _w - Window_W0; // `Window_xl0` within the surface
-_xl1 += _w0;
-_w -= _w0;
-_xl = Window_xl0 + _w0;
-switch(Window_draw_data_state){
-case state_SPELL:{draw_surface_part(MenuFrame_srf_SPELL, _xl1,0, _w,Window_h, _xl,_yt); break;}
-case state_ITEM: {draw_surface_part(MenuFrame_srf_ITEM,  _xl1,0, _w,Window_h, _xl,_yt); break;}
-case state_MAP:  {draw_surface_part(MenuFrame_srf_MAP,   _xl1,0, _w,Window_h, _xl,_yt); break;}
+case state_SPELL:{draw_surface_part(MenuFrame_srf_SPELL, MenuFrameMain_srf_xl,0, MenuFrameMain_w,Window_h, MenuFrameMain_xl,MenuFrameMain_yt); break;}
+case state_ITEM: {draw_surface_part(MenuFrame_srf_ITEM,  MenuFrameMain_srf_xl,0, MenuFrameMain_w,Window_h, MenuFrameMain_xl,MenuFrameMain_yt); break;}
+case state_MAP:  {draw_surface_part(MenuFrame_srf_MAP,   MenuFrameMain_srf_xl,0, MenuFrameMain_w,Window_h, MenuFrameMain_xl,MenuFrameMain_yt); break;}
 }
 
 if (Window_extra_draw_clms)
 {   // For clms extending left beyond spell/item window
-    _w  = $1; // left border
-    _w += Window_filler_clms;
-    _w += $1; // ? adj
-    _w  = _w<<3;
-    _xl1 = 0;
-    _xl = drawX;
-    draw_surface_part(MenuFrame_srf_MAP, _xl1,0, _w,Window_h, _xl,_yt);
+    draw_surface_part(MenuFrame_srf_MAP, 0,0, Window_extra_draw_clms_w,Window_h, drawX,MenuFrameMain_yt);
 }
 
-if (_w0)
+if (MenuFrameSeparator1_can_draw)
 {   // draw map area-name/menu-nav separator
-    _w   = MenuFrameSeparator1_W;
-    _xl1 = MenuFrameSeparator1_SURF_XL;
-    _xl  = Window_xl0;
-    draw_surface_part(MenuFrame_srf_MAP, _xl1,0, _w,Window_h, _xl,_yt);
+    draw_surface_part(MenuFrame_srf_MAP, MenuFrameSeparator1_SURF_XL,0, MenuFrameSeparator1_W,Window_h, Window_xl0,MenuFrameMain_yt);
 }
 pal_swap_reset();
 
@@ -111,10 +92,7 @@ if (MenuNav_can_draw)
 
 // ----------------------------------------------------------------------------------
 //  AREA NAME  -------------------------------------------------------------------
-if (AreaName_can_draw)
-{
-    draw_text_(AreaName_xl,AreaName_yt, AreaName_text);
-}
+if (AreaName_can_draw) draw_text_(AreaName_xl,AreaName_yt, AreaName_text);
 pal_swap_reset();
 
 
@@ -124,7 +102,6 @@ pal_swap_reset();
 
 
 
-// ----------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------
 canDrawSections = 0;

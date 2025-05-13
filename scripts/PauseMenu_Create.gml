@@ -3,11 +3,6 @@
 if (DEV) sdm(" PauseMenu_Create()");
 
 
-mapDelay1 = 1; // dev/testing
-mapDelay1_state_Backup = 0;
-mapDelay1_state_dir_Backup = 0;
-
-
 var _i, _a, _val, _count;
 var _x,_x1,_x2, _y,_y1,_y2,_y3;
 var _clm,_row, _clms,_rows;
@@ -16,6 +11,13 @@ var _spr;
 var _str, _data;
 var _dk;
 
+
+mapDelay1 = 1; // dev/testing
+mapDelay1_state_Backup = 0;
+mapDelay1_state_dir_Backup = 0;
+
+
+POSITIONING_VER = 2;
 
 PI_MENU1 = global.PI_GUI1;
 
@@ -104,8 +106,22 @@ Window_w   = 0;
 Window_h   = 0;
 Window_vertical_draw_section_count = 0;
 Window_extra_draw_clms = 0;
+Window_extra_draw_clms_w = 0;
 Window_filler_clms = 0;
 Window_draw_data_state = 0;
+
+
+
+
+WindowBackground_can_draw = false;
+WindowBackground_COLOR1 = p.C_BLK1;
+WindowBackground_color  = global.BackgroundColor_scene;
+WindowBackground_ALPHA1 = 1;
+WindowBackground_alpha  = 1;
+WindowBackground_w  = 0;
+WindowBackground_h  = 0;
+WindowBackground_xl = 0;
+WindowBackground_yt = 0;
 
 
 
@@ -158,6 +174,13 @@ COLOR_PAPER = p.C_YLW2; // CI_YLW2 = $28
 
 
 
+
+
+
+
+
+Icons_can_draw = false;
+
 SPR_ICON_KEY = spr_Key_icon;
 SPR_ICON_SPL = spr_menu_bottle_icon;
 SPR_ICON_ITM = SPR_ICON_KEY;
@@ -167,10 +190,15 @@ SPR_ICON_KSU = spr_kakusu_icon_1a;
 //SPR_ICON_KSU = spr_Demon_icon;
 
 
+switch(POSITIONING_VER){
+case 1:{Icons_Y=$7C; Icons_PAD=$C; break;}
+case 2:{Icons_Y=$78; Icons_PAD=$E; break;}
+}
+Icons_x = 0;
+Icons_y = 0;
 
 
-
-dg_icons1 = ds_grid_create(0,5);
+dg_icons1 = ds_grid_create(0,7);
 _i = -1;
 ds_grid_resize(dg_icons1, (++_i)+1, ds_grid_height(dg_icons1));
 dg_icons1[#_i,0] = SPR_ICON_PC1;
@@ -178,6 +206,8 @@ dg_icons1[#_i,1] = g.CHAR_TIMES + "X";
 dg_icons1[#_i,2] =  0; // xoff
 dg_icons1[#_i,3] =  0; // yoff
 dg_icons1[#_i,4] = PI_MENU1; // 
+dg_icons1[#_i,5] = false; // can draw
+dg_icons1[#_i,6] = -1; // xscale
 
 ds_grid_resize(dg_icons1, (++_i)+1, ds_grid_height(dg_icons1));
 dg_icons1[#_i,0] = SPR_ICON_KEY;
@@ -185,6 +215,8 @@ dg_icons1[#_i,1] = g.CHAR_TIMES + "X";
 dg_icons1[#_i,2] =  0; // xoff
 dg_icons1[#_i,3] =  0; // yoff
 dg_icons1[#_i,4] = PI_MENU1; // 
+dg_icons1[#_i,5] = false; // can draw
+dg_icons1[#_i,6] = 1; // xscale
 
 ds_grid_resize(dg_icons1, (++_i)+1, ds_grid_height(dg_icons1));
 dg_icons1[#_i,0] = SPR_ICON_KSU;
@@ -192,6 +224,11 @@ dg_icons1[#_i,1] = g.CHAR_TIMES + "X";
 dg_icons1[#_i,2] =  0; // xoff
 dg_icons1[#_i,3] = -1; // yoff
 dg_icons1[#_i,4] = global.PI_MOB_ORG; // 
+dg_icons1[#_i,5] = false; // can draw
+dg_icons1[#_i,6] = 1; // xscale
+
+
+Icons_COUNT = ds_grid_width(dg_icons1);
 
 
 
@@ -446,8 +483,15 @@ sprDataStr8 = _C+_H + _C + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Bottom
 
 
 
-MenuFrameSeparator1_W       = $1<<3; // spell/item: frame left clm. map: area-name/menu-navigation separator. 1st clm of `Window_xl0`
-MenuFrameSeparator1_SURF_XL = MenuFrame_srf_MAP_W - Window_W0;
+MenuFrameSeparator1_can_draw = false;
+MenuFrameSeparator1_W        = $1<<3; // spell/item: frame left clm. map: area-name/menu-navigation separator. 1st clm of `Window_xl0`
+MenuFrameSeparator1_SURF_XL  = MenuFrame_srf_MAP_W - Window_W0;
+
+
+MenuFrameMain_w      = Window_W0;
+MenuFrameMain_xl     = 0;
+MenuFrameMain_yt     = 0;
+MenuFrameMain_srf_xl = 0;
 
 
 
@@ -496,7 +540,6 @@ canDrawItems = false;
 var _PI_ITEM = global.PI_MOB_ORG;
 var _SPR_ERROR = spr_Locked_Door1B;
 
-       POSITIONING_VER = 2;
 switch(POSITIONING_VER)
 {   // -----------------------------------------------------------
     case 1:{
@@ -552,63 +595,63 @@ Items_Bar3_x    = 0;
 Items_Bar3_y    = 0;
 //                                                                                              //
 //                                                                                              //
+MainItems_can_draw = false;
 //                                                                                              //
-dg_items = ds_grid_create($00,$06); // $16: $10 major items + 5 quest items + Blood Bottle
-//dg_items = ds_grid_create($16,$06); // $16: $10 major items + 5 quest items + Blood Bottle
-//dg_items = ds_grid_create($15,$06); // $15: $10 major items + 5 quest items
+dg_items = ds_grid_create($0,$6);
 var _GRID_HEIGHT = ds_grid_height(dg_items);
 //                                                                                              //
 //                                                                                              //
 for(_i=0; _i<$10; _i++){
 ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT);
-dg_items[#_i,$00]   = $01<<_i; // ITEM_BIT
-dg_items[#_i,$01]   = _x1+(_dist1*(_i mod 8));
-dg_items[#_i,$02]   = _y1+(_dist2*(_i div 8));
-dg_items[#_i,$03]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$00]))+STR_Sprite], _SPR_ERROR);
-dg_items[#_i,$04]   = _PI_ITEM;
+dg_items[#_i,$0]   = $01<<_i; // ITEM_BIT
+dg_items[#_i,$1]   = _x1+(_dist1*(_i mod 8));
+dg_items[#_i,$2]   = _y1+(_dist2*(_i div 8));
+dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
+dg_items[#_i,$4]   = _PI_ITEM;
+dg_items[#_i,$5]   = false; // can draw
 }         _i--;
 //                                                                                              //
 ITM_NOTE_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
-dg_items[#_i,$00]   = ITM_NOTE;
-dg_items[#_i,$01]   = ($02<<3)+4;
-dg_items[#_i,$02]   = _y2;
-dg_items[#_i,$03]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$00]))+STR_Sprite], _SPR_ERROR);
-dg_items[#_i,$04]   = _PI_ITEM;
+dg_items[#_i,$0]   = ITM_NOTE;
+dg_items[#_i,$1]   = ($02<<3)+4;
+dg_items[#_i,$2]   = _y2;
+dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
+dg_items[#_i,$4]   = _PI_ITEM;
 //                                                                                              //
 ITM_MIRR_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
-dg_items[#_i,$00]   = ITM_MIRR;
-dg_items[#_i,$01]   = ($04<<3)+4;
-dg_items[#_i,$02]   = _y2;
-dg_items[#_i,$03]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$00]))+STR_Sprite], _SPR_ERROR);
-dg_items[#_i,$04]   = _PI_ITEM;
+dg_items[#_i,$0]   = ITM_MIRR;
+dg_items[#_i,$1]   = ($04<<3)+4;
+dg_items[#_i,$2]   = _y2;
+dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
+dg_items[#_i,$4]   = _PI_ITEM;
 //                                                                                              //
 ITM_TRPH_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
-dg_items[#_i,$00]   = ITM_TRPH;
-dg_items[#_i,$01]   = (CLMS_WIN_DEF>>1)<<3;
-dg_items[#_i,$02]   = _y2;
-dg_items[#_i,$03]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$00]))+STR_Sprite], _SPR_ERROR);
-dg_items[#_i,$04]   = _PI_ITEM;
+dg_items[#_i,$0]   = ITM_TRPH;
+dg_items[#_i,$1]   = (CLMS_WIN_DEF>>1)<<3;
+dg_items[#_i,$2]   = _y2;
+dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
+dg_items[#_i,$4]   = _PI_ITEM;
 //                                                                                              //
 ITM_MEDI_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
-dg_items[#_i,$00]   = ITM_MEDI;
-dg_items[#_i,$01]   =(($02<<3)+4) + ((CLMS_WIN_DEF>>1)<<3);
-dg_items[#_i,$02]   = _y2;
-dg_items[#_i,$03]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$00]))+STR_Sprite], _SPR_ERROR);
-dg_items[#_i,$04]   = val(g.dm_ITEM[?hex_str(ITM_MEDI)+STR_pal_idx],global.PI_MOB_ORG);
+dg_items[#_i,$0]   = ITM_MEDI;
+dg_items[#_i,$1]   =(($02<<3)+4) + ((CLMS_WIN_DEF>>1)<<3);
+dg_items[#_i,$2]   = _y2;
+dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
+dg_items[#_i,$4]   = val(g.dm_ITEM[?hex_str(ITM_MEDI)+STR_pal_idx],global.PI_MOB_ORG);
 //                                                                                              //
 ITM_CHLD_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
-dg_items[#_i,$00]   = ITM_CHLD;
-dg_items[#_i,$01]   =(($04<<3)+4) + ((CLMS_WIN_DEF>>1)<<3) + 1;
-dg_items[#_i,$02]   = _y2;
-dg_items[#_i,$03]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$00]))+STR_Sprite], _SPR_ERROR);
-dg_items[#_i,$04]   = _PI_ITEM;
+dg_items[#_i,$0]   = ITM_CHLD;
+dg_items[#_i,$1]   =(($04<<3)+4) + ((CLMS_WIN_DEF>>1)<<3) + 1;
+dg_items[#_i,$2]   = _y2;
+dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
+dg_items[#_i,$4]   = _PI_ITEM;
 //                                                                                              //
 ITM_BTL1_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
-dg_items[#_i,$00]   = ITM_BTL1;
-dg_items[#_i,$01]   = $60;
-dg_items[#_i,$02]   = _y2;
-dg_items[#_i,$03]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$00]))+STR_Sprite], _SPR_ERROR);
-dg_items[#_i,$04]   = global.PI_MOB_RED;
+dg_items[#_i,$0]   = ITM_BTL1;
+dg_items[#_i,$1]   = $60;
+dg_items[#_i,$2]   = _y2;
+dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
+dg_items[#_i,$4]   = global.PI_MOB_RED;
 ITM_BTL1_SPR1 = dg_items[#ITM_BTL1_IDX,$03];
 ITM_BTL1_SPR2 = spr_Item_Bottle_8c; // Bottle full
 //                                                                      //
@@ -642,53 +685,51 @@ switch(POSITIONING_VER)
 }
 
 //                                                                      //
-dg_items[#(bitNum(ITM_FRY1))-1,$04]  = global.PI_MOB_RED;
+dg_items[#(bitNum(ITM_FRY1))-1,$04] = global.PI_MOB_RED;
 //                                                                      //
 
 
 
 
+Feather_can_draw = false;
+Feather_SPRITE = spr_Item_Feather_1a;
+Feather_pi     = global.PI_GUI2;
+Feather_x = 0;
+Feather_y = 0;
 
 
+
+
+
+
+Crystals_can_draw = false;
+SPR_CRYSTAL1   = spr_Crystal_1b;
+SPR_CRYSTAL2   = spr_Crystal_1a;
+SPR_CRYSTAL_H_ = sprite_get_height(SPR_CRYSTAL1)>>1;
+Crystals_PAD1 = $2<<3;
 switch(POSITIONING_VER){
 case 1:{Crystals_Y=$65;break;}
 case 2:{Crystals_Y=$64;break;}
 }
-SPR_CRYSTAL1   = spr_Crystal_1b;
-SPR_CRYSTAL2   = spr_Crystal_1a;
-SPR_CRYSTAL_H_ = sprite_get_height(SPR_CRYSTAL1)>>1;
-
-Crystals_PAD1 = $2<<3;
+Crystals_x = 0;
+Crystals_y = 0;
 
 
 
 
+LifeDolls_can_draw = false;
+LifeDolls_SPRITE  = val(g.dm_ITEM[?object_get_name(ItmG0)+'01'+STR_Sprite], spr_Item_LifeDoll_1b);
+//LifeDolls_SPRITE  = val(g.dm_ITEM[?object_get_name(ItmG0)+'01'+STR_Sprite], spr_Item_LifeDoll_1a);
+//LifeDolls_SPRITE_H_ = sprite_get_height(LifeDoll_SPRITE)>>1;
+LifeDolls_pi = global.PI_PC1; // Green PC pal
+LifeDolls_count = 0;
 switch(POSITIONING_VER){
 case 1:{Dolls_X=$34; Dolls_Y=$81; Dolls_PAD=$0E; break;}
 case 2:{Dolls_X=$34; Dolls_Y=$7F; Dolls_PAD=$0E; break;}
 }
-//SPR_LIFE_DOLL       = val(g.dm_ITEM[?object_get_name(ItmG0)+'01'+STR_Sprite], spr_Item_LifeDoll_1a);
-SPR_LIFE_DOLL       = val(g.dm_ITEM[?object_get_name(ItmG0)+'01'+STR_Sprite], spr_Item_LifeDoll_1b);
-SPR_LIFE_DOLL_H_    = sprite_get_height(SPR_LIFE_DOLL)>>1;
-LifeDoll_count = 0;
+LifeDolls_x = 0;
+LifeDolls_y = 0;
 
-
-
-
-switch(POSITIONING_VER){
-case 1:{SkeletonKey_X=$5F;SkeletonKey_Y=$81;break;}
-case 2:{SkeletonKey_X=$5F;SkeletonKey_Y=$7F;break;}
-}
-SkeletonKey_SPR = val(g.dm_ITEM[?hex_str(bitNum(ITM_SKEY))+STR_Sprite], spr_Item_Skull_key_1a_1);
-ItemMap1_SPR    = val(g.dm_ITEM[?hex_str(bitNum(ITM_MAP1))+STR_Sprite], spr_Item_Map_2a);
-ItemMap2_SPR    = val(g.dm_ITEM[?hex_str(bitNum(ITM_MAP2))+STR_Sprite], spr_Item_Map_2b);
-
-
-
-switch(POSITIONING_VER){
-case 1:{Icons_Y=$7C; Icons_PAD=$C; break;}
-case 2:{Icons_Y=$78; Icons_PAD=$E; break;}
-}
 
 
 
@@ -697,18 +738,68 @@ case 1:{_y1=$95;break;}
 case 2:{_y1=$94;break;}
 }
 
+
+
+
+AllKey_can_draw = false;
+AllKey_SPRITE = val(g.dm_ITEM[?hex_str(bitNum(ITM_SKEY))+STR_Sprite], spr_Item_Skull_key_1a_1);
 switch(POSITIONING_VER){
-case 1:{Maps_X=$34; Maps_Y=_y1; Maps_PAD=$02; break;}
-case 2:{Maps_X=$34; Maps_Y=_y1; Maps_PAD=$02; break;}
+case 1:{AllKey_X=$5F; AllKey_Y=$81;break;}
+case 2:{AllKey_X=$5F; AllKey_Y=$7F;break;}
+}
+AllKey_x = 0;
+AllKey_y = 0;
+
+
+
+
+
+
+
+
+//TreasureMaps_can_draw = false;
+switch(POSITIONING_VER){
+case 1:{TreasureMap1_XOFF=$34; TreasureMap1_YOFF=_y1; Maps_PAD=$2; break;}
+case 2:{TreasureMap1_XOFF=$34; TreasureMap1_YOFF=_y1; Maps_PAD=$2; break;}
 }
 
+TreasureMap1_can_draw = false;
+TreasureMap1_SPRITE = val(g.dm_ITEM[?hex_str(bitNum(ITM_MAP1))+STR_Sprite], spr_Item_Map_2a);
+TreasureMap1_x = 0;
+TreasureMap1_y = 0;
 
+
+TreasureMap2_can_draw = false;
+TreasureMap2_SPRITE = val(g.dm_ITEM[?hex_str(bitNum(ITM_MAP2))+STR_Sprite], spr_Item_Map_2b);
+TreasureMap2_XOFF = TreasureMap1_XOFF + 8 + Maps_PAD;
+TreasureMap2_YOFF = TreasureMap1_YOFF;
+TreasureMap2_x = 0;
+TreasureMap2_y = 0;
+
+
+
+
+
+
+
+
+//Containers_can_draw = false;
 switch(POSITIONING_VER){
 case 1:{Containers_X=$4E; Containers_Y=_y1; Containers_PAD=$01; break;}
 case 2:{Containers_X=$4E; Containers_Y=_y1; Containers_PAD=$01; break;}
 }
 ContainerPiece_count_hp = 0;
 ContainerPiece_count_mp = 0;
+
+ContainerHP_can_draw = false;
+ContainerHP_sprite = 0;
+ContainerHP_x = 0;
+ContainerHP_y = 0;
+
+ContainerMP_can_draw = false;
+ContainerMP_sprite = 0;
+ContainerMP_x = 0;
+ContainerMP_y = 0;
 
 
 

@@ -1,8 +1,8 @@
 /// PauseMenu_udp()
 
 
-var _i;
-var _x,_y, _xl,_yt, _dist_x;
+var _i, _bit;
+var _x,_y, _x0,_y0, _xl,_yt, _dist_x, _w0;
 var _clm,_row;
 var _grid_clm,_grid_row;
 var _ts, _tsrc1,_tsrc2,_tsrc3,_tsrc4, _tsrcA,_tsrcB, _ts_x,_ts_y, _ts_xoff,_ts_yoff, _tile_data, _tile_w,_tile_h;
@@ -38,7 +38,8 @@ terrain_draw_area_yb = 0;
 tsrc_grid_clm_base = 0;
 tsrc_grid_row_base = 0;
 
-Window_extra_draw_clms = 0;
+Window_extra_draw_clms   = 0;
+Window_extra_draw_clms_w = 0;
 
 
 // g.menu_state==4: constructing menu, deconstructing menu from map to spell/item
@@ -330,6 +331,28 @@ Window_yb  = drawY + Window_h;
 Window_filler_clms = max(0, Window_extra_draw_clms-2);
 
 
+Window_extra_draw_clms_w  = $1; // left border
+Window_extra_draw_clms_w += Window_filler_clms;
+Window_extra_draw_clms_w += $1; // ? adj
+Window_extra_draw_clms_w  = Window_extra_draw_clms_w<<3;
+
+
+MenuFrameSeparator1_can_draw = Window_extra_draw_clms!=0;
+if (MenuFrameSeparator1_can_draw) _w0 = MenuFrameSeparator1_W; // spell/item: frame left clm. map: area-name/menu-navigation separator. 1st clm of `Window_xl0`
+else                              _w0 = $0;
+switch(Window_draw_data_state){
+case state_SPELL:{MenuFrameMain_w=MenuFrame_srf_SPELL_W; break;}
+case state_ITEM: {MenuFrameMain_w=MenuFrame_srf_ITEM_W;  break;}
+case state_MAP:  {MenuFrameMain_w=MenuFrame_srf_MAP_W;   break;}
+}
+
+MenuFrameMain_srf_xl  = MenuFrameMain_w - Window_W0;
+MenuFrameMain_srf_xl += _w0;
+MenuFrameMain_w      -= _w0;
+MenuFrameMain_xl      = Window_xl0 + _w0;
+MenuFrameMain_yt      = drawY;
+
+
 
 
 Items_Bar1_can_draw = drawY+ITEMS_BAR1_Y+4 < Window_yb; // Main & Quest items separator
@@ -410,15 +433,188 @@ MenuNavR_sprite_y = _y;
 
 
 AreaName_can_draw = _ST_CURR==state_MAP && map_anim_idx==ds_list_size(dl_map_anim_data)-1;
-//                                                  //
-AreaName_text = MapAreaName;
-//                                                  //
-AreaName_xl   = drawX;
-AreaName_xl  += 8; // window border
-AreaName_xl  += (Window_xl0-AreaName_xl)>>1; // text area xc
-AreaName_xl  -= (string_length(AreaName_text)*AreaName_FONT_W) >>1; // text xl
-//                                                  //
-AreaName_yt   = Window_yb - $10; // text yt
+if (AreaName_can_draw)
+{
+    AreaName_text = MapAreaName;
+    //                                                  //
+    AreaName_xl   = drawX;
+    AreaName_xl  += 8; // window border
+    AreaName_xl  += (Window_xl0-AreaName_xl)>>1; // text area xc
+    AreaName_xl  -= (string_length(AreaName_text)*AreaName_FONT_W) >>1; // text xl
+    //                                                  //
+    AreaName_yt   = Window_yb - $10; // text yt
+}
+
+
+
+
+
+
+
+
+WindowBackground_can_draw = true;
+WindowBackground_color  = global.BackgroundColor_scene;
+WindowBackground_alpha  = 1;
+WindowBackground_w  = Window_w;
+WindowBackground_h  = Window_h;
+WindowBackground_xl = drawX;
+WindowBackground_yt = drawY;
+
+
+
+
+
+
+
+
+MainItems_can_draw = false;
+
+for(_i=ds_grid_width(dg_items)-1; _i>=0; _i--)
+{
+    dg_items[#_i,$5] = false; // $5: can draw
+    _bit = dg_items[#_i,$0]; // $0: item bit
+    if (f.items&_bit)
+    {
+        if (_bit!=ITM_MASK 
+        ||  _bit!=ITM_BTL1 
+        ||  f.quest_num>1 )
+        {
+            _y = drawY + dg_items[#_i,$2];
+            if (_y+8<Window_yb)
+            {
+                MainItems_can_draw = true;
+                dg_items[#_i,$5] = true; // $5: can draw
+            }
+        }
+    }
+}
+
+dg_items[#(bitNum(ITM_FRY1))-1,$3] = g.dl_Fairy_SPRITES[|!(g.counter0&$8)];
+
+
+
+
+Feather_can_draw = f.items&ITM_FTHR!=0;
+if(Feather_can_draw)
+{
+    if (g.DoubleJump_state) Feather_pi = global.PI_MOB_ORG;
+    else                    Feather_pi = global.PI_GUI2;
+    Feather_x = Window_xr - (Window_W0>>1);
+    Feather_y = Window_yb - $C;
+    //Feather_can_draw &= Feather_y+8<Window_yb;
+}
+
+
+
+
+
+
+
+
+Crystals_x = Window_xl0 + Crystals_PAD1;
+Crystals_y = drawY + Crystals_Y;
+Crystals_can_draw = Crystals_y+8<Window_yb;
+
+
+
+
+
+
+
+
+Icons_can_draw = false;
+
+Icons_x  = Window_xl0;
+Icons_x += 8;
+Icons_x += 3;
+
+Icons_y  = drawY + Icons_Y;
+for(_i=0; _i<Icons_COUNT; _i++)
+{
+    _y = Icons_y + (Icons_PAD*_i);
+    dg_icons1[#_i,$5] = false; // $5: can draw
+    if (_y+sprite_get_height(dg_icons1[#_i,$1])<Window_yb)
+    {
+        Icons_can_draw = true;
+        dg_icons1[#_i,$5] = true; // $5: can draw
+    }
+}
+
+
+
+
+
+
+
+
+LifeDolls_can_draw = LifeDolls_count!=0;
+if (LifeDolls_can_draw)
+{
+    LifeDolls_x = Window_xl0 + Dolls_X;
+    LifeDolls_y = drawY + Dolls_Y;
+    LifeDolls_pi = global.PI_PC1; // Green PC pal
+    //LifeDolls_pi = p.dg_PI_SEQ[#0,0]; // Current PC pal
+    LifeDolls_can_draw &= LifeDolls_y+8<Window_yb;
+}
+
+
+
+
+
+
+
+
+AllKey_can_draw = f.items&ITM_SKEY!=0;
+if (AllKey_can_draw)
+{
+    if (f.quest_num==1)
+    {
+        AllKey_x = Window_xl0 + $1A;
+        AllKey_y = drawY + dg_items[#$9,$2];
+    }
+    else
+    {
+        AllKey_x = Window_xl0 + AllKey_X;
+        AllKey_y = drawY      + AllKey_Y;
+    }
+    
+    AllKey_can_draw &= AllKey_y+8<Window_yb;
+}
+
+
+
+
+
+
+
+
+TreasureMap1_x = Window_xl0 + TreasureMap1_XOFF;
+TreasureMap1_y = drawY + TreasureMap1_YOFF;
+TreasureMap1_can_draw = f.items&ITM_MAP1 && TreasureMap1_y+8<Window_yb;
+
+
+TreasureMap2_x = Window_xl0 + TreasureMap2_XOFF;
+TreasureMap2_y = drawY + TreasureMap2_YOFF;
+TreasureMap2_can_draw = f.items&ITM_MAP2 && TreasureMap2_y+8<Window_yb;
+
+
+
+
+
+
+
+
+if (ContainerPiece_count_hp==f.CONT_PIECE_MAX_HP) ContainerHP_sprite = g.SPR_CONT_HP;
+else                                              ContainerHP_sprite = g.dl_cont_spr_hp[|ContainerPiece_count_hp mod f.CONT_PIECE_PER_HP];
+ContainerHP_x = Window_xl0 + Containers_X;
+ContainerHP_y = drawY + Containers_Y;
+ContainerHP_can_draw = ContainerHP_y+8<Window_yb;
+
+if (ContainerPiece_count_mp==f.CONT_PIECE_MAX_MP) ContainerMP_sprite = g.SPR_CONT_MP;
+else                                              ContainerMP_sprite = g.dl_cont_spr_mp[|ContainerPiece_count_mp mod f.CONT_PIECE_PER_MP];
+ContainerMP_x = ContainerHP_x + $10 + Containers_PAD;
+ContainerMP_y = ContainerHP_y;
+ContainerMP_can_draw = ContainerMP_y+8<Window_yb;
 
 
 

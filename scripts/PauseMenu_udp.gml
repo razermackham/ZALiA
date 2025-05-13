@@ -2,7 +2,7 @@
 
 
 var _i;
-var _xl,_yt;
+var _x,_y, _xl,_yt, _dist_x;
 var _clm,_row;
 var _grid_clm,_grid_row;
 var _ts, _tsrc1,_tsrc2,_tsrc3,_tsrc4, _tsrcA,_tsrcB, _ts_x,_ts_y, _ts_xoff,_ts_yoff, _tile_data, _tile_w,_tile_h;
@@ -14,10 +14,10 @@ drawX = get_menu_x();
 drawY = viewYT() + Y_BASE;
 canDrawSections = g.menu_built_count;
 
-var _ST_CURR =  state    &$3;
+var _ST_CURR =  state    &$3; // $1: spell menu, 2: item menu, 3: map
 var _ST_PREV = (state>>4)&$3;
-canDrawSpells = _ST_CURR==ST_SPL || (_ST_PREV==ST_SPL && g.menu_state<5 && _ST_CURR!=ST_ITM);
-canDrawItems  = _ST_CURR==ST_ITM || (_ST_PREV==ST_ITM && g.menu_state<5 && _ST_CURR!=ST_SPL);
+canDrawSpells = _ST_CURR==state_SPELL || (_ST_PREV==state_SPELL && g.menu_state<5 && _ST_CURR!=state_ITEM);
+canDrawItems  = _ST_CURR==state_ITEM  || (_ST_PREV==state_ITEM  && g.menu_state<5 && _ST_CURR!=state_SPELL);
 
 
 map_is_opening = false;
@@ -40,11 +40,13 @@ tsrc_grid_row_base = 0;
 
 Window_extra_draw_clms = 0;
 
-                                                          Window_draw_data_state =  state&$3;
-     if (_ST_CURR==ST_MAP             && g.menu_state>=5) Window_draw_data_state =  ST_MAP;
-else if (_ST_CURR==ST_MAP && _ST_PREV && g.menu_state==4) Window_draw_data_state = _ST_PREV;
-else                                                      Window_draw_data_state = _ST_CURR;
-if(!Window_draw_data_state){                              Window_draw_data_state =  ST_SPL;}
+
+// g.menu_state==4: constructing menu, deconstructing menu from map to spell/item
+// g.menu_state==5: idle, user input
+                                                             Window_draw_data_state = _ST_CURR;
+     if (_ST_CURR==state_MAP             && g.menu_state>=5) Window_draw_data_state =  state_MAP;
+else if (_ST_CURR==state_MAP && _ST_PREV && g.menu_state==4) Window_draw_data_state = _ST_PREV;   // when constructing map window
+if(!Window_draw_data_state){                                 Window_draw_data_state =  state_SPELL;}
 
 
 
@@ -307,8 +309,8 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
 
 
 
-Window_w = CLMS_WIN_DEF + Window_extra_draw_clms;
-Window_w = Window_w<<3;
+Window_w  = Window_W0;
+Window_w += Window_extra_draw_clms<<3;
 
 var _SECTIONS = clamp(canDrawSections, 1, ANIM_FRAMES_DEF);
 Window_h  = _SECTIONS<<1;
@@ -319,25 +321,108 @@ Window_h  = Window_h<<3;
 
 Window_vertical_draw_section_count = clamp(canDrawSections, 1, ANIM_FRAMES_DEF);
 
-Window_spell_menu_window_xl = get_menu_x(); // xl for Spell & Item only
-Window_xr = Window_spell_menu_window_xl + (CLMS_WIN_DEF<<3);
-Window_yt = drawY;
-Window_yb = drawY + Window_h;
+Window_xl0 = get_menu_x();
+Window_xl  = drawX;
+Window_xr  = Window_xl0 + Window_W0;
+Window_yt  = drawY;
+Window_yb  = drawY + Window_h;
 
 Window_filler_clms = max(0, Window_extra_draw_clms-2);
 
 
+
+
 Items_Bar1_can_draw = drawY+ITEMS_BAR1_Y+4 < Window_yb; // Main & Quest items separator
-Items_Bar1_x = Window_spell_menu_window_xl + 8;
+Items_Bar1_x = Window_xl0 + Items_Bar1_XOFF;
+Items_Bar1_y = drawY + Items_Bar1_YOFF;
+
+Items_Bar2_can_draw = drawY+ITEMS_BAR2_Y+2 < Window_yb; // Crystals top bar
+Items_Bar2_x = Window_xl0 + Items_Bar2_XOFF;
+Items_Bar2_y = drawY + Items_Bar2_YOFF;
+
+Items_Bar3_can_draw = drawY+ITEMS_BAR3_Y+3 < Window_yb; // Crystals btm bar
+Items_Bar3_x = Window_xl0 + Items_Bar3_XOFF;
+Items_Bar3_y = drawY + Items_Bar3_YOFF;
+/*
+Items_Bar1_can_draw = drawY+ITEMS_BAR1_Y+4 < Window_yb; // Main & Quest items separator
+Items_Bar1_x = Window_xl0 + 8;
 Items_Bar1_y = drawY + ITEMS_BAR1_Y;
 
 Items_Bar2_can_draw = drawY+ITEMS_BAR2_Y+2 < Window_yb; // Crystals top bar
-Items_Bar2_x = Window_spell_menu_window_xl + 8;
+Items_Bar2_x = Window_xl0 + 8;
 Items_Bar2_y = drawY + ITEMS_BAR2_Y;
 
 Items_Bar3_can_draw = drawY+ITEMS_BAR3_Y+3 < Window_yb; // Crystals btm bar
 Items_Bar3_x = Items_Bar2_x;
 Items_Bar3_y = drawY + ITEMS_BAR3_Y;
+*/
+
+
+
+
+
+
+
+
+MenuNav_can_draw = Window_vertical_draw_section_count-1 == ANIM_FRAMES_DEF-1;
+MenuNavL_text_can_draw = sign(state_dir) != -1;
+MenuNavR_text_can_draw = sign(state_dir) !=  1;
+//                                                  //
+_x  = Window_xl0;
+_x += Window_W0>>1; // menu center x
+_y  = Window_yb - $0C; // dist from menu bottom to yc of text
+//                                                  //
+//                                                  //
+_xl = _x - (MenuNav_FONT_W>>1);
+_yt = _y - (MenuNav_FONT_H>>1);
+_dist_x  = $3<<3; // dist from menu centerx to inner edge of text
+_dist_x += MenuNav_FONT_W>>1;// dist from menu centerx to center of text
+//                                                  //
+MenuNavL_text    = "B";
+MenuNavL_text_xl = _xl - _dist_x;
+MenuNavL_text_yt = _yt;
+//                                                  //
+MenuNavR_text    = "A";
+MenuNavR_text_xl = _xl + _dist_x;
+MenuNavR_text_yt = _yt;
+//                                                  //
+//                                                  //
+//                                                  //
+switch(_ST_CURR){
+default:        {MenuNavL_sprite=SPR_ICON_MAP; MenuNavR_sprite=SPR_ICON_ITM; break;}
+case state_ITEM:{MenuNavL_sprite=SPR_ICON_SPL; MenuNavR_sprite=SPR_ICON_MAP; break;}
+case state_MAP: {MenuNavL_sprite=SPR_ICON_ITM; MenuNavR_sprite=SPR_ICON_SPL; break;}
+}
+_dist_x = $5<<3; // dist from menu centerx to center of sprite
+//                                                  //
+MenuNavL_sprite_x = _x - _dist_x;
+MenuNavL_sprite_y = _y;
+//                                                  //
+MenuNavR_sprite_x = _x + _dist_x;
+MenuNavR_sprite_y = _y;
+//                                                  //
+
+
+
+
+
+
+
+
+AreaName_can_draw = _ST_CURR==state_MAP && map_anim_idx==ds_list_size(dl_map_anim_data)-1;
+//                                                  //
+AreaName_text = MapAreaName;
+//                                                  //
+AreaName_xl   = drawX;
+AreaName_xl  += 8; // window border
+AreaName_xl  += (Window_xl0-AreaName_xl)>>1; // text area xc
+AreaName_xl  -= (string_length(AreaName_text)*AreaName_FONT_W) >>1; // text xl
+//                                                  //
+AreaName_yt   = Window_yb - $10; // text yt
+
+
+
+
 /*
 if(keyboard_check_pressed(vk_f7)){
 sdm("drawX $"+hex_str(drawX)+", drawY $"+hex_str(drawY)+", terrain_tile_xl_base $"+hex_str(terrain_tile_xl_base)+", terrain_tile_yt_base $"+hex_str(terrain_tile_yt_base)+", terrain_draw_area_xl $"+hex_str(terrain_draw_area_xl)+", terrain_draw_area_yt $"+hex_str(terrain_draw_area_yt));

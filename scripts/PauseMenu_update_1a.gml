@@ -3,7 +3,7 @@
 // Opening PauseMenu.  g.menuState == 4
 
 
-if (state&$3 == ST_SPL  // Going to spell menu
+if (state&$3 == state_SPELL  // Going to spell menu
 &&  f.spells )
 {
     // g.spell_selected default is 1
@@ -32,7 +32,7 @@ if (state&$3 == ST_SPL  // Going to spell menu
 
 
 // A304
-if (state&$3 == ST_MAP 
+if (state&$3==state_MAP 
 &&  g.dungeon_num )
 {
     var _low, _high;

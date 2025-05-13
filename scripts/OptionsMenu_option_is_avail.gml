@@ -50,7 +50,8 @@ switch(argument0)
         case DevTools_ADD_ITEMS:      {return DEV; break;}
         //case DevTools_DOUBLE_JUMP:    {return f.items&ITM_FTHR; break;}
         //case DevTools_INVULNERABILITY:{return DEV; break;}
-        case DevTools_PC_DASH:        {return DEV; break;}
+        case DevTools_PC_DASH:        {return true; break;}
+        //case DevTools_PC_DASH:        {return DEV; break;}
         case DevTools_BACK:           {return true; break;}
     }//switch(argument1)
     break;}//case Menu_DEV_TOOLS

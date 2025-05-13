@@ -5,7 +5,7 @@ switch(ver)
 {
     // -----------------------------------------------------------------
     case 1:{ // ------------------------------------------------
-    var _DEBUG = 0 && !(g.counter1&$3F);
+    var _DEBUG = false && !(g.counter1&$3F);
     var _i,_j,_k, _x,_y;
     var _COPY_COUNT  =  COPY_COUNT + 1;
     // var _COPY_COUNT  = COPY_COUNT;

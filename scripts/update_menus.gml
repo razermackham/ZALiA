@@ -57,7 +57,7 @@ switch(gui_state)
     {   // Open Pause Menu
         gui_state = gui_state_PAUSE;
         menu_state = 1;
-        PAUSE_MENU.state = PAUSE_MENU.ST_SPL;
+        PAUSE_MENU.state = PAUSE_MENU.state_SPELL;
     }
     break;}
     

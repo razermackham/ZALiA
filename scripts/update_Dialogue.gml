@@ -752,7 +752,7 @@ switch(g.menu_state)
                 g.pc_lock             = 0;
                 g.pc.in_restore_house = false;
                 
-                g.PAUSE_MENU.state    = g.PAUSE_MENU.ST_SPL; // set PauseMenu to open spell list
+                g.PAUSE_MENU.state    = g.PAUSE_MENU.state_SPELL; // set PauseMenu to open spell list
                 g.menu_built_count    = 0;
                 g.menu_state          = 1;
                 g.gui_state           = g.gui_state_PAUSE; // OPEN PAUSE MENU

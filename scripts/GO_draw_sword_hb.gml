@@ -2,7 +2,7 @@
 
 
 if(!g.DevTools_state) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(!g.can_draw_hb)        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!g.can_draw_hb)    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if(!variable_instance_exists(id,"SwordHB_can_draw")) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 

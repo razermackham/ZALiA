@@ -84,7 +84,6 @@ if (HoldItem_timer
 
 // --------------------------------------------------------------
 // ---------------------  BODY  --------------------------
-    Cucco_sprite_body = 0;
     Cucco_sprite_body = Cucco_SPRITE_BODY1; // Normal/Idle
 //
 if (_HEAD_FWRD 
@@ -93,11 +92,14 @@ if (_HEAD_FWRD
 
 if (Cucco_crouching_state)
 {
-    if (Cucco_crouching_state==2){
+    if (Cucco_crouching_state==2)
+    {
         if (_HEAD_FWRD)
         {    Cucco_sprite_body = Cucco_SPRITE_BODY8;  } // 
         else Cucco_sprite_body = Cucco_SPRITE_BODY7;    // 
-    }else{
+    }
+    else
+    {
         if (_HEAD_FWRD)
         {    Cucco_sprite_body = Cucco_SPRITE_BODY5;  } // 
         else Cucco_sprite_body = Cucco_SPRITE_BODY4;    // 
@@ -140,7 +142,7 @@ else
 
 // --------------------------------------------------------------
 // ---------------------  LEGS  --------------------------
-var     _FRAME = 0;
+var     _frame = 0;
 if(!ogr)
 {
     if (_CROUCHING 
@@ -148,24 +150,24 @@ if(!ogr)
     ||  Draw_behavior==behavior_WALK2 
     ||  Draw_behavior==behavior_WALK3 )
     {
-        _FRAME = walk_frame+1;
+        _frame = walk_frame+1;
     }
 }
 else
 {
-        _FRAME = 1; // Legs wide
+        _frame = 1; // Legs wide
     if (Cucco_is_slowfalling)
     {
         if (      Cucco_counter1 < (3<<2)-1)
         {         Cucco_counter1++;  }
         else      Cucco_counter1 = 0;
         
-        _FRAME = (Cucco_counter1>>2) + 1;
+        _frame = (Cucco_counter1>>2) + 1;
     }
 }
 
         Cucco_sprite_legs=0;
-switch(_FRAME){
+switch(_frame){
 case 0:{Cucco_sprite_legs=Cucco_SPRITE_LEGS1; break;} // Idle
 case 1:{Cucco_sprite_legs=Cucco_SPRITE_LEGS4; break;} // Walk frame 1
 case 2:{Cucco_sprite_legs=Cucco_SPRITE_LEGS3; break;} // Walk frame 2

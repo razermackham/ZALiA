@@ -62,7 +62,7 @@ if (can_update_frame_)
 
 
 
-// srf_frame_curr: Save a copy of a frame for when pausing the app.
+// srf_app_paused_frame: Save a copy of a frame for when pausing the app.
 if (can_update_frame_)
 {
     if(!surface_exists(srf_app_paused_frame)) srf_app_paused_frame = surface_create(application_surface_w,application_surface_h);
@@ -72,6 +72,7 @@ else if (surface_exists(srf_app_paused_frame))
 {
     surface_copy(application_surface, 0,0, srf_app_paused_frame);
 }
+
 
 
 
@@ -107,6 +108,16 @@ if (AppVersion_can_draw)
     draw_sprite_(spr_1x1_WHT,0, AppVersion_xl,AppVersion_yt, -1, (string_length(AppVersion_TEXT)<<8)+(AppVersion_PAD<<1), 8+(AppVersion_PAD<<1), c_black);
     draw_text_(AppVersion_xl+AppVersion_PAD, AppVersion_yt+AppVersion_PAD, AppVersion_TEXT);
 }
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------
+//can_update_frame_ = can_update_frame();
 
 
 

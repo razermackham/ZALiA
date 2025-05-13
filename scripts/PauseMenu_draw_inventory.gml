@@ -4,7 +4,7 @@
 var _i, _count;
 var _x,_y, _base_x,_base_y;
 var _bit, _spr;
-var _ITEMX = Window_spell_menu_window_xl;
+var _ITEMX = Window_xl0;
 var _x_scale = 1;
 
 

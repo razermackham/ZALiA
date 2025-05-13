@@ -125,7 +125,7 @@ can_draw_keys  = false;
 can_draw_hints = false;
 if (g.room_type=="A" 
 &&  g.gui_state==g.gui_state_PAUSE 
-&&  g.PAUSE_MENU.state&$3!=g.PAUSE_MENU.ST_MAP )
+&&  g.PAUSE_MENU.state&$3!=g.PAUSE_MENU.state_MAP )
 {
     var _KEYS_REQUESTED = keyboard_check(vk_f4) || Input.GP_Face4_held; // GP_Face4_held, GP_Other2_held (xbox Y)
     var _HINT_REQUESTED = keyboard_check(vk_f3) || Input.GP_Face2_held; // GP_Face2_held, GP_Other1_held (xbox B)

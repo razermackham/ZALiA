@@ -255,9 +255,7 @@ ds_list_add(Disguise_dl_behaviors,behavior_CROUCH);
 
 
 
-Head_sprite = 0;
-Head_xoff   = 0;
-Head_xoff   = 0;
+
 
 
 GO_set_sprite(id, dl_sprites[|behavior]);
@@ -292,6 +290,8 @@ if (g.mod_PC_CUCCO_1)
     Cucco_sprite_legs      = 0;
     Cucco_sprite_wing      = 0;
     Cucco_sprite_wing_yoff = 0;
+    Cucco_sprite_is_whole  = false; // if Cucco_sprite_body includes all pieces of cucco
+    Cucco_legs_draw_first  = false; // certain cucco states need the legs drawn first
     
     Cucco_eye_can_draw = 1;
     Cucco_eye_color    = p.C_BLK1;
@@ -390,16 +390,16 @@ Sword2_SpriteTesting1 = false; // Only use Sword2 graphics for ATK1,ATK2,DWTH,UP
 GraphicSwordPoint_DIST = $18; // Dist from PC.xc to the tip of the sword's graphic.
 
 
-Draw_surface_w = Spritesheet_W;
-Draw_surface_h = Spritesheet_H;
-Draw_surface_size = max(Draw_surface_w,Draw_surface_h);
-
-Draw_palidx = 0;
-
 Draw_can_rando1 = false;
 Draw_can_rando2 = false;
+Draw_behavior   = behavior;
+Draw_palidx = 0;
 
-Draw_behavior = behavior;
+Draw_surface_w    = Spritesheet_W;
+Draw_surface_h    = Spritesheet_H;
+Draw_surface_size = max(Draw_surface_w,Draw_surface_h);
+Draw_surface_xl   = 0;
+Draw_surface_yt   = 0;
 
 Draw_xscale1 = 1;
 Draw_xscale2 = 1;

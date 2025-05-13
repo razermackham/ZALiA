@@ -8,14 +8,12 @@ if (timer)
     timer--;
     if(!timer)
     {
-        state       = mapDelay1_state_Backup;
-        state_dir   = mapDelay1_state_dir_Backup;
-        mapDelay1_state_Backup      = 0;
-        mapDelay1_state_dir_Backup  = 0;
-        
+        state     = mapDelay1_state_Backup;
+        state_dir = mapDelay1_state_dir_Backup;
+        mapDelay1_state_Backup     = 0;
+        mapDelay1_state_dir_Backup = 0;
         g.menu_state--; // Go back to build menu (4)
     }
-    
     
     PauseMenu_udp();
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -74,20 +72,19 @@ switch(state&$3) // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
 {
     // ------------------------------------------------------------------------------------
     // ------------------------------------------------------------------------------------
-    case ST_SPL: { // 1: ST_SPL
+    case state_SPELL: { // 1: state_SPELL
     if (f.spells 
     &&  gui_tmr_cursor_v() ) // 9DF6
     {
         // A1F6
-        var _i;
-        for(_i=0; _i<g.SPELL_COUNT; _i++)
+        for(var _i=0; _i<g.SPELL_COUNT; _i++)
         {
-            g.spell_selected  = bitNum(g.spell_selected)-1;
-            g.spell_selected  =   (g.spell_selected  +  g.SPELL_COUNT) + sign_(Input.Down_held);
-            g.spell_selected  =    g.spell_selected mod g.SPELL_COUNT;
-            g.spell_selected  = 1<<g.spell_selected;
+            g.spell_selected = bitNum(g.spell_selected)-1;
+            g.spell_selected =   (g.spell_selected  +  g.SPELL_COUNT) + sign_(Input.Down_held);
+            g.spell_selected =    g.spell_selected mod g.SPELL_COUNT;
+            g.spell_selected = 1<<g.spell_selected;
             
-            if (f.spells & g.spell_selected) break; // _i
+            if (f.spells&g.spell_selected) break;//_i
         }
         
         
@@ -99,10 +96,9 @@ switch(state&$3) // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
     }
     
     
-    if (f.spells & g.spell_selected)
+    if (f.spells&g.spell_selected)
     {
         g.spell_ready = g.spell_selected;
-        // p.SpellReady_flash_tmr = 0;
     }
     p.SpellReady_flash_timer = 0;
     break;}
@@ -115,7 +111,7 @@ switch(state&$3) // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
     
     // ------------------------------------------------------------------------------------
     // ------------------------------------------------------------------------------------
-    case ST_ITM:{ // 2: ST_ITM
+    case state_ITEM:{ // 2: state_ITEM
     _can_update_state_change = true;
     if (g.mod_SPELL_CANCEL) g.spell_ready = 0;
     break;}
@@ -128,7 +124,7 @@ switch(state&$3) // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
     
     // ------------------------------------------------------------------------------------
     // ------------------------------------------------------------------------------------
-    case ST_MAP:{ // 3: ST_MAP
+    case state_MAP:{ // 3: state_MAP
     if (g.mod_SPELL_CANCEL) g.spell_ready = 0;
     
     if (g.dungeon_num)
@@ -190,17 +186,15 @@ switch(state&$3) // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
                         //_str += ', dungeon_vis_lft $'+hex_str(dungeon_vis_lft)+', dungeon_vis_rgt $'+hex_str(dungeon_vis_rgt);
                         sdm(_str);
                 }*/
-                
-                
-                break; // case ST_MAP
+                break;//case ST_MAP
             }
         }
     }
     
     
     _can_update_state_change = true;
-    break; } // case ST_MAP
-} // switch (state&3)
+    break;}//case ST_MAP
+}//switch(state&3)
 
 
 
@@ -218,40 +212,39 @@ switch(state&$3) // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
 // ----------------------------------------------------------------------------
 if (_can_update_state_change)
 {
-    //   SCB: State Change Button
-    if (    Input.pressed & SCB_R 
-    ||      Input.pressed & SCB_L )
+    // SCB: State Change Button
+    if (Input.pressed&SCB_R 
+    ||  Input.pressed&SCB_L )
     {
-        if (Input.pressed & SCB_R) state_dir =  DUR_ARROW_BLINK; //  6
-        else                       state_dir = -DUR_ARROW_BLINK; // -6
+        if (Input.pressed&SCB_R) state_dir =  DUR_ARROW_BLINK; //  6
+        else                     state_dir = -DUR_ARROW_BLINK; // -6
         
         
         var _STATE = state;
         
         // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
         state &= $3;
-        state +=           sign(state_dir);
+        state += sign(state_dir);
         state &= $3;
-        state += (!state * sign(state_dir));
+        state += sign(state_dir) * !state;
         state &= $3;
         
         // Store a copy of the current state in the 2nd nybble.
-        state |= ((_STATE&$3)<<4);
+        state |= (_STATE&$3)<<4;
         
         
         
         aud_play_sound(get_audio_theme_track(dk_CursorSpellMenu));
         
         
-        if (((state>>0)&$3 == ST_MAP) 
-        ||  ((state>>4)&$3 == ST_MAP) )
+        if ((state>>0)&$3==state_MAP 
+        ||  (state>>4)&$3==state_MAP )
         {
-            mapDelay1_state_Backup       = state;
-            mapDelay1_state_dir_Backup   = state_dir;
-            state       = _STATE;
-            state_dir   = 0;
-            
+            mapDelay1_state_Backup     = state;
+            mapDelay1_state_dir_Backup = state_dir;
             timer = 2; // DELAY AMOUNT
+            state_dir = 0;
+            state = _STATE;
         }
         else
         {

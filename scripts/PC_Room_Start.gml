@@ -98,9 +98,7 @@ if (Disguise_enabled)
 state = state_NULL; // 00B5
 
 
-Head_sprite = 0;
-Head_xoff   = 0;
-Head_yoff   = 0;
+
 Disguise_Head_idx = irandom(Disguise_Head_COUNT-1);
 
 Cucco_disguise_sprite = 0;

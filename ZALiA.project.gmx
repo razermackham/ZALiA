@@ -11691,8 +11691,6 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\ver_count.gml</script>
-    <script>scripts\Audio_Room_End.gml</script>
     <script>scripts\d_l0__oo__0l_b.gml</script>
     <script>scripts\scr_temp1.gml</script>
     <script>scripts\scr_temp2.gml</script>
@@ -11713,6 +11711,7 @@
       <script>scripts\Input_update2b.gml</script>
       <script>scripts\Input_update2c.gml</script>
       <script>scripts\Input_update2d.gml</script>
+      <script>scripts\update_app_pause.gml</script>
       <script>scripts\Input_GameTesting.gml</script>
       <script>scripts\gamepad_set_default.gml</script>
     </scripts>
@@ -13414,6 +13413,7 @@
         <script>scripts\PauseMenu_update_2a.gml</script>
         <script>scripts\PauseMenu_udp.gml</script>
         <script>scripts\PauseMenu_Draw.gml</script>
+        <script>scripts\PauseMenu_Draw_1.gml</script>
         <script>scripts\PauseMenu_draw_spell_menu.gml</script>
         <script>scripts\PauseMenu_draw_spell.gml</script>
         <script>scripts\PauseMenu_draw_inventory.gml</script>
@@ -13486,6 +13486,7 @@
       <script>scripts\Surface_Step.gml</script>
       <script>scripts\Surface_Draw_End.gml</script>
       <script>scripts\Surface_Draw_GUI_Begin.gml</script>
+      <script>scripts\Surface_Draw_GUI_End.gml</script>
       <script>scripts\debug_draw_data.gml</script>
     </scripts>
     <scripts name="draw">

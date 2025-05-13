@@ -158,6 +158,7 @@ else if(!global.application_surface_draw_enable_state)
     draw_surface(application_surface, 0,0);
 }
 
+//if (keyboard_check_pressed(vk_f7)) sdm("Surface_Draw_GUI_Begin()");
 
 
 

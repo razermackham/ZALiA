@@ -1,6 +1,9 @@
 /// PauseMenu_update()
 
 
+//if (timer)  timer--;
+if (timer0) timer0--;
+
 // 9DD0, 9DDB: JSR 9B19
 
 state_dir += -sign(state_dir);
@@ -17,6 +20,8 @@ switch(g.menu_state)
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
     case 1:{ // ---------------------------------------------------------------------------------------------
+    if (timer0) break;
+    
     // A31C
     g._074F = $C0;
     LifeDoll_count          = get_life_doll_count();
@@ -83,6 +88,7 @@ switch(g.menu_state)
     }
     
     aud_play_sound(get_audio_theme_track(dk_OpenGUI));
+    timer0 = 0;
     g.menu_state++;
     break;}
     
@@ -93,9 +99,12 @@ switch(g.menu_state)
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
     case 2:{ // ---------------------------------------------------------------------------------------------
+    if (timer0) break;
+    
     // A148, A267
     // g.spell_ready = SPL_NONE;
     // g.spell_cast = SPL_NONE;
+    timer0 = 0;
     g.menu_state++;
     break;}
     
@@ -106,12 +115,15 @@ switch(g.menu_state)
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
     case 3:{ // ---------------------------------------------------------------------------------------------
-               state &= $03;
-    if(!state) state  = ST_SPL;
+    if (timer0) break;
+    
+               state &= $3;
+    if(!state) state  = state_SPELL;
     
     rm_pal_on_open = p.pal_rm_curr;
     change_pal(strReplaceAt(rm_pal_on_open, p.PAL_POS_MOB1, PAL_MOBS_LEN, PAL_MOBS));
     
+    timer0 = 0;
     g.menu_state++;
     break;}
     
@@ -122,19 +134,28 @@ switch(g.menu_state)
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
     case 4:{ // ---------------------------------------------------------------------------------------------
+    if (timer0) break;
+    
     PauseMenu_update_1a(); // sets: g.spell_selected, map_clm_off,map_row_off
     
-    var                    _COUNT = ANIM_FRAMES_DEF; // Going to spell or item
-    if (state&$03==ST_MAP) _COUNT = ANIM_FRAMES_MAP; // Going to Map
+    var                      _count = ANIM_FRAMES_DEF; // Going to spell or item
+    if (state&$3==state_MAP) _count = ANIM_FRAMES_MAP; // Going to Map
     
-    g.menu_built_count += (g.menu_built_count<_COUNT);
-    g.menu_built_count -= (g.menu_built_count>_COUNT);
+    var _C1 = Input.GP_Other6_pressed; // testing. slow down animation
+    if (_C1)
+    {
+        g.menu_built_count += (g.menu_built_count<_count);
+        g.menu_built_count -= (g.menu_built_count>_count);
+    }
     
     PauseMenu_udp();
     
     
-    if (g.menu_built_count==_COUNT)
+    //timer0 = $10; // testing. slow down animation
+    if (_C1 
+    &&  g.menu_built_count==_count)
     {
+        timer0 = 0;
         g.menu_state++;
     }
     break;}
@@ -146,6 +167,8 @@ switch(g.menu_state)
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
     case 5:{ // PAUSEMENU INTERACTIVITY -------------------------------------------
+    if (timer0) break;
+    
     PauseMenu_update_2a();
     break;}
     
@@ -156,10 +179,12 @@ switch(g.menu_state)
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
     case 6:{ // ---------------------------------------------------------------------------------------------
+    if (timer0) break;
+    
     // Start was pressed. Closing menu.
     
     if (g.menu_built_count>ANIM_FRAMES_DEF 
-    ||  state&$03==ST_MAP )
+    ||  state&$03==state_MAP )
     {
         state = (state<<4) | (state>>4); // draws SPL or ITM as MAP closes
         g.menu_built_count--;
@@ -170,6 +195,7 @@ switch(g.menu_state)
     PauseMenu_udp();
     
     // A267
+    timer0 = 0;
     g.menu_state++;
     break;}
     
@@ -180,10 +206,19 @@ switch(g.menu_state)
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
     case 7:{ // ---------------------------------------------------------------------------------------------
+    if (timer0) break;
+    
     // A3D7
         g.menu_built_count--;
-    if (g.menu_built_count<0) g.menu_state++; // menu_built_count below 0
-    else PauseMenu_udp();
+    if (g.menu_built_count<0)
+    {
+        timer0 = 0;
+        g.menu_state++; // menu_built_count below 0
+    }
+    else
+    {
+        PauseMenu_udp();
+    }
     break;}
     
     
@@ -193,9 +228,12 @@ switch(g.menu_state)
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
     case 8:{ // ---------------------------------------------------------------------------------------------
+    if (timer0) break;
+    
     change_pal(rm_pal_on_open);
     
     // A338
+    timer0 = 0;
     g.gui_state        = 0;
     g.menu_state       = 0;
     g.menu_built_count = 0;

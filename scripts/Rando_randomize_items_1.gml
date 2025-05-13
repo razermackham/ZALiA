@@ -110,6 +110,15 @@ if(!Rando_is_qual_location(STR_Mido))
 
 
 
+//dl_spells_placed dl_items_placed
+
+
+
+
+
+
+
+
 
 // ==============================================================================
 // PHASE 2 -----------------------------------
@@ -365,7 +374,7 @@ for(_i=ds_list_size(dl_list1)-1; _i>=0; _i--)
     }
 }
 
- 
+
 
 
 // Just in case some things didn't make it
@@ -556,8 +565,9 @@ if (isVal(CONTAINER_METHOD,3))
 //ds_list_size(dl_placed_containers_hp)
 
 
+// Place the remaining containers
 if (isVal(CONTAINER_METHOD,1,2,3))
-{   // Place the remaining containers
+{
            ds_list_copy(_dl_remaining_items,dl_ItemPool_C);
     for(_i=ds_list_size(_dl_remaining_items)-1; _i>=0; _i--)
     {

@@ -11,7 +11,7 @@ if (g.mod_SHOW_MAGIC_REMAINING_NUM
     argument4 += $02<<3;
 }
 
-if (g.spell_selected == argument0)
+if (g.spell_selected==argument0)
 {
     _x = argument3 + ($01<<3);
     _y = argument4 + ($01<<3);
@@ -24,8 +24,8 @@ if (g.spell_selected == argument0)
 else if (argument2 < 100) argument1 += "0";
                           argument1 += string(argument2);
 //
-_x  = argument3 + ($02<<3);
-_y  = argument4 + ($01<<3);
+_x = argument3 + ($02<<3);
+_y = argument4 + ($01<<3);
 draw_text_(_x,_y, argument1, -1, argument5);
 
 

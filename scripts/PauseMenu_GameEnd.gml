@@ -1,15 +1,9 @@
 // PauseMenu_GameEnd()
 
 
-//ar_spell_str = 0
-
-// sprData = 0;
-
-//ar_map_anim_data = 0;
-
-//ar_win_tdata_spl = 0;
-//ar_win_tdata_itm = 0;
-//ar_win_tdata_map = 0;
+if (surface_exists(MenuFrame_srf_SPELL)) surface_free(MenuFrame_srf_SPELL);
+if (surface_exists(MenuFrame_srf_ITEM))  surface_free(MenuFrame_srf_ITEM);
+if (surface_exists(MenuFrame_srf_MAP))   surface_free(MenuFrame_srf_MAP);
 
 
 

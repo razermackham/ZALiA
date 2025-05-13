@@ -21,45 +21,10 @@ var _HELD0 =  _CTL &&  _SHF &&  _ALT; // CTL + SHF + ALT held
 
 
 // ----------------------------------------------------------------------------
-// --------------------------------------------------------------------
-if (true) // 2024/09/16. This was supposed to be available to everyone?
-//if (DEV)
-{
-    g.app_adv_frame = g.app_paused && GP_Other4_pressed; // if app paused && Bumper RGT pressed
-    //
-    if (GP_Other4_released    // bump R  released
-    || !GP_Other4_held )      // bump R  NOT held
-    {        g.adv_frame_held_counter = 0;  }
-    
-    if (GP_Other4_held)       // bump R held
-    {
-        if ( g.adv_frame_held_counter < $18)
-        {    g.adv_frame_held_counter++; }
-        else g.app_adv_frame = true;
-        
-        if ( g.app_paused) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    }
-    
-    
-    if (g.app_paused 
-    && !GP_Other4_held )       // bump R NOT held
-    {
-        if (GP_Other3_pressed  // bump L pressed
-        ||  keyboard_check_pressed(vk_escape) )
-        {
-            g.app_paused = false;
-        }
-    }
-    
-    if(!g.app_paused 
-    &&  GP_Other5_held      // trig L held
-    &&  GP_Other6_held      // trig R held
-    &&  GP_Other4_held      // bump R held
-    &&  GP_Other3_pressed ) // bump L pressed
-    {
-        g.app_paused = true;
-    }
-}
+// ----------------------------------------------------------------------------
+// APP PAUSING ---------------------------------------------------------
+// Moved to `Surface_Draw_GUI_End()`
+//update_app_pause();
 
 
 
@@ -78,21 +43,18 @@ if (true) // 2024/09/16. This was supposed to be available to everyone?
 
 // ----------------------------------------------------------------------------
 // --------------------------------------------------------------------
-//HSPD_MAX1_DASH Cucco_HSPD_MAX1_DASH Cucco_HSPD_MAX2_DASH
-if (DEV)
-{   // Give PC faster hspd
-    if (GP_Other6_held    // GP_Other6: trig R
-    &&  g.DevTools_state 
-    &&  g.DevDash_state   // g.DevDash_state: toggle in options menu
-    && !g.app_paused 
-    && !g.pc.ogr )        // pc on ground
-    {
-        g.DevDash_state = 2; // 0: Off, 1: On, 2: On and dash input held
-    }
-    else
-    {
-        g.DevDash_state = sign(g.DevDash_state); // 0 or 1. // 0: Off, 1: On, 2: On and dash input held
-    }
+// Give PC faster hspd
+if (GP_Other6_held    // GP_Other6: trig R
+&&  g.DevTools_state 
+&&  g.DevDash_state   // g.DevDash_state: toggle in options menu
+&& !g.app_paused 
+&& !g.pc.ogr )        // pc on ground
+{
+    g.DevDash_state = 2; // 0: Off, 1: On, 2: On and dash input held
+}
+else
+{
+    g.DevDash_state = sign(g.DevDash_state); // 0 or 1. // 0: Off, 1: On, 2: On and dash input held
 }
 
 

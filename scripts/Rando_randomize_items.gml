@@ -47,9 +47,7 @@ FallingKey_LOC_ID  = val(dm_LOCATIONS[?hex_str(FallingKey_LOC_NUM)+STR_Location+
 
 
 
-// if certain towns have a progression spell, 
-// the quest item should be in pool A, 
-// otherwise put the item in pool B.
+// if certain towns have a progression spell, the quest item should be in pool A, otherwise put the item in pool B.
             dl_prog_spells=ds_list_create();
 ds_list_add(dl_prog_spells, STR_JUMP,STR_FAIRY,STR_FIRE,STR_REFLECT,STR_ENIGMA,STR_THUNDER);
 if (QUEST_NUM==2) ds_list_add(dl_prog_spells, STR_SUMMON);

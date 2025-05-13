@@ -8,30 +8,30 @@ mapDelay1_state_Backup = 0;
 mapDelay1_state_dir_Backup = 0;
 
 
-var _i, _a, _x,_x1,_x2, _y,_y1,_y2,_y3;
+var _i, _a, _val, _count;
+var _x,_x1,_x2, _y,_y1,_y2,_y3;
 var _clm,_row, _clms,_rows;
 var _pad, _dist1,_dist2;
 var _spr;
-var _str;
+var _str, _data;
 var _dk;
 
 
 PI_MENU1 = global.PI_GUI1;
 
 
-timer = 0;
+timer  = 0;
+timer0 = 0;
 
 
-ST_SPL = 1;
-ST_ITM = 2;
-ST_MAP = 3;
-state  = ST_SPL; // Default
+state_SPELL = 1;
+state_ITEM  = 2;
+state_MAP   = 3;
+state       = state_SPELL; // Default
 
 // SCB: State Change Button
 SCB_R = Input.A; // xbox cont: A
 SCB_L = Input.B; // xbox cont: X
-// SCB_R = Input.R; // 
-// SCB_L = Input.L; // 
 
 state_dir = 0; // 0, 1, -1. Which dir pressed this frame
 DUR_ARROW_BLINK = 6;
@@ -47,8 +47,8 @@ PAL_MOBS_LEN = string_length(PAL_MOBS);
 
 
 // 8x8 tiles
-CLMS_WIN_DEF = g.GUI_WIN_CLMS1; // 14. 8x8
-ROWS_WIN_DEF = $17; // 8x8. $17 == 23
+CLMS_WIN_DEF = g.GUI_WIN_CLMS1; // $0E. 8x8
+ROWS_WIN_DEF = $17;             // $17. 8x8
 
 
 // 8x8 tiles
@@ -88,21 +88,68 @@ DUNGEON_MAP_PAD1 = 1;
 
 
 ANIM_FRAMES_DEF = ROWS_WIN_DEF>>1; // 11
-ANIM_FRAMES_MAP = ANIM_FRAMES_DEF + ((CLMS_WIN_MAP - CLMS_WIN_DEF) >>1);
+ANIM_FRAMES_MAP = ANIM_FRAMES_DEF + ((CLMS_WIN_MAP-CLMS_WIN_DEF)>>1);
 anim_frame      = 0;
 
 
 
-Window_spell_menu_window_xl = 0; // xl for Spell & Item only
-Window_xr = 0;
-Window_yt = 0;
-Window_yb = 0;
-Window_w  = 0;
-Window_h  = 0;
+//Window_spell_menu_window_xl = 0; // xl for Spell & Item only
+Window_W0  = CLMS_WIN_DEF<<3;
+Window_xl0 = 0; // what `get_menu_x()` returns
+Window_xl  = 0; // same as drawX
+Window_xr  = 0;
+Window_yt  = 0;
+Window_yb  = 0;
+Window_w   = 0;
+Window_h   = 0;
 Window_vertical_draw_section_count = 0;
 Window_extra_draw_clms = 0;
 Window_filler_clms = 0;
 Window_draw_data_state = 0;
+
+
+
+//MenuFrameMapLeftEdge_W = $1<<3;
+
+
+
+
+MenuNav_can_draw = false;
+//                                                  //
+MenuNav_FONT   = spr_Font1;
+MenuNav_FONT_W = sprite_get_width( MenuNav_FONT);
+MenuNav_FONT_H = sprite_get_height(MenuNav_FONT);
+//                                                  //
+MenuNavL_sprite   = 0;
+MenuNavL_sprite_x = 0;
+MenuNavL_sprite_y = 0;
+//                                                  //
+MenuNavL_text_can_draw = false;
+MenuNavL_text    = undefined;
+MenuNavL_text_xl = 0;
+MenuNavL_text_yt = 0;
+//                                                  //
+//                                                  //
+MenuNavR_sprite   = 0;
+MenuNavR_sprite_x = 0;
+MenuNavR_sprite_y = 0;
+//                                                  //
+MenuNavR_text_can_draw = false;
+MenuNavR_text    = undefined;
+MenuNavR_text_xl = 0;
+MenuNavR_text_yt = 0;
+//                                                  //
+
+
+
+
+AreaName_can_draw = false;
+AreaName_FONT   = spr_Font1;
+AreaName_FONT_W = sprite_get_width( AreaName_FONT);
+AreaName_FONT_H = sprite_get_height(AreaName_FONT);
+AreaName_text   = undefined;
+AreaName_xl     = 0;
+AreaName_yt     = 0;
 
 
 
@@ -253,6 +300,7 @@ TSRC_HORZ = g.dl_MenuFrame_TSRC[|0];
 TSRC_VERT = g.dl_MenuFrame_TSRC[|1];
 TSRC_CORN = g.dl_MenuFrame_TSRC[|2];
 
+// CLMS_WIN_DEF==$E
 var _CLMS = CLMS_WIN_DEF - 2;
 
 // strings of indices for array Menu.sprPieces
@@ -265,11 +313,19 @@ sprDataStr5 = _V+_E + _E + string_repeat(_E,_CLMS) + _V; // (ST_MAP) Mid
 sprDataStr6 = _V+_H + _C + string_repeat(_H,_CLMS) + _V; // (ST_MAP) Hor section bar
 sprDataStr7 = _V+_E + _V + string_repeat(_E,_CLMS) + _V; // (ST_MAP) Mid w/ divider
 sprDataStr8 = _C+_H + _C + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Bottom
-sprDataStr9 = _V+_H + _C + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Hor section bar
+//sprDataStr9 = _V+_H + _C + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Hor section bar
 
 
 
-var _WIN_MID_SECTION_COUNT = 9;
+
+
+
+
+
+var _WIN_MID_SECTION_COUNT  = ROWS_WIN_DEF;
+    _WIN_MID_SECTION_COUNT -= $4; // top & bottom sections, 2 rows each
+    _WIN_MID_SECTION_COUNT  = _WIN_MID_SECTION_COUNT>>1; // each section is 2 rows
+//
 
 dg_tdata_H = 3;
 
@@ -297,9 +353,38 @@ dg_win_tdata_spl[#_idx,1] = sprDataStr2; //
 dg_win_tdata_spl[#_idx,2] = sprDataStr1; // Bottom
 
 
+MenuFrame_srf_SPELL   = 0;
+MenuFrame_srf_SPELL_W = CLMS_WIN_SPL<<3;
+_count = 0;
+for(_i=ds_grid_width(dg_win_tdata_spl)-1; _i>=0; _i--){
+    for(_j=0; _j<dg_tdata_H; _j++) _count += dg_win_tdata_spl[#_i,_j]!=0;
+}
+MenuFrame_srf_SPELL_H = _count<<3;
+
+
+
+
+
+
+
+
 // ITEM ------------------------------------
 dg_win_tdata_itm = ds_grid_create(0,dg_tdata_H);
 ds_grid_copy(dg_win_tdata_itm, dg_win_tdata_spl);
+
+MenuFrame_srf_ITEM   = 0;
+MenuFrame_srf_ITEM_W = CLMS_WIN_ITM<<3;
+_count = 0;
+for(_i=ds_grid_width(dg_win_tdata_itm)-1; _i>=0; _i--){
+    for(_j=0; _j<dg_tdata_H; _j++) _count += dg_win_tdata_itm[#_i,_j]!=0;
+}
+MenuFrame_srf_ITEM_H = _count<<3;
+
+
+
+
+
+
 
 
 // MAP ------------------------------------
@@ -320,7 +405,52 @@ ds_grid_resize(dg_win_tdata_map, (++_idx)+1, dg_tdata_H);
 dg_win_tdata_map[#_idx,0] = sprDataStr6; // Hor section bar
 dg_win_tdata_map[#_idx,1] = sprDataStr7; // 
 dg_win_tdata_map[#_idx,2] = sprDataStr8; // Bottom
-//                                      //
+
+_count  = (ANIM_FRAMES_MAP-ANIM_FRAMES_DEF)<<1;
+_count -= 2;
+for(_i=ds_grid_width(dg_win_tdata_map)-1; _i>=0; _i--)
+{
+    for(_j=0; _j<dg_tdata_H; _j++)
+    {
+        _data = dg_win_tdata_map[#_i,_j];
+        if (_data!=0)
+        {
+            _val  = string_char_at(_data,2);
+            _val  = string_repeat(_val, _count);
+            _data = string_insert(_val, _data, 2);
+            dg_win_tdata_map[#_i,_j] = _data;
+        }
+    }
+}
+
+
+MenuFrame_srf_MAP   = 0;
+MenuFrame_srf_MAP_W = CLMS_WIN_MAP<<3;
+_count = 0;
+for(_i=ds_grid_width(dg_win_tdata_map)-1; _i>=0; _i--){
+    for(_j=0; _j<dg_tdata_H; _j++) _count += dg_win_tdata_map[#_i,_j]!=0;
+}
+MenuFrame_srf_MAP_H = _count<<3;
+/*
+sprDataStr4 = _C+_H + _H + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Top
+sprDataStr5 = _V+_E + _E + string_repeat(_E,_CLMS) + _V; // (ST_MAP) Mid
+sprDataStr6 = _V+_H + _C + string_repeat(_H,_CLMS) + _V; // (ST_MAP) Hor section bar
+sprDataStr7 = _V+_E + _V + string_repeat(_E,_CLMS) + _V; // (ST_MAP) Mid w/ divider
+sprDataStr8 = _C+_H + _C + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Bottom
+*/
+
+
+
+
+
+
+
+
+MenuFrameSeparator1_W       = $1<<3; // spell/item: frame left clm. map: area-name/menu-navigation separator. 1st clm of `Window_xl0`
+MenuFrameSeparator1_SURF_XL = MenuFrame_srf_MAP_W - Window_W0;
+
+
+
 
 
 
@@ -397,21 +527,29 @@ switch(POSITIONING_VER)
     break;}
 }
 
-Items_Bar_COLOR1 = p.C_WHT1;
-Items_Bar_COLOR2 = p.C_VLT3;
+Items_Bar_COLOR1 = p.C_WHT0;
+Items_Bar_COLOR2 = p.C_BLU0;
+//Items_Bar_COLOR1 = p.C_WHT1;
+//Items_Bar_COLOR2 = p.C_VLT3;
 Items_Bar_W = (CLMS_WIN_DEF-2)<<3;
 
 Items_Bar1_can_draw = false; // Main & Quest items separator
-Items_Bar1_x = 0;
-Items_Bar1_y = 0;
+Items_Bar1_XOFF = 8;
+Items_Bar1_YOFF = ITEMS_BAR1_Y;
+Items_Bar1_x    = 0;
+Items_Bar1_y    = 0;
 
 Items_Bar2_can_draw = false; // Crystals top bar
-Items_Bar2_x = 0;
-Items_Bar2_y = 0;
+Items_Bar2_XOFF = 8;
+Items_Bar2_YOFF = ITEMS_BAR2_Y;
+Items_Bar2_x    = 0;
+Items_Bar2_y    = 0;
 
 Items_Bar3_can_draw = false; // Crystals btm bar
-Items_Bar3_x = 0;
-Items_Bar3_y = 0;
+Items_Bar3_XOFF = 8;
+Items_Bar3_YOFF = ITEMS_BAR3_Y;
+Items_Bar3_x    = 0;
+Items_Bar3_y    = 0;
 //                                                                                              //
 //                                                                                              //
 //                                                                                              //

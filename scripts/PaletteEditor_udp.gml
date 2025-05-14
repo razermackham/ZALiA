@@ -1,8 +1,13 @@
 /// PaletteEditor_udp()
 
 
-gui_xl = viewXL() + gui_XLOFF;
-gui_yt = viewYT() + gui_YTOFF;
+var _i,_j, _xl,_yt, _pi, _color, _dk;
+var _XL0 = viewXL();
+var _YT0 = viewYT();
+
+
+gui_xl = _XL0 + gui_XLOFF;
+gui_yt = _YT0 + gui_YTOFF;
 
 
 
@@ -30,7 +35,7 @@ if (state==state_EDIT1A
     if (state==state_EDIT1A 
     ||  state==state_EDIT1B )
     {
-        PalEdit_xl = gui_xl - PalEdit_Outline_W;
+        PalEdit_xl = _XL0   + PalEdit_X_BASE;
         PalEdit_yt = gui_yt - PalEdit_Outline_W;
     }
     
@@ -40,12 +45,7 @@ if (state==state_EDIT1A
     if (state==state_EDIT1B 
     ||  state==state_BGR_COLOR )
     {
-        ColorGrid_xl  = gui_xl;
-        ColorGrid_xl += PalEdit_PALS_W;
-        //ColorGrid_xl += val(PalEdit_dm[?STR_Palette+STR_Width]);
-        ColorGrid_xl += $10; // pad
-        ColorGrid_xl -= ColorGrid_Outline_W;
-        
+        ColorGrid_xl  = _XL0 + ColorGrid_X_BASE;
         ColorGrid_yt  = gui_yt;
         ColorGrid_yt -= ColorGrid_Outline_W;
         
@@ -91,8 +91,6 @@ if (state==state_EDIT1A
     if (state==state_EDIT1A 
     ||  state==state_EDIT1B )
     {
-        var _i,_j, _pi, _color, _dk;
-        
         for(_i=0; _i<PalEdit_PAL_COUNT; _i++)
         {
             _pi = val(PalEdit_dm[?STR_Palette+hex_str(_i+1)+STR_Palette+STR_Index]);
@@ -103,13 +101,48 @@ if (state==state_EDIT1A
                 _color = get_pal_color(p.pal_rm_new, _pi, string_char_at(global.PAL_BASE_COLOR_ORDER,_j+1));
                 PalEdit_dm[?_dk] = _color;
                 
-                _color = merge_colour(_color,c_black, .7);
+                _color = merge_colour(_color,c_black, 0.7);
                 PalEdit_dm[?_dk+"_Tinted"] = _color;
                 
                 PalEdit_dm[?_dk+"_UseTinted"] = state==state_EDIT1B && (PalEdit_Cursor_clm!=_i || PalEdit_Cursor_row!=_j);
                 PalEdit_dm[?_dk+"_Editing"]   = state==state_EDIT1B &&  PalEdit_Cursor_clm==_i && PalEdit_Cursor_row==_j;
             }
         }
+    }
+}
+
+
+
+
+
+
+
+
+Info1_can_draw = false;
+if (state==state_EDIT1A 
+||  state==state_EDIT1B 
+||  state==state_BGR_COLOR )
+{
+    Info1Area_xl = _XL0 + Info1Area_X_BASE;
+    Info1Area_yt = _YT0 + Info1Area_Y_BASE;
+    _xl = Info1Area_xl + Info1_PAD2;
+    _yt = Info1Area_yt + Info1_PAD2;
+    for(_i=ds_grid_width(Info1_dg)-1; _i>=0; _i--)
+    {
+        Info1_dg[#_i,5] = string_pos(string(state), string(Info1_dg[#_i,4])); // 4: draw condition data
+        if (Info1_dg[#_i,5]) // 5: can draw
+        {
+            Info1_can_draw = true;
+            Info1_dg[#_i,2] = _xl; // 2: xl
+            Info1_dg[#_i,3] = _yt; // 3: yt
+            _yt += Info1_DIST1; // yt of next text line
+        }
+    }
+    
+    if (Info1_can_draw)
+    {
+        Info1Area_h  = _yt - Info1Area_yt;
+        //Info1Area_h += Info1_PAD2; // background padding
     }
 }
 

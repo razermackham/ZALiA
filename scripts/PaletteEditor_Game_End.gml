@@ -73,3 +73,12 @@ if (_exists)                             PalEdit_dm=undefined;
 
 
 
+    _exists=variable_instance_exists(id,"Info1_dg");
+if (_exists) _exists = !is_undefined(    Info1_dg);
+if (_exists) _exists = ds_exists(        Info1_dg,ds_type_grid);
+if (_exists)           ds_grid_destroy(  Info1_dg);
+if (_exists)                             Info1_dg=undefined;
+
+
+
+

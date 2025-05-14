@@ -51,6 +51,11 @@ dm_save_data[?STR_Rando+STR_Settings] = _RANDO_SETTINGS;
 
 var _dm_SETTINGS = json_decode(_RANDO_SETTINGS);
 
+ContainersHP_START_COUNT = val(_dm_SETTINGS[?STR_File+STR_Start+STR_Container+STR_HP]);
+ContainersMP_START_COUNT = val(_dm_SETTINGS[?STR_File+STR_Start+STR_Container+STR_MP]);
+
+
+
                                                         _datakey=dk_LimitObscure;
     ItemLocations_LIMIT_OBSCURE      =val(_dm_SETTINGS[?_datakey]);
 if (ItemLocations_LIMIT_OBSCURE)          dm_save_data[?_datakey] = ItemLocations_LIMIT_OBSCURE;

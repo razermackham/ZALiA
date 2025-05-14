@@ -23,6 +23,8 @@ for(var _i=ds_list_size(g.dl_niao)-1; _i>=0; _i--)
 //if (keyboard_check_pressed(vk_f7)) global.Rain_is_active = !global.Rain_is_active; // testing
 if (global.Rain_is_active)
 {
+    global.Rain_pi = global.PI_MOB_BLU;
+    
     global.Rain_xoff %= global.Rain1_LOOP_SIZE;
     global.Rain_xoff += global.Rain_speed_x * global.Rain_direction_x;
     

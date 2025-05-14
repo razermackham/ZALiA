@@ -2097,7 +2097,7 @@ repeat($10) ds_list_add(dl_niao,0);
 
 
 global.Rain_is_active = false;
-global.Rain_pi = global.PI_MOB_BLU;
+global.Rain_pi = 0;
 global.Rain_direction_x = -1; // Horizontal. 1: right,    -1: left
 global.Rain_direction_y =  1; // Vertical.   1: downward, -1: upward
 global.Rain_speed_x = 1.0; // pixels per frame

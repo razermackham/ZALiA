@@ -188,14 +188,14 @@ if (state==state_EDIT1A
         _YT0 += PalEdit_PALS_H;
         _YT0 += $8 + _PAD2; // pad
     var _yt1  = _YT0;
-    var _ALPHA = .7;
+    
     
     if (state==state_EDIT1A 
     ||  state==state_EDIT1B )
     {
         _text = val(PalEdit_dm[?STR_Palette+hex_str(PalEdit_Cursor_clm+1)+STR_Name], "?");
         _w1 = (string_length(_text)*Font1_W) + (_PAD2<<1);
-        draw_sprite_(spr_1x1_WHT,0, _XL0-_PAD2, _yt1-_PAD2, -1, _w1,_H1, c_black, _ALPHA); // dark bgr for info
+        draw_sprite_(spr_1x1_WHT,0, _XL0-_PAD2, _yt1-_PAD2, -1, _w1,_H1, c_black, gui_Background_ALPHA); // dark bgr for info
         draw_text_(_XL0,_yt1, _text, Font1_sprite);
     }
     
@@ -210,7 +210,7 @@ if (state==state_EDIT1A
     _yt1 += _DIST1;
     _yt  = _yt1 + (Font1_H>>1);
     _yt -= _H2>>1;
-    draw_sprite_(spr_1x1_WHT,0, _XL0-_PAD2, _yt1-_PAD2, -1, _w1,_H1, c_black, _ALPHA); // dark bgr for info
+    draw_sprite_(spr_1x1_WHT,0, _XL0-_PAD2, _yt1-_PAD2, -1, _w1,_H1, c_black, gui_Background_ALPHA); // dark bgr for info
     draw_surface(ColorOutline1_surf, _xl-PalEdit_Outline_W, _yt-PalEdit_Outline_W); // color square outline
     draw_sprite_(spr_1x1_WHT,0, _xl,_yt, -1, _W2,_H2, color_old);                   // color square
     draw_text_(_XL0,_yt1, _text, Font1_sprite);
@@ -228,10 +228,28 @@ if (state==state_EDIT1A
         _yt1 += _DIST1;
         _yt   = _yt1 + (Font1_H>>1);
         _yt  -= _H2>>1;
-        draw_sprite_(spr_1x1_WHT,0, _XL0-_PAD2, _yt1-_PAD2, -1, _w1,_H1, c_black, _ALPHA); // dark bgr for info
+        draw_sprite_(spr_1x1_WHT,0, _XL0-_PAD2, _yt1-_PAD2, -1, _w1,_H1, c_black, gui_Background_ALPHA); // dark bgr for info
         draw_surface(ColorOutline1_surf, _xl-PalEdit_Outline_W, _yt-PalEdit_Outline_W); // color square outline
         draw_sprite_(spr_1x1_WHT,0, _xl,_yt, -1, _W2,_H2, color_new);                   // color square
         draw_text_(_XL0,_yt1, _text, Font1_sprite);
+    }
+    
+    
+    
+    
+    if (Info1_can_draw)
+    {
+        draw_sprite_(spr_1x1_WHT,0, Info1Area_xl,Info1Area_yt, -1, Info1Area_W,Info1Area_h, Info1Background_COLOR,Info1Background_ALPHA); // dark bgr for info
+        for(_i=ds_grid_width(Info1_dg)-1; _i>=0; _i--)
+        {
+            if (Info1_dg[#_i,5]) // 5: can draw
+            {
+                _text = Info1_dg[#_i,0];
+                _xl   = Info1_dg[#_i,2];
+                _yt   = Info1_dg[#_i,3];
+                draw_text_(_xl,_yt, _text, Info1_FONT);
+            }
+        }
     }
 }
 

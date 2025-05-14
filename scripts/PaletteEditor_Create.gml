@@ -1,11 +1,13 @@
 /// PaletteEditor_Create()
 
 
-var _i,_j, _a, _idx, _val1,_val2, _count,_count1;
+var _i,_j, _a, _idx, _val1,_val2, _count,_count1, _dist;
 var _x,_y, _xl,_yt;
 var _color;
 var _dk,_dk1,_dk2;
+var _grid_h = 0;
 var _dl = ds_list_create();
+var _SCALE1 = 6;
 
 
 depth = DEPTH_HUD;
@@ -22,13 +24,19 @@ state           = state_IDLE;
 
 
 
-var _SCALE1 = 6;
+gui_PAD1 = $1<<3; // camera pad
+gui_PAD2 = $A; // editor elements x separator
+gui_Background_ALPHA = 0.7;
+
+
+
 
 // -1 Upper left, 0 Center left, 1 Bottom left
 gui_alignment = -1;
 gui_state_at_sess_start = 0;
-gui_XLOFF = $01<<3; // camera pad
-gui_YTOFF = $01<<3; // camera pad
+gui_XLOFF = gui_PAD1; // camera pad
+gui_YTOFF = gui_PAD1; // camera pad
+gui_YTOFF = gui_YTOFF>>1; // micro adj
 gui_xl    = 0;
 gui_yt    = 0;
 
@@ -91,66 +99,6 @@ PalView_Outline_COLOR2   = c_white;
 
 
 
-// Color Grid ----------------------------------------------------------
-ColorGrid_VER   = 2;
-ColorGrid_surf  = 0;
-ColorGrid_SCALE = _SCALE1;
-ColorGrid_Outline_W = 2;
-ColorGrid_dl_colors = ds_list_create();
-switch(ColorGrid_VER)
-{
-    default:{
-    ColorGrid_CLMS = sprite_get_width( spr_color_grid_2c);
-    ColorGrid_ROWS = sprite_get_height(spr_color_grid_2c);
-    for(_i=0; _i<ColorGrid_ROWS; _i++)
-    {
-        for(_j=0; _j<ColorGrid_CLMS; _j++)
-        {
-            _idx = (_i<<4)|_j;
-            _color = p.dl_COLOR[|_idx];
-            ds_list_add(ColorGrid_dl_colors,_color);
-        }
-    }
-    break;}//default
-    
-    case 2:{
-    ColorGrid_CLMS = p.ColorGrid_CLMS;
-    ColorGrid_ROWS = p.ColorGrid_ROWS;
-    ds_list_copy(ColorGrid_dl_colors,global.dl_COLOR01);
-    if (ColorGrid_ROWS>ColorGrid_CLMS)
-    {   // grid is in portrait layout, change it to landscape so it isn't getting in the way of the background too much
-        ds_list_clear(_dl);
-        for(_j=0; _j<ColorGrid_CLMS; _j++)
-        {
-            for(_i=ColorGrid_ROWS-1; _i>=0; _i--)
-            {
-                _idx = (ColorGrid_CLMS*_i) + _j;
-                ds_list_add(_dl, ColorGrid_dl_colors[|_idx]);
-            }
-        }
-        ds_list_copy(ColorGrid_dl_colors, _dl);
-        _val1 = ColorGrid_CLMS;
-        _val2 = ColorGrid_ROWS;
-        ColorGrid_CLMS = _val2;
-        ColorGrid_ROWS = _val1;
-    }
-    break;}//case 2
-}//switch(ColorGrid_VER)
-ColorGrid_Cursor_clm = 0;
-ColorGrid_Cursor_row = 0;
-ColorGrid_W  = (ColorGrid_CLMS*ColorGrid_SCALE) + (ColorGrid_Outline_W<<1);
-ColorGrid_H  = (ColorGrid_ROWS*ColorGrid_SCALE) + (ColorGrid_Outline_W<<1);;
-ColorGrid_xl = 0;
-ColorGrid_yt = 0;
-//ColorGrid_Cursor_color = 0;
-
-
-
-
-
-
-
-
 // GameObject Palettes ------------------------------------------
 ObjPal_COL_SIZE   = 4;
 ObjPalOutline_W   = 1;
@@ -194,16 +142,19 @@ Cursor_surf  = 0;
 
 // Edit mode
 PalEdit_SCALE = _SCALE1;
-PalEdit_xl    = 0;
-PalEdit_yt    = 0;
 PalEdit_Outline_W = 2;
+PalEdit_X_BASE  = gui_XLOFF;
+PalEdit_X_BASE -= PalEdit_Outline_W;
+PalEdit_xl = 0;
+PalEdit_yt = 0;
 PalEdit_Outline_surf = 0;
 PalEdit_color_before_edit = 0;
 
 
 PalEdit_dm = ds_map_create();
 var _GROUP_SPACING  = PalEdit_SCALE;
-    _GROUP_SPACING += 4; // extra spacing
+    _GROUP_SPACING += $2; // extra spacing
+    //_GROUP_SPACING += $4; // extra spacing
 _count1 = 0;
 PalEdit_group_count = 0;
 _xl = 0;
@@ -212,7 +163,63 @@ _yt = 0;
 PalEdit_dm[?STR_Palette+"_XL"] = _xl;
 
 
+
+
+// BGR ----------------------------------------------------------
+PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+"_XL"] = _xl;
+
+if (val(global.dm_pi[?"BGR"+STR_Count])>0)
+{
+    _dk1 = STR_Palette+hex_str(++_count1);
+    PalEdit_dm[?_dk1+STR_Name] = "BGR 1";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR1;
+    PalEdit_dm[?_dk1+"_XL"] = _xl;
+    _xl += PalEdit_SCALE;
+}
+
+if (val(global.dm_pi[?"BGR"+STR_Count])>1)
+{
+    _dk1 = STR_Palette+hex_str(++_count1);
+    PalEdit_dm[?_dk1+STR_Name] = "BGR 2";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR2;
+    PalEdit_dm[?_dk1+"_XL"] = _xl;
+    _xl += PalEdit_SCALE;
+}
+
+if (val(global.dm_pi[?"BGR"+STR_Count])>2)
+{
+    _dk1 = STR_Palette+hex_str(++_count1);
+    PalEdit_dm[?_dk1+STR_Name] = "BGR 3";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR3;
+    PalEdit_dm[?_dk1+"_XL"] = _xl;
+    _xl += PalEdit_SCALE;
+}
+
+if (val(global.dm_pi[?"BGR"+STR_Count])>3)
+{
+    _dk1 = STR_Palette+hex_str(++_count1);
+    PalEdit_dm[?_dk1+STR_Name] = "BGR 4";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR4;
+    PalEdit_dm[?_dk1+"_XL"] = _xl;
+    _xl += PalEdit_SCALE;
+}
+
+if (val(global.dm_pi[?"BGR"+STR_Count])>4)
+{
+    _dk1 = STR_Palette+hex_str(++_count1);
+    PalEdit_dm[?_dk1+STR_Name] = "BGR 5";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR5;
+    PalEdit_dm[?_dk1+"_XL"] = _xl;
+    _xl += PalEdit_SCALE;
+}
+
+PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+"_XL"]);
+
+
+
+
 // PC ----------------------------------------------------------
+_xl += _GROUP_SPACING; // palette group padding
 PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+"_XL"] = _xl;
 
 if (val(global.dm_pi[?"PC"+STR_Count])>0)
@@ -295,56 +302,49 @@ PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdi
 
 
 
-// BGR ----------------------------------------------------------
+// MOBS ----------------------------------------------------------
 _xl += _GROUP_SPACING; // palette group padding
 PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+"_XL"] = _xl;
 
-if (val(global.dm_pi[?"BGR"+STR_Count])>0)
+if (val(global.dm_pi[?"MOB"+STR_Count])>0)
 {
     _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "BGR 1";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR1;
+    PalEdit_dm[?_dk1+STR_Name] = "MOB ORANGE";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_ORG;
     PalEdit_dm[?_dk1+"_XL"] = _xl;
     _xl += PalEdit_SCALE;
 }
 
-if (val(global.dm_pi[?"BGR"+STR_Count])>1)
+if (val(global.dm_pi[?"MOB"+STR_Count])>1)
 {
     _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "BGR 2";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR2;
+    PalEdit_dm[?_dk1+STR_Name] = "MOB RED";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_RED;
     PalEdit_dm[?_dk1+"_XL"] = _xl;
     _xl += PalEdit_SCALE;
 }
 
-if (val(global.dm_pi[?"BGR"+STR_Count])>2)
+if (val(global.dm_pi[?"MOB"+STR_Count])>2)
 {
     _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "BGR 3";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR3;
+    PalEdit_dm[?_dk1+STR_Name] = "MOB BLUE";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_BLU;
     PalEdit_dm[?_dk1+"_XL"] = _xl;
     _xl += PalEdit_SCALE;
 }
 
-if (val(global.dm_pi[?"BGR"+STR_Count])>3)
+if (val(global.dm_pi[?"MOB"+STR_Count])>3)
 {
     _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "BGR 4";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR4;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-if (val(global.dm_pi[?"BGR"+STR_Count])>4)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "BGR 5";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR5;
+    PalEdit_dm[?_dk1+STR_Name] = "MOB PURPLE";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_PUR;
     PalEdit_dm[?_dk1+"_XL"] = _xl;
     _xl += PalEdit_SCALE;
 }
 
 PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+"_XL"]);
+
+
 
 
 PalEdit_PALS_W = _xl - val(PalEdit_dm[?STR_Palette+"_XL"]);
@@ -353,6 +353,148 @@ PalEdit_PAL_COUNT = _count1;
 PalEdit_Cursor_clm = 0;
 PalEdit_Cursor_row = 0;
 //PalEdit_Cursor_color = 0; // the palette color under the cursor
+
+
+
+
+
+
+
+
+// Color Grid ----------------------------------------------------------
+ColorGrid_VER   = 2;
+ColorGrid_surf  = 0;
+ColorGrid_SCALE = _SCALE1;
+ColorGrid_Outline_W = 2;
+ColorGrid_dl_colors = ds_list_create();
+switch(ColorGrid_VER)
+{
+    default:{
+    ColorGrid_CLMS = sprite_get_width( spr_color_grid_2c);
+    ColorGrid_ROWS = sprite_get_height(spr_color_grid_2c);
+    for(_i=0; _i<ColorGrid_ROWS; _i++)
+    {
+        for(_j=0; _j<ColorGrid_CLMS; _j++)
+        {
+            _idx = (_i<<4)|_j;
+            _color = p.dl_COLOR[|_idx];
+            ds_list_add(ColorGrid_dl_colors,_color);
+        }
+    }
+    break;}//default
+    
+    case 2:{
+    ColorGrid_CLMS = p.ColorGrid_CLMS;
+    ColorGrid_ROWS = p.ColorGrid_ROWS;
+    ds_list_copy(ColorGrid_dl_colors,global.dl_COLOR01);
+    if (ColorGrid_ROWS>ColorGrid_CLMS)
+    {   // grid is in portrait layout, change it to landscape so it isn't getting in the way of the background too much
+        ds_list_clear(_dl);
+        for(_j=0; _j<ColorGrid_CLMS; _j++)
+        {
+            for(_i=ColorGrid_ROWS-1; _i>=0; _i--)
+            {
+                _idx = (ColorGrid_CLMS*_i) + _j;
+                ds_list_add(_dl, ColorGrid_dl_colors[|_idx]);
+            }
+        }
+        ds_list_copy(ColorGrid_dl_colors, _dl);
+        _val1 = ColorGrid_CLMS;
+        _val2 = ColorGrid_ROWS;
+        ColorGrid_CLMS = _val2;
+        ColorGrid_ROWS = _val1;
+    }
+    break;}//case 2
+}//switch(ColorGrid_VER)
+ColorGrid_Cursor_clm = 0;
+ColorGrid_Cursor_row = 0;
+ColorGrid_W  = (ColorGrid_CLMS*ColorGrid_SCALE) + (ColorGrid_Outline_W<<1);
+ColorGrid_H  = (ColorGrid_ROWS*ColorGrid_SCALE) + (ColorGrid_Outline_W<<1);;
+ColorGrid_xl = 0;
+ColorGrid_yt = 0;
+//ColorGrid_Cursor_color = 0;
+
+ColorGrid_X_BASE  = gui_XLOFF;
+ColorGrid_X_BASE += PalEdit_PALS_W;
+ColorGrid_X_BASE += gui_PAD2; // pad
+ColorGrid_X_BASE -= ColorGrid_Outline_W;
+
+
+
+
+
+
+
+
+Info1_can_draw = false;
+
+Info1_FONT   = spr_Font3_1;
+Info1_FONT_W = sprite_get_width( Info1_FONT);
+Info1_FONT_H = sprite_get_height(Info1_FONT);
+Info1_PAD1  = $2; // Info1AreaBackground_ text pad
+Info1_PAD2  = $2; // text line spacing
+Info1_DIST1 = Info1_FONT_H + Info1_PAD2; // dist to next text line
+
+Info1Background_COLOR = p.C_BLK1;
+Info1Background_ALPHA = gui_Background_ALPHA;
+Info1Area_X_BASE  = ColorGrid_X_BASE + ColorGrid_W;
+Info1Area_X_BASE += $6;
+//Info1Area_X_BASE += gui_PAD2; // pad
+Info1Area_Y_BASE  = gui_YTOFF;
+Info1Area_W  = viewW();
+Info1Area_W -= gui_PAD1; // camera pad
+Info1Area_W -= Info1Area_X_BASE;
+//Info1Area_H  = $4<<3;
+Info1Area_h  = 0;
+Info1Area_xl = 0;
+Info1Area_yt = 0;
+
+
+_grid_h = $6;
+Info1_dg = ds_grid_create(0,_grid_h);
+_yt = Info1Area_Y_BASE;
+
+_i = -1;
+_j = 0;
+ds_grid_resize(Info1_dg, (++_i)+1, _grid_h);
+Info1_dg[#_i,_j++] = "'B', ESC, BACKSPACE: CANCEL CHANGES";
+//Info1_dg[#_i,_j++] = "'B', ESC, BACKSPACE: CANCEL CHANGES AND CLOSE PALETTE EDITOR";
+Info1_dg[#_i,_j++] = string_length(Info1_dg[#_i,0]) * Info1_FONT_W; // text w
+Info1_dg[#_i,_j++] = 0; // xl
+Info1_dg[#_i,_j++] = 0; // yt
+Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
+
+_j = 0;
+ds_grid_resize(Info1_dg, (++_i)+1, _grid_h);
+Info1_dg[#_i,_j++] = "START, ENTER: CONFIRM CHANGES";
+Info1_dg[#_i,_j++] = string_length(Info1_dg[#_i,0]) * Info1_FONT_W; // text w
+Info1_dg[#_i,_j++] = 0; // xl
+Info1_dg[#_i,_j++] = 0; // yt
+Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
+
+_j = 0;
+ds_grid_resize(Info1_dg, (++_i)+1, _grid_h);
+Info1_dg[#_i,_j++] = "'A': SELECT COLOR";
+Info1_dg[#_i,_j++] = string_length(Info1_dg[#_i,0]) * Info1_FONT_W; // text w
+Info1_dg[#_i,_j++] = 0; // xl
+Info1_dg[#_i,_j++] = 0; // yt
+Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B); // can draw conditions
+
+_j = 0;
+ds_grid_resize(Info1_dg, (++_i)+1, _grid_h);
+Info1_dg[#_i,_j++] = "'Y', 'Y'+LT, 'Y'+RT: VIEW PREVIOUS COLOR(S)";
+Info1_dg[#_i,_j++] = string_length(Info1_dg[#_i,0]) * Info1_FONT_W; // text w
+Info1_dg[#_i,_j++] = 0; // xl
+Info1_dg[#_i,_j++] = 0; // yt
+Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
+
+_j = 0;
+ds_grid_resize(Info1_dg, (++_i)+1, _grid_h);
+Info1_dg[#_i,_j++] = "'X', 'X'+LT, 'X'+RT: RANDOMIZE COLOR(S)";
+Info1_dg[#_i,_j++] = string_length(Info1_dg[#_i,0]) * Info1_FONT_W; // text w
+Info1_dg[#_i,_j++] = 0; // xl
+Info1_dg[#_i,_j++] = 0; // yt
+Info1_dg[#_i,_j++] = string(state_EDIT1A); // can draw conditions
 
 
 

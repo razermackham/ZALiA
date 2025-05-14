@@ -1,4 +1,4 @@
-/// Rando_generate(quest num, seed, encoded rando settings)
+/// Rando_generate(quest num, seed)
 // Rando_generate(quest num, seed, encoded rando settings)
 
 

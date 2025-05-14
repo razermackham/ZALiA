@@ -208,7 +208,7 @@ if (_yt1+Info_FONT_H < MenuWindow_yb)
     {
         _xl = TextArea1_xl;
         _yt = _yt1;
-        pal_swap_set(p.palette_image, PI_MENU1);
+        pal_swap_set(global.palette_image, PI_MENU1);
         for(_i=0; _i<_count; _i++)
         {
             if (_yt1+Info_FONT_H >= MenuWindow_yb)

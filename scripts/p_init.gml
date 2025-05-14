@@ -43,7 +43,7 @@ depth = DEPTH_p;
 // You can set it to false for the stable legacy method that 
 // uses a sprite instead of a surface.
 global.palette_image_IS_SURFACE = false;
-palette_image = 0;
+global.palette_image = 0;
 
 // WRBGYMKC. W: WHITE, R: RED, B: BLUE, G: GREEN, Y: YELLOW, M: MAGENTA, K: BLACK, C: CYAN
 global.PAL_BASE_COLOR_ORDER = "WRBGYMKC";
@@ -336,6 +336,12 @@ C_CYN0  = $FFFF00; // B-255,G-255,R-000.   full cyan
 C_CYN0_ = color_str(C_CYN0);
 //                          // 
 C_ERR0  = C_YLW0; // Error, Missing data, ..
+//                          // 
+//     C_ALPHA0: The color that color swap will draw transparent(alpha=0)
+global.C_ALPHA0 = $7F7F7F; // B-127,G-127,R-127.   mid grey
+//global.C_ALPHA0_B_ = ((global.C_ALPHA0>>$10)&$FF)/$FF; // for shd_pal_swapper
+//global.C_ALPHA0_G_ = ((global.C_ALPHA0>>$08)&$FF)/$FF; // for shd_pal_swapper
+//global.C_ALPHA0_R_ = ((global.C_ALPHA0>>$00)&$FF)/$FF; // for shd_pal_swapper
 //                          // 
 //                          // 
 //                          // 

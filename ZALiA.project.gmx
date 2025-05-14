@@ -13420,6 +13420,7 @@
         <script>scripts\PauseMenu_draw_map.gml</script>
         <script>scripts\PauseMenu_Draw_map_Overworld8x8.gml</script>
         <script>scripts\PauseMenu_Draw_map_Overworld16x16.gml</script>
+        <script>scripts\PauseMenu_draw_map_dungeon.gml</script>
         <script>scripts\PauseMenu_map_set_pcrc.gml</script>
         <script>scripts\PauseMenu_GameEnd.gml</script>
         <script>scripts\update_explored_data.gml</script>
@@ -13718,6 +13719,7 @@
       </scripts>
     </scripts>
     <scripts name="palette">
+      <script>scripts\p_Create.gml</script>
       <script>scripts\p_init.gml</script>
       <script>scripts\p_init_add_more_colors.gml</script>
       <script>scripts\p_Room_Start.gml</script>

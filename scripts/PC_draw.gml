@@ -31,7 +31,7 @@ if (can_draw_self)
         {
             _x = _x1;
             _y = _y1;
-            pal_swap_set(p.palette_image, Draw_palidx);
+            pal_swap_set(global.palette_image, Draw_palidx);
             if (Cucco_legs_draw_first)
             {   // draw legs behind body
                 draw_sprite_(Cucco_sprite_legs,0, _x,_y, -1, Draw_xscale1,Draw_yscale1, c_white,1, Draw_rotation1);

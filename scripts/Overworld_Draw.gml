@@ -167,7 +167,7 @@ if (TreasureMaps_can_draw)
             _spr = TreasureMaps_dg[#_i,$C]; // $C: sprite
             _pi  = TreasureMaps_dg[#_i,$D]; // $D: palette index
             
-            pal_swap_set(p.palette_image, _pi);
+            pal_swap_set(global.palette_image, _pi);
             if (TreasureMaps_dg[#_i,$8]==STR_MAGIC) // $8: item type
             {
                 draw_sprite_(TreasureMaps_Magic_sprite1,0, _x,_y); // bubbling liquid

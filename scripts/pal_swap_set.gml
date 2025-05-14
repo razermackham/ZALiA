@@ -1,13 +1,8 @@
 /// pal_swap_set(palette_sprite_index, palette_index);
 
 
-// ------------------------------------------------------------
-if(!global.use_pal_swap)
-{
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-}
-
-if(!argument[1] 
+if(!global.use_pal_swap 
+|| !argument[1] 
 ||  argument[1]>=global.palette_image_w )
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -26,36 +21,36 @@ var _Palette_IMAGE = argument[0];
 var _Palette_INDEX = argument[1];
 
 
-if (global.palette_image_IS_SURFACE) var _tex = surface_get_texture(_Palette_IMAGE);
-else                                 var _tex = sprite_get_texture( _Palette_IMAGE, 0);
-texture_set_stage(            global.Pal_Texture, _tex);
+if (global.palette_image_IS_SURFACE) var _TEX = surface_get_texture(_Palette_IMAGE);
+else                                 var _TEX = sprite_get_texture( _Palette_IMAGE, 0);
+texture_set_stage(            global.Pal_Texture, _TEX);
 texture_set_interpolation_ext(global.Pal_Texture, 1)
 
 
-var _texel_x  = texture_get_texel_width( _tex);
-var _texel_y  = texture_get_texel_height(_tex);
-var _texel_hx = _texel_x * 0.5;
-var _texel_hy = _texel_y * 0.5;
-
+var _Texel_W  = texture_get_texel_width( _TEX);
+var _Texel_H  = texture_get_texel_height(_TEX);
+var _Texel_W_ = _Texel_W * 0.5;
+var _Texel_H_ = _Texel_H * 0.5;
+//if(keyboard_check_pressed(vk_f7))sdm("_Texel_W "+string(_Texel_W)+", _Texel_W_ "+string(_Texel_W_)+", _Texel_H "+string(_Texel_H)+", _Texel_H_ "+string(_Texel_H_));
 
 if (global.palette_image_IS_SURFACE)
 {   // palette is surface
-    var _val0 =           _texel_hx;
-    var _val1 =           _texel_hy;
-    var _val2 = 1.0     + _texel_hx;
-    var _val3 = 1.0     + _texel_hy;
+    var _val0 =           _Texel_W_;
+    var _val1 =           _Texel_H_;
+    var _val2 = 1.0     + _Texel_W_;
+    var _val3 = 1.0     + _Texel_H_;
 }
 else
 {   // palette is sprite
     var _UVs  = sprite_get_uvs(_Palette_IMAGE, 0);
-    var _val0 = _UVs[0] + _texel_hx;
-    var _val1 = _UVs[1] + _texel_hy;
-    var _val2 = _UVs[2] + _texel_hx;
-    var _val3 = _UVs[3] + _texel_hy;
+    var _val0 = _UVs[0] + _Texel_W_; // 0: left
+    var _val1 = _UVs[1] + _Texel_H_; // 1: top
+    var _val2 = _UVs[2] + _Texel_W_; // 2: right
+    var _val3 = _UVs[3] + _Texel_H_; // 3: bottom
 }
 
 
-shader_set_uniform_f(global.Pal_Texel_Size, _texel_x, _texel_y);
+shader_set_uniform_f(global.Pal_Texel_Size, _Texel_W, _Texel_H);
 shader_set_uniform_f(global.Pal_UVs, _val0, _val1, _val2, _val3);
 shader_set_uniform_f(global.Pal_Index, _Palette_INDEX);
 

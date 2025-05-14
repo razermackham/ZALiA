@@ -25,7 +25,7 @@ var _word, _len, _pos, _pos_space, _pos_end_line;
 _xl = _XL;
 _yt = _YT;
 
-if (_PI) pal_swap_set(p.palette_image, _PI);
+if (_PI) pal_swap_set(global.palette_image, _PI);
 while (true)
 {
         _len = string_length(_text);

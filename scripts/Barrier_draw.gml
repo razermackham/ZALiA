@@ -17,7 +17,7 @@ var _Y  = spawn_y;
     //_Y += -((!!_DIR)<<3);
     //_Y += _Y_OFF*_DIR;
 var _rows=0;
-pal_swap_set(p.palette_image, p.dg_PI_SEQ[#dg_PI_SEQ_IDX,_IDX]);
+pal_swap_set(global.palette_image, p.dg_PI_SEQ[#dg_PI_SEQ_IDX,_IDX]);
 
 for(_i=0; _i<BARRIER_COUNT; _i++) // each barrier/crystal
 {

@@ -3,7 +3,7 @@
 
 var _i;
 var _x,_y;
-var _sprite;
+var _sprite, _pi;
 //var _ITEMX = Window_xl0;
 //var _x_scale = 1;
 
@@ -39,7 +39,7 @@ if (Feather_can_draw)
 // CRYSTALS  --------------------------------------------
 if (Crystals_can_draw)
 {
-    pal_swap_set(p.palette_image, PI_MENU1);
+    pal_swap_set(global.palette_image, PI_MENU1);
     for(_i=0; _i<f.CRYSTAL_MAX; _i++)
     {
         if (f.crystals&($1<<_i)) _sprite = SPR_CRYSTAL2; // Crystal     placed
@@ -84,7 +84,7 @@ if (Icons_can_draw)
 // Extra life dolls  -----------------------------
 if (LifeDolls_can_draw)
 {
-    pal_swap_set(p.palette_image, LifeDolls_pi);
+    pal_swap_set(global.palette_image, LifeDolls_pi);
     for(_i=0; _i<LifeDolls_count; _i++)
     {
         _x = LifeDolls_x + (Dolls_PAD*_i);
@@ -106,7 +106,7 @@ if (AllKey_can_draw) draw_sprite_(AllKey_SPRITE,0, AllKey_x,AllKey_y, global.PI_
 if (TreasureMap1_can_draw 
 ||  TreasureMap2_can_draw )
 {
-    pal_swap_set(p.palette_image, global.PI_MOB_ORG);
+    pal_swap_set(global.palette_image, global.PI_MOB_ORG);
     if (TreasureMap1_can_draw) draw_sprite_(TreasureMap1_SPRITE,0, TreasureMap1_x,TreasureMap1_y);
     if (TreasureMap2_can_draw) draw_sprite_(TreasureMap2_SPRITE,0, TreasureMap2_x,TreasureMap2_y);
     pal_swap_reset();

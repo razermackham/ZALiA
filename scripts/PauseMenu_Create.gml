@@ -808,6 +808,22 @@ ContainerMP_y = 0;
 
 
 // --------------------------------------------------------
+MapArea_W  = CLMS_MAP_PAPER<<3;
+MapArea_H  = ROWS_MAP_PAPER<<3;
+MapArea_w  = 0;
+MapArea_h  = 0;
+MapArea_xl = 0;
+MapArea_yt = 0;
+
+MapPaper_USE_SURFACE = true;
+MapPaper_PAD1 = $2;
+MapPaper_w  = 0;
+MapPaper_h  = 0;
+MapPaper_xl = 0;
+MapPaper_yt = 0;
+
+MapTears_srf = 0;
+
 map_anim_idx = 0;
 
 // index is (frame - 1) of open map sequence, which is about 5 frames.
@@ -881,7 +897,8 @@ $C0 bits:
 */
 _clms = CLMS_MAP_PAPER;
 _rows = ROWS_MAP_PAPER;
-dg_map_edge = ds_grid_create(_clms, _rows); ds_grid_clear(dg_map_edge, -1);
+dg_map_edge = ds_grid_create(_clms,_rows);
+ds_grid_clear(dg_map_edge, -1);
 
 
 
@@ -1370,6 +1387,15 @@ dm_terrain[?_dk+_TS2_IDX_+hex_str($F8)]         = _TSRC_MONSTER1; // River Devil
 dm_terrain[?_dk+_TS2_IDX_+hex_str($F9)]         = _TSRC_MONSTER1; // River Devil
 //dm_terrain[?_dk+_TS1_IDX_+hex_str($D8)]         = _TSRC_MONSTER1; // River Devil
 //dm_terrain[?_dk+_TS1_IDX_+hex_str($D9)]         = _TSRC_MONSTER1; // River Devil
+
+
+
+
+
+
+
+
+MenuMap_srf = 0;
 
 
 

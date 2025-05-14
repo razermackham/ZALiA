@@ -12,7 +12,7 @@ var _i;
 
 
 
-pal_swap_set(p.palette_image, PI_MENU1);
+pal_swap_set(global.palette_image, PI_MENU1);
 
 
 // ----------------------------------------------------------------------------------

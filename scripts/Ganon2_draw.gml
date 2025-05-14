@@ -63,7 +63,7 @@ Form3_can_draw = false;
 // ---------------------------------------------------------------
 if (can_draw_self)
 {
-    pal_swap_set(p.palette_image, palidx);
+    pal_swap_set(global.palette_image, palidx);
     draw_sprite_(sprite,0, drawX,drawY);
     draw_sprite_(Face_SPRITE,0, drawX,drawY);
     

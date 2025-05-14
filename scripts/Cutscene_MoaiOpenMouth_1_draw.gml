@@ -22,7 +22,7 @@ if (TurnedIn_count)
         {
             // --------------------------------------
             case 0:{ // NORM
-            pal_swap_set(p.palette_image, _pi);
+            pal_swap_set(global.palette_image, _pi);
             draw_sprite_(spr_Bot2_Norm,    0, _x,_y, _pi);
             draw_sprite_(spr_Bot_Eyes_1a_1,0, _x,_y, _pi);
             pal_swap_reset();
@@ -32,7 +32,7 @@ if (TurnedIn_count)
             
             // --------------------------------------
             case 1:{ // CYCLOPES EYE
-            pal_swap_set(p.palette_image, _pi);
+            pal_swap_set(global.palette_image, _pi);
             draw_sprite_(spr_Bot2_Norm,        0, _x,_y,   _pi);
             //draw_sprite_(spr_Eye_Closed_1a_WRB,0, _x,_y+2, _pi); // eye closed
             draw_sprite_(spr_Eye_Open_1b_WRB,0, _x,_y+2, _pi); // eye half open
@@ -43,7 +43,7 @@ if (TurnedIn_count)
             
             // --------------------------------------
             case 2:{ // TRANSPARENT
-            pal_swap_set(p.palette_image, _pi);
+            pal_swap_set(global.palette_image, _pi);
             draw_sprite_(spr_Slime_Small_1b_WRB,      0, _x,_y, _pi); // small slime
             draw_sprite_(spr_Slime_Transparent_1a_WRB,0, _x,_y, _pi); // transparent body
             pal_swap_reset();

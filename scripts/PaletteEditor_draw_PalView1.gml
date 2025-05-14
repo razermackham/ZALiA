@@ -9,8 +9,8 @@ if (PalView_Outline_W)
     if (PalView_Outline_W>0) draw_sprite_(spr_1x1_WHT,0, argument0-1,argument1-1, -1, _W+2,_H+2, PalView_Outline_COLOR1);
 }
 
-if (global.palette_image_IS_SURFACE) draw_surface_part_ext(p.palette_image,   argument2,0, argument3,global.COLORS_PER_PALETTE, argument0,argument1, argument4,argument4, c_white,1);
-else                                 draw_sprite_part_ext( p.palette_image,0, argument2,0, argument3,global.COLORS_PER_PALETTE, argument0,argument1, argument4,argument4, c_white,1);
+if (global.palette_image_IS_SURFACE) draw_surface_part_ext(global.palette_image,   argument2,0, argument3,global.COLORS_PER_PALETTE, argument0,argument1, argument4,argument4, c_white,1);
+else                                 draw_sprite_part_ext( global.palette_image,0, argument2,0, argument3,global.COLORS_PER_PALETTE, argument0,argument1, argument4,argument4, c_white,1);
 
 
 

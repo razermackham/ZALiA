@@ -54,10 +54,8 @@ project.
           <argument>
             <kind>1</kind>
             <string>///Clean up
-if(active == false)
-    instance_destroy();
-else
-    active=false;
+if(!active) instance_destroy();
+else        active = false;
 </string>
           </argument>
         </arguments>

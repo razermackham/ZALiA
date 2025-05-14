@@ -4,18 +4,15 @@
 if (DEV) sdm(" p_Game_End()");
 
 
-
-
-
 if (global.palette_image_IS_SURFACE)
 {
-    if (surface_exists(palette_image))
-    {   surface_free(  palette_image);  }
+    if (surface_exists(global.palette_image))
+    {   surface_free(  global.palette_image);  }
 }
 else
 {
-    if (sprite_exists(palette_image))
-    {   sprite_delete(palette_image);  }
+    if (sprite_exists(global.palette_image))
+    {   sprite_delete(global.palette_image);  }
 }
 
 if (sprite_exists(fall_scene_1_spr)) 

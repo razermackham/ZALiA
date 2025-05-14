@@ -1,9 +1,11 @@
 // PauseMenu_GameEnd()
 
 
-if (surface_exists(MenuFrame_srf_SPELL)) surface_free(MenuFrame_srf_SPELL);
-if (surface_exists(MenuFrame_srf_ITEM))  surface_free(MenuFrame_srf_ITEM);
-if (surface_exists(MenuFrame_srf_MAP))   surface_free(MenuFrame_srf_MAP);
+if (variable_instance_exists(id,"MenuFrame_srf_SPELL") && surface_exists(MenuFrame_srf_SPELL)) surface_free(MenuFrame_srf_SPELL);
+if (variable_instance_exists(id,"MenuFrame_srf_ITEM")  && surface_exists(MenuFrame_srf_ITEM))  surface_free(MenuFrame_srf_ITEM);
+if (variable_instance_exists(id,"MenuFrame_srf_MAP")   && surface_exists(MenuFrame_srf_MAP))   surface_free(MenuFrame_srf_MAP);
+if (variable_instance_exists(id,"MapTears_srf")        && surface_exists(MapTears_srf))        surface_free(MapTears_srf);
+if (variable_instance_exists(id,"MenuMap_srf")         && surface_exists(MenuMap_srf))         surface_free(MenuMap_srf);
 
 
 

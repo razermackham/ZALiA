@@ -37,22 +37,16 @@ if (WindowBackground_can_draw)
 // Draw GUI Window Frame
 PauseMenu_Draw_1(); // create surfaces
 
-pal_swap_set(p.palette_image, PI_MENU1);
+pal_swap_set(global.palette_image, PI_MENU1);
 switch(Window_draw_data_state){
 case state_SPELL:{draw_surface_part(MenuFrame_srf_SPELL, MenuFrameMain_srf_xl,0, MenuFrameMain_w,Window_h, MenuFrameMain_xl,MenuFrameMain_yt); break;}
 case state_ITEM: {draw_surface_part(MenuFrame_srf_ITEM,  MenuFrameMain_srf_xl,0, MenuFrameMain_w,Window_h, MenuFrameMain_xl,MenuFrameMain_yt); break;}
 case state_MAP:  {draw_surface_part(MenuFrame_srf_MAP,   MenuFrameMain_srf_xl,0, MenuFrameMain_w,Window_h, MenuFrameMain_xl,MenuFrameMain_yt); break;}
 }
-
-if (Window_extra_draw_clms)
-{   // For clms extending left beyond spell/item window
-    draw_surface_part(MenuFrame_srf_MAP, 0,0, Window_extra_draw_clms_w,Window_h, drawX,MenuFrameMain_yt);
-}
-
-if (MenuFrameSeparator1_can_draw)
-{   // draw map area-name/menu-nav separator
-    draw_surface_part(MenuFrame_srf_MAP, MenuFrameSeparator1_SURF_XL,0, MenuFrameSeparator1_W,Window_h, Window_xl0,MenuFrameMain_yt);
-}
+// For clms extending left beyond spell/item window
+if (Window_extra_draw_clms)       draw_surface_part(MenuFrame_srf_MAP, 0,0, Window_extra_draw_clms_w,Window_h, drawX,MenuFrameMain_yt);
+// draw map area-name/menu-nav separator
+if (MenuFrameSeparator1_can_draw) draw_surface_part(MenuFrame_srf_MAP, MenuFrameSeparator1_SURF_XL,0, MenuFrameSeparator1_W,Window_h, Window_xl0,MenuFrameMain_yt);
 pal_swap_reset();
 
 
@@ -78,7 +72,7 @@ if (Window_extra_draw_clms) PauseMenu_draw_map();
 
 // ----------------------------------------------------------------------------------
 //  MENU NAVIGATION  -------------------------------------------------------------  
-pal_swap_set(p.palette_image, PI_MENU1);
+pal_swap_set(global.palette_image, PI_MENU1);
 if (MenuNav_can_draw)
 {
     if (MenuNavL_text_can_draw) draw_text_(MenuNavL_text_xl, MenuNavL_text_yt, MenuNavL_text); // left   $20

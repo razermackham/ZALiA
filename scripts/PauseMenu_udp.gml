@@ -1,7 +1,7 @@
 /// PauseMenu_udp()
 
 
-var _i, _bit;
+var _i, _bit, _amt;
 var _x,_y, _x0,_y0, _xl,_yt, _dist_x, _w0;
 var _clm,_row;
 var _grid_clm,_grid_row;
@@ -41,6 +41,16 @@ tsrc_grid_row_base = 0;
 Window_extra_draw_clms   = 0;
 Window_extra_draw_clms_w = 0;
 
+MapArea_xl = 0;
+MapArea_yt = 0;
+MapArea_w  = 0;
+MapArea_h  = 0;
+
+MapPaper_xl = 0;
+MapPaper_yt = 0;
+MapPaper_w  = 0;
+MapPaper_h  = 0;
+
 
 // g.menu_state==4: constructing menu, deconstructing menu from map to spell/item
 // g.menu_state==5: idle, user input
@@ -66,45 +76,57 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
     paper_drawn_clms = dl_map_anim_data[|map_anim_idx];
     paper_drawn_rows = ROWS_MAP_PAPER;
     
+    
+    MapArea_w = paper_drawn_clms<<3;
+    MapArea_h = ROWS_MAP_PAPER  <<3;
+    
+    MapArea_xl  = drawX; // menu window draw xl
+    MapArea_xl += 8;     // +8(win border, drawn paper xl)
+    
+    MapArea_yt  = drawY; // menu window draw yt
+    MapArea_yt += 8;     // +8(win border, drawn paper yt)
+    
+    
+    MapPaper_w = MapArea_w - (MapPaper_PAD1<<1);
+    MapPaper_h = MapArea_h - (MapPaper_PAD1<<1);
+    
+    MapPaper_xl = MapArea_xl + MapPaper_PAD1;
+    MapPaper_yt = MapArea_yt + MapPaper_PAD1;
+    
+    
     map_is_opening = paper_drawn_clms && paper_drawn_clms<CLMS_MAP_PAPER;
     
     
     // The xl of the left most tile of a fully drawn map, even if only part of that tile may draw.
-    terrain_tile_xl_base  = drawX; // menu window draw xl
-    terrain_tile_xl_base += 8;     // +8(win border, drawn paper xl)
+    terrain_tile_xl_base  = MapArea_xl;
     terrain_tile_xl_base += paper_drawn_clms<<3; // drawn paper xr
-    terrain_tile_xl_base -= CLMS_MAP_PAPER<<3;   // paper xl, whether draw yet or not
+    terrain_tile_xl_base -= CLMS_MAP_PAPER<<3;   // paper xl, whether drawn yet or not
     terrain_tile_xl_base += 8;     // +8(terrain pad)
     terrain_tile_xl_base -= 4;     // offset 1/2 a tile because pc centered on map
     
     // The yt of the top most tile of a fully drawn map, even if only part of that tile may draw.
-    terrain_tile_yt_base  = drawY; // menu window draw yt
-    terrain_tile_yt_base += 8;     // +8(win border, drawn paper yt)
+    terrain_tile_yt_base  = MapArea_yt;
     terrain_tile_yt_base += paper_drawn_rows<<3; // drawn paper yb
-    terrain_tile_yt_base -= ROWS_MAP_PAPER<<3;   // paper yt, whether draw yet or not
+    terrain_tile_yt_base -= ROWS_MAP_PAPER<<3;   // paper yt, whether drawn yet or not
     terrain_tile_yt_base += 8;     // +8(terrain pad)
     terrain_tile_yt_base -= 4;     // offset 1/2 a tile because pc centered on map
     
     
     // The xl of what terrain can be drawn currently, which may include a partial tile
-    terrain_draw_area_xl  = drawX; // menu window draw xl
-    terrain_draw_area_xl += 8;     // +8(win border)
+    terrain_draw_area_xl  = MapArea_xl;
     terrain_draw_area_xl += 8;     // +8(terrain pad)
     terrain_draw_area_xl -= 4 * map_is_opening; // extra half tile while opening
     
-    terrain_draw_area_xr  = drawX; // menu window draw xl
-    terrain_draw_area_xr += 8;     // +8(win border)
+    terrain_draw_area_xr  = MapArea_xl;
     terrain_draw_area_xr += paper_drawn_clms<<3; // drawn paper xr
     terrain_draw_area_xr -= 8;     // -8(terrain pad)
     //terrain_draw_area_xr += 4 * map_is_opening; // extra half tile while opening
     
     // The yt of what terrain can be drawn currently, which may include a partial tile
-    terrain_draw_area_yt  = drawY; // menu window draw yt
-    terrain_draw_area_yt += 8;     // +8(win border)
+    terrain_draw_area_yt  = MapArea_yt;
     terrain_draw_area_yt += 8;     // +8(terrain pad)
     
-    terrain_draw_area_yb  = drawY; // menu window draw yt
-    terrain_draw_area_yb += 8;     // +8(win border)
+    terrain_draw_area_yb  = MapArea_yt;
     terrain_draw_area_yb += paper_drawn_rows<<3; // paper yb
     terrain_draw_area_yb -= 8;     // -8(terrain pad)
     
@@ -152,10 +174,16 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
         else                          _ts_yoff = 0;
         _yt += _ts_yoff;
         
-        dg_terrain_draw[#_i,$0] = _xl;      // $0: xl
-        dg_terrain_draw[#_i,$1] = _yt;      // $1: yt
-        dg_terrain_draw[#_i,$2] = _tile_w;  // $2: tile width
-        dg_terrain_draw[#_i,$3] = _tile_h;  // $3: tile height
+        dg_terrain_draw[#_i,$2] = _tile_w; // $2: tile width
+        dg_terrain_draw[#_i,$3] = _tile_h; // $3: tile height
+        
+        dg_terrain_draw[#_i,$0] = _xl;     // $0: xl
+        dg_terrain_draw[#_i,$1] = _yt;     // $1: yt
+        if (MapPaper_USE_SURFACE)
+        {
+            dg_terrain_draw[#_i,$0] -= MapArea_xl;
+            dg_terrain_draw[#_i,$1] -= MapArea_yt;
+        }
         
         
         
@@ -310,6 +338,20 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
 
 
 
+if(!surface_exists(MenuMap_srf))
+{
+    MenuMap_srf = surface_create(1,1);
+}
+
+if (MapArea_w 
+&&  MapArea_h )
+{
+    surface_resize(MenuMap_srf, MapArea_w,MapArea_h);
+}
+
+
+
+
 Window_w  = Window_W0;
 Window_w += Window_extra_draw_clms<<3;
 
@@ -437,12 +479,12 @@ if (AreaName_can_draw)
 {
     AreaName_text = MapAreaName;
     //                                                  //
-    AreaName_xl   = drawX;
-    AreaName_xl  += 8; // window border
-    AreaName_xl  += (Window_xl0-AreaName_xl)>>1; // text area xc
-    AreaName_xl  -= (string_length(AreaName_text)*AreaName_FONT_W) >>1; // text xl
+    AreaName_xl  = drawX;
+    AreaName_xl += 8; // window border
+    AreaName_xl += (Window_xl0-AreaName_xl)>>1; // text area xc
+    AreaName_xl -= (string_length(AreaName_text)*AreaName_FONT_W) >>1; // text xl
     //                                                  //
-    AreaName_yt   = Window_yb - $10; // text yt
+    AreaName_yt  = Window_yb - $10; // text yt
 }
 
 
@@ -452,13 +494,28 @@ if (AreaName_can_draw)
 
 
 
+_amt = $0;
 WindowBackground_can_draw = true;
-WindowBackground_color  = global.BackgroundColor_scene;
-WindowBackground_alpha  = 1;
-WindowBackground_w  = Window_w;
-WindowBackground_h  = Window_h;
-WindowBackground_xl = drawX;
-WindowBackground_yt = drawY;
+WindowBackground_color = global.BackgroundColor_scene;
+WindowBackground_alpha = 1;
+switch(0) // test diff styles
+{
+    case 1:{
+    _amt = $2;
+    WindowBackground_color = p.C_BLK1;
+    WindowBackground_alpha = 0.7;
+    break;}
+    
+    case 2:{
+    _amt = $2;
+    WindowBackground_alpha = 0.85;
+    break;}
+}
+WindowBackground_w = Window_w - (_amt<<1);
+WindowBackground_h = Window_h - (_amt<<1);
+
+WindowBackground_xl = drawX + _amt;
+WindowBackground_yt = drawY + _amt;
 
 
 

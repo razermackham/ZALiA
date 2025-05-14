@@ -60,7 +60,7 @@ if(!surface_exists(Caution_srf))
 
 if (surface_exists(Caution_srf))
 {
-    pal_swap_set(p.palette_image, global.PI_BGR1);
+    pal_swap_set(global.palette_image, global.PI_BGR1);
     draw_surface(Caution_srf, Caution_XL,Caution_YT);
     pal_swap_reset();
 }

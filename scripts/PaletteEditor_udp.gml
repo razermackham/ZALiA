@@ -8,8 +8,8 @@ gui_yt = viewYT() + gui_YTOFF;
 
 
 if (global.palette_image_IS_SURFACE)
-{    if(!surface_exists(p.palette_image)) PalView_enabled = false;  }
-else if(!sprite_exists( p.palette_image)) PalView_enabled = false;
+{    if(!surface_exists(global.palette_image)) PalView_enabled = false;  }
+else if(!sprite_exists( global.palette_image)) PalView_enabled = false;
 
 
 if (PalView_enabled)

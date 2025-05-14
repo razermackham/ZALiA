@@ -77,7 +77,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         
         
         
-        pal_swap_set(p.palette_image, PI_MENU1);
+        pal_swap_set(global.palette_image, PI_MENU1);
         
         for(_i=0; _i<2; _i++)
         {

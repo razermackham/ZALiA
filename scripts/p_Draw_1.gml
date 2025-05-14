@@ -16,16 +16,23 @@ if(!global.App_frame_count) // On 1st frame after app start
 
 if (global.palette_image_IS_SURFACE)
 {
-    if(!palette_image 
-    || !surface_exists(palette_image) )
+    if(!global.palette_image 
+    || !surface_exists(global.palette_image) )
     {   _C1 |= $8;  }
 }
 else
 {
-    if(!palette_image 
-    || !sprite_exists(palette_image) )
+    if(!global.palette_image 
+    || !sprite_exists(global.palette_image) )
     {   _C1 |= $8;  }
 }
+
+
+
+
+shader_set(shd_pal_swapper);
+shader_set_uniform_f(shader_get_uniform(shd_pal_swapper,"ALPHA0_COLOR"), ((global.C_ALPHA0>>$10)&$FF)/$FF, ((global.C_ALPHA0>>$08)&$FF)/$FF, ((global.C_ALPHA0>>$00)&$FF)/$FF);
+shader_reset();
 
 
 
@@ -222,12 +229,12 @@ if (_C1&$8)
     
     if (global.palette_image_IS_SURFACE)
     {
-        palette_image = surface_create(_w1,_h1);
-        surface_copy(palette_image, 0,0, _surf);
+        global.palette_image = surface_create(_w1,_h1);
+        surface_copy(global.palette_image, 0,0, _surf);
     }
     else
     {
-        palette_image = sprite_create_from_surface(_surf, 0,0, _w1,_h1, 0,0, 0,0);
+        global.palette_image = sprite_create_from_surface(_surf, 0,0, _w1,_h1, 0,0, 0,0);
     }
     
     surface_reset_target();

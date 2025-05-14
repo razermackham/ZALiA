@@ -46,24 +46,24 @@ for(_i=0; _i<_W; _i++) // each pal & permut
 
 if (global.palette_image_IS_SURFACE)
 {
-    if (surface_exists(palette_image))
-    {   surface_free(  palette_image);  }
+    if (surface_exists(global.palette_image))
+    {   surface_free(  global.palette_image);  }
     
-    palette_image = surface_create(_W,global.COLORS_PER_PALETTE);
-    surface_copy(palette_image, 0,0, _SURF);
-    global.palette_image_w = surface_get_width( palette_image);
-    global.palette_image_h = surface_get_height(palette_image);
+    global.palette_image = surface_create(_W,global.COLORS_PER_PALETTE);
+    surface_copy(global.palette_image, 0,0, _SURF);
+    global.palette_image_w = surface_get_width( global.palette_image);
+    global.palette_image_h = surface_get_height(global.palette_image);
     
 }
 else
 {
-    if (sprite_exists(palette_image)) 
-    {   sprite_delete(palette_image);  }
+    if (sprite_exists(global.palette_image)) 
+    {   sprite_delete(global.palette_image);  }
     
-    palette_image = sprite_create_from_surface(_SURF, 0,0, _W,global.COLORS_PER_PALETTE, 0,0, 0,0);
-    //palette_image = sprite_create_from_surface(_SURF, 0,0, _W,global.PAL_CHAR_PER_COLOR, 0,0, 0,0);
-    global.palette_image_w = sprite_get_width( palette_image);
-    global.palette_image_h = sprite_get_height(palette_image);
+    global.palette_image = sprite_create_from_surface(_SURF, 0,0, _W,global.COLORS_PER_PALETTE, 0,0, 0,0);
+    //global.palette_image = sprite_create_from_surface(_SURF, 0,0, _W,global.PAL_CHAR_PER_COLOR, 0,0, 0,0);
+    global.palette_image_w = sprite_get_width( global.palette_image);
+    global.palette_image_h = sprite_get_height(global.palette_image);
 }
 
 

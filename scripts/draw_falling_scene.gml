@@ -60,7 +60,7 @@ with(p)
             case  1:{_pi=global.PI_CUCCO2; break;}
             case  2:{_pi=global.PI_CUCCO3; break;}
             }
-            pal_swap_set(palette_image, _pi);
+            pal_swap_set(global.palette_image, _pi);
             draw_sprite_(g.pc.CuccoFallScene_SPRITE_BODY,0, _x,  _y,   -1, _x_scale); // 
             draw_sprite_(g.pc.CuccoFallScene_SPRITE_LEGS,0, _x,  _y,   -1, _x_scale); // 
             draw_sprite_(g.pc.CuccoFallScene_SPRITE_WING,0, _x,  _y,   -1, _x_scale); // 

@@ -22,22 +22,63 @@ uniform sampler2D palette_texture;
 uniform vec2 texel_size;
 uniform vec4 palette_UVs;
 uniform float palette_index;
+uniform vec3 ALPHA0_COLOR;
 
 void main()
 {
-    vec4 source = texture2D( gm_BaseTexture, v_vTexcoord );
+    vec4 _source = texture2D(gm_BaseTexture, v_vTexcoord);
     
-    DoAlphaTest( source );
+    DoAlphaTest(_source);
     
-    for(float i = palette_UVs.y; i < palette_UVs.w; i+=texel_size.y )
+    if (_source.rgb==ALPHA0_COLOR)
+    //if (_source.rgb==vec3(127.0/255.0)) // mid grey $7F7F7F
     {
-        if (distance(source, texture2D(palette_texture, vec2(palette_UVs.x, i))) <= 0.004)
+        _source.a = 0.0;
+    }
+    else
+    {
+        for(float _i=palette_UVs.y; _i<palette_UVs.w; _i+=texel_size.y)
         {
-            float palette_V = palette_UVs.x + texel_size.x * palette_index;
-            source = texture2D(palette_texture, vec2(palette_V, i));
+            if (distance(_source, texture2D(palette_texture, vec2(palette_UVs.x, _i))) <= 0.004)
+            {
+                float _palette_V = palette_UVs.x + texel_size.x * palette_index;
+                _source = texture2D(palette_texture, vec2(_palette_V, _i));
+                break;
+            }
+        }
+    }
+
+    gl_FragColor = _source * v_vColour;
+}
+
+
+
+
+/*
+varying vec2 v_vTexcoord;
+varying vec4 v_vColour;
+
+uniform sampler2D palette_texture;
+uniform vec2 texel_size;
+uniform vec4 palette_UVs;
+uniform float palette_index;
+
+void main()
+{
+    vec4 _source = texture2D(gm_BaseTexture, v_vTexcoord);
+    
+    DoAlphaTest(_source);
+    
+    for(float _i=palette_UVs.y; _i<palette_UVs.w; _i+=texel_size.y)
+    {
+        if (distance(_source, texture2D(palette_texture, vec2(palette_UVs.x, _i))) <= 0.004)
+        {
+            float _palette_V = palette_UVs.x + texel_size.x * palette_index;
+            _source = texture2D(palette_texture, vec2(_palette_V, _i));
             break;
         }
     }
 
-    gl_FragColor = source * v_vColour;
+    gl_FragColor = _source * v_vColour;
 }
+*/

@@ -107,7 +107,7 @@ if (g.gui_window_can_draw)
     // -------------------------------------------------------------------------
     // DRAW FRAME --------------------------------------------
     // draw_gui_frame(ar_TSRC_DATA, cnt_draw_rows, drawX, drawY);
-    pal_swap_set(p.palette_image, global.PI_GUI1);
+    pal_swap_set(global.palette_image, global.PI_GUI1);
     if(!_D3){
         if (surface_exists(   WINDOW_FRAME1_SRF))
         {   draw_surface_part(WINDOW_FRAME1_SRF, 0,0, _w,_h, drawX,drawY);  }

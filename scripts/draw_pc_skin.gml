@@ -38,7 +38,7 @@ with(g.pc)
     {
         var _val, _sub_image_index;
         
-        pal_swap_set(p.palette_image, _PALIDX);
+        pal_swap_set(global.palette_image, _PALIDX);
         // Shield
         if(!_USE_DISGUISE)
         {
@@ -81,7 +81,7 @@ with(g.pc)
         _y += Spritesheet_H * sign(!_Y_SCALE);
         
         
-        pal_swap_set(p.palette_image, _PALIDX);
+        pal_swap_set(global.palette_image, _PALIDX);
         // Shield
         if(!_USE_DISGUISE)
         {

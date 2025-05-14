@@ -23,7 +23,7 @@ switch(state)
         var _text;
         var _tsrc, _ts_x,_ts_y;
         
-        pal_swap_set(p.palette_image, PI_MENU1);
+        pal_swap_set(global.palette_image, PI_MENU1);
         
         // HEADER =======================
         _text = "S E L E C T";
@@ -112,7 +112,7 @@ switch(state)
     }
     else
     {
-        pal_swap_set(p.palette_image, global.PI_GUI1);
+        pal_swap_set(global.palette_image, global.PI_GUI1);
         if (surface_exists(surf_MAIN))
         {   draw_surface(  surf_MAIN, surf_MAIN_XL,surf_MAIN_YT);  }
         pal_swap_reset();
@@ -235,7 +235,7 @@ if (state==State_REGISTER
         }
         
         
-        pal_swap_set(p.palette_image, PI_MENU1);
+        pal_swap_set(global.palette_image, PI_MENU1);
         
         
         

@@ -44,7 +44,7 @@ switch(3)
 
 
 // Draw menu frame
-pal_swap_set(p.palette_image, PI_MENU1);
+pal_swap_set(global.palette_image, PI_MENU1);
 for(_i=0; _i<draw_rows_count; _i++) // each row
 {
     for(_j=draw_clms_count-1; _j>=0; _j--) // 8x8. each column of the row
@@ -99,7 +99,7 @@ _font_h = sprite_get_height(_font);
 
 _y = drawY + (YOFF_HEAD*_font_h);
 
-pal_swap_set(p.palette_image, PI_MENU1);
+pal_swap_set(global.palette_image, PI_MENU1);
 if (_y+_font_h<MenuWindow_yb-$8)
 {
     switch(menu_state){

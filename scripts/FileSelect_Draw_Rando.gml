@@ -47,7 +47,7 @@ _count = (_count>>1)>>3;
 _count--; // Text pad
 _xl = Area1_XL;
 _yt = _YT0;
-pal_swap_set(p.palette_image, PI_MENU1);
+pal_swap_set(global.palette_image, PI_MENU1);
 for(_i=0; _i<_count; _i++) draw_background_part(ts_Menu01, $0<<3,$2<<3, 8,8, _xl+(_i<<3),_yt);
 _xl = Area1_XR-8;
 for(_i=0; _i<_count; _i++) draw_background_part(ts_Menu01, $0<<3,$2<<3, 8,8, _xl-(_i<<3),_yt);

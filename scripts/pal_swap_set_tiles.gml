@@ -6,34 +6,28 @@
 
 
 // ------------------------------------------------------------
-if(!global.use_pal_swap)
-{
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-}
-if(!argument[1] 
+if(!global.use_pal_swap 
+|| !argument[1] 
 ||  argument[1]>=global.palette_image_w )
 {
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
-var _is_surface = global.palette_image_IS_SURFACE;
-if (_is_surface)
+if (global.palette_image_IS_SURFACE)
 {    if(!surface_exists(argument[0])) exit;  } // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-else if(!sprite_exists( argument[0])) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+else if(!sprite_exists( argument[0])) exit;    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
 
 // ------------------------------------------------------------
-var _pal_sprite = argument[0];
-var _pal_index  = argument[1];
+var _PALETTE_IMAGE = argument[0];
+var _PALETTE_INDEX = argument[1];
 
-var _low        = argument[2]+1;
-var _high       = argument[3]-1;
-if (_low<_high){ //You passed the arguments in backwards, nimrod.
-    _low        = argument[3]-1;
-    _high       = argument[2]+1;
-}
+argument[2]++;
+argument[3]--;
+var _LOW  = max(argument[2],argument[3]);
+var _HIGH = min(argument[2],argument[3]);
 
 
 
@@ -42,13 +36,13 @@ if (_low<_high){ //You passed the arguments in backwards, nimrod.
 var _start_exists = false;
 with(TileSwapperStart)
 {
-    if (depth==_low)
+    if (depth==_LOW)
     {   //Object already exists, update the values.
         _start_exists  = true;
         active         = true;
-        pal_sprite     = _pal_sprite;
-        pal_index      = _pal_index;
-        pal_is_surface = _is_surface;
+        pal_sprite     = _PALETTE_IMAGE;
+        pal_index      = _PALETTE_INDEX;
+        pal_is_surface = global.palette_image_IS_SURFACE;
     }
 }
 
@@ -57,10 +51,10 @@ if(!_start_exists)
     with(instance_create(0,0,TileSwapperStart))
     {
         active         = true;
-        depth          = _low;
-        pal_sprite     = _pal_sprite;
-        pal_index      = _pal_index;
-        pal_is_surface = _is_surface;
+        depth          = _LOW;
+        pal_sprite     = _PALETTE_IMAGE;
+        pal_index      = _PALETTE_INDEX;
+        pal_is_surface = global.palette_image_IS_SURFACE;
     }
 }
 
@@ -72,7 +66,7 @@ if(!_start_exists)
 var _end_exists = false;
 with(TileSwapperEnd)
 {
-    if (depth==_high)
+    if (depth==_HIGH)
     {   //Object already exists, update the values.
         _end_exists = true;
         active      = true;
@@ -84,6 +78,10 @@ if(!_end_exists)
     with(instance_create(0,0,TileSwapperEnd))
     {
         active = true;
-        depth  = _high;
+        depth  = _HIGH;
     }
 }
+
+
+
+

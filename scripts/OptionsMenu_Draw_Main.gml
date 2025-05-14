@@ -19,7 +19,7 @@ _yt1 = _YT0;
 
 
 
-pal_swap_set(p.palette_image, PI_MENU1);
+pal_swap_set(global.palette_image, PI_MENU1);
 for(_i=0; _i<MainOption_COUNT; _i++)
 {
     if(!OptionsMenu_option_is_avail(menu_state_MAIN,_i))
@@ -274,7 +274,7 @@ pal_swap_reset();
 _yt1 = Info_yt;
 if (_yt1+Info_FONT_H < MenuWindow_yb)
 {
-    pal_swap_set(p.palette_image, PI_MENU1);
+    pal_swap_set(global.palette_image, PI_MENU1);
     for(_i=2; _i<MainOptions_dg_H; _i++)
     {
         if (_yt1+Info_FONT_H >= MenuWindow_yb)

@@ -8,8 +8,8 @@ if (is_undefined(pal_rm_def)) // if there's NO pal for this rm/room
 
 
 if (global.palette_image_IS_SURFACE)
-{    if(!surface_exists(palette_image)) exit;  } // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-else if(!sprite_exists( palette_image)) exit;    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{    if(!surface_exists(global.palette_image)) exit;  } // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+else if(!sprite_exists( global.palette_image)) exit;    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
@@ -31,7 +31,7 @@ for(_i=ds_list_size(g.dl_pal_swap_depths)-1; _i>=0; _i--)
         _pi = val(global.dm_pi[?hex_str(_pi)+STR_Dark+string(_DARK_LEVEL)], _pi);
     }
     
-    pal_swap_set_tiles(palette_image,_pi, _depth,_depth);
+    pal_swap_set_tiles(global.palette_image,_pi, _depth,_depth);
 }
 
 

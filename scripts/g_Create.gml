@@ -165,7 +165,7 @@ BWR:    Blue      White   Red
 
 
 
-var _i,_j, _a, _num, _count, _bit;
+var _i,_j, _a, _num, _count,_count1,_count2, _bit;
 var _x,_y;
 var _clm,_row, _clms,_rows;
 var _w,_w2, _h,_h2;
@@ -837,6 +837,16 @@ dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+S
 dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
 
 _ts = ts_Natural_4a_HMS;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Natural02;
 ds_list_add(dl_tileset,_ts);
 _name = background_get_name(_ts);
 dm_tileset[?_name] = _ts;
@@ -2082,6 +2092,41 @@ DEPTH_STARS = DEPTH_CLOUD + (TILE_DEPTHS_PAD>>1);
 
 dl_niao = ds_list_create();
 repeat($10) ds_list_add(dl_niao,0);
+
+
+
+
+global.Rain_is_active = false;
+global.Rain_pi = global.PI_MOB_BLU;
+global.Rain_direction_x = -1; // Horizontal. 1: right,    -1: left
+global.Rain_direction_y =  1; // Vertical.   1: downward, -1: upward
+global.Rain_speed_x = 1.0; // pixels per frame
+global.Rain_speed_y = 4.0; // pixels per frame
+
+global.Rain1_srf = 0;
+global.Rain1_TS  = ts_Natural02;
+global.Rain1_TILE_SIZE  = $2<<3; // 2x2 of 8x8 tiles
+global.Rain1_LOOP_SIZE  = global.Rain1_TILE_SIZE<<1; // 4x4 of 8x8 tiles
+global.Rain1_LOOP_SIZE_ = global.Rain1_LOOP_SIZE>>1;
+
+var _EXTRA = $2<<1; // number of extra $10x$10 squares outside each axis(horizontal,vertical) of the camera
+
+// _count1: number of $10x$10 squares, horizontally
+_count1  =   viewW() div global.Rain1_TILE_SIZE;
+_count1 += _EXTRA;
+_count1 += ((viewW() mod global.Rain1_TILE_SIZE)!=0) <<1;
+global.Rain1_srf_W = global.Rain1_TILE_SIZE * _count1;
+
+// _count2: number of $10x$10 squares, vertically
+_count2  =   viewH() div global.Rain1_TILE_SIZE;
+_count2 += _EXTRA;
+_count2 += ((viewH() mod global.Rain1_TILE_SIZE)!=0) <<1;
+global.Rain1_srf_H = global.Rain1_TILE_SIZE * _count2;
+
+global.Rain_xoff = 0; // current offset from base xl
+global.Rain_yoff = 0; // current offset from base yt
+global.Rain_xl   = 0;
+global.Rain_yt   = 0;
 
 
 

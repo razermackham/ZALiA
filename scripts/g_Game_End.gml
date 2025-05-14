@@ -147,6 +147,12 @@ if (              TownDoor1_SPR
 
 
 
+if (surface_exists(global.Rain1_srf))
+{   surface_free(  global.Rain1_srf);  }
+
+
+
+
 
 
 

@@ -35,8 +35,8 @@ var _EDIT_REQUESTED_PAL = (CTL0 && PP)
 //
 var _EDIT_REQUESTED_BGR = (Input.GP_Other5_held && Input.GP_Other3_held && Input.GP_Other2_pressed); // Hold trigL + bumpL, press Y
 
-var _Input_COLOR_SELECTED = Input.Jump_pressed;
-//var _Input_COLOR_SELECTED = Input.Jump_pressed || Input.Pause_pressed;
+//var _Input_COLOR_SELECTED = Input.Jump_pressed;
+var _Input_COLOR_SELECTED = Input.Jump_pressed || Input.Pause_pressed;
 var _Input_ViewOld_HELD   = Input.GP_Other2_held;     // Input.GP_Other2, xbox 'Y'.  Toggle old/new
 var _Input_ViewOld_RELS   = Input.GP_Other2_released; // Input.GP_Other2, xbox 'Y'.  Toggle old/new
 var _Input_Randomize_PRES = Input.Attack_pressed;     // Input.Attack, xbox 'X'.  Randomizing

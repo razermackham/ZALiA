@@ -239,15 +239,26 @@ if (state==state_EDIT1A
     
     if (Info1_can_draw)
     {
+        var _x,_y, _sprite;
         draw_sprite_(spr_1x1_WHT,0, Info1Area_xl,Info1Area_yt, -1, Info1Area_W,Info1Area_h, Info1Background_COLOR,Info1Background_ALPHA); // dark bgr for info
         for(_i=ds_grid_width(Info1_dg)-1; _i>=0; _i--)
         {
-            if (Info1_dg[#_i,5]) // 5: can draw
+            if (Info1_dg[#_i,$4]) // $4: can draw
             {
-                _text = Info1_dg[#_i,0];
-                _xl   = Info1_dg[#_i,2];
-                _yt   = Info1_dg[#_i,3];
+                _text = Info1_dg[#_i,$0];
+                _xl   = Info1_dg[#_i,$1];
+                _yt   = Info1_dg[#_i,$2];
                 draw_text_(_xl,_yt, _text, Info1_FONT);
+                
+                for(_j=$5; _j<Info1_dg_H; _j++) // $5: first index of button sprite data
+                {
+                    _sprite =  Info1_dg[#_i,_j++];
+                    if(!_sprite) break;//_j
+                    
+                    _x = _xl + Info1_dg[#_i,_j++];
+                    _y = _yt + Info1_dg[#_i,_j];
+                    draw_sprite_(_sprite,0, _x,_y);
+                }
             }
         }
     }

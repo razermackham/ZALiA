@@ -37,17 +37,17 @@ var _exists = false;
 
 
 
-    _exists=variable_instance_exists(id,"dm_GP_button_names");
-if (_exists) _exists = !is_undefined(    dm_GP_button_names);
-if (_exists) _exists = ds_exists(        dm_GP_button_names,ds_type_map);
-if (_exists)           ds_map_destroy(   dm_GP_button_names);
-if (_exists)                             dm_GP_button_names=undefined;
-
     _exists=variable_instance_exists(id,"dm_UserInputConfig");
 if (_exists) _exists = !is_undefined(    dm_UserInputConfig);
 if (_exists) _exists = ds_exists(        dm_UserInputConfig,ds_type_map);
 if (_exists)           ds_map_destroy(   dm_UserInputConfig);
 if (_exists)                             dm_UserInputConfig=undefined;
+
+    _exists=variable_instance_exists(id,"Buttons_dm");
+if (_exists) _exists = !is_undefined(    Buttons_dm);
+if (_exists) _exists = ds_exists(        Buttons_dm,ds_type_map);
+if (_exists)           ds_map_destroy(   Buttons_dm);
+if (_exists)                             Buttons_dm=undefined;
 
 
 

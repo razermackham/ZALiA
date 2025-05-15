@@ -11580,6 +11580,10 @@
         <sprite>sprites\spr_icon_shield_1a</sprite>
       </sprites>
       <sprites name="other">
+        <sprite>sprites\spr_Button_XBoxA01</sprite>
+        <sprite>sprites\spr_Button_XBoxB01</sprite>
+        <sprite>sprites\spr_Button_XBoxX01</sprite>
+        <sprite>sprites\spr_Button_XBoxY01</sprite>
         <sprite>sprites\spr_Menu_Selector_arrow_1a</sprite>
         <sprite>sprites\spr_arrow_1b</sprite>
         <sprite>sprites\spr_arrow_2a_WRB</sprite>
@@ -14615,7 +14619,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1026">
+  <constants number="1027">
     <constant name="DEV">true</constant>
     <constant name="USE_FRAME_DELAY">1</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
@@ -15640,6 +15644,7 @@
     <constant name="dk_MOB">"_MOB"</constant>
     <constant name="dk_PI">"_PI"</constant>
     <constant name="dk_can_draw">"_can_draw"</constant>
+    <constant name="dk_XBOX">"_XBOX"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
   </constants>

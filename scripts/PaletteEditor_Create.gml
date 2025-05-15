@@ -1,11 +1,13 @@
 /// PaletteEditor_Create()
 
+show_debug_message("PaletteEditor_Create()");
 
-var _i,_j, _a, _idx, _val1,_val2, _count,_count1, _dist;
-var _x,_y, _xl,_yt;
-var _color;
-var _dk,_dk1,_dk2;
-var _grid_h = 0;
+
+var _i,_j, _a, _idx, _val1,_val2,_val3, _count,_count1, _dist;
+var _x,_y, _xl,_yt, _w,_h;
+var _sprite, _color;
+var _text, _len,_len1, _pos;
+var _dk,_dk1,_dk2,_dk3;
 var _dl = ds_list_create();
 var _SCALE1 = 6;
 
@@ -153,7 +155,8 @@ PalEdit_color_before_edit = 0;
 
 PalEdit_dm = ds_map_create();
 var _GROUP_SPACING  = PalEdit_SCALE;
-    _GROUP_SPACING += $2; // extra spacing
+    _GROUP_SPACING += $0; // extra spacing
+    //_GROUP_SPACING += $2; // extra spacing
     //_GROUP_SPACING += $4; // extra spacing
 _count1 = 0;
 PalEdit_group_count = 0;
@@ -431,16 +434,17 @@ Info1_can_draw = false;
 Info1_FONT   = spr_Font3_1;
 Info1_FONT_W = sprite_get_width( Info1_FONT);
 Info1_FONT_H = sprite_get_height(Info1_FONT);
-Info1_PAD1  = $2; // Info1AreaBackground_ text pad
-Info1_PAD2  = $2; // text line spacing
-Info1_DIST1 = Info1_FONT_H + Info1_PAD2; // dist to next text line
+Info1_PAD1   = $2; // Info1AreaBackground_ text pad
+Info1_PAD2   = $2; // text line spacing
+Info1_DIST1  = Info1_FONT_H + Info1_PAD2; // dist to next text line
+Info1_DIST1 += $2; // micro adj
 
 Info1Background_COLOR = p.C_BLK1;
 Info1Background_ALPHA = gui_Background_ALPHA;
 Info1Area_X_BASE  = ColorGrid_X_BASE + ColorGrid_W;
-Info1Area_X_BASE += $6;
-//Info1Area_X_BASE += gui_PAD2; // pad
+Info1Area_X_BASE += $6; // pad
 Info1Area_Y_BASE  = gui_YTOFF;
+Info1Area_Y_BASE -= $2; // micro adj
 Info1Area_W  = viewW();
 Info1Area_W -= gui_PAD1; // camera pad
 Info1Area_W -= Info1Area_X_BASE;
@@ -450,51 +454,94 @@ Info1Area_xl = 0;
 Info1Area_yt = 0;
 
 
-_grid_h = $6;
-Info1_dg = ds_grid_create(0,_grid_h);
+_dk1 = "GP-";
+Info1_dg_H = $E;
+Info1_dg = ds_grid_create(0,Info1_dg_H);
 _yt = Info1Area_Y_BASE;
 
 _i = -1;
-_j = 0;
-ds_grid_resize(Info1_dg, (++_i)+1, _grid_h);
-Info1_dg[#_i,_j++] = "'B', ESC, BACKSPACE: CANCEL CHANGES";
-//Info1_dg[#_i,_j++] = "'B', ESC, BACKSPACE: CANCEL CHANGES AND CLOSE PALETTE EDITOR";
-Info1_dg[#_i,_j++] = string_length(Info1_dg[#_i,0]) * Info1_FONT_W; // text w
+_j=0; _dk2="B"; _dk3=_dk1+_dk2;
+ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
+Info1_dg[#_i,_j++] = _dk3+", ESC, BACKSPACE: CANCEL CHANGES";
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
 
-_j = 0;
-ds_grid_resize(Info1_dg, (++_i)+1, _grid_h);
+_j=0; //_dk2="B"; _dk3=_dk1+_dk2;
+ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
 Info1_dg[#_i,_j++] = "START, ENTER: CONFIRM CHANGES";
-Info1_dg[#_i,_j++] = string_length(Info1_dg[#_i,0]) * Info1_FONT_W; // text w
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
 
-_j = 0;
-ds_grid_resize(Info1_dg, (++_i)+1, _grid_h);
-Info1_dg[#_i,_j++] = "'A': SELECT COLOR";
-Info1_dg[#_i,_j++] = string_length(Info1_dg[#_i,0]) * Info1_FONT_W; // text w
+_j=0; _dk2="A"; _dk3=_dk1+_dk2;
+ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
+Info1_dg[#_i,_j++] = _dk3+": SELECT COLOR";
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B); // can draw conditions
 
-_j = 0;
-ds_grid_resize(Info1_dg, (++_i)+1, _grid_h);
-Info1_dg[#_i,_j++] = "'Y', 'Y'+LT, 'Y'+RT: VIEW PREVIOUS COLOR(S)";
-Info1_dg[#_i,_j++] = string_length(Info1_dg[#_i,0]) * Info1_FONT_W; // text w
+_j=0; _dk2="Y"; _dk3=_dk1+_dk2;
+ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
+Info1_dg[#_i,_j++] = _dk3+", "+_dk3+"+LT, "+_dk3+"+RT: VIEW PREVIOUS COLOR(S)";
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
 
-_j = 0;
-ds_grid_resize(Info1_dg, (++_i)+1, _grid_h);
-Info1_dg[#_i,_j++] = "'X', 'X'+LT, 'X'+RT: RANDOMIZE COLOR(S)";
-Info1_dg[#_i,_j++] = string_length(Info1_dg[#_i,0]) * Info1_FONT_W; // text w
+_j=0; _dk2="X"; _dk3=_dk1+_dk2;
+ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
+Info1_dg[#_i,_j++] = _dk3+", "+_dk3+"+LT, "+_dk3+"+RT: RANDOMIZE COLOR(S)";
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A); // can draw conditions
+
+
+Info1_dg_W = ds_grid_width(Info1_dg);
+
+
+_len1 = string_length(_dk1); // _dk1 = "GP-";
+for(_i=Info1_dg_W-1; _i>=0; _i--)
+{
+    _idx = $5; // $5: first index of button sprite data
+    _text = Info1_dg[#_i,$0];
+    _count1 = string_count(_dk1,_text);
+    for(_j=0; _j<_count1; _j++)
+    {
+        _pos = string_pos(_dk1,_text);
+        if(!_pos) break;//_j
+        
+        _dk2 = string_char_at(_text,_pos+_len1); // "A","B","X","Y"
+        if (_pos>1) _val1 = string_copy(_text, 1, _pos-1);
+        else        _val1 = "";
+        _text = _val1 + _dk2 + strR(_text, _pos+_len1+1);
+        //_text = strReplaceAt(_text, _pos, _len1+1, "["+_dk2+"]");
+        
+        _sprite = Input.Buttons_dm[?dk_XBOX+_dk2+STR_Sprite];
+        if(!is_undefined(_sprite))
+        {
+            _w = sprite_get_width( _sprite);
+            _h = sprite_get_height(_sprite);
+            Info1_dg[#_i,_idx]  = _sprite; // sprite
+            _idx++;
+            
+            Info1_dg[#_i,_idx]  = Info1_FONT_W * (_pos-1); // sprite x base
+            Info1_dg[#_i,_idx] += _w>>1;
+            if (_j) Info1_dg[#_i,_idx] -= $3; // make room for "+"
+            else    Info1_dg[#_i,_idx] -= $2; // make room for "," or ":"
+            _idx++;
+            
+            Info1_dg[#_i,_idx]  = Info1_FONT_H>>1; // sprite y base
+            Info1_dg[#_i,_idx] -= $1; // micro adj
+            _idx++;
+        }
+        else
+        {
+            _idx += 3;
+        }
+    }
+    
+    Info1_dg[#_i,$0] = _text;
+}
 
 
 

@@ -127,23 +127,21 @@ if (state==state_EDIT1A
     Info1Area_yt = _YT0 + Info1Area_Y_BASE;
     _xl = Info1Area_xl + Info1_PAD2;
     _yt = Info1Area_yt + Info1_PAD2;
-    for(_i=ds_grid_width(Info1_dg)-1; _i>=0; _i--)
+    for(_i=0; _i<Info1_dg_W; _i++)
     {
-        Info1_dg[#_i,5] = string_pos(string(state), string(Info1_dg[#_i,4])); // 4: draw condition data
-        if (Info1_dg[#_i,5]) // 5: can draw
+            Info1_dg[#_i,$4] = string_pos(string(state), string(Info1_dg[#_i,$3])); // $3: draw condition data
+        if (Info1_dg[#_i,$4]) // $4: can draw
         {
             Info1_can_draw = true;
-            Info1_dg[#_i,2] = _xl; // 2: xl
-            Info1_dg[#_i,3] = _yt; // 3: yt
+            Info1_dg[#_i,$1]  = _xl; // $1: xl
+            Info1_dg[#_i,$1] += $2; // micro adj
+            Info1_dg[#_i,$2]  = _yt; // $2: yt
+            Info1_dg[#_i,$2] += $1; // micro adj
             _yt += Info1_DIST1; // yt of next text line
         }
     }
     
-    if (Info1_can_draw)
-    {
-        Info1Area_h  = _yt - Info1Area_yt;
-        //Info1Area_h += Info1_PAD2; // background padding
-    }
+    if (Info1_can_draw) Info1Area_h = _yt - Info1Area_yt;
 }
 
 

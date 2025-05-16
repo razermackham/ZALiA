@@ -418,12 +418,12 @@ C_CYN3 = $888000; // $1C Teal.
 C_CYN4 = $5C3C18; // $0C Teal. Darkest.
 //                          // 
 //                          // 
-
+/*
 // Color Tone Highlight, Midtone, Shadow
 C_TONE_HGH = C_WHT0; // Highlight
 C_TONE_MID = C_RED0; // Midtone
 C_TONE_LOW = C_BLU0; // Shadow
-
+*/
 
 
 
@@ -1785,6 +1785,13 @@ p_init_palette_data();
 
 
 instance_create(0,0, PaletteEditor);
+
+
+
+
+shader_set(shd_pal_swapper);
+shader_set_uniform_f(shader_get_uniform(shd_pal_swapper,"ALPHA0_COLOR"), ((global.C_ALPHA0>>$10)&$FF)/$FF, ((global.C_ALPHA0>>$08)&$FF)/$FF, ((global.C_ALPHA0>>$00)&$FF)/$FF);
+shader_reset();
 
 
 

@@ -1,7 +1,7 @@
 /// color_tiles()
 
 
-if (is_undefined(pal_rm_def)) // if there's NO pal for this rm/room
+if (is_undefined(p.pal_rm_def)) // if there's NO pal for this rm/room
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -25,7 +25,7 @@ for(_i=ds_list_size(g.dl_pal_swap_depths)-1; _i>=0; _i--)
     _depth =        g.dl_pal_swap_depths[|_i];
     _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
     
-    _pi = dg_depth_pi[#_idx,1];
+    _pi = p.dg_depth_pi[#_idx,1];
     if (_DARK_LEVEL)
     {
         _pi = val(global.dm_pi[?hex_str(_pi)+STR_Dark+string(_DARK_LEVEL)], _pi);

@@ -37,7 +37,7 @@ else
     _pi += sign(f.items&ITM_RING) + sign(g.spells_active&SPL_PRTC);
 }
 
-dg_PI_SEQ[#$0,0] = _pi;
+dg_PI_SEQ[#$0,$0] = _pi;
 
 
 
@@ -128,8 +128,6 @@ if!(_TIME&$1F)
     }
 }
 */
-
-
 
 
 

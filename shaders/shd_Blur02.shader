@@ -25,20 +25,15 @@ varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
 uniform sampler2D u_texture;
-//uniform float     u_texture_w;
-//uniform float     u_texture_h;
 uniform vec2 u_texel_size;
 uniform vec2 u_pixel_scale;
-//uniform bool u_scanlines_effect_enabled;
-//uniform float u_texture_scale;
 
 
 void main()
 {
     float _distx = u_texel_size.x;
     float _disty = u_texel_size.y;
-    vec2 _v_tex_coord = v_vTexcoord;
-    vec4 _color = texture2D(u_texture, _v_tex_coord);
+    vec4 _color = texture2D(u_texture, v_vTexcoord);
     /*
     vec2 _pixel_pos = v_vTexcoord / u_texel_size;
     vec2   _tex_coord = floor(_pixel_pos) + 0.5 + 1.0 - clamp((1.0-fract(_pixel_pos)*u_pixel_scale), 0.0, 1.0);
@@ -49,33 +44,29 @@ void main()
     vec4 _color = texture2D(u_texture, _v_tex_coord);
     */
     
-    if (true)
-    {
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x+_distx, _v_tex_coord.y));        // right
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x-_distx, _v_tex_coord.y));        // left
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x,        _v_tex_coord.y+_disty)); // down
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x,        _v_tex_coord.y-_disty)); // up
-        
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x+_distx, _v_tex_coord.y-_disty)); // right up
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x-_distx, _v_tex_coord.y+_disty)); // left  down
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x+_distx, _v_tex_coord.y+_disty)); // right down
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x-_distx, _v_tex_coord.y-_disty)); // left  up
-    }
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x+_distx, v_vTexcoord.y));        // right
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x-_distx, v_vTexcoord.y));        // left
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x,        v_vTexcoord.y+_disty)); // down
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x,        v_vTexcoord.y-_disty)); // up
+    
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x+_distx, v_vTexcoord.y-_disty)); // right up
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x-_distx, v_vTexcoord.y+_disty)); // left  down
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x+_distx, v_vTexcoord.y+_disty)); // right down
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x-_distx, v_vTexcoord.y-_disty)); // left  up
     //
-    if (false)
-    {
-        _distx += _distx; // increase dist by 1 pixel
-        _disty += _disty; // increase dist by 1 pixel
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x+_distx, _v_tex_coord.y));        // right
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x-_distx, _v_tex_coord.y));        // left
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x,        _v_tex_coord.y+_disty)); // down
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x,        _v_tex_coord.y-_disty)); // up
-        
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x+_distx, _v_tex_coord.y-_disty)); // right up
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x-_distx, _v_tex_coord.y+_disty)); // left  down
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x+_distx, _v_tex_coord.y+_disty)); // right down
-        _color += texture2D(u_texture, vec2(_v_tex_coord.x-_distx, _v_tex_coord.y-_disty)); // left  up
-    }
+    /*
+    _distx += _distx; // increase dist by 1 pixel
+    _disty += _disty; // increase dist by 1 pixel
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x+_distx, v_vTexcoord.y));        // right
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x-_distx, v_vTexcoord.y));        // left
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x,        v_vTexcoord.y+_disty)); // down
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x,        v_vTexcoord.y-_disty)); // up
+    
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x+_distx, v_vTexcoord.y-_disty)); // right up
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x-_distx, v_vTexcoord.y+_disty)); // left  down
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x+_distx, v_vTexcoord.y+_disty)); // right down
+    _color += texture2D(u_texture, vec2(v_vTexcoord.x-_distx, v_vTexcoord.y-_disty)); // left  up
+    */
     //
     _color /= 9.0;
     //_color /= 8.0;

@@ -107,7 +107,8 @@ can_draw_L_and_Z = false;
 var _DATAKKEY1 = STR_Palette+STR_Position;
 
 var _CA1 = color_str(p.C_WHT1);
-var _CA2 = color_str(p.C_GRN0);
+var _CA2 = color_str(p.C_BLK1);
+//var _CA2 = color_str(p.C_GRN0);
 var _CA3 = color_str(p.C_GRY1);
 var _CA4 = color_str(p.C_GRY3);
 

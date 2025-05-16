@@ -62,7 +62,7 @@ Window_h = window_get_height();
 // Must be set every frame as it will set itself to -1 
 // after clearing the screen.
 // -1 means will NOT call draw_clear()
-draw_clear_color = p.C_BLK1; // First frame draw clear black
+draw_clear_color = p.C_BLK1; // First frame clear the screen with black
 
 
 g.surf = id;
@@ -88,6 +88,7 @@ if (RoomPreview_VER)
 
 
 //global.application_surface_draw_enable_STATE = true;
+RetroShaders_CAN_USE  = false;
 RetroShaders_can_draw = false;
 RetroShaders_u_dist_x = 0.00;
 RetroShaders_u_dist_y = 0.00;
@@ -127,11 +128,8 @@ if (global.RetroShaders_IS_LIVE
     ||  shd_Blur01_IS_COMPILED 
     ||  shd_Blur02_IS_COMPILED )
     {
+        RetroShaders_CAN_USE = true;
         GEE = instance_create(0,0,GraphicsEffectsEditor);
-    }
-    else
-    {
-        //global.RetroShaders_enabled = false;
     }
 }
 

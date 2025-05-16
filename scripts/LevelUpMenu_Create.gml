@@ -222,7 +222,8 @@ ds_list_add(dl_xp_next_stat,0,0,0);
 
 
 
-srf_FRAME = surface_create(CLMS<<3, ROWS<<3);
+srf_FRAME = 0;
+//srf_FRAME = surface_create(CLMS<<3, ROWS<<3);
 
 
 

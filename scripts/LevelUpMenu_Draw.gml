@@ -4,8 +4,9 @@
 var _i,_j, _x,_y;
 
 
-if(!global.App_frame_count 
-|| !surface_exists(srf_FRAME) )
+if(!surface_exists(srf_FRAME))
+//if(!global.App_frame_count 
+//|| !surface_exists(srf_FRAME) )
 {
     var _tsrc, _ts_x,_ts_y;
     

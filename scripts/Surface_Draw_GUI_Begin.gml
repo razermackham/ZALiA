@@ -68,7 +68,7 @@ if (RetroShaders_can_draw)
         shader_set_uniform_f(shader_get_uniform(shd_Bloom01,"u_e"), GEE.dg_Bloom[#GEE.Bloom_E,$5]); // default: 0.3000
         shader_set_uniform_f(shader_get_uniform(shd_Bloom01,"u_f"), GEE.dg_Bloom[#GEE.Bloom_F,$5]); // default: 0.5000
         shader_set_uniform_f(shader_get_uniform(shd_Bloom01,"u_g"), GEE.dg_Bloom[#GEE.Bloom_G,$5]); // default: 0.2500
-        shader_set_uniform_f(shader_get_uniform(shd_Bloom01,"u_scanlines_effect_enabled"), GEE.dg_Scanlines[#GEE.Scanlines_ENABLE,$5]);
+        //shader_set_uniform_f(shader_get_uniform(shd_Bloom01,"u_scanlines_effect_enabled"), GEE.dg_Scanlines[#GEE.Scanlines_ENABLE,$5]);
         draw_surface(application_surface, 0,0);
         shader_reset();
         

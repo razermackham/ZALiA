@@ -477,6 +477,7 @@ Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_
 _j=0; _dk2="A"; _dk3=_dk1+_dk2;
 ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
 Info1_dg[#_i,_j++] = _dk3+": SELECT COLOR";
+//Info1_dg[#_i,_j++] = _dk3+", START, ENTER: SELECT COLOR";
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B); // can draw conditions

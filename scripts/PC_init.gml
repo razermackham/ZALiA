@@ -75,6 +75,8 @@ for(_i=0; _i<=behavior_LAST; _i++) ds_list_add(dl_UwU_,_i);
 
 
 
+//skins_palettes_are_set = false; // so it only happens once
+
 Spritesheet_W = $40;
 Spritesheet_H = Spritesheet_W;
 

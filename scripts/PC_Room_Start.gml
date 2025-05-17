@@ -4,7 +4,47 @@ if (DEV) sdm(" PC_Room_Start()");
 dev_start_pc_with(); // Add items, spells, etc..
 
 
-var _i,_j;
+var _i,_j,_k, _idx, _count1;
+var _char, _pos;
+
+
+depth = depth_def;
+//GO_set_sprite(id,dg_SPRITES[#0,behavior]);
+GO_init_palidx(global.PI_PC1);
+
+
+
+
+// Add cucco spell flash palettes. cucco spell flash permut: B W R . . . . . .
+var _color_order = "BWRGKYMC"; // permut color order
+if (_color_order!=global.PAL_BASE_COLOR_ORDER)
+{
+    var _parent_pi = global.PI_SPELL_PC1;
+    var _new_pi = _parent_pi;
+    _count1 = val(global.dm_pi[?"SPELL_PC"+STR_Count]);
+    for(_i=0; _i<_count1; _i++)
+    {
+        _parent_pi = global.PI_SPELL_PC1+_i;
+        _new_pi = add_pi_permut(_parent_pi, _color_order, "cucco spell flash "+string(_i+1));
+        
+        for(_j=ds_grid_height(p.dg_PI_SEQ)-1; _j>=0; _j--)
+        {
+            if (p.dg_PI_SEQ[#$04,_j]-global.PI_SPELL_PC1==_i)
+            {
+                p.dg_PI_SEQ[#$05,_j] = _new_pi;
+            }
+        }
+    }
+    
+    
+    _color_order = "RWBGMYKC"; // permut color order
+    for(_i=1; _i<4; _i++)
+    {   // _i=1: MOB ORG, _i=2: MOB RED, _i=3: MOB BLU
+        p.dg_PI_SEQ[#$01,_i] = add_pi_permut(p.dg_PI_SEQ[#$00,_i], _color_order, "cucco stun flash "+string(_i));
+    }
+}
+
+
 
 
 ds_grid_clear(dg_UwU_,0);
@@ -12,14 +52,15 @@ for(_i=ds_grid_width(dg_UwU_)-1; _i>=0; _i--)
 {   // _i is each behavior
     dg_UwU_[#_i,0]=choose(1,-1); // xscale
     dg_UwU_[#_i,1]=choose(1,-1); // yscale
-    dg_UwU_[#_i,2]=PI_PC_1+irandom(PI_PC_3-PI_PC_1); // palidx
-    dg_UwU_[#_i,3]=irandom(PI_PERMUTATIONS-1); // palix_permut
+    dg_UwU_[#_i,2]=global.PI_PC1+irandom(val(global.dm_pi[?"PC"+STR_Count])-1); // palidx
+    //dg_UwU_[#_i,2]=PI_PC_1+irandom(PI_PC_3-PI_PC_1); // palidx
+    //dg_UwU_[#_i,3]=irandom(PI_PERMUTATIONS-1); // palix_permut
     dg_UwU_[#_i,4]=irandom(3)*90; // rotation
 }
 
 
 ds_list_shuffle(dl_UwU_); // shuffle behaviors
-if (use_disguise)
+if (Disguise_enabled)
 {
     var _SIZE = ds_list_size(dl_UwU_);
     var _dl1 = ds_list_create();
@@ -57,10 +98,8 @@ if (use_disguise)
 state = state_NULL; // 00B5
 
 
-Head_sprite = 0;
-Head_xoff   = 0;
-Head_yoff   = 0;
-disguise_idx = irandom(DISGUISE_COUNT-1);
+
+Disguise_Head_idx = irandom(Disguise_Head_COUNT-1);
 
 Cucco_disguise_sprite = 0;
 dg_Cucco_DISGUISE_SPRITES_idx1 = irandom(ds_grid_width(dg_Cucco_DISGUISE_SPRITES)-1);
@@ -72,9 +111,7 @@ RescueFairy_sprite = 0;
 PC_set_behavior(behavior_IDLE); // 0080
 
 
-depth = depth_def;
-//GO_set_sprite(id,dg_SPRITES[#0,behavior]);
-GO_init_palidx(PI_PC_1);
+
 
 fairy_sprite = 0; // The fairy sprite to draw
 xScale       = 1; // 009F
@@ -86,7 +123,7 @@ HoldItem_timer    = 0; // 049C
 HoldItem_inst     = noone; // 
 HoldItem_object   = 0; // 049D
 HoldItem_sprite   = 0;
-HoldItem_palidx   = PI_MOB_ORG;
+HoldItem_palidx   = global.PI_MOB_ORG;
 
 walk_frame    = 0; // $00AE
 landing_timer = 0; // 0497

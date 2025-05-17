@@ -4,7 +4,7 @@
 SPR_BALL = spr_Fireball2;
 SPR_FLAM = spr_Flame1;
 GO_sprite_init(SPR_BALL);
-GO_init_palidx(PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_RED);
 
 
 vspd_adj = 1; // 

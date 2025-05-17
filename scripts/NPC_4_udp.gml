@@ -4,6 +4,9 @@
 // NPC_5 Quest, 
 
 
+NPC_udp_2(); // update `RandoHint_hint_num`
+
+
 // 9AE8
 can_draw_self = true;
 palidx = palidx_def;

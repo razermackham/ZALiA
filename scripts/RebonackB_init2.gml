@@ -2,7 +2,7 @@
 
 
 IronKnuckle_init2();
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 
 reboA = noone;
 

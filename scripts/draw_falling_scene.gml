@@ -10,7 +10,7 @@ with(p)
     if(!fall_scene_counter)
     {
         var _DIR = sign_(fall_scene_type & (g.FallScene_BIT_RIGHT|g.FallScene_BIT_DOWN)); // 1 or -1
-        fall_scene_pal_state = ((fall_scene_pal_state+FallScene_COL_CNT)+_DIR) mod FallScene_COL_CNT;
+        fall_scene_pal_state = ((fall_scene_pal_state+FallScene_CLM_COUNT)+_DIR) mod FallScene_CLM_COUNT;
     }
     
     // I added fall_scene_counter to control timing of stripe color change to every 3 frames.
@@ -25,20 +25,14 @@ with(p)
     
     
     // Draw PC and PC-Shadow ----------------------------------------------
-    if ((fall_scene_type&g.FallScene_BIT_RIGHT && fall_scene_x>viewXL()+FallScene_X_BASE) 
+    if ((fall_scene_type&g.FallScene_BIT_DOWN  && fall_scene_y>viewYT()+FallScene_Y_BASE)   // most likely
+    ||  (fall_scene_type&g.FallScene_BIT_RIGHT && fall_scene_x>viewXL()+FallScene_X_BASE) 
     ||  (fall_scene_type&g.FallScene_BIT_LEFT  && fall_scene_x<viewXR()-FallScene_X_BASE) 
-    ||  (fall_scene_type&g.FallScene_BIT_DOWN  && fall_scene_y>viewYT()+FallScene_Y_BASE) 
-    ||  (fall_scene_type&g.FallScene_BIT_UP    && fall_scene_y<viewYB()-FallScene_Y_BASE) )
+    ||  (fall_scene_type&g.FallScene_BIT_UP    && fall_scene_y<viewYB()-FallScene_Y_BASE) ) // least likely
     {
         var _x_scale = g.pc.xScale;
         
-        if (fall_scene_type & (g.FallScene_BIT_RIGHT|g.FallScene_BIT_LEFT))
-        {
-            _x = fall_scene_x;
-            _y = viewYC();
-            _x_scale = -sign_(fall_scene_fall_spd);
-        }
-        else if (fall_scene_type & (g.FallScene_BIT_DOWN|g.FallScene_BIT_UP))
+        if (fall_scene_type & (g.FallScene_BIT_DOWN|g.FallScene_BIT_UP))
         {
             _x = viewXC();
             _y = fall_scene_y;
@@ -46,32 +40,47 @@ with(p)
             {    _x_scale = g.pc.xScale;  }
             else _x_scale = 1;
         }
+        else if (fall_scene_type & (g.FallScene_BIT_RIGHT|g.FallScene_BIT_LEFT))
+        {
+            _x = fall_scene_x;
+            _y = viewYC();
+            _x_scale = -sign_(fall_scene_fall_spd);
+        }
         
+        var _pi = global.PI_PC1;
         if (pc_is_cucco())
         {
             _y += $08;
-            var _SPR_BODY = g.pc.Cucco_SPRITE_BODY1;
-            var _SPR_LEGS = g.pc.Cucco_SPRITE_LEGS4;
-            var _SPR_WING = g.pc.Cucco_SPRITE_WING2;
-            draw_sprite_(_SPR_BODY,0, _x+4,_y-5, -1, _x_scale,1, C_BLK1); // shadow
-            draw_sprite_(_SPR_LEGS,0, _x+4,_y-5, -1, _x_scale,1, C_BLK1); // shadow
-            draw_sprite_(_SPR_WING,0, _x+4,_y-5, -1, _x_scale,1, C_BLK1); // shadow
+            draw_sprite_(g.pc.CuccoFallScene_SPRITE_BODY,0, _x+4,_y-5, -1, _x_scale,1, C_BLK1); // shadow
+            draw_sprite_(g.pc.CuccoFallScene_SPRITE_LEGS,0, _x+4,_y-5, -1, _x_scale,1, C_BLK1); // shadow
+            draw_sprite_(g.pc.CuccoFallScene_SPRITE_WING,0, _x+4,_y-5, -1, _x_scale,1, C_BLK1); // shadow
             
+            switch(sign(g.spells_active&SPL_PRTC)+sign(f.items&ITM_RING)){
+            default:{_pi=global.PI_CUCCO1; break;}
+            case  1:{_pi=global.PI_CUCCO2; break;}
+            case  2:{_pi=global.PI_CUCCO3; break;}
+            }
+            pal_swap_set(global.palette_image, _pi);
+            draw_sprite_(g.pc.CuccoFallScene_SPRITE_BODY,0, _x,  _y,   -1, _x_scale); // 
+            draw_sprite_(g.pc.CuccoFallScene_SPRITE_LEGS,0, _x,  _y,   -1, _x_scale); // 
+            draw_sprite_(g.pc.CuccoFallScene_SPRITE_WING,0, _x,  _y,   -1, _x_scale); // 
+            pal_swap_reset();
             
-            var _PI = get_pi(g.pc.palidx, g.pc.palidx_permut);
-            draw_sprite_(_SPR_BODY,0, _x,  _y,   _PI, _x_scale); // 
-            draw_sprite_(_SPR_LEGS,0, _x,  _y,   _PI, _x_scale); // 
-            draw_sprite_(_SPR_WING,0, _x,  _y,   _PI, _x_scale); // 
-            
-            var _EYE_X = _x + ((2*_x_scale) - !_x_scale);
-            var _EYE_Y = _y -   5;
-            draw_point_colour(_EYE_X,_EYE_Y, g.pc.Cucco_eye_color);
+            _x += ((2*_x_scale) - !_x_scale);
+            _y -= 5;
+            draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, 1,1, g.pc.Cucco_eye_color);
+            // For whatever reason, draw_point_colour() isn't drawing here or doesn't scale the point with the app's scale
+            //draw_point_colour(_x,_y, g.pc.Cucco_eye_color);
         }
         else
         {
-            var _PALIDX = PI_PC_1 + sign(g.spells_active&SPL_PRTC) + sign(f.items&ITM_RING);
-            draw_pc_skin(_x+8,_y-9, _x_scale,1, g.pc.behavior_DAMAGE, -1, -1,-1, -1,-1, p.C_BLK1);
-            draw_pc_skin(_x,  _y,   _x_scale,1, g.pc.behavior_DAMAGE, -1, -1,-1, _PALIDX,PI_PC_SWORD);
+            switch(sign(g.spells_active&SPL_PRTC)+sign(f.items&ITM_RING)){
+            default:{_pi=global.PI_PC1; break;}
+            case  1:{_pi=global.PI_PC2; break;}
+            case  2:{_pi=global.PI_PC3; break;}
+            }
+            draw_pc_skin(_x+8,_y-9, _x_scale,1, g.pc.behavior_DAMAGE, false, -1,-1,  -1, C_BLK1);
+            draw_pc_skin(_x,  _y,   _x_scale,1, g.pc.behavior_DAMAGE, false, -1,-1, _pi);
         }
     }
     

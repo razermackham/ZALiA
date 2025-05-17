@@ -1,6 +1,6 @@
 /// g_Room_End()
 
-if (DEV){sdm(" g_Room_End()");  repeat(8) sdm("");}
+if (DEV) sdm(" g_Room_End()");
 
 
 // D3E6: JMP E18A
@@ -49,7 +49,7 @@ with(DIALOGUE_WINDOW)
 }
 
 
-with(OPTIONS_MENU) // options menu
+with(global.OPTIONS_MENU)
 {
     cnt_draw_rows = 0;
 }
@@ -81,7 +81,7 @@ ds_list_clear(dl_hidden_tiles);
 
 
 
-if (DEV) sdm("--------------------------------------------------------------------");
+if (DEV){sdm("########################################################################"); repeat(8)sdm("");}
 
 
 

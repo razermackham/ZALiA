@@ -78,8 +78,8 @@ row4=row3-$02; y4=row4<<3;
 row5=row3+$04; y5=row5<<3;
 data_spawn_cutscene(Cutscene_GameEnd_1A,1, 0,0);
 _dist=($04<<3)+4; // _dist: dist to center of the 2 torches
-data_spawn(rm+STR_PRIO,TorchA,$1,  (x0-_dist)-4,y3,  STR_Palette+hex_str(PI_BGR_4),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  (x0+_dist)-4,y3,  STR_Palette+hex_str(PI_BGR_4),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  (x0-_dist)-4,y3,  dk_PI+hex_str(global.PI_BGR4),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  (x0+_dist)-4,y3,  dk_PI+hex_str(global.PI_BGR4),STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,Zelda,$1,  (clm1-$02)<<3,y4-($01<<3)); // Zelda!!
 data_spawn(rm+STR_PRIO,Zelda,$2,  (clm1+$02)<<3,y4);          // Zelda, 2nd Quest
 
@@ -598,10 +598,10 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_WA+'
 row3=row0+$0C; y3=row3<<3;
 row4=row0+$0A; y4=row4<<3;
 row5=row0+$16; y5=row5<<3;
-_pi=PI_BGR_1;
-data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,(row3+$01)<<3,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,(row4+$01)<<3,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($2F<<3)+4,(row5+$01)<<3,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+_pi=global.PI_BGR1;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,(row3+$01)<<3,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,(row4+$01)<<3,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($2F<<3)+4,(row5+$01)<<3,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,LowdA,$1,  $2C<<3,y5); // Lowder  1 
 data_spawn(rm+STR_PRXM,LowdA,$1,  $36<<3,y5); // Lowder  1 
 data_spawn(rm+STR_PRXM,LowdA,$1,  $3E<<3,y5); // Lowder  1 
@@ -630,9 +630,9 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_WA+'
 
 row3=row0+$14; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
-_pi=PI_BGR_1;
-data_spawn(rm+STR_PRIO,TorchA,$1,  $06<<3,y4,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,y4,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+_pi=global.PI_BGR1;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $06<<3,y4,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,y4,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $11<<3,(row0+$12)<<3); // Bot  1 
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $18<<3,(row0+$14)<<3); // Bot  1 
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $6C<<3,(row0+$14)<<3); // Bot  1 
@@ -1157,12 +1157,12 @@ set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Color+COLOR2_, STR_Tile+area_W
 
 row3=row0+$17; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
-_dist=($04<<3)+4; _pi=PI_BGR_2; // _dist: dist between rm center and torch center
+_dist=($04<<3)+4; _pi=global.PI_BGR2; // _dist: dist between rm center and torch center
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
-data_spawn(rm+STR_PRIO,TorchA,$3,  (x0-_dist)-4,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  (x0+_dist)-4,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,NPC_C,$1,  x0-8,(row0+$15)<<3,  STR_Palette+hex_str(_pi),STR_Dialogue+DK0C00); // Tomb dlg
-data_spawn(rm+STR_PRIO,NPC_1,$1,  $2D<<3,y3,  STR_Palette+hex_str(PId),STR_Dialogue+DK010C,STR_Sprite+STR_Barb); // Idle Simple, Old lady, Purple
+data_spawn(rm+STR_PRIO,TorchA,$3,  (x0-_dist)-4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  (x0+_dist)-4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,NPC_C,$1,  x0-8,(row0+$15)<<3,  dk_PI+hex_str(_pi),STR_Dialogue+DK0C00); // Tomb dlg
+data_spawn(rm+STR_PRIO,NPC_1,$1,  $2D<<3,y3,  dk_PI+hex_str(PId), STR_Palette+p.PAL_NPC_PUR1, STR_Dialogue+DK010C, STR_Sprite+STR_Barb); // Idle Simple, Old lady, Purple
 
 
 data_exit(EXD0,etA1,1,  $00,row_e2,  clms0,ROWS5,  clm1-1,row_e3,  '60'+EXU0_); // DWN 0, Pit down 
@@ -1459,7 +1459,8 @@ data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
 data_spawn(rm+STR_PRXM,MegmA,$1,  $10<<3,y4); // Megmat  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $14<<3,y4); // Megmat  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $1C<<3,y4); // Megmat  1 
-data_spawn(rm+STR_PRXM,MegmA,$1,  $4C<<3,y4); // Megmat  1 
+data_spawn(rm+STR_PRXM,MegmA,$1,  $40<<3,y4); // Megmat  1 
+//data_spawn(rm+STR_PRXM,MegmA,$1,  $4C<<3,y4); // Megmat  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $5E<<3,y4); // Megmat  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $66<<3,y4); // Megmat  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $74<<3,y4); // Megmat  1 
@@ -1588,9 +1589,9 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR2_, STR_Tile+area_
 row3=row0+$16; y3=row3<<3;
 row4=row0+$01; y4=row4<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
-_pi=PI_BGR_4;
-//data_spawn(rm+STR_PRIO,TorchA,$1,  ($0D<<3)+4,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-//data_spawn(rm+STR_PRIO,TorchA,$1,  ($29<<3)+4,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+_pi=global.PI_BGR4;
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($0D<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($29<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '31'+EXM0_); // LFT 0, 
@@ -1879,7 +1880,8 @@ data_spawn(rm+STR_PRIO,ItmE0,$1,  ($1A<<3)+3,y3); // Magic Jar (Full)
 //   --------------------------  3B  ---------------------------  
 //    End Game Credits
 rm_num  = $3B;
-set_rm_data(area+hex_str(rm_num), dk_WakeZelda, STR_Tile+area_WA+'059', STR_ow_axis+'00', STR_OWRC+hex_str(val(g.dm_rm[?rm+STR_OWRC])), MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
+set_rm_data(area+hex_str(rm_num), dk_WakeZelda, STR_Tile+area_WA+'059', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
+//set_rm_data(area+hex_str(rm_num), dk_WakeZelda, STR_Tile+area_WA+'059', STR_ow_axis+'00', STR_OWRC+hex_str(val(g.dm_rm[?rm+STR_OWRC])), MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
 g.GameEnd1B_RM_NAME = rm_name;
 
 
@@ -1887,11 +1889,11 @@ data_spawn_cutscene(Cutscene_GameEnd_1B,1,  0,0);
 row3=row0+$13; y3=row3<<3;
 row4=row3+$04; y4=row4<<3;
 row5=row4+$02; y5=row5<<3;
-_pi=PI_BGR_4;
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($2D<<3)+4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($33<<3)+0,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($4C<<3)+0,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($51<<3)+4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+_pi=global.PI_BGR4;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($2D<<3)+4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($33<<3)+0,y5,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($4C<<3)+0,y5,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($51<<3)+4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 y6=y4-1; // -1 to offset the +1 DRAW_YOFF to make sprite flush w/ ground
 data_spawn(rm+STR_PRIO,Zelda,$1,  x0+8,y6,  STR_Dialogue+DK0Z00); // Zelda!!
@@ -1918,7 +1920,8 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  _val+EXL0_); // RG
 //   --------------------------  3C  ---------------------------  
 //    Upper North Castle Hallway
 rm_num  = $3C;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'01', STR_Tile+area_WA+'047', STR_ow_axis+'00', STR_OWRC+hex_str(val(g.dm_rm[?rm+STR_OWRC])), MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'01', STR_Tile+area_WA+'047', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
+//set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'01', STR_Tile+area_WA+'047', STR_ow_axis+'00', STR_OWRC+hex_str(val(g.dm_rm[?rm+STR_OWRC])), MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
 
 
 row3=row0+$07; y3=row3<<3;
@@ -2319,10 +2322,10 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_WA+'
 row3=row0+$17; y3=row3<<3;
 row4=row0+$14; y4=row4<<3;
 row5=row4+$01; y5=row5<<3;
-_pi=PI_BGR_2;
+_pi=global.PI_BGR2;
 data_spawn_cutscene(Cutscene_MoaiOpenMouth_1,1,  1,0);
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($28<<3)-4,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($67<<3)-4,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($28<<3)-4,y5,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($67<<3)-4,y5,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 
 
@@ -2570,7 +2573,7 @@ rm_num  = $51;
 //   --------------------------  52  ---------------------------  
 //    Saria Lake, BAIT Path Entrance
 rm_num  = $52;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR7_, STR_Tile+area_EA+'099', STR_ow_axis+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+p.CI_VLT3_, STR_Tile+area_EA+'099', STR_ow_axis+'00');
 
 
 row3=row0+$15; y3=row3<<3; // PC yt right exit
@@ -2794,7 +2797,7 @@ row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $0A<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $35<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,PushA,$2,  $1F<<3,(row0+$0C)<<3,  STR_Palette+hex_str(PI_BGR_4)); // Pushable
+data_spawn(rm+STR_PRIO,PushA,$2,  $1F<<3,(row0+$0C)<<3,  dk_PI+hex_str(global.PI_BGR4)); // Pushable
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld 

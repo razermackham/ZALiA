@@ -11,7 +11,8 @@ if (Rando_can_traverse_RauruPass()
     }
     
     // Through Death Mtn
-    if (Rando_can_cross_SariaBridge() 
+    if (Rando_can_traverse_Saria_town()  // in case Saria is Old Kasuto and don't have CROSS
+    &&  Rando_can_cross_SariaBridge() 
     &&  Rando_can_traverse_DeathMtn() )
     {
         return true;
@@ -25,6 +26,9 @@ if ( Rando_is_attainable(STR_FIRE)  // Through Fire-Vines Cave
 {
     return true;
 }
+
+
+return false;
 
 
 /*

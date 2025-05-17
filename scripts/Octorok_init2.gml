@@ -36,11 +36,11 @@ projectile_ver = projectile_VER;
 
 if (ver==3)
 {
-    GO_init_palidx(PI_MOB_PUR);
+    GO_init_palidx(global.PI_MOB_PUR);
 }
 else if (g.area_name==Area_EastA)
 {
-    GO_init_palidx(PI_MOB_BLU);
+    GO_init_palidx(global.PI_MOB_BLU);
     
     HP_IDX=$08;
     hp=g.dl_HP[|HP_IDX];

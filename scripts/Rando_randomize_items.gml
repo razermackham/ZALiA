@@ -7,7 +7,7 @@ random_set_seed(Rando_SEED);
 
 
 var _i,_j,_k,_m, _idx, _val;
-var _count,_count1,_count2;
+var _count,_count1,_count2,_count3;
 var _loc_num,_loc_num1,_loc_num2, _loc_cat,_loc_cat1;
 var _qual_loc_count1,_qual_loc_count2;
 var _is_item, _is_key;
@@ -47,9 +47,7 @@ FallingKey_LOC_ID  = val(dm_LOCATIONS[?hex_str(FallingKey_LOC_NUM)+STR_Location+
 
 
 
-// if certain towns have a progression spell, 
-// the quest item should be in pool A, 
-// otherwise put the item in pool B.
+// if certain towns have a progression spell, the quest item should be in pool A, otherwise put the item in pool B.
             dl_prog_spells=ds_list_create();
 ds_list_add(dl_prog_spells, STR_JUMP,STR_FAIRY,STR_FIRE,STR_REFLECT,STR_ENIGMA,STR_THUNDER);
 if (QUEST_NUM==2) ds_list_add(dl_prog_spells, STR_SUMMON);
@@ -332,6 +330,167 @@ Rando_randomize_items_1();
 
 // Scene outside of Fire-Vines Cave
 dm_save_data[?Area_WestA+"40"+STR_file_name+STR_Quest+hex_str(QUEST_NUM)] = "WestA_"+"002";
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+// Randomize MAP sellers prices
+random_set_seed(Rando_SEED);
+
+if (DEBUG){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
+
+var _pbag_price_min = 0;
+var _pbag_price_max = 0;
+var _total=0;
+var _item_id2 = undefined;
+var _version = 1;
+var _objver1 = undefined;
+var _val1,_val2,_val3;
+var _min,_max;
+var _datakey = undefined;
+var _item_type = undefined;
+var _location_num_ = 0;
+
+_count=val(dm_LOCATIONS[?STR_Total+STR_Location+STR_Count]);
+for(_i=1; _i<=_count; _i++)
+{
+    _location_num_ = hex_str(_i);
+    _item_type = dm_LOCATIONS[?_location_num_+STR_Item+STR_Type];
+    if(!is_undefined(_item_type))
+    {
+        if (_item_type==STR_MAP1 
+        ||  _item_type==STR_MAP2 )
+        {
+            _item_id = dm_save_data[?STR_Location+_location_num_+STR_Item+STR_ID+STR_Randomized];
+            if(!is_undefined(_item_id))
+            {
+                var                                      _TYPE=1; // keys, progression items, support items, 
+                     if (string_pos(STR_PBAG, _item_id)) _TYPE=2;
+                else if (string_pos(STR_HEART,_item_id)) _TYPE=3;
+                else if (string_pos(STR_MAGIC,_item_id)) _TYPE=3;
+                else if (string_pos(STR_1UP,  _item_id)) _TYPE=3;
+                
+                switch(_TYPE)
+                {   // ----------------------------------------------------------------
+                    default:{ // _TYPE==1. keys, progression items, support items, 
+                    _max = 2000;
+                    _min = 300;
+                    
+                    // So the player doesn't get stuck grinding for xp to get past the first area.
+                    if (TownLocations_WILL_RANDOMIZE)
+                    {   // TODO: Be more specific and check if the player will need the item to get past the first area.
+                        if (val(dm_save_data[?STR_Town+STR_Rando+STR_Rauru+"B"])==STR_Nabooru 
+                        ||  val(dm_save_data[?STR_Town+STR_Rando+STR_Rauru+"B"])==STR_New_Kasuto 
+                        ||  val(dm_save_data[?STR_Town+STR_Rando+STR_Ruto +"B"])==STR_Nabooru 
+                        ||  val(dm_save_data[?STR_Town+STR_Rando+STR_Ruto +"B"])==STR_New_Kasuto )
+                        {
+                            if (string_pos(STR_KEY,_item_id) 
+                            ||  ds_list_find_index(dl_ItemPool_A,_item_id)!=-1 )
+                            {
+                                _max = 800;
+                            }
+                        }
+                    }
+                    break;}
+                    
+                    
+                    
+                    // ----------------------------------------------------------------
+                    case 2:{ // PBags
+                    if(!_pbag_price_max)
+                    {
+                        _count2=0;
+                        
+                                     _count1 = ds_list_size(dl_PBAGS);
+                        for(_j=0; _j<_count1; _j++)
+                        {
+                            _item_id2 = string(dl_PBAGS[|_j]);
+                            _version  = val(g.dm_spawn[?_item_id2+STR_Version]);
+                            _objver1  = object_get_name(ItmE0) + hex_str(_version);
+                            _idx = val(g.dm_go_prop[?_objver1+STR_XP], -1);
+                            if (_idx+1)
+                            {
+                                _val2 = g.dl_XP[|_idx];
+                                if (XP_WILL_RANDOMIZE) _val2 = val(dm_save_data[?STR_XP+hex_str(_idx)], _val2);
+                                if (_val2)
+                                {
+                                    _total += _val2;
+                                    _count2++;
+                                }
+                            }
+                        }
+                        
+                        if (_total 
+                        &&  _total>=_count2 )
+                        {
+                            _val3 = round(_total/_count2);
+                            if (_val3)
+                            {
+                                _val2 = 100;
+                                _val3 = max(_val2+50, _val3);
+                                _pbag_price_max = _val3+_val2;
+                                _pbag_price_min = _val3-_val2;
+                            }
+                        }
+                    }
+                    
+                    
+                    if (_pbag_price_max)
+                    {
+                        _max = _pbag_price_max;
+                        _min = _pbag_price_min;
+                    }
+                    else
+                    {
+                        _max = 550;
+                        _min = 350;
+                    }
+                    break;}
+                    
+                    
+                    
+                    // ----------------------------------------------------------------
+                    case 3:{ // Container Pieces, 1UP, 
+                    _max = 4000;
+                    _min = 300;
+                    break;}
+                }
+                
+                
+                
+                
+                _min = max(1,_min);
+                _max = max(_min+100,_max);
+                _val = irandom(_max-_min) + _min;
+                _val = clamp(_val, _min,_max);
+                
+                _datakey = STR_Map+string(1+(_item_type==STR_MAP2));
+                dm_save_data[?_datakey+STR_Cost] = _val;
+                
+                if (DEBUG){debug_str = _datakey+", _min: "+string(_min)+", _max: "+string(_max)+", _val: "+string(_val)+", _item_id: "+_item_id+", _TYPE: "+string(_TYPE);
+                sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

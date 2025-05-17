@@ -1,6 +1,7 @@
 /// obj_start_Create()
 
 
+global.DB0=false; // DB: DeBug. 
 //global.Split_00 = false;
 //global.Split_01 = false;
 //global.save_file_selected = false;
@@ -49,11 +50,11 @@ if (DEV) {sdm("");sdm("");sdm("");sdm(""); sdm(" obj_start_Create()"); sdm("");s
 //                                      // 
 //                                      // 
 //                                      // 
-g.PAUSE_MENU      = instance_create(0,0,PauseMenu);
-g.LEVEL_MENU      = instance_create(0,0,LevelUpMenu);
-g.DIALOGUE_WINDOW = instance_create(0,0,DialogueWindow);
-g.OPTIONS_MENU    = instance_create(0,0,OptionsMenu);
-g.QUIT_APP_MENU   = instance_create(0,0,QuitAppMenu);
+g.PAUSE_MENU        = instance_create(0,0,PauseMenu);
+g.LEVEL_MENU        = instance_create(0,0,LevelUpMenu);
+g.DIALOGUE_WINDOW   = instance_create(0,0,DialogueWindow);
+global.OPTIONS_MENU = instance_create(0,0,OptionsMenu);
+g.QUIT_APP_MENU     = instance_create(0,0,QuitAppMenu);
 //                                      // 
 //                                      // 
                     instance_create(0,0,Surface);
@@ -61,14 +62,15 @@ g.QUIT_APP_MENU   = instance_create(0,0,QuitAppMenu);
                     instance_create(0,0,f);   // f: File
 //                                      // 
 //                                      // 
-g.overworld =       instance_create(0,0,Overworld);
+g.overworld       = instance_create(0,0,Overworld);
 //                                      // 
 //                                      // 
                     instance_create(0,0,RoomData);
                     instance_create(0,0,GameObjectData);
 //                                      // 
-g.go_mgr =          instance_create(0,0,GameObjectMgr);
+g.go_mgr          = instance_create(0,0,GameObjectMgr);
 //                                      // 
+g.burnable_mgr    = instance_create(0,0,BurnableMgr);
 //                                      // 
 PC_create(Lonk,0,0);
 
@@ -80,6 +82,7 @@ window_set_scale(g.WindowScale_scale);
 
 instance_create(0,0,Dev_RmWarper);
 instance_create(0,0,Dev_StabToCheat);
+
 
 //debug_exit_data_2a();
 //dev_pal_data_output_1a();

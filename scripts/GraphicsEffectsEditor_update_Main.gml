@@ -50,8 +50,10 @@ switch(Main_cursor)
         
         update_shaders_surf_resize();
         global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
+        //global.application_surface_draw_enable_state = false; // for testing cam zoom
         application_surface_draw_enable(global.application_surface_draw_enable_state);
         
+        save_game_pref();
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
     }
@@ -77,6 +79,7 @@ switch(Main_cursor)
             global.RetroShaders_surface_scale = dg_Main[#_IDX,$5];
             update_shaders_surf_resize();
             
+            save_game_pref();
             aud_play_sound(SOUND_CURSOR2, -1,-1, SOUND_VOLUME);
             timer = DURATION0;
         }
@@ -91,7 +94,7 @@ switch(Main_cursor)
     {
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
-        menu_focus = menu_focus_Brightness;
+        menu_state = menu_focus_Brightness;
     }
     break;}
     
@@ -103,7 +106,7 @@ switch(Main_cursor)
     {
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
-        menu_focus = menu_focus_Saturation;
+        menu_state = menu_focus_Saturation;
     }
     break;}
     
@@ -115,7 +118,7 @@ switch(Main_cursor)
     {
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
-        menu_focus = menu_focus_Scanlines;
+        menu_state = menu_focus_Scanlines;
     }
     break;}
     
@@ -127,7 +130,7 @@ switch(Main_cursor)
     {
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
-        menu_focus = menu_focus_Bloom;
+        menu_state = menu_focus_Bloom;
     }
     break;}
     
@@ -139,7 +142,7 @@ switch(Main_cursor)
     {
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
-        menu_focus = menu_focus_Blur;
+        menu_state = menu_focus_Blur;
     }
     break;}
     
@@ -170,6 +173,7 @@ switch(Main_cursor)
         dg_BloomEdit[#BloomEdit_G,5]      = dg_BloomEdit[#BloomEdit_G,8];
         */
         
+        save_game_pref();
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
     }

@@ -1,15 +1,19 @@
 /// draw_rando_hints()
 
 
-var _FOUND_NUMS = val(g.dm_RandoHintsRecorder[?STR_Found+STR_Hint+STR_Num], "");
-
 var _i,_j, _val, _num,_num_, _count;
 var _text, _type;
 var _item, _item_found;
-
 var _pi, _color;
-var _PI_FOUND1=get_pi(PI_DARKLONK,3);
-var _PI_FOUND2=PI_DARKLONK;
+
+
+var _FOUND_NUMS = val(g.dm_RandoHintsRecorder[?STR_Found+STR_Hint+STR_Num], "");
+
+
+_pi = global.PI_GUI2;
+var _PI_FOUND1 = add_pi_permut(_pi, "RBWGMKYC", "draw_rando_hints() dark text 1");
+var _PI_FOUND2 = _pi;
+
 
 var _FOUND_COUNT = string_length(_FOUND_NUMS)>>1;
 
@@ -63,7 +67,7 @@ for(_i=0;_i<_ROWS;_i++)
             _xl  = _XL0 + (_j<<3);
             _yt  = _YT0 + (_i<<3);
             // tsrc: $20: horizontal, $21: vertical, $22: corner
-            draw_background_part_ext_(PI_GUI_1,ts_Menu01, (_type-1)<<3,$2<<3, 8,8, _xl,_yt, 1,1);
+            draw_background_part_ext_(global.PI_GUI1,ts_Menu01, (_type-1)<<3,$2<<3, 8,8, _xl,_yt, 1,1);
         }
     }
 }
@@ -72,7 +76,7 @@ for(_i=0;_i<_ROWS;_i++)
 _xl  = _XL0 + ((_CLMS<<3)>>1);
 _xl -= (string_length(_HEADER_TEXT)<<3)>>1;
 _yt  = _YT1;
-draw_text_(_xl,_yt, _HEADER_TEXT, spr_Font1, PI_GUI_1);
+draw_text_(_xl,_yt, _HEADER_TEXT, spr_Font1, global.PI_GUI1);
 
 
 
@@ -80,7 +84,7 @@ if(!_FOUND_COUNT)
 {
     _xl  = _XL1;
     _yt  = _YT2;
-    draw_text_(_xl,_yt, "NO HINTS FOUND YET!", g.RandoHintsRecorder_Font_SPRITE, PI_GUI_1);
+    draw_text_(_xl,_yt, "NO HINTS FOUND YET!", g.RandoHintsRecorder_Font_SPRITE, global.PI_GUI1);
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 

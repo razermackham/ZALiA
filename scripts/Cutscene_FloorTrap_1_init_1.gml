@@ -18,7 +18,7 @@ Zelda_X     = ($25<<3)+4;
 //Zelda_X     = ($59<<3)+4;
 Zelda_Y     = ((g.rm_rows-PAGE_ROWS)+$18)<<3;
 Zelda_XSCALE= sign_(g.exit_enter.side&1);
-Zelda_PI    = PI_MOB_RED;
+Zelda_PI    = global.PI_MOB_RED;
 //Zelda_PI    = PI_BGR_4;
 
 

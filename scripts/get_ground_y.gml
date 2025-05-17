@@ -10,14 +10,14 @@ var _search_row = clamp(argument[_arg++]>>3, 0, _ROWS-1);
 var _SEARCH_DIR = sign_(argument[_arg++]);
 
 // _DEFAULT (Optional). Value to return if solid not found.
-                     var _DEFAULT =              (viewYC()>>3)            <<3; // 
+var                      _DEFAULT =              (viewYC()>>3)            <<3; // 
 if (argument_count>_arg) _DEFAULT = clamp(argument[_arg++]>>3, 0,_ROWS-1) <<3;
 
 var                                          _SOLID_BITS =     TID_SOLID1;
 if (argument_count>_arg && argument[_arg++]) _SOLID_BITS = max(TID_SOLID1,argument[_arg-1]);
 
 
-var _is_in_solid = (!!(g.dg_RmTile_solid[#_search_CLM,_search_row]&$FF));
+var _is_in_solid = (g.dg_RmTile_solid[#_search_CLM,_search_row]&$FF) != 0;
 
 
 
@@ -46,9 +46,9 @@ for(_i=0; _i<_ROWS; _i++)
         }
         else
         {   // search for other type. this should only happen once.
-            _is_in_solid = (!!_val);
-            _i=0;
-            continue;
+            _is_in_solid = _val != 0;
+            _i = 0;
+            continue;//_i
         }
     }
 }

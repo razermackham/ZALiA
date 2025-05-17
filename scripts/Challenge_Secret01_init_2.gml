@@ -7,7 +7,8 @@ var _dk, _pos;
 
 
 GO_depth_init(min(g.pc.depth_def,DEPTH_ITEM)-3);
-GO_init_palidx(PI_PC_2+1); // PI_PC_2+1: Brightest pc spell flash colors
+GO_init_palidx(global.PI_SPELL_PC1+1); // PI_SPELL_FLASH1+1: Brightest pc spell flash colors
+//GO_init_palidx(PI_PC_2+1); // PI_PC_2+1: Brightest pc spell flash colors
 //GO_init_palidx(PI_MOB_RED);
 GO_sprite_init(SPRITE1);
 

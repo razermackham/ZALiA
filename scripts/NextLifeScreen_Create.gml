@@ -18,7 +18,7 @@ SHOW_LINK_CUE = 6;
 
 ROOM_CHANGE_CUE = $79; // $79 == 121
 
-save_name  = f.ar_save_names[f.file_num-1];
+save_name  = f.dl_save_names[|f.file_num-1];
 save_name += string_repeat(".", SAVE_NAME_CHAR_LIMIT - string_length(save_name));
 
 

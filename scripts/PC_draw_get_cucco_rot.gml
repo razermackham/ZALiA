@@ -1,7 +1,7 @@
 /// PC_draw_get_cucco_rot(x scale)
 
 
-if (use_disguise 
+if (Disguise_enabled 
 ||  Draw_behavior==behavior_DAMAGE )
 {
     return 0;

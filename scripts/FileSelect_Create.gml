@@ -8,6 +8,7 @@ var _X,_Y;
 var _ver, _file_num;
 var _default=0;
 var _datakey1,_datakey2;
+var _file_name, _file, _file_data;
 
 //instance_create(0,0, ValDispaly);
 
@@ -36,7 +37,13 @@ depth       = DEPTH_FILE_SELECT;
 DEPTH_PIECE = depth-1;
 
 
-PI_MENU = get_pi(PI_GUI_1);
+PI_MENU1 = global.PI_GUI1;
+PI_MENU2 = global.PI_GUI3; // darker version of global.PI_GUI1
+PI_DARK0 = global.PI_GUI2;
+PI_DARK1 = add_pi_permut(global.PI_GUI2, "WBRGYKMC", "OptionsMenu dark text 1");
+PI_DARK2 = add_pi_permut(global.PI_GUI2, "RWBGMKYC", "OptionsMenu dark text 2");
+PI_DARK3 = add_pi_permut(global.PI_GUI2, "RBWGMKYC", "OptionsMenu dark text 3");
+
 
 //FONT_SPRITE1=spr_Font3_1;
 FONT_SPRITE1 = spr_Font2;
@@ -55,7 +62,6 @@ State_ELIMINATE = _i++;
 state           = State_NULL;
 state_pending   = State_MAIN;
 state_previous  = state;
-
 
 
 
@@ -183,8 +189,9 @@ LEVELS_X_OFF = $04<<3;
 SAVE_FILE_PAD = $18;
 
 
-sprites_fairy[1] = g.dl_Fairy_SPRITES[|1]; // spr_FairyB
-sprites_fairy[0] = g.dl_Fairy_SPRITES[|0]; // spr_FairyA
+dl_sprites_fairy = ds_list_create();
+ds_list_add(dl_sprites_fairy, g.dl_Fairy_SPRITES[|0]); // spr_FairyA
+ds_list_add(dl_sprites_fairy, g.dl_Fairy_SPRITES[|1]); // spr_FairyB
 sprites_fairy_idx = 0;
 
 
@@ -378,12 +385,14 @@ for(_file_num=1; _file_num<=SAVE_FILE_MAX; _file_num++)
 
 
 // -------------------------------------------------
-for(_i=SAVE_FILE_MAX-1;_i>=0;_i--){for(_j=6;_j>=0;_j--) stats[_i,_j]=0;}
+dg_stats = ds_grid_create(SAVE_FILE_MAX,7);
 FS_set_stats();
 
-ar_spr_statIcon[2] = global.SPR_ICON_LIF;
-ar_spr_statIcon[1] = global.SPR_ICON_MAG;
-ar_spr_statIcon[0] = global.SPR_ICON_ATK;
+
+dl_spr_statIcon = ds_list_create();
+ds_list_add(dl_spr_statIcon,global.SPR_ICON_ATK);
+ds_list_add(dl_spr_statIcon,global.SPR_ICON_MAG);
+ds_list_add(dl_spr_statIcon,global.SPR_ICON_LIF);
 
 
 // -------------------------------------------------

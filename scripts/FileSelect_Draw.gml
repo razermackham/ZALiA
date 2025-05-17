@@ -32,7 +32,7 @@ set_background_color(p.C_BLK1);
 // ---------------------------------------------------------------------------------------------
 FileSelect_build_surfaces();
 
-pal_swap_set(p.palette_image, PI_GUI_1);
+pal_swap_set(global.palette_image, global.PI_GUI1);
 switch(state){
 case State_MAIN:     {if (surface_exists(surf_MAIN))      draw_surface(surf_MAIN,      viewXC()-(surface_get_width(surf_MAIN)>>1),surf_MAIN_YT); break;}//case State_MAIN
 //case State_MAIN:     {if (surface_exists(surf_MAIN))      draw_surface(surf_MAIN,      surf_MAIN_XL,surf_MAIN_YT); break;}//case State_MAIN
@@ -49,17 +49,17 @@ pal_swap_reset();
 // ---------------------------------------------------------------------------------------------
 for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
 {
-    if (_dl_CAN_COLOR_FILE[|_i]) _pi = PI_MENU;
-    else                         _pi = PI_DARKLONK;
-    _text = f.ar_save_names[_i];
+    if (_dl_CAN_COLOR_FILE[|_i]) _pi = PI_MENU1;
+    else                         _pi = global.PI_GUI2;
+    _text = f.dl_save_names[|_i];
     _x = saveNameX;
     _y = saveNameY + (SAVE_FILE_PAD*_i);
     draw_text_(_x,_y, _text, -1,_pi);
     
     if (state==State_MAIN 
-    &&  stats[_i,0] ) // stats[_i,0] = _saveData[?f.SDNAME_saveCreated]
+    &&  dg_stats[#_i,0] ) // dg_stats[#_i,0] = _saveData[?f.SDNAME_saveCreated]
     {   // Quest icon
-        if (stats[_i,1]==2)
+        if (dg_stats[#_i,1]==2)
         {
             _spr = SPR_QUEST;
             _x = QUEST_X;
@@ -69,7 +69,7 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
         
         
         // Death count
-            _text = string(stats[_i,2]);
+            _text = string(dg_stats[#_i,2]);
         repeat(3-string_length(_text))
         {   _text = '0'+_text;  }
         
@@ -82,7 +82,7 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
         _y = LEVELS_Y + (SAVE_FILE_PAD*_i);
         for(_j=0; _j<=2; _j++) // Each stat (Atk,Mag,Lif)
         {
-            _text = string(stats[_i, 3+_j]);
+            _text = string(dg_stats[#_i, 3+_j]);
             _x  = LEVELS_X;
             _x += LEVELS_X_OFF*_j;
             _x += $10;
@@ -116,7 +116,7 @@ switch(state)
     if (_STATE) _text = Text_ON;
     else        _text = Text_OFF;
     var _len = string_length(_text);
-    draw_text_(_x,_y, _text, -1,PI_MENU);
+    draw_text_(_x,_y, _text, -1,PI_MENU1);
     
     // Rando seed
     if (_STATE)
@@ -158,7 +158,7 @@ switch(state)
 // ---------------------------------------------------------------------------------------------
 if (state)
 {   // Fairy - menu cursor
-    _spr = sprites_fairy[sprites_fairy_idx];
+    _spr = dl_sprites_fairy[|sprites_fairy_idx];
     _x = fairy_x;
     _y = fairy_y;
     switch(state)
@@ -178,8 +178,8 @@ if (state)
         _y = FAIRY_Y2;
         switch(Register_cursor){
         default:{                  _y+=Register_cursor*SAVE_FILE_PAD; break;}
-        case RegisterOption_RANDO:{_y+=(SAVE_FILE_MAX*SAVE_FILE_PAD)+8; break;}
-        case RegisterOption_END:  {_y+=(SAVE_FILE_MAX*SAVE_FILE_PAD)+8; _y+=$02<<3; break;}
+        case RegisterOption_RANDO:{_y+=(SAVE_FILE_MAX*SAVE_FILE_PAD)+8; _y+=RandoOptions_YOFF1; break;}
+        case RegisterOption_END:  {_y+=(SAVE_FILE_MAX*SAVE_FILE_PAD)+8; _y+=RandoOptions_YOFF1; _y+=$02<<3; break;}
         }//switch(Register_cursor)
         break;}//case State_REGISTER
         
@@ -225,6 +225,7 @@ if (state)
                 // ---------------------------------------------
                 case RandoOTHER_state_ITEMS:{
                 _x  = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_cursor_ITEM,0] - _val;
+                _x -= $3; // micro adj
                 _y  = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_cursor_ITEM,1] + 1;
                 switch(RandoOTHER_ITEMS_cursor){
                 case RandoOTHER_ITEMS_cursor_ITEM:{_x+=0; _y+=0; break;}
@@ -240,8 +241,9 @@ if (state)
                 
                 // ---------------------------------------------
                 case RandoOTHER_state_REQUIRE:{
-                _x = dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor,0] - _val;
-                _y = dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor,1] + 1;
+                _x  = dg_RandoOTHER_REQUIRE[#0,0] - _val;
+                _x -= $3; // micro adj
+                _y  = dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor,1] + 1;
                 break;}//case RandoOTHER_state_REQUIRE
             }//switch(RandoOTHER_state)
             break;}//case RandoState_OTHER
@@ -255,14 +257,14 @@ if (state)
         _y += $02; // micro adj
         break;}//case State_RANDO
     }
-    draw_sprite_(_spr,0, _x,_y, PI_MOB_ORG);
+    draw_sprite_(_spr,0, _x,_y, global.PI_MOB_ORG);
     
     
     // Lonk doll icons
     for(_i=0; _i<SAVE_FILE_MAX; _i++)
     {
-        if (_dl_CAN_COLOR_FILE[|_i]) _pi = PI_PC_1;
-        else                         _pi = PI_DARKLONK;
+        if (_dl_CAN_COLOR_FILE[|_i]) _pi = global.PI_PC1;
+        else                         _pi = global.PI_GUI2;
         _x = doll_x;
         _y = doll_y + (SAVE_FILE_PAD*_i) + 1;
         draw_sprite_(SPR_DOLL,0, _x,_y, _pi);
@@ -303,13 +305,11 @@ ds_list_destroy(_dl_CAN_COLOR_FILE); _dl_CAN_COLOR_FILE=undefined;
 
 
 /*
-if (0)
-{   // Debug stuff
-    _x = surf_MAIN_XL+(surf_MAIN_CLMS<<3);
-    draw_line_colour(surf_MAIN_XL,viewYT(), surf_MAIN_XL,viewYB(), c_fuchsia,c_fuchsia); // surf xl
-    draw_line_colour(          _x,viewYT(),           _x,viewYB(), c_fuchsia,c_fuchsia); // surf xr
-    draw_line_colour(    viewXC(),viewYT(),     viewXC(),viewYB(), c_orange, c_orange);
-}
+// Debug stuff
+_x = surf_MAIN_XL+(surf_MAIN_CLMS<<3);
+draw_line_colour(surf_MAIN_XL,viewYT(), surf_MAIN_XL,viewYB(), c_fuchsia,c_fuchsia); // surf xl
+draw_line_colour(          _x,viewYT(),           _x,viewYB(), c_fuchsia,c_fuchsia); // surf xr
+draw_line_colour(    viewXC(),viewYT(),     viewXC(),viewYB(), c_orange, c_orange);
 */
 
 

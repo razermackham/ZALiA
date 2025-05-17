@@ -11464,6 +11464,8 @@
       <sprite>sprites\spr_Fire_1a_2</sprite>
       <sprite>sprites\spr_Fountain_Water_1a</sprite>
       <sprite>sprites\spr_Fountain_Water_1b_2</sprite>
+      <sprite>sprites\spr_Fountain_Water_1a_1</sprite>
+      <sprite>sprites\spr_Fountain_Water_1b_1</sprite>
       <sprite>sprites\spr_Chain_link_01a</sprite>
       <sprite>sprites\spr_Chain_link_02a</sprite>
       <sprite>sprites\spr_Spike_ball_1a</sprite>
@@ -11497,31 +11499,17 @@
       <sprite>sprites\spr_Statue_7a</sprite>
       <sprite>sprites\spr_Statue_8a</sprite>
       <sprite>sprites\spr_chicken_1a_body_1a_1_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_body_1a_1_WRB_Beak</sprite>
-      <sprite>sprites\spr_chicken_1a_body_2a_1_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_body_2a_1_v2_WRB</sprite>
       <sprite>sprites\spr_chicken_1a_body_2a_1_v3_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_body_2a_1_v3_WRB_Beak</sprite>
       <sprite>sprites\spr_chicken_1a_body_3a_1_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_body_3a_1_WRB_Beak</sprite>
       <sprite>sprites\spr_chicken_1a_body_4a_1_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_body_4a_1_WRB_Beak</sprite>
       <sprite>sprites\spr_chicken_1a_body_5a_1_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_body_5a_1_WRB_Beak</sprite>
       <sprite>sprites\spr_chicken_1a_body_6a_1_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_body_6a_1_WRB_Beak</sprite>
       <sprite>sprites\spr_chicken_1a_body_7a_1_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_body_7a_1_WRB_Beak</sprite>
       <sprite>sprites\spr_chicken_1a_body_7b_1_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_body_7b_1_WRB_Beak</sprite>
       <sprite>sprites\spr_chicken_1a_legs_1a_1_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_legs_1a_2_WRB</sprite>
       <sprite>sprites\spr_chicken_1a_legs_1a_2_v2_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_legs_1a_3_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_legs_1a_3_v2_WRB</sprite>
       <sprite>sprites\spr_chicken_1a_legs_1a_3_v3_WRB</sprite>
       <sprite>sprites\spr_chicken_1a_legs_1a_4_WRB</sprite>
-      <sprite>sprites\spr_chicken_1a_legs_1a_4_v2_WRB</sprite>
       <sprite>sprites\spr_chicken_1a_wing_1a_1_WRB</sprite>
       <sprite>sprites\spr_chicken_1a_wing_1a_2_WRB</sprite>
       <sprite>sprites\spr_chicken_1a_damage_1a</sprite>
@@ -11592,6 +11580,10 @@
         <sprite>sprites\spr_icon_shield_1a</sprite>
       </sprites>
       <sprites name="other">
+        <sprite>sprites\spr_Button_XBoxA01</sprite>
+        <sprite>sprites\spr_Button_XBoxB01</sprite>
+        <sprite>sprites\spr_Button_XBoxX01</sprite>
+        <sprite>sprites\spr_Button_XBoxY01</sprite>
         <sprite>sprites\spr_Menu_Selector_arrow_1a</sprite>
         <sprite>sprites\spr_arrow_1b</sprite>
         <sprite>sprites\spr_arrow_2a_WRB</sprite>
@@ -11633,6 +11625,7 @@
     </sprites>
     <sprites name="palettes">
       <sprite>sprites\spr_color_grid_2c</sprite>
+      <sprite>sprites\spr_ColorGrid01</sprite>
     </sprites>
     <sprites name="overworld">
       <sprite>sprites\spr_OW_enc_char_1_1a</sprite>
@@ -11649,13 +11642,13 @@
         <background>background\ts_Natural_2a_WRB</background>
         <background>background\ts_Natural_4a_HMS</background>
         <background>background\ts_Cave01</background>
+        <background>background\ts_Natural02</background>
       </backgrounds>
       <backgrounds name="man_made">
         <background>background\ts_Man_made_1a_WRB</background>
-        <background>background\ts_Man_made_1a_RWB</background>
-        <background>background\ts_Man_made_1a_BRW</background>
         <background>background\ts_Man_made_2a_WRB</background>
         <background>background\ts_Man_made_3a_WRB</background>
+        <background>background\ts_ManMade05</background>
         <background>background\ts_Man_made_4a_WRB</background>
         <background>background\ts_Man_made_6a_WRB</background>
         <background>background\ts_Man_made_7a_WRB</background>
@@ -11680,22 +11673,18 @@
         <background>background\ts_tile_marker_1a_8x8</background>
         <background>background\ts_tile_marker_1a_16x16</background>
         <background>background\ts_solid_color_1a_8x8</background>
+        <background>background\ts_SolidColors01_8x8</background>
       </backgrounds>
       <backgrounds name="overworld">
         <background>background\ts_Overworld_1</background>
-        <background>background\ts_Overworld_1_1_2</background>
-        <background>background\ts_Overworld_1_2</background>
         <background>background\ts_Overworld_8x8_01</background>
         <background>background\ts_Overworld_anark01</background>
-        <background>background\ts_Overworld_anark01_00</background>
-        <background>background\ts_Overworld_anark01_01</background>
-        <background>background\ts_Overworld_anark01_02</background>
-        <background>background\ts_Overworld_anark01_03</background>
         <background>background\ts_Overworld_anark02</background>
-        <background>background\ts_Overworld_anark02_00</background>
-        <background>background\ts_Overworld_anark02_01</background>
-        <background>background\ts_Overworld_anark02_02</background>
-        <background>background\ts_Overworld_anark02_03</background>
+        <background>background\ts_OverworldAnim01</background>
+        <background>background\ts_OverworldAnim01_00</background>
+        <background>background\ts_OverworldAnim01_01</background>
+        <background>background\ts_OverworldAnim01_02</background>
+        <background>background\ts_OverworldAnim01_03</background>
       </backgrounds>
       <backgrounds name="animation">
         <background>background\ts_Animation030101</background>
@@ -11727,14 +11716,14 @@
       <script>scripts\Input_update2b.gml</script>
       <script>scripts\Input_update2c.gml</script>
       <script>scripts\Input_update2d.gml</script>
-      <script>scripts\input_GameTesting_1a.gml</script>
+      <script>scripts\update_app_pause.gml</script>
+      <script>scripts\Input_GameTesting.gml</script>
       <script>scripts\gamepad_set_default.gml</script>
     </scripts>
     <scripts name="sound">
       <scripts name="event">
         <script>scripts\Audio_Create.gml</script>
         <script>scripts\Audio_Room_Start.gml</script>
-        <script>scripts\Audio_Room_End.gml</script>
         <script>scripts\Audio_Game_End.gml</script>
       </scripts>
       <scripts name="sound_combos">
@@ -11779,6 +11768,7 @@
         <script>scripts\init_data_xp.gml</script>
         <script>scripts\init_data_town_1a.gml</script>
         <script>scripts\init_data_spells_1a.gml</script>
+        <script>scripts\init_data_items.gml</script>
         <script>scripts\init_data_dialogue.gml</script>
         <script>scripts\NPC_data_init.gml</script>
       </scripts>
@@ -11801,12 +11791,12 @@
       <script>scripts\Overworld_Step.gml</script>
       <script>scripts\Overworld_enc_spawn_update.gml</script>
       <script>scripts\Overworld_enc_inst_update.gml</script>
+      <script>scripts\Overworld_udp.gml</script>
       <script>scripts\Overworld_Draw.gml</script>
       <script>scripts\Overworld_Game_End.gml</script>
       <script>scripts\Overworld_init_data.gml</script>
       <script>scripts\Overworld_init_data_1.gml</script>
       <script>scripts\Overworld_init_data_2.gml</script>
-      <script>scripts\Overworld_init_data_3.gml</script>
       <script>scripts\Overworld_init_data_anarkhya.gml</script>
       <script>scripts\ow_pc_xy.gml</script>
       <script>scripts\is_exiting_ow.gml</script>
@@ -11862,7 +11852,6 @@
       <script>scripts\rm_get_file_data.gml</script>
       <script>scripts\rm_get_wh.gml</script>
       <script>scripts\rm_is_bottom_page_locked.gml</script>
-      <script>scripts\get_rm_name.gml</script>
       <script>scripts\room_is_type.gml</script>
       <script>scripts\get_dk_dungeon_entrance.gml</script>
       <script>scripts\get_dungeon_num.gml</script>
@@ -11909,12 +11898,13 @@
       <script>scripts\window_set_scale.gml</script>
       <script>scripts\window_get_scale.gml</script>
       <script>scripts\draw_view_og_outline.gml</script>
+      <script>scripts\CamZoom_test1.gml</script>
     </scripts>
     <scripts name="tile">
       <script>scripts\scene_enter_add_tiles.gml</script>
-      <script>scripts\rm_enter_set_tiles.gml</script>
       <script>scripts\tile_data_init.gml</script>
       <script>scripts\tile_data_init_1.gml</script>
+      <script>scripts\init_tile_layer_data.gml</script>
       <script>scripts\tile_add_.gml</script>
       <script>scripts\tile_add_2a.gml</script>
       <script>scripts\tile_delete_.gml</script>
@@ -12022,14 +12012,12 @@
         <script>scripts\GO_update_pal_flash.gml</script>
         <script>scripts\GO_pal_qual_lit.gml</script>
         <script>scripts\is_ver.gml</script>
-        <script>scripts\ver_count.gml</script>
         <script>scripts\set_xlyt.gml</script>
         <script>scripts\set_xy.gml</script>
         <script>scripts\set_xy_len_ang.gml</script>
         <script>scripts\updateX.gml</script>
         <script>scripts\updateY.gml</script>
         <script>scripts\updateY2.gml</script>
-        <script>scripts\updateY3.gml</script>
         <script>scripts\pushback_pc.gml</script>
         <script>scripts\pushback_pc_and_go.gml</script>
         <script>scripts\set_go_hspd_pushbback.gml</script>
@@ -12052,7 +12040,7 @@
       <scripts name="goa">
         <script>scripts\PC_end.gml</script>
         <script>scripts\PC_create.gml</script>
-        <script>scripts\GameObjectA_init.gml</script>
+        <script>scripts\PC_init.gml</script>
         <script>scripts\PC_add_skin.gml</script>
         <script>scripts\PC_init_add_spritesheet.gml</script>
         <script>scripts\PC_init_sprite_data.gml</script>
@@ -12743,6 +12731,7 @@
             <script>scripts\NPC_init1.gml</script>
             <script>scripts\NPC_init2.gml</script>
             <script>scripts\NPC_udp_1.gml</script>
+            <script>scripts\NPC_udp_2.gml</script>
             <script>scripts\NPC_udp_Girubokku.gml</script>
             <script>scripts\NPC_draw.gml</script>
             <script>scripts\NPC_0_update.gml</script>
@@ -13093,6 +13082,7 @@
           <scripts name="spike_ball">
             <script>scripts\SpikeBall1_init_1.gml</script>
             <script>scripts\SpikeBall1_init_2.gml</script>
+            <script>scripts\SpikeBall1_init3.gml</script>
             <script>scripts\SpikeBall1_update.gml</script>
             <script>scripts\SpikeBall1_udp.gml</script>
           </scripts>
@@ -13350,14 +13340,10 @@
       <script>scripts\update_GameObjectMgr.gml</script>
       <script>scripts\spawn_data_set_default.gml</script>
       <script>scripts\go_spawn_enter_room.gml</script>
-      <script>scripts\update_go_spawn_1a.gml</script>
       <script>scripts\go_spawn_priorities.gml</script>
       <script>scripts\update_go_spawn_1b.gml</script>
-      <script>scripts\update_go_spawn_1c.gml</script>
       <script>scripts\update_go_spawn_1d.gml</script>
       <script>scripts\get_spawn_datakey.gml</script>
-      <script>scripts\qual_spawn_1a.gml</script>
-      <script>scripts\qual_spawn_2a.gml</script>
       <script>scripts\qual_spawn_3a.gml</script>
     </scripts>
     <scripts name="niao">
@@ -13432,12 +13418,14 @@
         <script>scripts\PauseMenu_update_2a.gml</script>
         <script>scripts\PauseMenu_udp.gml</script>
         <script>scripts\PauseMenu_Draw.gml</script>
+        <script>scripts\PauseMenu_Draw_1.gml</script>
         <script>scripts\PauseMenu_draw_spell_menu.gml</script>
         <script>scripts\PauseMenu_draw_spell.gml</script>
         <script>scripts\PauseMenu_draw_inventory.gml</script>
         <script>scripts\PauseMenu_draw_map.gml</script>
         <script>scripts\PauseMenu_Draw_map_Overworld8x8.gml</script>
         <script>scripts\PauseMenu_Draw_map_Overworld16x16.gml</script>
+        <script>scripts\PauseMenu_draw_map_dungeon.gml</script>
         <script>scripts\PauseMenu_map_set_pcrc.gml</script>
         <script>scripts\PauseMenu_GameEnd.gml</script>
         <script>scripts\update_explored_data.gml</script>
@@ -13462,8 +13450,14 @@
       </scripts>
       <scripts name="options_menu">
         <script>scripts\OptionsMenu_Create.gml</script>
+        <script>scripts\OptionsMenu_Create_1.gml</script>
         <script>scripts\OptionsMenu_Draw.gml</script>
+        <script>scripts\OptionsMenu_Draw_Main.gml</script>
         <script>scripts\OptionsMenu_Draw_AudioCustom.gml</script>
+        <script>scripts\OptionsMenu_Draw_InputConfig.gml</script>
+        <script>scripts\OptionsMenu_Draw_DevTools.gml</script>
+        <script>scripts\OptionsMenu_Draw_RandoOptions.gml</script>
+        <script>scripts\OptionsMenu_Draw_Other.gml</script>
         <script>scripts\OptionsMenu_Game_End.gml</script>
         <script>scripts\update_OptionsMenu.gml</script>
         <script>scripts\OptionsMenu_Main_update.gml</script>
@@ -13471,7 +13465,7 @@
         <script>scripts\OptionsMenu_InputConfig_update.gml</script>
         <script>scripts\OptionsMenu_DevTools_update.gml</script>
         <script>scripts\OptionsMenu_RandoOptions_update.gml</script>
-        <script>scripts\OptionsMenu_update_1a.gml</script>
+        <script>scripts\OptionsMenu_Other_update.gml</script>
         <script>scripts\udp_OptionsMenu.gml</script>
         <script>scripts\OptionsMenu_option_is_avail.gml</script>
         <script>scripts\OptionsMenu_AudioCustom_refresh_indicator_states.gml</script>
@@ -13495,8 +13489,10 @@
     <scripts name="surface">
       <script>scripts\Surface_Game_End.gml</script>
       <script>scripts\Surface_init.gml</script>
+      <script>scripts\Surface_Step.gml</script>
       <script>scripts\Surface_Draw_End.gml</script>
       <script>scripts\Surface_Draw_GUI_Begin.gml</script>
+      <script>scripts\Surface_Draw_GUI_End.gml</script>
       <script>scripts\debug_draw_data.gml</script>
     </scripts>
     <scripts name="draw">
@@ -13643,10 +13639,8 @@
       <script>scripts\cont_piece_cnt_mp.gml</script>
       <script>scripts\cont_cnt_hp.gml</script>
       <script>scripts\cont_cnt_mp.gml</script>
-      <script>scripts\get_bottle_amt.gml</script>
       <script>scripts\get_jar_restore_dur.gml</script>
       <script>scripts\quest_is_complete.gml</script>
-      <script>scripts\second_quest_init.gml</script>
       <script>scripts\get_file_seed_dk.gml</script>
     </scripts>
     <scripts name="rando">
@@ -13664,6 +13658,11 @@
       <script>scripts\Rando_randomize_items_1a.gml</script>
       <script>scripts\Rando_randomize_items_1a_1.gml</script>
       <script>scripts\Rando_randomize_items_2.gml</script>
+      <script>scripts\Rando_generate_hints.gml</script>
+      <script>scripts\Rando_randomize_dungeon_tilesets.gml</script>
+      <script>scripts\Rando_randomize_overworld_biomes.gml</script>
+      <script>scripts\Rando_randomize_scenes.gml</script>
+      <script>scripts\Rando_randomize_enemies.gml</script>
       <script>scripts\Rando_place_container_pieces.gml</script>
       <script>scripts\Rando_init_location_data.gml</script>
       <script>scripts\Rando_add_location.gml</script>
@@ -13695,6 +13694,15 @@
       <script>scripts\Rando_can_reach_Dragmire.gml</script>
       <script>scripts\Rando_can_reach_CrystalHolder.gml</script>
       <script>scripts\Rando_can_get_inside_P7.gml</script>
+      <script>scripts\Rando_can_traverse_Rauru_town.gml</script>
+      <script>scripts\Rando_can_traverse_Ruto_town.gml</script>
+      <script>scripts\Rando_can_traverse_Saria_town.gml</script>
+      <script>scripts\Rando_can_traverse_Mido_town.gml</script>
+      <script>scripts\Rando_can_traverse_Nabooru_town.gml</script>
+      <script>scripts\Rando_can_traverse_Darunia_town.gml</script>
+      <script>scripts\Rando_can_traverse_NewKasuto_town.gml</script>
+      <script>scripts\Rando_can_traverse_OldKasuto_town.gml</script>
+      <script>scripts\Rando_can_traverse_Bulblin_town.gml</script>
       <script>scripts\Rando_can_traverse_RauruPass.gml</script>
       <script>scripts\Rando_can_traverse_RauruToMidoroCave.gml</script>
       <script>scripts\Rando_can_traverse_JUMPCave.gml</script>
@@ -13716,15 +13724,15 @@
       </scripts>
     </scripts>
     <scripts name="palette">
+      <script>scripts\p_Create.gml</script>
       <script>scripts\p_init.gml</script>
       <script>scripts\p_init_add_more_colors.gml</script>
       <script>scripts\p_Room_Start.gml</script>
-      <script>scripts\p_Room_Start_1.gml</script>
+      <script>scripts\p_Room_End.gml</script>
       <script>scripts\p_Draw.gml</script>
       <script>scripts\p_Draw_1.gml</script>
       <script>scripts\p_Game_End.gml</script>
       <script>scripts\p_init_palette_data.gml</script>
-      <script>scripts\palette_data_init.gml</script>
       <script>scripts\update_Pallete_1a.gml</script>
       <script>scripts\update_Pallete_1b.gml</script>
       <script>scripts\p_update_pal_seq.gml</script>
@@ -13735,23 +13743,28 @@
       <script>scripts\fall_scene_get_y_base.gml</script>
       <script>scripts\draw_falling_scene.gml</script>
       <script>scripts\palSpr_changeColors.gml</script>
-      <script>scripts\isPalSprPalette.gml</script>
-      <script>scripts\isPalSprColor.gml</script>
       <script>scripts\get_pi.gml</script>
+      <script>scripts\add_pi_permut.gml</script>
+      <script>scripts\get_pi_palette.gml</script>
       <script>scripts\get_pal_color.gml</script>
       <script>scripts\get_pal_pos.gml</script>
-      <script>scripts\request_pal_change.gml</script>
+      <script>scripts\get_pal_col_pos.gml</script>
+      <script>scripts\update_scene_palette.gml</script>
       <script>scripts\change_pal.gml</script>
-      <script>scripts\set_pc_pal.gml</script>
       <script>scripts\get_pc_skin_palette.gml</script>
-      <script>scripts\get_pc_sword_palette.gml</script>
       <script>scripts\build_pal.gml</script>
       <script>scripts\get_palette_via_file_data.gml</script>
       <script>scripts\update_rm_brightness.gml</script>
       <script>scripts\set_rm_brightness.gml</script>
-      <script>scripts\rm_is_fully_lit.gml</script>
       <script>scripts\rm_pal_qual_lit.gml</script>
       <script>scripts\triforce_pal_update.gml</script>
+      <script>scripts\get_color_brightness.gml</script>
+      <script>scripts\color_str.gml</script>
+      <script>scripts\get_random_color.gml</script>
+      <script>scripts\get_random_color_highlight.gml</script>
+      <script>scripts\get_random_color_midtone.gml</script>
+      <script>scripts\get_random_color_shadow.gml</script>
+      <script>scripts\randomize_palette.gml</script>
       <scripts name="palette_swap">
         <script>scripts\pal_swap_draw_palette.gml</script>
         <script>scripts\pal_swap_enable_override.gml</script>
@@ -13915,6 +13928,7 @@
         <script>scripts\GOB_draw_hp.gml</script>
       </scripts>
       <scripts name="Dev_StabToCheat">
+        <script>scripts\Dev_StabToCheat_end.gml</script>
         <script>scripts\Dev_StabToCheat_Create.gml</script>
         <script>scripts\Dev_StabToCheat_Step.gml</script>
         <script>scripts\Dev_StabToCheat_update_1a.gml</script>
@@ -13923,22 +13937,22 @@
         <script>scripts\Dev_StabToCheat_Room_End.gml</script>
       </scripts>
       <scripts name="Dev_Palette">
-        <script>scripts\PalettePicker_Game_End.gml</script>
-        <script>scripts\PalettePicker_Create.gml</script>
-        <script>scripts\PalettePicker_Room_Start.gml</script>
-        <script>scripts\PalettePicker_Step.gml</script>
-        <script>scripts\PalettePicker_Step_1a.gml</script>
-        <script>scripts\PalettePicker_update_cursor.gml</script>
-        <script>scripts\PalettePicker_pal_col_pos.gml</script>
-        <script>scripts\PalettePicker_Draw.gml</script>
-        <script>scripts\PalettePicker_draw_cursor.gml</script>
-        <script>scripts\dev_randomize_palette_1a.gml</script>
-        <script>scripts\dev_randomize_palette_1b.gml</script>
-        <script>scripts\dev_randomize_palette_highlight.gml</script>
-        <script>scripts\dev_randomize_palette_midtone.gml</script>
-        <script>scripts\dev_randomize_palette_shadow.gml</script>
+        <script>scripts\PaletteEditor_Game_End.gml</script>
+        <script>scripts\PaletteEditor_Create.gml</script>
+        <script>scripts\PaletteEditor_Room_Start.gml</script>
+        <script>scripts\PaletteEditor_Step.gml</script>
+        <script>scripts\PaletteEditor_Step_1.gml</script>
+        <script>scripts\PaletteEditor_update_cursor.gml</script>
+        <script>scripts\PaletteEditor_get_cursor_color.gml</script>
+        <script>scripts\PaletteEditor_udp.gml</script>
+        <script>scripts\PaletteEditor_Draw.gml</script>
+        <script>scripts\PaletteEditor_draw_PalView.gml</script>
+        <script>scripts\PaletteEditor_draw_PalView1.gml</script>
+        <script>scripts\PaletteEditor_draw_cursor.gml</script>
+        <script>scripts\PaletteEditor_initiate_pal_edit_mode.gml</script>
         <script>scripts\dev_output_colors_1a.gml</script>
         <script>scripts\dev_automate_palette_data.gml</script>
+        <script>scripts\dev_automate_palette_data2.gml</script>
       </scripts>
       <scripts name="Dev_RmWarping">
         <script>scripts\Dev_RmWarper_Create.gml</script>
@@ -13960,6 +13974,8 @@
         <script>scripts\db_Overworld_Draw_2a.gml</script>
       </scripts>
       <scripts name="tile">
+        <script>scripts\dev_automate_tile_layer_data.gml</script>
+        <script>scripts\dev_list_tile_liquid_layers.gml</script>
         <script>scripts\debug_list_rms_using_permut_ts.gml</script>
         <script>scripts\dev_find_scenes_using_certain_tiles.gml</script>
       </scripts>
@@ -14005,7 +14021,6 @@
     </scripts>
   </scripts>
   <shaders name="shaders">
-    <shader type="GLSLES">shaders\shdr_palette_swap.shader</shader>
     <shader type="GLSLES">shaders\shd_pal_swapper.shader</shader>
     <shader type="GLSLES">shaders\shd_grayscale.shader</shader>
     <shader type="GLSLES">shaders\shd_sepia.shader</shader>
@@ -14577,12 +14592,12 @@
       <object>objects\FrameIndicator</object>
       <object>objects\ValDisplay2</object>
       <object>objects\Tester1</object>
-      <object>objects\Dev_PalettePicker</object>
+      <object>objects\PaletteEditor</object>
       <object>objects\Dev_RmWarper</object>
       <object>objects\RandoDebug01</object>
     </objects>
-    <object>objects\Surface</object>
     <object>objects\GraphicsEffectsEditor</object>
+    <object>objects\Surface</object>
   </objects>
   <rooms name="rooms">
     <rooms name="rmB">
@@ -14603,7 +14618,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1049">
+  <constants number="1027">
     <constant name="DEV">true</constant>
     <constant name="USE_FRAME_DELAY">1</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
@@ -14620,7 +14635,7 @@
     <constant name="application_surface_W">BASE_GAME_RESOLUTION_W</constant>
     <constant name="application_surface_H">BASE_GAME_RESOLUTION_H</constant>
     <constant name="VIEW_W_OG">256</constant>
-    <constant name="VIEW_H_OG">224</constant>
+    <constant name="VIEW_H_OG">240</constant>
     <constant name="VIEW_W_OG_">(VIEW_W_OG &gt;&gt;1)</constant>
     <constant name="VIEW_H_OG_">(VIEW_H_OG &gt;&gt;1)</constant>
     <constant name="VIEW_W_WD">application_surface_W</constant>
@@ -14697,22 +14712,6 @@
     <constant name="DEPTH_FG6">(DEPTH_FG5-TILE_DEPTHS_PAD)</constant>
     <constant name="DEPTH_FG7">(DEPTH_FG6-TILE_DEPTHS_PAD)</constant>
     <constant name="DEPTH_FG8">(DEPTH_FG7-TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG1_P1">TILE_DEPTHS_BASE</constant>
-    <constant name="DEPTH_BG1_P2">(DEPTH_BG1_P1 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG1_P3">(DEPTH_BG1_P2 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG1_P4">(DEPTH_BG1_P3 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG2_P1">(DEPTH_BG1_P4 + TILE_LAYERS_GROUP_PAD)</constant>
-    <constant name="DEPTH_BG2_P2">(DEPTH_BG2_P1 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG2_P3">(DEPTH_BG2_P2 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_BG2_P4">(DEPTH_BG2_P3 + TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG1_P1">(-TILE_DEPTHS_BASE)</constant>
-    <constant name="DEPTH_FG1_P2">(DEPTH_FG1_P1 - TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG1_P3">(DEPTH_FG1_P2 - TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG1_P4">(DEPTH_FG1_P3 - TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG2_P1">(DEPTH_FG1_P4 - TILE_LAYERS_GROUP_PAD)</constant>
-    <constant name="DEPTH_FG2_P2">(DEPTH_FG2_P1 - TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG2_P3">(DEPTH_FG2_P2 - TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_FG2_P4">(DEPTH_FG2_P3 - TILE_DEPTHS_PAD)</constant>
     <constant name="DEPTH_HIDDEN">-3000</constant>
     <constant name="DEPTH_SOLIDS">-1000</constant>
     <constant name="DEPTH_UNIQUE">-2000</constant>
@@ -14724,6 +14723,7 @@
     <constant name="DEPTH_BASE_HUD">(DEPTH_FG7 - DEPTH_PAD)</constant>
     <constant name="DEPTH_BASE_MENU">(DEPTH_BASE_HUD - DEPTH_PAD)</constant>
     <constant name="DEPTH_BASE_SURFACE">(DEPTH_BASE_MENU - DEPTH_PAD)</constant>
+    <constant name="DEPTH_PERSIST_OBJ">(DEPTH_BASE_SURFACE - DEPTH_PAD)</constant>
     <constant name="DEPTH_FILE_SELECT">(DEPTH_BASE - DEPTH_PAD)</constant>
     <constant name="DEPTH_HUD">DEPTH_BASE_HUD</constant>
     <constant name="DEPTH_NIAO">DEPTH_BASE_NIAO</constant>
@@ -14744,6 +14744,12 @@
     <constant name="DEPTH_OW_ENEMY">(DEPTH_OW - 1)</constant>
     <constant name="DEPTH_OW_PC">(DEPTH_OW_ENEMY - 1)</constant>
     <constant name="DEPTH_SURFACE">DEPTH_BASE_SURFACE</constant>
+    <constant name="DEPTH_Audio">(DEPTH_SURFACE - 1)</constant>
+    <constant name="DEPTH_p">(DEPTH_Audio - 1)</constant>
+    <constant name="DEPTH_g">(DEPTH_p - 1)</constant>
+    <constant name="DEPTH_Input">(DEPTH_g - 1)</constant>
+    <constant name="DEPTH_f">(DEPTH_SURFACE + 1)</constant>
+    <constant name="DEPTH_Overworld">(DEPTH_f + 1)</constant>
     <constant name="SPL_NONE">$000</constant>
     <constant name="SPL_PRTC">$001</constant>
     <constant name="SPL_JUMP">(SPL_PRTC &lt;&lt;1)</constant>
@@ -14902,6 +14908,7 @@
     <constant name="STR_Depth">"_Depth"</constant>
     <constant name="STR_Other">"_Other"</constant>
     <constant name="STR_Destination">"_Destination"</constant>
+    <constant name="STR_Group">"_Group"</constant>
     <constant name="STR_Order">"_Order"</constant>
     <constant name="STR_Path">"_Path"</constant>
     <constant name="STR_Base">"_Base"</constant>
@@ -15377,6 +15384,10 @@
     <constant name="STR_Creator">"_Creator"</constant>
     <constant name="STR_Vinesauce">"_Vinesauce"</constant>
     <constant name="STR_Brightness">"_Brightness"</constant>
+    <constant name="STR_Saturation">"_Saturation"</constant>
+    <constant name="STR_Scanlines">"_Scanlines"</constant>
+    <constant name="STR_Bloom">"_Bloom"</constant>
+    <constant name="STR_Blur">"_Blur"</constant>
     <constant name="STR_Dark">"_Dark"</constant>
     <constant name="STR_Lonk">"_Lonk"</constant>
     <constant name="STR_Wiseman">"_Wiseman"</constant>
@@ -15404,8 +15415,8 @@
     <constant name="BURNABLE_A">$01</constant>
     <constant name="BURNABLE_B">(BURNABLE_A + 1)</constant>
     <constant name="BURNABLE_C">(BURNABLE_B + 1)</constant>
-    <constant name="TSRC_WATE01">$00</constant>
-    <constant name="TSRC_WATE02">$04</constant>
+    <constant name="TSRC_WATE01">$80</constant>
+    <constant name="TSRC_WATE02">(TSRC_WATE01 + $04)</constant>
     <constant name="TSRC_MOUN01">$10</constant>
     <constant name="TSRC_GRAS01">$20</constant>
     <constant name="TSRC_GRAS02">(TSRC_GRAS01 + 1)</constant>
@@ -15531,33 +15542,10 @@
     <constant name="TSRC_BREAK3_A">('82' + '83' + '92' + '93')</constant>
     <constant name="TSRC_BREAK3_B">('86' + '87' + '96' + '97')</constant>
     <constant name="TSRC_BREAK4_A">('A8' + 'A8' + 'A9' + 'A9')</constant>
-    <constant name="COL_PER_PAL">4</constant>
     <constant name="PI_PERMUTATIONS">6</constant>
     <constant name="PC_PAL_COUNT1">3</constant>
     <constant name="PC_PAL_COUNT2">3</constant>
     <constant name="PC_PAL_COUNT">(PC_PAL_COUNT1 + PC_PAL_COUNT2 + 1)</constant>
-    <constant name="PI_BASE">0</constant>
-    <constant name="PI_GUI_1">(PI_BASE + 1)</constant>
-    <constant name="PI_GUI_2">(PI_GUI_1 + 1)</constant>
-    <constant name="PI_GUI_3">(PI_GUI_2 + 1)</constant>
-    <constant name="PI_GUI_4">(PI_GUI_3 + 1)</constant>
-    <constant name="PI_PC_1">(PI_GUI_1 + 1)</constant>
-    <constant name="PI_PC_3">(PI_PC_1 + PC_PAL_COUNT1)</constant>
-    <constant name="PI_PC_2">(PI_PC_3 + 1)</constant>
-    <constant name="PI_CUC1">(PI_PC_2 + PC_PAL_COUNT2)</constant>
-    <constant name="PI_CUC3">(PI_CUC1 + PC_PAL_COUNT1)</constant>
-    <constant name="PI_CUC2">(PI_CUC3 + 1)</constant>
-    <constant name="PI_DARKLONK">(PI_CUC2 + PC_PAL_COUNT2)</constant>
-    <constant name="PI_BGR_1">(PI_DARKLONK + 1)</constant>
-    <constant name="PI_BGR_2">(PI_BGR_1 + 1)</constant>
-    <constant name="PI_BGR_3">(PI_BGR_2 + 1)</constant>
-    <constant name="PI_BGR_4">(PI_BGR_3 + 1)</constant>
-    <constant name="PI_MOB_ORG">(PI_BGR_4 + 1)</constant>
-    <constant name="PI_MOB_RED">(PI_MOB_ORG + 1)</constant>
-    <constant name="PI_MOB_BLU">(PI_MOB_RED + 1)</constant>
-    <constant name="PI_MOB_PUR">(PI_MOB_BLU + 1)</constant>
-    <constant name="PI_CLOUD_1">PI_BGR_4</constant>
-    <constant name="PI_PC_SWORD">(PI_MOB_PUR + 2 + (PC_PAL_COUNT&lt;&lt;1) + 1)</constant>
     <constant name="SAVE_NAME_CHAR_LIMIT">8</constant>
     <constant name="SAVE_FILE_MAX">3</constant>
     <constant name="SAVE_NAME_EMPTY">(string_repeat(" ", SAVE_NAME_CHAR_LIMIT))</constant>
@@ -15578,7 +15566,7 @@
     <constant name="Zelda_DATAKEY1">(STR_Zelda+STR_Dialogue+STR_State+STR_Quest+"02")</constant>
     <constant name="Wiseman_DATAKEY1">(STR_Wiseman+STR_Dialogue+STR_State+STR_Quest+"02")</constant>
     <constant name="Scroblin_DATAKEY1">(STR_Scroblin+STR_Open+STR_Path)</constant>
-    <constant name="SteelCrescents_NAME">"Steel Crescent"</constant>
+    <constant name="SteelCrescents_NAME">"Nomaph"</constant>
     <constant name="dk_NO_ENCOUNTER">"NO_ENCOUNTER"</constant>
     <constant name="dk_SpawnDatakey">"_SpawnDatakey"</constant>
     <constant name="dk_SceneMusicThemeException">"_SceneMusicThemeException"</constant>
@@ -15651,6 +15639,11 @@
     <constant name="dk_LandLocked">"_LandLocked"</constant>
     <constant name="dk_DynamicDialogue">"_DynamicDialogue"</constant>
     <constant name="dk_SceneRando">"_SceneRando"</constant>
+    <constant name="dk_BGR">"_BGR"</constant>
+    <constant name="dk_MOB">"_MOB"</constant>
+    <constant name="dk_PI">"_PI"</constant>
+    <constant name="dk_can_draw">"_can_draw"</constant>
+    <constant name="dk_XBOX">"_XBOX"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
   </constants>

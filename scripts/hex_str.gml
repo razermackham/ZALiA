@@ -11,17 +11,17 @@ if (argument0==0) return "00";
 
 
 // ---------------------------------------------------------
-var _str = "";
-while (argument0!=0)   // HEX_CHARS = "0123456789ABCDEF";
-{   //_char =     strChar(HEX_CHARS,(argument0&$F)+1); // !!! causing slow performance
-    _str = string_char_at(HEX_CHARS,(argument0&$F)+1) + _str;
+var _return = "";
+while (argument0!=0) //      HEX_CHARS = "0123456789ABCDEF";
+{   //_char =        strChar(HEX_CHARS,(argument0&$F)+1); // !!! causing slow performance
+    _return = string_char_at(HEX_CHARS,(argument0&$F)+1) + _return;
     argument0 = argument0>>4;
 }
 
-if (string_length(_str)&$1) _str = "0"+_str;
+if (string_length(_return)&$1) _return = "0"+_return;
 
 
-return _str;
+return _return;
 
 
 

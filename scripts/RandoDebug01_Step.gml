@@ -112,7 +112,8 @@ if (1&&DEV)
                         debug_str = undefined;
                         debug_data_count = 0;
                         
-                        Rando_generate(_QUEST_NUM, _seed, _SETTINGS);
+                        exit; // TODO: Rando_generate() doesn't take the _SETTINGS anymore
+                        //Rando_generate(_QUEST_NUM, _seed, _SETTINGS);
                         
                         
                         _LOCATIONS=json_encode(dm_LOCATIONS);

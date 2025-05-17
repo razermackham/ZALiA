@@ -7,9 +7,9 @@ if(!argument[0]) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 if (argument_count>4 
 &&  argument[4]  // if pal index >= .5
-&&  argument[4]<global.palette_image_W )
+&&  argument[4]<global.palette_image_w )
 {
-    pal_swap_set(p.palette_image, argument[4]); // Won't run if pal index is out of range
+    pal_swap_set(global.palette_image, argument[4]); // Won't run if pal index is out of range
 }
 
 
@@ -62,7 +62,7 @@ switch(argument_count)
 
 
 if (argument[4] 
-&&  argument[4]<global.palette_image_W )
+&&  argument[4]<global.palette_image_w )
 {
     pal_swap_reset();
 }

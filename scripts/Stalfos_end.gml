@@ -1,7 +1,7 @@
 /// Stalfos_end()
 
 
-ar_legs_spr = 0;
+//ar_legs_spr = 0;
 
 
 /*
@@ -32,6 +32,18 @@ if (_exists) _exists = ds_exists(        ds_,ds_type_stack);
 if (_exists)           ds_stack_destroy( ds_);
 if (_exists)                             ds_=undefined;
 */
+
+
+var _exists = false;
+
+
+
+
+    _exists=variable_instance_exists(id,"dl_legs_sprites");
+if (_exists) _exists = !is_undefined(    dl_legs_sprites);
+if (_exists) _exists = ds_exists(        dl_legs_sprites,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_legs_sprites);
+if (_exists)                             dl_legs_sprites=undefined;
 
 
 

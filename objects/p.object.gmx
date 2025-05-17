@@ -25,18 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-//Initilize System and add palettes
-//This should be done before any drawing takes place 
-//in a managing object that will persist through the entire game.
-//Notice I've set it to persistent.  
-
-//First Init the System, specify the name of the pal swap shader in 
-// case you've changed it for some reason.
-if (global.use_pal_swap) pal_swap_init_system(shd_pal_swapper);
-
-p_init();
-
+            <string>p_Create();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>p_Room_End();
 </string>
           </argument>
         </arguments>

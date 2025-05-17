@@ -165,22 +165,27 @@ BWR:    Blue      White   Red
 
 
 
-var _i,_j, _a, _num, _count, _bit;
+var _i,_j, _a, _num, _count,_count1,_count2, _bit;
 var _x,_y;
 var _clm,_row, _clms,_rows;
 var _w,_w2, _h,_h2;
 var _obj, _spr;
 var _datakey, _dk,_dk1,_dk2,_dk3, _mk;
 var _depth, _idx, _name, _id;
-var _default;
+var _default, _exists;
 var _ts;
-
-
-GO_depth_init(DEPTH_BASE);
-
+var _dl_1 = ds_list_create();
 
 
 
+depth = DEPTH_g;
+
+
+
+
+
+
+
 
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
@@ -191,11 +196,13 @@ GO_depth_init(DEPTH_BASE);
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
-//can_use_dev_tools1          = false;
-DevTools_state              = 0;
+//can_use_dev_tools1 = false;
+DevTools_state = 0;
 
-RenderFrameDelay_state      = 0;
-RenderFrameDelay_timer      = 0; // Display state when > 0
+// Frame Delay: An option that delays the game's render by 1 frame to simulate what I think happens in fceux.
+// Draws the state of the frame delay. -1: App will not include this option, 0: Don't draw the Frame Delay's state, 1: Draw the Frame Delay's state
+//global.RenderFrameDelay_state = -1;
+global.RenderFrameDelay_timer =  0; // Display state when > 0
 
 view_update_order = 1; // 1: OG, 2: update after gob update
 
@@ -212,8 +219,6 @@ can_draw_Exit_destination   = false;
 canDraw_ogXY                = false;
 can_draw_hp                 = false;
 canDrawSprOutline           = 0; // 0,1,2
-canDrawPalette              = false;
-canRandomizePalette         = false;
 can_use_FrameIndicator      = false;
 can_draw_og_cam_outline     = false;
 BodyHB_COLOR                = c_fuchsia;
@@ -235,9 +240,9 @@ adv_frame_held_counter = 0;
 global.GUI_NAV1_VER = 2;
 
 
-DevDash_state    = false;
+DevDash_state    = 0; // 0: Off, 1: On, 2: On and dash input held
 DoubleJump_state = false;
-use_StabToCheat  = false; // 
+use_StabToCheat  = false;
 
 _TwT_=ROOM_SPEED_BASE*60; // 1 min in frames
 _YwY_=false;
@@ -293,7 +298,7 @@ DisplayOWPosOnMap_VER = 0; // 0: ow map will show pcrc as last uncovered(outside
 // For rando, will draw a check on ow tile if item there has been acquired.
 can_mark_acquired_item_locations = 0;
 
-hidden_item_exits_help = 0;
+HiddenExitIndicator_enabled = false;
 
 
 // For users having background tile issues
@@ -308,24 +313,24 @@ torch_lighting_method   = 0; // 0: stab: light torches by stabbing only
 torch_lighting_method   = 1; // 1: auto: light torches by touching or stabbing
 
 
-// HUD_state: true: on, false: off
-HUD_state = true;
-//                  _i=0;
-//HUD_state       = _i++; // 0: HUD will NOT draw
-//HUD_state       = _i++; // 1: ZALiA G00 and before. Displays key count above HP in dungeons.
-//HUD_state       = _i++; // 2: ZALiA G01 and beyond. Displays key count above HP in dungeons. Displays lives count above HP.
-//HUD_state_COUNT = _i;
+
+
+                         _i=0;
+global.HUD_state       = _i++; // 0: HUD will NOT draw
+global.HUD_state       = _i++; // 1: HUD displays info only OG does
+global.HUD_state       = _i++; // 2: Displays key count above HP in dungeons. Displays lives count above HP.
+global.HUD_state_COUNT = _i;
 
 
 
 
 
-TargetGame_case=0; // 0: off
-//TargetGame_case=1; // 1: different every time
-//TargetGame_case=2;
+TargetGame_case = 0; // 0: off
+//TargetGame_case = 1; // 1: different every time
+//TargetGame_case = 2;
 
 
-//use_old_pixel_art=0;
+//use_old_pixel_art = 0;
 
 
 global.can_rando_ow_tsrc = false;
@@ -335,6 +340,9 @@ Rando_FLUTE_WARPING=true;
 //Rando_FLUTE_WARPING=false;
 
 global.Rando_SpellSequence_SPELL_COUNT = 3;
+global.RandoHints_enabled = false;
+global.RandoDungeonTilesets_enabled = false;
+global.SceneRando_enabled = false;
 
 
 use_8x8_ow_menu_map=true;
@@ -347,8 +355,8 @@ use_8x8_ow_menu_map=true;
 
 
 
-anarkhyaOverworld_MAIN = true;
-anarkhyaOverworld_use  = false;
+anarkhyaOverworld_MAIN    = true;
+anarkhyaOverworld_enabled = false;
 
 
 
@@ -362,8 +370,9 @@ if (FileCleaning01_STATE)
 }
 
 
-
-global.SceneRando_enabled = false;
+// CamZoom1: Simulate a resolution of 398.222.. x 224. Scale application surface by (VIEW_H_WD/VIEW_H_OG)..
+global.CamZoom1_state = -1; // -1: App will not include this option, 0/1: Off/On
+//global.CamZoom1_state = 1; // testing
 
 
 
@@ -396,7 +405,7 @@ global.SceneRando_enabled = false;
 // for options menu toggle
 // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
 RandoPalette_state = 0;
-RandoPalette_state = 2;
+//RandoPalette_state = 2;
 RandoPalette_STATE_COUNT = 3;
 
 // for options menu toggle
@@ -423,17 +432,6 @@ dm_RandoHints=ds_map_create();
 
 Rando_RauruRiverDevil=true;
 
-
-
-global.RetroShaders_IS_LIVE       = false; // false disables all RetroShaders actions
-global.RetroShaders_enabled       = false;
-global.RetroShaders_surface_scale = 1;
-if (global.RetroShaders_IS_LIVE)
-{
-    global.RetroShaders_surface_scale = 1;
-    //global.RetroShaders_surface_scale = 2;
-}
-global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
 
 
 
@@ -472,6 +470,15 @@ view_wport[0] = VIEW_PORT_W;
 view_hport[0] = VIEW_PORT_H;
 
 
+
+global.RetroShaders_IS_LIVE = true; // false disables all RetroShaders actions
+global.RetroShaders_enabled = false;
+global.RetroShaders_surface_scale = 2;
+global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
+
+
+
+
 WINDOW_PAD = $40;
 
 Fullscreen_toggled  = false; // true only on frame of toggle
@@ -479,7 +486,8 @@ Fullscreen_KEY      = ord("F");
 
 WindowScale_changed = false;
 WindowScale_KEY     = ord("G");
-WindowScale_MIN     = global.RetroShaders_surface_scale;
+WindowScale_MIN     = 1;
+//WindowScale_MIN     = global.RetroShaders_surface_scale;
 //WindowScale_MIN     = 2;
 WindowScale_scale   = max(WindowScale_MIN, 4);
 
@@ -707,6 +715,12 @@ global.USE_PLAYER_NAME_INDICATOR = "@@@";
 // --------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------
 // ------------------------   TILE   ------------------------------------
+global.dm_tile_layer_data = ds_map_create();
+
+// init_tile_layer_data(): The data within is pre-baked with dev_automate_tile_layer_data() so Rando_randomize_palettes() can access the data faster
+init_tile_layer_data();
+
+
 rm_tile_count = 0;
 
 tile_pal_swap_ver = 1; // tracks which depths have tiles that need pal swapping
@@ -738,52 +752,380 @@ ts_Natural1_HMS = ts_NATURAL1_HMS;   // current
 
 dm_tileset = ds_map_create();
 dl_tileset = ds_list_create();
-_ts=ts_Menu01;               dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Overworld_1;          dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_TILE_MARKER;          dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_tile_marker_1a_16x16; dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_SOLID_COLORS;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//                                                                                  //
-_ts=ts_Natural_1a_WRB;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//_ts=ts_Natural_1a_WBR;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//_ts=ts_Natural_1a_RWB;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//_ts=ts_Natural_1a_RBW;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//_ts=ts_Natural_1a_BWR;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//_ts=ts_Natural_1a_BRW;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Natural_2a_WRB;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Natural_4a_HMS;       dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Cave01;               dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//                                                                                  //
-_ts=ts_Man_made_1a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Man_made_1a_RWB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Man_made_1a_BRW;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Man_made_2a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Man_made_3a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Man_made_4a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//_ts=ts_Man_made_5a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Man_made_6a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Man_made_7a_WRB;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Man_made_8a_HMS;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//                                                                                  //
-_ts=ts_DungeonA01;           dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonB01;           dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonC01;           dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonD01;           dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonE01;           dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonF01;           dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonG01;           dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonH01;           dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonAlt01;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonAlt02;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonAlt03;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonAlt04;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonAlt05;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_DungeonAlt06;         dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//                                                                                  //
-//_ts=ts_Anim_1;               dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//_ts=ts_Animation030101;      dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-_ts=ts_Animation0301;        dm_tileset[?background_get_name(_ts)]=_ts; ds_list_add(dl_tileset,_ts);
-//                                                                                  //
+
+_ts = ts_Menu01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_TILE_MARKER;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_tile_marker_1a_16x16;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $10;
+dm_tileset[?_name+STR_Tile+STR_Height] = $10;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_SOLID_COLORS;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Overworld_1;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $10;
+dm_tileset[?_name+STR_Tile+STR_Height] = $10;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_OverworldAnim01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $10;
+dm_tileset[?_name+STR_Tile+STR_Height] = $10;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+
+
+
+_ts = ts_Natural_1a_WRB;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Natural_2a_WRB;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Natural_4a_HMS;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Natural02;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Cave01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+
+
+
+_ts = ts_Man_made_1a_WRB;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Man_made_2a_WRB;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Man_made_3a_WRB;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Man_made_4a_WRB;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_ManMade05;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Man_made_6a_WRB;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Man_made_7a_WRB;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Man_made_8a_HMS;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+
+
+
+_ts = ts_DungeonA01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonB01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonC01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonD01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonE01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonF01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonG01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonH01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonAlt01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonAlt02;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonAlt03;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonAlt04;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonAlt05;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonAlt06;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+
+
+
+//_ts = ts_Anim_1;
+//ds_list_add(dl_tileset,_ts);
+//_name = background_get_name(_ts);
+//dm_tileset[?_name] = _ts;
+//dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+//dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+//dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+//dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+//dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+//_ts = ts_Animation030101;
+//ds_list_add(dl_tileset,_ts);
+//_name = background_get_name(_ts);
+//dm_tileset[?_name] = _ts;
+//dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+//dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+//dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+//dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+//dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Animation0301;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+
 
 
 // Users can add their own dungeon tilesets by putting the image file 
@@ -827,12 +1169,17 @@ else
             //dm_tileset[?_datakey+hex_str(_count)+STR_Image+STR_Name] = _img_name;
             dm_tileset[?_datakey+hex_str(_count)+STR_Creator] = _creator_name;
             dm_tileset[?_datakey+hex_str(_count)+STR_Name]    = _tileset_name;
+            
+            dm_tileset[?_tileset_name+STR_Tile+STR_Width]  = $08;
+            dm_tileset[?_tileset_name+STR_Tile+STR_Height] = $08;
+            dm_tileset[?_tileset_name+STR_Tile+STR_Count]  = (background_get_width(_ts) div dm_tileset[?_tileset_name+STR_Tile+STR_Width]) * (background_get_height(_ts) div dm_tileset[?_tileset_name+STR_Tile+STR_Height]);
         }
         
         _file = file_find_next();
     }
     file_find_close();
 }
+//sdm("custom tileset count: $"+hex_str(val(g.dm_tileset[?"_User"+STR_Custom+STR_Dungeon+STR_Tileset+STR_Count])));
 
 
 
@@ -887,6 +1234,7 @@ dg_RmTile_solid     = ds_grid_create(0,0); // the current room's 8x8 grid of val
 dg_RmTile_solid_def = ds_grid_create(0,0); // the current room's 8x8 grid of values representing if the tile is not solid, solid, or a oneway platform
 dg_RmTile_solid_w   = 0;
 dg_RmTile_solid_h   = 0;
+
 
 dl_solid_inst = ds_list_create();
 
@@ -1008,7 +1356,8 @@ dl_ceiling_bottom_rc = ds_list_create();
 tile_data_init();
 
 
-burnable_mgr = instance_create(0,0,BurnableMgr);
+burnable_mgr = 0;
+//burnable_mgr = instance_create(0,0,BurnableMgr);
 
 
 
@@ -1747,6 +2096,41 @@ repeat($10) ds_list_add(dl_niao,0);
 
 
 
+global.Rain_is_active = false;
+global.Rain_pi = 0;
+global.Rain_direction_x = -1; // Horizontal. 1: right,    -1: left
+global.Rain_direction_y =  1; // Vertical.   1: downward, -1: upward
+global.Rain_speed_x = 1.0; // pixels per frame
+global.Rain_speed_y = 4.0; // pixels per frame
+
+global.Rain1_srf = 0;
+global.Rain1_TS  = ts_Natural02;
+global.Rain1_TILE_SIZE  = $2<<3; // 2x2 of 8x8 tiles
+global.Rain1_LOOP_SIZE  = global.Rain1_TILE_SIZE<<1; // 4x4 of 8x8 tiles
+global.Rain1_LOOP_SIZE_ = global.Rain1_LOOP_SIZE>>1;
+
+var _EXTRA = $2<<1; // number of extra $10x$10 squares outside each axis(horizontal,vertical) of the camera
+
+// _count1: number of $10x$10 squares, horizontally
+_count1  =   viewW() div global.Rain1_TILE_SIZE;
+_count1 += _EXTRA;
+_count1 += ((viewW() mod global.Rain1_TILE_SIZE)!=0) <<1;
+global.Rain1_srf_W = global.Rain1_TILE_SIZE * _count1;
+
+// _count2: number of $10x$10 squares, vertically
+_count2  =   viewH() div global.Rain1_TILE_SIZE;
+_count2 += _EXTRA;
+_count2 += ((viewH() mod global.Rain1_TILE_SIZE)!=0) <<1;
+global.Rain1_srf_H = global.Rain1_TILE_SIZE * _count2;
+
+global.Rain_xoff = 0; // current offset from base xl
+global.Rain_yoff = 0; // current offset from base yt
+global.Rain_xl   = 0;
+global.Rain_yt   = 0;
+
+
+
+
 
 
 
@@ -1756,6 +2140,7 @@ repeat($10) ds_list_add(dl_niao,0);
 
 // ----------------------------------------------------------
 // --------------------  ITEMS  -----------------------------
+//init_data_items();
 SPR_CONT_PIECE_HP = spr_ItemContainer_Piece_HP_1b;
 SPR_CONT_HP       = spr_Item_Heart_container_1d;
 
@@ -2066,7 +2451,7 @@ dm_ITEM[?hex_str(bitNum(_bit))+STR_Sprite]  = _spr;
 dm_ITEM[?_name+'01'           +STR_Sprite]  = _spr; // ITEM MAP1 - WEST
 dm_ITEM[?hex_str(       _bit )+STR_Object]  = _obj;
 dm_ITEM[?_name+STR_Bit]                     = _bit;
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = PI_MOB_ORG;
+//dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = global.PI_MOB_ORG;
 dm_ITEM[?_name+STR_Item+STR_Type]           = STR_MAP1;
 dm_ITEM[?_name+STR_Hold+STR_Item]           = true; // is hold item
 dm_ITEM[?STR_MAP1+STR_Object]               = _obj;
@@ -2080,7 +2465,7 @@ dm_ITEM[?hex_str(bitNum(_bit))+STR_Sprite]  = _spr;
 dm_ITEM[?_name+'01'           +STR_Sprite]  = _spr; // ITEM MAP2 - EAST
 dm_ITEM[?hex_str(       _bit )+STR_Object]  = _obj;
 dm_ITEM[?_name+STR_Bit]                     = _bit;
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = PI_MOB_ORG;
+//dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = global.PI_MOB_ORG;
 dm_ITEM[?_name+STR_Item+STR_Type]           = STR_MAP2;
 dm_ITEM[?_name+STR_Hold+STR_Item]           = true; // is hold item
 dm_ITEM[?STR_MAP2+STR_Object]               = _obj;
@@ -2161,11 +2546,13 @@ dm_ITEM[?STR_FLOWER+STR_Object]            = _obj;
 dm_ITEM[?STR_FLOWER+STR_Object+STR_Name]   = _name;
 dm_ITEM[?STR_FLOWER+STR_Bit]               = _bit;
 dm_ITEM[?STR_FLOWER+STR_Sprite]            = _spr;
+/*
 if (g.mod_MedicinePlantItem){
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx]= PI_MOB_ORG;
+dm_ITEM[?hex_str(       _bit )+STR_pal_idx]= global.PI_MOB_ORG;
 }else{
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx]= PI_MOB_BLU;
+dm_ITEM[?hex_str(       _bit )+STR_pal_idx]= global.PI_MOB_BLU;
 }
+*/
 //                                                      //
 _obj=ItmC4; _name=object_get_name(_obj); _bit=ITM_CHLD; _spr=spr_Item_Child;
 dm_ITEM[?hex_str(       _bit )+STR_Sprite] = _spr;
@@ -2186,7 +2573,7 @@ dm_ITEM[?hex_str(bitNum(_bit))+STR_Sprite]  = _spr;
 dm_ITEM[?_name+'01'           +STR_Sprite]  = _spr;        // 
 dm_ITEM[?hex_str(       _bit )+STR_Object]  = _obj;
 dm_ITEM[?_name+STR_Bit]                     = _bit;
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = PI_MOB_RED;
+//dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = global.PI_MOB_RED;
 dm_ITEM[?_name+STR_Item+STR_Type]           = STR_BOTTLE;
 dm_ITEM[?_name+STR_Hold+STR_Item]           = true; // is hold item
 dm_ITEM[?STR_BOTTLE+STR_Object]             = _obj;
@@ -2200,7 +2587,7 @@ dm_ITEM[?hex_str(bitNum(_bit))+STR_Sprite]  = _spr;
 dm_ITEM[?_name+'01'           +STR_Sprite]  = _spr;        // 
 dm_ITEM[?hex_str(       _bit )+STR_Object]  = _obj;
 dm_ITEM[?_name+STR_Bit]                     = _bit;
-dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = PI_MOB_ORG;
+//dm_ITEM[?hex_str(       _bit )+STR_pal_idx] = global.PI_MOB_ORG;
 dm_ITEM[?_name+STR_Item+STR_Type]           = STR_SPELL;
 dm_ITEM[?_name+STR_Hold+STR_Item]           = true; // is hold item
 dm_ITEM[?STR_SPELL+STR_Object]              = _obj;
@@ -2872,6 +3259,7 @@ gui_state_DIALOGUE2 = _a++; //
 gui_state_DIALOGUE3 = _a++; // 
 gui_state_OPTIONS   = _a++; // 
 gui_state_QUIT_APP  = _a++; // 
+gui_state_EDIT_PAL  = _a++; // 
 gui_state           = 0; // 074C. GUI Window. 1 PauseMenu, 2 LevelUp, 3 Dialogue
 
 
@@ -2888,7 +3276,6 @@ level_up_idx     = 2; // 074E. Level Up menu selector Index
 PAUSE_MENU      = 0; // Pause/Spell Menu instance
 LEVEL_MENU      = 0; // Level Up menu instance
 DIALOGUE_WINDOW = 0; // Dialogue Window instance
-OPTIONS_MENU    = 0; // Options Menu instance
 QUIT_APP_MENU   = 0; // Quit App Menu instance
 
 
@@ -2950,6 +3337,12 @@ ds_list_add(dl_rando_seed_SPRITES, val(dm_ITEM[?STR_SWORD   +STR_Sprite], _defau
 //db_test_various_1a(); // for testing various basic coding things
 //debug_ds_grids_1a();
 //db_spawnData_Automate_code_1a();
+//dev_automate_tile_layer_data();
+
+
+
+
+ds_list_destroy(_dl_1); _dl_1=undefined;
 
 
 

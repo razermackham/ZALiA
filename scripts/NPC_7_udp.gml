@@ -3,6 +3,9 @@
 // Wise man
 
 
+NPC_udp_2(); // update `RandoHint_hint_num`
+
+
 // 9AC8
 can_draw_self = true;
 

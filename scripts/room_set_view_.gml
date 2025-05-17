@@ -20,7 +20,7 @@ if (1)
                   _VIEW_W, _VIEW_H,  // wport, hport
                    0,  0,            // hborder, vborder
                   -1, -1,            // hspeed, vspeed
-                  noone);            // obj
+                  noone );           // obj
 }
 else
 {

@@ -32,7 +32,7 @@ audio_stop_sound(Audio.mus_rm_inst);
 //
 
 TRIFORCE_SPR  = spr_Triforce_1a;
-p.triforce_pi = PI_MOB_PUR;
+p.triforce_pi = global.PI_MOB_PUR;
 //p.triforce_pi = PI_BGR_4;
 dg_triforce   = ds_grid_create(3,3);
 

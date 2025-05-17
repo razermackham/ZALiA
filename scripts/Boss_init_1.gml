@@ -24,6 +24,7 @@ HPBar_units_full = 0;
 HPBar_XPAD       = $2<<3;
 HPBar_XOFF       = HPBar_XPAD; // x offset from viewXL(). Set in Boss_init_2() after arena_xl is set
 HPBar_YOFF       = (VIEW_H_WD-VIEW_H_OG) + $40; // y offset from viewYT()
+HPBar_YOFF      += $10; // Because VIEW_H_OG used to erronously be 224 instead of 240
 //HPBar_YOFF = (viewYB()-VIEW_H_OG-8) + $41;
 
 

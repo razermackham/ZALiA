@@ -94,11 +94,14 @@ if (Input.keypressed_prev==0
 else
 {
     if (g.gui_state==g.gui_state_OPTIONS 
-    &&  g.OPTIONS_MENU.Menu_in_focus==g.OPTIONS_MENU.Menu_MAIN 
-    &&  g.OPTIONS_MENU.MainOption==g.OPTIONS_MENU.MainOption_FULLSCREEN 
+    &&  global.OPTIONS_MENU.menu_state==global.OPTIONS_MENU.menu_state_MAIN 
+    &&  global.OPTIONS_MENU.MainOption==global.OPTIONS_MENU.MainOption_FULLSCREEN 
     && !abs(bit_dir(gui_tmr_cursor_v())) )
     {
         if (Input.Jump_pressed 
+        ||  Input.Pause_pressed 
+        ||  keyboard_check_pressed(vk_enter) 
+        ||  keyboard_check_pressed(vk_space) 
         ||  abs(bit_dir(gui_tmr_cursor_h())) )
         {
             _WILL_TOGGLE_FULLSCREEN = true;
@@ -138,8 +141,8 @@ if(!_WILL_TOGGLE_FULLSCREEN)
     else
     {
         if (g.gui_state==g.gui_state_OPTIONS 
-        &&  g.OPTIONS_MENU.Menu_in_focus==g.OPTIONS_MENU.Menu_MAIN 
-        &&  g.OPTIONS_MENU.MainOption==g.OPTIONS_MENU.MainOption_APP_SCALE 
+        &&  global.OPTIONS_MENU.menu_state==global.OPTIONS_MENU.menu_state_MAIN 
+        &&  global.OPTIONS_MENU.MainOption==global.OPTIONS_MENU.MainOption_APP_SCALE 
         && !abs(bit_dir(gui_tmr_cursor_v())) )
         {
             _SCALE_DIR = bit_dir(gui_tmr_cursor_h());

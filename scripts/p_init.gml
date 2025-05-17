@@ -3,47 +3,351 @@
 if (DEV) sdm(" p_init()");
 
 
-var _i,_ii,_j,_k,_m, _a, _idx, _num, _count;
+var _i,_j,_k,_m, _a,_b,_c, _idx,_idx1,_idx2, _num, _count,_count1,_count2;
 var _val,_val1,_val2,_val3,_val4;
 var _clm,_row, _clm0,_row0, _clms,_rows;
-var _pi, _pal1,_pal2,_pal3,_pal4,_pal5,_pal6,_pal7,_pal8, _palette;
-var _dk,_datakey,_datakey2,_datakey3,_datakey4,_datakey5;
+var _str, _len, _pos;
+var _pi,_palette_index, _pal1,_pal2,_pal3,_pal4,_pal5,_pal6,_pal7,_pal8, _palette;
+var _dk,_datakey,_datakey1,_datakey2,_datakey3,_datakey4,_datakey5;
 var _adj = 0;
-var _color,_color1,_color2,_color3;
+var _color,_color1,_color2,_color3, _brightness;
+var _base_color_char, _c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn;
+var _file, _data;
 // ci: Color Index
 var _ci1="";
 var _ci2="";
 var _ci3="";
 var _ci4="";
-USE_ADDITIONAL_COLORS=0;
 
+var _dl = ds_list_create();
 dm = ds_map_create();
+dm_pal_data = ds_map_create();
+dl_PAL_POS = ds_list_create();
+dm_scene_palette = ds_map_create();
+dl_various_pals1 = ds_list_create();
+dl_various_pals2 = ds_list_create();
 
 
-GO_depth_init(DEPTH_BASE);
+depth = DEPTH_p;
+
+
+// palette_image_IS_SURFACE ---------------------------------
+// 2024/06/26: Had a lot of trouble getting this working. 
+// Palette swap would fail at random times during the 
+// ShadowBoss fight or the cutscene after.
+// After more work, I seem to have got it working fine during 
+// those times but needs to be tested much more.
+// 2024/06/27: When scaling the game window, there's about 
+// 1 frame the pal swap doesn't work so I switched back 
+// to using a sprite for palette_image.
+// You can set it to false for the stable legacy method that 
+// uses a sprite instead of a surface.
+global.palette_image_IS_SURFACE = false;
+global.palette_image = 0;
+
+// WRBGYMKC. W: WHITE, R: RED, B: BLUE, G: GREEN, Y: YELLOW, M: MAGENTA, K: BLACK, C: CYAN
+global.PAL_BASE_COLOR_ORDER = "WRBGYMKC";
+global.COLORS_PER_PALETTE   = string_length(global.PAL_BASE_COLOR_ORDER);
+global.PAL_CHAR_PER_COLOR   = 6; // full color hex
+global.PAL_CHAR_PER_PAL     = global.COLORS_PER_PALETTE * global.PAL_CHAR_PER_COLOR;
 
 
 
 
+global.dm_pi = ds_map_create();
+_datakey1 = STR_Palette+STR_Index;
+_palette_index = -1;
+
+
+
+
+_datakey = "BASE";
+global.dm_pi[?_datakey+_datakey1] = ++_palette_index;
+global.PI_BASE = _palette_index;
+
+
+
+
+_datakey = "GUI";
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_GUI1 = val(global.dm_pi[?_datakey+"1"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_GUI2 = val(global.dm_pi[?_datakey+"2"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_GUI3 = val(global.dm_pi[?_datakey+"3"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_GUI4 = val(global.dm_pi[?_datakey+"4"+_datakey1], -1);
+
+
+
+
+
+_datakey = "PC";
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_PC1 = val(global.dm_pi[?_datakey+"1"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_PC2 = val(global.dm_pi[?_datakey+"2"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_PC3 = val(global.dm_pi[?_datakey+"3"+_datakey1], -1);
+
+
+
+
+_datakey = "DISGUISE_PC";
+global.dm_pi[?_datakey+_datakey1] = ++_palette_index;
+global.PI_DISGUISE_PC = val(global.dm_pi[?_datakey+_datakey1], -1);
+
+
+
+
+_datakey = "SPELL_PC";
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_SPELL_PC1 = val(global.dm_pi[?_datakey+"1"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_SPELL_PC2 = val(global.dm_pi[?_datakey+"2"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_SPELL_PC3 = val(global.dm_pi[?_datakey+"3"+_datakey1], -1);
+
+
+
+
+_datakey = "CUCCO";
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_CUCCO1 = val(global.dm_pi[?_datakey+"1"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_CUCCO2 = val(global.dm_pi[?_datakey+"2"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_CUCCO3 = val(global.dm_pi[?_datakey+"3"+_datakey1], -1);
+
+
+
+
+_datakey = "DISGUISE_CUCCO";
+global.dm_pi[?_datakey+_datakey1] = ++_palette_index;
+global.PI_DISGUISE_CUCCO = val(global.dm_pi[?_datakey+_datakey1], -1);
+
+
+
+/*
+if (global.PAL_SYS_VER<4)
+{
+    _datakey = "SPELL_CUCCO";
+    global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+    global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+    global.PI_SPELL_CUCCO1 = val(global.dm_pi[?_datakey+"1"+_datakey1], -1);
+    
+    global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+    global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+    global.PI_SPELL_CUCCO2 = val(global.dm_pi[?_datakey+"2"+_datakey1], -1);
+    
+    global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+    global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+    global.PI_SPELL_CUCCO3 = val(global.dm_pi[?_datakey+"3"+_datakey1], -1);
+}
+*/
+
+
+
+_datakey = "BGR";
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_BGR1 = val(global.dm_pi[?_datakey+"1"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_BGR2 = val(global.dm_pi[?_datakey+"2"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_BGR3 = val(global.dm_pi[?_datakey+"3"+_datakey1], -1);
+
+global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_BGR4 = val(global.dm_pi[?_datakey+"4"+_datakey1], -1);
+
+//global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
+//global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
+global.PI_BGR5 = val(global.dm_pi[?_datakey+"5"+_datakey1], -1);
+
+
+
+
+global.dm_pi[?"MOB"+STR_Count] = val(global.dm_pi[?"MOB"+STR_Count])+1;
+global.dm_pi[?"MOB_ORG"+_datakey1] = ++_palette_index;
+global.PI_MOB_ORG = val(global.dm_pi[?"MOB_ORG"+_datakey1], -1);
+
+global.dm_pi[?"MOB"+STR_Count] = val(global.dm_pi[?"MOB"+STR_Count])+1;
+global.dm_pi[?"MOB_RED"+_datakey1] = ++_palette_index;
+global.PI_MOB_RED = val(global.dm_pi[?"MOB_RED"+_datakey1], -1);
+
+global.dm_pi[?"MOB"+STR_Count] = val(global.dm_pi[?"MOB"+STR_Count])+1;
+global.dm_pi[?"MOB_BLU"+_datakey1] = ++_palette_index;
+global.PI_MOB_BLU = val(global.dm_pi[?"MOB_BLU"+_datakey1], -1);
+
+global.dm_pi[?"MOB"+STR_Count] = val(global.dm_pi[?"MOB"+STR_Count])+1;
+global.dm_pi[?"MOB_PUR"+_datakey1] = ++_palette_index;
+global.PI_MOB_PUR = val(global.dm_pi[?"MOB_PUR"+_datakey1], -1);
+
+//global.dm_pi[?"MOB"+STR_Count] = val(global.dm_pi[?"MOB"+STR_Count])+1;
+//global.dm_pi[?"MOB_A"+_datakey1] = ++_palette_index;
+global.PI_MOB_A = val(global.dm_pi[?"MOB_A"+_datakey1], -1);
+
+
+
+
+// SET: there's a set for a room lit(normal), and dark version of the lit set
+PAL_PER_SET = _palette_index+1;
+
+
+
+
+global.PI_DARKLONK  = global.PI_GUI2;
+global.PI_CLOUD_1   = global.PI_BGR4;
+//_count1 = val(global.dm_pi[?"PC"+STR_Count]) + val(global.dm_pi[?"SPELL_PC"+STR_Count]);
+//global.PI_PC_SWORD  = global.PI_MOB_PUR + 2 + (_count1<<1) + 1; // (PI_MOB_PUR + 2 + (PC_PAL_COUNT<<1) + 1)
+
+
+
+
+// SET: there's a set for a room lit(normal), and dark version of the lit set
+PAL_SETS_PER_SCENE = 2; // scene lit set, scene dark set
+PAL_PER_SCENE = PAL_PER_SET * PAL_SETS_PER_SCENE;
+
+COL_PER_SET   = PAL_PER_SET   * global.COLORS_PER_PALETTE;
+COL_PER_SCENE = PAL_PER_SCENE * global.COLORS_PER_PALETTE;
+global.PAL_CHAR_PER_SET   = COL_PER_SET   * global.PAL_CHAR_PER_COLOR;
+global.PAL_CHAR_PER_SCENE = COL_PER_SCENE * global.PAL_CHAR_PER_COLOR;
+
+// PI: Palette Index
+SET_IDX_LIT = 0;
+SET_IDX_DRK = 1;
+PI_LAST_LIT = ((SET_IDX_LIT+1)    * PAL_PER_SET) - 1;
+PI_LAST_DRK = ((SET_IDX_DRK+1)    * PAL_PER_SET) - 1;
+PI_LAST     = (PAL_SETS_PER_SCENE * PAL_PER_SET) - 1;
+
+PI_PERMUT_BASE = PI_LAST + 1;
+
+PI_LIT1 = SET_IDX_LIT * PAL_PER_SET; // 
+PI_DRK1 = SET_IDX_DRK * PAL_PER_SET; // 
+
+PI_ERR0 = global.PI_BASE;
+
+
+
+
+global.palette_image_W = PAL_PER_SCENE;
+global.palette_image_H = global.COLORS_PER_PALETTE;
+global.palette_image_w = global.palette_image_W;
+global.palette_image_h = global.palette_image_H;
+
+
+
+
+for(_i=0; _i<PAL_PER_SET; _i++)
+{
+    global.dm_pi[?hex_str(_i)+STR_Dark+"1"] = PI_DRK1 + _i;
+}
+
+
+
+
+var _dk_Palette_Position = STR_Palette+STR_Position;
+for(_i=0; _i<PAL_PER_SCENE; _i++)
+{
+    _val = get_pal_pos(_i+1);
+    ds_list_add(dl_PAL_POS, _val);
+    dm_pal_data[?hex_str(_i+1)+_dk_Palette_Position] = _val;
+}
+
+
+
+
+
+g.dm_ITEM[?hex_str(ITM_MAP1)  +STR_pal_idx] = global.PI_MOB_ORG;
+g.dm_ITEM[?hex_str(ITM_MAP2)  +STR_pal_idx] = global.PI_MOB_ORG;
+g.dm_ITEM[?hex_str(ITM_BTL1)  +STR_pal_idx] = global.PI_MOB_RED;
+g.dm_ITEM[?hex_str(ITEM_SPELL)+STR_pal_idx] = global.PI_MOB_ORG;
+if (g.mod_MedicinePlantItem)
+{   // flower
+    g.dm_ITEM[?hex_str(ITM_MEDI)+STR_pal_idx]= global.PI_MOB_ORG;
+}
+else
+{   // bubbling bottle
+    g.dm_ITEM[?hex_str(ITM_MEDI)+STR_pal_idx]= global.PI_MOB_BLU;
+}
+
+
+
+
+
+
+
+
+// 7 colors means 5040 permutations per palette
+// 6 colors means  720 permutations per palette
+// 5 colors means  120 permutations per palette
+// 4 colors means   24 permutations per palette
 //                          // 
 //                          // 
-C_BLK0 = $000000; // B-000,G-000,R-000.   full black
-C_WHT0 = $FFFFFF; // B-255,G-255,R-255.   full white
+C_WHT0  = $FFFFFF; // B-255,G-255,R-255.   full white
+C_WHT0_ = color_str(C_WHT0);
 //                          // 
-C_RED0 = $0000FF; // B-000,G-000,R-255.   full red
-C_GRN0 = $00FF00; // B-000,G-255,R-000.   full green
-C_BLU0 = $FF0000; // B-255,G-000,R-000.   full blue
+C_RED0  = $0000FF; // B-000,G-000,R-255.   full red
+C_RED0_ = color_str(C_RED0);
 //                          // 
-C_MGN0 = $FF00FF; // B-255,G-000,R-255.   full magenta
-C_TEL0 = $00FFFF; // B-000,G-255,R-255.   full teal
-C_YLW0 = $FFFF00; // B-255,G-255,R-000.   full yellow
-C_ERR0 =  C_YLW0; // Error, Missing data, ..   full green 
-//C_ERR0 =  C_GRN0; // Error, Missing data, ..   full green 
+C_BLU0  = $FF0000; // B-255,G-000,R-000.   full blue
+C_BLU0_ = color_str(C_BLU0);
+//                          // 
+C_GRN0  = $00FF00; // B-000,G-255,R-000.   full green
+C_GRN0_ = color_str(C_GRN0);
+//                          // 
+C_YLW0  = $00FFFF; // B-000,G-255,R-255.   full yellow
+C_YLW0_ = color_str(C_YLW0);
+//                          // 
+C_MGN0  = $FF00FF; // B-255,G-000,R-255.   full magenta
+C_MGN0_ = color_str(C_MGN0);
+//                          // 
+C_BLK0  = $000000; // B-000,G-000,R-000.   full black
+C_BLK0_ = color_str(C_BLK0);
+//                          // 
+C_CYN0  = $FFFF00; // B-255,G-255,R-000.   full cyan
+C_CYN0_ = color_str(C_CYN0);
+//                          // 
+C_ERR0  = C_YLW0; // Error, Missing data, ..
+//                          // 
+//     C_ALPHA0: The color that color swap will draw transparent(alpha=0)
+global.C_ALPHA0 = $7F7F7F; // B-127,G-127,R-127.   mid grey
+//global.C_ALPHA0_B_ = ((global.C_ALPHA0>>$10)&$FF)/$FF; // for shd_pal_swapper
+//global.C_ALPHA0_G_ = ((global.C_ALPHA0>>$08)&$FF)/$FF; // for shd_pal_swapper
+//global.C_ALPHA0_R_ = ((global.C_ALPHA0>>$00)&$FF)/$FF; // for shd_pal_swapper
 //                          // 
 //                          // 
 //                          // 
 //                          // 
-C_BLK1 = $000000; // NES black. B-000,G-000,R-000
+C_BLK1 = $010101; // Closest to $000000 so that pal swap doesn't consider it the base color $000000
+//C_BLK1 = $000000; // NES black
 //                          // 
 C_WHT1 = $FCFCFC; // $30. White 1. Brightest NES white.
 C_WHT2 = $F1F2F1; // $20. White 2. SLIGHTLY grey. SLIGHTLY less bright than white 1
@@ -64,7 +368,7 @@ C_VLT3 = $EC3820; // $12 Violet/Blue. Mid-Dark
 C_VLT4 = $8C1824; // $01 Violet.      Darkest
 //                          // 
 C_PUR1 = $F1BADC; // $33 Purple. 
-C_PUR2 = $FC88CC; // $32 Purple. 
+C_PUR2 = $FC88CC; // $23 Purple. 
 C_PUR3 = $F00080; // $13 Purple. Cemetery sky
 C_PUR4 = $9C0044; // $03 Purple. 
 //                          // 
@@ -108,18 +412,18 @@ C_GRB2 = $70D43A; // $2B Green-Blue.
 C_GRB3 = $2A7B00; // $1B Green-Blue.
 C_GRB4 = $003E00; // $0B Green-Blue.
 //                          // 
-C_TEL1 = $F0FC9C; // $3C Teal. Brightest.
-C_TEL2 = $D8E800; // $2C Teal. 
-C_TEL3 = $888000; // $1C Teal. 
-C_TEL4 = $5C3C18; // $0C Teal. Darkest.
+C_CYN1 = $F0FC9C; // $3C Teal. Brightest.
+C_CYN2 = $D8E800; // $2C Teal. 
+C_CYN3 = $888000; // $1C Teal. 
+C_CYN4 = $5C3C18; // $0C Teal. Darkest.
 //                          // 
 //                          // 
-
+/*
 // Color Tone Highlight, Midtone, Shadow
 C_TONE_HGH = C_WHT0; // Highlight
 C_TONE_MID = C_RED0; // Midtone
 C_TONE_LOW = C_BLU0; // Shadow
-
+*/
 
 
 
@@ -130,86 +434,88 @@ repeat($100) ds_list_add(dl_COLOR, C_ERR0);
                                 //                                          // 
 // $00-0F                       //                                          // 
             _a=-1;              //                                          // 
-dl_COLOR[|++_a] = C_GRY3; // Luminosity $74.  Grey 3. Mid grey. 3rd brightest grey. 2nd darkest grey.
-dl_COLOR[|++_a] = C_VLT4; // Luminosity $8C.  Violet.      Darkest 
-dl_COLOR[|++_a] = C_BLU4; // Luminosity $A8.  Blue.        Darkest 
-dl_COLOR[|++_a] = C_PUR4; // Luminosity $9C.  Purple.      Darkest 
-dl_COLOR[|++_a] = C_MGN4; // Luminosity $8C.  Magenta.     Darkest 
-dl_COLOR[|++_a] = C_PNK4; // Luminosity $A8.  Pink.        Darkest 
-dl_COLOR[|++_a] = C_RED4; // Luminosity $A4.  Red.         Darkest 
-dl_COLOR[|++_a] = C_ORG4; // Luminosity $7C.  Orange.      Darkest 
+dl_COLOR[|++_a] = C_GRY3; // Luminosity/Brightness $74/$74.  Grey 3. Mid grey. 3rd brightest grey. 2nd darkest grey.
+dl_COLOR[|++_a] = C_VLT4; // Luminosity/Brightness $8C/$23.  Violet.      Darkest 
+dl_COLOR[|++_a] = C_BLU4; // Luminosity/Brightness $A8/$0C.  Blue.        Darkest 
+dl_COLOR[|++_a] = C_PUR4; // Luminosity/Brightness $9C/$1A.  Purple.      Darkest 
+dl_COLOR[|++_a] = C_MGN4; // Luminosity/Brightness $8C/$26.  Magenta.     Darkest 
+dl_COLOR[|++_a] = C_PNK4; // Luminosity/Brightness $A8/$25.  Pink.        Darkest 
+dl_COLOR[|++_a] = C_RED4; // Luminosity/Brightness $A4/$23.  Red.         Darkest 
+dl_COLOR[|++_a] = C_ORG4; // Luminosity/Brightness $7C/$20.  Orange.      Darkest 
                                 //                                          // 
-dl_COLOR[|++_a] = C_YLW4; // Luminosity $40.  Yellow.      Darkest 
-dl_COLOR[|++_a] = C_YGR4; // Luminosity $44.  Yellow-Green. Darkest 
-dl_COLOR[|++_a] = C_GRN4; // Luminosity $50.  Green.       Darkest 
-dl_COLOR[|++_a] = C_GRB4; // Luminosity $3E.  Green-Blue.  Darkest 
-dl_COLOR[|++_a] = C_TEL4; // Luminosity $5C.  Teal.        Darkest 
-dl_COLOR[|++_a] = C_BLK1; // Luminosity $00.  B-000,G-000,R-000.   full black
-//dl_COLOR[|++_a] = C_WHT0; // Luminosity $.  B-255,G-255,R-255.   full white
-//dl_COLOR[|++_a] = C_BLK0; // Luminosity $.  B-000,G-000,R-000.   full black
+dl_COLOR[|++_a] = C_YLW4; // Luminosity/Brightness $40/$2D.  Yellow.      Darkest 
+dl_COLOR[|++_a] = C_YGR4; // Luminosity/Brightness $44/$31.  Yellow-Green. Darkest 
+dl_COLOR[|++_a] = C_GRN4; // Luminosity/Brightness $50/$39.  Green.       Darkest 
+dl_COLOR[|++_a] = C_GRB4; // Luminosity/Brightness $3E/$2C.  Green-Blue.  Darkest 
+dl_COLOR[|++_a] = C_CYN4; // Luminosity/Brightness $5C/$37.  Teal.        Darkest 
+dl_COLOR[|++_a] = C_BLK1; // $010101. closest thing to full black
+//dl_COLOR[|++_a] = C_BLK1; // Luminosity/Brightness $00/$00.  B-000,G-000,R-000.   full black
+//dl_COLOR[|++_a] = C_WHT0; // Luminosity/Brightness $.  B-255,G-255,R-255.   full white
+//dl_COLOR[|++_a] = C_BLK0; // Luminosity/Brightness $.  B-000,G-000,R-000.   full black
                                 //                                          // 
                                 //                                          // 
 // $10-1F                       //                                          // 
             _a = (_a&$F0)+$0F;  //                                         // 
-dl_COLOR[|++_a] = C_GRY1; // Luminosity $BC.  Grey 1. Brightest grey
-dl_COLOR[|++_a] = C_BLU3; // Luminosity $EC.  Blue. 
-dl_COLOR[|++_a] = C_VLT3; // Luminosity $EC.  Violet. 
-dl_COLOR[|++_a] = C_PUR3; // Luminosity $F0.  Purple. 
-dl_COLOR[|++_a] = C_MGN3; // Luminosity $B8.  Magenta. 
-dl_COLOR[|++_a] = C_PNK3; // Luminosity $E4.  Pink. Mid-Dark
-dl_COLOR[|++_a] = C_RED3; // Luminosity $D8.  Red. 
-dl_COLOR[|++_a] = C_ORG3; // Luminosity $C8.  Orange.  
+dl_COLOR[|++_a] = C_GRY1; // Luminosity/Brightness $BC/$BC.  Grey 1. Brightest grey
+dl_COLOR[|++_a] = C_BLU3; // Luminosity/Brightness $EC/$61.  Blue. 
+dl_COLOR[|++_a] = C_VLT3; // Luminosity/Brightness $EC/$40.  Violet. 
+dl_COLOR[|++_a] = C_PUR3; // Luminosity/Brightness $F0/$2D.  Purple. 
+dl_COLOR[|++_a] = C_MGN3; // Luminosity/Brightness $B8/$43.  Magenta. 
+dl_COLOR[|++_a] = C_PNK3; // Luminosity/Brightness $E4/$37.  Pink. Mid-Dark
+dl_COLOR[|++_a] = C_RED3; // Luminosity/Brightness $D8/$4B.  Red. 
+dl_COLOR[|++_a] = C_ORG3; // Luminosity/Brightness $C8/$62.  Orange.  
                                 //                                          // 
-dl_COLOR[|++_a] = C_YLW3; // Luminosity $88.  Yellow. 
-dl_COLOR[|++_a] = C_YGR3; // Luminosity $94.  Yellow-Green. 
-dl_COLOR[|++_a] = C_GRN3; // Luminosity $A8.  Green. 
-dl_COLOR[|++_a] = C_GRB3; // Luminosity $7B.  Green-Blue. 
-dl_COLOR[|++_a] = C_TEL3; // Luminosity $88.  Teal
-dl_COLOR[|++_a] = C_BLK1; // Luminosity $00.  
-// dl_COLOR[|++_a] = C_BLU0; // Luminosity $.  B-255,G-000,R-000.   full blue
-// dl_COLOR[|++_a] = C_BLK0; // Luminosity $.  B-000,G-000,R-000.   full black
+dl_COLOR[|++_a] = C_YLW3; // Luminosity/Brightness $88/$6D.  Yellow. 
+dl_COLOR[|++_a] = C_YGR3; // Luminosity/Brightness $94/$6A.  Yellow-Green. 
+dl_COLOR[|++_a] = C_GRN3; // Luminosity/Brightness $A8/$78.  Green. 
+dl_COLOR[|++_a] = C_GRB3; // Luminosity/Brightness $7B/$5B.  Green-Blue. 
+dl_COLOR[|++_a] = C_CYN3; // Luminosity/Brightness $88/$65.  Teal
+dl_COLOR[|++_a] = C_BLK1; // $010101. closest thing to full black
+//dl_COLOR[|++_a] = C_BLK1; // Luminosity/Brightness $00/$00.  
+// dl_COLOR[|++_a] = C_BLU0; // Luminosity/Brightness $.  B-255,G-000,R-000.   full blue
+// dl_COLOR[|++_a] = C_BLK0; // Luminosity/Brightness $.  B-000,G-000,R-000.   full black
                                 //                                          // 
                                 //                                          // 
 // $20-2F                       //                                          // 
             _a = (_a&$F0)+$0F;  //                                         // 
-dl_COLOR[|++_a] = C_WHT2; // Luminosity $F2.  White 2. SLIGHTLY grey. SLIGHTLY less bright than white 1
-dl_COLOR[|++_a] = C_BLU2; // Luminosity $FC.  Blue. 
-dl_COLOR[|++_a] = C_VLT2; // Luminosity $FC.  Violet. 
-dl_COLOR[|++_a] = C_PUR2; // Luminosity $FC.  Purple. 
-dl_COLOR[|++_a] = C_MGN2; // Luminosity $FC.  Magenta. 
-dl_COLOR[|++_a] = C_PNK2; // Luminosity $FC.  Pink. Mid-Bright
-dl_COLOR[|++_a] = C_RED2; // Luminosity $FC.  Red. 
-dl_COLOR[|++_a] = C_ORG2; // Luminosity $FC.  Orange. mob orange.
+dl_COLOR[|++_a] = C_WHT2; // Luminosity/Brightness $F2/$F2.  White 2. SLIGHTLY grey. SLIGHTLY less bright than white 1
+dl_COLOR[|++_a] = C_BLU2; // Luminosity/Brightness $FC/$A5.  Blue. 
+dl_COLOR[|++_a] = C_VLT2; // Luminosity/Brightness $FC/$90.  Violet. 
+dl_COLOR[|++_a] = C_PUR2; // Luminosity/Brightness $FC/$9F.  Purple. 
+dl_COLOR[|++_a] = C_MGN2; // Luminosity/Brightness $FC/$9C.  Magenta. 
+dl_COLOR[|++_a] = C_PNK2; // Luminosity/Brightness $FC/$96.  Pink. Mid-Bright
+dl_COLOR[|++_a] = C_RED2; // Luminosity/Brightness $FC/$8F.  Red. 
+dl_COLOR[|++_a] = C_ORG2; // Luminosity/Brightness $FC/$A6.  Orange. mob orange.
                                 //                                          // 
-dl_COLOR[|++_a] = C_YLW2; // Luminosity $F0.  Yellow. Map paper.
-dl_COLOR[|++_a] = C_YGR2; // Luminosity $D0.  Yellow/Green. 
-dl_COLOR[|++_a] = C_GRN2; // Luminosity $DC.  Green. 
-dl_COLOR[|++_a] = C_GRB2; // Luminosity $D4.  Green-Blue. 
-dl_COLOR[|++_a] = C_TEL2; // Luminosity $E8.  Teal
-dl_COLOR[|++_a] = C_GRY4; // Luminosity $3E.  Grey 4. Darkest grey.
-// dl_COLOR[|++_a] = C_RED0; // Luminosity $.  B-000,G-000,R-255.   full red
-// dl_COLOR[|++_a] = C_BLK0; // Luminosity $.  B-000,G-000,R-000.   full black
+dl_COLOR[|++_a] = C_YLW2; // Luminosity/Brightness $F0/$BE.  Yellow. Map paper.
+dl_COLOR[|++_a] = C_YGR2; // Luminosity/Brightness $D0/$B1.  Yellow/Green. 
+dl_COLOR[|++_a] = C_GRN2; // Luminosity/Brightness $DC/$B3.  Green. 
+dl_COLOR[|++_a] = C_GRB2; // Luminosity/Brightness $D4/$AC.  Green-Blue. 
+dl_COLOR[|++_a] = C_CYN2; // Luminosity/Brightness $E8/$B6.  Teal
+dl_COLOR[|++_a] = C_GRY4; // Luminosity/Brightness $3E/$3E.  Grey 4. Darkest grey.
+// dl_COLOR[|++_a] = C_RED0; // Luminosity/Brightness $.  B-000,G-000,R-255.   full red
+// dl_COLOR[|++_a] = C_BLK0; // Luminosity/Brightness $.  B-000,G-000,R-000.   full black
                                 //                                          // 
                                 //                                          // 
 // $30-3F                       //                                          // 
             _a = (_a&$F0)+$0F;  //                                         // 
-dl_COLOR[|++_a] = C_WHT1; // Luminosity $FC.  White 1. Brightest NES white.
-dl_COLOR[|++_a] = C_BLU1; // Luminosity $FC.  Blue. Brightest
-dl_COLOR[|++_a] = C_VLT1; // Luminosity $FC.  Violet. Brightest
-dl_COLOR[|++_a] = C_PUR1; // Luminosity $F1.  Purple. 
-dl_COLOR[|++_a] = C_MGN1; // Luminosity $FC.  Magenta. 
-dl_COLOR[|++_a] = C_PNK1; // Luminosity $F1.  Pink.    Brightest
-dl_COLOR[|++_a] = C_RED1; // Luminosity $FC.  Red.     Brightest
-dl_COLOR[|++_a] = C_ORG1; // Luminosity $FC.  Orange.  Brightest
+dl_COLOR[|++_a] = C_WHT1; // Luminosity/Brightness $FC/$FC.  White 1. Brightest NES white.
+dl_COLOR[|++_a] = C_BLU1; // Luminosity/Brightness $FC/$D9.  Blue. Brightest
+dl_COLOR[|++_a] = C_VLT1; // Luminosity/Brightness $FC/$D3.  Violet. Brightest
+dl_COLOR[|++_a] = C_PUR1; // Luminosity/Brightness $F1/$C5.  Purple. 
+dl_COLOR[|++_a] = C_MGN1; // Luminosity/Brightness $FC/$D4.  Magenta. 
+dl_COLOR[|++_a] = C_PNK1; // Luminosity/Brightness $F1/$C5.  Pink.    Brightest
+dl_COLOR[|++_a] = C_RED1; // Luminosity/Brightness $FC/$C9.  Red.     Brightest
+dl_COLOR[|++_a] = C_ORG1; // Luminosity/Brightness $FC/$DC.  Orange.  Brightest
                                 //                                          // 
-dl_COLOR[|++_a] = C_YLW1; // Luminosity $DA.  Yellow. 
-dl_COLOR[|++_a] = C_YGR1; // Luminosity $FC.  Yellow/Green. 
-dl_COLOR[|++_a] = C_GRN1; // Luminosity $E8.  Green. 
-dl_COLOR[|++_a] = C_GRB1; // Luminosity $E8.  Green-Blue. 
-dl_COLOR[|++_a] = C_TEL1; // Luminosity $FC.  Teal. 
-dl_COLOR[|++_a] = C_GRY2; // Luminosity $A9.  Grey 2. 2nd Brightest grey
-// dl_COLOR[|++_a] = C_GRN0; // Luminosity $.  B-000,G-255,R-000.   full green
-// dl_COLOR[|++_a] = C_BLK0; // Luminosity $.  B-000,G-000,R-000.   full black
+dl_COLOR[|++_a] = C_YLW1; // Luminosity/Brightness $DA/$D2.  Yellow. 
+dl_COLOR[|++_a] = C_YGR1; // Luminosity/Brightness $FC/$EF.  Yellow/Green. 
+dl_COLOR[|++_a] = C_GRN1; // Luminosity/Brightness $E8/$D6.  Green. 
+dl_COLOR[|++_a] = C_GRB1; // Luminosity/Brightness $E8/$D5.  Green-Blue. 
+dl_COLOR[|++_a] = C_CYN1; // Luminosity/Brightness $FC/$E7.  Teal. 
+dl_COLOR[|++_a] = C_GRY2; // Luminosity/Brightness $A9/$A8.  Grey 2. 2nd Brightest grey
+// dl_COLOR[|++_a] = C_GRN0; // Luminosity/Brightness $.  B-000,G-255,R-000.   full green
+// dl_COLOR[|++_a] = C_BLK0; // Luminosity/Brightness $.  B-000,G-000,R-000.   full black
                                 //                                          // 
                                 //                                          // 
 // $F0-FF                       //
@@ -220,10 +526,10 @@ dl_COLOR[|++_a] = C_RED0; // B-000,G-000,R-255.   full red
 dl_COLOR[|++_a] = C_GRN0; // B-000,G-255,R-000.   full green
 dl_COLOR[|++_a] = C_BLU0; // B-255,G-000,R-000.   full blue
 dl_COLOR[|++_a] = C_MGN0; // B-255,G-000,R-255.   full magenta
-dl_COLOR[|++_a] = C_TEL0; // B-000,G-255,R-255.   full teal
+dl_COLOR[|++_a] = C_CYN0; // B-000,G-255,R-255.   full cyan
 dl_COLOR[|++_a] = C_YLW0; // B-255,G-255,R-000.   full yellow
                                 // 
-dl_COLOR[| $FF] = C_ERR0; // Error, Missing data, ..   full green 
+dl_COLOR[| $FF] = C_ERR0; // Error, Missing data, ..
 
 
 
@@ -232,10 +538,176 @@ dl_COLOR[| $FF] = C_ERR0; // Error, Missing data, ..   full green
 
 
 
+// *** If the color grid changes, look for code near the bottom of `p_Draw_1()` to automate the following, but make sure `ts_SolidColor01` has been updated
+            global.dl_COLOR01 = ds_list_create();
+// ROW $00                                                              //
+ds_list_add(global.dl_COLOR01,$2B2749); // Hue-$FA,  Sat-$77,  Bright-$2E
+ds_list_add(global.dl_COLOR01,$1000A8); // Hue-$FB,  Sat-$FF,  Bright-$24
+ds_list_add(global.dl_COLOR01,$5800E4); // Hue-$EF,  Sat-$FF,  Bright-$36
+ds_list_add(global.dl_COLOR01,$B474FC); // Hue-$EB,  Sat-$8A,  Bright-$95
+ds_list_add(global.dl_COLOR01,$DCB6F1); // Hue-$E4,  Sat-$3E,  Bright-$C5
+ds_list_add(global.dl_COLOR01,$5D1C83); // Hue-$E4,  Sat-$C8,  Bright-$36
+ds_list_add(global.dl_COLOR01,$5424C3); // Hue-$F2,  Sat-$D0,  Bright-$49
+ds_list_add(global.dl_COLOR01,$784FF0); // Hue-$F4,  Sat-$AB,  Bright-$74
+ds_list_add(global.dl_COLOR01,$8181F6); // Hue-$00,  Sat-$79,  Bright-$99
+ds_list_add(global.dl_COLOR01,$90A7FC); // Hue-$09,  Sat-$6D,  Bright-$B7
+// ROW $01                                                              //
+ds_list_add(global.dl_COLOR01,$41184B); // Hue-$DD,  Sat-$AD,  Bright-$25
+ds_list_add(global.dl_COLOR01,$74008C); // Hue-$DC,  Sat-$FF,  Bright-$26
+ds_list_add(global.dl_COLOR01,$AD15B8); // Hue-$D7,  Sat-$E2,  Bright-$42
+ds_list_add(global.dl_COLOR01,$FC78F4); // Hue-$D2,  Sat-$86,  Bright-$9B
+ds_list_add(global.dl_COLOR01,$FCC4FC); // Hue-$D5,  Sat-$39,  Bright-$D3
+ds_list_add(global.dl_COLOR01,$543C75); // Hue-$ED,  Sat-$7C,  Bright-$49
+ds_list_add(global.dl_COLOR01,$6F4BA2); // Hue-$ED,  Sat-$89,  Bright-$60
+ds_list_add(global.dl_COLOR01,$7F65CF); // Hue-$F5,  Sat-$83,  Bright-$7D
+ds_list_add(global.dl_COLOR01,$9980ED); // Hue-$F5,  Sat-$75,  Bright-$98
+ds_list_add(global.dl_COLOR01,$9DA5D6); // Hue-$06,  Sat-$44,  Bright-$AE
+// ROW $02                                                              //
+ds_list_add(global.dl_COLOR01,$501931); // Hue-$BD,  Sat-$AF,  Bright-$22
+ds_list_add(global.dl_COLOR01,$9C0044); // Hue-$BD,  Sat-$FF,  Bright-$19
+ds_list_add(global.dl_COLOR01,$F00080); // Hue-$C1,  Sat-$FF,  Bright-$2C
+ds_list_add(global.dl_COLOR01,$FC88CC); // Hue-$C3,  Sat-$75,  Bright-$9E
+ds_list_add(global.dl_COLOR01,$F1BADC); // Hue-$C4,  Sat-$3A,  Bright-$C5
+ds_list_add(global.dl_COLOR01,$3F2945); // Hue-$DE,  Sat-$67,  Bright-$30
+ds_list_add(global.dl_COLOR01,$753E6B); // Hue-$CD,  Sat-$78,  Bright-$4B
+ds_list_add(global.dl_COLOR01,$A95E90); // Hue-$C6,  Sat-$71,  Bright-$6E
+ds_list_add(global.dl_COLOR01,$F384A8); // Hue-$B8,  Sat-$74,  Bright-$93
+ds_list_add(global.dl_COLOR01,$EDADEA); // Hue-$D3,  Sat-$45,  Bright-$BE
+// ROW $03                                                              //
+ds_list_add(global.dl_COLOR01,$501919); // Hue-$AA,  Sat-$AF,  Bright-$1C
+ds_list_add(global.dl_COLOR01,$A80000); // Hue-$AA,  Sat-$FF,  Bright-$0C
+ds_list_add(global.dl_COLOR01,$EC3820); // Hue-$A5,  Sat-$DC,  Bright-$3F
+ds_list_add(global.dl_COLOR01,$FC945C); // Hue-$9B,  Sat-$A2,  Bright-$8F
+ds_list_add(global.dl_COLOR01,$FCD4C4); // Hue-$9E,  Sat-$39,  Bright-$D3
+ds_list_add(global.dl_COLOR01,$2F222E); // Hue-$D1,  Sat-$47,  Bright-$25
+ds_list_add(global.dl_COLOR01,$46353E); // Hue-$C1,  Sat-$3E,  Bright-$38
+ds_list_add(global.dl_COLOR01,$655562); // Hue-$CD,  Sat-$28,  Bright-$58
+ds_list_add(global.dl_COLOR01,$6C6C96); // Hue-$00,  Sat-$47,  Bright-$74
+ds_list_add(global.dl_COLOR01,$7A94AB); // Hue-$17,  Sat-$49,  Bright-$97
+// ROW $04                                                              //
+ds_list_add(global.dl_COLOR01,$4B2630); // Hue-$B5,  Sat-$7E,  Bright-$2A
+ds_list_add(global.dl_COLOR01,$8C1824); // Hue-$AE,  Sat-$D3,  Bright-$22
+ds_list_add(global.dl_COLOR01,$EC7000); // Hue-$96,  Sat-$FF,  Bright-$61
+ds_list_add(global.dl_COLOR01,$FCBC3C); // Hue-$8E,  Sat-$C2,  Bright-$A5
+ds_list_add(global.dl_COLOR01,$FCE4A8); // Hue-$8C,  Sat-$55,  Bright-$D8
+ds_list_add(global.dl_COLOR01,$624F69); // Hue-$E0,  Sat-$3F,  Bright-$55
+ds_list_add(global.dl_COLOR01,$8A707F); // Hue-$C3,  Sat-$30,  Bright-$75
+ds_list_add(global.dl_COLOR01,$B2AB9B); // Hue-$8C,  Sat-$21,  Bright-$A8
+ds_list_add(global.dl_COLOR01,$D0DCC7); // Hue-$67,  Sat-$18,  Bright-$D6
+ds_list_add(global.dl_COLOR01,$DDE8DB); // Hue-$5C,  Sat-$0E,  Bright-$E4
+// ROW $05                                                              //
+ds_list_add(global.dl_COLOR01,$382A1A); // Hue-$93,  Sat-$89,  Bright-$27
+ds_list_add(global.dl_COLOR01,$5C3C18); // Hue-$93,  Sat-$BC,  Bright-$36
+ds_list_add(global.dl_COLOR01,$888000); // Hue-$82,  Sat-$FF,  Bright-$65
+ds_list_add(global.dl_COLOR01,$D8E800); // Hue-$7D,  Sat-$FF,  Bright-$B5
+ds_list_add(global.dl_COLOR01,$F0FC9C); // Hue-$7A,  Sat-$61,  Bright-$E6
+ds_list_add(global.dl_COLOR01,$533332); // Hue-$A9,  Sat-$65,  Bright-$35
+ds_list_add(global.dl_COLOR01,$774A48); // Hue-$A8,  Sat-$65,  Bright-$4C
+ds_list_add(global.dl_COLOR01,$B4654D); // Hue-$A0,  Sat-$92,  Bright-$65
+ds_list_add(global.dl_COLOR01,$E69B4D); // Hue-$94,  Sat-$AA,  Bright-$8F
+ds_list_add(global.dl_COLOR01,$FFD38F); // Hue-$90,  Sat-$70,  Bright-$C7
+// ROW $06                                                              //
+ds_list_add(global.dl_COLOR01,$2A331B); // Hue-$70,  Sat-$78,  Bright-$2D
+ds_list_add(global.dl_COLOR01,$003E00); // Hue-$55,  Sat-$FF,  Bright-$2C
+ds_list_add(global.dl_COLOR01,$2A7B00); // Hue-$64,  Sat-$FF,  Bright-$5B
+ds_list_add(global.dl_COLOR01,$70D43A); // Hue-$64,  Sat-$B9,  Bright-$AC
+ds_list_add(global.dl_COLOR01,$BCE89E); // Hue-$66,  Sat-$51,  Bright-$D5
+ds_list_add(global.dl_COLOR01,$655E0B); // Hue-$83,  Sat-$E3,  Bright-$4C
+ds_list_add(global.dl_COLOR01,$8F8A0B); // Hue-$81,  Sat-$EB,  Bright-$6F
+ds_list_add(global.dl_COLOR01,$9BAF0E); // Hue-$7A,  Sat-$EB,  Bright-$8B
+ds_list_add(global.dl_COLOR01,$B9E130); // Hue-$76,  Sat-$C9,  Bright-$B8
+ds_list_add(global.dl_COLOR01,$E2F88F); // Hue-$77,  Sat-$6C,  Bright-$E0
+// ROW $07                                                              //
+ds_list_add(global.dl_COLOR01,$133213); // Hue-$55,  Sat-$9E,  Bright-$29
+ds_list_add(global.dl_COLOR01,$005000); // Hue-$55,  Sat-$FF,  Bright-$39
+ds_list_add(global.dl_COLOR01,$00A800); // Hue-$55,  Sat-$FF,  Bright-$78
+ds_list_add(global.dl_COLOR01,$48DC4C); // Hue-$54,  Sat-$AC,  Bright-$B2
+ds_list_add(global.dl_COLOR01,$96E8AF); // Hue-$48,  Sat-$5A,  Bright-$D5
+ds_list_add(global.dl_COLOR01,$383631); // Hue-$8C,  Sat-$20,  Bright-$35
+ds_list_add(global.dl_COLOR01,$4A4E37); // Hue-$78,  Sat-$4B,  Bright-$48
+ds_list_add(global.dl_COLOR01,$647E54); // Hue-$65,  Sat-$55,  Bright-$73
+ds_list_add(global.dl_COLOR01,$84A992); // Hue-$45,  Sat-$38,  Bright-$A1
+ds_list_add(global.dl_COLOR01,$90BAB2); // Hue-$33,  Sat-$3A,  Bright-$B5
+// ROW $08                                                              //
+ds_list_add(global.dl_COLOR01,$1F281F); // Hue-$55,  Sat-$39,  Bright-$25
+ds_list_add(global.dl_COLOR01,$004400); // Hue-$55,  Sat-$FF,  Bright-$30
+ds_list_add(global.dl_COLOR01,$009400); // Hue-$55,  Sat-$FF,  Bright-$69
+ds_list_add(global.dl_COLOR01,$10D080); // Hue-$3C,  Sat-$EB,  Bright-$B1
+ds_list_add(global.dl_COLOR01,$A0FCE0); // Hue-$37,  Sat-$5D,  Bright-$EF
+ds_list_add(global.dl_COLOR01,$4C5A16); // Hue-$77,  Sat-$C1,  Bright-$4A
+ds_list_add(global.dl_COLOR01,$639023); // Hue-$6E,  Sat-$C1,  Bright-$75
+ds_list_add(global.dl_COLOR01,$73BC1E); // Hue-$6C,  Sat-$D6,  Bright-$95
+ds_list_add(global.dl_COLOR01,$69DB91); // Hue-$46,  Sat-$85,  Bright-$C3
+ds_list_add(global.dl_COLOR01,$6CDFCD); // Hue-$31,  Sat-$84,  Bright-$D2
+// ROW $09                                                              //
+ds_list_add(global.dl_COLOR01,$0F232C); // Hue-$1D,  Sat-$A8,  Bright-$23
+ds_list_add(global.dl_COLOR01,$002C40); // Hue-$1D,  Sat-$FF,  Bright-$2D
+ds_list_add(global.dl_COLOR01,$007088); // Hue-$23,  Sat-$FF,  Bright-$6D
+ds_list_add(global.dl_COLOR01,$3CBCF0); // Hue-$1E,  Sat-$BF,  Bright-$BD
+ds_list_add(global.dl_COLOR01,$7DDAD4); // Hue-$2D,  Sat-$6D,  Bright-$D2
+ds_list_add(global.dl_COLOR01,$243E4C); // Hue-$1C,  Sat-$86,  Bright-$3F
+ds_list_add(global.dl_COLOR01,$336667); // Hue-$2A,  Sat-$81,  Bright-$62
+ds_list_add(global.dl_COLOR01,$47A9A2); // Hue-$2E,  Sat-$94,  Bright-$A0
+ds_list_add(global.dl_COLOR01,$4BE0D5); // Hue-$2E,  Sat-$AA,  Bright-$D2
+ds_list_add(global.dl_COLOR01,$86FFFB); // Hue-$2C,  Sat-$79,  Bright-$F5
+// ROW $0A                                                              //
+ds_list_add(global.dl_COLOR01,$0F1E36); // Hue-$10,  Sat-$B8,  Bright-$22
+ds_list_add(global.dl_COLOR01,$1A375E); // Hue-$12,  Sat-$B8,  Bright-$3D
+ds_list_add(global.dl_COLOR01,$1B4461); // Hue-$19,  Sat-$B8,  Bright-$47
+ds_list_add(global.dl_COLOR01,$406485); // Hue-$16,  Sat-$84,  Bright-$68
+ds_list_add(global.dl_COLOR01,$5286B1); // Hue-$17,  Sat-$89,  Bright-$8B
+ds_list_add(global.dl_COLOR01,$45307A); // Hue-$F3,  Sat-$9B,  Bright-$41
+ds_list_add(global.dl_COLOR01,$39459E); // Hue-$05,  Sat-$A3,  Bright-$57
+ds_list_add(global.dl_COLOR01,$3D68CD); // Hue-$0D,  Sat-$B3,  Bright-$7A
+ds_list_add(global.dl_COLOR01,$4E90E6); // Hue-$12,  Sat-$A9,  Bright-$9D
+ds_list_add(global.dl_COLOR01,$54B9FB); // Hue-$1A,  Sat-$AA,  Bright-$BF
+// ROW $0B                                                              //
+ds_list_add(global.dl_COLOR01,$0F194D); // Hue-$07,  Sat-$CD,  Bright-$23
+ds_list_add(global.dl_COLOR01,$00087C); // Hue-$03,  Sat-$FF,  Bright-$20
+ds_list_add(global.dl_COLOR01,$0C4CC8); // Hue-$0E,  Sat-$F0,  Bright-$61
+ds_list_add(global.dl_COLOR01,$3898FC); // Hue-$15,  Sat-$C6,  Bright-$A6
+ds_list_add(global.dl_COLOR01,$A8D8FC); // Hue-$18,  Sat-$55,  Bright-$DC
+ds_list_add(global.dl_COLOR01,$3423AE); // Hue-$FA,  Sat-$CC,  Bright-$41
+ds_list_add(global.dl_COLOR01,$3B3BE8); // Hue-$00,  Sat-$BE,  Bright-$5F
+ds_list_add(global.dl_COLOR01,$1D6BFB); // Hue-$0F,  Sat-$E2,  Bright-$83
+ds_list_add(global.dl_COLOR01,$17A5F7); // Hue-$1B,  Sat-$E7,  Bright-$AC
+ds_list_add(global.dl_COLOR01,$2BC2F9); // Hue-$1F,  Sat-$D3,  Bright-$C2
+// ROW $0C                                                              //
+ds_list_add(global.dl_COLOR01,$0F135A); // Hue-$02,  Sat-$D5,  Bright-$21
+ds_list_add(global.dl_COLOR01,$0000A4); // Hue-$00,  Sat-$FF,  Bright-$22
+ds_list_add(global.dl_COLOR01,$0028D8); // Hue-$08,  Sat-$FF,  Bright-$4A
+ds_list_add(global.dl_COLOR01,$6074FC); // Hue-$05,  Sat-$9E,  Bright-$8F
+ds_list_add(global.dl_COLOR01,$B0BCFC); // Hue-$07,  Sat-$4D,  Bright-$C8
+ds_list_add(global.dl_COLOR01,$27276E); // Hue-$00,  Sat-$A5,  Bright-$36
+ds_list_add(global.dl_COLOR01,$3138B3); // Hue-$02,  Sat-$B9,  Bright-$51
+ds_list_add(global.dl_COLOR01,$364FEA); // Hue-$06,  Sat-$C4,  Bright-$6E
+ds_list_add(global.dl_COLOR01,$4A7DF5); // Hue-$0D,  Sat-$B2,  Bright-$92
+ds_list_add(global.dl_COLOR01,$B0CBFD); // Hue-$0F,  Sat-$4E,  Bright-$D3
+// ROW $0D                                                              //
+ds_list_add(global.dl_COLOR01,$010101); // Hue-$00,  Sat-$00,  Bright-$01. C_BLK1
+ds_list_add(global.dl_COLOR01,$171717); // Hue-$00,  Sat-$00,  Bright-$17
+ds_list_add(global.dl_COLOR01,$2A2A2A); // Hue-$00,  Sat-$00,  Bright-$2A
+ds_list_add(global.dl_COLOR01,$3A3A3A); // Hue-$00,  Sat-$00,  Bright-$3A
+ds_list_add(global.dl_COLOR01,$4C4C4C); // Hue-$00,  Sat-$00,  Bright-$4C
+ds_list_add(global.dl_COLOR01,$646464); // Hue-$00,  Sat-$00,  Bright-$64
+ds_list_add(global.dl_COLOR01,$888888); // Hue-$00,  Sat-$00,  Bright-$88
+ds_list_add(global.dl_COLOR01,$B2B2B2); // Hue-$00,  Sat-$00,  Bright-$B1
+ds_list_add(global.dl_COLOR01,$DCDCDC); // Hue-$00,  Sat-$00,  Bright-$DC
+ds_list_add(global.dl_COLOR01,$FCFCFC); // Hue-$00,  Sat-$00,  Bright-$FB
+// ROW $0E                                                              //
+// ROW $0F                                                              //
+//                                                                      //
+ColorGrid_CLMS = $0A;
+ColorGrid_ROWS = $0E;
+
+
+
+
+// ---------------------------------------------------------------------------------------------
 // CI: Color Index (of dl_COLOR)
 CI_ERR0  = $FF; // ERROR. full green
 CI_ERR0_ = hex_str(CI_ERR0);
-// CI_ERR0 = ds_list_find_index(dl_COLOR, C_ERR0); // ERROR. full green
+//CI_ERR0 = ds_list_find_index(dl_COLOR, C_ERR0); // ERROR. full green
 CI_BLK0  = ds_list_find_index(dl_COLOR, C_BLK0); // full black
 CI_BLK0_ = hex_str(CI_BLK0);
 CI_WHT0  = ds_list_find_index(dl_COLOR, C_WHT0); // full white
@@ -248,8 +720,8 @@ CI_BLU0  = ds_list_find_index(dl_COLOR, C_BLU0); // full blue
 CI_BLU0_ = hex_str(CI_BLU0);
 CI_MGN0  = ds_list_find_index(dl_COLOR, C_MGN0); // full magenta
 CI_MGN0_ = hex_str(CI_MGN0);
-CI_TEL0  = ds_list_find_index(dl_COLOR, C_TEL0); // full teal
-CI_TEL0_ = hex_str(CI_TEL0);
+CI_CYN0  = ds_list_find_index(dl_COLOR, C_CYN0); // full cyan
+CI_CYN0_ = hex_str(CI_CYN0);
 CI_YLW0  = ds_list_find_index(dl_COLOR, C_YLW0); // full yellow
 CI_YLW0_ = hex_str(CI_YLW0);
 //                                                  // 
@@ -371,19 +843,24 @@ CI_GRB3_ = hex_str(CI_GRB3);
 CI_GRB4  = ds_list_find_index(dl_COLOR, C_GRB4); // $0B. Green-Blue.
 CI_GRB4_ = hex_str(CI_GRB4);
 //                                                  // 
-CI_TEL1  = ds_list_find_index(dl_COLOR, C_TEL1); // $3C. Teal. Brightest
-CI_TEL1_ = hex_str(CI_TEL1);
-CI_TEL2  = ds_list_find_index(dl_COLOR, C_TEL2); // $2C. Teal. 
-CI_TEL2_ = hex_str(CI_TEL2);
-CI_TEL3  = ds_list_find_index(dl_COLOR, C_TEL3); // $1C. Teal. 
-CI_TEL3_ = hex_str(CI_TEL3);
-CI_TEL4  = ds_list_find_index(dl_COLOR, C_TEL4); // $0C. Teal. Darkest
-CI_TEL4_ = hex_str(CI_TEL4);
+CI_CYN1  = ds_list_find_index(dl_COLOR, C_CYN1); // $3C. Teal. Brightest
+CI_CYN1_ = hex_str(CI_CYN1);
+CI_CYN2  = ds_list_find_index(dl_COLOR, C_CYN2); // $2C. Teal. 
+CI_CYN2_ = hex_str(CI_CYN2);
+CI_CYN3  = ds_list_find_index(dl_COLOR, C_CYN3); // $1C. Teal. 
+CI_CYN3_ = hex_str(CI_CYN3);
+CI_CYN4  = ds_list_find_index(dl_COLOR, C_CYN4); // $0C. Teal. Darkest
+CI_CYN4_ = hex_str(CI_CYN4);
 //                                                  // 
 //                                                  // 
 
 
-dl_COLORS_USED=ds_list_create();
+C_SWDH = C_WHT1;
+C_SWDM = C_ORG2;
+C_SWDS = C_ORG4;
+
+
+dl_COLORS_USED = ds_list_create();
              _count=ds_list_size(dl_COLOR);
 for(_i=0; _i<_count; _i++)
 {
@@ -394,11 +871,6 @@ for(_i=0; _i<_count; _i++)
         ds_list_add(       dl_COLORS_USED,_color);
     }
 }
-
-
-
-
-if (USE_ADDITIONAL_COLORS) p_init_add_more_colors();
 
 //dev_output_colors_1a();
 
@@ -413,10 +885,36 @@ CI_TONE_MID = CI_RED0; // Midtone
 CI_TONE_LOW = CI_BLU0; // Shadow
 
 
+dl_colors_h = ds_list_create(); // recommended colors for a highlight tone
+dl_colors_m = ds_list_create(); // recommended colors for a midtone
+dl_colors_s = ds_list_create(); // recommended colors for a shadow tone
+ds_list_copy(_dl,global.dl_COLOR01);
+//ds_list_copy(_dl,dl_COLOR);
+for(_i=ds_list_size(_dl)-1; _i>=0; _i--)
+{
+    _color = _dl[|_i];
+    if (_color!=C_WHT0 
+    &&  _color!=C_RED0 
+    &&  _color!=C_BLU0 
+    &&  _color!=C_GRN0 
+    &&  _color!=C_YLW0 
+    &&  _color!=C_MGN0 
+    &&  _color!=C_BLK0 
+    &&  _color!=C_CYN0 )
+    {
+        _brightness = get_color_brightness(_color);
+             if (_brightness<$40) ds_list_add(dl_colors_s,_color);
+        else if (_brightness<$80) ds_list_add(dl_colors_m,_color);
+        else                      ds_list_add(dl_colors_h,_color);
+    }
+}
 
 
 
-background_color_index = CI_BLK1; // The dl_COLOR index for this room's bg color
+
+global.BackgroundColor_scene    = C_BLK1;
+global.BackgroundColor_at_death = -1;
+
 
 
 
@@ -438,8 +936,6 @@ dg_color_seq[#_a,2] = C_BLU2; // Blue,  light
 dg_color_seq[#_a,3] = C_WHT1; // White, brightest
 
 
-
-
 /*
 _val = "00"+"0D"+"2D"+"3D";
 dm_COLOR_CHOICES = ds_map_create();
@@ -452,9 +948,7 @@ dm_COLOR_CHOICES[?STR_Base+"02"+"_High"]  = _val+"01"+"02"+"03"+"0C"+"11"+"12"+"
 
 
 
-//pal_sys_ver = 1;
-//pal_sys_ver = 2;
-
+global.dg_pi_permuts = ds_grid_create(0,4);
 
 
 
@@ -478,10 +972,11 @@ GameOverScreen_BGR_COLOR = C_RED3;
 
             dl_BackgroundFlash_COLORS=ds_list_create();
 ds_list_add(dl_BackgroundFlash_COLORS,C_BLK1);
+ds_list_add(dl_BackgroundFlash_COLORS,C_GRY4);
 ds_list_add(dl_BackgroundFlash_COLORS,C_RED3);
 ds_list_add(dl_BackgroundFlash_COLORS,C_VLT3);
 ds_list_add(dl_BackgroundFlash_COLORS,C_GRN2);
-BackgroundFlash_setting = $1;
+BackgroundFlash_setting = $2;
 
 
 
@@ -489,67 +984,6 @@ BackgroundFlash_setting = $1;
 
 
 
-
-
-
-
-
-
-
-// palette_image_IS_SURFACE ---------------------------------
-// 2024/06/26: Had a lot of trouble getting this working. 
-// Palette swap would fail at random times during the 
-// ShadowBoss fight or the cutscene after.
-// After more work, I seem to have got it working fine during 
-// those times but needs to be tested much more.
-// 2024/06/27: When scaling the game window, there's about 
-// 1 frame the pal swap doesn't work so I switched back 
-// to using a sprite for palette_image.
-// You can set it to false for the stable legacy method that 
-// uses a sprite instead of a surface.
-global.palette_image_IS_SURFACE = false;
-palette_image = 0;
-
-PAL_SETS_PER_SCENE = 2; // scene lit set, scene dark set
-BGR_PAL_COUNT = 4;
-MOB_PAL_COUNT = 4;
-
-PAL_PER_SET   = 1; // PAL BASE
-PAL_PER_SET  += 1; // MENU PAL
-PAL_PER_SET  += PC_PAL_COUNT; // PC PAL
-PAL_PER_SET  += PC_PAL_COUNT; // CUCCO PAL
-PAL_PER_SET  += 1; // DARKLONK PAL
-PAL_PER_SET  += BGR_PAL_COUNT;
-PAL_PER_SET  += MOB_PAL_COUNT;
-
-PAL_PER_SCENE = PAL_PER_SET * PAL_SETS_PER_SCENE;
-
-COL_PER_SET   = PAL_PER_SET   * COL_PER_PAL;
-COL_PER_SCENE = PAL_PER_SCENE * COL_PER_PAL;
-
-
-
-
-_adj = 0; // For adding PAL_BASE
-
-// PI: Palette Index
-SET_IDX_LIT = 0;
-SET_IDX_DRK = 1;
-PI_LAST_LIT = ((SET_IDX_LIT+1)    * PAL_PER_SET) - 1 + _adj;
-PI_LAST_DRK = ((SET_IDX_DRK+1)    * PAL_PER_SET) - 1 + _adj;
-PI_LAST     = (PAL_SETS_PER_SCENE * PAL_PER_SET) - 1 + _adj;
-
-PI_PERMUT_BASE = PI_LAST + 1;
-
-PI_LIT1 = SET_IDX_LIT * PAL_PER_SET; // 
-PI_DRK1 = SET_IDX_DRK * PAL_PER_SET; // 
-
-PI_ERR0 = PI_BASE;
-
-
-// P_SPR: Palette Sprite
-global.palette_image_W = PAL_PER_SCENE + (PAL_PER_SCENE*PI_PERMUTATIONS);
-global.palette_image_H = COL_PER_PAL;
 
 
 
@@ -564,7 +998,7 @@ dm_depth_pi = ds_map_create();
 var _GROUP1_BASE  =  TILE_DEPTHS_BASE;
 
 var _GROUP2_BASE  = _GROUP1_BASE;
-    _GROUP2_BASE += (TILE_DEPTHS_PAD * (BGR_PAL_COUNT-1));
+    _GROUP2_BASE += (TILE_DEPTHS_PAD * (val(global.dm_pi[?"BGR"+STR_Count])-1));
     _GROUP2_BASE +=  TILE_LAYERS_GROUP_PAD;
 //
 var _depth = 0;
@@ -578,7 +1012,7 @@ for(_i=ds_list_size(g.dl_TILE_DEPTHS)-1; _i>=0; _i--)
     {    _idx -= _GROUP2_BASE;  }
     else _idx -= _GROUP1_BASE;
          _idx  = _idx div TILE_DEPTHS_PAD; // = 0,1,2,3
-         _idx  = PI_BGR_1 + _idx;
+         _idx  = global.PI_BGR1 + _idx;
     //
     dm_depth_pi[?hex_str(abs(_depth))] = _idx;
 }
@@ -623,23 +1057,16 @@ dm_depth_pi[?hex_str(DEPTH_FG2_P4)] = PI_BGR4; // -$110 depth
 
 
 
-TRIFORCE_PI = PI_MOB_BLU;
+TRIFORCE_PI = global.PI_MOB_BLU;
 triforce_pi = TRIFORCE_PI;
 //TRIFORCE_PAL_POS = val(dm_pal_data[?hex_str(triforce_pi)+STR_Palette+STR_Position]);
 
-var _CI1 = CI_WHT1_;
-//var _CI2 = CI_ORG4_;
-var _CI2 = CI_WHT1_;
-ar_PALSEQ_TRIFORCE[3] = CI_GRN0_ + _CI1 + CI_ORG1_ + _CI2; // 
-ar_PALSEQ_TRIFORCE[2] = CI_GRN0_ + _CI1 + CI_ORG1_ + _CI2; // 
-ar_PALSEQ_TRIFORCE[1] = CI_GRN0_ + _CI1 + CI_ORG2_ + _CI2; // 
-ar_PALSEQ_TRIFORCE[0] = CI_GRN0_ + _CI1 + CI_ORG3_ + _CI2; // 
+// These get set in p_Room_Start()
+global.spell_unaffordable_pi = 0;
+global.spell_futile_pi       = 0;
 
 
 
-PI_SPELL_UNAFFORDABLE = get_pi(PI_GUI_1,4); // 4: SHM
-PI_SPELL_FUTILE       = get_pi(PI_GUI_1,3); // 3: MSH
-//PI_SPELL_ACTIVE       = get_pi(PI_GUI_1,2); // 2: MHS
 
 
 
@@ -647,213 +1074,55 @@ PI_SPELL_FUTILE       = get_pi(PI_GUI_1,3); // 3: MSH
 
 
 
+_datakey1 = STR_Palette+STR_Index;
 
-
-
-
-// FALLING SCENE  ----------------------------------
-FallScene_COL_CNT        = 3;
-FallScene_ROW_H          = 8;
-
-FallScene_ROW_GROUP_H    = FallScene_ROW_H * FallScene_COL_CNT;
-FallScene_ROW_GROUP_CNT  =      BASE_GAME_RESOLUTION_H div FallScene_ROW_GROUP_H;
-FallScene_ROW_GROUP_CNT += sign(BASE_GAME_RESOLUTION_H mod FallScene_ROW_GROUP_H);
-
-
-fall_scene_type        = 0; // current type of active fall scene
-fall_scene_1_spr       = 0; // created on first frame of app start.
-fall_scene_2_spr       = 0; // created on first frame of app start.
-fall_scene_1_spr_1     = 0; // created on first frame of app start.
-fall_scene_2_spr_1     = 0; // created on first frame of app start.
-fall_scene_spr         = 0; // spr for active fall scene
-fall_scene_1_pal       = $1C0C2C;
-fall_scene_2_pal       = $160626;
-fall_scene_pal         = fall_scene_1_pal; // pal for active fall scene
-fall_scene_pal_state   = 0; // 0484
-fall_scene_pal_set     = 0; // grid idx of dg_FS_PI
-FallScene_PI_BASE      = PI_BGR_1;
-fall_scene_counter     = 0;
-
-FallScene_FALL_SPD_DEF = 2; // OG 2
-FallScene_1_FALL_SPD   = FallScene_FALL_SPD_DEF;
-FallScene_2_FALL_SPD   = round(FallScene_1_FALL_SPD + (FallScene_1_FALL_SPD * (viewH()/viewW())));
-fall_scene_fall_spd    = FallScene_1_FALL_SPD; // pixels per frame speed
-
-FallScene_Y_BASE       = $20; // OG $10
-fall_scene_y           = 0;
-
-FallScene_X_BASE       = (viewW_()-viewH_()) + FallScene_Y_BASE;
-FallScene_X_BASE      -= $06<<3;
-fall_scene_x           = 0;
-
-
-
-
-// Colors for FallScene backgrounds
-dg_FallScene_PI = ds_grid_create(0,FallScene_COL_CNT);
-_a=-1;
-ds_grid_resize(dg_FallScene_PI, (++_a)+1, FallScene_COL_CNT);
-dg_FallScene_PI[#_a,0] = get_pi(FallScene_PI_BASE,3); // m, s, h
-dg_FallScene_PI[#_a,1] = get_pi(FallScene_PI_BASE,4); // s, h, m
-dg_FallScene_PI[#_a,2] = get_pi(FallScene_PI_BASE,0); // h, m, s
-//                                                      //
-ds_grid_resize(dg_FallScene_PI, (++_a)+1, FallScene_COL_CNT);
-dg_FallScene_PI[#_a,0] = get_pi(PI_MOB_PUR,       3); // m, s, h
-dg_FallScene_PI[#_a,1] = get_pi(PI_MOB_PUR,       4); // s, h, m
-dg_FallScene_PI[#_a,2] = get_pi(PI_MOB_PUR,       0); // h, m, s
-//                                                      //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Rando_palettes = 0;
-
-dm_pal_data = ds_map_create();
-dm_scene_palette = ds_map_create();
-dl_various_pals1 = ds_list_create();
-dl_various_pals2 = ds_list_create();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// PAL_POS: The string position of a pal in (pal_rm_dflt, pal_rm_new, pal_rm_cur)
-PAL_POS_BASE = 1;
-
-
-var         _dl_PI = ds_list_create();
-ds_list_add(_dl_PI, PI_GUI_1);
-for(_i=0; _i<PC_PAL_COUNT; _i++) ds_list_add(_dl_PI, PI_PC_1+_i);
-for(_i=0; _i<PC_PAL_COUNT; _i++) ds_list_add(_dl_PI, PI_CUC1+_i);
-//ds_list_add(_dl_PI, PI_PC_1);
-//                              // 
-ds_list_add(_dl_PI, PI_DARKLONK);
-//                              // 
-ds_list_add(_dl_PI, PI_BGR_1);
-ds_list_add(_dl_PI, PI_BGR_2);
-ds_list_add(_dl_PI, PI_BGR_3);
-ds_list_add(_dl_PI, PI_BGR_4);
-//                              // 
-ds_list_add(_dl_PI, PI_MOB_ORG);
-ds_list_add(_dl_PI, PI_MOB_RED);
-ds_list_add(_dl_PI, PI_MOB_BLU);
-ds_list_add(_dl_PI, PI_MOB_PUR);
-//                              // 
-
-
-var _dk_Palette_Position = STR_Palette+STR_Position;
-
-            dl_PAL_POS = ds_list_create();
-ds_list_add(dl_PAL_POS, PAL_POS_BASE);
-             _count = ds_list_size(_dl_PI);
-for(_i=0; _i<_count; _i++)
-{
-    _pi   = _dl_PI[|_i];
-    _val  = get_pal_pos(_pi);
-    
-    ds_list_add(dl_PAL_POS, _val);
-    dm_pal_data[?hex_str(_pi)+_dk_Palette_Position] = _val;
-}
-
-ds_list_destroy(_dl_PI); _dl_PI=undefined;
-
-
-PAL_POS_MENU = val(dm_pal_data[?hex_str(PI_GUI_1)  +_dk_Palette_Position], get_pal_pos(PI_GUI_1  ));
+PAL_POS_GUI1 = val(dm_pal_data[?hex_str(global.PI_GUI1)          +_dk_Palette_Position], get_pal_pos(global.PI_GUI1));
+PAL_POS_GUI2 = val(dm_pal_data[?hex_str(global.PI_GUI2)          +_dk_Palette_Position], get_pal_pos(global.PI_GUI2));
+PAL_POS_GUI3 = val(dm_pal_data[?hex_str(global.PI_GUI3)          +_dk_Palette_Position], get_pal_pos(global.PI_GUI3));
+PAL_POS_GUI4 = val(dm_pal_data[?hex_str(global.PI_GUI4)+_dk_Palette_Position], get_pal_pos(global.PI_GUI4));
 //                                                                                              // 
-PAL_POS_PC_1 = val(dm_pal_data[?hex_str(PI_PC_1)   +_dk_Palette_Position], get_pal_pos(PI_PC_1   )); // Tunic (Green)
-PAL_POS_PC_2 = val(dm_pal_data[?hex_str(PI_PC_2)   +_dk_Palette_Position], get_pal_pos(PI_PC_2   )); // Spell flash (Light)
-PAL_POS_PC_3 = val(dm_pal_data[?hex_str(PI_PC_3)   +_dk_Palette_Position], get_pal_pos(PI_PC_3   )); // Disguise
-PAL_POS_CUC1 = val(dm_pal_data[?hex_str(PI_CUC1)   +_dk_Palette_Position], get_pal_pos(PI_CUC1   )); // Tunic (Green)
-PAL_POS_CUC2 = val(dm_pal_data[?hex_str(PI_CUC2)   +_dk_Palette_Position], get_pal_pos(PI_CUC2   )); // Spell flash (Light)
-PAL_POS_CUC3 = val(dm_pal_data[?hex_str(PI_CUC3)   +_dk_Palette_Position], get_pal_pos(PI_CUC3   )); // Disguise
+PAL_POS_PC_1 = val(dm_pal_data[?hex_str(global.PI_PC1)           +_dk_Palette_Position], get_pal_pos(global.PI_PC1));            // Tunic (Green)
+PAL_POS_PC_2 = val(dm_pal_data[?hex_str(global.PI_DISGUISE_PC)   +_dk_Palette_Position], get_pal_pos(global.PI_DISGUISE_PC));    // Disguise
+PAL_POS_PC_3 = val(dm_pal_data[?hex_str(global.PI_SPELL_PC1)     +_dk_Palette_Position], get_pal_pos(global.PI_SPELL_PC1));      // Spell flash (Light)
+PAL_POS_CUC1 = val(dm_pal_data[?hex_str(global.PI_CUCCO1)        +_dk_Palette_Position], get_pal_pos(global.PI_CUCCO1));         // Tunic (Green)
+PAL_POS_CUC2 = val(dm_pal_data[?hex_str(global.PI_DISGUISE_CUCCO)+_dk_Palette_Position], get_pal_pos(global.PI_DISGUISE_CUCCO)); // Disguise
+//PAL_POS_CUC3 = val(dm_pal_data[?hex_str(PI_CUC3)   +_dk_Palette_Position], get_pal_pos(PI_CUC3   )); // Spell flash (Light)
 //                                                                                              // 
-PAL_POS_DLNK = val(dm_pal_data[?hex_str(PI_DARKLONK)+_dk_Palette_Position], get_pal_pos(PI_DARKLONK));
+PAL_POS_BGR1 = val(dm_pal_data[?hex_str(global.PI_BGR1)          +_dk_Palette_Position], get_pal_pos(global.PI_BGR1));
+PAL_POS_BGR2 = val(dm_pal_data[?hex_str(global.PI_BGR2)          +_dk_Palette_Position], get_pal_pos(global.PI_BGR2));
+PAL_POS_BGR3 = val(dm_pal_data[?hex_str(global.PI_BGR3)          +_dk_Palette_Position], get_pal_pos(global.PI_BGR3));
+PAL_POS_BGR4 = val(dm_pal_data[?hex_str(global.PI_BGR4)          +_dk_Palette_Position], get_pal_pos(global.PI_BGR4));
 //                                                                                              // 
-PAL_POS_BGR1 = val(dm_pal_data[?hex_str(PI_BGR_1)  +_dk_Palette_Position], get_pal_pos(PI_BGR_1  ));
-PAL_POS_BGR2 = val(dm_pal_data[?hex_str(PI_BGR_2)  +_dk_Palette_Position], get_pal_pos(PI_BGR_2  ));
-PAL_POS_BGR3 = val(dm_pal_data[?hex_str(PI_BGR_3)  +_dk_Palette_Position], get_pal_pos(PI_BGR_3  ));
-PAL_POS_BGR4 = val(dm_pal_data[?hex_str(PI_BGR_4)  +_dk_Palette_Position], get_pal_pos(PI_BGR_4  ));
-//                                                                                              // 
-PAL_POS_MOB1 = val(dm_pal_data[?hex_str(PI_MOB_ORG)+_dk_Palette_Position], get_pal_pos(PI_MOB_ORG));
-PAL_POS_MOB2 = val(dm_pal_data[?hex_str(PI_MOB_RED)+_dk_Palette_Position], get_pal_pos(PI_MOB_RED));
-PAL_POS_MOB3 = val(dm_pal_data[?hex_str(PI_MOB_BLU)+_dk_Palette_Position], get_pal_pos(PI_MOB_BLU));
-PAL_POS_MOB4 = val(dm_pal_data[?hex_str(PI_MOB_PUR)+_dk_Palette_Position], get_pal_pos(PI_MOB_PUR));
+PAL_POS_MOB1 = val(dm_pal_data[?hex_str(global.PI_MOB_ORG)       +_dk_Palette_Position], get_pal_pos(global.PI_MOB_ORG));
+PAL_POS_MOB2 = val(dm_pal_data[?hex_str(global.PI_MOB_RED)       +_dk_Palette_Position], get_pal_pos(global.PI_MOB_RED));
+PAL_POS_MOB3 = val(dm_pal_data[?hex_str(global.PI_MOB_BLU)       +_dk_Palette_Position], get_pal_pos(global.PI_MOB_BLU));
+PAL_POS_MOB4 = val(dm_pal_data[?hex_str(global.PI_MOB_PUR)       +_dk_Palette_Position], get_pal_pos(global.PI_MOB_PUR));
 //                                                                                              // 
 //                                                                                              // 
-PAL_POS_MENU_DARK = PAL_POS_MENU + (COL_PER_SET<<1);
+PAL_POS_GUI1_DARK = PAL_POS_GUI1 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_GUI2_DARK = PAL_POS_GUI2 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_GUI3_DARK = PAL_POS_GUI3 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+//PAL_POS_GUI4_DARK = PAL_POS_GUI4 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
 //                                                                                              // 
-PAL_POS_PC_1_DARK = PAL_POS_PC_1 + (COL_PER_SET<<1);
-PAL_POS_PC_2_DARK = PAL_POS_PC_2 + (COL_PER_SET<<1);
-PAL_POS_PC_3_DARK = PAL_POS_PC_3 + (COL_PER_SET<<1);
-PAL_POS_CUC1_DARK = PAL_POS_CUC1 + (COL_PER_SET<<1);
-PAL_POS_CUC2_DARK = PAL_POS_CUC2 + (COL_PER_SET<<1);
-PAL_POS_CUC3_DARK = PAL_POS_CUC3 + (COL_PER_SET<<1);
+PAL_POS_PC_1_DARK = PAL_POS_PC_1 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_PC_2_DARK = PAL_POS_PC_2 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_PC_3_DARK = PAL_POS_PC_3 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_CUC1_DARK = PAL_POS_CUC1 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_CUC2_DARK = PAL_POS_CUC2 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+//PAL_POS_CUC3_DARK = PAL_POS_CUC3 + (COL_PER_SET<<1); // spell flash cucco
 //                                                                                              // 
-PAL_POS_DLNK_DARK = PAL_POS_DLNK + (COL_PER_SET<<1);
+PAL_POS_BGR1_DARK = PAL_POS_BGR1 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_BGR2_DARK = PAL_POS_BGR2 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_BGR3_DARK = PAL_POS_BGR3 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_BGR4_DARK = PAL_POS_BGR4 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
 //                                                                                              // 
-PAL_POS_BGR1_DARK = PAL_POS_BGR1 + (COL_PER_SET<<1);
-PAL_POS_BGR2_DARK = PAL_POS_BGR2 + (COL_PER_SET<<1);
-PAL_POS_BGR3_DARK = PAL_POS_BGR3 + (COL_PER_SET<<1);
-PAL_POS_BGR4_DARK = PAL_POS_BGR4 + (COL_PER_SET<<1);
-//                                                                                              // 
-PAL_POS_MOB1_DARK = PAL_POS_MOB1 + (COL_PER_SET<<1);
-PAL_POS_MOB2_DARK = PAL_POS_MOB2 + (COL_PER_SET<<1);
-PAL_POS_MOB3_DARK = PAL_POS_MOB3 + (COL_PER_SET<<1);
-PAL_POS_MOB4_DARK = PAL_POS_MOB4 + (COL_PER_SET<<1);
-//                                                                                              // 
+PAL_POS_MOB1_DARK = PAL_POS_MOB1 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_MOB2_DARK = PAL_POS_MOB2 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_MOB3_DARK = PAL_POS_MOB3 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
+PAL_POS_MOB4_DARK = PAL_POS_MOB4 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
 //                                                                                              // 
 //PAL_POS_PC_SWORD = get_pal_pos(PI_PC_SWORD);
 //                                                                                              // 
-/*
-PAL_POS_MENU = val(dm_pal_data[?hex_str(PI_GUI_1)  +_dk_Palette_Position], PAL_POS_BASE+(PI_GUI_1  *COL_PER_PAL));
-PAL_POS_BGR1 = val(dm_pal_data[?hex_str(PI_BGR_1)  +_dk_Palette_Position], PAL_POS_BASE+(PI_BGR_1  *COL_PER_PAL));
-PAL_POS_BGR2 = val(dm_pal_data[?hex_str(PI_BGR_2)  +_dk_Palette_Position], PAL_POS_BASE+(PI_BGR_2  *COL_PER_PAL));
-PAL_POS_BGR3 = val(dm_pal_data[?hex_str(PI_BGR_3)  +_dk_Palette_Position], PAL_POS_BASE+(PI_BGR_3  *COL_PER_PAL));
-PAL_POS_BGR4 = val(dm_pal_data[?hex_str(PI_BGR_4)  +_dk_Palette_Position], PAL_POS_BASE+(PI_BGR_4  *COL_PER_PAL));
-
-PAL_POS_PC_1 = val(dm_pal_data[?hex_str(PI_PC_1)   +_dk_Palette_Position], PAL_POS_BASE+(PI_PC_1   *COL_PER_PAL));
-PAL_POS_MOB1 = val(dm_pal_data[?hex_str(PI_MOB_ORG)+_dk_Palette_Position], PAL_POS_BASE+(PI_MOB_ORG*COL_PER_PAL));
-PAL_POS_MOB2 = val(dm_pal_data[?hex_str(PI_MOB_RED)+_dk_Palette_Position], PAL_POS_BASE+(PI_MOB_RED*COL_PER_PAL));
-PAL_POS_MOB3 = val(dm_pal_data[?hex_str(PI_MOB_BLU)+_dk_Palette_Position], PAL_POS_BASE+(PI_MOB_BLU*COL_PER_PAL));
-PAL_POS_MOB4 = val(dm_pal_data[?hex_str(PI_MOB_PUR)+_dk_Palette_Position], PAL_POS_BASE+(PI_MOB_PUR*COL_PER_PAL));
-*/
 
 
 
@@ -862,173 +1131,177 @@ PAL_POS_MOB4 = val(dm_pal_data[?hex_str(PI_MOB_PUR)+_dk_Palette_Position], PAL_P
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-_ci1 = CI_BLK1_;
-
-PAL_BASE = hex_str(CI_GRN0)+hex_str(CI_TONE_HGH)+hex_str(CI_TONE_MID)+hex_str(CI_TONE_LOW); // Base colors. Green, White, Red, Blue
-//PAL_BASE = "3E"+ "0E"+ "2E"+ "1E"; // Base colors. Green, White, Red, Blue
-PAL_MENU = _ci1 + CI_WHT1_ + CI_RED3_ + CI_VLT3_; // Menu. $30-White, $16-Red, $12-Blue
-//PAL_MENU = CI_GRN0_ + CI_WHT1_ + CI_RED3_ + CI_VLT3_; // Menu. $30-White, $16-Red, $12-Blue
-PAL_SET1 = PAL_BASE + PAL_MENU;
-
-//                    H          M          S
-PAL_PC_1 = _ci1 + CI_RED1_ + CI_GRN2_ + CI_YLW3_; // Tunic Green.   Normal
-PAL_PC_2 = _ci1 + CI_RED1_ + CI_RED3_ + CI_YLW3_; // Tunic Red.     RING  ||  SHIELD
-PAL_PC_3 = _ci1 + CI_RED1_ + CI_BLU3_ + CI_GRY4_; // Lvl3 Armor.    RING  &&  SHIELD
-//                                  //
-PAL_PC_4 = _ci1 + CI_BLU2_ + CI_VLT4_ + CI_VLT4_; // Spell Flash.   Light
-PAL_PC_5 = _ci1 + CI_WHT1_ + CI_BLU1_ + CI_BLU1_; // Spell Flash.   Mid
-PAL_PC_6 = _ci1 + CI_VLT3_ + CI_WHT1_ + CI_WHT1_; // Spell Flash.   Dark
-PAL_PC_7 = _ci1 + CI_BLU2_ + CI_BLU3_ + CI_VLT4_; // Tunic Green.   Dark room.   
-//PAL_PC_8 = _ci1 + CI_RED1_ + CI_GRN2_ + CI_YLW4_; // Tunic Green.   Darker outline 1
-//PAL_PC_9 = _ci1 + CI_RED1_ + CI_GRN2_ + CI_ORG4_; // Tunic Green.   Darker outline 2
-PAL_PC_A = _ci1 + CI_BLU2_ + CI_VLT3_ + CI_VLT4_; // Tunic Red.     Dark room.   
-PAL_PC_B = _ci1 + CI_BLU2_ + CI_VLT2_ + CI_VLT4_; // Tunic Lvl3.    Dark room.   
-//PAL_PC_B = _ci1 + CI_BLU2_+ "32"+CI_VLT4_; // Tunic Lvl3.    Dark room.   
-PAL_PC_C = _ci1 + CI_RED1_ + CI_RED3_ + CI_BLK1_; // Tunic Red.     Disguise
-//PAL_PC_C = _ci1 + CI_RED1_ + CI_RED3_ + CI_ORG4_; // Tunic Red.     Disguise
+PAL_BASE = build_pal(C_WHT0,C_RED0,C_BLU0,C_GRN0,C_YLW0,C_MGN0,C_BLK0,C_CYN0);
 //                                                                          //
-PAL_CUC1 = _ci1 + CI_ORG2_ + CI_GRN3_ + CI_WHT1_; // Tunic Green.   Cucco
-PAL_CUC2 = _ci1 + CI_ORG2_ + CI_RED3_ + CI_WHT1_; // Tunic Red.     Cucco. RING  ||  SHIELD
-PAL_CUC3 = _ci1 + CI_ORG2_ + CI_BLU3_ + CI_WHT1_; // Tunic Lvl3.    Cucco. RING  &&  SHIELD
-//PAL_CUC3 = _ci1 + CI_ORG2_ + CI_YLW2_ + CI_WHT1_; // Tunic Lvl3.    Cucco. RING  &&  SHIELD
-PAL_CUC5 = _ci1 + CI_RED3_ + CI_BLK1_ + CI_WHT1_; // Tunic Red.     Disguise
+//                                                                          //
+//                                                                          //
+PAL_GUI1 = build_pal(C_WHT1,C_RED3,C_VLT3); // standard
+PAL_GUI2 = build_pal(C_GRY1,C_GRY4,C_BLK1); // grey
+PAL_GUI3 = build_pal(C_GRY1,C_RED4,C_VLT4); // darker version of PAL_GUI1
+PAL_GUI4 = build_pal(C_WHT1,C_RED3,C_VLT3); // ?
+//                                                                          //
+PAL_MENU_BLU1 = build_pal(C_WHT1,C_BLU2,C_VLT3); // blue    menu
+PAL_MENU_BLU2 = build_pal(C_WHT1,C_BLU2,C_BLU3); // blue    menu
+//                                                                          //
+//                                                                          //
+PAL_PC_1 = build_pal(C_RED1,C_GRN2,C_YLW3,C_BLK1,C_SWDH,-2,-2,-2); // tunic green
+PAL_PC_2 = build_pal(C_RED1,C_RED3,C_YLW3,C_BLK1,C_SWDH,-2,-2,-2); // tunic red
+PAL_PC_3 = build_pal(C_RED1,C_BLU3,C_GRY4,C_BLK1,C_SWDH,-2,-2,-2); // tunic blue
+PAL_PC_C = build_pal(C_RED1,C_RED3,C_BLK1,C_BLK1,C_SWDH,-2,-2,-2); // disguise
+//                                                                          //
+PAL_PC_4 = build_pal(C_BLU2,C_VLT4,C_VLT4,C_BLK1,-2,-2,-2,-2); // spell light
+PAL_PC_5 = build_pal(C_WHT1,C_BLU1,C_BLU1,C_BLK1,-2,-2,-2,-2); // spell mid
+PAL_PC_6 = build_pal(C_VLT3,C_WHT1,C_WHT1,C_BLK1,-2,-2,-2,-2); // spell dark
+//                                                                          //
+PAL_PC_7 = build_pal(C_BLU2,C_BLU3,C_VLT4,C_BLK1,-2,-2,-2,-2); // dark room tunic green
+PAL_PC_A = build_pal(C_BLU2,C_VLT3,C_VLT4,C_BLK1,-2,-2,-2,-2); // dark room tunic red
+PAL_PC_B = build_pal(C_BLU2,C_VLT2,C_VLT4,C_BLK1,-2,-2,-2,-2); // dark room tunic blue
+//                                                                          //
+PAL_CUC1 = build_pal(C_WHT1,C_ORG2,C_GRN3,C_BLK1,-2,-2,-2,-2); // cucco tunic green
+PAL_CUC2 = build_pal(C_WHT1,C_ORG2,C_RED3,C_BLK1,-2,-2,-2,-2); // cucco tunic red
+PAL_CUC3 = build_pal(C_WHT1,C_ORG2,C_BLU3,C_BLK1,-2,-2,-2,-2); // cucco tunic blue
+PAL_CUC5 = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // cucco disguise
+//                                                                          //
 
 
-PAL_DL_1 = _ci1 + CI_GRY1_ + CI_GRY4_ + CI_BLK1_; // Darklonk
-switch(g.mod_PC_OUTLINE_COLOR){
-case 1:{
-PAL_PC_1 = _ci1 + CI_RED1_ + CI_GRN2_ + CI_YLW4_;
-PAL_PC_2 = _ci1 + CI_RED1_ + CI_RED3_ + CI_YLW4_;
-break;}
-case 2:{
-PAL_PC_1 = _ci1 + CI_RED1_ + CI_GRN2_ + CI_ORG4_;
-PAL_PC_2 = _ci1 + CI_RED1_ + CI_RED3_ + CI_ORG4_;
-break;}
+
+
+PAL_MOB_ORG1 = build_pal(C_WHT1,C_ORG2,C_RED3,C_BLK1,-2,-2,-2,-2); // orange  mob
+//                                                                          //
+PAL_MOB_RED1 = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // red     mob
+PAL_MOB_RED2 = build_pal(C_WHT1,C_RED3,C_ORG4,C_BLK1,-2,-2,-2,-2); // red     mob (dungeon)
+//                                                                          //
+PAL_MOB_BLU1 = build_pal(C_WHT1,C_CYN2,C_CYN4,C_BLK1,-2,-2,-2,-2); // blue    mob (non-dungeon)
+PAL_MOB_BLU2 = build_pal(C_WHT1,C_BLU2,C_BLU4,C_BLK1,-2,-2,-2,-2); // blue    mob (dungeon)
+PAL_MOB_BLU3 = build_pal(C_WHT1,C_CYN2,C_BLU3,C_BLK1,-2,-2,-2,-2); // blue    mob (old kasuto fire)
+//                                                                          //
+PAL_MOB_PUR1 = build_pal(C_WHT1,C_PUR3,C_PUR4,C_BLK1,-2,-2,-2,-2); // purple  mob
+PAL_MOB_PUR2 = strReplaceAt(PAL_MOB_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_BLK1)); // purple  mob
+PAL_MOB_PUR2 = strReplaceAt(PAL_MOB_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_MOB_PUR2,0,"B")));
+//                                                                          //
+//                                                                          //
+PAL_NPC_ORG1 = PAL_MOB_ORG1;                                       // orange  npc
+//                                                                          //
+PAL_NPC_RED1 = build_pal(C_RED1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // red     npc
+//                                                                          //
+PAL_NPC_BLU1 = build_pal(C_RED1,C_VLT3,C_BLK1,C_BLK1,-2,-2,-2,-2); // blue    npc
+PAL_NPC_BLU2 = PAL_MOB_BLU1; // Bulblin
+//                                                                          //
+PAL_NPC_PUR1 = build_pal(C_RED1,C_PUR3,C_BLK1,C_BLK1,-2,-2,-2,-2); // purple  npc
+PAL_NPC_PUR2 = strReplaceAt(PAL_NPC_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_PUR4));
+PAL_NPC_PUR2 = strReplaceAt(PAL_NPC_PUR2, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_NPC_PUR2,0,"B")));
+PAL_NPC_PUR3 = strReplaceAt(PAL_NPC_PUR1, get_pal_col_pos(0,"B"), global.PAL_CHAR_PER_COLOR, color_str(C_YLW4)); // dark brown outline
+PAL_NPC_PUR3 = strReplaceAt(PAL_NPC_PUR3, get_pal_col_pos(0,"K"), global.PAL_CHAR_PER_COLOR, color_str(get_pal_color(PAL_NPC_PUR3,0,"B")));
+PAL_NPC_PUR4 = build_pal(C_RED1,C_GRY2,C_PUR4,C_BLK1,-2,-2,-2,-2); // purple  npc. Skill Knights
+//                                                                          //
+PAL_NPC_SET1 = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU1 + PAL_NPC_PUR1;
+PAL_NPC_SET2 = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU2 + PAL_NPC_PUR1; // Bulblin
+PAL_NPC_SET3 = PAL_NPC_ORG1 + PAL_NPC_RED1 + PAL_NPC_BLU2 + PAL_NPC_PUR3; // Target Game(Saria Mini Game)
+//                                                                          //
+//                                                                          //
+//                                                                          //
+PAL_MOB_SET1 = PAL_MOB_ORG1 + PAL_MOB_RED1 + PAL_MOB_BLU1 + PAL_MOB_PUR2; // non-dungeon
+//PAL_MOB_SET1 = PAL_MOB_ORG1 + PAL_MOB_RED1 + PAL_MOB_BLU1 + PAL_MOB_PUR1; // non-dungeon
+PAL_MOB_SET2 = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU2 + PAL_MOB_PUR2; // dungeon
+//PAL_MOB_SET2 = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU2 + PAL_MOB_PUR1; // dungeon
+PAL_MOB_SET3 = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU1 + PAL_MOB_PUR2; // 
+PAL_MOB_SET4 = PAL_MOB_ORG1 + PAL_MOB_RED1 + PAL_MOB_BLU1 + PAL_MOB_PUR2; // 
+PAL_MOB_SET5 = PAL_MOB_ORG1 + PAL_MOB_RED2 + PAL_MOB_BLU3 + PAL_MOB_PUR2; // old kasuto
+//                                                                          //
+
+
+
+
+var _BGR00 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _BGR01 = build_pal(C_VLT3,C_VLT4,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dark room pal 1a
+var _BGR02 = build_pal(C_VLT4,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dark room pal 1b
+var _BGR03 = build_pal(C_BLK1,C_BLK1,C_GRY4,C_BLK1,-2,-2,-2,-2); // Dark room pal 2a
+var _BGR04 = build_pal(C_CYN4,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dungeon, Dark full.
+var _BGR05 = build_pal(C_BLK1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dark rm liquid
+var _BGR06 = build_pal(C_VLT3,C_BLU4,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dark room pal 1b
+var _BGR07 = build_pal(C_CYN4,C_BLU4,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dungeon, Dark 1a.
+var _BGR08 = build_pal(C_BLU4,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _BGR09 = build_pal(C_ORG2,C_ORG4,C_BLK1,C_BLK1,-2,-2,-2,-2); // Cave. 1 torch lit
+var _BGR0A = build_pal(C_GRY4,C_BLK1,C_GRY3,C_BLK1,-2,-2,-2,-2); // Dark rm 
+var _BGR0B = build_pal(C_VLT4,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // Dark rm liquid
+
+var _MOB00 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // red & blue mob dark rm. 0 torch lit
+var _MOB01 = build_pal(C_ORG2,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // orange     mob dark rm. 1 torch lit
+var _MOB02 = build_pal(C_RED3,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // red        mob dark rm. 1 torch lit
+var _MOB03 = build_pal(C_BLU2,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // blue       mob dark rm. 1 torch lit
+var _MOB04 = build_pal(C_PUR3,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // purple     mob dark rm. 1 torch lit
+//var _MOB04 = build_pal(get_pal_color(PAL_NPC_PUR1,0,"R"),C_BLK1,C_BLK1,C_BLK1); // purple     mob dark rm. 1 torch lit
+//var _MOB04 = build_pal(C_MGN3,C_BLK1,C_BLK1,C_BLK1); // purple     mob dark rm. 1 torch lit
+
+
+
+
+PAL_SET_GUI = "";
+if (val(global.dm_pi[?"GUI"+STR_Count])>0) PAL_SET_GUI += PAL_GUI1;
+if (val(global.dm_pi[?"GUI"+STR_Count])>1) PAL_SET_GUI += PAL_GUI2;
+if (val(global.dm_pi[?"GUI"+STR_Count])>2) PAL_SET_GUI += PAL_GUI3;
+if (val(global.dm_pi[?"GUI"+STR_Count])>3) PAL_SET_GUI += PAL_GUI4;
+
+
+
+
+// PC spell flash palettes
+PAL_SET_PC_0 = "";
+for(_i=global.PI_SPELL_PC1; _i<global.PI_SPELL_PC1+val(global.dm_pi[?"SPELL_PC"+STR_Count]); _i++)
+{
+    switch(_i){
+    case global.PI_SPELL_PC1:{PAL_SET_PC_0+=PAL_PC_4; break;}
+    case global.PI_SPELL_PC2:{PAL_SET_PC_0+=PAL_PC_5; break;}
+    case global.PI_SPELL_PC3:{PAL_SET_PC_0+=PAL_PC_6; break;}
+    }
 }
-
-PAL_SET_PC_0 = PAL_PC_4 + PAL_PC_5 + PAL_PC_6;  // Spell flash palettes
-PAL_SET_PC_1 = PAL_PC_1 + PAL_PC_2 + PAL_PC_3 + PAL_PC_C;  // Tunic palettes LIT
-PAL_SET_PC_2 = PAL_PC_7 + PAL_PC_A + PAL_PC_B + PAL_PC_A;  // Tunic palettes DARK
-
-PAL_SET_CUC0 = PAL_SET_PC_0;                    // Cucco spell flash palettes
-PAL_SET_CUC1 = PAL_CUC1 + PAL_CUC2 + PAL_CUC3 + PAL_CUC5;  // Cucco palettes LIT
-PAL_SET_CUC2 = PAL_SET_PC_2;                    // Cucco palettes DARK
-
-PAL_SET_PC_A = PAL_SET_PC_1 + PAL_SET_PC_0 + PAL_SET_CUC1 + PAL_SET_CUC0; // RM LIT
-PAL_SET_PC_B = PAL_SET_PC_2 + PAL_SET_PC_0 + PAL_SET_CUC2 + PAL_SET_CUC0; // RM DARK
-
-PAL_SET2 = PAL_SET1 + PAL_SET_PC_A + PAL_DL_1;
-PAL_SET3 = PAL_SET1 + PAL_SET_PC_B + PAL_DL_1;
-
-
-
-            dl_pal_pc = ds_list_create();
-ds_list_add(dl_pal_pc, PAL_PC_1); // Tunic Green
-ds_list_add(dl_pal_pc, PAL_PC_2); // Tunic Red
-ds_list_add(dl_pal_pc, PAL_PC_3); // Tunic Lvl3
-ds_list_add(dl_pal_pc, PAL_PC_C); // Disguise
-//                                //
-ds_list_add(dl_pal_pc, PAL_PC_6); // Spell flash Dark
-ds_list_add(dl_pal_pc, PAL_PC_4); // Spell flash Light
-ds_list_add(dl_pal_pc, PAL_PC_5); // Spell flash Mid
-ds_list_add(dl_pal_pc, PAL_PC_4); // Spell flash Light
-//                                //
-ds_list_add(dl_pal_pc, PAL_CUC1); // Cucco Tunic Green
-ds_list_add(dl_pal_pc, PAL_CUC2); // Cucco Tunic Red
-ds_list_add(dl_pal_pc, PAL_CUC3); // Cucco Tunic Lvl3
-ds_list_add(dl_pal_pc, PAL_CUC5); // Disguise
-//                                //
-ds_list_add(dl_pal_pc, PAL_DL_1); // Darklonk
-//                                //
-// $0D-$0F.  Reserved for future possibilities
-//// $0B-$0F.  Reserved for future possibilities
-ds_list_add(dl_pal_pc, PAL_BASE); // 
-ds_list_add(dl_pal_pc, PAL_BASE); // 
-ds_list_add(dl_pal_pc, PAL_BASE); // 
-//ds_list_add(dl_pal_pc, PAL_BASE); // 
-//ds_list_add(dl_pal_pc, PAL_BASE); // 
-//                                //
-// $10-$19.  Dark rm pc pals
-ds_list_add(dl_pal_pc, PAL_PC_7); // Tunic Green
-ds_list_add(dl_pal_pc, PAL_PC_A); // Tunic Red
-ds_list_add(dl_pal_pc, PAL_PC_B); // Tunic Lvl3
-//                                //
-ds_list_add(dl_pal_pc, PAL_PC_6); // Spell flash Dark
-ds_list_add(dl_pal_pc, PAL_PC_4); // Spell flash Light
-ds_list_add(dl_pal_pc, PAL_PC_5); // Spell flash Mid
-ds_list_add(dl_pal_pc, PAL_PC_4); // Spell flash Light
-//                                //
-ds_list_add(dl_pal_pc, dl_pal_pc[|$10]); // Cucco Tunic Green
-ds_list_add(dl_pal_pc, dl_pal_pc[|$11]); // Cucco Tunic Red
-ds_list_add(dl_pal_pc, dl_pal_pc[|$12]); // Cucco Tunic Lvl3
-//                                //
-ds_list_add(dl_pal_pc, PAL_DL_1); // Darklonk
-//                                //
+//PAL_SET_PC_0 = PAL_PC_4 + PAL_PC_5 + PAL_PC_6;
 
 
 
 
-
-
-_ci1 = CI_BLK1_;
-//                                                      // 
-PAL_MOB_ORG1  = _ci1 + CI_WHT1_ + CI_ORG2_ + CI_RED3_; // orange     mob 
-//                                                      // 
-PAL_MOB_RED1  = _ci1 + CI_WHT1_ + CI_RED3_ + CI_ORG4_; // red        mob 
-PAL_MOB_RED2  = _ci1 + CI_RED1_ + CI_RED3_ + CI_ORG4_; // red        mob   NPC
-//                                                      // 
-PAL_MOB_BLU1  = _ci1 + CI_WHT1_ + CI_TEL2_ + CI_TEL4_; // blue       mob (non-dungeon)
-PAL_MOB_BLU2  = _ci1 + CI_WHT1_ + CI_BLU2_ + CI_BLU4_; // blue       mob (dungeon)
-//                                                      // 
-PAL_MOB_PUR1  = _ci1 + CI_WHT1_ + CI_PUR3_ + CI_PUR4_; // purple     mob 
-//                                                      // 
-//                                                      // 
-PAL_MENU_BLU1 = _ci1 + CI_WHT1_ + CI_BLU2_ + CI_VLT3_; // blue       menu 
-PAL_MENU_BLU2 = _ci1 + CI_WHT1_ + CI_BLU2_ + CI_BLU3_; // blue       menu 
-//                                                      // 
-//                                                      // 
-
-// 21 02
+// PC tunic palettes LIT + DARK
+_a = min(global.PI_PC1,global.PI_DISGUISE_PC);
+_b = max(global.PI_PC3,global.PI_DISGUISE_PC);
+PAL_SET_PC_1 = ""; // lit
+PAL_SET_PC_2 = ""; // dark
+for(_i=_a; _i<=_b; _i++)
+{
+    switch(_i){
+    case global.PI_PC1:        {PAL_SET_PC_1+=PAL_PC_1; PAL_SET_PC_2+=PAL_PC_7; break;}
+    case global.PI_PC2:        {PAL_SET_PC_1+=PAL_PC_2; PAL_SET_PC_2+=PAL_PC_A; break;}
+    case global.PI_PC3:        {PAL_SET_PC_1+=PAL_PC_3; PAL_SET_PC_2+=PAL_PC_B; break;}
+    case global.PI_DISGUISE_PC:{PAL_SET_PC_1+=PAL_PC_C; PAL_SET_PC_2+=PAL_PC_A; break;}
+    }
+}
+//PAL_SET_PC_1 = PAL_PC_1 + PAL_PC_2 + PAL_PC_3 + PAL_PC_C;  // Tunic palettes LIT
+//PAL_SET_PC_2 = PAL_PC_7 + PAL_PC_A + PAL_PC_B + PAL_PC_A;  // Tunic palettes DARK
 
 
 
 
+// Cucco palettes LIT + DARK
+_a = min(global.PI_CUCCO1,global.PI_DISGUISE_CUCCO);
+_b = max(global.PI_CUCCO3,global.PI_DISGUISE_CUCCO);
+PAL_SET_CUC1 = "";
+for(_i=_a; _i<=_b; _i++)
+{
+    switch(_i){
+    case global.PI_CUCCO1:        {PAL_SET_CUC1+=PAL_CUC1; break;}
+    case global.PI_CUCCO2:        {PAL_SET_CUC1+=PAL_CUC2; break;}
+    case global.PI_CUCCO3:        {PAL_SET_CUC1+=PAL_CUC3; break;}
+    case global.PI_DISGUISE_CUCCO:{PAL_SET_CUC1+=PAL_CUC5; break;}
+    }
+}
+//PAL_SET_CUC1 = PAL_CUC1 + PAL_CUC2 + PAL_CUC3 + PAL_CUC5;  // Cucco palettes scene LIT
+PAL_SET_CUC2 = PAL_SET_PC_2; // Cucco palettes scene DARK
 
 
-// ---------------------------------------------------------------------------
-_ci1 = CI_BLK1_;
-var _BGR00 = _ci1 + CI_BLK1_ + CI_BLK1_ + CI_BLK1_;
-var _BGR01 = _ci1 + CI_VLT3_ + CI_VLT4_ + CI_BLK1_; // Dark room pal 1a
-var _BGR02 = _ci1 + CI_VLT4_ + CI_BLK1_ + CI_BLK1_; // Dark room pal 1b
-var _BGR03 = _ci1 + CI_BLK1_ + CI_BLK1_ + CI_GRY4_; // Dark room pal 2a
-var _BGR04 = _ci1 + CI_TEL4_ + CI_BLK1_ + CI_BLK1_; // Dungeon, Dark full.
-var _BGR05 = _ci1 + CI_BLK1_ + CI_RED3_ + CI_BLK1_; // Dark rm liquid
-var _BGR06 = _ci1 + CI_VLT3_ + CI_BLU4_ + CI_BLK1_; // Dark room pal 1b
-var _BGR07 = _ci1 + CI_TEL4_ + CI_BLU4_ + CI_BLK1_; // Dungeon, Dark 1a.
-var _BGR08 = _ci1 + CI_BLU4_ + CI_BLK1_ + CI_BLK1_; // 
-var _BGR09 = _ci1 + CI_ORG2_ + CI_ORG4_ + CI_BLK1_; // Cave. 1 torch lit
-var _BGR0A = _ci1 + CI_GRY4_ + CI_BLK1_ + CI_GRY3_; // Dark rm 
-var _BGR0B = _ci1 + CI_VLT4_ + CI_BLK1_ + CI_BLK1_; // Dark rm liquid
 
-var _MOB00 = _ci1 + CI_BLK1_ + CI_BLK1_ + CI_BLK1_; // red & blue mob dark rm. 0 torch lit
-var _MOB01 = _ci1 + CI_ORG2_ + CI_BLK1_ + CI_BLK1_; // orange     mob dark rm. 1 torch lit
-var _MOB02 = _ci1 + CI_RED3_ + CI_BLK1_ + CI_BLK1_; // red        mob dark rm. 1 torch lit
-var _MOB03 = _ci1 + CI_BLU2_ + CI_BLK1_ + CI_BLK1_; // blue       mob dark rm. 1 torch lit
-var _MOB04 = _ci1 + CI_MGN3_ + CI_BLK1_ + CI_BLK1_; // purple     mob dark rm. 1 torch lit
-//var _MOB01 = _ci1 + CI_WHT1_ + CI_ORG2_ + CI_RED3_; // orange mob
+
+PAL_SET2 = PAL_BASE+PAL_SET_GUI + PAL_SET_PC_1+PAL_SET_PC_0 + PAL_SET_CUC1; // scene lit
+PAL_SET3 = PAL_BASE+PAL_SET_GUI + PAL_SET_PC_2+PAL_SET_PC_0 + PAL_SET_CUC2; // scene dark
+
 
 
 
@@ -1045,17 +1318,6 @@ var _RM_PAL_10 = PAL_SET3 + _BGR04+_BGR02+_BGR0B+_BGR02 + _PAL_GRP2; // 0 torch 
 var _RM_PAL_11 = PAL_SET3 + _BGR07+_BGR08+_BGR0B+_BGR02 + _PAL_GRP3; // 1 torch lit
 var _RM_PAL_12 = PAL_SET3 + _BGR04+_BGR02+_BGR00+_BGR02 + _PAL_GRP2; // 0 torch lit
 var _RM_PAL_13 = PAL_SET3 + _BGR07+_BGR08+_BGR0A+_BGR02 + _PAL_GRP3; // 1 torch lit
-/*
-// MOB solid black w/ 0 brightness,  MOB Highlights lit w/ 1 brightness
-// Cave
-var _RM_PAL_00 = PAL_SET3 + _BGR01+_BGR01+_BGR0B+_BGR00 + _PAL_GRP2; // 0 torch lit
-var _RM_PAL_01 = PAL_SET3 + _BGR09+_BGR09+_BGR0B+_BGR00 + _PAL_GRP3; // 1 torch lit
-// Dungeon
-var _RM_PAL_10 = PAL_SET3 + _BGR04+_BGR02+_BGR0B+_BGR00 + _PAL_GRP2; // 0 torch lit
-var _RM_PAL_11 = PAL_SET3 + _BGR07+_BGR08+_BGR0B+_BGR00 + _PAL_GRP3; // 1 torch lit
-var _RM_PAL_12 = PAL_SET3 + _BGR04+_BGR02+_BGR00+_BGR00 + _PAL_GRP2; // 0 torch lit
-var _RM_PAL_13 = PAL_SET3 + _BGR07+_BGR08+_BGR0A+_BGR00 + _PAL_GRP3; // 1 torch lit
-*/
 
 
 
@@ -1078,165 +1340,105 @@ for(_i=ds_grid_height(dg_pal_rm_dark)-1; _i>=0; _i--)
 
 
 
-/*
-PAL_SET_PC_0 = PAL_PC_4 + PAL_PC_5 + PAL_PC_6;  // Spell flash palettes
-PAL_SET_PC_1 = PAL_PC_1 + PAL_PC_2 + PAL_PC_3;  // Tunic palettes LIT
-PAL_SET_PC_2 = PAL_PC_7 + PAL_PC_A + PAL_PC_B;  // Tunic palettes DARK
 
-PAL_SET_CUC0 = PAL_SET_PC_0;                    // Cucco spell flash palettes
-PAL_SET_CUC1 = PAL_CUC1 + PAL_CUC2 + PAL_CUC1;  // Cucco palettes LIT
-PAL_SET_CUC2 = PAL_SET_PC_2;                    // Cucco palettes DARK
+var _SET1 = build_pal(C_RED3,C_GRY4,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _PAL1 = build_pal(C_WHT1,C_WHT1,C_WHT1,C_BLK1,-2,-2,-2,-2); // 
+var _PAL2 = build_pal(C_RED1,C_GRY1,C_PUR4,C_BLK1,-2,-2,-2,-2); // 
+var _PAL3 = PAL_MOB_ORG1; // 
+var _PAL4 = build_pal(C_WHT2,C_WHT1,C_ORG4,C_BLK1,-2,-2,-2,-2); // 
+var _PAL5 = build_pal(C_ORG2,C_ORG2,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _PAL6 = build_pal(C_RED2,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _PAL7 = build_pal(C_WHT1,C_RED3,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
+var _PAL8 = build_pal(C_WHT1,C_CYN2,C_BLK1,C_BLK1,-2,-2,-2,-2); // 
 
-PAL_SET_PC_A = PAL_SET_PC_1 + PAL_SET_PC_0 + PAL_SET_CUC1 + PAL_SET_CUC0; // RM LIT
-PAL_SET_PC_B = PAL_SET_PC_2 + PAL_SET_PC_0 + PAL_SET_CUC2 + PAL_SET_CUC0; // RM DARK
-*/
-
-
-
-
-
-// CI: Color Index
-_ci1 = CI_BLK1_;
-//_ci1 = 'FF'; // 'FF' means use bg color.. _i think?..
-var _SET1 = _ci1 + CI_RED3_ + CI_GRY4_ + CI_BLK1_;
-//var _SET1 = _ci1 + CI_RED3_ + CI_GRY4_ + CI_BLK1_;
-//var _SET1 = _ci1 + CI_GRY1_ + CI_GRY4_ + CI_BLK1_;
-
-
-//PAL_MOB_ORG1 PAL_MOB_RED1 PAL_MOB_BLU1 PAL_MOB_PUR1
-var _PAL1 = _ci1 + CI_WHT1_ + CI_WHT1_ + CI_WHT1_;
-var _PAL2 = _ci1 + CI_RED1_ + CI_GRY1_ + CI_PUR4_;
-var _PAL3 = PAL_MOB_ORG1;
-var _PAL4 = _ci1 + CI_WHT2_ + CI_WHT1_ + CI_ORG4_;
-//var _PAL3 = _ci1 + CI_WHT1_ + CI_ORG2_ + CI_RED3_;
 // File Select screen
-             _dk  = room_get_name(rmB_FileSelect);
-dm_pal_data[?_dk] = PAL_SET2 
-                  + _PAL4        + _PAL1        + _PAL1                           + _PAL2  // bgr
-                  + PAL_MOB_ORG1 + PAL_MOB_RED1 + _ci1+CI_ORG2_+CI_ORG2_+CI_BLK1_ + _PAL2; // mob
-//
-/*
-             _dk  = room_get_name(rmB_FileSelect);
-dm_pal_data[?_dk] = PAL_SET2 
-                  + _PAL1        + _PAL1        + _PAL1 + _PAL2                       // bgr
-                  + PAL_MOB_ORG1 + PAL_MOB_RED1 + _ci1 + CI_ORG2_ + CI_ORG2_ + CI_BLK1_ + _PAL2;     // mob
-*/
-/*
-//PAL_MOB_ORG1 PAL_MOB_RED1 PAL_MOB_BLU1 PAL_MOB_PUR1
-var _PAL1 = _ci1 + CI_WHT1_ + CI_WHT1_ + CI_WHT1_;
-var _PAL2 = _ci1+ '36'+CI_GRY1_+ '03';
-var _PAL3 = _ci1 + CI_WHT1_ + CI_ORG2_ + CI_RED3_;
-// File Select screen
-             _dk  = room_get_name(rmB_FileSelect);
-dm_pal_data[?_dk] = PAL_SET2 
-                  + _PAL1 + _PAL1 + _PAL1 + _PAL2                       // bgr
-                  + _PAL3 + _PAL1 + _ci1 + CI_ORG2_ + CI_ORG2_ + CI_BLK1_ + _PAL2;     // mob
-*/
+             _dk   = room_get_name(rmB_FileSelect);
+dm_pal_data[?_dk]  = PAL_SET2;
+dm_pal_data[?_dk] +=_PAL4         +_PAL1         + _PAL1 + _PAL2  // bgr
+dm_pal_data[?_dk] += PAL_MOB_ORG1 + PAL_MOB_RED2 + _PAL5 + _PAL2; // mob
 // Continue Save screen
-             _dk  = room_get_name(rmB_ContinueSave);
-dm_pal_data[?_dk] = PAL_SET2 
-                  + _ci1+CI_RED2_+CI_BLK1_+CI_BLK1_ + _PAL1 + _PAL1                           + _PAL2  // bgr
-                  + _PAL3 + _ci1+CI_WHT1_+CI_RED3_+CI_BLK1_ + _ci1+CI_WHT1_+CI_TEL2_+CI_BLK1_ + _PAL2; // mob
-//
-// '3C110D' + '302111' + '303621' + '302919' + 
-// '302800' + '302817' + '302716' + '30160D';
+             _dk   = room_get_name(rmB_ContinueSave);
+dm_pal_data[?_dk]  = PAL_SET2;
+dm_pal_data[?_dk] +=_PAL6 + _PAL1 + _PAL1 + _PAL2  // bgr
+dm_pal_data[?_dk] +=_PAL3 + _PAL7 + _PAL8 + _PAL2; // mob
 
-OW_PAL = PAL_SET2 
-       + CI_BLK1_ + CI_TEL1_ + CI_BLU3_ + CI_BLK1_  // BGR1
-       + CI_BLK1_ + CI_WHT1_ + CI_YGR2_ + CI_YGR3_  // BGR2
-       + CI_BLK1_ + CI_WHT1_ + CI_YLW2_ + CI_ORG3_  // BGR3
-       + CI_BLK1_ + CI_WHT1_ + CI_YLW2_ + CI_GRY3_  // BGR4
-       + PAL_MOB_ORG1               // MOB1
-       + PAL_MOB_RED1               // MOB2
-       + PAL_MOB_BLU2               // MOB3
-       + PAL_MOB_PUR1;              // MOB4
-//
-/*
-OW_PAL = build_pal(CI_BLK1_ + CI_TEL1_+ '11'+CI_BLK1_,  // BGR1
-                   CI_BLK1_ + CI_WHT1_+ '29'+ '19',  // BGR2
-                   CI_BLK1_ + CI_WHT1_+ '28'+ '17',  // BGR3
-                   CI_BLK1_ + CI_WHT1_+ '28'+CI_GRY3_,  // BGR4
-                   CI_BLK1_ + CI_WHT1_ + CI_ORG2_ + CI_RED3_,  // MOB1
-                   CI_BLK1_ + CI_WHT1_ + CI_RED3_ + CI_BLK1_,  // MOB2
-                   CI_BLK1_ + CI_WHT1_ + CI_BLU2_ + CI_VLT3_,  // MOB3
-                   CI_BLK1_ + CI_WHT1_+ '36'+CI_BLU2_); // MOB4
-*/
-/*  For reference:
-PAL_MOB_ORG1 = CI_BLK1_ + CI_WHT1_ + CI_ORG2_ + CI_RED3_; // orange     mob 
-//                                      // 
-PAL_MOB_RED1 = CI_BLK1_ + CI_WHT1_ + CI_RED3_ + CI_ORG4_; // red        mob 
-PAL_MOB_RED2 = CI_BLK1_ + CI_RED1_ + CI_RED3_ + CI_ORG4_; // red        mob   NPC
-//                                      // 
-PAL_MOB_BLU1 = CI_BLK1_ + CI_WHT1_ + CI_TEL2_ + CI_TEL4_; // blue       mob (non-dungeon)
-PAL_MOB_BLU2 = CI_BLK1_ + CI_WHT1_ + CI_BLU2_ + CI_BLU4_; // blue       mob (dungeon)
-//                                      // 
-PAL_MOB_PUR1 = CI_BLK1_ + CI_WHT1_ + CI_PUR3_ + CI_PUR4_; // purple     mob 
-*/
+OW_PAL  = PAL_SET2;
+OW_PAL += build_pal(C_CYN1,C_BLU3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BGR1
+OW_PAL += build_pal(C_WHT1,C_YGR2,C_YGR3,C_BLK1,-2,-2,-2,-2); // BGR2
+OW_PAL += build_pal(C_WHT1,C_YLW2,C_ORG3,C_BLK1,-2,-2,-2,-2); // BGR3
+OW_PAL += build_pal(C_WHT1,C_YLW2,C_GRY3,C_BLK1,-2,-2,-2,-2); // BGR4
+OW_PAL += PAL_MOB_ORG1; // MOB ORG
+OW_PAL += PAL_MOB_RED2; // MOB RED
+OW_PAL += PAL_MOB_BLU2; // MOB BLU
+OW_PAL += PAL_MOB_PUR1; // MOB PUR
 
 
-// The data for each palette of colors is a string consisting of 8 characters, which
-// are 4 sets of 2 characters, each set the string representation of an 8-bit
-// hex value which is the index of p.dl_COLOR and also the grid xy of a 
-// color on the color grid image
-// The 1st value is for GREEN, 2nd for WHITE, 3rd for RED, 4th for BLUE
-// The 1st value can be a code: 
-    // FF: use room bg color
+
+
+
+
+
+
 pal_rm_file = undefined; // from .json rm file
 pal_rm_def  = undefined;
 pal_rm_curr = "";
 pal_rm_new  = "";
 pal_rm_dark = undefined;
 pal_rm_dark_DEFAULT = dg_pal_rm_dark[#0,0];
-//dg_rm_pal = ds_grid_create(P_SPR_W,4);
-                     _a=0;
-dg_rm_pal_IDX_FILE = _a++;
-dg_rm_pal_IDX_DFLT = _a++;
-dg_rm_pal_IDX_CURR = _a++;
-dg_rm_pal_IDX_NEW  = _a++;
-//dg_rm_pal_IDX_DARK  = _a++;
-//dg_rm_pal_IDX_DARK_DFLT  = _a++;
-dg_rm_pal   = ds_grid_create(_a,global.palette_image_W);
-ds_grid_clear(dg_rm_pal, -1);
-dg_rm_pal_W = ds_grid_width(dg_rm_pal);
-
-
 
 // pal_rm_DEFAULT: In case pal data for a rm cannot be located.
-pal_rm_DEFAULT  = PAL_SET2;
-pal_rm_DEFAULT += string_repeat(_SET1, BGR_PAL_COUNT);
-pal_rm_DEFAULT += string_repeat(_SET1, MOB_PAL_COUNT);
-//pal_rm_DEFAULT += PAL_DL_1;
+pal_rm_DEFAULT = "";
+for(_i=0; _i<PAL_PER_SET; _i++)
+{
+    switch(_i){
+    default:                      {pal_rm_DEFAULT+=PAL_BASE; break;}
+    case global.PI_BASE:          {pal_rm_DEFAULT+=PAL_BASE; break;}
+    case global.PI_GUI1:          {pal_rm_DEFAULT+=PAL_GUI1; break;}
+    case global.PI_GUI2:          {pal_rm_DEFAULT+=PAL_GUI2; break;}
+    case global.PI_GUI3:          {pal_rm_DEFAULT+=PAL_GUI3; break;}
+    case global.PI_GUI4:          {pal_rm_DEFAULT+=PAL_GUI4; break;}
+    case global.PI_PC1:           {pal_rm_DEFAULT+=PAL_PC_1; break;}
+    case global.PI_PC2:           {pal_rm_DEFAULT+=PAL_PC_2; break;}
+    case global.PI_PC3:           {pal_rm_DEFAULT+=PAL_PC_3; break;}
+    case global.PI_DISGUISE_PC:   {pal_rm_DEFAULT+=PAL_PC_C; break;}
+    case global.PI_SPELL_PC1:     {pal_rm_DEFAULT+=PAL_PC_4; break;}
+    case global.PI_SPELL_PC2:     {pal_rm_DEFAULT+=PAL_PC_5; break;}
+    case global.PI_SPELL_PC3:     {pal_rm_DEFAULT+=PAL_PC_6; break;}
+    case global.PI_CUCCO1:        {pal_rm_DEFAULT+=PAL_CUC1; break;}
+    case global.PI_CUCCO2:        {pal_rm_DEFAULT+=PAL_CUC2; break;}
+    case global.PI_CUCCO3:        {pal_rm_DEFAULT+=PAL_CUC3; break;}
+    case global.PI_DISGUISE_CUCCO:{pal_rm_DEFAULT+=PAL_CUC5; break;}
+    case global.PI_BGR1:          {pal_rm_DEFAULT+=_SET1; break;}
+    case global.PI_BGR2:          {pal_rm_DEFAULT+=_SET1; break;}
+    case global.PI_BGR3:          {pal_rm_DEFAULT+=_SET1; break;}
+    case global.PI_BGR4:          {pal_rm_DEFAULT+=_SET1; break;}
+    case global.PI_BGR5:          {pal_rm_DEFAULT+=_SET1; break;}
+    case global.PI_MOB_ORG:       {pal_rm_DEFAULT+=_SET1; break;}
+    case global.PI_MOB_RED:       {pal_rm_DEFAULT+=_SET1; break;}
+    case global.PI_MOB_BLU:       {pal_rm_DEFAULT+=_SET1; break;}
+    case global.PI_MOB_PUR:       {pal_rm_DEFAULT+=_SET1; break;}
+    case global.PI_MOB_A:         {pal_rm_DEFAULT+=_SET1; break;}
+    }
+}
 pal_rm_DEFAULT += pal_rm_dark_DEFAULT;
-/*
-pal_rm_DEFAULT  = PAL_SET1 + string_repeat(_SET1, BGR_PAL_COUNT);
-pal_rm_DEFAULT += PAL_PC_1 + string_repeat(_SET1, MOB_PAL_COUNT);
-pal_rm_DEFAULT  = build_pal(_SET1,_SET1,_SET1,_SET1, _SET1,_SET1,_SET1,_SET1);
-pal_rm_DEFAULT += pal_rm_dark_DEFAULT;
-*/
-
-
-dg_pal_seq = ds_grid_create(4,4);
-ds_grid_clear(dg_pal_seq, _SET1);
-            _a=1;
-dg_pal_seq[#_a,$0] = CI_GRN0_ + CI_RED1_ + CI_RED3_ + CI_ORG4_; // 
-dg_pal_seq[#_a,$1] = CI_GRN0_ + CI_RED2_ + CI_RED3_ + CI_ORG4_; // 
-dg_pal_seq[#_a,$2] = CI_GRN0_ + CI_RED3_ + CI_RED4_ + CI_BLK1_; // 
-dg_pal_seq[#_a,$3] = CI_GRN0_ + CI_RED4_ + CI_BLK1_ + CI_BLK1_; // 
-pal_seq_idx2       = 0;
 
 
 
 
 
 
+dg_pal_seq = ds_grid_create(0,4);
 
+// triforce flashing
+_idx = ds_grid_width(dg_pal_seq)-1;
+ds_grid_resize(dg_pal_seq, (++_idx)+1,ds_grid_height(dg_pal_seq));
+dg_pal_seq[#_idx,0] = build_pal(C_WHT1,C_ORG3,C_WHT1,C_BLK1,-2,-2,-2,-2); // 
+dg_pal_seq[#_idx,1] = build_pal(C_WHT1,C_ORG2,C_WHT1,C_BLK1,-2,-2,-2,-2); // 
+dg_pal_seq[#_idx,2] = build_pal(C_WHT1,C_ORG1,C_WHT1,C_BLK1,-2,-2,-2,-2); // 
+dg_pal_seq[#_idx,3] = build_pal(C_WHT1,C_ORG1,C_WHT1,C_BLK1,-2,-2,-2,-2); // 
 
+pal_seq_idx2 = 0;
 
-
-//_pal1   = CI_GRN0_ + CI_WHT1_ + CI_WHT2_ + CI_BLK1_;
-//_pal2   = CI_GRN0_ + CI_WHT1_ + CI_WHT2_ + CI_BLK1_;
-
-//build_pal(
 
 
 
@@ -1247,90 +1449,40 @@ pal_seq_idx2       = 0;
 
 // ---------------------------------------------------------------------------
 // Palette index sequences
+_datakey1 = STR_Palette+STR_Index;
 dg_PI_SEQ = ds_grid_create($10,$04);
 ds_grid_clear(dg_PI_SEQ, PI_ERR0);
 //                                      //
 // $00: PC stun
-dg_PI_SEQ[#$00,0] = PI_PC_1;
-dg_PI_SEQ[#$00,1] = PI_MOB_ORG;
-dg_PI_SEQ[#$00,2] = PI_MOB_RED;
-dg_PI_SEQ[#$00,3] = PI_MOB_BLU;
+dg_PI_SEQ[#$00,0] = global.PI_PC1;
+dg_PI_SEQ[#$00,1] = global.PI_MOB_ORG;
+dg_PI_SEQ[#$00,2] = global.PI_MOB_RED;
+dg_PI_SEQ[#$00,3] = global.PI_MOB_BLU;
+//                                      //
+// $01: Cucco stun. These will be given permuts in PC_Room_Start()
+dg_PI_SEQ[#$01,0] = global.PI_CUCCO1;
+dg_PI_SEQ[#$01,1] = dg_PI_SEQ[#$00,1];
+dg_PI_SEQ[#$01,2] = dg_PI_SEQ[#$00,2];
+dg_PI_SEQ[#$01,3] = dg_PI_SEQ[#$00,3];
 //                                      //
 // $04: PC spell flash
-dg_PI_SEQ[#$04,0] = PI_PC_2+2; // Dark
-dg_PI_SEQ[#$04,1] = PI_PC_2+0; // Light
-dg_PI_SEQ[#$04,2] = PI_PC_2+1; // Mid
-dg_PI_SEQ[#$04,3] = PI_PC_2+0; // Light
+dg_PI_SEQ[#$04,0] = global.PI_SPELL_PC3; // Dark
+dg_PI_SEQ[#$04,1] = global.PI_SPELL_PC1; // Light
+dg_PI_SEQ[#$04,2] = global.PI_SPELL_PC2; // Mid
+dg_PI_SEQ[#$04,3] = global.PI_SPELL_PC1; // Light
+//                                      //
+// $05: Cucco spell flash. These will be given permuts in PC_Room_Start()
+dg_PI_SEQ[#$05,0] = dg_PI_SEQ[#$04,0]; // Dark
+dg_PI_SEQ[#$05,1] = dg_PI_SEQ[#$04,1]; // Light
+dg_PI_SEQ[#$05,2] = dg_PI_SEQ[#$04,2]; // Mid
+dg_PI_SEQ[#$05,3] = dg_PI_SEQ[#$04,3]; // Light
 //                                      //
 // $08: Barrier
-dg_PI_SEQ[#$08,0] = PI_GUI_1   + PI_DRK1; // GUI pal, but
-dg_PI_SEQ[#$08,1] = PI_MOB_PUR + PI_DRK1;
-//dg_PI_SEQ[#$08,0] = PI_DRK1 + 1; // GUI pal, but
-//dg_PI_SEQ[#$08,1] = PI_DRK1 + PI_MOB_PUR;
+dg_PI_SEQ[#$08,0] = global.PI_GUI1    + PI_DRK1;
+dg_PI_SEQ[#$08,1] = global.PI_MOB_PUR + PI_DRK1;
 dg_PI_SEQ[#$08,2] = dg_PI_SEQ[#$08,0];
 dg_PI_SEQ[#$08,3] = dg_PI_SEQ[#$08,1];
 //                                      //
-//                                      //
-
-
-
-dl_PI_MOB     = ds_list_create();
-dl_PI_MOB[|4] = PI_MOB_PUR;
-dl_PI_MOB[|3] = PI_MOB_BLU;
-dl_PI_MOB[|2] = PI_MOB_RED;
-dl_PI_MOB[|1] = PI_MOB_ORG;
-dl_PI_MOB[|0] = PI_PC_1;
-
-
-
-
-/*
-// var _STATE  = val(dm[?_datakey+STR_State])
-var    _PHASE  = val(dm[?_datakey2]);
-switch(_PHASE){
-    // -------------------------------------------------------------------------------
-    // ---------------------------------------------------------------------
-    case 1:{break;}
-    // -------------------------------------------------------------------------------
-    // ---------------------------------------------------------------------
-    case 2:{break;}
-    // -------------------------------------------------------------------------------
-    // ---------------------------------------------------------------------
-    case 3:{break;}
-}
-*/
-
-
-/*
-// ** Only 1 inst of an object can be active at once.
-var _seq_num, _phase;
-var _DUR1 = $20; // $20: about .5s
-_dk = STR_Palette+STR_Sequence;
-
-
-// -------------------------------------------------------------------------------
-// SEQUENCE 1.  Lightning flash.----------------------------------------
-    _seq_num    = $01;
-    _datakey    = _dk+hex_str(_seq_num); // Sequence obj
-    _datakey2   = _datakey+STR_Phase;
-dm[?_datakey2]  = $00; // Set this sequence's current phase = 0. This indicates the sequence is inactive.
-
-
-    // -------------------------------------------------------------------------------
-    // ---------------------------------------------------------------------
-                                _phase=$01;
-    _datakey3=_datakey2+hex_str(_phase);
-dm[?_datakey3+STR_Duration]     = _DUR1;
-
-    // ------------------------------------------------------
-    _datakey4=_datakey3+STR_Data;
-                                  _count=val(dm[?_datakey4+STR_Count])+1;
-dm[?_datakey4+STR_Count]        = _count;
-
-    _datakey5=_datakey4+hex_str(  _count);
-dm[?_datakey5]                  = CI_GRN0_ + CI_WHT1_ + CI_WHT2_ + CI_BLK1_;
-dm[?_datakey5+STR_Length]       = string_length(val(dm[?_datakey5], _SET1));
-dm[?_datakey5+STR_Position]     = PAL_POS_BGR1;
 
 
 
@@ -1339,8 +1491,51 @@ dm[?_datakey5+STR_Position]     = PAL_POS_BGR1;
 
 
 
-//dm[?_datakey5] = CI_GRN0_ + CI_WHT1_ + CI_ORG1_ + CI_BLK1_;
-*/
+
+
+// FALLING SCENE  ----------------------------------
+FallScene_CLM_COUNT    = 3;
+FallScene_ROW_H        = 8;
+
+FallScene_ROW_GROUP_H  = FallScene_ROW_H * FallScene_CLM_COUNT;
+//FallScene_ROW_GROUP_CNT  =      BASE_GAME_RESOLUTION_H div FallScene_ROW_GROUP_H;
+//FallScene_ROW_GROUP_CNT += sign(BASE_GAME_RESOLUTION_H mod FallScene_ROW_GROUP_H);
+
+
+fall_scene_type        = 0; // current type of active fall scene
+fall_scene_1_spr       = 0; // created on first frame of app start.
+fall_scene_2_spr       = 0; // created on first frame of app start.
+fall_scene_1_spr_1     = 0; // created on first frame of app start.
+fall_scene_2_spr_1     = 0; // created on first frame of app start.
+fall_scene_spr         = 0; // spr for active fall scene
+
+fall_scene_counter     = 0;
+
+FallScene_FALL_SPD_DEF = 2; // OG 2
+FallScene_1_FALL_SPD   = FallScene_FALL_SPD_DEF;
+FallScene_2_FALL_SPD   = round(FallScene_1_FALL_SPD + (FallScene_1_FALL_SPD * (viewH()/viewW())));
+fall_scene_fall_spd    = FallScene_1_FALL_SPD; // pixels per frame speed
+
+FallScene_Y_BASE       = $20; // OG $10
+fall_scene_y           = 0;
+
+FallScene_X_BASE       = (viewW_()-viewH_()) + FallScene_Y_BASE;
+FallScene_X_BASE      -= $06<<3;
+fall_scene_x           = 0;
+
+fall_scene_pal_state   = 0; // 0484
+fall_scene_pal_set     = 0; // grid idx of dg_FS_PI
+FallScene_PI_BASE      = global.PI_BGR1;
+
+fall_scene_1_pal = build_pal(C_CYN3,C_CYN4,C_CYN2,C_BLK1,-2,-2,-2,-2);
+fall_scene_2_pal = build_pal(C_RED3,C_RED4,C_RED2,C_BLK1,-2,-2,-2,-2);
+//fall_scene_1_pal = $1C0C2C;
+//fall_scene_2_pal = $160626;
+fall_scene_pal = fall_scene_1_pal; // pal for active fall scene
+
+
+// Colors for FallScene backgrounds
+dg_FallScene_PI = ds_grid_create(0,FallScene_CLM_COUNT);
 
 
 
@@ -1352,11 +1547,15 @@ dm[?_datakey5+STR_Position]     = PAL_POS_BGR1;
 
 
 
-var _file, _data;
+
+
+
+
+
 var _layer_name="";
-var _tsrc;
-var _CLM_SHIFT=5;
-var _ROW_SHIFT=3;
+var _tile_was_found, _tsrc;
+var _CLM_SHIFT = 5; // 32. Palette groups are aligned to left edge of each scene section/map-page
+var _ROW_SHIFT = 3; // 08. A palette group every 8 rows
 
 var _dm_data=ds_map_create();
 var _dm_layers;
@@ -1420,32 +1619,57 @@ for(_i=1; _i<=_COUNT0; _i++)
         
         for(_k=0; _k<($1<<_CLM_SHIFT); _k++) // each palette(_k) of the palette_group(_j)
         {
-            _palette  = "";
+            _c_wht = C_WHT0;
+            _c_red = C_RED0;
+            _c_blu = C_BLU0;
+            _c_grn = C_GRN0;
+            _c_ylw = C_YLW0;
+            _c_mgn = C_MGN0;
+            _c_blk = C_BLK0;
+            _c_cyn = C_CYN0;
+            _palette = "";
+            _color = "";
+            _tile_was_found = false;
+            
             _clm = _clm0+_k;
-            for(_m=0; _m<COL_PER_PAL; _m++) // each color(_m) of the palette(_k)
+            for(_m=1; _m<4; _m++) // each color(_m) of the palette(_k). Note that the 1st color is skipped because Tile file is in old palette format.
             {
+                _base_color_char = string_char_at(global.PAL_BASE_COLOR_ORDER,_m);
                 _row = _row0+_m;
                 
                     _idx  = (_row*_CLMS) + _clm;
                     _tsrc = _dl_tiles[|_idx];
                 if (_tsrc!=0) // 0 means no tile here
                 {
-                    _tsrc--; // Because Tiled adds 1
+                    _tile_was_found = true;
+                    _tsrc--; // because Tiled adds 1
                     _tsrc  = abs(_tsrc&$3FFFFFFF); // just incase x or y flipped
                     _tsrc &= $FF;
-                    
-                    _palette += hex_str(_tsrc);
+                    _color = color_str(dl_COLOR[|_tsrc]);
                 }
                 else
                 {
-                    _palette  = "";
                     _k=_CLMS*_ROWS; // move on to next palette_group(_j)
                     break;//_m
                 }
+                
+                switch(_base_color_char){
+                case "W":{_c_wht=_color; break;}
+                case "R":{_c_red=_color; break;}
+                case "B":{_c_blu=_color; break;}
+                case "G":{_c_grn=_color; break;}
+                case "Y":{_c_ylw=_color; break;}
+                case "M":{_c_mgn=_color; break;}
+                case "K":{_c_blk=_color; break;}
+                case "C":{_c_cyn=_color; break;}
+                }
             }
             
-            if (string_length(_palette))
+            if (_tile_was_found)
             {
+                _palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_wht,_c_red,_c_blu,_c_cyn);
+                //_palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_ylw,_c_mgn,_c_blk,_c_cyn);
+                
                 switch(_i){
                 case 1:{ds_list_add(dl_various_pals1,_palette); break;}
                 case 2:{ds_list_add(dl_various_pals2,_palette); break;}
@@ -1467,13 +1691,13 @@ ds_map_destroy(_dm_data); _dm_data=undefined;
 // This adds a bunch of extra palettes with a black mid-tone.
 if (0) // *** Turning this off because rando seems to be picking them too often
 {
-    var _dl=ds_list_create();
+    ds_list_clear(_dl);
     
     var _dl_COLORS1=ds_list_create();
-    ds_list_add(_dl_COLORS1, CI_BLK1_,CI_GRY4_,CI_TEL4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,CI_ORG4_,CI_BLU4_,CI_VLT4_);
+    ds_list_add(_dl_COLORS1, CI_BLK1_,CI_GRY4_,CI_CYN4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,CI_ORG4_,CI_BLU4_,CI_VLT4_);
     
     var _dl_COLORS2=ds_list_create();
-    ds_list_add(_dl_COLORS2, CI_BLK1_,CI_GRY4_,CI_TEL4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,         CI_BLU4_,CI_VLT4_);
+    ds_list_add(_dl_COLORS2, CI_BLK1_,CI_GRY4_,CI_CYN4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,         CI_BLU4_,CI_VLT4_);
     
     for(_i=0; _i<=1; _i++)
     {
@@ -1512,7 +1736,7 @@ if (0) // *** Turning this off because rando seems to be picking them too often
                 
                 case 1:{//====================================================
                 var _colors, _pal;
-                var _COLORS = CI_BLK1_ + CI_GRY4_ + CI_TEL4_ + CI_GRB4_ + CI_YGR4_ + CI_YLW4_ + CI_BLU4_ + CI_VLT4_; // darkest colors
+                var _COLORS = CI_BLK1_ + CI_GRY4_ + CI_CYN4_ + CI_GRB4_ + CI_YGR4_ + CI_YLW4_ + CI_BLU4_ + CI_VLT4_; // darkest colors
                 var         _dl_PALS=ds_list_create();
                 ds_list_add(_dl_PALS, _val1,_val2,_val3);
                 
@@ -1538,7 +1762,6 @@ if (0) // *** Turning this off because rando seems to be picking them too often
             }//switch(_i)
         }
     }
-    ds_list_destroy(_dl); _dl=undefined;
     ds_list_destroy(_dl_COLORS1); _dl_COLORS1=undefined;
     ds_list_destroy(_dl_COLORS2); _dl_COLORS2=undefined;
 }
@@ -1549,14 +1772,31 @@ if (0) // *** Turning this off because rando seems to be picking them too often
 
 
 
-instance_create(0,0, Dev_PalettePicker);
-//if (DEV) instance_create(0,0, Dev_PalettePicker);
-
 
 // Record palettes in each scene's Tiled file into dm_scene_palette 
 // so it's quicker to get palette data.
 p_init_palette_data();
-//dev_automate_palette_data();
+//dev_automate_palette_data2(); // automates code for p_init_palette_data2()
+
+
+//dev_list_tile_liquid_layers();
+
+
+
+
+instance_create(0,0, PaletteEditor);
+
+
+
+
+shader_set(shd_pal_swapper);
+shader_set_uniform_f(shader_get_uniform(shd_pal_swapper,"ALPHA0_COLOR"), ((global.C_ALPHA0>>$10)&$FF)/$FF, ((global.C_ALPHA0>>$08)&$FF)/$FF, ((global.C_ALPHA0>>$00)&$FF)/$FF);
+shader_reset();
+
+
+
+
+ds_list_destroy(_dl); _dl=undefined;
 
 
 

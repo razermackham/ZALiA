@@ -12,7 +12,7 @@ else
 {
     if (Boss_can_draw)
     {
-        draw_pc_skin(Boss_x+4,Boss_y, 1,1, g.pc.behavior_DAMAGE, false, 1,1, Boss_pi,Boss_pi);
+        draw_pc_skin(Boss_x+4,Boss_y, 1,1, g.pc.behavior_DAMAGE, false, 1,1, Boss_pi);
     }
     
     if (Blood_can_draw)
@@ -21,7 +21,7 @@ else
         draw_sprite_(spr_1x1_WHT,0, Blood_x,  Blood_yt, -1, 1,Blood_h,   Blood_COLOR);
     }
     
-    pal_swap_set(p.palette_image, PI_MOB_RED);
+    pal_swap_set(global.palette_image, global.PI_MOB_RED);
     if (BottleLiquid_level)
     {
         draw_sprite_part(BottleLiquid_SPR,0,  0,$10-(BottleLiquid_level+1),  8,BottleLiquid_level,  Bottle_x-4,Bottle_y+$8-(BottleLiquid_level+1));

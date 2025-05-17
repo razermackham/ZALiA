@@ -35,7 +35,7 @@ InputBack_pressed    = input_b_pressed || keyboard_check_pressed(vk_escape) || k
 if (state==State_NULL 
 &&  g.counter1==cue_change_state )
 {
-    state       = state_pending;
+    state = state_pending;
     cursor_name = 0;
     cursor_char = 0;
     cue_change_state = -1;
@@ -49,27 +49,21 @@ if (state==State_NULL
     FileSelect_cursor_move(state,1);
     
     
-    if (state_previous != State_RANDO 
-    &&  state_pending  != State_RANDO )
+    if (state_previous!=State_RANDO 
+    &&  state_pending !=State_RANDO )
     { // In case of a scenario where changing/creating a save file name was not finalized
         for(_i=0; _i<SAVE_FILE_MAX; _i++)
         {
-            f.ar_save_names[_i] = get_saved_value(_i+1, f.SDNAME_save_name, SAVE_NAME_NULL);
+            f.dl_save_names[|_i] = get_saved_value(_i+1, f.SDNAME_save_name, SAVE_NAME_NULL);
         }
     }
     
     
     
-    if (state==State_MAIN) FS_set_stats();
-    /*
-    switch(state){
-    default:{sprite_index=0; break;}
-    case   State_MAIN:     {sprite_index=SPR_MAIN; break;}
-    case   State_REGISTER: {sprite_index=SPR_REGI; break;}
-    //case   State_RANDO:    {sprite_index=SPR_RAND; break;}
-    case   State_ELIMINATE:{sprite_index=SPR_ELIM; break;}
+    if (state==State_MAIN)
+    {
+        FS_set_stats();
     }
-    */
     
     if (state!=State_REGISTER 
     &&  state!=State_RANDO )
@@ -142,8 +136,8 @@ if (save_num_selected
     if(!val(f.dm_quests[?_datakey]))
     {   // Everytime a save file is loaded, this will be done 
         // until the user saves their progress.
-            f.dm_quests[?_datakey] = 1;
-        //
+        f.dm_quests[?_datakey] = 1;
+        
         var              _dl_order=ds_list_create();
         if (f.quest_num==1)
         {    ds_list_add(_dl_order, $2,$6,$9,$9,$A,$B,$B,  $4,$5,$8);  } // difficulty 1,2
@@ -159,7 +153,7 @@ if (save_num_selected
         }
         f.dm_quests[?_DATAKEY1+STR_Reset] = _order;
         f.dm_quests[?_DATAKEY1]           = _order;
-        ds_list_destroy(_dl_order);_dl_order=undefined;
+        ds_list_destroy(_dl_order); _dl_order=undefined;
     }
     
     
@@ -190,7 +184,7 @@ if (covered
 &&  g.counter1==cue_cover_stop )
 {
     covered = false;
-    cue_cover_stop  = -1;
+    cue_cover_stop = -1;
 }
 
 
@@ -213,7 +207,7 @@ if(!covered
         // ------------------------------------------------------------------------
         case State_MAIN:{  // FILE SELECT
         FileSelect_Main_update();
-        break;}
+        break;}//case State_MAIN
         
         
         
@@ -222,7 +216,7 @@ if(!covered
         // ------------------------------------------------------------------------
         case State_REGISTER:{  // REGISTER YOUR NAME
         FileSelect_Register_update();
-        break;}
+        break;}//case State_REGISTER
         
         
         
@@ -231,15 +225,15 @@ if(!covered
         // ------------------------------------------------------------------------
         case State_RANDO:{  // RANDO
         switch(RandoState){
-        case RandoState_MAIN:   {FileSelect_RandoStateMAIN_update();    break;}
-        case RandoState_ITEM:   {FileSelect_RandoStateITEM_update();    break;}
-        case RandoState_SPELL:  {FileSelect_RandoStateSPELL_update();   break;}
-        case RandoState_DUNGEON:{FileSelect_RandoStateDUNGEON_update(); break;}
-        case RandoState_ENEMY:  {FileSelect_RandoStateENEMY_update();   break;}
-        case RandoState_OTHER:  {FileSelect_RandoStateOTHER_update();   break;}
-        case RandoState_SEED:   {FileSelect_RandoStateSEED_update();    break;}
+        case   RandoState_MAIN:   {FileSelect_RandoStateMAIN_update();    break;}
+        case   RandoState_ITEM:   {FileSelect_RandoStateITEM_update();    break;}
+        case   RandoState_SPELL:  {FileSelect_RandoStateSPELL_update();   break;}
+        case   RandoState_DUNGEON:{FileSelect_RandoStateDUNGEON_update(); break;}
+        case   RandoState_ENEMY:  {FileSelect_RandoStateENEMY_update();   break;}
+        case   RandoState_OTHER:  {FileSelect_RandoStateOTHER_update();   break;}
+        case   RandoState_SEED:   {FileSelect_RandoStateSEED_update();    break;}
         }
-        break;}
+        break;}//case State_RANDO
         
         
         
@@ -248,8 +242,8 @@ if(!covered
         // ------------------------------------------------------------------------
         case State_ELIMINATE:{  // ELIMINATION MODE
         FileSelect_Eliminate_update();
-        break;}
-    }
+        break;}//case State_ELIMINATE
+    }//switch(state)
 }
 
 
@@ -276,8 +270,8 @@ if (state)
     
     var                   _CURSOR=0;
     switch(state){
-    case State_MAIN:{     _CURSOR=Main_cursor; break;}
-    case State_REGISTER:{ _CURSOR=Register_cursor; break;}
+    case State_MAIN:{     _CURSOR=Main_cursor;      break;}
+    case State_REGISTER:{ _CURSOR=Register_cursor;  break;}
     //case State_RANDO:{    _CURSOR=Rando_cursor; break;}
     case State_ELIMINATE:{_CURSOR=Eliminate_cursor; break;}
     }//switch(state)

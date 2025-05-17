@@ -1118,7 +1118,7 @@ row4=row3+$01; y4=row4<<3;
 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $5A<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
-var _PI1 = PI_MOB_BLU; // For spinning spike trap to contrast w/ red walls of palace 3
+var _PI1 = global.PI_MOB_BLU; // For spinning spike trap to contrast w/ red walls of palace 3
 y3=(row0+$13)<<3; y4=(row0+$15)<<3;                   _a=0;
 data_spin_trap(SpTrC,1,  $50<<3,y4,  _PI1,  7,  1,5, (_a++)*90); // SpTrC: spins on chain
 data_spin_trap(SpTrC,1,  $40<<3,y3,  _PI1,  6, -1,3, (_a++)*90); // SpTrC: spins on chain

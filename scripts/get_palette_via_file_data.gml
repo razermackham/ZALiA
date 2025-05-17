@@ -2,7 +2,7 @@
 
 
 var _i, _val;
-var _palette = undefined;
+var _palette1 = undefined;
 
                        _i=-1;
 var _data = argument[++_i]; // pass 0 to have this open the file for the data
@@ -21,7 +21,7 @@ if(!is_string(_data))
     _data = rm_get_file_data(_SCENE_NAME, _QUEST_NUM);
     if (is_undefined(_data))
     {
-        return _palette;
+        return _palette1;
     }
 }
 
@@ -30,16 +30,20 @@ var _dm_FILE = json_decode(_data);
 
 
 
+var _palette2 = undefined;
+
 var _dl_layer = _dm_FILE[?"layers"];
 if(!is_undefined(_dl_layer))
 {
-    var _i,_j,_k, _idx, _count;
+    var _i,_j,_k, _idx, _count,_count1,_count2;
     var _clms;
     var _tsrc = 0;
-    var _layer_name;
     var _data_system_ver = 3;
+    var _layer_name;
     var _LAYER_COUNT = ds_list_size(_dl_layer);
     var _dm_layer;
+    var _pal1, _color, _base_color_char;
+    var _c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn;
     
     
     
@@ -75,45 +79,79 @@ if(!is_undefined(_dl_layer))
                 _idx  = 0;
                 _tsrc = 0;
                 
-                _palette = "";
+                _palette1 = "";
+                _palette2 = "";
                 
-                if (_data_system_ver==3) _count = $0B;
-                else                     _count = p.BGR_PAL_COUNT + p.MOB_PAL_COUNT;
-                
+                _count = val(global.dm_pi[?"BGR"+STR_Count]);
                 for(_j=0; _j<_count; _j++) // each palette (clm)
                 {
-                    if (_data_system_ver==3)
-                    {
-                        if (_j==0   // base colors
-                        ||  _j==1   // menu colors
-                        ||  _j==6 ) // pc colors
-                        {
-                            continue;//_j
-                        }
-                    }
+                    _c_wht = p.C_WHT0;
+                    _c_red = p.C_RED0;
+                    _c_blu = p.C_BLU0;
+                    _c_grn = p.C_GRN0;
+                    _c_ylw = p.C_YLW0;
+                    _c_mgn = p.C_MGN0;
+                    _c_blk = p.C_BLK0;
+                    _c_cyn = p.C_CYN0;
                     
-                    for(_k=0; _k<COL_PER_PAL; _k++) // each color (row)
+                    for(_k=0; _k<global.COLORS_PER_PALETTE; _k++) // each color (row)
                     {
-                            _idx  = (_k*_clms) + _j;
-                            _tsrc = _dl_tile[|_idx];
+                        _base_color_char = string_char_at(global.PAL_BASE_COLOR_ORDER,_k+1);
+                        
+                        _idx = (_clms*_k) + _j;
+                        _idx++; // +1 to skip base color column
+                        if (_data_system_ver<4)
+                        {
+                            _idx++; // +1 to skip gui colors column
+                            _idx += _clms; // first row is GRN0 and is always black
+                        }
+                        
+                        _tsrc = _dl_tile[|_idx];
                         if (_tsrc!=0) // 0 means no tile here
                         {
                             _tsrc--;
                             _tsrc  = abs(_tsrc&$3FFFFFFF); // just incase x or y flipped
                             _tsrc &= $FF;
-                            _palette += hex_str(_tsrc);
+                            if (string_pos("palette v2",_layer_name))
+                            {
+                                _idx  = (_tsrc>>4)&$F;
+                                _idx *= p.ColorGrid_CLMS;
+                                _idx += _tsrc&$F;
+                                _color = color_str(global.dl_COLOR01[|_idx]);
+                            }
+                            else
+                            {
+                                _color = color_str(p.dl_COLOR[|_tsrc]);
+                            }
                         }
                         else
                         {
-                            _palette += p.CI_ERR0_;
+                            if (_base_color_char=="G") _color = p.C_BLK1;
+                            else                       _color = get_pal_color(p.PAL_BASE,0,_base_color_char);
+                        }
+                        
+                        switch(_base_color_char){
+                        case "W":{_c_wht=_color; break;}
+                        case "R":{_c_red=_color; break;}
+                        case "B":{_c_blu=_color; break;}
+                        case "G":{_c_grn=_color; break;}
+                        case "Y":{_c_ylw=_color; break;}
+                        case "M":{_c_mgn=_color; break;}
+                        case "K":{_c_blk=_color; break;}
+                        case "C":{_c_cyn=_color; break;}
                         }
                     }
+                    
+                    //sdm("_c_wht "+color_str(_c_wht)+", _c_red "+color_str(_c_red)+", _c_blu "+color_str(_c_blu)+", _c_grn "+color_str(_c_grn)+", _c_ylw "+color_str(_c_ylw)+", _c_mgn "+color_str(_c_mgn)+", _c_blk "+color_str(_c_blk)+", _c_cyn "+color_str(_c_cyn));
+                    _palette1  = build_pal(_c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn);
+                    //sdm("_palette1: "+_palette1);
+                    _palette2 += _palette1;
                 }
             }
         }
         
         
-        if(!is_undefined(_palette))
+        if(!is_undefined(_palette2))
         {
             break;//_i
         }
@@ -125,7 +163,7 @@ ds_map_destroy(_dm_FILE); _dm_FILE=undefined;
 
 
 
-return _palette;
+return _palette2;
 
 
 

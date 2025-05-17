@@ -1,7 +1,7 @@
 /// FallingBlock_init2()
 
 
-GO_init_palidx(PI_BGR_1);
+GO_init_palidx(global.PI_BGR1);
 LAND_DEPTH = DEPTH_BG1;
 
 facingDir = 1;

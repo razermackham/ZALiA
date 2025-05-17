@@ -8,59 +8,66 @@ switch(InputConfigState)
     // ====================================================================
     // -----------------------------------------------------------
     case InputConfigState_MAIN:{
-    if (timer2) break;
+    //if (timer2) break;//case InputConfigState_MAIN
     
-    var _CLOSE = Backout_requested;
-    
-    if(!_CLOSE)
+    if(!timer)
     {
-        if (keyboard_check_pressed(vk_space) 
-        ||  keyboard_check_pressed(vk_enter) 
-        ||  a_button_pressed 
-        ||  start_button_pressed )
+        var _CLOSE = Backout_requested;
+        if(!_CLOSE)
         {
-            switch(InputConfigOption)
+            if (keyboard_check_pressed(vk_space) 
+            ||  keyboard_check_pressed(vk_enter) 
+            ||  a_button_pressed 
+            ||  start_button_pressed )
             {
-                case InputConfigOption_BACK:{
-                _CLOSE = true;
-                break;}
-                
-                case InputConfigOption_DEFAULT:{
-                aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
-                gamepad_set_default();
-                break;}
-                
-                default:{
-                aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
-                timer2=$10;
-                InputConfigState=InputConfigState_EDITING;
-                exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                break;}
+                switch(InputConfigOption)
+                {
+                    case InputConfigOption_BACK:{
+                    _CLOSE = true;
+                    break;}//switch(InputConfigOption)
+                    
+                    case InputConfigOption_DEFAULT:{
+                    gamepad_set_default();
+                    aud_play_sound(CONFIRM_SOUND1);
+                    timer = DURATION1;
+                    break;}//switch(InputConfigOption)
+                    
+                    default:{
+                    aud_play_sound(CONFIRM_SOUND1);
+                    timer = DURATION1;
+                    //timer = $10;
+                    InputConfigState = InputConfigState_EDITING;
+                    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    break;}//switch(InputConfigOption)
+                }
             }
         }
-    }
-    
-    if (_CLOSE)
-    {
-        aud_play_sound(get_audio_theme_track(BACK_SOUND_THEME1));
-        timer=0;
-        Menu_in_focus=Menu_MAIN;
-        break;
+        
+        if (_CLOSE)
+        {
+            aud_play_sound(BACK_SOUND1);
+            timer = DURATION1;
+            menu_state = menu_state_MAIN;
+            break;//case InputConfigState_MAIN
+        }
     }
     
     
     
     // update cursor
-    var     _Cursor_DIR = bit_dir(gui_tmr_cursor_v()); // 0,1,-1
-    if (abs(_Cursor_DIR))
+    if(!timer2)
     {
-        InputConfigOption += InputConfigOption_COUNT;
-        InputConfigOption += _Cursor_DIR; // 1,-1
-        InputConfigOption  = InputConfigOption mod InputConfigOption_COUNT;
-        aud_play_sound(get_audio_theme_track(CURSOR_SOUND_THEME1));
-        break;//case InputConfigState_MAIN
+        var     _Cursor_DIR = bit_dir(gui_tmr_cursor_v()); // 0,1,-1
+        if (abs(_Cursor_DIR))
+        {
+            InputConfigOption += InputConfigOption_COUNT;
+            InputConfigOption += _Cursor_DIR; // 1,-1
+            InputConfigOption  = InputConfigOption mod InputConfigOption_COUNT;
+            aud_play_sound(CURSOR_SOUND1);
+            timer2 = DURATION2;
+            break;//case InputConfigState_MAIN
+        }
     }
-    
     break;}//case InputConfigState_MAIN
     
     
@@ -73,17 +80,17 @@ switch(InputConfigState)
     // ====================================================================
     // -----------------------------------------------------------
     case InputConfigState_EDITING:{
-    if (timer2) break;
+    if (timer) break;//case InputConfigState_EDITING
     
     if (keyboard_check_pressed(vk_escape) 
     ||  keyboard_check_pressed(vk_backspace) )
     //if (OpenClose_Key_pressed 
     //||  keyboard_check_pressed(vk_escape) )
     {
-        aud_play_sound(get_audio_theme_track(BACK_SOUND_THEME1));
-        timer=0;
-        InputConfigState=InputConfigState_MAIN;
-        break;
+        aud_play_sound(BACK_SOUND1);
+        timer = DURATION1;
+        InputConfigState = InputConfigState_MAIN;
+        break;//case InputConfigState_EDITING
     }
     
     
@@ -157,7 +164,7 @@ switch(InputConfigState)
                     {   _num=0;
                         while(true)
                         {   _datakey = "gamepad"+hex_str(++_num);
-                            if (is_undefined(dm_UserInputConfig[?_datakey+"_name"])) break;
+                            if (is_undefined(dm_UserInputConfig[?_datakey+"_name"])) break;//while(true)
                         }
                     }
                     
@@ -189,21 +196,19 @@ switch(InputConfigState)
                 }
                 
                 
-                aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
-                //aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME2));
                 save_game_pref();
+                aud_play_sound(CONFIRM_SOUND1);
+                //aud_play_sound(CONFIRM_SOUND2);
+                timer = DURATION1;
             }
-            
-            //timer=0;
-            //InputConfigState=InputConfigState_MAIN;
         }
         else
         {
-            aud_play_sound(get_audio_theme_track(BACK_SOUND_THEME1));
+            aud_play_sound(BACK_SOUND1);
+            timer = DURATION1;
         }
         
-        timer=0;
-        InputConfigState=InputConfigState_MAIN;
+        InputConfigState = InputConfigState_MAIN;
     }
     break;}//case InputConfigState_EDITING
     
@@ -214,15 +219,18 @@ switch(InputConfigState)
     
     
     
+    /*
     // ====================================================================
     // -----------------------------------------------------------
     default:{
-    if (timer2) break;
+    if (timer2) break;//default
     
-    aud_play_sound(get_audio_theme_track(BACK_SOUND_THEME1));
-    timer=0;
-    Menu_in_focus=Menu_MAIN;
+    aud_play_sound(BACK_SOUND1);
+    timer = 0;
+    menu_state = menu_state_MAIN;
     break;}//default
+    */
+    
 }//switch(InputConfigState)
 
 

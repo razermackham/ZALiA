@@ -7,7 +7,7 @@ for (i = ds_grid_width(dg_doors)-1; i >= 0; i--)
 {
     _x = dg_doors[# i,1]-(DOOR_BGR_W>>1);
     _y = dg_doors[# i,2]- DOOR_BGR_H;
-    draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, DOOR_BGR_W,DOOR_BGR_H, c_black);
+    draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, DOOR_BGR_W,DOOR_BGR_H, p.C_BLK1);
     //draw_rect(c_black,   _x,_y, DOOR_BGR_W,DOOR_BGR_H);
     
     _x = dg_doors[# i,1];

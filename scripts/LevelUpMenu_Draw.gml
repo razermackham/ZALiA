@@ -4,8 +4,9 @@
 var _i,_j, _x,_y;
 
 
-if(!global.App_frame_count 
-|| !surface_exists(srf_FRAME) )
+if(!surface_exists(srf_FRAME))
+//if(!global.App_frame_count 
+//|| !surface_exists(srf_FRAME) )
 {
     var _tsrc, _ts_x,_ts_y;
     
@@ -17,7 +18,7 @@ if(!global.App_frame_count
     {
         for(_j=0; _j<CLMS; _j++) // each clm
         {
-                _tsrc = string_char_at(ar_TSRC_DATA[_i], _j+1);
+                _tsrc = string_char_at(dl_tsrc_data[|_i], _j+1);
             if (_tsrc=="0" 
             ||  _tsrc=="1" 
             ||  _tsrc=="2" )
@@ -59,7 +60,7 @@ draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, CLMS<<3, cnt_draw_rows<<3, backgrou
 
 
 // -------------------------------------------------------------------------
-pal_swap_set(p.palette_image, PI_DEF);
+pal_swap_set(global.palette_image, PI_DEF);
 // -------------------------------------------------------------------------
 
 
@@ -192,7 +193,7 @@ for(_i=0; _i<3; _i++)
     {
         _x = drawX + (CLM_XP<<3);
         _y = drawY + ((dg_DATA[#_i,IDX_TEXT_ROW]+1)<<3);
-        draw_text_(_x,_y, string(statXPNext[_i]));
+        draw_text_(_x,_y, string(dl_xp_next_stat[|_i]));
     }
 }
 

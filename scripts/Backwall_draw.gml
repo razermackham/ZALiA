@@ -16,7 +16,7 @@ switch(ver)
     _y=y;
     _count  = viewW()>>3;
     _count += sign(abs(_DIR));
-    pal_swap_set(p.palette_image, palidx);
+    pal_swap_set(global.palette_image, palidx);
     for(_i=_count-1; _i>=0; _i--)
     {
         _x=_X+(_i<<3);
@@ -28,7 +28,7 @@ switch(ver)
     _x  = _X;
     _y  = y;
     _y += $2<<3;
-    draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, _count<<3,(viewYB()+8)-_y, get_pal_color(palidx,2));
+    draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, _count<<3,(viewYB()+8)-_y, get_pal_color(p.pal_rm_curr,palidx,"R"));
     //draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, _count<<3,(viewYB()+8)-_y, p.C_RED0);
     break;}//case 1
     

@@ -1043,24 +1043,24 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms3*_a++))<<3,y5,  STR_Qualified+STR_
 data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms3*_a++))<<3,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms3*_a++))<<3,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Bot  1
 
-_pi=PI_BGR_1;
+_pi=global.PI_BGR1;
 clm3=$2B; clm4=clm3; clms3=$10; clms4=$04;
 row5=row0+$04; y5=row5<<3;
 _a=0;
 data_spawn(rm+STR_PRIO,TyellManager,$1,  $00<<3,$00<<3);
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
 clm4+=clms3;
 _a=0;
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
 clm4+=clms3;
 _a=0;
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms4*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
 
 
 clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: Elevator center clm
@@ -1409,36 +1409,36 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms5*_a++))<<3,y6,  STR_Qualified+STR_
 data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms5*_a++))<<3,y6); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  (clm3+(clms5*_a++))<<3,y6,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Bot  1
 
-_pi=PI_BGR_1;
+_pi=global.PI_BGR1;
 clm3=$1B; clm4=clm3; clms3=$04; clms4=$10;
 _a=0;
 data_spawn(rm+STR_PRIO,TyellManager,$1,  $00<<3,$00<<3);
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
 clm4+=clms4;
 _a=0;
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
 clm4+=clms4;
 _a=0;
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
 clm4+=clms4;
 _a=0;
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
 clm4+=clms4;
 _a=0;
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  STR_Palette+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  (clm4+(clms3*_a++))<<3,y5,  dk_PI+hex_str(_pi),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Tyell v1: Vertical
 
-data_spawn(rm+STR_PRIO,Tyell,$1,  $13<<3<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
-data_spawn(rm+STR_PRIO,Tyell,$1,  $6B<<3<<3,y5,  STR_Palette+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  $13<<3<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
+data_spawn(rm+STR_PRIO,Tyell,$1,  $6B<<3<<3,y5,  dk_PI+hex_str(_pi)); // Tyell v1: Vertical
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '25'+EXR0_); // LFT 0, 
@@ -1991,6 +1991,7 @@ g.dm_rm[?STR_Boss+STR_Dungeon+STR_Exit+STR_Name+_DUNGEON_NAME] = _exit;
 data_spawn_cutscene(Cutscene_ShadowBoss_1,1, 0,0); // Pre-fight.
 
 
+// Because the scene is 2 sections tall but only to fill the HUD area with bricks.
 _a=0;    _datakey=MAP_DATAKEY1+rm+STR_Page;
 g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_BLANK;
 g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_BLANK;
@@ -2353,8 +2354,8 @@ clm3=$27; clms3=$10; y4=(row0+$00)<<3; x3=$72<<3; _a=0;
 //data_spawn(rm+STR_PRIO,SpDrA,$2,  (clm3+(clms3*_a++))<<3,y5); // Drop spawner v2. Drops Flame1
 //data_spawn(rm+STR_PRIO,SpDrA,$2,  (clm3+(clms3*_a++))<<3,y5); // Drop spawner v2. Drops Flame1
 //data_spawn(rm+STR_PRIO,SpDrA,$2,  x3-($04<<3),y5); // Drop spawner v2. Drops Flame1
-//data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row0+$0D)<<3,  STR_Palette+hex_str(_pi)); // Snaraa
-//data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row0+$17)<<3,  STR_Palette+hex_str(_pi)); // Snaraa
+//data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row0+$0D)<<3,  dk_PI+hex_str(_pi)); // Snaraa
+//data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row0+$17)<<3,  dk_PI+hex_str(_pi)); // Snaraa
 y3  =(row0+$18)<<3;
 */
 
@@ -2713,10 +2714,10 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($4E<<3)+4,y4,  STR_Lit); // v1: Light w/ CAN
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($6D<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 row5=row3+$02; y5=row5<<3;
 row6=row5+$02; y6=row6<<3;
-//data_spawn(rm+STR_PRIO,SpTrB,$2,  $1F<<3,y6,  STR_Palette+hex_str(PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
-//data_spawn(rm+STR_PRIO,SpTrB,$2,  $28<<3,y6,  STR_Palette+hex_str(PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
-//data_spawn(rm+STR_PRIO,SpTrB,$2,  $56<<3,y6,  STR_Palette+hex_str(PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
-//data_spawn(rm+STR_PRIO,SpTrB,$2,  $60<<3,y6,  STR_Palette+hex_str(PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
+//data_spawn(rm+STR_PRIO,SpTrB,$2,  $1F<<3,y6,  dk_PI+hex_str(PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
+//data_spawn(rm+STR_PRIO,SpTrB,$2,  $28<<3,y6,  dk_PI+hex_str(PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
+//data_spawn(rm+STR_PRIO,SpTrB,$2,  $56<<3,y6,  dk_PI+hex_str(PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
+//data_spawn(rm+STR_PRIO,SpTrB,$2,  $60<<3,y6,  dk_PI+hex_str(PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
 data_spawn(rm+STR_PRXM,GumaA,$1,  $10<<3,y5); // Guma  1
 data_spawn(rm+STR_PRXM,GumaA,$1,  $26<<3,y5); // Guma  1
 data_spawn(rm+STR_PRXM,GumaA,$1,  $44<<3,y5); // Guma  1
@@ -2805,8 +2806,8 @@ data_spawn(rm+STR_PRIO,SpDrA,$2,  (clm3+(clms3*_a++))<<3,y5); // Drop spawner v2
 data_spawn(rm+STR_PRIO,SpDrA,$2,  (clm3+(clms3*_a++))<<3,y5); // Drop spawner v2. Drops Flame1
 data_spawn(rm+STR_PRIO,SpDrA,$2,  (clm3+(clms3*_a++))<<3,y5); // Drop spawner v2. Drops Flame1
 data_spawn(rm+STR_PRIO,SpDrA,$2,  x3-($04<<3),y5); // Drop spawner v2. Drops Flame1
-data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row0+$0D)<<3,  STR_Palette+hex_str(_pi)); // Snaraa
-data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row0+$17)<<3,  STR_Palette+hex_str(_pi)); // Snaraa
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row0+$0D)<<3,  dk_PI+hex_str(_pi)); // Snaraa
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row0+$17)<<3,  dk_PI+hex_str(_pi)); // Snaraa
 
 
 data_exit(EXU0,etA4,0,  $20,row_e0,  $20,ROWS5,  $30,row_e4,  '49'+EXD0_); // UP  0, Pit up 
@@ -3261,9 +3262,9 @@ row7=row6+$02; y7=row7<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($16<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($2E<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($46<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-x3=(clms0-$0A)<<3; _pi=PI_BGR_1; // $76
-data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row3+$01)<<3,  STR_Palette+hex_str(_pi)); // Snaraa
-data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row6+$01)<<3,  STR_Palette+hex_str(_pi)); // Snaraa
+x3=(clms0-$0A)<<3; _pi=global.PI_BGR1; // $76
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row3+$01)<<3,  dk_PI+hex_str(_pi)); // Snaraa
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row6+$01)<<3,  dk_PI+hex_str(_pi)); // Snaraa
 data_spawn(rm+STR_PRXM,FokuA,$1,  $2F<<3,y3); // Fokkeru  1
 data_spawn(rm+STR_PRXM,FokuA,$1,  $5F<<3,y6); // Fokkeru  1
 data_spawn(rm+STR_PRXM,AnerA,$3,  $1E<<3,y7); // Aneru  3

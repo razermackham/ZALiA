@@ -110,7 +110,7 @@ if (g.dungeon_num
     case  7:{TILESET=ts_DungeonG01; break;}
     }//switch(_DUNGEON_NUM)
     
-    if (val(f.dm_rando[?STR_Randomize+STR_Dungeon+STR_Tileset]))
+    if (global.RandoDungeonTilesets_enabled)
     {
         TILESET = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(TILESET)], TILESET)
     }
@@ -201,8 +201,8 @@ luck = clamp(luck, 0,1);
 
 
 
-if(!is_undefined(dk_spawn)) palidx = val(g.dm_spawn[?dk_spawn+STR_pal_idx], PI_MOB_RED);
-else                        palidx = PI_MOB_RED;
+if(!is_undefined(dk_spawn)) palidx = val(g.dm_spawn[?dk_spawn+STR_pal_idx], global.PI_MOB_RED);
+else                        palidx = global.PI_MOB_RED;
 GO_init_palidx(palidx);
 
 

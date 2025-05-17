@@ -4,18 +4,15 @@
 if (DEV) sdm(" p_Game_End()");
 
 
-
-
-
 if (global.palette_image_IS_SURFACE)
 {
-    if (surface_exists(palette_image))
-    {   surface_free(  palette_image);  }
+    if (surface_exists(global.palette_image))
+    {   surface_free(  global.palette_image);  }
 }
 else
 {
-    if (sprite_exists(palette_image))
-    {   sprite_delete(palette_image);  }
+    if (sprite_exists(global.palette_image))
+    {   sprite_delete(global.palette_image);  }
 }
 
 if (sprite_exists(fall_scene_1_spr)) 
@@ -65,8 +62,8 @@ if (_exists)                             ds_=undefined;
 
 
 
-var          _exists = false;
 
+var _exists = false;
 
 
 
@@ -95,6 +92,29 @@ if (_exists) _exists =       ds_exists(      dl_COLORS_USED, ds_type_list);
 if (_exists)                 ds_list_destroy(dl_COLORS_USED);
 if (_exists)                                 dl_COLORS_USED = undefined;
 
+             _exists = !is_undefined(  global.dl_COLOR01);
+if (_exists) _exists = ds_exists(      global.dl_COLOR01,ds_type_list);
+if (_exists)           ds_list_destroy(global.dl_COLOR01);
+if (_exists)                           global.dl_COLOR01=undefined;
+
+    _exists=variable_instance_exists(id,"dl_colors_h");
+if (_exists) _exists = !is_undefined(    dl_colors_h);
+if (_exists) _exists = ds_exists(        dl_colors_h,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_colors_h);
+if (_exists)                             dl_colors_h=undefined;
+
+    _exists=variable_instance_exists(id,"dl_colors_m");
+if (_exists) _exists = !is_undefined(    dl_colors_m);
+if (_exists) _exists = ds_exists(        dl_colors_m,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_colors_m);
+if (_exists)                             dl_colors_m=undefined;
+
+    _exists=variable_instance_exists(id,"dl_colors_s");
+if (_exists) _exists = !is_undefined(    dl_colors_s);
+if (_exists) _exists = ds_exists(        dl_colors_s,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_colors_s);
+if (_exists)                             dl_colors_s=undefined;
+
              _exists = variable_instance_exists(id,  "dl_PAL_POS");
 if (_exists) _exists =               !is_undefined(   dl_PAL_POS);
 if (_exists) _exists =                ds_exists(      dl_PAL_POS, ds_type_list);
@@ -107,11 +127,6 @@ if (_exists) _exists =                ds_exists(      dl_FS_PI, ds_type_list);
 if (_exists)                          ds_list_destroy(dl_FS_PI);
 if (_exists)                                          dl_FS_PI = undefined;
 */
-             _exists = variable_instance_exists(id,  "dl_PI_MOB");
-if (_exists) _exists =               !is_undefined(   dl_PI_MOB);
-if (_exists) _exists =                ds_exists(      dl_PI_MOB, ds_type_list);
-if (_exists)                          ds_list_destroy(dl_PI_MOB);
-if (_exists)                                          dl_PI_MOB = undefined;
 
     _exists = variable_instance_exists(id,  "dl_various_pals1");
 if (_exists) _exists =      !is_undefined(   dl_various_pals1);
@@ -165,6 +180,12 @@ if (_exists) _exists =       ds_exists(      dm_COLOR_CHOICES, ds_type_map);
 if (_exists)                 ds_map_destroy( dm_COLOR_CHOICES);
 if (_exists)                                 dm_COLOR_CHOICES = undefined;
 
+    _exists=variable_instance_exists(id,"dm_pi");
+if (_exists) _exists = !is_undefined(    dm_pi);
+if (_exists) _exists = ds_exists(        dm_pi,ds_type_map);
+if (_exists)           ds_map_destroy(   dm_pi);
+if (_exists)                             dm_pi=undefined;
+
 
 
 
@@ -208,11 +229,10 @@ if (_exists) _exists =       ds_exists(      dg_depth_pi, ds_type_grid);
 if (_exists)                 ds_grid_destroy(dg_depth_pi);
 if (_exists)                                 dg_depth_pi = undefined;
 
-    _exists = variable_instance_exists(id,  "dg_rm_pal");
-if (_exists) _exists =      !is_undefined(   dg_rm_pal);
-if (_exists) _exists =       ds_exists(      dg_rm_pal, ds_type_grid);
-if (_exists)                 ds_grid_destroy(dg_rm_pal);
-if (_exists)                                 dg_rm_pal = undefined;
+             _exists = !is_undefined(  global.dg_pi_permuts);
+if (_exists) _exists = ds_exists(      global.dg_pi_permuts,ds_type_grid);
+if (_exists)           ds_grid_destroy(global.dg_pi_permuts);
+if (_exists)                           global.dg_pi_permuts=undefined;
 
 
 

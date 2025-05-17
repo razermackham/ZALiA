@@ -2,30 +2,19 @@
 
 
 var _i, _idx, _val, _count;
-var _text, _word, _char, _spr, _pi;
+var _text, _word, _char, _spr, _pi1,_pi2,_pi3,_pi4,_pi5;
 var _pos, _len;
-var _x,_y, _X,_Y, _xr;
+var _x,_y, _X,_Y, _xl,_xr, _yt;
 var _datakey1;
 var _char_w = 8;
 var _char_h = 8;
-
-var _PI_DARK1=get_pi(PI_DARKLONK,3);
-var _PI_DARK2=PI_DARKLONK;
+var _state = false;
 
 var _FONT_SPRITE1 = spr_Font1;
 var _FONT_SPRITE2 = spr_Font2;
 var _FONT_SPRITE3 = spr_Font3_1;
 
 var _RANDO_ACTIVE = FileSelect_Rando_is_on(-1);
-/*
-var _RANDO_ACTIVE=false;
-for(_i=0; _i<RandoMAIN_COUNT; _i++)
-{
-    _RANDO_ACTIVE=FileSelect_Rando_is_on(_i);
-    if (_RANDO_ACTIVE) break;//_i
-}
-*/
-
 /*
 var _ITEM_MAX_STR_LEN=$10;
 for(_i=0; _i<RandoITEM_COUNT; _i++)
@@ -35,30 +24,33 @@ for(_i=0; _i<RandoITEM_COUNT; _i++)
 }
 */
 
+var _ITEM_LOC_STATE = dg_RandoITEM_Options[#RandoITEM_LOCS,2];
 
 
 
 
 
+
+var _YT0  = Area1_YT;
+    _YT0 -= $6;
 // Title Text
 _text = "RANDO SETTINGS";
 _len = string_length(_text);
-_X  = viewXC();
-_X -= (_len<<3)>>1;
-_Y  = y;
-_Y += $01<<3;
-//_Y += $02<<3;
-draw_text_(_X,_Y, _text, -1,PI_MENU);
+_xl  = viewXC();
+_xl -= (_len<<3)>>1;
+_yt  = _YT0;
+draw_text_(_xl,_yt, _text, -1,PI_MENU1);
+
 // Title Bar
 _count = Area1_W-(_len<<3);
 _count = (_count>>1)>>3;
 _count--; // Text pad
-_x = Area1_XL;
-_y = Area1_YT;
-pal_swap_set(p.palette_image, PI_MENU);
-for(_i=0; _i<_count; _i++) draw_background_part(ts_Menu01, $0<<3,$2<<3, 8,8, _x+(_i<<3),_y);
-_x = Area1_XR-8;
-for(_i=0; _i<_count; _i++) draw_background_part(ts_Menu01, $0<<3,$2<<3, 8,8, _x-(_i<<3),_y);
+_xl = Area1_XL;
+_yt = _YT0;
+pal_swap_set(global.palette_image, PI_MENU1);
+for(_i=0; _i<_count; _i++) draw_background_part(ts_Menu01, $0<<3,$2<<3, 8,8, _xl+(_i<<3),_yt);
+_xl = Area1_XR-8;
+for(_i=0; _i<_count; _i++) draw_background_part(ts_Menu01, $0<<3,$2<<3, 8,8, _xl-(_i<<3),_yt);
 pal_swap_reset();
 
 
@@ -85,48 +77,44 @@ switch(RandoState)
         _y = dg_RandoMAIN_Options[#_i,1];
         
         _text  = dg_RandoMAIN_Options[#_i,3];
-        //_text += string_repeat(" ", $10-string_length(_text));
+        
+        if (dg_RandoMAIN_Options[#_i,2]<0) _pi1 = PI_DARK3; // -1 means option unavailable
+        else if (_i==RandoMAIN_cursor)     _pi1 = PI_MENU1;
+        else                               _pi1 = PI_MENU2;
+        
         switch(_i)
         {   // -------------------------------------------------
             default:{ // RandoMAIN_ITEMS, RandoMAIN_SPELLS, RandoMAIN_ENEMIES, RandoMAIN_LVLCOST, RandoMAIN_PALETTE
-            if (dg_RandoMAIN_Options[#_i,2]>=0) _pi= PI_MENU; // -1 means option unavailable
-            else                                _pi=_PI_DARK1;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi1);
             
-            //_x += _char_w*string_length(_text);
-            if (FileSelect_Rando_is_on(_i))
-            {
-                _text=Text_ON;
-                _pi=PI_MENU;
-            }
-            else
-            {
-                _text=Text_OFF;
-                _pi=_PI_DARK1;
-            }
-            _x  = _xr-(string_length(_text)*_char_w);
+            _state = FileSelect_Rando_is_on(_i);
+            if (_state) _text = Text_ON;
+            else        _text = Text_OFF;
+            
+            if(!_state)                    _pi2 = PI_DARK3; // -1 means option unavailable
+            else if (_i==RandoMAIN_cursor) _pi2 = PI_MENU1;
+            else                           _pi2 = PI_MENU2;
+            
+            _x  = _xr - (string_length(_text)*_char_w);
             _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi2);
             break;}
             
             // -------------------------------------------------
             case RandoMAIN_SEED:{
             var _QUEST_NUM = dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_QUEST,2];
             Rando_draw_seed(_x+$28,_y+RandoSeedY_ADJ1, FileSelect_get_file_seed(Register_file_num,1));
-            _pi=PI_MENU
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi1);
             break;}
             
             // -------------------------------------------------
             case RandoMAIN_OTHER:{
-            _pi=PI_MENU
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi1);
             break;}
             
             // -------------------------------------------------
             case RandoMAIN_BACK:{
-            _pi=PI_MENU
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi1);
             break;}
         }
     }
@@ -147,158 +135,103 @@ switch(RandoState)
         _x = dg_RandoITEM_Options[#_i,0];
         _y = dg_RandoITEM_Options[#_i,1];
         
-        _text  = dg_RandoITEM_Options[#_i,3];
-        //_text += string_repeat(" ", $16-string_length(_text));
-        //_text += string_repeat(" ", $10-string_length(_text));
+        _text = dg_RandoITEM_Options[#_i,3];
         
-        _pi=PI_MENU;
+        if (_i==RandoITEM_cursor) _pi1 = PI_MENU1;
+        else                      _pi1 = PI_MENU2;
+        
+        if (dg_RandoITEM_Options[#_i,2]<1 || !_ITEM_LOC_STATE) _pi2 = PI_DARK3; // -1 means option unavailable
+        else                                                   _pi2 = _pi1;
+        
+        if (dg_RandoITEM_Options[#_i,2]<0 || !_ITEM_LOC_STATE) _pi3 = PI_DARK3; // -1 means option unavailable
+        else                                                   _pi3 = _pi1;
+        
+        if (dg_RandoITEM_Options[#_i,2]<1) _pi4 = PI_DARK3; // -1 means option unavailable
+        else                               _pi4 = _pi1;
         
         switch(_i)
-        {
-            /*
-            // -------------------------------------------------
-            case RandoITEM_METHOD:{
-            //_text  = dg_RandoITEM_Options[#_i,3]+" ";
-            _text += string(dg_RandoITEM_Options[#_i,2]);
+        {   // -------------------------------------------------
+            case RandoITEM_LOCS:{
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi1);
             
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2]) _pi=PI_MENU;
-            else                                         _pi=_PI_DARK2;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            if (dg_RandoITEM_Options[#_i,2]) _text=Text_ON;
+            else                             _text=Text_OFF;
+            _x  = _xr-(string_length(_text)*_char_w);
+            _x -= _x mod _char_w;
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi4);
             break;}
-            */
+            
+            // -------------------------------------------------
+            case RandoITEM_PBAG:{
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi3);
+            
+            if (dg_RandoITEM_Options[#_i,2]) _text=Text_ON;
+            else                             _text=Text_OFF;
+            _x  = _xr-(string_length(_text)*_char_w);
+            _x -= _x mod _char_w;
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi2);
+            break;}
+            
+            // -------------------------------------------------
+            case RandoITEM_KEYS:{
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi3);
+            
+            if (dg_RandoITEM_Options[#_i,2]) _text=Text_ON;
+            else                             _text=Text_OFF;
+            _x  = _xr-(string_length(_text)*_char_w);
+            _x -= _x mod _char_w;
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi2);
+            break;}
             
             // -------------------------------------------------
             case RandoITEM_OBSCURE_LOCS:{
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2]) _pi= PI_MENU;
-            else                                         _pi=_PI_DARK1;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi3);
             
-            
-            //_x += _char_w*string_length(_text);
             if (dg_RandoITEM_Options[#_i,2]) _text="YES";
             else                             _text="NO";
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2] 
-            &&  dg_RandoITEM_Options[#_i,2] )
-            {    _pi= PI_MENU;  }
-            else _pi=_PI_DARK1;
             _x  = _xr-(string_length(_text)*_char_w);
             _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi2);
             break;}
             
             // -------------------------------------------------
             case RandoITEM_DARKROOM:{
-            //_text += string(dg_RandoITEM_Options[#_i,2]);
-            
-            if (_RANDO_ACTIVE) _pi= PI_MENU;
-            else               _pi=_PI_DARK2;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi3);
             
             _text = string(dg_RandoITEM_Options[#_i,2]);
             _x  = _xr-(string_length(_text)*_char_w);
             _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi3);
             break;}
             
             // -------------------------------------------------
             case RandoITEM_HINTS:{
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2]) _pi= PI_MENU;
-            else                                         _pi=_PI_DARK1;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi3);
             
-            
-            //_x += _char_w*string_length(_text);
             if (dg_RandoITEM_Options[#_i,2]) _text=Text_ON;
             else                             _text=Text_OFF;
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2] 
-            &&  dg_RandoITEM_Options[#_i,2] )
-            {    _pi= PI_MENU;  }
-            else _pi=_PI_DARK1;
             _x  = _xr-(string_length(_text)*_char_w);
             _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi2);
             break;}
             
             // -------------------------------------------------
             case RandoITEM_ZELDA_HINT:{
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2]) _pi= PI_MENU;
-            else                                         _pi=_PI_DARK1;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi3);
             
-            
-            //_x += _char_w*string_length(_text);
             switch(dg_RandoITEM_Options[#_i,2]){
             case 0:{_text="OFF"; break;}
             case 1:{_text="ALLKEY"; break;}
             case 2:{_text="JUMP TOWN"; break;}
             }
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2] 
-            &&  dg_RandoITEM_Options[#_i,2] )
-            {    _pi= PI_MENU;  }
-            else _pi=_PI_DARK1;
             _x  = _xr-(string_length(_text)*_char_w);
             _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
-            break;}
-            
-            // -------------------------------------------------
-            case RandoITEM_LOCS:{
-            _pi=PI_MENU
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
-            
-            
-            //_x += _char_w*string_length(_text);
-            if (dg_RandoITEM_Options[#_i,2]) _text=Text_ON;
-            else                             _text=Text_OFF;
-            if (dg_RandoITEM_Options[#_i,2]) _pi= PI_MENU;
-            else                             _pi=_PI_DARK1;
-            _x  = _xr-(string_length(_text)*_char_w);
-            _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
-            break;}
-            
-            // -------------------------------------------------
-            case RandoITEM_PBAG:{
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2]) _pi= PI_MENU;
-            else                                         _pi=_PI_DARK1;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
-            
-            
-            //_x += _char_w*string_length(_text);
-            if (dg_RandoITEM_Options[#_i,2]) _text=Text_ON;
-            else                             _text=Text_OFF;
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2] 
-            &&  dg_RandoITEM_Options[#_i,2] )
-            {    _pi= PI_MENU;  }
-            else _pi=_PI_DARK1;
-            _x  = _xr-(string_length(_text)*_char_w);
-            _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
-            break;}
-            
-            // -------------------------------------------------
-            case RandoITEM_KEYS:{
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2]) _pi= PI_MENU;
-            else                                         _pi=_PI_DARK1;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
-            
-            
-            //_x += _char_w*string_length(_text);
-            if (dg_RandoITEM_Options[#_i,2]) _text=Text_ON;
-            else                             _text=Text_OFF;
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2] 
-            &&  dg_RandoITEM_Options[#_i,2] )
-            {    _pi= PI_MENU;  }
-            else _pi=_PI_DARK1;
-            _x  = _xr-(string_length(_text)*_char_w);
-            _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi2);
             break;}
             
             // -------------------------------------------------
             case RandoITEM_BACK:{
-            _pi=PI_MENU;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi1);
             break;}
         }
     }
@@ -319,29 +252,29 @@ switch(RandoState)
         _x = dg_RandoSPELL_Options[#_i,0];
         _y = dg_RandoSPELL_Options[#_i,1];
         
-        _text  = dg_RandoSPELL_Options[#_i,3];
-        //_text += string_repeat(" ", $10-string_length(_text));
+        _text = dg_RandoSPELL_Options[#_i,3];
+        
+        if (_i==RandoSPELL_cursor) _pi1 = PI_MENU1;
+        else                       _pi1 = PI_MENU2;
+        
+        if (dg_RandoSPELL_Options[#_i,2]<1) _pi2 = PI_DARK3; // -1 means option unavailable
+        else                                _pi2 = _pi1;
+        
         switch(_i)
         {   // -------------------------------------------------
             default:{ // RandoSPELL_LOCS, RandoSPELL_COST
-            if (dg_RandoSPELL_Options[#_i,2]>=0) _pi= PI_MENU; // -1 means option unavailable
-            else                                 _pi=_PI_DARK1;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi1);
             
-            //_x += _char_w*string_length(_text);
             if (dg_RandoSPELL_Options[#_i,2]) _text=Text_ON;
             else                              _text=Text_OFF;
-            if (dg_RandoSPELL_Options[#_i,2]) _pi= PI_MENU;
-            else                              _pi=_PI_DARK1;
             _x  = _xr-(string_length(_text)*_char_w);
             _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi2);
             break;}
             
             // -------------------------------------------------
             case RandoSPELL_BACK:{
-            _pi=PI_MENU;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi1);
             break;}
         }
     }
@@ -363,41 +296,31 @@ switch(RandoState)
         _y = dg_RandoDUNGEON_Options[#_i,1];
         
         _text  = dg_RandoDUNGEON_Options[#_i,3];
+        
+        if (_i==RandoDUNGEON_cursor) _pi1 = PI_MENU1;
+        else                         _pi1 = PI_MENU2;
+        
+        if (dg_RandoDUNGEON_Options[#_i,2]<0) _pi2 = PI_DARK3; // -1 means option unavailable
+        else                                  _pi2 = _pi1;
+        
+        if (dg_RandoDUNGEON_Options[#_i,2]<1) _pi3 = PI_DARK3; // -1 means option unavailable
+        else                                  _pi3 = _pi1;
+        
         switch(_i)
         {   // -------------------------------------------------
-            default:{ // RandoDUNGEON_TILESET, RandoDUNGEON_ROOM, RandoDUNGEON_BOSS
-            if (dg_RandoDUNGEON_Options[#_i,2]>=0) _pi= PI_MENU; // -1 means option unavailable
-            else                                   _pi=_PI_DARK1;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            default:{ // RandoDUNGEON_TILESET, RandoDUNGEON_LOCATION, RandoDUNGEON_BOSS, RandoTOWN_LOCATION
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi2);
             
             if (dg_RandoDUNGEON_Options[#_i,2]) _text=Text_ON;
             else                                _text=Text_OFF;
-            if (dg_RandoDUNGEON_Options[#_i,2]) _pi= PI_MENU;
-            else                                _pi=_PI_DARK1;
             _x  = _xr-(string_length(_text)*_char_w);
             _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
-            break;}
-            
-            // -------------------------------------------------
-            case RandoDUNGEON_LOCATION:{
-            if (dg_RandoITEM_Options[#RandoITEM_LOCS,2]) _pi= PI_MENU;
-            else                                         _pi=_PI_DARK2;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
-            
-            if (dg_RandoDUNGEON_Options[#_i,2]) _text=Text_ON;
-            else                                _text=Text_OFF;
-            if (dg_RandoDUNGEON_Options[#_i,2]) _pi= PI_MENU;
-            else                                _pi=_PI_DARK1;
-            _x  = _xr-(string_length(_text)*_char_w);
-            _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi3);
             break;}
             
             // -------------------------------------------------
             case RandoDUNGEON_BACK:{
-            _pi=PI_MENU;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi1);
             break;}
         }
     }
@@ -408,6 +331,7 @@ switch(RandoState)
     // =========================================================================
     // ------------------------------------------------------------------
     case RandoState_ENEMY:{
+    var _ENEMY_RANDO_STATE = dg_RandoENEMY_Options[#RandoENEMY_CHAR,2] || dg_RandoENEMY_Options[#RandoENEMY_SPAWNERS,2] || dg_RandoENEMY_Options[#RandoENEMY_ENIGMA,2];
     var _FONT_SPRITE=RandoENEMY_FONT_SPRITE;
     _char_w=sprite_get_width(_FONT_SPRITE);
     _dist1 = viewXC()-dg_RandoMAIN_Options[#_i,0];
@@ -418,74 +342,62 @@ switch(RandoState)
         _x = dg_RandoENEMY_Options[#_i,0];
         _y = dg_RandoENEMY_Options[#_i,1];
         
-        _text  = dg_RandoENEMY_Options[#_i,3];
-        //_text += string_repeat(" ", $10-string_length(_text));
+        _text = dg_RandoENEMY_Options[#_i,3];
+        
+        if (_i==RandoENEMY_cursor) _pi1 = PI_MENU1;
+        else                       _pi1 = PI_MENU2;
+        
+        if (dg_RandoENEMY_Options[#_i,2]<0) _pi2 = PI_DARK3; // -1 means option unavailable
+        else                                _pi2 = _pi1;
+        
+        if (dg_RandoENEMY_Options[#_i,2]<1) _pi3 = PI_DARK3; // -1 means option unavailable
+        else                                _pi3 = _pi1;
+        
+        if (dg_RandoENEMY_Options[#_i,2]<0 || !_ENEMY_RANDO_STATE) _pi4 = PI_DARK3; // -1 means option unavailable
+        else                                                       _pi4 = _pi1;
+        
+        if (dg_RandoENEMY_Options[#_i,2]<1 || !_ENEMY_RANDO_STATE) _pi5 = PI_DARK3; // -1 means option unavailable
+        else                                                       _pi5 = _pi1;
+        
         switch(_i)
         {   // -------------------------------------------------
             default:{ // enemy hp, enemy dmg, ..
-            if (dg_RandoENEMY_Options[#_i,2]>=0) _pi= PI_MENU; // -1 means option unavailable
-            else                                 _pi=_PI_DARK1;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi2);
             
-            
-            //_x += _char_w*string_length(_text);
             if (dg_RandoENEMY_Options[#_i,2]) _text=Text_ON;
             else                              _text=Text_OFF;
-            if (dg_RandoENEMY_Options[#_i,2]) _pi= PI_MENU;
-            else                              _pi=_PI_DARK1;
             _x  = _xr-(string_length(_text)*_char_w);
             _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi3);
             break;}
             
             // -------------------------------------------------
             case RandoENEMY_DIFF:{ // difficulty
-            //_text += string(dg_RandoENEMY_Options[#_i,2]);
-            
-            if (dg_RandoENEMY_Options[#_i,2]>=0)
-            {
-                if ((dg_RandoENEMY_Options[#RandoENEMY_CHAR,    2]>=0 && dg_RandoENEMY_Options[#RandoENEMY_CHAR,    2]) 
-                ||  (dg_RandoENEMY_Options[#RandoENEMY_SPAWNERS,2]>=0 && dg_RandoENEMY_Options[#RandoENEMY_SPAWNERS,2]) 
-                ||  (dg_RandoENEMY_Options[#RandoENEMY_ENIGMA,  2]>=0 && dg_RandoENEMY_Options[#RandoENEMY_ENIGMA,  2]) )
-                {    _pi= PI_MENU;  }
-                else _pi=_PI_DARK2;
-            }
-            else
-            {
-                _pi=_PI_DARK1;
-            }
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi4);
             
             _text = string(dg_RandoENEMY_Options[#_i,2]);
             _x  = _xr-(string_length(_text)*_char_w);
             _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi4);
             break;}
             
             // -------------------------------------------------
             case RandoENEMY_CHAR:{
-            if (dg_RandoENEMY_Options[#_i,2]>=0) _pi= PI_MENU; // -1 means option unavailable
-            else                                 _pi=_PI_DARK1;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi2);
             
-            //_x += _char_w*string_length(_text);
             switch(dg_RandoENEMY_Options[#_i,2]){
             default:{_text=Text_OFF;break;}
             case 1: {_text="SPAWNS";break;}
             case 2: {_text="TYPES";break;}
             }
-            
-            if (dg_RandoENEMY_Options[#_i,2]) _pi= PI_MENU;
-            else                              _pi=_PI_DARK1;
             _x  = _xr-(string_length(_text)*_char_w);
             _x -= _x mod _char_w;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi5);
             break;}
             
             // -------------------------------------------------
             case RandoENEMY_BACK:{
-            _pi=PI_MENU;
-            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+            draw_text_(_x,_y, _text, _FONT_SPRITE,_pi1);
             break;}
         }
     }
@@ -515,12 +427,10 @@ switch(RandoState)
         _y    = dg_RandoSEED_Options[#_i,1];
         _text = dg_RandoSEED_Options[#_i,3];
         
-        if (RandoSEED_EDIT_state==1 
-        &&  _i!=RandoSEED_EDIT )
-        {    _pi=_PI_DARK1;  }
-        else _pi= PI_MENU;
-        
-        draw_text_(_x,_y, _text, _FONT_SPRITE,_pi);
+        if (RandoSEED_EDIT_state==1 && _i!=RandoSEED_EDIT) _pi1 = PI_DARK3;
+        else if (_i==RandoSEED_cursor)                     _pi1 = PI_MENU1;
+        else                                               _pi1 = PI_MENU2;
+        draw_text_(_x,_y, _text, _FONT_SPRITE,_pi1);
     }
     
     
@@ -530,10 +440,7 @@ switch(RandoState)
         _X1 += $4;
     var _Y1  = dg_RandoSEED_Options[#RandoSEED_EDIT,1];
         _Y1 += $2; // micro adj
-    var _QUEST_NUM = 1;
-    //var _QUEST_NUM = dg_RandoOTHER_Options[#RandoOTHER_QUEST,2];
     Rando_draw_seed(_X1,_Y1+RandoSeedY_ADJ1, FileSelect_get_file_seed(Register_file_num,1));
-    //Rando_draw_seed(_X1,_Y1+RandoSeedY_ADJ1, FileSelect_get_file_seed(Register_file_num,_QUEST_NUM));
     
     
     if (RandoSEED_EDIT_state==1) // user is editing seed
@@ -546,8 +453,7 @@ switch(RandoState)
         _y += $10; // seed spr h
         _y += $02+$04; // pad + (half arrow h)
         _y -= $04; // micro adj
-        
-        draw_sprite_(spr_arrow_6_up,0, _x,_y, PI_MENU);
+        draw_sprite_(spr_arrow_6_up,0, _x,_y, PI_MENU1);
     }
     break;}
 }//switch(RandoState)
@@ -567,7 +473,6 @@ var _dist1;
 var _DIST1 = _char_h+_PAD2; // leading (vertical dist between yt of each line)
 var _XL1  = Area0_XL+_PAD1;
 var _XR1  =(Area0_XL+Area0_W)-_PAD1;
-//var _XR1  = Area1_XL-_PAD1;
 var _YT1  = viewYT();
     _YT1 += _DIST1;
     _YT1 += _PAD1;
@@ -576,11 +481,12 @@ var _pos_end_line = 0;
 var _pos_space = 0;
 
 _text = dg_RandoMAIN_Options[#RandoMAIN_cursor,3];
-_x = _XL1;
-_y = _YT1;
-_y = draw_text_plus(_x,_XR1,_y, _text,spr_Font2_1, PI_MENU);
-draw_text_(_x,_y, string_repeat("-",_COUNT1), _FONT_SPRITE,PI_MENU);
-_y+=_DIST1;
+_xl  = _XL1;
+_yt  = _YT1;
+_yt  = draw_text_plus(_xl,_XR1,_yt, _text,spr_Font2_1, PI_MENU1);
+_yt += _PAD2;
+draw_text_(_xl,_yt, string_repeat("-",_COUNT1), _FONT_SPRITE,PI_MENU1);
+_yt += _DIST1;
 
 _text="";
 switch(RandoState){
@@ -593,9 +499,10 @@ case RandoState_SEED:   {_text=dg_RandoSEED_Options[#RandoSEED_cursor,3]; break;
 }
 if (string_length(_text))
 {
-    _x = _XL1;
-    _y = draw_text_plus(_x,_XR1,_y, _text,spr_Font2_1, PI_MENU);
-    _y+=_DIST1; // Add blank line
+    _xl  = _XL1;
+    _yt  = draw_text_plus(_xl,_XR1,_yt, _text,spr_Font2_1, PI_MENU1);
+    _yt += _PAD2;
+    _yt += _DIST1; // Add blank line
 }
 
 
@@ -616,8 +523,9 @@ for(_i=_IDX0; _i<RandoGrid_H; _i++)
     
     if (is_string(_text))
     {
-        _y  = draw_text_plus(_XL1,_XR1,_y, _text,_FONT_SPRITE, PI_MENU);
-        _y += _DIST1; // Add blank line
+        _yt  = draw_text_plus(_XL1,_XR1,_yt, _text,_FONT_SPRITE, PI_MENU1);
+        _yt += _PAD2;
+        _yt += _DIST1; // Add blank line
     }
     else
     {
@@ -628,17 +536,15 @@ for(_i=_IDX0; _i<RandoGrid_H; _i++)
 
 
 
-
-
 /*
 // Lower Bar
 _count = Main_CLMS;
-_x  = viewXC();
-_x -= (_count<<3)>>1;
-_y  = RandoDescription_YT;
-_y -= $0A;
-pal_swap_set(p.palette_image, PI_MENU);
-for(_i=0; _i<_count; _i++) draw_background_part(ts_Menu01, $0<<3,$2<<3, 8,8, _x+(_i<<3),_y);
+_xl  = viewXC();
+_xl -= (_count<<3)>>1;
+_yt  = RandoDescription_YT;
+_yt -= $0A;
+pal_swap_set(p.palette_image, PI_MENU1, false);
+for(_i=0; _i<_count; _i++) draw_background_part(ts_Menu01, $0<<3,$2<<3, 8,8, _xl+(_i<<3),_yt);
 pal_swap_reset();
 */
 

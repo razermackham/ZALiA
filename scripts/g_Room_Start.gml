@@ -294,13 +294,13 @@ if (room==rmB_NextLife
 
 
 
-pc.use_disguise = false;
+pc.Disguise_enabled = false;
 if (_ROOM_A 
 && !is_undefined(town_name) )
 {
     if (town_name==STR_Bulblin)
     {
-        if (f.items&ITM_MASK) pc.use_disguise = true;
+        if (f.items&ITM_MASK) pc.Disguise_enabled = true;
     }
     else if (global.Halloween1_enabled)
     {
@@ -312,7 +312,7 @@ if (_ROOM_A
         ||  town_name==STR_Darunia 
         ||  town_name==STR_New_Kasuto )
         {
-            pc.use_disguise = true;
+            pc.Disguise_enabled = true;
         }
     }
 }
@@ -342,7 +342,7 @@ if (_ROOM_A
 if (_ROOM_A 
 ||  _ROOM_B1 ) // Title-Screen
 {
-    var                      _DATA = rm_get_file_data(_SceneRando_scene, file_data_quest_num);
+    var                      _DATA = rm_get_file_data(_SceneRando_scene, file_data_quest_num); // _SceneRando_scene==rm_name here if this scene isn't rando'd
     if (is_undefined(_DATA)) _DATA = rm_get_file_data(_rm_name_PREV,     file_data_quest_num);
     if (is_undefined(_DATA)) _DATA = rm_get_file_data(RM_NAME_NPALACE,   file_data_quest_num);
     if(!is_undefined(_DATA))  dm_tile_file = json_decode(_DATA);
@@ -484,9 +484,9 @@ if (room==rmB_NextLife)
         
         if (coming_from==coming_from_FILE)
         {
-            for(_i=ds_grid_width(overworld.dg_map)-1; _i>=0; _i--)
+            for(_i=ds_grid_width(overworld.TreasureMaps_dg)-1; _i>=0; _i--)
             {   // Mark as NOT acquired. Overworld_Room_Start() will check what has been acquired and update this.
-                overworld.dg_map[#_i,$05]=0;
+                overworld.TreasureMaps_dg[#_i,$05]=0;
             }
         }
         
@@ -620,7 +620,8 @@ if (_C1 || _C2 || _C3 || _C4)
                 if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
                 {
                     dm_data[?hex_str(_owrc)+STR_River_Devil+STR_State] = 1;
-                    dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm_data[?STR_Rando+STR_River_Devil+STR_TSRC], $D8);
+                    dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm_data[?STR_Rando+STR_River_Devil+STR_TSRC]);
+                    //dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm_data[?STR_Rando+STR_River_Devil+STR_TSRC], $D8);
                     dg_solid[#byte(_owrc>>0),byte(_owrc>>8)] = 1;
                 }
             }
@@ -923,7 +924,17 @@ if (_ROOM_A)
 
 
 // -------------------------------------------------------------------------
-if (_ROOM_A)
+if (_ROOM_C)
+{   // 2025/03/23. A falling scene from the overworld will draw cucco if pc was cucco in the last scene
+    spells_active = 0;
+    
+    if (mod_PC_CUCCO_1 
+    &&  CuccoSpell2_Acquired 
+    &&  CuccoSpell2_Active 
+    &&  CuccoSpell2_Option )
+    {   spells_active |= SPL_FARY;  }
+}
+else if (_ROOM_A)
 {
     if (coming_from != coming_from_RM_A  // NOT coming from a      rmA
     ||  rm_name     != _rm_name_PREV )   //     coming from a diff rmA 
@@ -1415,52 +1426,6 @@ if (_ROOM_A)
 
 
 
-
-
-
-
-if (_ROOM_A)
-{
-    scene_enter_add_tiles();
-}
-
-
-
-
-
-
-if (_ROOM_A 
-&&  pc.use_disguise )
-{
-    for(_i=ds_list_size(g.dl_TILE_DEPTH_NAMES)-1; _i>=0; _i--)
-    {
-        _val = g.dm_tile_file[?g.dl_TILE_DEPTH_NAMES[|_i]+STR_Depth+STR_Layer+STR_Name];
-        if(!is_undefined(_val) 
-        &&  is_string(_val) )
-        {
-            if (string_pos(STR_BREAK_,_val) 
-            ||  string_pos(STR_BURNABLE,_val) )
-            {   // So that pc can stab blocks, burn vines, etc...
-                pc.use_disguise = false;
-                break;//_i
-            }
-        }
-    }
-    
-    
-    // TODO: What if the scene will have enemies?
-    //dg_spawn_prxm
-}
-
-
-
-
-
-
-
-
-
-
 if (_ROOM_A 
 ||  _ROOM_B1 ) // w/out this here, view coords will be wrong when going from end credits to title screen.
 {
@@ -1515,6 +1480,48 @@ if (_ROOM_A
 
 
 
+if (_ROOM_A)
+{
+    scene_enter_add_tiles();
+}
+
+
+
+
+
+
+
+
+if (_ROOM_A 
+&&  pc.Disguise_enabled )
+{
+    for(_i=ds_list_size(g.dl_TILE_DEPTH_NAMES)-1; _i>=0; _i--)
+    {
+        _val = g.dm_tile_file[?g.dl_TILE_DEPTH_NAMES[|_i]+STR_Depth+STR_Layer+STR_Name];
+        if(!is_undefined(_val) 
+        &&  is_string(_val) )
+        {
+            if (string_pos(STR_BREAK_,_val) 
+            ||  string_pos(STR_BURNABLE,_val) )
+            {   // So that pc can stab blocks, burn vines, etc...
+                pc.Disguise_enabled = false;
+                break;//_i
+            }
+        }
+    }
+    
+    
+    // TODO: What if the scene will have enemies?
+    //dg_spawn_prxm
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -1536,16 +1543,16 @@ if (_ROOM_A)
             && !is_undefined( g.dm_rm[?goToExitName+dk_FastTravel+STR_Exit+STR_Datakey]) )
             {
                 switch(g.town_name){
-                default:            {_pi=PI_BGR_3; break;}
-                case STR_Rauru:     {_pi=PI_BGR_4; break;}
-                case STR_Ruto:      {_pi=PI_BGR_4; break;}
-                case STR_Saria:     {_pi=PI_BGR_2; break;}
-                case STR_Mido:      {_pi=PI_BGR_3; break;}
-                case STR_Nabooru:   {_pi=PI_BGR_4; break;}
-                case STR_Darunia:   {_pi=PI_BGR_1; break;}
-                case STR_New_Kasuto:{_pi=PI_BGR_4; break;}
-                case STR_Old_Kasuto:{_pi=PI_BGR_3; break;}
-                case STR_Bulblin:   {_pi=PI_BGR_3; break;}
+                default:            {_pi=global.PI_BGR3; break;}
+                case STR_Rauru:     {_pi=global.PI_BGR4; break;}
+                case STR_Ruto:      {_pi=global.PI_BGR4; break;}
+                case STR_Saria:     {_pi=global.PI_BGR2; break;}
+                case STR_Mido:      {_pi=global.PI_BGR3; break;}
+                case STR_Nabooru:   {_pi=global.PI_BGR4; break;}
+                case STR_Darunia:   {_pi=global.PI_BGR1; break;}
+                case STR_New_Kasuto:{_pi=global.PI_BGR4; break;}
+                case STR_Old_Kasuto:{_pi=global.PI_BGR3; break;}
+                case STR_Bulblin:   {_pi=global.PI_BGR3; break;}
                 }
                 
                 with(GameObject_create(xl-$C,yt-$4, TorchA,$3, -1, _pi))
@@ -1854,7 +1861,6 @@ if (_ROOM_B1)
         cycle_num = 0;
         
         story_y  = TITLE_Y_START + STORY_YOFF;
-        story2_y =   story_y;
         title_y  = -(story_y + Story_H);
         //title_y  = -(story_y + STORY_SPR_H);
         
@@ -1881,8 +1887,8 @@ if (_ROOM_B1)
 // Rando item location hints
 if (_ROOM_A)
 {
-    if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-    &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
+    if (global.RandoHints_enabled 
+    &&  val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) )
     {
         _count = val(f.dm_rando[?STR_Rando+STR_Hint+STR_Count]);
         for(_i=1; _i<=_count; _i++)

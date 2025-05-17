@@ -140,14 +140,10 @@ if (ChangeRoom_timer<=0)
                 fall_scene_counter = 1;
                 
                 // Change palette colors for fall scene
-                var _PAL  = hex_str(fall_scene_pal);
-                var _LEN  = string_length(_PAL);
-                var _POS  = val(dm_pal_data[?hex_str(FallScene_PI_BASE)+STR_Palette+STR_Position], PAL_POS_BGR1);
-                    _POS += (COL_PER_PAL<<1)-_LEN;
-                change_pal(strReplaceAt(pal_rm_new, _POS,_LEN, _PAL));
+                change_pal(strReplaceAt(pal_rm_new, get_pal_pos(FallScene_PI_BASE), string_length(fall_scene_pal), fall_scene_pal));
                 
-                // This is to prevent a couple frames of a bright bgr color drawing clear before transitioning to the bgr color of the next rm
-                background_color_index = CI_BLK1;
+                // This is to prevent a couple frames of a bright bgr color drawing clear before transitioning to the bgr color of the next scene
+                global.BackgroundColor_scene = C_BLK1;
             }
             
             // delete all room tiles so falling scene has a clear screen to draw on
@@ -167,6 +163,7 @@ if (ChangeRoom_timer<=0)
     else
     {   // --------------------------------------------------------------------------------------------------
         // --------------------  FINISHED CHANGING ROOMS  ------------------------------------------------------------------------------------
+        if (DEV) sdm("update_change_room(). FINISHED CHANGING ROOMS");
         FallScene_timer  = FallScene_INACTIVE;
         ChangeRoom_timer = 0;
         if (room_type=="A") counter1 = $26; // simulating OG

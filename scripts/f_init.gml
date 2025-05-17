@@ -6,7 +6,11 @@ if (DEV) sdm(" f_init()");
 
 
 var _i,_j, _val;
-var _datakey;
+var _datakey, _name, _file_num;
+var _file_name, _file, _file_data;
+
+
+depth = DEPTH_f;
 
 
 
@@ -54,25 +58,41 @@ SDNAME_volume_music         = "_volume_music";
 
 
 
-// SAVE_NAME_NULL       = string_repeat(" ", SAVE_NAME_CHAR_LIMIT);
 
-// FILE_NAME            = "SaveFile_";
-var _PREFIX = "SaveFile_";
-dl_FILE_NAME_PREFIX=ds_list_create();
-for(_i=0; _i<SAVE_FILE_MAX; _i++) ds_list_add(dl_FILE_NAME_PREFIX,_PREFIX+string(_i+1));
 
-var _file_num, _name;
-for(_i=SAVE_FILE_MAX-1; _i>=0; _i--)
+
+dl_FILE_NAME_PREFIX = ds_list_create();
+dl_file_names = ds_list_create();
+for(_i=0; _i<SAVE_FILE_MAX; _i++)
 {
-    _file_num = _i+1;
-    
-    _name = dl_FILE_NAME_PREFIX[|_i];
-    //_name = _PREFIX+string(_file_num);
-    ar_FILE_NAMES[_i]             = _name+".txt";
-    ar_FILE_NAMES_PREFERENCES[_i] = _name+STR_Preference+".txt";
-    
-    ar_save_names[_i] = get_saved_value(_file_num, SDNAME_save_name,SAVE_NAME_NULL);
+    ds_list_add(dl_FILE_NAME_PREFIX, "SaveFile_"+string(_i+1));
+    ds_list_add(dl_file_names, dl_FILE_NAME_PREFIX[|_i]+".txt");
 }
+
+
+
+
+global.dm_save_file_data = ds_map_create();
+for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
+{
+    _file_name = dl_file_names[|_i];
+    _file      = file_text_open_read(working_directory+_file_name);
+    _file_data = file_text_read_string(_file);
+                 file_text_close(      _file);
+    global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+"_Encoded"] = _file_data;
+}
+
+
+
+
+dl_save_names = ds_list_create();
+for(_i=0; _i<SAVE_FILE_MAX; _i++)
+{
+    ds_list_add(dl_save_names, get_saved_value(_i+1, SDNAME_save_name,SAVE_NAME_NULL));
+}
+
+
+
 
 
 

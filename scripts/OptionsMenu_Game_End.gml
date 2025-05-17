@@ -1,12 +1,6 @@
 /// OptionsMenu_Game_End()
 
 
-//ar_TSRC_DATA    = 0;
-//ar_text         = 0;
-
-
-
-
 /*
 var _exists = false;
 
@@ -38,15 +32,26 @@ if (_exists)                             ds_=undefined;
 
 
 
-var          _exists = false;
+
+var _exists = false;
 
 
 
 
+    _exists=variable_instance_exists(id,"dl_tsrc_data");
+if (_exists) _exists = !is_undefined(    dl_tsrc_data);
+if (_exists) _exists = ds_exists(        dl_tsrc_data,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_tsrc_data);
+if (_exists)                             dl_tsrc_data=undefined;
 
 
 
 
+    _exists=variable_instance_exists(id,"dm_options");
+if (_exists) _exists = !is_undefined(    dm_options);
+if (_exists) _exists = ds_exists(        dm_options,ds_type_map);
+if (_exists)           ds_map_destroy(   dm_options);
+if (_exists)                             dm_options=undefined;
 
     _exists=variable_instance_exists(id,"dm_AudioCustom");
 if (_exists) _exists = !is_undefined(    dm_AudioCustom);
@@ -57,33 +62,35 @@ if (_exists)                             dm_AudioCustom=undefined;
 
 
 
+    _exists=variable_instance_exists(id,"MainOptions_dg");
+if (_exists) _exists = !is_undefined(    MainOptions_dg);
+if (_exists) _exists = ds_exists(        MainOptions_dg,ds_type_grid);
+if (_exists)           ds_grid_destroy(  MainOptions_dg);
+if (_exists)                             MainOptions_dg=undefined;
 
+    _exists=variable_instance_exists(id,"dg_InputConfigOptions");
+if (_exists) _exists = !is_undefined(    dg_InputConfigOptions);
+if (_exists) _exists = ds_exists(        dg_InputConfigOptions,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_InputConfigOptions);
+if (_exists)                             dg_InputConfigOptions=undefined;
 
-
-
-    _exists = variable_instance_exists(id,  "dg_MainOptions");
-if (_exists) _exists =      !is_undefined(   dg_MainOptions);
-if (_exists) _exists =       ds_exists(      dg_MainOptions,ds_type_grid);
-if (_exists)                 ds_grid_destroy(dg_MainOptions);
-if (_exists)                                 dg_MainOptions=undefined;
-
-    _exists = variable_instance_exists(id,  "dg_InputConfigOptions");
-if (_exists) _exists =      !is_undefined(   dg_InputConfigOptions);
-if (_exists) _exists =       ds_exists(      dg_InputConfigOptions,ds_type_grid);
-if (_exists)                 ds_grid_destroy(dg_InputConfigOptions);
-if (_exists)                                 dg_InputConfigOptions=undefined;
-
-    _exists = variable_instance_exists(id,  "dg_DevTools");
-if (_exists) _exists =      !is_undefined(   dg_DevTools);
-if (_exists) _exists =       ds_exists(      dg_DevTools,ds_type_grid);
-if (_exists)                 ds_grid_destroy(dg_DevTools);
-if (_exists)                                 dg_DevTools=undefined;
-
+    _exists=variable_instance_exists(id,"dg_DevTools");
+if (_exists) _exists = !is_undefined(    dg_DevTools);
+if (_exists) _exists = ds_exists(        dg_DevTools,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_DevTools);
+if (_exists)                             dg_DevTools=undefined;
+/*
     _exists=variable_instance_exists(id,"dg_RandoOptions");
 if (_exists) _exists = !is_undefined(    dg_RandoOptions);
 if (_exists) _exists = ds_exists(        dg_RandoOptions,ds_type_grid);
 if (_exists)           ds_grid_destroy(  dg_RandoOptions);
 if (_exists)                             dg_RandoOptions=undefined;
+*/
+    _exists=variable_instance_exists(id,"Other_dg");
+if (_exists) _exists = !is_undefined(    Other_dg);
+if (_exists) _exists = ds_exists(        Other_dg,ds_type_grid);
+if (_exists)           ds_grid_destroy(  Other_dg);
+if (_exists)                             Other_dg=undefined;
 
 
 

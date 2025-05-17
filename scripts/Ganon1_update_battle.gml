@@ -87,7 +87,7 @@ switch(BattleState)
     GO_update_cs();
     //sdm("hspd $"+hex_str(hspd)+", _HSPD $"+hex_str(_HSPD)+", _DIST0 $"+hex_str(_DIST0)+", _DIST1 $"+hex_str(_DIST1)+", _DIST2 $"+hex_str(_DIST2)+", _DIST3 $"+hex_str(_DIST3)+", ww_+g.pc.ww_+($04<<3) $"+hex_str(ww_+g.pc.ww_+($04<<3)));
     
-             timer1      = 0;
+    timer1 = 0;
     if (_C1) BattleState = BattleState_ATTACK1_JUMP2;
     else     BattleState = BattleState_ATTACK1_JUMP1;
     break;}
@@ -123,9 +123,9 @@ switch(BattleState)
         set_xy(id, clamp(x,arena_xl+ww_,arena_xr-ww_), y);
         GO_update_cs();
         
-        //timer1      = $20; // hang in air before dropping
-        timer1      = $18; // hang in air before dropping
-        //timer1      = $10; // hang in air before dropping
+        //timer1 = $20; // hang in air before dropping
+        timer1 = $18; // hang in air before dropping
+        //timer1 = $10; // hang in air before dropping
         BattleState = BattleState_ATTACK1_THOMP;
         break;
     }
@@ -142,7 +142,7 @@ switch(BattleState)
     {
         with(GOC1_create(x-4,yb-8, 1, projectile,projectile_ver))
         {
-            hspd=0;
+            hspd = 0;
         }
     }
     break;}

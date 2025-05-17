@@ -1,7 +1,7 @@
 /// GameObject_create(XL, YT, object_index, version, *spawn datakey, *palette idx, *dlg datakey)
 
 
-var _i, _val, _count, _len, _pos;
+var _i, _val;
 
 var                     _arg=0;
 var _XL      = argument[_arg++];
@@ -128,7 +128,7 @@ with(instance_create(_XL,_YT, _OBJECT))
         xScale    = facingDir;
         hspd      = 0;
         
-        if(!IS_HOLD_ITEM) g.pc.use_disguise = false; // So pc can stab item.
+        if(!IS_HOLD_ITEM) g.pc.Disguise_enabled = false; // So pc can stab item.
     }
     else if (is_ancestor(object_index,Boss))
     {
@@ -178,12 +178,12 @@ with(instance_create(_XL,_YT, _OBJECT))
         
         g.go_mgr.uIdxSwap_gob = UIDX_NULL;
         
-        if (g.pc.use_disguise)
+        if (g.pc.Disguise_enabled)
         {
             if (is_ancestor(object_index,NPC_B)  // NPC_B: Minigame
             ||  is_ancestor(object_index,NPC_D) )// NPC_D: Shop
             {
-                g.pc.use_disguise = false;
+                g.pc.Disguise_enabled = false;
             }
         }
     }
@@ -223,6 +223,15 @@ with(instance_create(_XL,_YT, _OBJECT))
     //  _PALETTE_IDX has been specified by the instance that spawned this instance
     if (_PALETTE_IDX!=-1) GO_init_palidx(_PALETTE_IDX);
     
+    
+    if(!is_undefined(            dk_spawn) 
+    && !is_undefined(g.dm_spawn[?dk_spawn+STR_Palette]) )
+    {
+        _val =       g.dm_spawn[?dk_spawn+STR_Palette];
+        change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(palidx), string_length(_val), _val));
+    }
+    
+    
     //  _DIALOGUE_DATAKEY has been specified by the instance that spawned this instance
     if (_DIALOGUE_DATAKEY!=-1) dialogue_datakey = _DIALOGUE_DATAKEY;
     
@@ -244,12 +253,22 @@ with(instance_create(_XL,_YT, _OBJECT))
     
     
     if (g.town_name==STR_Bulblin 
-    &&  g.pc.use_disguise 
+    &&  g.pc.Disguise_enabled 
     //&&  f.items&ITM_MASK 
     &&  is_ancestor(object_index,GOB1) )
     {
         state = 0;
     }
+    
+    
+    
+    
+    // --------------------------------------------------------------------------------------
+    // Final initializations -----------------------------------------
+    if(!is_undefined(  scr_init3))
+    {   script_execute(scr_init3);  }
+    
+    
     
     
     // --------------------------------------------------------------------------------------

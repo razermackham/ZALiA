@@ -26,15 +26,15 @@ if(!ds_map_size(g.dm_tile_file)) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // ---------------------------------------------------------------------------------
 var _i,_j, _k,_m;
-var _x,_y, _idx, _val,_val2, _dir, _type, _count;
+var _x,_y, _w,_h, _idx, _val,_val2, _dir, _type, _count;
 var _scale_x,_scale_y;
 var _clms,_rows, _clm,_row, _clm1,_row1;
 var _area_name1,_area_name2, _rm_name1,_rm_name2;
 var _depth,_depth_idx;
 var _pi, _permut;
-var _ts, _ts_x,_ts_y, _tsrc;
-var _tile_id, _tile_data, _tile_count, _layer_name, _hide_val;
-var _str,_char, _name, _pos, _ts_name;
+var _ts,_ts1,_ts2, _ts_x,_ts_y, _tsrc,_tsrc1,_tsrc2;
+var _tile_w,_tile_h, _tile_id, _tile_num_of_ts, _tile_data, _tile_count, _layer_name, _hide_val;
+var _str,_char, _name, _pos, _ts_name, _data;
 var _dk;
 var _rm_has_burnables=false;
 
@@ -85,6 +85,14 @@ room_tile_clear(room);
 var _dm_ts_info = ds_map_create();
 var _dm_ts_data;
 var _dl_ts_data = g.dm_tile_file[?"tilesets"];
+var _dg_ts_data = ds_grid_create(0,4);
+
+var _TMX_W      = g.dm_tile_file[?"width"];
+var _TMX_H      = g.dm_tile_file[?"height"];
+var _TMX_TILE_W = g.dm_tile_file[?"tilewidth"];
+var _TMX_TILE_H = g.dm_tile_file[?"tileheight"];
+
+var _ts_asset_idx = -1;
 
 
              _count = ds_list_size(_dl_ts_data);
@@ -95,7 +103,7 @@ for(_i=0; _i<_count; _i++)
     _str        = _dm_ts_data[?"source"];
     // _dm_ts_data[?"source"] example: "source":"..\/..\/..\/..\/..\/..\/Tiled\/Tilesets\/Z2_Remake_1a\/ts_Natural_1a_WRB.tsx
     
-    if (string_pos("palette",_str)) continue;
+    if (string_pos("palette",_str)) continue;//_i
     
     for(_j=string_length(_str); _j>=1; _j--) // go backwards through the string
     {
@@ -103,15 +111,26 @@ for(_i=0; _i<_count; _i++)
         if (_char==".")
         {   // So far, it's only the file ext(.tsx), next _j starts the tileset name.
             _ts_name = "";
-            continue;
+            continue;//_j
         }
         
         
         if (_char=="/")
         {
             _dm_ts_info[?hex_str(_i)+_STR_NAME] = _ts_name;
-            _dm_ts_info[?hex_str(_i)+_STR_IDX]  = val(g.dm_tileset[?_ts_name],g.ts_SOLID_COLORS); // asset index
-            break;
+            _ts_asset_idx = val(g.dm_tileset[?_ts_name],g.ts_SOLID_COLORS); // asset index
+            _dm_ts_info[?hex_str(_i)+_STR_IDX]  = _ts_asset_idx;
+            
+            _idx = ds_grid_width(_dg_ts_data);
+            ds_grid_resize(_dg_ts_data, _idx+1,ds_grid_height(_dg_ts_data));
+            _dg_ts_data[#_idx,0] = _ts_asset_idx;
+            _dg_ts_data[#_idx,1] = _ts_name;
+            _dg_ts_data[#_idx,2] = val(_dm_ts_data[?"firstgid"]);
+            _tile_w = val(g.dm_tileset[?_ts_name+STR_Tile+STR_Width], 8);
+            _tile_h = val(g.dm_tileset[?_ts_name+STR_Tile+STR_Height],8);
+            _dg_ts_data[#_idx,3] = _dg_ts_data[#_idx,2] + (val(g.dm_tileset[?_ts_name+STR_Tile+STR_Count],$100) - 1);
+            //sdm("scene_enter_add_tiles(). tileset: "+_ts_name);
+            break;//_j
         }
         
         _ts_name = _char + _ts_name;
@@ -119,6 +138,9 @@ for(_i=0; _i<_count; _i++)
     
     ds_map_clear(_dm_ts_data);
 }
+
+
+var _dg_ts_data_W = ds_grid_width(_dg_ts_data);
 
 
 
@@ -219,7 +241,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
     
     if (string_pos("tile_data_system",_layer_name))
     {
-        _pos=string_pos("v.",_layer_name)+2;
+        _pos = string_pos("v.",_layer_name)+2;
         _data_system_ver = str_hex(string_copy(_layer_name, _pos, 2));
         break;//_i
     }
@@ -236,7 +258,7 @@ for(_i=ds_list_size(g.dl_TILE_DEPTHS)-1; _i>=0; _i--)
     // dg_depth_pi contains the pi's each depth will use for THE CURRENT RM.
     // This loop sets the default pi's for each depth. PI specific to the 
     // current rm is passed to it in rm_enter_set_tiles() from file data.
-    _pi = val(p.dm_depth_pi[?hex_str(abs(g.dl_TILE_DEPTHS[|_i]))], PI_BGR_1);
+    _pi = val(p.dm_depth_pi[?hex_str(abs(g.dl_TILE_DEPTHS[|_i]))], global.PI_BGR1);
     
     // pi
     p.dg_depth_pi[#_i,0] = _pi;
@@ -275,24 +297,64 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
         // The pi each depth will use for THE CURRENT RM.
         _pi  = string_copy(_layer_name, _pos+string_length(_name), 2); // bg palette num ('01', '02', '03', '04')
         _pi  = str_hex(_pi);
-        _pi -= _data_system_ver==3 && _pi>5;
-        _pi  = PI_BGR_1 + (_pi-1);
+        _pi--;
+        _pi  = _pi mod val(global.dm_pi[?"BGR"+STR_Count]);
+        _pi  = global.PI_BGR1 + _pi;
+        //_pi -= _data_system_ver==3 && _pi>5;
+        //_pi  = global.PI_BGR1 + (_pi-1);
+        _permut = 1;
         
+        if (_data_system_ver<4)
+        {
+                _pos = string_pos(_STR_PERMUT,_layer_name);
+            if (_pos) _permut = str_hex(string_copy(_layer_name, _pos+string_length(_STR_PERMUT), 2)); // 01-06
+            else      _permut = 1;
+                      _permut--; // (01 through 06)-1 = (00 through 05)
+                      _permut = clamp(_permut, 0,PI_PERMUTATIONS-1); // 00-05
+            switch(_permut){
+            case 1:{_pi=add_pi_permut(_pi, "WBRGYKMC", _name+" permut "+"WBRGYKMC"); break;}
+            case 2:{_pi=add_pi_permut(_pi, "RWBGMYKC", _name+" permut "+"RWBGMYKC"); break;}
+            case 3:{_pi=add_pi_permut(_pi, "RBWGMKYC", _name+" permut "+"RBWGMKYC"); break;}
+            case 4:{_pi=add_pi_permut(_pi, "BWRGKYMC", _name+" permut "+"BWRGKYMC"); break;}
+            case 5:{_pi=add_pi_permut(_pi, "BRWGKMYC", _name+" permut "+"BRWGKMYC"); break;}
+            }
+        }
+        else
+        {
             _pos = string_pos(_STR_PERMUT,_layer_name);
-        if (_pos) _permut = str_hex(string_copy(_layer_name, _pos+string_length(_STR_PERMUT), 2)); // 01-06
-        else      _permut = 1;
-                  _permut--; // (01 through 06)-1 = (00 through 05)
-                  _permut = clamp(_permut, 0,PI_PERMUTATIONS-1); // 00-05
-        //
+            if (_pos)
+            {   // _layer_name example: "BG0302, PERMUT_RWBGYMKC"
+                _pos += string_length(_STR_PERMUT);
+                _data = strR(_layer_name,_pos);
+                _data = string_copy(_data, 1, min(global.COLORS_PER_PALETTE,string_length(_data)));
+                _permut = "";
+                _count1 = string_length(_data);
+                for(_j=0; _j<_count1; _j++)
+                {
+                    _char = string_char_at(_data,_j+1);
+                    if(!string_pos(_char,global.PAL_BASE_COLOR_ORDER))
+                    {
+                        //break;//_j
+                    }
+                    
+                    _permut += _char;
+                }
+                
+                _pi = add_pi_permut(_pi, _permut, _name+" permut "+_permut);
+            }
+        }
+        
+        
         p.dg_depth_pi[#_idx,0] = _pi;     // pi default
         p.dg_depth_pi[#_idx,1] = _pi;     // pi current
         p.dg_depth_pi[#_idx,2] = _permut; // permut default. 00-05
         p.dg_depth_pi[#_idx,3] = _permut; // permut current. 00-05
         /*
-        if (g.rm_name==RM_NAME_NPALACE){
-            _str  = " rm_name "+g.rm_name + "_layer_name "+_layer_name + ", _pos "+string(_pos) + ", _depth "+string(_depth) + ", _val $"+hex_str(_val) + ", _name "+_name + ", _idx $"+hex_str(_idx);
-            _str += ", p.dg_depth_pi[#_idx,1] $"+hex_str(p.dg_depth_pi[#_idx,1]) + ", p.dg_depth_pi[#_idx,3] $"+hex_str(p.dg_depth_pi[#_idx,3]);
-            sdm(_str);
+        if (g.rm_name==Area_PalcA+"07"){
+        //if (g.rm_name==RM_NAME_NPALACE){
+        _str  = "global.PI_BGR1 $"+hex_str(global.PI_BGR1)+", _layer_name "+_layer_name+", _permut "+string(_permut)+", _depth "+string(_depth)+", _name "+_name+", _idx $"+hex_str(_idx);
+        _str += ", p.dg_depth_pi[#_idx,1] $"+hex_str(p.dg_depth_pi[#_idx,1])+", p.dg_depth_pi[#_idx,3] $"+hex_str(p.dg_depth_pi[#_idx,3]);
+        sdm(_str);
         }
         */
         
@@ -303,7 +365,6 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
             _name = g.dl_TILE_DEPTH_NAMES[|_idx]; // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
             g.dm_tile_file[?_name+STR_Depth+STR_Layer+STR_Name] = _layer_name;
             g.dm_tile_file[?_layer_name+STR_Depth] = _depth;
-            //sdm("_layer_name: "+_layer_name+", _depth "+string(_depth));
             _graphic_layer_count++;
         }
     }
@@ -484,6 +545,21 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         
         _ts = val(_dm_ts_info[?hex_str(_tile_data>>8)+_STR_IDX], g.ts_TILE_MARKER);
         
+        
+        /*
+        for(_k=0; _k<_dg_ts_data_W; _k++)
+        {
+            if (_tile_data>=_dg_ts_data[#_k,2] 
+            &&  _tile_data<=_dg_ts_data[#_k,3] )
+            {
+                _tsrc1 = _tile_data-_dg_ts_data[#_k,2];
+                _ts1   = _dg_ts_data[#_k,0];
+                break;//_k
+            }
+        }
+        */
+        
+        
         if (g.dungeon_num 
         &&  string_pos(STR_Dungeon,background_get_name(_ts)) )
         {
@@ -500,9 +576,9 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 }
             }
             
-            if (val(f.dm_rando[?STR_Randomize+STR_Dungeon+STR_Tileset]))
+            if (global.RandoDungeonTilesets_enabled)
             {
-                _ts = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(_ts)], _ts)
+                _ts = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(_ts)], _ts);
             }
             //_ts = ts_DungeonAlt05; // testing
         }
@@ -593,8 +669,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 }
                 else
                 {//G 02
-                    if (inRange(_tsrc,$30,$37) 
-                    ||  inRange(_tsrc,$52,$53) )
+                    if ((_tsrc>=$30 && _tsrc<=$37) 
+                    ||  (_tsrc>=$52 && _tsrc<=$53) )
                     {
                         ds_list_add(g.dl_ceiling_bottom_rc, _tile_id);
                         //ds_list_add(g.dl_ceiling_bottom_rc, (_row<<8)|_clm);
@@ -614,7 +690,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         if (_pos)
         {
                 _val = string_copy(_layer_name, _pos+string_length(STR_VISIBLE)+1, 2);
-                _val = !!str_hex(_val); // 0 or 1
+                _val = str_hex(_val)!=0; // 0 or 1
             if(!_val) tile_layer_hide(_depth);
         }
         
@@ -659,7 +735,16 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 
                 with(g.burnable_mgr)
                 {
-                    if (isVal(_tsrc,$50,$51,$52,$53,$98,$99,$A8,$A9,$B1)) // vine graphics
+                    // these tsrc values are vine graphics
+                    if (_tsrc==$50 
+                    ||  _tsrc==$51 
+                    ||  _tsrc==$52 
+                    ||  _tsrc==$53 
+                    ||  _tsrc==$98 
+                    ||  _tsrc==$99 
+                    ||  _tsrc==$A8 
+                    ||  _tsrc==$A9 
+                    ||  _tsrc==$B1 )
                     {    _val=BURNABLE_A;  } // this could be BURNABLE_A or BURNABLE_B but that will have to be decided after the _i loop
                     else _val=BURNABLE_C;    // extra graphic detail around a vine graphic tile
                     dg_RmTile_Burnable    [#_clm,_row] = (_depth_idx<<8) | _val;
@@ -750,60 +835,64 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         }
         
         
-        if (g.mod_ANIMATE_LIQUID 
-        &&  isVal(_val,TID_LQUID1,TID_LQUID2,TID_LQUID3) )
+        if (g.mod_ANIMATE_LIQUID)
         {
-                _idx = ds_list_find_index(_dl_liquid_depth,_depth);
-            if (_idx+1 
-            ||  string_pos(_STR_SPEED_,_layer_name) ) // if the file indicates the liquid should be animated
+            if (_val==TID_LQUID1 
+            ||  _val==TID_LQUID2 
+            ||  _val==TID_LQUID3 )
             {
-                if!(_idx+1) // if this is a new layer
+                    _idx = ds_list_find_index(_dl_liquid_depth,_depth);
+                if (_idx+1 
+                ||  string_pos(_STR_SPEED_,_layer_name) ) // if the file indicates the liquid should be animated
                 {
-                    // "DIR_01": RGT, "DIR_02": LFT, 04: DWN, 08: UP, or a combo of dirs
-                        _pos = string_pos(_STR_DIR_,_layer_name);
-                    if (_pos) _dir = str_hex(string_copy(_layer_name, _pos+string_length(_STR_DIR_), 2));
-                    else      _dir = BIT_RGT; // RGT: default
-                    
-                                     _dir &= $F;
-                    if (_dir&$3==$3) _dir  = (_dir&$C) | BIT_RGT;
-                    if (_dir&$C==$C) _dir  = (_dir&$3) | BIT_DWN;
-                    
-                    
-                    ds_list_add(_dl_liquid_dir, _dir);
-                    
-                    
-                    if ( _val==TID_LQUID1 
-                    && !(_dir&$C) )
-                    {    _val2 = 1;  }
-                    else _val2 = 0;
-                    ds_list_add(_dl_liquid_yoff, _val2);
-                    
-                    
-                    _pos  = string_pos(   _STR_SPEED_,_layer_name);
-                    _pos += string_length(_STR_SPEED_);
-                    ds_list_add(_dl_liquid_speed, str_hex(string_copy(_layer_name, _pos, 2)));
-                    ds_list_add(_dl_liquid_depth, _depth);
-                    
-                    _idx = ds_list_size(_dl_liquid_depth)-1;
-                }
-                
-                
-                // In case any liquid is at edge of rm, this 
-                // will prevent empty space when animating.
-                // ** Note that any liquid tiles that will be animated must 
-                // have an extra clm of themselves at their front.
-                // Also liquid layers must have something obstructing its offset.
-                if (tile_exists(_tile_id))
-                {
-                         _dir = bit_dir(_dl_liquid_dir[|_idx]);
-                                  _clm = tile_get_x(_tile_id)>>3;
-                    if ((_dir && !_clm) 
-                    || (!_dir &&  _clm==_CLMS-1) )
+                    if!(_idx+1) // if this is a new layer
                     {
-                        if (_dir) _x = -8;
-                        else      _x = _CLMS<<3;
-                                  _y = tile_get_y(_tile_id);
-                        tile_add(tile_get_background(_tile_id), tile_get_left(_tile_id),tile_get_top(_tile_id), 8,8, _x,_y, _depth);
+                        // "DIR_01": RGT, "DIR_02": LFT, 04: DWN, 08: UP, or a combo of dirs
+                            _pos = string_pos(_STR_DIR_,_layer_name);
+                        if (_pos) _dir = str_hex(string_copy(_layer_name, _pos+string_length(_STR_DIR_), 2));
+                        else      _dir = BIT_RGT; // RGT: default
+                        
+                                         _dir &= $F;
+                        if (_dir&$3==$3) _dir  = (_dir&$C) | BIT_RGT;
+                        if (_dir&$C==$C) _dir  = (_dir&$3) | BIT_DWN;
+                        
+                        
+                        ds_list_add(_dl_liquid_dir, _dir);
+                        
+                        
+                        if ( _val==TID_LQUID1 
+                        && !(_dir&$C) )
+                        {    _val2 = 1;  }
+                        else _val2 = 0;
+                        ds_list_add(_dl_liquid_yoff, _val2);
+                        
+                        
+                        _pos  = string_pos(   _STR_SPEED_,_layer_name);
+                        _pos += string_length(_STR_SPEED_);
+                        ds_list_add(_dl_liquid_speed, str_hex(string_copy(_layer_name, _pos, 2)));
+                        ds_list_add(_dl_liquid_depth, _depth);
+                        
+                        _idx = ds_list_size(_dl_liquid_depth)-1;
+                    }
+                    
+                    
+                    // In case any liquid is at edge of rm, this 
+                    // will prevent empty space when animating.
+                    // ** Note that any liquid tiles that will be animated must 
+                    // have an extra clm of themselves at their front.
+                    // Also liquid layers must have something obstructing its offset.
+                    if (tile_exists(_tile_id))
+                    {
+                             _dir = bit_dir(_dl_liquid_dir[|_idx]);
+                                      _clm = tile_get_x(_tile_id)>>3;
+                        if ((_dir && !_clm) 
+                        || (!_dir &&  _clm==_CLMS-1) )
+                        {
+                            if (_dir) _x = -8;
+                            else      _x = _CLMS<<3;
+                                      _y = tile_get_y(_tile_id);
+                            tile_add(tile_get_background(_tile_id), tile_get_left(_tile_id),tile_get_top(_tile_id), 8,8, _x,_y, _depth);
+                        }
                     }
                 }
             }
@@ -812,7 +901,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         
         
         if (g.mod_CLOUD_MOVEMENT 
-        &&  isVal(_val,TID_CLOUDS1) )
+        &&  _val==TID_CLOUDS1 )
         {
                 _idx = ds_list_find_index(_dl_cloud_depth, _depth);
             if (_idx+1 
@@ -979,6 +1068,7 @@ if (g.mod_CLOUD_MOVEMENT)
 
 ds_list_destroy(_dl_rm_depth); _dl_rm_depth=undefined;
 ds_map_destroy( _dm_ts_info);  _dm_ts_info =undefined;
+ds_grid_destroy(_dg_ts_data);  _dg_ts_data =undefined;
 
 
 

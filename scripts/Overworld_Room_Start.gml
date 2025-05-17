@@ -45,10 +45,10 @@ Warp_yoff  = 0;
 Warp_speed = 0;
 Warp_destination_num = 0;
 
-MEAT_timer = 0;
-MEAT_owrc  = $0000;
-MEAT_ow_x  = 0;
-MEAT_ow_y  = 0;
+BAIT_timer = 0;
+BAIT_owrc  = $0000;
+BAIT_ow_x  = 0;
+BAIT_ow_y  = 0;
 
 
 
@@ -85,7 +85,7 @@ if(!val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
         {
             _clm=(_owrc>>0)&$FF;
             _row=(_owrc>>8)&$FF;
-            dg_tsrc[# _clm,_row]=TSRC_MOUN01;
+            dg_tsrc[# _clm,_row]=(TILESET1_TS_IDX<<8)|TSRC_MOUN01;
             dg_solid[#_clm,_row]=$01;
             dm_data[?hex_str(_owrc)+STR_Open]=0;
         }
@@ -108,10 +108,13 @@ _ow_y = ((_PC_ROW<<SHIFT) + (T_SIZE>>1)) - DRAW_H_;
 Overworld_refresh_tiles(_ow_x,_ow_y);
 
 
+change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(ENC_PI), string_length(ENC_PAL), ENC_PAL));
+/*
 var _POS  = val(p.dm_pal_data[?hex_str(ENC_PI)+STR_Palette+STR_Position], p.PAL_POS_MOB4);
 var _LEN  = string_length(ENC_PAL);
-    _POS += (COL_PER_PAL<<1)-_LEN;
+    _POS += global.PAL_CHAR_PER_PAL-_LEN;
 change_pal(strReplaceAt(p.pal_rm_new, _POS, _LEN, ENC_PAL));
+*/
 
 
 WaterSparkle_refresh(pcrc);
@@ -124,12 +127,12 @@ WaterSparkle_refresh(pcrc);
 
 
 // ----------------------------------------------------------------------
-ds_grid_clear(dg_map,0);
+ds_grid_clear(TreasureMaps_dg,0);
 
 if (f.items&(ITM_MAP1|ITM_MAP2))
 {
-    var                     _dg_map_HEIGHT=ds_grid_height(dg_map);
-    ds_grid_resize(dg_map,0,_dg_map_HEIGHT);
+    var _dg_map_HEIGHT = ds_grid_height(TreasureMaps_dg);
+    ds_grid_resize(TreasureMaps_dg,0,_dg_map_HEIGHT);
     //sdm("_dg_map_HEIGHT: $"+hex_str(_dg_map_HEIGHT)+",  f.items&ITM_MAP1="+string(f.items&ITM_MAP1)+",  f.items&ITM_MAP2="+string(f.items&ITM_MAP2));
     
     for(_i=ds_list_size(g.dl_MapItem_ITEM_IDS)-1; _i>=0; _i--)
@@ -189,16 +192,17 @@ if (f.items&(ITM_MAP1|ITM_MAP2))
                 _ow_x  = (((_owrc>>0)&$FF) <<4) + 8;
                 _ow_y  = (((_owrc>>8)&$FF) <<4) + 8;
                 
-                ds_grid_resize(dg_map,ds_grid_width(dg_map)+1,_dg_map_HEIGHT);
-                        _idx =        ds_grid_width(dg_map)-1;
-                dg_map[#_idx,$00] = _spawn_datakey;
-                dg_map[#_idx,$01] = _owrc;
-                dg_map[#_idx,$02] = _ow_x;
-                dg_map[#_idx,$03] = _ow_y;
-                dg_map[#_idx,$04] = val(g.dm_spawn[?_item_id+STR_Object]);
-                dg_map[#_idx,$06] = val(g.dm_spawn[?_item_id+STR_Map+STR_Num]);
-                dg_map[#_idx,$07] = _item_id;
-                dg_map[#_idx,$08] = _item_type;
+                ds_grid_resize(TreasureMaps_dg,ds_grid_width(TreasureMaps_dg)+1,_dg_map_HEIGHT);
+                _idx = ds_grid_width(TreasureMaps_dg)-1;
+                TreasureMaps_dg[#_idx,$0] = _spawn_datakey;
+                TreasureMaps_dg[#_idx,$1] = _owrc;
+                TreasureMaps_dg[#_idx,$2] = _ow_x;
+                TreasureMaps_dg[#_idx,$3] = _ow_y;
+                TreasureMaps_dg[#_idx,$4] = val(g.dm_spawn[?_item_id+STR_Object]);
+                TreasureMaps_dg[#_idx,$6] = val(g.dm_spawn[?_item_id+STR_Map+STR_Num]);
+                TreasureMaps_dg[#_idx,$7] = _item_id;
+                TreasureMaps_dg[#_idx,$8] = _item_type;
+                TreasureMaps_dg[#_idx,$9] = false; // $9: can draw
                 //sdm(_item_id+string_repeat(" ",$A-string_length(_item_id))+", owrc $"+hex_str(_owrc)+", ow_x $"+hex_str(_ow_x)+", ow_y $"+hex_str(_ow_y)+", _spawn_datakey "+_spawn_datakey+", _map_num "+string(_map_num)+", _qual_quests "+_qual_quests);
             }
         }
@@ -368,13 +372,13 @@ for(_i=1; _i<=6; _i++)
 
 /*
 if(0){var _str="";
-    for(_i=ds_grid_width(dg_map)-1; _i>=0; _i--){
+    for(_i=ds_grid_width(TreasureMaps_dg)-1; _i>=0; _i--){
         _str ="$"+hex_str(_i)+":  ";
-        _str+="spawn_datakey: '"+string(dg_map[#_i,$00])+"'";
-        _str+=", owrc $"+hex_str(dg_map[#_i,$01]);
-        _str+=", obj: '"+obj_name(dg_map[#_i,$04])+"'";
-        _str+=", acquired "+string(dg_map[#_i,$05]);
-        _str+=", map "+string(dg_map[#_i,$06]);
+        _str+="spawn_datakey: '"+string(TreasureMaps_dg[#_i,$00])+"'";
+        _str+=", owrc $"+hex_str(TreasureMaps_dg[#_i,$01]);
+        _str+=", obj: '"+obj_name(TreasureMaps_dg[#_i,$04])+"'";
+        _str+=", acquired "+string(TreasureMaps_dg[#_i,$05]);
+        _str+=", map "+string(TreasureMaps_dg[#_i,$06]);
         sdm(_str);
     }
 }

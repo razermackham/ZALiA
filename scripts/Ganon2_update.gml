@@ -172,7 +172,7 @@ switch(sub_state)
     
     
     // Set pal colors for Ganon Skull
-    var _PAL = p.CI_BLK1_+p.CI_WHT1_+p.CI_RED3_+p.CI_BLK1_;
+    var _PAL = build_pal(p.C_WHT1,p.C_RED3,p.C_BLK1,p.C_BLK1,-2,-2,-2,-2);
     var _LEN = string_length(_PAL);
     var _POS = get_pal_pos(Form3_Skull_PI+1) - _LEN;
     change_pal(strReplaceAt(p.pal_rm_new, _POS,_LEN,_PAL));
@@ -258,7 +258,7 @@ switch(sub_state)
     }
     else
     {
-        if (timer2 < EXPLOSION_CUE6-$10)
+        if (timer2<EXPLOSION_CUE6-$10)
         {
             //vspd_grav=2;
             //updateY();
@@ -267,6 +267,7 @@ switch(sub_state)
         if(!Crystal_detatched)
         {
             Crystal_detatched = true;
+            // make sure crystal is set to home spot on stone Ganon
             Crystal_x = x + dg_Positions[#Crystal_position,$00];
             Crystal_y = y + dg_Positions[#Crystal_position,$01];
         }
@@ -278,7 +279,6 @@ switch(sub_state)
         can_draw_self = false;
         
         timer1 = $30; // Delay crystal drop
-        //timer1 = $48; // Delay crystal drop
         timer  = 0;
         //timer  = $20;
         sub_state = sub_state_NextForm_FALL;
@@ -292,7 +292,7 @@ switch(sub_state)
     
     
     // -----------------------------------------------------------
-    case sub_state_NextForm_FALL:{
+    case sub_state_NextForm_FALL:{ // slime fall to ground
     can_draw_self    = false;
     Crystal_can_draw = g.counter1 & Crystal_TIMING1;
     Form3_can_draw   = true;
@@ -300,17 +300,17 @@ switch(sub_state)
     if (timer) break;
     
     
-    if(!timer1) // delay crystal drop
+    if(!timer1) // delay crystal drop. ** i think the slime actually makes it to the ground before the crystal starts falling
     {
-        Ganon2_update_5(Crystal_Y1); // update Crystal_vspd & Crystal_y
+        Ganon2_update_5(y+Crystal_YOFF1); // update Crystal_vspd & Crystal_y
     }
     
-    vspd_grav=VSPD_GRAV;
+    // update slime falling to ground
+    vspd_grav = VSPD_GRAV;
     updateY();
-    if (Ganon2_update_4())  // return y+Slime_H_ >= GROUND_Y;
-    //if (y+Slime_H_ >= GROUND_Y)
+    if (Ganon2_update_4()) // return y+Slime_H_ >= GROUND_Y;
     {
-        vspd_grav=0;
+        vspd_grav = 0;
         set_xy(id, x,GROUND_Y-Slime_H_);
         
         g.ScreenShake_timer      = $8;
@@ -330,19 +330,20 @@ switch(sub_state)
     
     
     // -----------------------------------------------------------
-    case sub_state_NextForm_LEAVE1:{
+    case sub_state_NextForm_LEAVE1:{ // crystal fall to slime
     Crystal_can_draw = true;
     Form3_can_draw   = true;
     Form3_sprite_idx = 0;
-    Ganon2_update_5(Crystal_Y1); // update Crystal_vspd & Crystal_y
+    Ganon2_update_5(y+Crystal_YOFF1); // update Crystal_vspd & Crystal_y
     if (timer)  break;
     if (timer2) break; // jiggle timer
     
     
-    if (Crystal_y>=Crystal_Y1)
+    if (Crystal_y>=y+Crystal_YOFF1) // if crystal has reached skull forehead
+    //if (Crystal_y>=Crystal_Y1)
     {
         Crystal_x = x;
-        Crystal_y = y;
+        Crystal_y = y+Crystal_YOFF1;
         
         timer2 = $8+Form3_DURATION2+$8; // Tease Ganon skull. Form3_DURATION2=$10
         timer  = 0;
@@ -357,16 +358,19 @@ switch(sub_state)
     
     
     // -----------------------------------------------------------
-    case sub_state_NextForm_LEAVE2:{
+    case sub_state_NextForm_LEAVE2:{ // Flash solid and transparent slime sprite to tease Ganon skull
     Crystal_can_draw = true;
     Form3_can_draw   = true;
     Form3_sprite_idx = 0;
     if (timer) break;
     
     
+    Crystal_x = x;
+    Crystal_y = y+Crystal_YOFF1;
+    
     if (timer2)
     {
-        if (timer2 == $8+Form3_DURATION2)
+        if (timer2==$8+Form3_DURATION2)
         {
             aud_play_sound(get_audio_theme_track(STR_Cast+STR_Spell))
             aud_play_sound(get_audio_theme_track(dk_StrikeEnemy), 0,false, .5);
@@ -394,23 +398,24 @@ switch(sub_state)
     
     
     // -----------------------------------------------------------
-    case sub_state_NextForm_LEAVE:{
+    case sub_state_NextForm_LEAVE:{ // slime hops right until off screen
+    Crystal_can_draw = true; // this technically doesnt need to be here because solid slime sprite draws over crystal
     Form3_can_draw   = true;
     Form3_sprite_idx = 0;
     if (timer) break;
     
     
     Crystal_x = x;
-    Crystal_y = y;
+    Crystal_y = y+Crystal_YOFF1;
     
-    vspd_grav=VSPD_GRAV;
+    vspd_grav = VSPD_GRAV;
     if (Ganon2_update_4()) // returns: y+Slime_H_ >= GROUND_Y
     {
-        off_ground_reason=0;
+        off_ground_reason = 0;
         set_xy(id, x,GROUND_Y-Slime_H_);
-        vspd=0;
+        vspd = 0;
         
-        if (Ganon2_update_6a($20,1))
+        if (Ganon2_update_6a($20,1)) // if(!irandom($7)) JUMP/HOP !!!!!!!!!!!
         {
             updateX();
             updateY();
@@ -470,7 +475,7 @@ switch(sub_state)
 
 
 
-if (sub_state < sub_state_EXPLODE_BODY)
+if (sub_state<sub_state_EXPLODE_BODY)
 {
     Ganon2_update_3(); // update; udp, cs, body hb, cam vars
 }

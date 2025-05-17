@@ -49,18 +49,9 @@ else
 
 
 
-
-
-
-
-
-
-
-
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
-if(   !g.menu_state)
-{      g.menu_state = SUB_STATE_OPEN0;  }
+if(!g.menu_state) g.menu_state = SUB_STATE_OPEN0;
 
 
 switch(g.menu_state)
@@ -72,8 +63,7 @@ switch(g.menu_state)
     
     if (_SAVING_GAME)
     {
-        if (g.mod_ContinueFrom & (g.mod_ContinueFrom_TWN1|g.mod_ContinueFrom_TWN2))
-        {   f.cont_run_town_num = g.town_num;  }
+        if (g.mod_ContinueFrom &(g.mod_ContinueFrom_TWN1|g.mod_ContinueFrom_TWN2)) f.cont_run_town_num = g.town_num;
         
         file_save(      f.file_num, false);
         set_saved_value(f.file_num, STR_Save+STR_Town+STR_Num, f.cont_run_town_num);
@@ -122,18 +112,19 @@ switch(g.menu_state)
     if (timer) break;
     
     var _i;
-    cursor_option       = 0;
-    dialogue            = dialogue_DEF;
+    cursor_option      = 0;
+    dialogue           = dialogue_DEF;
     
-    add_char_tmr        = 0; // 0566
-    writ_char_pos       = 0;
-    writ_line_idx       = 0; // 048A
-    writ_line_char_pos  = 0; // 0489
-    writ_dlg            = ""; // what's been written so far
+    add_char_tmr       = 0; // 0566
+    writ_char_pos      = 0;
+    writ_line_idx      = 0; // 048A
+    writ_line_char_pos = 0; // 0489
+    writ_dlg           = ""; // what's been written so far
     
-    for(_i=array_length_1d(ar_lines_written)-1; _i>=0; _i--)
-    {                      ar_lines_written[_i] = "";  }
-    
+    for(_i=ds_list_size(dl_lines_written)-1; _i>=0; _i--)
+    {
+        dl_lines_written[|_i] = "";
+    }
     
     
     drawX = get_menu_x();
@@ -144,12 +135,9 @@ switch(g.menu_state)
     else                                    rows = ROWS_DEF;
     
     
-        g.menu_built_count  = min(g.menu_built_count+1, (rows>>1));
-    if (g.menu_built_count >= (rows>>1))
-    {   g.menu_state = SUB_STATE_DLG_0;  }
+        g.menu_built_count = min(g.menu_built_count+1, (rows>>1));
+    if (g.menu_built_count>=(rows>>1)) g.menu_state = SUB_STATE_DLG_0;
     break;}//case SUB_STATE_CSTR1
-    
-    
     
     
     
@@ -166,7 +154,7 @@ switch(g.menu_state)
     var _dialogue_is_special = false;
     
     
-    _val = f.ar_save_names[f.file_num-1];
+    _val = f.dl_save_names[|f.file_num-1];
     // Trim whitespaces at end.
     for(_i=string_length(_val); _i>=1; _i--)
     {
@@ -178,10 +166,10 @@ switch(g.menu_state)
     }
     
     var _SAVE_FILE_NAME = _val;
-    
     dialogue_ver = "A";
     
     update_Dialogue_1a();
+    
     
     // B5C7
     var _DIALOGUE_DK = g.dialogue_source.dialogue_datakey+dialogue_ver;
@@ -192,39 +180,44 @@ switch(g.menu_state)
     //    _TYPE +=         hex_str(g.dialogue_source.ver);
     //    _TYPE  = val(dm_dialogue[?_TYPE+STR_Type]);
     
-    var _RANDO_HINT_DIALOGUE_DK = undefined;
+    var _RandoHint_dialogue_dk = undefined;
     
-    if (val(f.dm_rando[?STR_Zelda+STR_Hint]) 
-    &&  ((_TYPE==TYPE_ZLDA2 && dialogue_ver=="01") || g.dialogue_source.dialogue_datakey==STR_Zelda+STR_Hint) )
+    if (global.RandoHints_enabled)
     {
-        _dialogue_is_special = true;
-        _RANDO_HINT_DIALOGUE_DK = STR_Zelda+STR_Hint;
-        dialogue = val(f.dm_rando[?_RANDO_HINT_DIALOGUE_DK+STR_Dialogue]);
-    }
-    else
-    {
-        if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-        &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
+        if (val(f.dm_rando[?STR_Zelda+STR_Hint]) 
+        &&  ((_TYPE==TYPE_ZLDA2 && dialogue_ver=="01") || g.dialogue_source.dialogue_datakey==STR_Zelda+STR_Hint) )
         {
-            _val = f.dm_rando[?STR_Rando+STR_Hint+g.dialogue_source.dialogue_datakey];
-            if(!is_undefined(_val))
+            _dialogue_is_special = true;
+            _RandoHint_dialogue_dk = STR_Zelda+STR_Hint;
+            dialogue = val(f.dm_rando[?_RandoHint_dialogue_dk+STR_Dialogue]);
+        }
+        else
+        {
+            if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
+            &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
             {
-                _dialogue_is_special = true;
-                _RANDO_HINT_DIALOGUE_DK = g.dialogue_source.dialogue_datakey;
-                dialogue = _val;
-            }
-            else if (val(dm_dialogue[?_DIALOGUE_DK+STR_Hint]))
-            {
-                if (isVal(g.town_name,STR_Rauru,STR_Saria,STR_Darunia))
-                {    dialogue = "SORRY,<NOTHING.";  }
-                else dialogue = "SORRY.<I KNOW<NOTHING.";
+                _val = f.dm_rando[?STR_Rando+STR_Hint+g.dialogue_source.dialogue_datakey];
+                if(!is_undefined(_val))
+                {
+                    _dialogue_is_special = true;
+                    _RandoHint_dialogue_dk = g.dialogue_source.dialogue_datakey;
+                    dialogue = _val;
+                }
+                else if (val(dm_dialogue[?_DIALOGUE_DK+STR_Hint]))
+                {
+                    if (g.town_name==STR_Rauru 
+                    ||  g.town_name==STR_Saria 
+                    ||  g.town_name==STR_Darunia )
+                    {    dialogue = "SORRY,<NOTHING.";  }
+                    else dialogue = "SORRY.<I KNOW<NOTHING.";
+                }
             }
         }
     }
     
-    if(!is_undefined(_RANDO_HINT_DIALOGUE_DK))
+    if(!is_undefined(_RandoHint_dialogue_dk))
     {
-        _num = val(f.dm_rando[?STR_Rando+STR_Hint+_RANDO_HINT_DIALOGUE_DK+STR_Hint+STR_Num]);
+        _num = val(f.dm_rando[?STR_Rando+STR_Hint+_RandoHint_dialogue_dk+STR_Hint+STR_Num]);
         if (_num)
         {
             var _dialogue = g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Dialogue];
@@ -232,21 +225,21 @@ switch(g.menu_state)
             {
                 g.dm_RandoHintsRecorder[?STR_Found+STR_Hint+STR_Num] = val(g.dm_RandoHintsRecorder[?STR_Found+STR_Hint+STR_Num], "") + hex_str(_num);
                 
-                _dialogue=dialogue;
-                _dialogue=string_replace_all(_dialogue,"<"," ");
-                _dialogue=string_replace_all(_dialogue,">"," ");
+                _dialogue = dialogue;
+                _dialogue = string_replace_all(_dialogue,"<"," ");
+                _dialogue = string_replace_all(_dialogue,">"," ");
                 g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Dialogue] = _dialogue;
                 
                 var _item = val(f.dm_rando[?STR_Rando+STR_Hint+hex_str(_num)+STR_Item], "UNDEFINED"); // item id
                 //_item=string_letters(_item);
                 g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Item] = _item;
-                _item=string_letters(_item);
+                _item = string_letters(_item);
                 
                 _pos = string_pos(_item,_dialogue);
                 if (_pos>1) g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Text+"01"] = string_copy(_dialogue,1,_pos-1);
                 else        g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Text+"01"] = "";
                 
-                _pos+=string_length(_item);
+                _pos += string_length(_item);
                 if (string_length(_dialogue)>=_pos) g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Text+"02"] = strR(_dialogue,_pos);
                 else                                g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Text+"02"] = "";
             }
@@ -266,7 +259,7 @@ switch(g.menu_state)
             _dialogue_is_special = true;
             dialogue = "WOULD YOU<"+"LIKE ORC<"+"MASSAGE?";
         }
-        break;}
+        break;}//case NPC_4
         
         
         // ---------------------------------------------------------
@@ -276,7 +269,7 @@ switch(g.menu_state)
             _dialogue_is_special = true;
             dialogue = string(g.dialogue_source.COST) + dialogue;
         }
-        break;}
+        break;}//case NPC_B
         
         
         // ---------------------------------------------------------
@@ -305,8 +298,8 @@ switch(g.menu_state)
             dialogue += string(g.town_num)+_str1+" IS"+"<"; // Line 3
             dialogue += _CARDINAL_DIR;   // Line 4
         }
-        break;}
-    }
+        break;}//case NPC_7
+    }//switch(g.dialogue_source.object_index)
     
     
     if (global.Halloween1_enabled 
@@ -315,7 +308,6 @@ switch(g.menu_state)
         _dk = dm_dialogue[?STR_Halloween+g.dialogue_source.dialogue_datakey];
         if(!is_undefined(_dk)) dialogue = val(dm_dialogue[?_dk+dialogue_ver], dialogue);
     }
-    
     
     
     //if (global.SWAP_LINK_NAME_WITH_SAVE_NAME)
@@ -346,8 +338,6 @@ switch(g.menu_state)
     
     
     
-    
-    
     dlg_line_cnt  = 1; // At least 1
     dlg_line_cnt += string_count(g.CHAR_END_LINE1, dialogue);
     dlg_line_cnt += string_count(g.CHAR_END_LINE2, dialogue);
@@ -365,19 +355,16 @@ switch(g.menu_state)
         ||  _char==g.CHAR_END_LINE2 )
         {
             dg_dlg[#_idx,2] = _char;
-                    _idx++;
-            ds_grid_resize(dg_dlg, _idx+1,ds_grid_height(dg_dlg));
+            ds_grid_resize(dg_dlg, (++_idx)+1,ds_grid_height(dg_dlg));
         }
         else
         {
-            if ( dg_dlg[#_idx,0] == 0)
-            {    dg_dlg[#_idx,0]  = _char;  }
-            else dg_dlg[#_idx,0] += _char;
+            if (dg_dlg[#_idx,0]==0) dg_dlg[#_idx,0]  = _char;
+            else                    dg_dlg[#_idx,0] += _char;
         }
     }
     
-    for(_i=ds_grid_width(dg_dlg)-1; _i>=0; _i--)
-    {   dg_dlg[#_i,1] = string_length(dg_dlg[#_i,0]);  }
+    for(_i=ds_grid_width(dg_dlg)-1; _i>=0; _i--) dg_dlg[#_i,1] = string_length(dg_dlg[#_i,0]);
     
     
     
@@ -389,7 +376,6 @@ switch(g.menu_state)
          if (dlg_line_cnt==MAX_LINES)   text_y_off += -4;
     else if (dlg_line_cnt==MAX_LINES-1) text_y_off +=  2;
     else                                text_y_off +=  4;
-    
     
     
     add_char_tmr = dg_DIALOGUE_DELAYS[#g.mod_DLG_SPEED,0];
@@ -407,9 +393,6 @@ switch(g.menu_state)
     
     
     
-    
-    
-    
     // -----------------------------------------------------------------------------------------------------
     // -----------------------------------------------------------------------------------------------------
     case SUB_STATE_DLG_1:{ // B621. ---------------------------------------------------------------
@@ -418,14 +401,6 @@ switch(g.menu_state)
     timer = 0;
     g.menu_state = SUB_STATE_TALK1;
     break;}//case SUB_STATE_DLG_1
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -451,7 +426,6 @@ switch(g.menu_state)
     {   // B672, B621.  Starts close window process
         if (g.gui_state==g.gui_state_DIALOGUE2) g.menu_state = SUB_STATE_ACTN1; // ACTN1: get spell/get skill/restore stat
         else                                    g.menu_state = SUB_STATE_ACTN2;
-        
         break;
     }
     
@@ -486,7 +460,7 @@ switch(g.menu_state)
     var _LEN = string_length(dialogue);
     
     
-    if (writ_char_pos < _LEN)
+    if (writ_char_pos<_LEN)
     {
         //  _C3: can SKIP TO END of dlg
         var _C3  =  _SKIP_TYPE==SkipType_TOEND 
@@ -501,18 +475,18 @@ switch(g.menu_state)
         var      _last = writ_char_pos+1; // next char
         if (_C3) _last = _LEN;            // last char of dialogue
         
-        while (writ_char_pos < _last) // write 1 or all char
+        while (writ_char_pos<_last) // write 1 or all char
         {
-               writ_char_pos++;
-               writ_line_char_pos++;
+            writ_char_pos++;
+            writ_line_char_pos++;
             
-                _char   = string_char_at(dialogue, writ_char_pos);
-                _char2  = string_char_at(dialogue, writ_char_pos+1);
+            _char  = string_char_at(dialogue, writ_char_pos);
+            _char2 = string_char_at(dialogue, writ_char_pos+1);
             
             if(!_C3 
-            &&  _char  == g.CHAR_BLANK 
-            &&  _char2 == g.CHAR_BLANK 
-            &&  _last < _LEN )
+            &&  _char ==g.CHAR_BLANK 
+            &&  _char2==g.CHAR_BLANK 
+            &&  _last<_LEN )
             {
                 _last++; // go until next char != g.CHAR_BLANK
             }
@@ -529,8 +503,8 @@ switch(g.menu_state)
                 if (_char==g.CHAR_BLANK) _char2 = " ";
                 else                     _char2 = _char;
                 
-                ar_lines_written[writ_line_idx] += _char2;
-                writ_dlg                        += _char2;
+                dl_lines_written[|writ_line_idx] += _char2;
+                writ_dlg                         += _char2;
             }
         }
         
@@ -552,8 +526,8 @@ switch(g.menu_state)
             else                              add_char_tmr = dg_DIALOGUE_DELAYS[#g.mod_DLG_SPEED,1]; // next char delay
             
             if (_WRIT_SND 
-            &&  _char != g.CHAR_BLANK 
-            &&  _char != 0 )
+            &&  _char!=g.CHAR_BLANK 
+            &&  _char!=0 )
             {
                 aud_play_sound(_WRIT_SND);
             }
@@ -574,12 +548,6 @@ switch(g.menu_state)
     
     g.menu_state = SUB_STATE_ACTN0;
     break;}//case SUB_STATE_TALK1
-    
-    
-    
-    
-    
-    
     
     
     
@@ -640,7 +608,7 @@ switch(g.menu_state)
                     
                     with(g.pc)
                     {
-                        var _Y = _YB-(Cucco_H>>1);
+                        var _Y = _YB - (Cucco_H>>1);
                         set_xy(id, x,_Y);
                         hspd = 0;
                         vspd = 0;
@@ -686,26 +654,20 @@ switch(g.menu_state)
         ||  _GET_SKILL )
         {    g.menu_state = SUB_STATE_ACTN1;  } // ACTN1: get spell/get skill/restore stat
         else g.menu_state = SUB_STATE_ACTN2;
-        
-        
-        
-        
     }
     else if (g.gui_state==g.gui_state_DIALOGUE3 
          &&  isVal(_TYPE, TYPE_GAME1,TYPE_GAME2,TYPE_GAME3,TYPE_SHOP1) )
     {
-        if (bitCount(cursor_option&$3)!=$1)
-        {            cursor_option = Input.L;  } // Option YES to start minigame
+        if (bitCount(cursor_option&$3)!=$1) cursor_option = Input.L; // Option YES to start minigame
         
         
         if ( Input.Pause_held          // Start held
         && !(Input.heldPrev&Input.S) ) // Start NOT held prev frame
         {
             //g._0766 = 0;
+            aud_play_sound(get_audio_theme_track(dk_CursorFileSelect));
             timer = 2; // because skipping ACTN1&2
             g.menu_state = SUB_STATE_CLOS0; // skip ACTN1&2
-            
-            aud_play_sound(get_audio_theme_track(dk_CursorFileSelect));
         }
         else
         {
@@ -717,7 +679,6 @@ switch(g.menu_state)
             {
                 cursor_option ^= $3;
                 tmr_cursor_1   = $7;
-                
                 aud_play_sound(get_audio_theme_track(dk_CursorSpellMenu));
             }
         }
@@ -727,7 +688,6 @@ switch(g.menu_state)
          &&  f.items&ITM_BOOK )
     {
              g.dialogue_source.HylianText_read = true;
-             
              aud_play_AdvanceDialogue();
              timer = $20;
              g.menu_state = SUB_STATE_CSTR1;
@@ -747,13 +707,6 @@ switch(g.menu_state)
     
     
     
-    
-    
-    
-    
-    
-    
-    
     // -----------------------------------------------------------------------------------------------------
     // -----------------------------------------------------------------------------------------------------
     case SUB_STATE_ACTN1:{ // Healer, Saver, Spell Giver, Knight ----------------------------------
@@ -765,11 +718,17 @@ switch(g.menu_state)
     if (_TYPE==TYPE_HEART   // LIFE   Restore
     ||  _TYPE==TYPE_MAGIC ) // MAGIC  Restore
     {   // B76A
-        if (_TYPE==TYPE_HEART &&    f.hp<get_stat_max(STR_Heart))
-        {   g.StatRestore_timer_hp = max(get_stat_max(STR_Heart),$FF);  }
+        if (_TYPE==TYPE_HEART 
+        &&  f.hp<get_stat_max(STR_Heart) )
+        {
+            g.StatRestore_timer_hp = max(get_stat_max(STR_Heart),$FF);
+        }
         
-        if (_TYPE==TYPE_MAGIC &&    f.mp<get_stat_max(STR_Magic))
-        {   g.StatRestore_timer_mp = max(get_stat_max(STR_Magic),$FF);  }
+        if (_TYPE==TYPE_MAGIC 
+        &&  f.mp<get_stat_max(STR_Magic) )
+        {
+            g.StatRestore_timer_mp = max(get_stat_max(STR_Magic),$FF);
+        }
         
         g.menu_state = SUB_STATE_ACTN2;
         break;//case SUB_STATE_ACTN1
@@ -793,7 +752,7 @@ switch(g.menu_state)
                 g.pc_lock             = 0;
                 g.pc.in_restore_house = false;
                 
-                g.PAUSE_MENU.state    = g.PAUSE_MENU.ST_SPL; // set PauseMenu to open spell list
+                g.PAUSE_MENU.state    = g.PAUSE_MENU.state_SPELL; // set PauseMenu to open spell list
                 g.menu_built_count    = 0;
                 g.menu_state          = 1;
                 g.gui_state           = g.gui_state_PAUSE; // OPEN PAUSE MENU
@@ -810,14 +769,6 @@ switch(g.menu_state)
         g.menu_state = SUB_STATE_ACTN2;
     }
     break;}//case SUB_STATE_ACTN1
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -859,6 +810,7 @@ switch(g.menu_state)
                         
                         aud_play_combo1(7);
                     }
+                    
                     open = true;
                     doorway_spr = g.Doorway1_SPR;
                     break;//with(Exit)
@@ -866,7 +818,6 @@ switch(g.menu_state)
             }
         }
     }
-    
     
     
     // B7A6, B7A2.   !g._0766: dlg closed w/out finishing
@@ -879,14 +830,6 @@ switch(g.menu_state)
     
     g.menu_state = SUB_STATE_CLOS0;
     break;}//case SUB_STATE_ACTN2
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -911,11 +854,6 @@ switch(g.menu_state)
     
     
     
-    
-    
-    
-    
-    
     // -----------------------------------------------------------------------------------------------------
     // -----------------------------------------------------------------------------------------------------
     case SUB_STATE_DSTR1:{ // B183, B107.  DeconSTRuct window. -------------------------------------
@@ -924,13 +862,6 @@ switch(g.menu_state)
         g.menu_built_count--;
     if (g.menu_built_count<0) g.menu_state = SUB_STATE_CLOS1;
     break;}//case SUB_STATE_DSTR1
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -977,7 +908,7 @@ switch(g.menu_state)
                 g.dialogue_source.state = 0;
                 
                 //g.go_mgr.uIdxSwap_gob = g.dialogue_source.uIdx;
-                with(GameObject_create(g.dialogue_source.xl,g.dialogue_source.yt, _obj,_ver, -1, PI_MOB_BLU))
+                with(GameObject_create(g.dialogue_source.xl,g.dialogue_source.yt, _obj,_ver, -1, global.PI_MOB_BLU))
                 {
                     switch(object_index)
                     {   // ------------------------------
@@ -1004,8 +935,6 @@ switch(g.menu_state)
             }
         }
     }
-
-    
     
     
     
@@ -1015,14 +944,14 @@ switch(g.menu_state)
     // && !audio_is_playing(Audio.SND_CAST_SPEL) )
     {
         aud_play_sound(get_audio_theme_track(dk_OpenGUI));
-        
+        /*
         if (g.dialogue_source.object_index!=NPC_7 
         ||  g.dialogue_source.use_cucco_dlg<2 )
         {
-            //aud_play_sound(get_audio_theme_track(dk_OpenGUI));
+            aud_play_sound(get_audio_theme_track(dk_OpenGUI));
         }
+        */
     }
-    
     
     
     g.pc_lock = 0;
@@ -1052,7 +981,6 @@ switch(g.menu_state)
     g.gui_state        = 0;
     break;}//case SUB_STATE_CLOS1
 }//switch(g.menu_state)
-
 
 
 

@@ -14,6 +14,7 @@ x_change_dir   = 0;
 hspd_pushback  = 0; // $043E,X
 // 0, or the push/force dir (1,-1) that hspd was increased or maintained for the frame
 hspd_impel     = 0;
+hyper_hspd_friction = 0.00; // Track the sub-sub-pixel amount of deceleration from faster than normal max hspd to normal max hspd.
 
 
 

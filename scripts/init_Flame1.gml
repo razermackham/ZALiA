@@ -6,7 +6,7 @@
 GO_sprite_init(spr_Flame1);
 DRAW_YOFF = 0;
 
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 
 
 vspd_adj = 1; // 

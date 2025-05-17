@@ -35,7 +35,7 @@ if (input_start_pressed)
     {
         // Erase rando data file
         var _FILE_NUM = Eliminate_cursor+1;
-        f.ar_save_names[_FILE_NUM-1] = SAVE_NAME_NULL;
+        f.dl_save_names[|_FILE_NUM-1] = SAVE_NAME_NULL;
         file_save(_FILE_NUM,true);
         
         var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";

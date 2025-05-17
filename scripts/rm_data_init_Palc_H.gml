@@ -285,6 +285,11 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$12,  '04'+EXL0_); /
 //data_spawn(rm+STR_PRIO,ItmE0,$1,  $07<<3,(row3-$04)<<3); // v1: Magic Jar, Red(full mp)
 
 
+_a=0;    _datakey=MAP_DATAKEY1+rm+STR_Page;
+g.dm_rm[?_datakey+"00"+STR_TSRC]   = MAP_TSRC_B0+2;
+g.dm_rm[?_datakey+"00"+STR_ScaleX] = -1;
+g.dm_rm[?_datakey+"01"+STR_TSRC]   = MAP_TSRC_B0+1;
+
 
 
 
@@ -519,10 +524,9 @@ data_spawn(rm+STR_PRIO,SpStA,$1,  $65<<3,(row0+$10)<<3); // SpawnByStab 1
 data_spawn(rm+STR_PRIO,Ganon2,$1,  (clms0+$01)<<3,(row0+$05)<<3);
 //STR_Arena+'_x'+hex_str(rm_w>>1)
 
-clm3=$70;
-row3=row0+$17;
-data_exit(EXU0,etA4,0,  $78,row_e0,  $0C,$10,  $7A,row_e4,  '1C'+EXD0_); // UP  0, Pit up 
-//data_exit(EXU0,etA4,0,  clm3,row_e0,  clms0-clm3,$10,  clm3+$02,row_e4,  '1C'+EXD0_); // UP  0, Pit up 
+clm3=$70; row3=row0+$17;
+//data_exit(EXU0,etA4,0,  $78,row_e0,  $0C,$10,  $7A,row_e4,  '1C'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA4,0,  clm3,row_e0,  clms0-clm3,$10,  clm3+$02,row_e4,  '1C'+EXD0_); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  rm_num_+EXU0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '21'+EXL0_); // RGT 0, 
 
@@ -588,9 +592,11 @@ g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_B1;
 //      Ganon3. Final Battle
 rm_num  = $22;
 set_rm_data(area+hex_str(rm_num), mus1, STR_Color+p.CI_VLT4_, STR_Tile+area_PH+'255', STR_ow_axis+hex_str(ow_axis));
+//p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET3;
+
 
                                 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++),   _rc, 1,Cloud_1_init, PI_BGR_4,0); // 
+data_NIAO_1a(rm+STR_NIAO+string(_a++),   _rc, 1,Cloud_1_init, global.PI_BGR4,0); // 
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,CloudCover1_init); // 1: TOP, BGR
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 2,CloudCover1_init); // 2: BTM, BGR
 data_NIAO_1a(rm+STR_NIAO+string(_a++),  _RC1, 2,CloudCover1_init, -1,-1, _DEPTH1); // 2: BTM, FGR

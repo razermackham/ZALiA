@@ -2175,7 +2175,7 @@ mus0 = STR_Dungeon+'01';
 var _DARK_DATA=STR_Dark+"01";
 ow_axis =  0; // 0:horizontal, 1:vertical
 _ow_axis = STR_ow_axis+'00';
-var _Pushable_PI = PI_BGR_4;
+var _Pushable_PI = global.PI_BGR4;
 var _COLUMN_TYPE='02'; // 2: Midoro Palace
 
 //   --------------------------  80  --------------------------- 
@@ -2191,11 +2191,11 @@ row5=row0+$17; y5=row5<<3;
 x3=$57<<3;
 y3=((row0+$18)<<3)+3;
 _data = hex_str((x3>>8)&$FF)+hex_str((x3>>0)&$FF) + hex_str((y3>>8)&$FF)+hex_str((y3>>0)&$FF);
-data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  PI_BGR_3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
+data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  global.PI_BGR3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
 
-_pi=PI_BGR_4;
-data_spawn(rm+STR_PRIO,TorchA,$3,  $58<<3,y5,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$3,  $69<<3,y5,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+_pi=global.PI_BGR4;
+data_spawn(rm+STR_PRIO,TorchA,$3,  $58<<3,y5,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$3,  $69<<3,y5,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
 
 
 clm3=$61; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
@@ -2278,17 +2278,17 @@ y4 = y3+(rows3<<3);
 y5 = y4+(rows3<<3);
 y6 = y5+(rows3<<3);
 y7 = y6+(rows3<<3);
-_pi=PI_BGR_4;
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y6,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y6,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y7,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y7,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
+_pi=global.PI_BGR4;
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y4,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y5,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y5,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y6,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y6,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y7,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y7,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
 _dist=($01<<3)+2;
 x4-=$01<<3;  x4 = hex_str((x4>>8)&$FF)+hex_str((x4>>0)&$FF);
 x5+=$02<<3;  x5 = hex_str((x5>>8)&$FF)+hex_str((x5>>0)&$FF);
@@ -2302,7 +2302,7 @@ _data += x4+y4 + x5+y4;
 _data += x4+y5 + x5+y5;
 _data += x4+y6 + x5+y6;
 _data += x4+y7 + x5+y7;
-data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  PI_BGR_3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
+data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  global.PI_BGR3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
 
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
@@ -2362,9 +2362,9 @@ data_spawn(rm+STR_PRIO,TorchA,$1,       _dist-4,y4,  STR_Lit); // v1: Light w/ C
 data_spawn(rm+STR_PRIO,TorchA,$1,  rm_w-_dist-8,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($26<<3)+4,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($38<<3)+4,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,PushA,$3,  $22<<3,(row0+$16)<<3,  STR_Palette+hex_str(_Pushable_PI)); // Pushable
-data_spawn(rm+STR_PRIO,SwchB,$1,  $22<<3,y5,  STR_Palette+hex_str(PI_BGR_2)); // 
-data_spawn(rm+STR_PRIO,SwchB,$1,  $3C<<3,y5,  STR_Palette+hex_str(PI_BGR_2)); // 
+data_spawn(rm+STR_PRIO,PushA,$3,  $22<<3,(row0+$16)<<3,  dk_PI+hex_str(_Pushable_PI)); // Pushable
+data_spawn(rm+STR_PRIO,SwchB,$1,  $22<<3,y5,  dk_PI+hex_str(global.PI_BGR2)); // 
+data_spawn(rm+STR_PRIO,SwchB,$1,  $3C<<3,y5,  dk_PI+hex_str(global.PI_BGR2)); // 
 data_spawn_2a(STR_Challenge,Challenge_SwitchB,$3,  $00<<3,(row0+$00)<<3,  -1);
 
 
@@ -2395,8 +2395,8 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($20<<3)-4,y4,  STR_Lit); // v1: Light w/ CAN
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($40<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($50<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
-_dk=data_spawn(rm+STR_PRIO,PushA,$3,  $17<<3,(row0+$12)<<3,  STR_Palette+hex_str(_Pushable_PI)); // Pushable
-data_spawn(rm+STR_PRIO,PushableRefresher,$1,  $06<<3,(row0+$14)<<3,  STR_Palette+hex_str(PI_BGR_1),  object_get_name(PushA)+dk_SpawnDatakey+_dk);
+_dk=data_spawn(rm+STR_PRIO,PushA,$3,  $17<<3,(row0+$12)<<3,  dk_PI+hex_str(_Pushable_PI)); // Pushable
+data_spawn(rm+STR_PRIO,PushableRefresher,$1,  $06<<3,(row0+$14)<<3,  dk_PI+hex_str(global.PI_BGR1),  object_get_name(PushA)+dk_SpawnDatakey+_dk);
 
 clms3=clms0; clm3=$00;
 _exit=data_exit(EXD0,etA1,1,  clm3,row_e2,  clms3,ROWS5,  clms1,row_e3,  '85'+EXU0_); // DWN 0, Pit down 
@@ -3211,6 +3211,12 @@ data_spawn(rm+STR_PRIO,Blooby,$2,  $24<<3,$11<<3); // Blooby 2
 data_spawn(rm+STR_PRIO,Blooby,$2,  $2E<<3,$0D<<3); // Blooby 2
 //data_spawn(rm+STR_PRIO,Blooby,$1,  $1F<<3,(row0+$15)<<3,  1,$00); // Blooby 1
 
+if(0){// For testing hyper hspd from stabbing a Blooby
+data_spawn(rm+STR_PRIO,Blooby,$2,  $18<<3,$56<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $1E<<3,$56<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $14<<3,$58<<3); // Blooby 2
+data_spawn(rm+STR_PRIO,Blooby,$2,  $26<<3,$58<<3); // Blooby 2
+}
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  rm_num_+EXL0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  rm_num_+EXR0_); // RGT 0, 
@@ -3282,7 +3288,7 @@ row3=row0+$14; y3=row3<<3; // PC spawn row Left exit
 row4=row0+$06; y4=row4<<3; // PC spawn row Right exit
 row5=row0+$16; y5=row5<<3;
 //row6=row0+$08; y6=row6<<3;
-data_spawn(rm+STR_PRIO,PushA,$2,  $5C<<3,(row0-$02)<<3,  STR_Palette+hex_str(PI_BGR_4)); // Pushable
+data_spawn(rm+STR_PRIO,PushA,$2,  $5C<<3,(row0-$02)<<3,  dk_PI+hex_str(global.PI_BGR4)); // Pushable
 data_spawn(rm+STR_PRXM,OctoA,$1,  $20<<3,y5); // Octorok  1 
 data_spawn(rm+STR_PRXM,OctoA,$1,  $30<<3,y5); // Octorok  1 
 data_spawn(rm+STR_PRXM,OctoA,$1,  $40<<3,y5); // Octorok  1 
@@ -3310,7 +3316,7 @@ row4=row0+$00; y4=row4<<3; // PC spawn row Right exit
 row5=row0+$0F; y5=row5<<3;
 //row6=row0+$08; y6=row6<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
-var _PI1=PI_MOB_BLU;
+var _PI1=global.PI_MOB_BLU;
 var _DUR=4; // SpTrC revolution duration
 data_spin_trap(SpTrC,$1,  $30<<3,(row0+$10)<<3,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
 data_spin_trap(SpTrC,$1,  $50<<3,(row0+$0C)<<3,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
@@ -3340,7 +3346,7 @@ row3=row0+$16; y3=row3<<3; // PC spawn row Left exit
 row4=row0+$12; y4=row4<<3; // PC spawn row Right exit
 row5=row0+$00; y5=row5<<3;
 row6=row0+$08; y6=row6<<3;
-var _PI1=PI_MOB_BLU;
+var _PI1=global.PI_MOB_BLU;
 var _DUR=4; // SpTrC revolution duration
 data_spin_trap(SpTrC,$1,  $1C<<3,y6,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
 data_spin_trap(SpTrC,$1,  $64<<3,y6,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
@@ -3372,7 +3378,7 @@ row3=row0+$0A; y3=row3<<3; // PC spawn row Right+Left exit
 row4=row3+$01; y4=row4<<3;
 row5=row0+$10; y5=row5<<3;
 var _DUR = 4; // SpTrC revolution duration
-var _PI1 = PI_MOB_BLU; // To contrast w/ red walls
+var _PI1 = global.PI_MOB_BLU; // To contrast w/ red walls
 _dist=$0A<<3; 
 x3=($0F<<3)+4; _a=0;
 data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
@@ -3456,7 +3462,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($09<<3)+4,y4,  STR_Lit); // v1: Light w/ CAN
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($75<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 clm3=$35; clm4=$48;
 _data=hex_str(row5)+hex_str(clm3) + hex_str(row5)+hex_str(clm4);
-data_Platform(PlatformA,$1,  clm3<<3,(row0+$16)<<3,  PI_MOB_ORG, 1, 0, _data);
+data_Platform(PlatformA,$1,  clm3<<3,(row0+$16)<<3,  global.PI_MOB_ORG, 1, 0, _data);
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  rm_num_+EXL0_); // LFT 0, 
@@ -3758,9 +3764,9 @@ y3 =(row0+$17)<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  XT0,(row0+$16)<<3,  STR_Brightness+'2'); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $19<<3,y3,  STR_Brightness+'2'); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $25<<3,y3,  STR_Brightness+'2'); // v1: Light w/ CANDLE or FIRE
-y3 =(row0+$0C)<<3;  _pi=PI_BGR_2;
-data_spawn(rm+STR_PRIO,SpDrA,$3,  $13<<3,y3,  STR_Palette+hex_str(_pi),STR_Type+hex_str(4)); // Drop spawner v3. Drops Bot & Flame1
-data_spawn(rm+STR_PRIO,SpDrA,$3,  $2B<<3,y3,  STR_Palette+hex_str(_pi),STR_Type+hex_str(4)); // Drop spawner v3. Drops Bot & Flame1
+y3 =(row0+$0C)<<3;  _pi=global.PI_BGR2;
+data_spawn(rm+STR_PRIO,SpDrA,$3,  $13<<3,y3,  dk_PI+hex_str(_pi),STR_Type+hex_str(4)); // Drop spawner v3. Drops Bot & Flame1
+data_spawn(rm+STR_PRIO,SpDrA,$3,  $2B<<3,y3,  dk_PI+hex_str(_pi),STR_Type+hex_str(4)); // Drop spawner v3. Drops Bot & Flame1
 
 
 //data_exit(EXU0,etA4,0,  $0A,row_e0,  $2C,ROWS_E0,  clm1-1,row_e4,  rm_num_+EXU0_); // UP  0, Pit up 
@@ -3785,17 +3791,17 @@ set_rm_data(area+hex_str(rm_num), mus0, STR_Dark+'01', STR_Tile+area_MI+'235', S
 row3 = $10;
 y3   = row3<<3;
 y4   =(row3+1)<<3;
-_pi  = PI_BGR_4;
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($0B<<3)+4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($13<<3)+4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($2B<<3)+4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($33<<3)+4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($4B<<3)+4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($53<<3)+4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-y4=$06<<3;  _pi=PI_BGR_2;
-data_spawn(rm+STR_PRIO,SpDrA,$1,  $0F<<3,y4,  STR_Palette+hex_str(_pi),STR_Type+hex_str(4)); // DropSpawner  1
-data_spawn(rm+STR_PRIO,SpDrA,$1,  $2F<<3,y4,  STR_Palette+hex_str(_pi),STR_Type+hex_str(4)); // DropSpawner  1
-data_spawn(rm+STR_PRIO,SpDrA,$1,  $4F<<3,y4,  STR_Palette+hex_str(_pi),STR_Type+hex_str(4)); // DropSpawner  1
+_pi  = global.PI_BGR4;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($0B<<3)+4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($13<<3)+4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($2B<<3)+4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($33<<3)+4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($4B<<3)+4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($53<<3)+4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+y4=$06<<3;  _pi=global.PI_BGR2;
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $0F<<3,y4,  dk_PI+hex_str(_pi),STR_Type+hex_str(4)); // DropSpawner  1
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $2F<<3,y4,  dk_PI+hex_str(_pi),STR_Type+hex_str(4)); // DropSpawner  1
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $4F<<3,y4,  dk_PI+hex_str(_pi),STR_Type+hex_str(4)); // DropSpawner  1
 
 data_spawn(rm+STR_PRXM,Stallakk,$1,  $1E<<3,y3,  STR_Direction+string(-1)); // Stallakk  1 
 data_spawn(rm+STR_PRXM,Stallakk,$1,  $2D<<3,y3,  STR_Direction+string(1)); // Stallakk  1 
@@ -3812,8 +3818,8 @@ data_spawn(rm+STR_PRXM,BubbA,$2,  $18<<3,$34<<3,  STR_Direction+hex_str($1|$4));
 data_spawn(rm+STR_PRXM,BubbA,$2,  $3C<<3,$3C<<3,  STR_Direction+hex_str($2|$4)); // Bubble fast
 data_spawn(rm+STR_PRXM,BubbA,$2,  $38<<3,$66<<3,  STR_Direction+hex_str($2|$8)); // Bubble fast
 
-_pi = PI_BGR_2;
-//data_spawn(rm+STR_PRXM,Snaraa,$1,  $38<<3,$0D<<3,  STR_Palette+hex_str(_pi)); // Snaraa
+_pi = global.PI_BGR2;
+//data_spawn(rm+STR_PRXM,Snaraa,$1,  $38<<3,$0D<<3,  dk_PI+hex_str(_pi)); // Snaraa
 y4=$26<<3;  y5=$7A<<3;
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $15<<3,y4); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $2B<<3,y4); // Bot  1
@@ -3848,13 +3854,13 @@ set_rm_data(area+hex_str(rm_num), mus0, STR_Dark+'01', STR_Tile+area_MI+'237', S
 
 x3 = $57<<3; y3 =((row0+$19)<<3)+3;
 _data  = hex_str((x3>>8)&$FF)+hex_str((x3>>0)&$FF) + hex_str((y3>>8)&$FF)+hex_str((y3>>0)&$FF);
-data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  PI_BGR_3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
+data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  global.PI_BGR3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
 row4 = row0+$16;
 row3 = row0+$17;
 y3   = row3<<3;
-_pi  = PI_BGR_4;
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($08<<3)+4,y3,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($16<<3)+4,y3,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+_pi  = global.PI_BGR4;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($08<<3)+4,y3,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($16<<3)+4,y3,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
 y3   =(row0+$13)<<3;
 data_spawn(rm+STR_PRXM,Stallakk,$1,  $40<<3,(row3<<3)+3); // Stallakk  1 
 
@@ -3884,17 +3890,17 @@ y4   = $16<<3;
 y5   = $22<<3;
 y6   = $2E<<3;
 y7   = $3A<<3;
-_pi  = PI_BGR_4;
-data_spawn(rm+STR_PRIO,TorchA,$3,  x3,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y3,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x3,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y4,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x3,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y5,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x3,y6,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y6,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x3,y7,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y7,  STR_Palette+hex_str(_pi),STR_Lit); // v3: Short sprite
+_pi  = global.PI_BGR4;
+data_spawn(rm+STR_PRIO,TorchA,$3,  x3,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x3,y4,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x3,y5,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y5,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x3,y6,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y6,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x3,y7,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y7,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
 _val=($01<<3)+2;
 x3-=$01<<3;  x3 = hex_str((x3>>8)&$FF)+hex_str((x3>>0)&$FF);
 x4+=$02<<3;  x4 = hex_str((x4>>8)&$FF)+hex_str((x4>>0)&$FF);
@@ -3908,7 +3914,7 @@ _data += x3+y4 + x4+y4;
 _data += x3+y5 + x4+y5;
 _data += x3+y6 + x4+y6;
 _data += x3+y7 + x4+y7;
-data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  PI_BGR_3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
+data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  global.PI_BGR3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
 
 
 clm3  = clm1; // Elevator center clm
@@ -3951,14 +3957,14 @@ set_rm_data(area+hex_str(rm_num), 0, STR_Dark+'01', STR_Tile+area_MI+'241', STR_
 
 x3 = $57<<3; y3 =((row0+$18)<<3)+3;
 _data  = hex_str((x3>>8)&$FF)+hex_str((x3>>0)&$FF) + hex_str((y3>>8)&$FF)+hex_str((y3>>0)&$FF);
-data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  PI_BGR_3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
+data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  global.PI_BGR3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
 
 row3 = row0+$17;
 y3   = row3<<3;
-_pi  = PI_BGR_4;
-//data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,row0+$15,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$3,  $58<<3,y3,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$3,  $69<<3,y3,  STR_Palette+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+_pi  = global.PI_BGR4;
+//data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,row0+$15,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$3,  $58<<3,y3,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$3,  $69<<3,y3,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
 
 y3   =(row0+$13)<<3;
 //data_spawn(rm+STR_PRXM,LowdA,$1,  $18<<3,y3); // Lowder  1 
@@ -3983,9 +3989,9 @@ rm_num  = $FB;
 set_rm_data(area+hex_str(rm_num), 0, STR_Dark+'00', STR_Tile+area_MI+'238', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00');
 
 
-_pi=PI_BGR_4;
-data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,$0A<<3,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  xt0,$35<<3,  STR_Palette+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+_pi=global.PI_BGR4;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,$0A<<3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  xt0,$35<<3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 y3   =(row0+$13)<<3;
 //data_spawn(rm+STR_PRXM,LowdA,$1,  $18<<3,y3); // Lowder  1 
 
@@ -4052,7 +4058,7 @@ data_exit(EXR0,etA0,1,  clm2,row3,  CLMS2,rows1,  clmA,row4,  0); // RGT 0, to O
 //   --------------------------  FE  --------------------------- 
 //    Testing: Bounceable object 'Blooby'. CHAL_VerticalClimb_008.tmx
 rm_num  = $FE;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+p.CI_TEL4_, STR_Tile+area_MI+'254', STR_View+'02', STR_ow_axis+'00', STR_show_ow_pos+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+p.CI_CYN4_, STR_Tile+area_MI+'254', STR_View+'02', STR_ow_axis+'00', STR_show_ow_pos+'00');
 
 
 data_NIAO_1a(rm+STR_NIAO+'0', $0000,1, Cloud_1_init); // 

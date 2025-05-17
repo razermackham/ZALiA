@@ -26,7 +26,8 @@ var _Y = _RM_ROW <<SHIFT;
 
 var _tid = dg_tid[#_RM_CLM,_RM_ROW];
 tile_delete_(_tid);
-_tid = tile_change_2a(T_SIZE, TILESET1,_TSRC, _X,_Y, Tile_DEPTH1, 0);
+_tid = tile_change_2a(T_SIZE, g.dl_tileset[|(_TSRC>>8)&$FF], _TSRC, _X,_Y, Tile_DEPTH1, 0);
+//_tid = tile_change_2a(T_SIZE, TILESET1,_TSRC, _X,_Y, Tile_DEPTH1, 0);
 dg_tid[#_RM_CLM,_RM_ROW] = _tid;
 
 

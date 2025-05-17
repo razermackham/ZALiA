@@ -22,7 +22,6 @@ var _dk, _str;
 var _tsrc;
 var _rm_name;
 var _biome;
-var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
 
 var _PC_DIR_SIGN_X = bit_dir(pc_dir&$3);
 var _PC_DIR_SIGN_Y = bit_dir(pc_dir&$C);
@@ -39,10 +38,10 @@ var _pc_row  = (pcrc>>8)&$FF;
 var _target_x  = ow_pc_xy(0);
 var _target_y  = ow_pc_xy(1);
 
-if (MEAT_timer)
+if (BAIT_timer)
 {
-    _target_x += MEAT_ow_x-pc_ow_x;
-    _target_y += MEAT_ow_y-pc_ow_y;
+    _target_x += BAIT_ow_x-pc_ow_x;
+    _target_y += BAIT_ow_y-pc_ow_y;
 }
 
 
@@ -106,7 +105,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
                 var _DISTX = abs(_x-_target_x);
                 var _DISTY = abs(_y-_target_y);
                 
-                if (MEAT_timer)
+                if (BAIT_timer)
                 {
                      if (_DISTX >= _DISTY) dg_enc_inst[#_i,3] = sign_(_x<_target_x); // x movement
                      else                  dg_enc_inst[#_i,4] = sign_(_y<_target_y); // y movement
@@ -141,7 +140,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
                 var _DISTX = abs(_x-_target_x);
                 var _DISTY = abs(_y-_target_y);
                 
-                if(!MEAT_timer 
+                if(!BAIT_timer 
                 &&  _DISTX>_DIST 
                 &&  _DISTY>_DIST )
                 {
@@ -230,11 +229,15 @@ for(_i=0; _i<_DG_WIDTH; _i++)
         // -------------------------------------------------------------
         _tsrc  = dg_tsrc[#_pc_clm,_pc_row];
         
-        if (1&&_RANDO_TSRC_ACTIVE)
+        if (RandoTSRC_active)
         {
+            _val1 = dm_Rando_TSRC[?hex_str(_tsrc)];
+            if(!is_undefined(_val1)) _tsrc = (_val1>>2)<<2;
+            /*
             _val1=((_tsrc&$FF)>>2)<<2;
             _val1=val(dm_Rando_TSRC[?hex_str(_val1)]);
             if (_val1) _tsrc = (_tsrc&$FF00) | _val1;
+            */
         }
         
         _biome = dm_enc[?hex_str(_tsrc)+STR_Biome]; // STR_FIELD, STR_DESER, etc..
@@ -317,7 +320,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
 if (1&&_UpdateMovementDir_VER==2 
 &&  _is_new_dir_frame 
 && !_use_rand_count  // if none picked a random movement dir
-&& !MEAT_timer 
+&& !BAIT_timer 
 && !irandom(1) ) // chance to change movement dir to a diff dir
 {
     var _dl_options = ds_list_create();
@@ -381,7 +384,7 @@ if (1&&_UpdateMovementDir_VER==2
             var _DISTX = abs(_x-_target_x);
             var _DISTY = abs(_y-_target_y);
             
-            if (MEAT_tmr)
+            if (BAIT_tmr)
             {
                  if (_DISTX >= _DISTY) dg_enc_inst[#_i,3] = sign_(_x<_target_x); // x movement
                  else                  dg_enc_inst[#_i,4] = sign_(_y<_target_y); // y movement
@@ -424,7 +427,7 @@ if (1&&_UpdateMovementDir_VER==2
             var _DISTX = abs(_x-_target_x);
             var _DISTY = abs(_y-_target_y);
             
-            if (MEAT_tmr)
+            if (BAIT_tmr)
             {
                  if (_DISTX>=_DISTY) dg_enc_inst[#_i,3] = sign_(_x<_target_x); // x movement
                  else                dg_enc_inst[#_i,4] = sign_(_y<_target_y); // y movement
@@ -467,7 +470,7 @@ if (1&&_UpdateMovementDir_VER==2
             var _DISTX = abs(_x-_target_x);
             var _DISTY = abs(_y-_target_y);
             
-            if (MEAT_tmr)
+            if (BAIT_tmr)
             {
                  if (_DISTX>=_DISTY) dg_enc_inst[#_i,3] = sign_(_x<_target_x); // x movement
                  else                dg_enc_inst[#_i,4] = sign_(_y<_target_y); // y movement

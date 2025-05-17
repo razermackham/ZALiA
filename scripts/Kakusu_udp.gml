@@ -124,8 +124,8 @@ mouth_yoff *= yScale;
 
 
 
-mouth_color = get_pal_color(get_pi(palidx),3);
-pupil_color = get_pal_color(get_pi(palidx),3);
+mouth_color = get_pal_color(p.pal_rm_curr, palidx, "B");
+pupil_color = get_pal_color(p.pal_rm_curr, palidx, "B");
 
 
 

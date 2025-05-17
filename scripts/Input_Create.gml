@@ -8,6 +8,12 @@ var _i, _a;
 var _datakey;
 
 
+Buttons_dm = ds_map_create();
+
+
+depth = DEPTH_Input;
+
+
 gamepad_slot = -1; // -1: No gamepad connected
 
 
@@ -362,40 +368,72 @@ keypressed_hist = "";
 
 
 
-dm_GP_button_names = ds_map_create();
-dm_GP_button_names[?string(gp_padr)]       = "DPAD RIGHT";
-dm_GP_button_names[?string(gp_padl)]       = "DPAD LEFT";
-dm_GP_button_names[?string(gp_padd)]       = "DPAD DOWN";
-dm_GP_button_names[?string(gp_padu)]       = "DPAD UP";
+/*
+GP_right_DEFAULT    = gp_padr;
+GP_left_DEFAULT     = gp_padl;
+GP_down_DEFAULT     = gp_padd;
+GP_up_DEFAULT       = gp_padu;
+GP_jump_DEFAULT     = gp_face1; // Xbox A button
+GP_other1_DEFAULT   = gp_face2; // Xbox B button
+GP_attack_DEFAULT   = gp_face3; // Xbox X button
+GP_other2_DEFAULT   = gp_face4; // Xbox Y button
+GP_pause_DEFAULT    = gp_start;
+GP_magic_DEFAULT    = gp_select;
+GP_other3_DEFAULT   = gp_shoulderl;
+GP_other4_DEFAULT   = gp_shoulderr;
+GP_other5_DEFAULT   = gp_shoulderlb;
+GP_other6_DEFAULT   = gp_shoulderrb;
 
-dm_GP_button_names[?string(gp_face1)]      = "FACE1";
-dm_GP_button_names[?string(gp_face2)]      = "FACE2";
-dm_GP_button_names[?string(gp_face3)]      = "FACE3";
-dm_GP_button_names[?string(gp_face4)]      = "FACE4";
+GP_right    = GP_right_DEFAULT;
+GP_left     = GP_left_DEFAULT;
+GP_down     = GP_down_DEFAULT;
+GP_up       = GP_up_DEFAULT;
+GP_magic    = GP_magic_DEFAULT;
+GP_pause    = GP_pause_DEFAULT;
+GP_jump     = GP_jump_DEFAULT;   // Xbox A button
+GP_attack   = GP_attack_DEFAULT; // Xbox X button
+GP_other1   = GP_other1_DEFAULT; // Xbox B button
+GP_other2   = GP_other2_DEFAULT; // Xbox Y button
+GP_other3   = GP_other3_DEFAULT;
+GP_other4   = GP_other4_DEFAULT;
+GP_other5   = GP_other5_DEFAULT;
+GP_other6   = GP_other6_DEFAULT;
+*/
+Buttons_dm = ds_map_create();
+Buttons_dm[?string(gp_padr)+STR_Name]       = "DPAD RIGHT";
+Buttons_dm[?string(gp_padl)+STR_Name]       = "DPAD LEFT";
+Buttons_dm[?string(gp_padd)+STR_Name]       = "DPAD DOWN";
+Buttons_dm[?string(gp_padu)+STR_Name]       = "DPAD UP";
 
-dm_GP_button_names[?string(gp_start)]      = "START";
-dm_GP_button_names[?string(gp_select)]     = "SELECT";
+Buttons_dm[?string(gp_face1)+STR_Name]      = "FACE1"; // Xbox A button
+Buttons_dm[?string(gp_face2)+STR_Name]      = "FACE2"; // Xbox B button
+Buttons_dm[?string(gp_face3)+STR_Name]      = "FACE3"; // Xbox X button
+Buttons_dm[?string(gp_face4)+STR_Name]      = "FACE4"; // Xbox Y button
 
-dm_GP_button_names[?string(gp_shoulderl)]  = "BUMP LEFT";
-dm_GP_button_names[?string(gp_shoulderr)]  = "BUMP RIGHT";
-dm_GP_button_names[?string(gp_shoulderlb)] = "TRIG LEFT";
-dm_GP_button_names[?string(gp_shoulderrb)] = "TRIG RIGHT";
+Buttons_dm[?string(gp_start)+STR_Name]      = "START";
+Buttons_dm[?string(gp_select)+STR_Name]     = "SELECT";
+
+Buttons_dm[?string(gp_shoulderl)+STR_Name]  = "BUMP LEFT";
+Buttons_dm[?string(gp_shoulderr)+STR_Name]  = "BUMP RIGHT";
+Buttons_dm[?string(gp_shoulderlb)+STR_Name] = "TRIG LEFT";
+Buttons_dm[?string(gp_shoulderrb)+STR_Name] = "TRIG RIGHT";
+
+
+Buttons_dm[?dk_XBOX+"A"+STR_Sprite] = spr_Button_XBoxA01;
+Buttons_dm[?dk_XBOX+"B"+STR_Sprite] = spr_Button_XBoxB01;
+Buttons_dm[?dk_XBOX+"X"+STR_Sprite] = spr_Button_XBoxX01;
+Buttons_dm[?dk_XBOX+"Y"+STR_Sprite] = spr_Button_XBoxY01;
+/*
+Buttons_dm[?dk_XBOX+string(GP_jump_DEFAULT)  +STR_Sprite] = spr_Button_XBoxA01;
+Buttons_dm[?dk_XBOX+string(GP_other1_DEFAULT)+STR_Sprite] = spr_Button_XBoxB01;
+Buttons_dm[?dk_XBOX+string(GP_attack_DEFAULT)+STR_Sprite] = spr_Button_XBoxX01;
+Buttons_dm[?dk_XBOX+string(GP_other2_DEFAULT)+STR_Sprite] = spr_Button_XBoxY01;
+*/
 
 
 
 
 dm_UserInputConfig = ds_map_create();
-
-
-
-
-// For faster PC speed for dev
-HSPD_MAX_1_backup    = 0;
-HSPD_MAX_1_curr      = 0;
-HSPD_MAX_CUC1_backup = 0;
-HSPD_MAX_CUC1_curr   = 0;
-HSPD_MAX_CUC2_backup = 0;
-HSPD_MAX_CUC2_curr   = 0;
 
 
 

@@ -22,7 +22,7 @@ global.App_frame_count++;
 
 // --------------------------------------------------------------------
 with(Input) Input_update1(); // Gamepad input checks. gp1,2,3,4, bumpers, triggers, fpb: frame pause buttons, keypressed_prev, keypressed_curr
-with(Input) input_GameTesting_1a();
+with(Input) Input_GameTesting();
 
 
 update_game_window_1a(); // app window scale and positioning
@@ -142,6 +142,21 @@ if(!update_change_room()) // if not changing rm
 // --------------------------------------------------------------------
 // --------------------------  CUTSCENES  -----------------------------
 cutscene_update();
+
+
+
+
+/*
+if (keyboard_check_pressed(vk_f7))
+{
+    show_debug_message("crash test");
+    //change_pal(strReplaceAt("", 8, 8, "crash test"));
+    //strReplaceAt("", 8, 8, "crash test");
+    //string_insert("crash test", "", 8);
+    //string_delete("",8,8);
+    //string_copy("",1,global.PAL_CHAR_PER_SCENE);
+}
+*/
 
 
 

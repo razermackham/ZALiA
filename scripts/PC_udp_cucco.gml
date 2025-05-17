@@ -17,11 +17,9 @@ case   behavior_STAB_UP:    {_ATTACKING = g.CUCCO_CAN_THRUST_U && f.Cucco_skills
 
 draw_yoff  = 0;
 
-sword_palidx = palidx_base;
-
 
     Cucco_disguise_sprite = 0;
-if (use_disguise)
+if (Disguise_enabled)
 {
     var _IDX = !(g.counter1&$10);
     Cucco_disguise_sprite = dg_Cucco_DISGUISE_SPRITES[#dg_Cucco_DISGUISE_SPRITES_idx1,_IDX];
@@ -63,10 +61,6 @@ if (HoldItem_timer
     //HoldItem_x_scale = HoldItem_X_SCALE;
     HoldItem_x_scale = xScale;
     
-    
-    //sword_sprite = 0;
-    sword_palidx = palidx_base;
-    
     Cucco_eye_can_draw = true;
     Cucco_eye_xoff  =  2 * HoldItem_x_scale;
     Cucco_eye_xoff -=     !HoldItem_x_scale;
@@ -90,7 +84,6 @@ if (HoldItem_timer
 
 // --------------------------------------------------------------
 // ---------------------  BODY  --------------------------
-    Cucco_sprite_body = 0;
     Cucco_sprite_body = Cucco_SPRITE_BODY1; // Normal/Idle
 //
 if (_HEAD_FWRD 
@@ -99,11 +92,14 @@ if (_HEAD_FWRD
 
 if (Cucco_crouching_state)
 {
-    if (Cucco_crouching_state==2){
+    if (Cucco_crouching_state==2)
+    {
         if (_HEAD_FWRD)
         {    Cucco_sprite_body = Cucco_SPRITE_BODY8;  } // 
         else Cucco_sprite_body = Cucco_SPRITE_BODY7;    // 
-    }else{
+    }
+    else
+    {
         if (_HEAD_FWRD)
         {    Cucco_sprite_body = Cucco_SPRITE_BODY5;  } // 
         else Cucco_sprite_body = Cucco_SPRITE_BODY4;    // 
@@ -146,7 +142,7 @@ else
 
 // --------------------------------------------------------------
 // ---------------------  LEGS  --------------------------
-var     _FRAME = 0;
+var     _frame = 0;
 if(!ogr)
 {
     if (_CROUCHING 
@@ -154,24 +150,24 @@ if(!ogr)
     ||  Draw_behavior==behavior_WALK2 
     ||  Draw_behavior==behavior_WALK3 )
     {
-        _FRAME = walk_frame+1;
+        _frame = walk_frame+1;
     }
 }
 else
 {
-        _FRAME = 1; // Legs wide
+        _frame = 1; // Legs wide
     if (Cucco_is_slowfalling)
     {
         if (      Cucco_counter1 < (3<<2)-1)
         {         Cucco_counter1++;  }
         else      Cucco_counter1 = 0;
         
-        _FRAME = (Cucco_counter1>>2) + 1;
+        _frame = (Cucco_counter1>>2) + 1;
     }
 }
 
         Cucco_sprite_legs=0;
-switch(_FRAME){
+switch(_frame){
 case 0:{Cucco_sprite_legs=Cucco_SPRITE_LEGS1; break;} // Idle
 case 1:{Cucco_sprite_legs=Cucco_SPRITE_LEGS4; break;} // Walk frame 1
 case 2:{Cucco_sprite_legs=Cucco_SPRITE_LEGS3; break;} // Walk frame 2

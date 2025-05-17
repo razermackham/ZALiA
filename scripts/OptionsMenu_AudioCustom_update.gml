@@ -19,99 +19,112 @@ OptionsMenu_AudioCustom_refresh_indicator_states();
 
 
 // -------------------------------------------------------------------------------
-if (Input.Other2_pressed  // xbox Y
-||  keyboard_check_pressed(AudioCustom_PLAY_KEY) )
+if(!timer)
 {
-    if (AudioCustom_track_inst)
+    if (Input.Other2_pressed  // xbox Y
+    ||  keyboard_check_pressed(AudioCustom_PLAY_KEY) )
     {
-        if (audio_is_playing(AudioCustom_track_inst))
-        {   audio_stop_sound(AudioCustom_track_inst);  }
-        AudioCustom_track_inst = 0;
-    }
-    else
-    {
-        if (dg_AudioCustom[#AudioCustom_cursor,2] 
-        &&  AudioCustom_cursor>=AudioCustom_Themes_IDX 
-        &&  AudioCustom_cursor<=AudioCustom_Themes_IDX+val(Audio.dm[?STR_Theme+STR_Count+STR_Music]) )
+        if (AudioCustom_track_inst)
         {
-            var _THEME = dg_AudioCustom[#AudioCustom_cursor,0];
-            var _SOUND = Audio.dm[?_THEME+STR_Track+STR_Music+hex_str(AudioCustom_cursor2+1)];
-            //Audio.dm[?_THEME+_SET] = _SOUND;
-            if(!is_undefined(_SOUND))
-            {
-                //audio_group_stop_all(audiogroup_mus);
-                AudioCustom_track_inst = aud_play_sound(_SOUND, Audio.PRIORITY_TOP, true, -1, _THEME);
-            }
-        }
-    }
-    
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-}
-
-
-
-
-
-
-// -------------------------------------------------------------------------------
-if (select_button_pressed 
-||  Input.pressedV )
-{
-    var _DIR = sign_(select_button_pressed || down_input_pressed);
-    
-    if (dg_AudioCustom[#AudioCustom_cursor,2]) // 2: open state
-    {
-        if (AudioCustom_cursor==AudioCustom_TOGGLE_SET)
-        {
-            var _COUNT = Audio.AudioSets_COUNT;
+            if (audio_is_playing(AudioCustom_track_inst))
+            {   audio_stop_sound(AudioCustom_track_inst);  }
+            AudioCustom_track_inst = 0;
+            timer = DURATION1;
         }
         else
         {
-            var _COUNT = val(Audio.dm[?dg_AudioCustom[#AudioCustom_cursor,0]+STR_Track+STR_Count+STR_Music]);
+            if (dg_AudioCustom[#AudioCustom_cursor,2] 
+            &&  AudioCustom_cursor>=AudioCustom_Themes_IDX 
+            &&  AudioCustom_cursor<=AudioCustom_Themes_IDX+val(Audio.dm[?STR_Theme+STR_Count+STR_Music]) )
+            {
+                var _THEME = dg_AudioCustom[#AudioCustom_cursor,0];
+                var _SOUND = Audio.dm[?_THEME+STR_Track+STR_Music+hex_str(AudioCustom_cursor2+1)];
+                //Audio.dm[?_THEME+_SET] = _SOUND;
+                if(!is_undefined(_SOUND))
+                {
+                    //audio_group_stop_all(audiogroup_mus);
+                    AudioCustom_track_inst = aud_play_sound(_SOUND, Audio.PRIORITY_TOP, true, -1, _THEME);
+                    timer = DURATION1;
+                }
+            }
         }
         
-        if (_COUNT>1)
-        {
-            if (                 AudioCustom_track_inst 
-            &&  audio_is_playing(AudioCustom_track_inst))
-            {   audio_stop_sound(AudioCustom_track_inst);  }
-            AudioCustom_track_inst=0;
-            
-            AudioCustom_cursor2 += _DIR;
-            AudioCustom_cursor2 += _COUNT;
-            AudioCustom_cursor2  = AudioCustom_cursor2 mod _COUNT;
-        }
-        
-        aud_play_sound(get_audio_theme_track(CURSOR_SOUND_THEME1));
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
-    else
-    {
-        var _COUNT = AudioCustom_COUNT;
-        AudioCustom_cursor += _DIR;
-        AudioCustom_cursor += _COUNT;
-        AudioCustom_cursor  = AudioCustom_cursor mod _COUNT;
-        
-        // Prevent spoiling Ganon
-        //f.dm_quests[?"_Has_Reached"+STR_Ganon+"1"] = true;
-        
-        aud_play_sound(get_audio_theme_track(CURSOR_SOUND_THEME1));
-        AudioCustom_cursor2 = 0;
-        dg_AudioCustom[#AudioCustom_cursor,2] = false;
-    }
-    
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 
 
 
 
+
+
+
 // -------------------------------------------------------------------------------
-if (Backout_requested 
+if(!timer2)
+{
+    if (select_button_pressed 
+    ||  Input.pressedV )
+    {
+        var _DIR = sign_(select_button_pressed || down_input_pressed);
+        
+        if (dg_AudioCustom[#AudioCustom_cursor,2]) // 2: open state
+        {
+            if (AudioCustom_cursor==AudioCustom_TOGGLE_SET)
+            {
+                var _COUNT = Audio.AudioSets_COUNT;
+            }
+            else
+            {
+                var _COUNT = val(Audio.dm[?dg_AudioCustom[#AudioCustom_cursor,0]+STR_Track+STR_Count+STR_Music]);
+            }
+            
+            if (_COUNT>1)
+            {
+                if (                 AudioCustom_track_inst 
+                &&  audio_is_playing(AudioCustom_track_inst))
+                {   audio_stop_sound(AudioCustom_track_inst);  }
+                AudioCustom_track_inst=0;
+                
+                AudioCustom_cursor2 += _DIR;
+                AudioCustom_cursor2 += _COUNT;
+                AudioCustom_cursor2  = AudioCustom_cursor2 mod _COUNT;
+            }
+            
+            aud_play_sound(CURSOR_SOUND1);
+            timer2 = DURATION2;
+        }
+        else
+        {
+            var _COUNT = AudioCustom_COUNT;
+            AudioCustom_cursor += _DIR;
+            AudioCustom_cursor += _COUNT;
+            AudioCustom_cursor  = AudioCustom_cursor mod _COUNT;
+            
+            // Prevent spoiling Ganon
+            //f.dm_quests[?"_Has_Reached"+STR_Ganon+"1"] = true;
+            
+            aud_play_sound(CURSOR_SOUND1);
+            AudioCustom_cursor2 = 0;
+            dg_AudioCustom[#AudioCustom_cursor,2] = false;
+            timer2 = DURATION2;
+        }
+        
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+}
+
+
+
+
+// -------------------------------------------------------------------------------
+if(!timer 
+&&  Backout_requested 
 &&  AudioCustom_cursor!=AudioCustom_BACK 
 && !dg_AudioCustom[#AudioCustom_cursor,2] ) // 2: open state
 {
-    aud_play_sound(get_audio_theme_track(BACK_SOUND_THEME1));
+    aud_play_sound(BACK_SOUND1);
+    timer = DURATION1;
     AudioCustom_cursor = AudioCustom_BACK;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -127,6 +140,8 @@ switch(AudioCustom_cursor)
 {
     // ------------------------------------------------------
     case AudioCustom_BACK:{
+    if (timer) break;
+    
     if (_Input_CONFIRM 
     ||  Backout_requested )
     {
@@ -140,8 +155,9 @@ switch(AudioCustom_cursor)
         }
         
         AudioCustom_cursor = 0;
-        aud_play_sound(get_audio_theme_track(BACK_SOUND_THEME1));
-        Menu_in_focus = Menu_MAIN;
+        aud_play_sound(BACK_SOUND1);
+        timer = DURATION1;
+        menu_state = menu_state_MAIN;
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     break;}//case AudioCustom_BACK
@@ -155,6 +171,8 @@ switch(AudioCustom_cursor)
     
     // ------------------------------------------------------
     case AudioCustom_TOGGLE_ALL:{
+    if (timer) break;
+    
     if (_Input_TOGGLE)
     {
         with(Audio)
@@ -175,8 +193,9 @@ switch(AudioCustom_cursor)
             }
         }
         
-        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
         save_game_pref();
+        aud_play_sound(CONFIRM_SOUND1);
+        timer = DURATION1;
     }
     break;}//case AudioCustom_TOGGLE_ALL
     
@@ -189,6 +208,8 @@ switch(AudioCustom_cursor)
     
     // ------------------------------------------------------
     case AudioCustom_TOGGLE_SET:{
+    if (timer) break;
+    
     if (dg_AudioCustom[#AudioCustom_cursor,2])
     {
         if (_Input_TOGGLE)
@@ -219,26 +240,29 @@ switch(AudioCustom_cursor)
                 }
             }
             
-            aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
             save_game_pref();
+            aud_play_sound(CONFIRM_SOUND1);
+            timer = DURATION1;
         }
         else if (_Input_SubMenu_CLOSE)
         {
             if (                 AudioCustom_track_inst 
             &&  audio_is_playing(AudioCustom_track_inst))
             {   audio_stop_sound(AudioCustom_track_inst);  }
-            AudioCustom_track_inst=0;
+            AudioCustom_track_inst = 0;
             
-            aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
+            aud_play_sound(CONFIRM_SOUND1);
             AudioCustom_cursor2 = 0;
             dg_AudioCustom[#AudioCustom_cursor,2] = false; // 2: open state
+            timer = DURATION1;
         }
     }
     else if (_Input_SubMenu_OPEN)
     {
-        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
+        aud_play_sound(CONFIRM_SOUND1);
         AudioCustom_cursor2 = 0;
         dg_AudioCustom[#AudioCustom_cursor,2] = true; // 2: open state
+        timer = DURATION1;
     }
     break;}//case AudioCustom_TOGGLE_SET
     
@@ -251,6 +275,8 @@ switch(AudioCustom_cursor)
     
     // ------------------------------------------------------
     default:{
+    if (timer) break;
+    
     if (AudioCustom_cursor>=AudioCustom_Themes_IDX 
     &&  AudioCustom_cursor<=AudioCustom_Themes_IDX+val(Audio.dm[?STR_Theme+STR_Count+STR_Music]) )
     {
@@ -264,8 +290,9 @@ switch(AudioCustom_cursor)
                 {
                     var _DK = _THEME+hex_str(AudioCustom_cursor2+1)+STR_Qualified;
                     Audio.dm_random_custom[?_DK] = !val(Audio.dm_random_custom[?_DK]);
-                    aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
                     save_game_pref();
+                    aud_play_sound(CONFIRM_SOUND1);
+                    timer = DURATION1;
                 }
             }
             else
@@ -276,11 +303,12 @@ switch(AudioCustom_cursor)
                     if (                 AudioCustom_track_inst 
                     &&  audio_is_playing(AudioCustom_track_inst))
                     {   audio_stop_sound(AudioCustom_track_inst);  }
-                    AudioCustom_track_inst=0;
+                    AudioCustom_track_inst = 0;
                     
-                    aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
+                    aud_play_sound(CONFIRM_SOUND1);
                     AudioCustom_cursor2 = 0;
                     dg_AudioCustom[#AudioCustom_cursor,2] = false; // 2: open state
+                    timer = DURATION1;
                 }
             }
         }
@@ -304,8 +332,9 @@ switch(AudioCustom_cursor)
                         }
                     }
                     
-                    aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
                     save_game_pref();
+                    aud_play_sound(CONFIRM_SOUND1);
+                    timer = DURATION1;
                 }
             }
             else
@@ -313,9 +342,10 @@ switch(AudioCustom_cursor)
                 if (_Input_SubMenu_OPEN 
                 && !dg_AudioCustom[#AudioCustom_cursor,2] ) // 2: open state
                 {
-                    aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
+                    aud_play_sound(CONFIRM_SOUND1);
                     AudioCustom_cursor2 = 0;
                     dg_AudioCustom[#AudioCustom_cursor,2] = true; // 2: open state
+                    timer = DURATION1;
                 }
             }
         }
@@ -326,7 +356,7 @@ switch(AudioCustom_cursor)
 
 
 
-
+/*
 if (DEV 
 &&  keyboard_check_pressed(vk_f7) )
 {   // Output a list of what music you have on/off for Audio Random Custom
@@ -353,6 +383,7 @@ if (DEV
     }
     sdm("");sdm("");sdm("");sdm("");
 }
+*/
 
 
 

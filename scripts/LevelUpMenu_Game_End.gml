@@ -1,11 +1,11 @@
 /// LevelUpMenu_Game_End()
 
 
-ar_TSRC_DATA            = 0;
-statXPNext              = 0;
+//ar_TSRC_DATA            = 0;
+//statXPNext              = 0;
 
 
-if(!surface_exists(srf_FRAME)) surface_free(srf_FRAME);
+if (surface_exists(srf_FRAME)) surface_free(srf_FRAME);
 
 
 
@@ -44,10 +44,22 @@ if (_exists)                             ds_=undefined;
 
 
 
-var          _exists = false;
+var _exists = false;
 
 
 
+
+    _exists=variable_instance_exists(id,"dl_xp_next_stat");
+if (_exists) _exists = !is_undefined(    dl_xp_next_stat);
+if (_exists) _exists = ds_exists(        dl_xp_next_stat,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_xp_next_stat);
+if (_exists)                             dl_xp_next_stat=undefined;
+
+    _exists=variable_instance_exists(id,"dl_tsrc_data");
+if (_exists) _exists = !is_undefined(    dl_tsrc_data);
+if (_exists) _exists = ds_exists(        dl_tsrc_data,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_tsrc_data);
+if (_exists)                             dl_tsrc_data=undefined;
 
 
 
@@ -57,8 +69,6 @@ if (_exists) _exists =               !is_undefined(   dg_DATA);
 if (_exists) _exists =                ds_exists(      dg_DATA, ds_type_grid);
 if (_exists)                          ds_grid_destroy(dg_DATA);
 if (_exists)                                          dg_DATA = undefined;
-
-
 
 
 

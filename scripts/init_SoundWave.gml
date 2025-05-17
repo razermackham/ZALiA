@@ -2,7 +2,7 @@
 
 
 GO_sprite_init(spr_SoundWave1);
-GO_init_palidx(PI_MOB_RED);
+GO_init_palidx(global.PI_MOB_RED);
 
 
 counter     = 1; // 044C[p.Index]

@@ -15,9 +15,9 @@ CrystalAura_pi = _val +  CrystalAura_PI; // Aura PI
 
 
 switch( Crystal_sprite_state){
-case 1:{Crystal_sprite=Crystal_SPRITE1; Crystal_pi=PI_MOB_BLU; break;}
-case 2:{Crystal_sprite=Crystal_SPRITE2; Crystal_pi=PI_MOB_RED; break;}
-case 3:{Crystal_sprite=Crystal_SPRITE2; Crystal_pi=PI_MOB_ORG+((g.counter1>>1)&$3); break;}
+case 1:{Crystal_sprite=Crystal_SPRITE1; Crystal_pi=global.PI_MOB_BLU; break;}
+case 2:{Crystal_sprite=Crystal_SPRITE2; Crystal_pi=global.PI_MOB_RED; break;}
+case 3:{Crystal_sprite=Crystal_SPRITE2; Crystal_pi=global.PI_MOB_ORG+((g.counter1>>1)&$3); break;}
 }
 
 

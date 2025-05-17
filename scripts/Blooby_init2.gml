@@ -51,9 +51,11 @@ set_xy(id, clamp(x,XC_MIN,XC_MAX), clamp(y,YC_MIN,YC_MAX));
 
 
 switch(ver){
-case 1:{GO_init_palidx(PI_MOB_PUR); break;}
-case 2:{GO_init_palidx(PI_MOB_RED); break;}
+case 1:{GO_init_palidx(global.PI_MOB_PUR); break;}
+case 2:{GO_init_palidx(global.PI_MOB_RED); break;}
 }
+change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"B"), global.PAL_CHAR_PER_COLOR, color_str(p.C_BLK1)));
+change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"K"), global.PAL_CHAR_PER_COLOR, color_str(p.C_BLK1)));
 
 
 

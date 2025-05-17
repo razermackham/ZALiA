@@ -14,13 +14,13 @@ scr_draw = Cutscene_ShadowBoss_2_draw;
 
 
 triforce_can_draw = 0;
-TRIFORCE_SPR    = spr_Triforce_1a;
-p.triforce_pi   = p.TRIFORCE_PI;
+TRIFORCE_SPR      = spr_Triforce_1a;
+p.triforce_pi     = p.TRIFORCE_PI;
 //p.triforce_pi   = PI_BGR_4;
 
 
-                     BOSS_SPAWN_DK   = undefined;
-with(BOSS_OBJ) other.BOSS_SPAWN_DK   = dk_spawn;
+                     BOSS_SPAWN_DK = undefined;
+with(BOSS_OBJ) other.BOSS_SPAWN_DK = dk_spawn;
 
 ARENA_X = 0;
 //with(BOSS_OBJ) other.ARENA_X = arena_x;
@@ -40,8 +40,8 @@ if (f.quest_num>=2)
     
     Boss_can_draw   = false;
     Boss_SPR        = 0;
-    //Boss_SPR        = spr_DarkLonk_Damage_2a;
-    Boss_PI         = PI_DARKLONK;
+    Boss_PI         = global.PI_GUI4; // Greyscale, like PI_GUI2
+    //Boss_PI         = global.PI_MOB_PUR;
     Boss_pi         = Boss_PI;
     Boss_x          = 0;
     Boss_y          = 0;
@@ -55,7 +55,7 @@ if (f.quest_num>=2)
     Bottle_SPR1         = spr_Item_Bottle_8d; // No top
     Bottle_SPR2         = spr_Item_Bottle_8c; // full, including liquid
     Bottle_spr          = Bottle_SPR1;
-    BottleTop_SPRITE       = spr_Item_Bottle_8_Top;
+    BottleTop_SPRITE    = spr_Item_Bottle_8_Top;
     Bottle_x            = 0;
     Bottle_y            = 0;
     

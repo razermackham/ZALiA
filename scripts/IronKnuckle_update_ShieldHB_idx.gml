@@ -59,17 +59,16 @@ switch(g.mod_IronKnuckle_ShieldAI)
                 if(!tmr_delay_shield 
                 &&  _QUAL_ATCK )
                 {
-                    var _ar_CHANCES     = 0;
-                        _ar_CHANCES[3]  = $F0; // 93.75%
-                        _ar_CHANCES[2]  = $80; // 50%
-                        _ar_CHANCES[1]  = $40; // 25%
-                        _ar_CHANCES[0]  = $20; // 12.5%
-                    var _CHANCES_CNT = array_length_1d(_ar_CHANCES);
+                    var         _dl_chances = ds_list_create();
+                    ds_list_add(_dl_chances,$20); // 12.5%
+                    ds_list_add(_dl_chances,$40); // 25%
+                    ds_list_add(_dl_chances,$80); // 50%
+                    ds_list_add(_dl_chances,$F0); // 93.75%
                     
-                    var             _chance = 0; // 100% chance
+                    var             _chance = 0;  // 100% chance
                     
-                    if (delay_shield_chance < 0)          delay_shield_chance = 0;
-                    else            _chance = _ar_CHANCES[delay_shield_chance];
+                    if (delay_shield_chance < 0)           delay_shield_chance = 0;
+                    else            _chance = _dl_chances[|delay_shield_chance];
                     
                     if (behavior)   _chance = $80; // During attack
                     
@@ -88,14 +87,14 @@ switch(g.mod_IronKnuckle_ShieldAI)
                         // {    delay_shield_chance = 0;  }
                         // else delay_shield_chance++;
                         
-                        delay_shield_chance += (delay_shield_chance < _CHANCES_CNT-1);
+                        delay_shield_chance += (delay_shield_chance < ds_list_size(_dl_chances)-1);
                         // delay_shield_chance += (delay_shield_chance < ((string_length(CHANCES) >>1)-1));
                         
                         tmr_delay_shield     = 0;
                         // tmr_delay_shield     = DUR_DELAY_SHIELD2;
                     }
                     
-                    _ar_CHANCES = 0;
+                    ds_list_destroy(_dl_chances); _dl_chances=undefined;
                 }
             }
             else if (tmr_delay_shield)

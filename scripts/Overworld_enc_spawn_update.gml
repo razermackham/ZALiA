@@ -13,8 +13,8 @@ if (flute_timer) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
-if (MEAT_timer)
-{   MEAT_timer--;  }
+if (BAIT_timer)
+{   BAIT_timer--;  }
 
 
 
@@ -32,7 +32,6 @@ if (mot
 var _i, _idx, _count, _val,_val1,_val2, _num;
 var _clm, _row, _clms, _rows, _pc_clm, _pc_row, _owrc, _ow_clm, _ow_row;
 var _data, _str;
-var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
 
 
 
@@ -46,17 +45,23 @@ _pc_row = (pcrc>>8)&$FF;
 
 
 // --------------------------------------------------------------------
-        _data = dg_area[#_pc_clm, _pc_row];
-_idx = (_data>>0)&$FF;
-_num = (_data>>8)&$FF;
-// NW: North-West Hyrule
-var _IN_AREA_NW =  inRange(_idx, 0,ds_list_size(g.dl_AREA_NAME)-1) 
-               &&  g.dl_AREA_NAME[|_idx]+hex_str(_num) == Area_WestA+"01";
-//
-if (enc_spawn_timer 
-&& (_IN_AREA_NW || pc_step_counter) )
+if (enc_spawn_timer)
 {
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if (pc_step_counter)
+    {
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    
+            _data = dg_area[#_pc_clm,_pc_row];
+    _idx = (_data>>0)&$FF;
+    _num = (_data>>8)&$FF;
+    
+    if (_idx>=0 
+    &&  _idx<=ds_list_size(g.dl_AREA_NAME)-1 
+    &&  g.dl_AREA_NAME[|_idx]+hex_str(_num)==Area_WestA+"01" )
+    {   // is in NW Hyrule
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
 }
 
 
@@ -73,18 +78,22 @@ if (dest_dist){
     _ow_row += bit_dir(pc_dir&$C); // += 0,1,-1
 }
 
-var _TSRC = dg_tsrc[#_ow_clm, _ow_row];
+var _tsrc = dg_tsrc[#_ow_clm,_ow_row];
 
-if (1&&_RANDO_TSRC_ACTIVE)
+if (RandoTSRC_active)
 {
-    _val1 = ((_TSRC&$FF)>>2)<<2;
+    _val1 = dm_Rando_TSRC[?hex_str(_tsrc)];
+    if(!is_undefined(_val1)) _tsrc = (_val1>>2)<<2;
+    /*
+    _val1 = ((_tsrc&$FF)>>2)<<2;
     _val1 = val(dm_Rando_TSRC[?hex_str(_val1)]);
-    if (_val1) _TSRC = (_TSRC&$FF00) | _val1;
+    if (_val1) _tsrc = (_tsrc&$FF00) | _val1;
+    */
 }
 
 
-var _BIOME     = dm_enc[?hex_str(_TSRC)+STR_Biome];
-var _BIOME_IDX = dm_enc[?hex_str(_TSRC)+STR_Biome+STR_Idx];
+var _BIOME     = dm_enc[?hex_str(_tsrc)+STR_Biome];
+var _BIOME_IDX = dm_enc[?hex_str(_tsrc)+STR_Biome+STR_Idx];
 
 
 if (is_undefined(_BIOME) 
@@ -199,9 +208,9 @@ for(_i=0; _i<_count; _i++)
         
         if (_enemy_spawned 
         &&  f.items&ITM_MEAT 
-        && !MEAT_timer 
-        &&  MEAT_countdown )
-        {   MEAT_countdown--;  }
+        && !BAIT_timer 
+        &&  BAIT_countdown )
+        {   BAIT_countdown--;  }
     }
     
     
@@ -209,8 +218,8 @@ for(_i=0; _i<_count; _i++)
     
     if (_enemy_spawned 
     &&  f.items&ITM_MEAT 
-    && !MEAT_timer 
-    && !MEAT_countdown 
+    && !BAIT_timer 
+    && !BAIT_countdown 
     && (!mot || mot==MOT_WALK) )
     //&&  enc_objs_spawned_count >= 2+(!!irandom(2)) 
     //&&  enc_objs_spawned_count >= 2+(!!irandom(2))+(!irandom(2)) 
@@ -219,21 +228,21 @@ for(_i=0; _i<_count; _i++)
     //&&  mot==MOT_WALK )
     {
         //enc_objs_spawned_count = 0;
-        MEAT_countdown = 3;
-        if(!irandom($3)) MEAT_countdown += sign_(!irandom($1));
-        //MEAT_countdown = 2 + irandom($1); // 2-3
-        MEAT_timer     = MEAT_DUR;
+        BAIT_countdown = 3;
+        if(!irandom($3)) BAIT_countdown += sign_(!irandom($1));
+        //BAIT_countdown = 2 + irandom($1); // 2-3
+        BAIT_timer     = BAIT_DURATION1;
         
-        MEAT_owrc  = pcrc;
+        BAIT_owrc  = pcrc;
         // Place the MEAT 1 tile behind PC so enemy can discern what 
         // side of the PC to spawn on to get to the MEAT.
-        MEAT_owrc += (abs(bit_dir(pc_dir&$3))<<0) * -bit_dir(pc_dir&$3);
-        MEAT_owrc += (abs(bit_dir(pc_dir&$C))<<8) * -bit_dir(pc_dir&$C);
+        BAIT_owrc += (abs(bit_dir(pc_dir&$3))<<0) * -bit_dir(pc_dir&$3);
+        BAIT_owrc += (abs(bit_dir(pc_dir&$C))<<8) * -bit_dir(pc_dir&$C);
         
-        MEAT_ow_x  = ((MEAT_owrc>>0)&$FF) <<SHIFT;
-        MEAT_ow_y  = ((MEAT_owrc>>8)&$FF) <<SHIFT;
-        MEAT_ow_x += T_SIZE>>1;
-        MEAT_ow_y += T_SIZE>>1;
+        BAIT_ow_x  = ((BAIT_owrc>>0)&$FF) <<SHIFT;
+        BAIT_ow_y  = ((BAIT_owrc>>8)&$FF) <<SHIFT;
+        BAIT_ow_x += T_SIZE>>1;
+        BAIT_ow_y += T_SIZE>>1;
     }
     
     
@@ -252,11 +261,11 @@ for(_i=0; _i<_count; _i++)
     _val *= sign_(_idx_xy&$2); // +/-($20,40)
     
     
-    if (MEAT_timer 
+    if (BAIT_timer 
     &&  isVal(dg_enc_inst[#_i,0], g.ENC_WEAK,g.ENC_STRG) ) // Only hostile type
     {   // Spawn on whatever side of PC the meat is on.
-        if (_idx_xy&$1) _val = abs(_val) * sign_(MEAT_ow_x-pc_ow_x);
-        else            _val = abs(_val) * sign_(MEAT_ow_y-pc_ow_y);
+        if (_idx_xy&$1) _val = abs(_val) * sign_(BAIT_ow_x-pc_ow_x);
+        else            _val = abs(_val) * sign_(BAIT_ow_y-pc_ow_y);
     }
     
     
@@ -310,7 +319,7 @@ for(_i=0; _i<_count; _i++)
             _str += ", y $"         + hex_str(dg_enc_inst[#_i,2]);
             _str += ", clm $"       + hex_str(dg_enc_inst[#_i,1]>>SHIFT);
             _str += ", row $"       + hex_str(dg_enc_inst[#_i,2]>>SHIFT);
-            _str += ", pc on tsrc $" + hex_str(_TSRC);
+            _str += ", pc on tsrc $" + hex_str(_tsrc);
             _str += ", _BIOME $"    + hex_str(_BIOME);
             _str += ", life dur $"  + hex_str(dg_enc_inst[#_i,ENC_INST_TMR_IDX]);
             _str += ", g.tmr_enc_spawn "   + string(g.tmr_enc_spawn);
@@ -321,7 +330,7 @@ for(_i=0; _i<_count; _i++)
             _str  = " ";
             _str += ", _pc_clm $"       + hex_str(_pc_clm);
             _str += ", _pc_row $"       + hex_str(_pc_row);
-            _str += ", pc on tsrc $"    + hex_str(_TSRC);
+            _str += ", pc on tsrc $"    + hex_str(_tsrc);
             _str += ", pc_step_ctr $"   + hex_str(pc_step_ctr);
             sdm(_str);
         }

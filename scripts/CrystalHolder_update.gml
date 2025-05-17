@@ -18,9 +18,9 @@ if(!counter)
 if (Flash_timer) // 0767
 {   // Flash the midtone color of the crystal holder graphic.
         Flash_timer--;          // 0: blue, 1: white, 2: green, 3: red
-    if (Flash_timer) midtone_colorID_cur = dl_COLOR_IDX[|Flash_timer&$3];
+    if (Flash_timer) midtone_colorID_cur = dl_COLOR_ID[|Flash_timer&$3];
     else             midtone_colorID_cur = midtone_colorID_DEF;
-    change_pal(strReplaceAt(p.pal_rm_new,  midtone_PALDATA_POS, 2, midtone_colorID_cur));
+    change_pal(strReplaceAt(p.pal_rm_new,  midtone_PALDATA_POS, global.PAL_CHAR_PER_COLOR, midtone_colorID_cur));
 }
 
 
@@ -73,7 +73,7 @@ switch(counter) // 00AF[eIndex]
     case 2:{ // 9B2B
     set_xy(id, x,y-1);
     
-    if (yt <= spawn_y)
+    if (yt<=spawn_y)
     {
         set_xlyt(id, xl,spawn_y); // just in case
         

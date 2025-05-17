@@ -107,7 +107,7 @@ if (g.gui_window_can_draw)
     // -------------------------------------------------------------------------
     // DRAW FRAME --------------------------------------------
     // draw_gui_frame(ar_TSRC_DATA, cnt_draw_rows, drawX, drawY);
-    pal_swap_set(p.palette_image, PI_GUI_1);
+    pal_swap_set(global.palette_image, global.PI_GUI1);
     if(!_D3){
         if (surface_exists(   WINDOW_FRAME1_SRF))
         {   draw_surface_part(WINDOW_FRAME1_SRF, 0,0, _w,_h, drawX,drawY);  }
@@ -147,7 +147,7 @@ if (writ_char_pos  // if any characters written yet
         if (_Z2) _x = g.rm_w_ - ((dg_dlg[#_i,1]<<3)>>1); // dg_dlg[#_i,1]: the string_length of the line
         else     _x = _x1;
         _y = _y1 + (_i<<4);
-        draw_text_(_x,_y, ar_lines_written[_i], _FONT);
+        draw_text_(_x,_y, dl_lines_written[|_i], _FONT);
     }
 }
 
@@ -173,7 +173,7 @@ if (cnt_draw_rows==rows
         case 3:{_x_scale=-1; _y_scale= 1; break;} // down
         }
         _val *= 90;
-        draw_sprite_(spr_arrow_1b,0, _x,_y, PI_GUI_1, _x_scale,_y_scale, c_white,1, _val);
+        draw_sprite_(spr_arrow_1b,0, _x,_y, global.PI_GUI1, _x_scale,_y_scale, c_white,1, _val);
     }
 }
 

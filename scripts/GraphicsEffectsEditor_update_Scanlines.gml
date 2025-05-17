@@ -55,6 +55,8 @@ switch(Scanlines_cursor)
         else                                      dg_Scanlines[#Scanlines_ENABLE,$A] = "OFF";
         dg_Main[#Main_SCANLINES,$A] = dg_Scanlines[#Scanlines_ENABLE,$A];
         dg_Main[#Main_SCANLINES,$5] = dg_Scanlines[#Scanlines_ENABLE,$5];
+        
+        save_game_pref();
         aud_play_sound(SOUND_CONFIRM2, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
     }
@@ -84,6 +86,7 @@ switch(Scanlines_cursor)
             
             dg_Scanlines[#_IDX,$A] = string_format(_val, 1,4); // 10: value text
             
+            save_game_pref();
             aud_play_sound(SOUND_CURSOR2, -1,-1, SOUND_VOLUME);
             timer = DURATION0;
         }
@@ -96,6 +99,8 @@ switch(Scanlines_cursor)
     if (pressed_confirm1)
     {
         dg_Scanlines[#Scanlines_EDIT,$5] = dg_Scanlines[#Scanlines_EDIT,$8]; // 5: current, 8: default
+        
+        save_game_pref();
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);
         timer = DURATION0;
     }

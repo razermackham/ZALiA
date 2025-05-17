@@ -74,20 +74,17 @@ switch(RandoOTHER_MAIN_cursor)
     }
     break;}
     
-    /*
+    
     // ============================================================================
     // -------------------------------------------------------------------
     case RandoOTHER_MAIN_DUNGEON_TS:{
     if (_InputConfirm_pressed2)
     {
-        var _COUNT = 3;
-        _val = dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor,2];
-        _val = (_val+_COUNT+_DIR) mod _COUNT;
-        dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor,2] = _val;
+        dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor,2] = !dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor,2]; // 2: state
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
     }
     break;}
-    */
+    
     
     // ============================================================================
     // -------------------------------------------------------------------

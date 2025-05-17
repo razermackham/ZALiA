@@ -13,7 +13,7 @@ var                                      _TEXT_SPRITE = spr_Font1;
 if (argument_count>_i && argument[_i++]) _TEXT_SPRITE = argument[_i-1];
 
 // Pass -1 to not pal swap (pal swap may have been set outide of draw_text_()
-var                    _TEXT_PI = PI_GUI_1;
+var                    _TEXT_PI = global.PI_GUI1;
 if (argument_count>_i) _TEXT_PI = argument[_i++];
 
 var _TEXT_COLOR = -1;
@@ -36,7 +36,7 @@ var _char_h = sprite_get_height(_text_sprite);
 var _x_off  = 0;
 var _y_off  = 0;
 
-if (_TEXT_PI>=0) pal_swap_set(p.palette_image, _TEXT_PI);
+if (_TEXT_PI>=0) pal_swap_set(global.palette_image, _TEXT_PI);
 
 var           _LEN = string_length(_TEXT);
 for(_i=1; _i<=_LEN; _i++)

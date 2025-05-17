@@ -1,8 +1,8 @@
 /// f_Game_End()
 
 
-ar_FILE_NAMES = 0;
-ar_save_names = 0;
+//ar_FILE_NAMES = 0;
+//ar_save_names = 0;
 
 
 /*
@@ -42,6 +42,18 @@ if (_exists)                             ds_=undefined;
 var _exists = false;
 
 
+
+    _exists=variable_instance_exists(id,"dl_save_names");
+if (_exists) _exists = !is_undefined(    dl_save_names);
+if (_exists) _exists = ds_exists(        dl_save_names,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_save_names);
+if (_exists)                             dl_save_names=undefined;
+
+    _exists=variable_instance_exists(id,"dl_file_names");
+if (_exists) _exists = !is_undefined(    dl_file_names);
+if (_exists) _exists = ds_exists(        dl_file_names,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_file_names);
+if (_exists)                             dl_file_names=undefined;
 
     _exists = variable_instance_exists(id,  "dl_FILE_NAME_PREFIX");
 if (_exists) _exists =      !is_undefined(   dl_FILE_NAME_PREFIX);
@@ -169,6 +181,11 @@ if (_exists) _exists =       ds_exists(     dm_target_game, ds_type_map);
 if (_exists)                 ds_map_destroy(dm_target_game);
 if (_exists)                                dm_target_game = undefined;
 */
+
+if (ds_exists( global.dm_save_file_data,ds_type_map)){
+ds_map_destroy(global.dm_save_file_data);
+               global.dm_save_file_data=undefined;
+}
 
 
 

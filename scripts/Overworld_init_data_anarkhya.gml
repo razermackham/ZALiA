@@ -14,6 +14,8 @@ var _dl_layer_data = ds_list_create();
 var _dm_layer_data = ds_map_create();
 var _dl_data = ds_list_create();
 
+//var _dl_debug1 = ds_list_create();
+
 
 
 
@@ -89,6 +91,9 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             {
                 dg_anarkhya_tsrc_def[#_ow_clm,_ow_row] = _tile_data;
             }
+            
+            //if ((string_pos("MAIN",_layer_name)||string_pos("DETAIL",_layer_name)) && ds_list_find_index(_dl_debug1, (_tile_data>>8)&$FF)==-1 && inRange(_tile_data&$FF,513,1024)) ds_list_add(_dl_debug1, "$"+hex_str((_tile_data>>8)&$FF)+"-$"+hex_str(_ow_clm)+hex_str(_ow_row));
+            //if (ds_list_find_index(_dl_debug1, (_tile_data>>8)&$FF)==-1) ds_list_add(_dl_debug1, (_tile_data>>8)&$FF);
         }
     }
 }
@@ -109,6 +114,10 @@ ds_map_destroy(_dm_file_data); _dm_file_data=undefined;
 ds_list_destroy(_dl_layer_data); _dl_layer_data=undefined;
 ds_map_destroy(_dm_layer_data); _dm_layer_data=undefined;
 ds_list_destroy(_dl_data); _dl_data=undefined;
+
+
+//for(_i=ds_list_size(_dl_debug1)-1; _i>=0; _i--) sdm("$"+hex_str(_dl_debug1[|_i]));
+//ds_list_destroy(_dl_debug1); _dl_debug1=undefined;
 
 
 

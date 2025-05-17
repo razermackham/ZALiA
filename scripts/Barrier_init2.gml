@@ -17,6 +17,7 @@ dl_sprites[|0] = spr_Barrier_1a;
 
 dg_PI_SEQ_IDX = $08;
 GO_init_palidx(p.dg_PI_SEQ[#dg_PI_SEQ_IDX,0]);
+p.dg_PI_SEQ[#dg_PI_SEQ_IDX,2] = add_pi_permut(p.dg_PI_SEQ[#dg_PI_SEQ_IDX,0], "WBRGYKMC", "Barrier");
 
 
 Anim_VER  = 1; // 0: OG, 1: Vertical Movement 1, 2: Vertical Movement 2
@@ -49,14 +50,12 @@ counter   = 0; // 0071[eIndex]
 
 
 
-//                      '16'   +             '22'
-var _pal  = hex_str(p.CI_RED3) + hex_str(p.CI_VLT2); // the colors used by Barrier
-var _len1 = COL_PER_PAL<<1;
-var _len2 = string_length(_pal);
-var _POS  = palidx_def * _len1;
-    _POS += (_len1-_len2);
-    _POS++; // +1 bc string
-change_pal(strReplaceAt(p.pal_rm_new, _POS, _len2, _pal));
+var _PAL = color_str(p.C_RED3)+color_str(p.C_VLT2); // the colors used by Barrier
+var _LEN  = string_length(_PAL);
+var _pos  = palidx_def*global.PAL_CHAR_PER_PAL;
+    _pos += global.PAL_CHAR_PER_PAL-_LEN;
+    _pos++; // +1 bc string
+change_pal(strReplaceAt(p.pal_rm_new, _pos, _LEN, _PAL));
 
 
 

@@ -519,21 +519,39 @@ if (is_cucco
     var _C1 = Input.dHeld  // down is held
            && !ogr         // is on ground
            &&  cs&$4       // CS_BTM colliding w/ solid
-           && (!use_disguise || global.Halloween1_enabled);
+           && (!Disguise_enabled || global.Halloween1_enabled);
     var _C2 =  cs&$4 
            &&  cs&$8       // Both CS_BTM && CS_TOP colliding w/ solid (Cucco is in 1 tile high space)
-           && (!use_disguise || global.Halloween1_enabled);
+           && (!Disguise_enabled || global.Halloween1_enabled);
     //
-    if (_C1 || _C2)
+    if (_C1 
+    ||  _C2 )
+    {
+        if (g.DevDash_state==2) hspd_max = Cucco_HSPD_MAX2_DASH;
+        else                    hspd_max = Cucco_HSPD_MAX2;
+    }
+    else
+    {
+        if (g.DevDash_state==2) hspd_max = Cucco_HSPD_MAX1_DASH;
+        else                    hspd_max = Cucco_HSPD_MAX1;
+    }
+    
+    if (_C1 
+    ||  _C2 )
     {
         cs_off_idx = Cucco_CS_OFF_IDX2;
-         hspd_max  = Cucco_HSPD_MAX2;
     }
-    else hspd_max  = Cucco_HSPD_MAX1;
     
     
-    if (_C1 || _C2)  Cucco_crouching_state = 1 + ((_C1 && hspd) || _C2); // 1,2
-    else             Cucco_crouching_state = 0;
+    if (_C1 
+    ||  _C2 )
+    {
+        Cucco_crouching_state = 1 + ((_C1 && hspd) || _C2); // 1,2
+    }
+    else
+    {
+        Cucco_crouching_state = 0;
+    }
     
     
     if (stun_timer)
@@ -566,7 +584,11 @@ if (is_cucco
         // 93CD
         PC_update_horizontal();
         
-        if (_C1 || _C2) PC_set_behavior(behavior_CROUCH);
+        if (_C1 
+        ||  _C2 )
+        {
+            PC_set_behavior(behavior_CROUCH);
+        }
         
         // 9384 JSR: 94C5
         PC_update_vertical();
@@ -575,8 +597,7 @@ if (is_cucco
         PC_update_attack_2();
         
         
-        if (attack_phase > 2)
-        {   attack_phase = 0;  }
+        if (attack_phase>2) attack_phase = 0;
         
         
         

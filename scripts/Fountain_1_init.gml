@@ -4,8 +4,10 @@
 scr_draw = Fountain_1_draw;
 
 
-Water_SPR1 = spr_Fountain_Water_1a; // anim frame 1
-Water_SPR2 = spr_Fountain_Water_1b_2; // anim frame 2
+Water_SPR1 = spr_Fountain_Water_1a_1; // anim frame 1
+Water_SPR2 = spr_Fountain_Water_1b_1; // anim frame 2
+//Water_SPR1 = spr_Fountain_Water_1a; // anim frame 1
+//Water_SPR2 = spr_Fountain_Water_1b_2; // anim frame 2
 GO_sprite_init(Water_SPR1);
 ANIM_SPEED = (1<<3);
 
@@ -18,8 +20,8 @@ if (_DEPTH == -1)
 GO_depth_init(_DEPTH+_DEPTH_ADD);
 
 
-var _pi_base   = PI_GUI_1;
-var _pi_permut = 1;
+var _pi_base   = global.PI_BGR3;
+var _pi_permut = 0;
 
 if(    !is_undefined(         dk_spawn)){
     if (val(         g.dm_rm[?dk_spawn+STR_pal_idx]))
@@ -35,9 +37,15 @@ if(    !is_undefined(         dk_spawn)){
 }
 
 
-//if (_pi_permut) PALIDX = get_pi(_pi_base,_pi_permut);
-//else            PALIDX = _pi_base;
-PALIDX = get_pi(_pi_base,_pi_permut);
+switch(_pi_permut){
+default:{PALIDX=_pi_base; break;}
+case  1:{PALIDX=add_pi_permut(_pi_base,"WBRGYKMC","Fountain"); break;}
+case  2:{PALIDX=add_pi_permut(_pi_base,"RWBGMYKC","Fountain"); break;}
+case  3:{PALIDX=add_pi_permut(_pi_base,"RBWGMKYC","Fountain"); break;}
+case  4:{PALIDX=add_pi_permut(_pi_base,"BWRGKYMC","Fountain"); break;}
+case  5:{PALIDX=add_pi_permut(_pi_base,"BRWGKMYC","Fountain"); break;}
+}
+
 GO_init_palidx(_pi_base);
 palidx_permut = _pi_permut;
 

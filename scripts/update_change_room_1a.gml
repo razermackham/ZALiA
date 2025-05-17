@@ -155,7 +155,8 @@ if(!_GOING_TO_OW
 }
 else
 {
-    if(0&&!_GOING_TO_OW)
+    /*
+    if(!_GOING_TO_OW)
     {
         // 2024/06/27. For larger rooms that take extra time to 
         // add their tiles, this can result in a frame or two 
@@ -174,13 +175,12 @@ else
         _val = g.dm_rm[?_RM_NAME+STR_Background_color];
         if(!is_undefined(_val))
         {
-            p.background_color_index = _val;
-            if (g.all_bg_black_only) var _COLOR = c_black; // For patreon user Guardian's bg color issue
-            else                     var _COLOR = p.dl_COLOR[|p.background_color_index];
-            set_background_color(_COLOR);
+            global.BackgroundColor_scene = p.dl_COLOR[|_val];
+            if (g.all_bg_black_only) set_background_color(c_black); // For Patreon user Guardian's bg color issue
+            else                     set_background_color(global.BackgroundColor_scene);
         }
     }
-    
+    */
     
     
     

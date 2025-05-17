@@ -12,70 +12,66 @@ var _IDX1 = (g.counter1>>4)&$3;
 
 
 
-if (1)
+//  --------------------------------------------------------------------------------
+// STARRY SKY  *SURFACE* --------------------------------------------------
+if(!surface_exists(dl_STAR_SKY[|0])) // 1st frame only
 {
-    //  --------------------------------------------------------------------------------
-    // STARRY SKY  *SURFACE* --------------------------------------------------
-    if(!surface_exists(dl_STAR_SKY[|0])) // 1st frame only
+    var _X1 = g.rm_w_ - VIEW_W_OG_;
+    var _Y1 = g.rm_h  - VIEW_H_OG;
+    _Y1 += $10; // Because VIEW_H_OG used to erronously be 224 instead of 240
+    
+                 _count = ds_grid_width(dg_STAR_SKY);
+    for(_i=0; _i<_count; _i++) // each star
     {
-        var _X1 = g.rm_w_ - VIEW_W_OG_;
-        var _Y1 = g.rm_h  - VIEW_H_OG;
+        _x  = _X1 + dg_STAR_SKY[#_i,0] + 3;
+        _y  = _Y1 + dg_STAR_SKY[#_i,1] + 3;
         
-                     _count = ds_grid_width(dg_STAR_SKY);
-        for(_i=0; _i<_count; _i++) // each star
+        for(_j=0; _j<4; _j++) // each color/anim_frame
         {
-            _x  = _X1 + dg_STAR_SKY[#_i,0] + 3;
-            _y  = _Y1 + dg_STAR_SKY[#_i,1] + 3;
+            if(!surface_exists(dl_STAR_SKY[|_j]))
+            {   dl_STAR_SKY[|_j] = surface_create(g.rm_w,g.rm_h);  }
             
-            for(_j=0; _j<4; _j++) // each color/anim_frame
-            {
-                if(!surface_exists(dl_STAR_SKY[|_j]))
-                {   dl_STAR_SKY[|_j] = surface_create(g.rm_w,g.rm_h);  }
-                
-                surface_set_target(dl_STAR_SKY[|_j]);
-                _idx = (dg_STAR_SKY[#_i,2]+_j) & $03;
-                draw_point_colour(_x,_y, p.dg_color_seq[#1,_idx]);
-                surface_reset_target();
-            }
-        }
-        
-        
-        // TODO: Remove any code for non-wide view since very unlikely to go back to OG view size.
-        var _W    = VIEW_W_OG;
-        var _H    = VIEW_W_OG_;
-        var _surf = surface_create(_W,_H);
-        var _X0   = _X1 - (_W>>1);
-        var _X2   = _X1 -  _W;
-        var _Y0   = _Y1 -  _H + ($04<<3);
-        var _Y2   = _Y1 +  _H - ($01<<3);
-        
-        for(_i=(ds_list_size(dl_STAR_SKY)-1); _i>=0; _i--) // each color/anim_frame
-        {
-            surface_copy_part(_surf, 0,0, dl_STAR_SKY[|_i], _X1,_Y1,_W,_H);
-            
-            surface_set_target(dl_STAR_SKY[|_i]);
-            
-            draw_surface_ext(_surf, _X0,    _Y0,  1, 1, 0,c_white,1); // row 1
-            draw_surface_ext(_surf, _X0+_W, _Y0,  1, 1, 0,c_white,1); // row 1
-            
-            draw_surface_part_ext(_surf, 0,0,_W>>1,_H, _X0,_Y1+_H,  1,-1, c_white,1);
-            // draw_surface_ext(_surf, _X2, _Y0+_H,  1,-1, 0,c_white,1); // 
-            // draw_surface_part_ext(_surf, 0,0,_W>>1,_H, _X1,_Y1+_H-($03<<3), -1,-1, c_white,1);
-            // draw_surface_part_ext(_surf, _W>>1,0,_W>>1,_H, _X1,_Y1+_H, -1,-1, c_white,1);
-            draw_surface_ext(_surf, _X1+_W, _Y1,  1, 1, 0,c_white,1); // row 2 
-            
-            draw_surface_ext(_surf, _X2,    _Y2, -1, 1, 0,c_white,1); // row 3
-            draw_surface_ext(_surf, _X2+_W, _Y2, -1, 1, 0,c_white,1); // row 3
-            
+            surface_set_target(dl_STAR_SKY[|_j]);
+            _idx = (dg_STAR_SKY[#_i,2]+_j) &$3;
+            draw_point_colour(_x,_y, p.dg_color_seq[#1,_idx]);
             surface_reset_target();
         }
-        surface_free(_surf);
     }
     
     
-    if (surface_exists(dl_STAR_SKY[|_IDX1]))
-    {     draw_surface(dl_STAR_SKY[|_IDX1], 0,0);  }
+    
+    var _W    = VIEW_W_OG;
+    var _H    = VIEW_W_OG_;
+    var _surf = surface_create(_W,_H);
+    var _X0   = _X1 - (_W>>1);
+    var _X2   = _X1 -  _W;
+    var _Y0   = _Y1 -  _H + ($04<<3);
+    var _Y2   = _Y1 +  _H - ($01<<3);
+    
+    for(_i=(ds_list_size(dl_STAR_SKY)-1); _i>=0; _i--) // each color/anim_frame
+    {
+        surface_copy_part(_surf, 0,0, dl_STAR_SKY[|_i], _X1,_Y1,_W,_H);
+        
+        surface_set_target(dl_STAR_SKY[|_i]);
+        
+        draw_surface_ext(_surf, _X0,    _Y0,  1, 1, 0,c_white,1); // row 1
+        draw_surface_ext(_surf, _X0+_W, _Y0,  1, 1, 0,c_white,1); // row 1
+        
+        draw_surface_part_ext(_surf, 0,0,_W>>1,_H, _X0,_Y1+_H,  1,-1, c_white,1);
+        
+        draw_surface_ext(_surf, _X1+_W, _Y1,  1, 1, 0,c_white,1); // row 2 
+        
+        draw_surface_ext(_surf, _X2,    _Y2, -1, 1, 0,c_white,1); // row 3
+        draw_surface_ext(_surf, _X2+_W, _Y2, -1, 1, 0,c_white,1); // row 3
+        
+        surface_reset_target();
+    }
+    surface_free(_surf);
 }
+
+
+if (surface_exists(dl_STAR_SKY[|_IDX1]))
+{     draw_surface(dl_STAR_SKY[|_IDX1], 0,0);  }
 
 
 
@@ -117,8 +113,8 @@ if(!surface_exists(Story_srf))
     var _XL2 = _XL1+($1<<3);
     var _yt = 0;
     var _DIST1 = $10;
-    var _PI1 = PI_BGR_4;
-    var _PI2 = PI_BGR_1;
+    var _PI1 = global.PI_BGR4;
+    var _PI2 = global.PI_BGR1;
     Story_srf = surface_create(Story_W,Story_H);
     surface_set_target(Story_srf);
     draw_clear_alpha(c_black,0);
@@ -137,7 +133,7 @@ if(!surface_exists(Story_srf))
     draw_text_(_XL0,_yt, "IN HYRULE. TO BREAK THE",     -1, _PI1);
     _yt += _DIST1;
     draw_text_(_XL0,_yt, "SEAL, CRYSTALS MUST BE",      -1, _PI1);
-    //draw_text_(_XL0,_yt, "SEAL,CRYSTALS MUST BE",      -1, _PI1); // OG
+    //draw_text_(_XL0,_yt, "SEAL,CRYSTALS MUST BE",      -1, _PI1); // OG has no space after the comma
     _yt += _DIST1;
     draw_text_(_XL0,_yt, "PLACED IN STATUES IN 6",      -1, _PI1);
     _yt += _DIST1;
@@ -152,29 +148,11 @@ if(!surface_exists(Story_srf))
     surface_reset_target();
 }
 
-if (surface_exists(Story_srf))
+if (surface_exists(Story_srf) 
+&&  rectInView(x,story_y, Story_W,Story_H) )
 {
-    if (rectInView(x,story_y, Story_W,Story_H))
-    {
-        draw_surface(Story_srf, x,story_y);
-    }
-    
-    if (rectInView(x,story2_y, Story_W,Story_H))
-    {
-        draw_surface(Story_srf, x,story2_y);
-    }
+    draw_surface(Story_srf, x,story_y);
 }
-/*
-if (rectInView(x,story_y,  STORY_SPR_W,STORY_SPR_H))
-{
-    draw_sprite(STORY_SPR,0, x,story_y);
-}
-
-if (rectInView(x,story2_y, STORY_SPR_W,STORY_SPR_H) )
-{
-    draw_sprite(STORY_SPR,0, x,story2_y);
-}
-*/
 
 
 
@@ -240,21 +218,12 @@ if (dl_tile_layer_data!=0)
     {
         if (surface_exists(dg_terrain[#_i,0]))
         {
-            pal_swap_set(p.palette_image, dg_terrain[#_i,1]);
+            pal_swap_set(global.palette_image, dg_terrain[#_i,1]);
             draw_surface(dg_terrain[#_i,0],0,0);
             pal_swap_reset();
         }
     }
 }
-/*
-var _X = g.rm_w_;
-var _Y = g.rm_h - (TERRAIN_SPR_H>>1);
-for(_i=0; _i<dg_terrain_W; _i++)
-{
-    _spr = dg_terrain[#_i,0];
-    draw_sprite_(_spr,0, _X,_Y, dg_terrain[#_i,1]);
-}
-*/
 
 
 
@@ -272,7 +241,7 @@ for(_j=ds_grid_width(dg_SeaSparkle)-1; _j>=1; _j--)
 
 
 // Sword
-draw_sprite_(SWORD_SPR,0, SWORD_SPR_X,SWORD_SPR_Y, PI_MOB_ORG);
+draw_sprite_(SWORD_SPR,0, SWORD_SPR_X,SWORD_SPR_Y, global.PI_MOB_ORG);
 
 
 
@@ -282,26 +251,6 @@ draw_sprite_(SWORD_SPR,0, SWORD_SPR_X,SWORD_SPR_Y, PI_MOB_ORG);
 //drawPointCross($02<<3, $00<<3);
 //draw_rect_(c_fuchsia, 0,0, room_width,room_height, 1,1);
 //if!(g.timer0&$7F) sdm("room_width $"+hex_str(room_width)+", room_height $"+hex_str(room_height));
-
-
-
-
-/*
-           _count = ds_grid_width(dg_STAR_SKY);
-for(_i=0; _i<_count, _i++)
-{
-    //if!(g.timer0&$F) dg_STAR_SKY[#_i,2] = (dg_STAR_SKY[#_i,2]+1) & 3;
-    _x   = dg_STAR_SKY[#_i,0] + _OFF;
-    _y   = dg_STAR_SKY[#_i,1] + _OFF;
-    
-           dg_STAR_SKY[#_i,2] += !(g.timer0&$F);
-           dg_STAR_SKY[#_i,2] &= 3;
-    _idx = dg_STAR_SKY[#_i,2];
-    
-    draw_point_colour(_x,_y, p.dg_color_seq[# 1, _idx]);
-}
-//draw_sprite(g.ar_STAR_SKY1[_IDX1],0, STARS_SPR_XOFF, viewYT() + STARS_SPR_YOFF);
-*/
 
 
 

@@ -28,7 +28,7 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     if (Rando_can_reach_East() 
     &&  Rando_is_attainable(STR_BOOTS) )
     {
-        // Get to Anju
+        // get to Anju
         if (Rando_is_qual_location(val(dm_save_data[?STR_Town+STR_Rando+STR_Rauru+"A"], STR_Rauru)))
         {
             // Get to Talo (House on Whale Isl)
@@ -47,27 +47,6 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     // ------------------------------------------------------------
     case Area_WestA+'00'+'01':{ // BOTTLE item. North Castle Zelda room
     if (QUEST_NUM==2)
-    {
-        return true;
-    }
-    break;}
-    
-    
-    /*
-    // ------------------------------------------------------------
-    case Area_WestA+'03'+'01':{ // PBag: Roof of North Castle East Exit
-    if (Rando_is_attainable(STR_JUMP))
-    {
-        return true;
-    }
-    break;}
-    */
-    
-    
-    
-    // ------------------------------------------------------------
-    case Area_WestA+'3C'+'01':{ // PBag: Upper North Castle Hallway
-    if (Rando_is_attainable(STR_JUMP))
     {
         return true;
     }
@@ -139,7 +118,8 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     
     // ------------------------------------------------------------
     case Area_WestA+'FF'+'01':{ // Ruto Mtn Container Piece location
-    if (Rando_is_qual_location(STR_Ruto))
+    if (Rando_is_qual_location(STR_Ruto) 
+    &&  Rando_can_traverse_Ruto_town() ) // in case Ruto is Old Kasuto and don't have CROSS
     {
         if (Rando_is_attainable(STR_JUMP))
         {
@@ -320,7 +300,11 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     //case Area_DthMt+'0D'+'01':{ // Death Mtn Maze Container Piece location (HEART)
     if (Rando_can_reach_Z1Area())
     {
-        return true;
+        if (ItemLocations_DARKROOM_DIFFICULTY>=2 
+        ||  Rando_is_attainable(STR_CANDLE,STR_FIRE) )
+        {
+            return true;
+        }
     }
     break;}
     
@@ -332,6 +316,7 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     if (Rando_can_reach_Saria2()   // North end of Death Mtn
     ||  Rando_can_reach_Z1Area() ) // South end of Death Mtn
     {
+        //if (Rando_can_traverse_DeathMtn())
         if (ItemLocations_DARKROOM_DIFFICULTY>=2 
         ||  Rando_is_attainable(STR_CANDLE,STR_FIRE) )
         {
@@ -351,6 +336,7 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     if (Rando_can_reach_Saria2()   // North end of Death Mtn
     ||  Rando_can_reach_Z1Area() ) // South end of Death Mtn
     {
+        //if (Rando_can_traverse_DeathMtn())
         if (ItemLocations_DARKROOM_DIFFICULTY>=2 
         ||  Rando_is_attainable(STR_CANDLE,STR_FIRE) )
         {
@@ -457,23 +443,6 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
         return true;
     }
     break;}
-    /* // *** THE 1UP HAS BEEN MOVED TO SHOALS ABOVE MAZE ISL PALACE ***
-    // ------------------------------------------------------------
-    case Area_EastA+'3A'+'01':{ // Nabooru Bay 1up location
-    if (Rando_can_get_to_East())
-    {
-        return true;
-    }
-    break;}
-    
-    // ------------------------------------------------------------
-    case Area_EastA+'3A'+'02':{ // PBag: Nabooru Bay 1up location (2ND QUEST PBAG)
-    if (Rando_can_get_to_East())
-    {
-        return true;
-    }
-    break;}
-    */
     
     
     
@@ -526,7 +495,6 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     case Area_MazIs+'0A'+'01':{ // Shoals above P4
     if (Rando_can_reach_MazeIsl() 
     &&  Rando_is_attainable(STR_BOOTS) )
-    //&&  Rando_is_attainable(STR_HAMMER) )
     {
         return true;
     }
@@ -634,7 +602,7 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     
     
     // ------------------------------------------------------------
-    case Area_TownA+'5C'+'01':{ // Kasuto container piece location
+    case Area_TownA+'5C'+'01':{ // Old Kasuto container piece location
     if (Rando_is_qual_location(val(dm_save_data[?STR_Town+STR_Rando+STR_Old_Kasuto+"A"], STR_Old_Kasuto)) 
     &&  Rando_is_attainable(STR_CROSS) )
     {
@@ -879,6 +847,17 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     
     
     // ------------------------------------------------------------
+    case Area_WestA+'3C'+'01':{ // PBag: Upper North Castle Hallway
+    if (Rando_is_attainable(STR_JUMP))
+    {
+        return true;
+    }
+    break;}
+    
+    
+    
+    
+    // ------------------------------------------------------------
     case Area_WestA+'2B'+'01':{ // PBag: Forest tile S of Tantari Desert
     return true;
     break;}
@@ -947,8 +926,7 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     
     // ------------------------------------------------------------
     case Area_WestA+'48'+'01':{ // PBag: Cave ruins under North Castle Lake
-    if (Rando_is_attainable(STR_STABDOWN) 
-    &&  Rando_is_attainable(STR_GLOVE) 
+    if (Rando_are_attainable(STR_STABDOWN,STR_GLOVE) 
     &&  Rando_is_attainable(STR_JUMP) )
     {
         return true;
@@ -965,11 +943,12 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     &&  Rando_is_attainable(STR_JUMP) )
     {
         return true;
-        
-        if (Rando_is_attainable(STR_FAIRY))// This could be a prog item, JUMP is not enough to land on ground to pick up item.
+        /*
+        if (Rando_is_attainable(STR_FAIRY))// This could be a progression item, JUMP is not enough to land on ground to pick up item.
         {   // 2024/08/07. The room has been changed so that JUMP is enough to get to it.
-            //return true;
+            return true;
         }
+        */
     }
     break;}
     
@@ -1131,7 +1110,8 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     // ------------------------------------------------------------
     case Area_EastA+'5C'+'01':{ // PBag: Nabooru quest cave system, item 1 (right of well bottom)
     // Get to well
-    if (Rando_is_qual_location(STR_Nabooru))
+    if (Rando_is_qual_location(STR_Nabooru) 
+    &&  Rando_can_traverse_Nabooru_town() ) // in case Nabooru is Old Kasuto and don't have CROSS
     {
         // Get inside well
         if (Rando_can_get_in_NabooruWell())
@@ -1150,7 +1130,8 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     // ------------------------------------------------------------
     case Area_EastA+'53'+'01':{ // PBag: Nabooru quest cave system, item 2 (above last big vertical drop)
     // Get to well
-    if (Rando_is_qual_location(STR_Nabooru))
+    if (Rando_is_qual_location(STR_Nabooru) 
+    &&  Rando_can_traverse_Nabooru_town() ) // in case Nabooru is Old Kasuto and don't have CROSS
     {
         // Get inside well
         if (Rando_can_get_in_NabooruWell())
@@ -3180,7 +3161,8 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     //case val(g.dm_rm[?STR_Spell+STR_Scene+STR_Name+STR_Nabooru],Area_TownA+'65')+STR_Spell:{ // Wiseman Nabooru spell
     case Area_TownA+'65'+STR_Spell:{ // Wiseman Nabooru spell
     // Get to quest location.
-    if (Rando_is_qual_location(STR_Nabooru))
+    if (Rando_is_qual_location(STR_Nabooru) 
+    &&  Rando_can_traverse_Nabooru_town() ) // in case Nabooru is Old Kasuto and don't have CROSS
     {   // Get into well and complete quest
         if (Rando_can_get_in_NabooruWell() 
         &&  Rando_is_attainable(STR_GLOVE) 
@@ -3250,6 +3232,7 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     
     
     // --------------------- TOWNS -------------------------
+    // This checks if you can get to the town's vanilla location.
     // --------------------------------------------
     case STR_Rauru:{
     return true;
@@ -3261,7 +3244,7 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     break;}
     
     // --------------------------------------------
-    case STR_Saria:{
+    case STR_Saria:{ // if can get to main town (north side of river)
     if (Rando_can_traverse_RauruPass() 
     ||  Rando_can_traverse_RauruToMidoroCave() 
     ||  Rando_can_traverse_JUMPCave() )
@@ -3273,7 +3256,8 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     if ( Rando_is_attainable(STR_FIRE)  // Through Fire-Vines Cave
     ||  (Rando_is_attainable(STR_RAFT) && Rando_can_traverse_NIslMtnPass()) ) // Whale Isl warp to Mido
     {   // Fast travel Mido to Saria
-        if (Rando_can_fast_travel_MidoToSaria())
+        if (Rando_can_traverse_Mido_town()  // in case Mido is Old Kasuto and don't have CROSS
+        &&  Rando_can_fast_travel_MidoToSaria() )
         {
             return true;
         }
@@ -3306,7 +3290,8 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
         }
         
         // Through Death Mtn
-        if (Rando_can_cross_SariaBridge() 
+        if (Rando_can_traverse_Saria_town()  // in case Saria is Old Kasuto and don't have CROSS
+        &&  Rando_can_cross_SariaBridge() 
         &&  Rando_can_traverse_DeathMtn() )
         {
             return true;

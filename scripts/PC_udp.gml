@@ -3,52 +3,31 @@
 // udp: Update Draw Properties
 
 
-var _i, _idx;
+var _i, _idx, _val;
 var _c1,_c2,_c3;
 var _spr;
 var _datakey;
 
 
+can_draw_self = true;
+
+
 Draw_can_rando1 = g._YwY_ || global.SloofLirpa_ENABLED;
 Draw_can_rando2 = Draw_can_rando1; // random rotation, random behavior
 
-if (Draw_can_rando2) Draw_behavior = dl_UwU_[|behavior];
-else                 Draw_behavior = behavior;
-/*
 if (Draw_can_rando2)
 {
-    if (use_disguise)
-    {
-        var _SIZE = ds_list_size(dl_UwU_);
-        for(_i=0; _i<_SIZE; _i++)
-        {
-            if (dl_UwU_[|_i]==behavior_WALK1 
-            ||  dl_UwU_[|_i]==behavior_WALK2 
-            ||  dl_UwU_[|_i]==behavior_WALK3 
-            ||  dl_UwU_[|_i]==behavior_IDLE )
-            {
-                Draw_behavior = dl_UwU_[|_i];
-                break;//_i
-            }
-        }
-    }
-    else
-    {
-        Draw_behavior = dl_UwU_[|behavior];
-    }
+    Draw_behavior = dl_UwU_[|behavior];
 }
 else
 {
     Draw_behavior = behavior;
+    if (Disguise_enabled 
+    &&  ds_list_find_index(Disguise_dl_behaviors,Draw_behavior)==-1 )
+    {
+        Draw_behavior = behavior_CROUCH;
+    }
 }
-*/
-
-
-//HoldItem_can_draw = false;
-
-//var _SWORD_IDX  = sign(f.items&ITM_SWRD);
-////    _SWORD_IDX &= Sword2_SpriteTesting1;
-//var _SHIELD_IDX = sign(f.items&ITM_SHLD);
 
 
 // EC0A
@@ -64,9 +43,6 @@ else
 }
 
 
-Head_sprite = 0;
-Head_xoff   = 0;
-Head_yoff   = 0;
 
 
 
@@ -74,6 +50,8 @@ Head_yoff   = 0;
 if (is_cucco)
 {
     PC_udp_cucco();
+    Cucco_sprite_is_whole = Disguise_enabled || Draw_behavior==behavior_DAMAGE;
+    Cucco_legs_draw_first = Cucco_sprite_body==Cucco_SPRITE_BODY4 || Cucco_sprite_body==Cucco_SPRITE_BODY5; // crouch || crouch(head fwrd)
 }
 else if (is_fairy) // EBB8. Fairy PC ------------------------------------------------------
 {   // EBD7
@@ -82,7 +60,6 @@ else if (is_fairy) // EBB8. Fairy PC -------------------------------------------
 else
 { // EC22, EC40 -------------------------------------------------------------------------
     GO_set_sprite(id,PC_PLACEMENT_SPR);
-    //GO_set_sprite(id,dg_SPRITES[#0,Draw_behavior]);
     
     palidx = palidx_def;
     
@@ -104,41 +81,27 @@ else
 
 
 // -------------------------------------------------------------------------
-// dg_PI_SEQ[#0,0] = PI_PC_1;
-// dg_PI_SEQ[#0,1] = PI_MOB1;
-// dg_PI_SEQ[#0,2] = PI_MOB2;
-// dg_PI_SEQ[#0,3] = PI_MOB3;
-     if (stun_timer)           palidx = p.dg_PI_SEQ[#0,(stun_timer>>1)&$3]; // changes color every 2 frames
-else if (is_cucco || is_fairy) palidx = p.dg_PI_SEQ[#0,sign(is_fairy)];
-else                           palidx = p.dg_PI_SEQ[#0,0];
+/*
+dg_PI_SEQ[#0,0] = PI_PC_1;
+dg_PI_SEQ[#0,1] = PI_MOB1;
+dg_PI_SEQ[#0,2] = PI_MOB2;
+dg_PI_SEQ[#0,3] = PI_MOB3;
+*/
+     if (stun_timer) palidx = p.dg_PI_SEQ[#is_cucco, (stun_timer>>1)&$3]; // changes color every 2 frames
+else if (is_cucco)   palidx = p.dg_PI_SEQ[#0,0];
+else if (is_fairy)   palidx = p.dg_PI_SEQ[#0,1];
+else                 palidx = p.dg_PI_SEQ[#0,0];
 
 
 _c1 = stun_timer || p.SpellFlash_PC_timer;
 _c2 = rm_pal_qual_lit();
 _c3 = _c1 || _c2;
-//_c3 = p.Flash_Pal_timer || rm_pal_qual_lit();
-
-if (_c3) palidx += p.PI_LIT1;
-else     palidx += p.PI_DRK1;
 
 
-if (is_cucco 
-&&  _c3 )
-{    palidx_permut = 4;  }
-else palidx_permut = 0;
+if(!_c3) palidx += p.PI_DRK1;
 
-// testing
-//palidx_permut = clamp((g.timer0&$3F) div ($40 div PI_PERMUTATIONS), 0, PI_PERMUTATIONS-1);
-
-
-Draw_palidx = get_pi(palidx, palidx_permut);
-
-
-
-if(!_c1   // no pc flash timers active
-&&  _c2 ) // room is lit
-{    sword_palidx = PI_PC_SWORD;  }
-else sword_palidx = palidx;
+palidx_permut = 0;
+Draw_palidx = palidx;
 
 
 
@@ -160,11 +123,7 @@ else
 
 
 // -------------------------------------------------------------------------
-can_draw_self = true;
 update_draw_xy();
-
-
-
 
 
 
@@ -286,22 +245,72 @@ else
 
 
 
-if (is_cucco)
-{
-    Draw_rotation1 = PC_draw_get_cucco_rot(Draw_xscale1);
-}
-else
-{
-    Draw_rotation1 = 0;
-}
+if (is_cucco)        Draw_rotation1 = PC_draw_get_cucco_rot(Draw_xscale1);
+else                 Draw_rotation1 = 0;
 
-if (Draw_can_rando2)
+if (Draw_can_rando2) Draw_rotation2 = dg_UwU_[#Draw_behavior,4];
+else                 Draw_rotation2 = 0;
+
+
+
+
+Draw_surface_xl = drawX - (Draw_surface_size>>1);
+Draw_surface_yt = drawY - (Draw_surface_size>>1);
+
+if (Draw_can_rando1 
+||  Draw_can_rando2 )
 {
-    Draw_rotation2 = dg_UwU_[#Draw_behavior,4];
-}
-else
-{
-    Draw_rotation2 = 0;
+    // Unfortunately, the origin point of a surface is its XL/YT and cannot be 
+    // set to its center. This means flipping and rotating may require some adjustments.
+    
+    // Think of 4 squares the size of the surface, arranged together in a square. 
+    // Square 0: bottom right: Where things need to end up.
+    // Square 1:    top right
+    // Square 2:    top  left
+    // Square 3: bottom  left
+    // -----------------
+    // |       |       |
+    // |   2   |   1   |
+    // |       |       |
+    // ------- + .......
+    // |       :       :
+    // |   3   :   0   :
+    // |       :       :
+    // --------.........
+    
+    // First, get a square num by applying the scaling.
+    // Since the surface's origin point(the '+' in the diagram) is its XL/YT, 
+    // -Draw_xscale2 would put you in one of the left 2 squares(2 or 3), and 
+    // -Draw_yscale2 would put you in one of the  top 2 squares(1 or 2).
+    _val = 0;
+    if (Draw_can_rando1)
+    {
+             if(!Draw_xscale2 && !Draw_yscale2) _val = 2;
+        else if(!Draw_xscale2)                  _val = 3;
+        else if(!Draw_yscale2)                  _val = 1;
+    }
+    
+    // Next, add the number of 90deg rotations (1, 2, or 3) to 
+    // that square num to get a new square num.
+    // *** Rotation is counter-clockwise and the rotation axis is 
+    // always the XL,YT of square 0 (the '+' in the diagram), 
+    // regardless of what the scales are.
+    if (Draw_can_rando2 
+    &&  Draw_rotation2 )
+    {
+        _val += Draw_rotation2 div 90; // 1,2,3,4,5,6
+        _val  = _val mod 4;  // 0,1,2,3
+    }
+    
+    // Finally, add the offsets to get back to square 0:
+    // *** Some scenarios with the combination of negative 
+    // scales and rotations will end up at square 0 and 
+    // therefor won't need to add any offsets.
+    switch(_val){
+    case 1:{                                    Draw_surface_yt+=Draw_surface_size; break;} // square 1
+    case 2:{Draw_surface_xl+=Draw_surface_size; Draw_surface_yt+=Draw_surface_size; break;} // square 2
+    case 3:{Draw_surface_xl+=Draw_surface_size;                        break;} // square 3
+    }//switch(_val)
 }
 
 

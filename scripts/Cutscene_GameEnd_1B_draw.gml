@@ -38,7 +38,7 @@ if (dg_CREDITS[#0,0]) // credits idx
 {
     var _i, _x,_y;
     var _text;
-    var _LAST = dg_CREDITS[#0,0]==CREDITS_CNT1-1;
+    var _LAST = dg_CREDITS[#0,0]==CREDITS_COUNT1-1;
     var _ADJ  = -(($04<<3)+$08);
     
     var _Y1 = GROUND_Y-($11<<3)-$02;
@@ -78,7 +78,7 @@ if (dg_CREDITS[#0,0]) // credits idx
         else       _x -= ($02<<3)+$04;
         var _X1=_x;
         
-        for(_i=1; _i<CREDITS_CNT2-2; _i++)
+        for(_i=1; _i<CREDITS_COUNT2-2; _i++)
         {
                 _text  = dg_CREDITS[#dg_CREDITS[#0,0],_i];
             if (_text == 0) break;

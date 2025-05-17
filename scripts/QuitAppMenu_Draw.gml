@@ -24,7 +24,7 @@ var _tsrc, _ts_x,_ts_y;
 
 for(_i=0; _i<cnt_draw_rows; _i++) // each row
 {
-    _data = ar_TSRC_DATA[_i];
+    _data = dl_tsrc_data[|_i];
     
     for(_j=string_length(_data)-1; _j>=0; _j--) // 8x8. each column of the row
     {
@@ -55,7 +55,7 @@ var _text;
 var _XC = drawX + ((CLMS<<3)>>1);
 var _CURS_X = _XC - ($3<<3);
 
-pal_swap_set(p.palette_image, PI_MENU);
+pal_swap_set(global.palette_image, PI_MENU1);
 _text = TEXT_CONFIRM;
 _x  = _XC - ((string_length(_text)<<3)>>1);
 _y  = drawY + ($1<<3);

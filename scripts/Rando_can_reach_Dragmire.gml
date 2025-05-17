@@ -2,10 +2,10 @@
 
 
 if (Rando_can_reach_KasutoArea() 
-&&  Rando_is_attainable(STR_CROSS) // VOD invisible enemies
-&&  Rando_is_attainable(STR_BOOTS) // Water path at bottom of VOD
-&&  QUEST_NUM==2  // Barrier
-&&  Rando_is_attainable(STR_RAFT) )// VOD to Dragmire
+&&  Rando_is_attainable(STR_CROSS)  // VOD invisible enemies
+&&  Rando_is_attainable(STR_BOOTS)  // Water path at bottom of VOD
+&&  QUEST_NUM==2                    // if have triforce for Barrier
+&&  Rando_is_attainable(STR_RAFT) ) // VOD to Dragmire
 {
     return true;
 }

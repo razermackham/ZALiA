@@ -1,7 +1,7 @@
 /// Ganon3_udp()
 
 
-can_draw_self        = sub_state<sub_state_EXPLODE_BODY;
+can_draw_self      = sub_state<sub_state_EXPLODE_BODY;
 Skull_can_draw     = can_draw_self;
 SkullAura_can_draw = Skull_can_draw && SkullClingState==SkullClingState_FREE;
 //
@@ -27,8 +27,8 @@ if(!can_draw_self
 SkullAura_can_draw &= Skull_can_draw;
 SkullAura_can_draw &= !(g.counter1&$3);
 
-Crystal_can_draw    = Skull_can_draw;
-Crystal_sprite         = Crystal_SPRITE2;
+Crystal_can_draw = Skull_can_draw;
+Crystal_sprite   = Crystal_SPRITE2;
 
 
 

@@ -10,7 +10,7 @@ var _i, _x,_y, _spr;
 
 if (Door_state)
 {
-    pal_swap_set(p.palette_image, Blocks_PI);
+    pal_swap_set(global.palette_image, Blocks_PI);
     var _C1 = Door_state==1  ||  Door_timer >= DRAW_CUE1;
     for(_i=0; _i<Door_Blocks_COUNT; _i++)
     {
@@ -28,7 +28,7 @@ if (Door_state)
             if (inRange(Door_timer,8,23))
             {    _spr = spr_Explosion1B_1;  }
             else _spr = spr_Explosion1A_1;
-            draw_sprite_(_spr,0, _x,_y, PI_MOB_ORG);
+            draw_sprite_(_spr,0, _x,_y, global.PI_MOB_ORG);
         }
     }
     pal_swap_reset();

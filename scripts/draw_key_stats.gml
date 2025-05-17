@@ -35,7 +35,7 @@ for(_i=0;_i<_ROWS;_i++)
         _xl  = _XL0 + (_j<<3);
         _yt  = _YT0 + (_i<<3);
         // tsrc: $20: horizontal, $21: vertical, $22: corner
-        draw_background_part_ext_(PI_GUI_1,ts_Menu01, (_type-1)<<3,$2<<3, 8,8, _xl,_yt, 1,1);
+        draw_background_part_ext_(global.PI_GUI1,ts_Menu01, (_type-1)<<3,$2<<3, 8,8, _xl,_yt, 1,1);
     }
 }
 
@@ -47,7 +47,7 @@ _text = "--- "+"KEYS"+" ---";
 //    "P6  max-acquired used-unused"
 _xl = _XL1;
 _yt = _YT1;
-draw_text_(_xl,_yt, _text, -1,PI_GUI_1);
+draw_text_(_xl,_yt, _text, -1,global.PI_GUI1);
 
 _xl = _XL1;
 _yt = _YT2;
@@ -56,34 +56,34 @@ for(_i=1;_i<=_DUNGEON_COUNT;_i++)
     _xl  = _XL1;
     
     _text ="P"+string(_i);
-    draw_text_(_xl,_yt, _text, -1,PI_GUI_1);
+    draw_text_(_xl,_yt, _text, -1,global.PI_GUI1);
     _xl += string_length(_text)<<3;
     
     
     
     _xl += $10;
     _text =string(get_key_count_acquired(_i));
-    draw_text_(_xl,_yt, _text, -1,PI_GUI_1);
+    draw_text_(_xl,_yt, _text, -1,global.PI_GUI1);
     _xl += string_length(_text)<<3;
     
-    draw_sprite_(spr_text_slash_forward,0, _xl,_yt, PI_GUI_1);
+    draw_sprite_(spr_text_slash_forward,0, _xl,_yt, global.PI_GUI1);
     _xl += $8;
     
     _count = val(g.dm_spawn[?STR_Dungeon+hex_str(_i)+STR_Key+STR_Count]);
     _text =string(_count);
-    draw_text_(_xl,_yt, _text, -1,PI_GUI_1);
+    draw_text_(_xl,_yt, _text, -1,global.PI_GUI1);
     _xl += string_length(_text)<<3;
     
     
     
     _xl += $10;
-    draw_sprite_(spr_Key_icon,0, _xl+4,_yt+4, PI_GUI_1);
+    draw_sprite_(spr_Key_icon,0, _xl+4,_yt+4, global.PI_GUI1);
     _xl += $8;
-    draw_text_(_xl,_yt, "*", -1,PI_GUI_1);
-    //draw_sprite_(spr_Times_symbol,0, _xl,_yt, PI_GUI_1);
+    draw_text_(_xl,_yt, "*", -1,global.PI_GUI1);
+    //draw_sprite_(spr_Times_symbol,0, _xl,_yt, global.PI_GUI1);
     _xl += $8;
     _text =string(get_key_count(_i));
-    draw_text_(_xl,_yt, _text, -1,PI_GUI_1);
+    draw_text_(_xl,_yt, _text, -1,global.PI_GUI1);
     
     _yt+=_YDIST1;
 }

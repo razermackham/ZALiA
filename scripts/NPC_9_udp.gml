@@ -1,6 +1,9 @@
 /// NPC_9_udp()
 
 
+NPC_udp_2(); // update `RandoHint_hint_num`
+
+
 // F17E
 can_draw_self = true;
 

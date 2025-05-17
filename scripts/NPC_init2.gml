@@ -58,10 +58,9 @@ var _i, _a, _val;
 var _datakey;
 
 
-
 if (g.town_num 
 &&  g.town_name==STR_Bulblin 
-&& !g.pc.use_disguise )
+&& !g.pc.Disguise_enabled )
 //&& !(f.items&ITM_MASK) )
 {
     state = 0;
@@ -78,8 +77,8 @@ if (dialogue_datakey==g.DialogueDK_MIDO_CHURCH_DOOR
 }
 
 
-if (is_ver(id,NPC_0,3) // MIRROR item
-&&  f.items&ITM_MIRR ) // Alreading has mirror
+if (is_ver(id,NPC_0,3)  // MIRROR item
+&&  f.items&ITM_MIRR )  // Alreading has mirror
 {
     state = 0;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -304,9 +303,11 @@ else if (isVal(object_index,NPC_4,NPC_5)) // Healer, Saver, Quest
     }
     else
     {
-        DOOR_PI        = PI_BGR_2;
+        DOOR_PI        = global.PI_BGR2;
         DOOR_PI_PERMUT = 0;
     }
+    
+    //DOOR_PI_DARK = val(global.dm_pi[?hex_str(DOOR_PI)+STR_Dark+"1"], DOOR_PI);
     
     // A hitbox used by NPC cs left/right to 
     // trigger the counter for stepping inside house.
@@ -330,6 +331,11 @@ else if (isVal(object_index,NPC_4,NPC_5)) // Healer, Saver, Quest
         counter  = $80;  // $80: Waiting in house.
         timer_a1 = $90;  // Delay permission to exit house.
     }
+}
+else if (object_index==NPC_6) // Skill Knight
+{
+    GO_init_palidx(global.PI_MOB_PUR);
+    change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(palidx), string_length(p.PAL_NPC_PUR4), p.PAL_NPC_PUR4));
 }
 else if (object_index==NPC_7) // Spell Giver
 {
@@ -459,30 +465,28 @@ if(!is_undefined(                                dialogue_datakey)
 
 
 
-if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-&&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
+
+if (global.RandoHints_enabled 
+&&  val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) )
 {
-    _val = dialogue_datakey;
     if (is_ancestor(object_index,Zelda))
     {
-        _val = STR_Zelda+STR_Hint;
-        if(!is_undefined(f.dm_rando[?_val+STR_Dialogue]))
+        if(!is_undefined(f.dm_rando[?STR_Zelda+STR_Hint+STR_Dialogue]))
         {
-            has_rando_hint = true;
+            //RandoHint_given = false;
         }
     }
-    else if(!is_undefined(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey]))
+    else
     {
-        has_rando_hint = true;
+        RandoHint_hint_num = val(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey+STR_Hint+STR_Num]);
+        if(!is_undefined(g.dm_RandoHintsRecorder[?STR_Hint+hex_str(RandoHint_hint_num)+STR_Dialogue]))
+        {
+            RandoHint_hint_num = 0; // 0: tells draw not to draw the question mark
+        }
+        
+        //if(!is_undefined(f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey])) RandoHint_given = false;
     }
 }
-//f.dm_rando[?STR_Rando+STR_Hint+dialogue_datakey]
-//_num = val(f.dm_rando[?STR_Rando+STR_Hint+_RANDO_HINT_DIALOGUE_DK+STR_Hint+STR_Num]);
-//var _dialogue = g.dm_RandoHintsRecorder[?STR_Hint+hex_str(_num)+STR_Dialogue];
-//dialogue = val(f.dm_rando[?STR_Zelda+STR_Hint+STR_Dialogue]);
-//has_rando_hint = true;
-
-
 
 
 
@@ -492,8 +496,12 @@ set_xlyt(id, _xl,_yt);
 
 
 
-// NPC_2: traffic
-if (object_index!=NPC_2) db_NPC_create_1a(id);
+
+if (DEV 
+&&  object_index!=NPC_2 ) // NPC_2: traffic
+{
+    db_NPC_create_1a(id);
+}
 
 
 

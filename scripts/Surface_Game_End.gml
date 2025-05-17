@@ -1,11 +1,8 @@
+/// Surface_Game_End()
 
 
-
-if (surface_exists(srf_frame_prev))
-{   surface_free(  srf_frame_prev);  }
-
-if (surface_exists(srf_frame_curr))
-{   surface_free(  srf_frame_curr);  }
+if (surface_exists(srf_app_paused_frame))
+{   surface_free(  srf_app_paused_frame);  }
 
 
 

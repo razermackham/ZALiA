@@ -11,9 +11,11 @@ RandoOptions_PAD1   = $04;
 RandoOptions_Y_DIST = $08 + RandoOptions_PAD1;
 RandoOptions_X      = $14<<3;
 //RandoOptions_X      = $18<<3;
+
+RandoOptions_YOFF1  = -$6;
 RandoOptions_Y      = $11<<3;
-//RandoOptions_Y     += $04;
 RandoOptions_Y     += -g.VIEW_Y_TILE_OFF; // VIEW_Y_TILE_OFF=2
+RandoOptions_Y     += RandoOptions_YOFF1; // micro adj
 
 RandoDescription_XL  = $04<<3;
 RandoDescription_YT  = viewH();
@@ -21,6 +23,8 @@ RandoDescription_YT += -($03<<3);
 RandoDescription_YT += $04;
 
 RandoGrid_H = 8;
+
+BACK_PAD1 = $4;
 
 
 
@@ -60,6 +64,11 @@ RandoMAIN_cursor    = RandoMAIN_ITEMS;
 
 
 
+
+var _HANDICAP_TEXT = "NOTE: THIS IS A HANDICAP AND DOES NOT AFFECT THE RANDOMIZATION LOGIC";
+//var _HANDICAP_TEXT = "NOTE: THIS IS A HANDICAP AND DOES NOT AFFECT THE RANDOMIZATION PROCESS";
+
+
 _X = RandoOptions_X;
 _Y = RandoOptions_Y;
 
@@ -67,6 +76,9 @@ RandoMAIN_FONT_SPRITE=spr_Font2;
 //_font_sprite = spr_Font2;
 _char_size = sprite_get_width(RandoMAIN_FONT_SPRITE);
 _dist1 = _char_size+4;
+
+
+
 
 dg_RandoMAIN_Options = ds_grid_create(0,RandoGrid_H);
 //                                                          //
@@ -111,7 +123,7 @@ dg_RandoMAIN_Options[#_idx,0] = _X;       // 0: x
 dg_RandoMAIN_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
 dg_RandoMAIN_Options[#_idx,2] = 0;       // 2: state
 dg_RandoMAIN_Options[#_idx,3] = "LEVEL COSTS";// 3: text
-dg_RandoMAIN_Options[#_idx,4] = "LEVEL COST VARIATION:"+g.CHAR_END_LINE3+"+/- 25%"; // 
+dg_RandoMAIN_Options[#_idx,4] = "LEVEL COST VARIATION:"+g.CHAR_END_LINE3+"-25% TO +25%"; // 
 //                                                          //
 RandoMAIN_XP = ++_idx;
 ds_grid_resize(dg_RandoMAIN_Options, _idx+1,RandoGrid_H);
@@ -119,7 +131,7 @@ dg_RandoMAIN_Options[#_idx,0] = _X;       // 0: x
 dg_RandoMAIN_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
 dg_RandoMAIN_Options[#_idx,2] = 0;       // 2: state
 dg_RandoMAIN_Options[#_idx,3] = "XP";// 3: text
-dg_RandoMAIN_Options[#_idx,4] = "ENEMY AND PBAG XP VARIATION:"+g.CHAR_END_LINE3+"+/- 25%"; // 
+dg_RandoMAIN_Options[#_idx,4] = "ENEMY XP AND PBAG XP VARIATION:"+g.CHAR_END_LINE3+"-25% TO +25%"; // 
 //dg_RandoMAIN_Options[#_idx,4] = "ENEMY XP AND PBAG XP VARIATION:"+g.CHAR_END_LINE3+"+/- 25%"; // 
 //dg_RandoMAIN_Options[#_idx,4] = "XP DROP AMOUNT VARIATION:"+g.CHAR_END_LINE3+"+/- 25%"; // 
 //                                                          //
@@ -129,35 +141,38 @@ dg_RandoMAIN_Options[#_idx,0]  = _X;       // 0: x
 dg_RandoMAIN_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
 dg_RandoMAIN_Options[#_idx,2]  = 0;        // 2: state
 dg_RandoMAIN_Options[#_idx,3]  = "OTHER";   // 3: text
-dg_RandoMAIN_Options[#_idx,4]  = "-GAME OVER WARPING PENALTY"+g.CHAR_END_LINE3;
-dg_RandoMAIN_Options[#_idx,4] += "-RANDOMIZE COLORS"         +g.CHAR_END_LINE3;
-//dg_RandoMAIN_Options[#_idx,4] += "-RANDOMIZE DUNGEON TILSETS"+g.CHAR_END_LINE3;
-dg_RandoMAIN_Options[#_idx,4] += "-START QUEST"              +g.CHAR_END_LINE3;
-dg_RandoMAIN_Options[#_idx,4] += "-START LEVELS"             +g.CHAR_END_LINE3;
-dg_RandoMAIN_Options[#_idx,4] += "-START ITEMS"              +g.CHAR_END_LINE3;
-dg_RandoMAIN_Options[#_idx,4] += "-START SPELLS"             +g.CHAR_END_LINE3;
-dg_RandoMAIN_Options[#_idx,4] += "-VARIOUS REQUIREMENTS"     +g.CHAR_END_LINE3;
-//dg_RandoMAIN_Options[#_idx,4] = "START QUEST, START LEVELS, START ITEMS, START SPELLS"; // 
+dg_RandoMAIN_Options[#_idx,4]  = "-GAME OVER WARPING PENALTY";
+dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-RANDOMIZE COLORS";
+//dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-RANDOMIZE DUNGEON TILSETS";
+dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-START QUEST";
+dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-START LEVELS";
+dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-START ITEMS";
+dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-START SPELLS";
+dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-VARIOUS REQUIREMENTS";
 //                                                          //
 // I believe the number of possibilities is 518,918,400 (16*15*14*13*12*11*10*9)
 RandoMAIN_SEED = ++_idx;
 ds_grid_resize(dg_RandoMAIN_Options, _idx+1,RandoGrid_H);
-dg_RandoMAIN_Options[#_idx,0] = _X;       // 0: x
-dg_RandoMAIN_Options[#_idx,1] = _Y+(_idx*_dist1) + 4; // 1: y
-dg_RandoMAIN_Options[#_idx,2] = 0;        // 2: state
-dg_RandoMAIN_Options[#_idx,3] = "SEED";   // 3: text
-dg_RandoMAIN_Options[#_idx,4] = "EDIT RANDOMIZATION SEED"; // 
+dg_RandoMAIN_Options[#_idx,0]  = _X;       // 0: x
+dg_RandoMAIN_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
+dg_RandoMAIN_Options[#_idx,1] += $4; // extra space for item sprites
+dg_RandoMAIN_Options[#_idx,2]  = 0;        // 2: state
+dg_RandoMAIN_Options[#_idx,3]  = "SEED";   // 3: text
+dg_RandoMAIN_Options[#_idx,4]  = "EDIT RANDOMIZATION SEED"; // 
 //                                                          //
 RandoMAIN_BACK = ++_idx;
 ds_grid_resize(dg_RandoMAIN_Options, _idx+1,RandoGrid_H);
-dg_RandoMAIN_Options[#_idx,0] = _X;       // 0: x
-dg_RandoMAIN_Options[#_idx,1] = _Y+(_idx*_dist1) + 8; // 1: y
-dg_RandoMAIN_Options[#_idx,2] = 0;        // 2: state
-dg_RandoMAIN_Options[#_idx,3] = "DONE";   // 3: text
-dg_RandoMAIN_Options[#_idx,4] = 0; // 
+dg_RandoMAIN_Options[#_idx,0]  = _X;       // 0: x
+dg_RandoMAIN_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
+dg_RandoMAIN_Options[#_idx,1] += $8;
+dg_RandoMAIN_Options[#_idx,1] += $2; // extra space for BACK
+dg_RandoMAIN_Options[#_idx,2]  = 0;        // 2: state
+dg_RandoMAIN_Options[#_idx,3]  = "DONE";   // 3: text
+dg_RandoMAIN_Options[#_idx,4]  = 0; // 
 //                                                          //
 
 RandoMAIN_COUNT = ds_grid_width(dg_RandoMAIN_Options);
+RandoMAIN_cursor = 0;
 FileSelect_Rando_cursor_reset(RandoState_MAIN);
 
 _len = 0;
@@ -243,7 +258,7 @@ dg_RandoITEM_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
 dg_RandoITEM_Options[#_idx,2]  = 0;        // 2: state
 dg_RandoITEM_Options[#_idx,3]  = "DARK ROOM DIFFICULTY"; // 3: text
 //THERE ARE MANY ITEM LOCATIONS WHERE THE PLAYER IS FORCED TO TRAVERSE AT LEAST ONE ROOM THAT IS DARK WITHOUT THE CANDLE OR THE FIRE SPELL.
-dg_RandoITEM_Options[#_idx,4]  = "0(NORMAL): PROGRESSION ITEMS CAN BE LOCKED BEHIND DARK ROOMS AT A HANDFULL OF LOCATIONS:"+g.CHAR_END_LINE3;
+dg_RandoITEM_Options[#_idx,4]  = "0(VANILLA): PROGRESSION ITEMS CAN BE LOCKED BEHIND DARK ROOMS AT A HANDFULL OF LOCATIONS:"+g.CHAR_END_LINE3;
 //dg_RandoITEM_Options[#_idx,4]  = "0(NORMAL): PROGRESSION ITEMS CAN BE LOCKED BEHIND;";
 dg_RandoITEM_Options[#_idx,4] += "-THE CAVE S OF NORTH CASTLE"+g.CHAR_END_LINE3;
 dg_RandoITEM_Options[#_idx,4] += "-SEVERAL LOCATIONS BEYOND CAVE BETWEEN RAURU WOODS AND PARAPA DESERT"+g.CHAR_END_LINE3;
@@ -261,6 +276,9 @@ dg_RandoITEM_Options[#_idx,0] = _X;       // 0: x
 dg_RandoITEM_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
 dg_RandoITEM_Options[#_idx,2] = 0;        // 2: state
 dg_RandoITEM_Options[#_idx,3] = "ITEM HINTS"; // 3: text
+dg_RandoITEM_Options[#_idx,4] = "NPCS AND DIALOGUE OBJECTS WITH A '?' ABOVE THEM WILL GIVE A HINT TO THE LOCATION OF AN ITEM";
+dg_RandoITEM_Options[#_idx,5] = "TO VIEW FOUND HINTS: OPEN THE SPELL MENU AND HOLD YOUR EQUIVILENT OF 'XBOX-Y'";
+/*
 dg_RandoITEM_Options[#_idx,4] = "SOME NPCS GIVE A HINT TO THE LOCATION OF AN ITEM";
 //dg_RandoITEM_Options[#_idx,4] = "SOME NPCS GIVE A HINT TO THE LOCATION OF A PROGRESSION ITEM";
 //dg_RandoITEM_Options[#_idx,4] = "SOME NPCS GIVE A HINT TO THE LOCATION OF A UNIQUE ITEM";
@@ -277,24 +295,26 @@ dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+"NOTE: NONE OF THE COMMON/GENE
 dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+"TO VIEW FOUND HINTS: OPEN THE SPELL MENU AND HOLD YOUR EQUIVILENT OF 'XBOX-Y'";
 //dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+"TO VIEW THE HINTS YOU'VE FOUND: OPEN THE SPELL MENU AND HOLD YOUR EQUIVILENT OF THE 'XBOX Y'";
 //dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+"VIEW A LIST OF THE HINTS YOU'VE GOTTEN BY OPENING THE SPELL MENU AND HOLD YOUR EQUIVILENT OF THE 'XBOX Y'";
+*/
 //                                                          //
 RandoITEM_ZELDA_HINT = ++_idx; // Zelda gives a hint to something good
 ds_grid_resize(dg_RandoITEM_Options, _idx+1,RandoGrid_H);
-dg_RandoITEM_Options[#_idx,0] = _X;       // 0: x
-dg_RandoITEM_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
-dg_RandoITEM_Options[#_idx,2] = 0;        // 2: state
-dg_RandoITEM_Options[#_idx,3] = "ZELDA HINT"; // 3: text
-dg_RandoITEM_Options[#_idx,4] = "ALLKEY: ZELDA GIVES A HINT TO THE LOCATION OF THE ALLKEY";
-dg_RandoITEM_Options[#_idx,5] = "JUMP TOWN: ZELDA GIVES A HINT TO WHICH TOWN THE JUMP SPELL IS IN";
-//dg_RandoITEM_Options[#_idx,4] = "ZELDA GIVES A HINT TO SOMETHING REALLY GOOD";
+dg_RandoITEM_Options[#_idx,0]  = _X;       // 0: x
+dg_RandoITEM_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
+dg_RandoITEM_Options[#_idx,2]  = 0;        // 2: state
+dg_RandoITEM_Options[#_idx,3]  = "ZELDA HINT"; // 3: text
+dg_RandoITEM_Options[#_idx,4]  = "ALLKEY: ZELDA GIVES A HINT TO THE LOCATION OF THE ALLKEY";
+dg_RandoITEM_Options[#_idx,5]  = "JUMP TOWN: ZELDA GIVES A HINT TO WHICH TOWN THE JUMP SPELL IS IN"+g.CHAR_END_LINE3;
+dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+"NOTE: THE ALLKEY OPTION WILL NOT BE AVAILABLE WITH KEY-SANITY TURNED ON BECAUSE THE ALLKEY WILL BE IN ITS VANILLA LOCATION.";
 //                                                          //
 RandoITEM_BACK     = ++_idx;
 ds_grid_resize(dg_RandoITEM_Options, _idx+1,RandoGrid_H);
-dg_RandoITEM_Options[#_idx,0] = _X;       // 0: x
-dg_RandoITEM_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
-dg_RandoITEM_Options[#_idx,2] = 0;        // 2: state
-dg_RandoITEM_Options[#_idx,3] = "BACK";   // 3: text
-dg_RandoITEM_Options[#_idx,4] = 0;
+dg_RandoITEM_Options[#_idx,0]  = _X;       // 0: x
+dg_RandoITEM_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
+dg_RandoITEM_Options[#_idx,1] += BACK_PAD1;
+dg_RandoITEM_Options[#_idx,2]  = 0;        // 2: state
+dg_RandoITEM_Options[#_idx,3]  = "BACK";   // 3: text
+dg_RandoITEM_Options[#_idx,4]  = 0;
 //                                                          //
 RandoITEM_COUNT  = _idx+1;
 RandoITEM_cursor = RandoITEM_LOCS;
@@ -395,7 +415,8 @@ dg_RandoSPELL_Options[#RandoSPELL_LOCS,0] = _X;       // 0: x
 dg_RandoSPELL_Options[#RandoSPELL_LOCS,1] = _Y+(RandoSPELL_LOCS*_dist1); // 1: y
 dg_RandoSPELL_Options[#RandoSPELL_LOCS,2] = 0;        // 2: state
 dg_RandoSPELL_Options[#RandoSPELL_LOCS,3] = "TOWN SPELL";  // 3: text
-dg_RandoSPELL_Options[#RandoSPELL_LOCS,4] = "SHUFFLE WHICH SPELL A TOWN GIVES YOU";
+dg_RandoSPELL_Options[#RandoSPELL_LOCS,4] = "SHUFFLE WHICH SPELL A WISE MAN WILL GIVE YOU";
+//dg_RandoSPELL_Options[#RandoSPELL_LOCS,4] = "SHUFFLE WHICH SPELL A TOWN GIVES YOU";
 //dg_RandoSPELL_Options[#RandoSPELL_LOCS,4] = "WHICH SPELL YOU GET FROM A TOWN IS SHUFFLED";
 //                                                          //
 ds_grid_resize(dg_RandoSPELL_Options, ds_grid_width(dg_RandoSPELL_Options)+1, ds_grid_height(dg_RandoSPELL_Options));
@@ -406,11 +427,12 @@ dg_RandoSPELL_Options[#RandoSPELL_COST,3] = "SPELL COSTS"; // 3: text
 dg_RandoSPELL_Options[#RandoSPELL_COST,4] = "COST VARIATION:"+g.CHAR_END_LINE3+"-25% TO +10%";
 //                                                          //
 ds_grid_resize(dg_RandoSPELL_Options, ds_grid_width(dg_RandoSPELL_Options)+1, ds_grid_height(dg_RandoSPELL_Options));
-dg_RandoSPELL_Options[#RandoSPELL_BACK,0] = _X;       // 0: x
-dg_RandoSPELL_Options[#RandoSPELL_BACK,1] = _Y+(RandoSPELL_BACK*_dist1); // 1: y
-dg_RandoSPELL_Options[#RandoSPELL_BACK,2] = 0;        // 2: state
-dg_RandoSPELL_Options[#RandoSPELL_BACK,3] = "BACK";   // 3: text
-dg_RandoSPELL_Options[#RandoSPELL_BACK,4] = 0;
+dg_RandoSPELL_Options[#RandoSPELL_BACK,0]  = _X;       // 0: x
+dg_RandoSPELL_Options[#RandoSPELL_BACK,1]  = _Y+(RandoSPELL_BACK*_dist1); // 1: y
+dg_RandoSPELL_Options[#RandoSPELL_BACK,1] += BACK_PAD1;
+dg_RandoSPELL_Options[#RandoSPELL_BACK,2]  = 0;        // 2: state
+dg_RandoSPELL_Options[#RandoSPELL_BACK,3]  = "BACK";   // 3: text
+dg_RandoSPELL_Options[#RandoSPELL_BACK,4]  = 0;
 //                                                          //
 FileSelect_Rando_cursor_reset(RandoState_SPELL);
 //                                                          //
@@ -434,7 +456,7 @@ _X = dg_RandoMAIN_Options[#0,0];
 _Y  = RandoOptions_Y;
 //_Y += $02<<3;
 
-RandoDUNGEON_FONT_SPRITE=spr_Font2;
+RandoDUNGEON_FONT_SPRITE = spr_Font2;
 //_font_sprite = spr_Font2;
 //_char_size = sprite_get_height(RandoDUNGEON_FONT_SPRITE);
 _dist1 = sprite_get_height(RandoDUNGEON_FONT_SPRITE)<<1;
@@ -454,18 +476,6 @@ dg_RandoDUNGEON_Options[#_i,3] = "DIFFICULTY";  // 3: text
 dg_RandoDUNGEON_Options[#_i,4] = "DIFFICULTY OF THE DUNGEONS";
 */
 //                                                          //
-RandoDUNGEON_TILESET  = ++_i;
-ds_grid_resize(dg_RandoDUNGEON_Options, _i+1, ds_grid_height(dg_RandoDUNGEON_Options));
-dg_RandoDUNGEON_Options[#_i,0] = _X;       // 0: x
-dg_RandoDUNGEON_Options[#_i,1] = _Y+(_i*_dist1); // 1: y
-dg_RandoDUNGEON_Options[#_i,2] = 0;        // 2: state
-dg_RandoDUNGEON_Options[#_i,3] = "SHUFFLE DUNGEON TILESETS";  // 3: text
-//dg_RandoDUNGEON_Options[#_i,3] = "DUNGEON TILESET";  // 3: text
-//dg_RandoDUNGEON_Options[#_i,4] = "SHUFFLE DUNGEON TILESETS";
-dg_RandoDUNGEON_Options[#_i,4] = "- ASSIGNS EACH DUNGEON A TILESET FROM A SHUFFLED LIST";
-//dg_RandoDUNGEON_Options[#_i,4] = "- WHICH TILESET IS ASSIGNED TO A DUNGEON IS RANDOMIZED";
-dg_RandoDUNGEON_Options[#_i,5] = "- INCLUDES ALL ORIGINAL, AND CUSTOM DUNGEON TILESETS IN THE SHUFFLE";
-//                                                          //
 RandoDUNGEON_ROOM  = -1;
 /*
 RandoDUNGEON_ROOM  = ++_i;
@@ -483,7 +493,8 @@ ds_grid_resize(dg_RandoDUNGEON_Options, _i+1, ds_grid_height(dg_RandoDUNGEON_Opt
 dg_RandoDUNGEON_Options[#_i,0] = _X;       // 0: x
 dg_RandoDUNGEON_Options[#_i,1] = _Y+(_i*_dist1); // 1: y
 dg_RandoDUNGEON_Options[#_i,2] = 0;        // 2: state
-dg_RandoDUNGEON_Options[#_i,3] = "SHUFFLE DUNGEONS";
+dg_RandoDUNGEON_Options[#_i,3] = "SHUFFLE DUNGEON LOCATIONS";
+//dg_RandoDUNGEON_Options[#_i,3] = "SHUFFLE DUNGEONS";
 //dg_RandoDUNGEON_Options[#_i,3] = "DUNGEON LOCATIONS"; // 3: text
 dg_RandoDUNGEON_Options[#_i,4] = "- ASSIGNS EACH OVERWORLD DUNGEON TILE A DUNGEON FROM A SHUFFLED LIST";
 //dg_RandoDUNGEON_Options[#_i,4] = "- EACH DUNGEON IN THE OVERWORLD TAKES YOU TO A DUNGEON FROM A SHUFFLED LIST";
@@ -510,7 +521,8 @@ ds_grid_resize(dg_RandoDUNGEON_Options, _i+1, ds_grid_height(dg_RandoDUNGEON_Opt
 dg_RandoDUNGEON_Options[#_i,0] = _X;       // 0: x
 dg_RandoDUNGEON_Options[#_i,1] = _Y+(_i*_dist1); // 1: y
 dg_RandoDUNGEON_Options[#_i,2] = 0;        // 2: state
-dg_RandoDUNGEON_Options[#_i,3] = "SHUFFLE TOWNS"; // 3: text
+dg_RandoDUNGEON_Options[#_i,3] = "SHUFFLE TOWN LOCATIONS"; // 3: text
+//dg_RandoDUNGEON_Options[#_i,3] = "SHUFFLE TOWNS"; // 3: text
 //dg_RandoDUNGEON_Options[#_i,3] = "TOWN LOCATIONS"; // 3: text
 dg_RandoDUNGEON_Options[#_i,4] = "- ASSIGNS EACH OVERWORLD TOWN TILE A TOWN FROM A SHUFFLED LIST";
 //dg_RandoDUNGEON_Options[#_i,4] = "- EACH TOWN IN THE OVERWORLD TAKES YOU TO A TOWN FROM A SHUFFLED LIST";
@@ -519,11 +531,12 @@ dg_RandoDUNGEON_Options[#_i,5] = "- INCLUDES THE 8 1ST QUEST TOWNS IN THE SHUFFL
 //                                                          //
 RandoDUNGEON_BACK     = ++_i;
 ds_grid_resize(dg_RandoDUNGEON_Options, _i+1, ds_grid_height(dg_RandoDUNGEON_Options));
-dg_RandoDUNGEON_Options[#_i,0] = _X;       // 0: x
-dg_RandoDUNGEON_Options[#_i,1] = _Y+(_i*_dist1); // 1: y
-dg_RandoDUNGEON_Options[#_i,2] = 0;        // 2: state
-dg_RandoDUNGEON_Options[#_i,3] = "BACK";   // 3: text
-dg_RandoDUNGEON_Options[#_i,4] = 0;
+dg_RandoDUNGEON_Options[#_i,0]  = _X;       // 0: x
+dg_RandoDUNGEON_Options[#_i,1]  = _Y+(_i*_dist1); // 1: y
+dg_RandoDUNGEON_Options[#_i,1] += BACK_PAD1;
+dg_RandoDUNGEON_Options[#_i,2]  = 0;        // 2: state
+dg_RandoDUNGEON_Options[#_i,3]  = "BACK";   // 3: text
+dg_RandoDUNGEON_Options[#_i,4]  = 0;
 //                                                          //
 RandoDUNGEON_COUNT    = _i+1;
 RandoDUNGEON_cursor   = 0;
@@ -576,13 +589,14 @@ dg_RandoENEMY_Options[#RandoENEMY_DIFF,3] = "DIFFICULTY";  // 3: text
 dg_RandoENEMY_Options[#RandoENEMY_DIFF,4] = "DIFFICULTY RANK OF ENEMIES THAT GET RANDOMIZED";
 //                                                          //
 ds_grid_resize(dg_RandoENEMY_Options, ds_grid_width(dg_RandoENEMY_Options)+1, ds_grid_height(dg_RandoENEMY_Options));
-dg_RandoENEMY_Options[#RandoENEMY_CHAR,0] = _X;       // 0: x
-dg_RandoENEMY_Options[#RandoENEMY_CHAR,1] = _Y+(RandoENEMY_CHAR*_dist1); // 1: y
-dg_RandoENEMY_Options[#RandoENEMY_CHAR,2] = 0;        // 2: state
-dg_RandoENEMY_Options[#RandoENEMY_CHAR,3] = "ENEMY RANDO METHOD";  // 3: text
-//dg_RandoENEMY_Options[#RandoENEMY_CHAR,3] = "CHARACTERS";  // 3: text
-dg_RandoENEMY_Options[#RandoENEMY_CHAR,4] = "SPAWNS(NORMAL): SHUFFLE ENEMY SPAWN LOCATIONS";
-dg_RandoENEMY_Options[#RandoENEMY_CHAR,5] = "TYPES: SHUFFLE ENEMY TYPES";
+dg_RandoENEMY_Options[#RandoENEMY_CHAR,0]  = _X;       // 0: x
+dg_RandoENEMY_Options[#RandoENEMY_CHAR,1]  = _Y+(RandoENEMY_CHAR*_dist1); // 1: y
+dg_RandoENEMY_Options[#RandoENEMY_CHAR,2]  = 0;        // 2: state
+dg_RandoENEMY_Options[#RandoENEMY_CHAR,3]  = "ENEMY RANDO METHOD";  // 3: text
+//dg_RandoENEMY_Options[#RandoENEMY_CHAR,3]  = "CHARACTERS";  // 3: text
+dg_RandoENEMY_Options[#RandoENEMY_CHAR,4]  = "SPAWNS: SHUFFLE ENEMY SPAWN LOCATIONS";
+dg_RandoENEMY_Options[#RandoENEMY_CHAR,5]  = "TYPES:  SHUFFLE ENEMY TYPES";
+dg_RandoENEMY_Options[#RandoENEMY_CHAR,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: 'SPAWNS' IS THE NORMAL WAY TO GO. 'TYPES' COULD POTENTIALLY TURN A COMMON ENEMY INTO A MUCH MORE DIFFICULT ONE MEANING THAT YOU'D END UP WITH A LOT OF THE MORE DIFFICULT ENEMY.";
 //                                                          //
 ds_grid_resize(dg_RandoENEMY_Options, ds_grid_width(dg_RandoENEMY_Options)+1, ds_grid_height(dg_RandoENEMY_Options));
 dg_RandoENEMY_Options[#RandoENEMY_SPAWNERS,0] = _X;       // 0: x
@@ -608,7 +622,8 @@ dg_RandoENEMY_Options[#RandoENEMY_HP,0] = _X;       // 0: x
 dg_RandoENEMY_Options[#RandoENEMY_HP,1] = _Y+(RandoENEMY_HP*_dist1); // 1: y
 dg_RandoENEMY_Options[#RandoENEMY_HP,2] = 0;        // 2: state
 dg_RandoENEMY_Options[#RandoENEMY_HP,3] = "ENEMY HP"; // 3: text
-dg_RandoENEMY_Options[#RandoENEMY_HP,4] = "ENEMY HP VARIAION:"+g.CHAR_END_LINE3+"+/- 25%";
+dg_RandoENEMY_Options[#RandoENEMY_HP,4] = "HP VARIAION:"+g.CHAR_END_LINE3+"-25% TO +25%";
+//dg_RandoENEMY_Options[#RandoENEMY_HP,4] = "ENEMY HP VARIAION:"+g.CHAR_END_LINE3+"-25% TO +25%";
 //                                                          //
 ds_grid_resize(dg_RandoENEMY_Options, ds_grid_width(dg_RandoENEMY_Options)+1, ds_grid_height(dg_RandoENEMY_Options));
 dg_RandoENEMY_Options[#RandoENEMY_DAMAGE,0] = _X;       // 0: x
@@ -616,14 +631,16 @@ dg_RandoENEMY_Options[#RandoENEMY_DAMAGE,1] = _Y+(RandoENEMY_DAMAGE*_dist1); // 
 dg_RandoENEMY_Options[#RandoENEMY_DAMAGE,2] = 0;        // 2: state
 //dg_RandoENEMY_Options[#RandoENEMY_DAMAGE,3] = "ATTACK POWER"; // 3: text
 dg_RandoENEMY_Options[#RandoENEMY_DAMAGE,3] = "ENEMY DAMAGE"; // 3: text
-dg_RandoENEMY_Options[#RandoENEMY_DAMAGE,4] = "ENEMY DAMAGE VARIAION:"+g.CHAR_END_LINE3+"+/- 25%";
+dg_RandoENEMY_Options[#RandoENEMY_DAMAGE,4] = "DAMAGE VARIAION:"+g.CHAR_END_LINE3+"-25% TO +25%";
+//dg_RandoENEMY_Options[#RandoENEMY_DAMAGE,4] = "ENEMY DAMAGE VARIAION:"+g.CHAR_END_LINE3+"-25% TO +25%";
 //                                                          //
 ds_grid_resize(dg_RandoENEMY_Options, ds_grid_width(dg_RandoENEMY_Options)+1, ds_grid_height(dg_RandoENEMY_Options));
-dg_RandoENEMY_Options[#RandoENEMY_BACK,0] = _X;       // 0: x
-dg_RandoENEMY_Options[#RandoENEMY_BACK,1] = _Y+(RandoENEMY_BACK*_dist1); // 1: y
-dg_RandoENEMY_Options[#RandoENEMY_BACK,2] = 0;        // 2: state
-dg_RandoENEMY_Options[#RandoENEMY_BACK,3] = "BACK";   // 3: text
-dg_RandoENEMY_Options[#RandoENEMY_BACK,4] = 0;
+dg_RandoENEMY_Options[#RandoENEMY_BACK,0]  = _X;       // 0: x
+dg_RandoENEMY_Options[#RandoENEMY_BACK,1]  = _Y+(RandoENEMY_BACK*_dist1); // 1: y
+dg_RandoENEMY_Options[#RandoENEMY_BACK,1] += BACK_PAD1;
+dg_RandoENEMY_Options[#RandoENEMY_BACK,2]  = 0;        // 2: state
+dg_RandoENEMY_Options[#RandoENEMY_BACK,3]  = "BACK";   // 3: text
+dg_RandoENEMY_Options[#RandoENEMY_BACK,4]  = 0;
 //                                                          //
 
 
@@ -644,21 +661,6 @@ RandoOTHER_state_ITEMS   = _i++;
 RandoOTHER_state_SPELLS  = _i++;
 RandoOTHER_state_REQUIRE = _i++; // Requirements
 RandoOTHER_state         = RandoOTHER_state_MAIN;
-
-
-/*
-                                 _i=0;
-RandoOTHER_MAIN_cursor_QUEST   = _i++;
-RandoOTHER_MAIN_cursor_ATTACK  = _i++;
-RandoOTHER_MAIN_cursor_MAGIC   = _i++;
-RandoOTHER_MAIN_cursor_LIFE    = _i++;
-RandoOTHER_MAIN_cursor_ITEMS   = _i++;
-RandoOTHER_MAIN_cursor_SPELLS  = _i++;
-RandoOTHER_MAIN_cursor_REQUIRE = _i++;
-RandoOTHER_MAIN_cursor_BACK    = _i++;
-RandoOTHER_MAIN_cursor_COUNT   = _i;
-RandoOTHER_MAIN_cursor         = RandoOTHER_MAIN_cursor_QUEST;
-*/
 
 
 _X = dg_RandoMAIN_Options[#0,0];
@@ -686,8 +688,8 @@ dg_RandoOTHER_Options[#_idx,0]  = _X;       // 0: x
 dg_RandoOTHER_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
 dg_RandoOTHER_Options[#_idx,2]  = 1;       // 2: state
 dg_RandoOTHER_Options[#_idx,3]  = _val+" PENALTY";// 3: text
-dg_RandoOTHER_Options[#_idx,4]  = "ON(NORMAL): XP LOSS OF 75%"+g.CHAR_END_LINE3+g.CHAR_END_LINE3;
-dg_RandoOTHER_Options[#_idx,4] += "OFF: NO PENALTY";
+dg_RandoOTHER_Options[#_idx,4]  = "ON(VANILLA): XP LOSS OF 75%"+g.CHAR_END_LINE3+g.CHAR_END_LINE3;
+dg_RandoOTHER_Options[#_idx,4] += "OFF(RECOMMENDED): NO PENALTY";
 //dg_RandoOTHER_Options[#_idx,5]  = "GAME OVER WARPING IS WHEN THE PLAYER FORCES A GAME OVER BY HOLDING 'LT+RT+SELECT+START' SO THEY CAN QUICKLY GET BACK TO TOWN OR THE DUNGEON ENTRANCE. ";
 dg_RandoOTHER_Options[#_idx,5]  = _val+" IS WHEN A GAME OVER IS FORCED BY HOLDING LT+RT+SELECT+START."+g.CHAR_END_LINE3;
 //THIS IS USEFUL BECAUSE CONTINUING YOUR GAME AFTER A GAME OVER TAKES YOU DIRECTLY TO TOWN OR THE ENTRANCE OF THE DUNGEON YOU'RE IN.
@@ -699,7 +701,7 @@ dg_RandoOTHER_Options[#_idx,5] += g.CHAR_END_LINE3+"BACKTRACKING IS MUCH MORE LI
 //dg_RandoOTHER_Options[#_idx,5] += "IT IS TYPICALLY USED TO WARP BACK TO TOWN OR THE DUNGEON ENTRANCE, SAVING A LOT OF TIME."+g.CHAR_END_LINE3;
 //dg_RandoOTHER_Options[#_idx,5] += "THIS CAN BE USEFUL FOR SEVERAL REASONS;"+g.CHAR_END_LINE3;
 //dg_RandoOTHER_Options[#_idx,5] += "THIS TECHNIQUE IS A BIG TIME SAVE, ESPECIALLY IN RANDO."+g.CHAR_END_LINE3;
-dg_RandoOTHER_Options[#_idx,5] += g.CHAR_END_LINE3+"NOTE: A GAME OVER VIA LOSING ALL LIVES WILL STILL INCUR THE PENALTY."+g.CHAR_END_LINE3;
+dg_RandoOTHER_Options[#_idx,5] += g.CHAR_END_LINE3+"NOTE: A GAME OVER VIA LOSING ALL LIVES WILL STILL INCUR THE VANILLA 75% PENALTY."+g.CHAR_END_LINE3;
 //dg_RandoOTHER_Options[#_idx,5] += "WARP TO TOWN OR A DUNGEON ENTRANCE"+g.CHAR_END_LINE3;
 //dg_RandoOTHER_Options[#_idx,5] += "YOU WANT TO WARP BACK TO TOWN OR A DUNGEON ENTRANCE INSTEAD OF TAKING THE TIME TO LOSE ALL YOUR LIVES"+g.CHAR_END_LINE3;
 //dg_RandoOTHER_Options[#_idx,5] += "GETTING OUT OF A SOFTLOCK";
@@ -713,24 +715,19 @@ dg_RandoOTHER_Options[#_idx,0]  = _X;       // 0: x
 dg_RandoOTHER_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
 dg_RandoOTHER_Options[#_idx,2]  = 0;       // 2: state
 dg_RandoOTHER_Options[#_idx,3]  = "RANDOMIZE COLORS";// 3: text
-//dg_RandoOTHER_Options[#_idx,3]  = "RANDOMIZE PALETTES";// 3: text
-dg_RandoOTHER_Options[#_idx,4]  = "-DUNGEONS"+g.CHAR_END_LINE3; // 
-dg_RandoOTHER_Options[#_idx,4] += "-PLAYER"  +g.CHAR_END_LINE3;
-dg_RandoOTHER_Options[#_idx,5]  = "THIS CAN BE ADJUSTED IN THE OPTIONS MENU ONCE IN GAME BUT DOES NEED TO BE TURNED ON HERE FIRST TO WORK AT ALL.";
+dg_RandoOTHER_Options[#_idx,4]  = "THIS CAN BE ADJUSTED IN THE OPTIONS MENU ONCE IN GAME.";
 //                                                          //
-/*
 RandoOTHER_MAIN_DUNGEON_TS = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1,RandoGrid_H);
 dg_RandoOTHER_Options[#_idx,0]  = _X;       // 0: x
 dg_RandoOTHER_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
 dg_RandoOTHER_Options[#_idx,2]  = 0;       // 2: state
-dg_RandoOTHER_Options[#_idx,3]  = "RANDOMIZE DUNGEON TILESETS";// 3: text
-//dg_RandoOTHER_Options[#_idx,3]  = "RANDOMIZE PALETTES";// 3: text
-dg_RandoOTHER_Options[#_idx,4]  = "1: SHUFFLE THE NORMAL DUNGEON TILESETS"; // 
-//dg_RandoOTHER_Options[#_idx,4]  = "1: SHUFFLE WHAT EACH DUNGEON WILL LOOK LIKE"; // 
-dg_RandoOTHER_Options[#_idx,5]  = "2: SHUFFLE THE NORMAL DUNGEON TILESETS ALONG WITH ALTERNATE ONES"; // 
+dg_RandoOTHER_Options[#_idx,3]  = "SHUFFLE DUNGEON GRAPHICS";  // 3: text
+//dg_RandoOTHER_Options[#_idx,3]  = "RANDOMIZE DUNGEON TILESETS";// 3: text
+dg_RandoOTHER_Options[#_idx,4]  = "- ASSIGNS EACH DUNGEON GRAPHICS FROM A SHUFFLED LIST";
+//dg_RandoOTHER_Options[#_idx,4]  = "- WHICH TILESET IS ASSIGNED TO A DUNGEON IS RANDOMIZED";
+dg_RandoOTHER_Options[#_idx,5]  = "- INCLUDES ALL ORIGINAL, AND CUSTOM DUNGEON GRAPHICS IN THE SHUFFLE";
 //                                                          //
-*/
 RandoOTHER_MAIN_cursor_QUEST = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
 dg_RandoOTHER_Options[#_idx,0] = _X;       // 0: x
@@ -746,6 +743,7 @@ dg_RandoOTHER_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
 dg_RandoOTHER_Options[#_idx,2] = 1;        // 2: state
 dg_RandoOTHER_Options[#_idx,3] = "START ATTACK LEVEL";  // 3: text
 dg_RandoOTHER_Options[#_idx,4] = "WHAT ATTACK LEVEL TO START AT";
+dg_RandoOTHER_Options[#_idx,5] = _HANDICAP_TEXT;
 //                                                          //
 RandoOTHER_MAIN_cursor_MAGIC = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
@@ -754,6 +752,7 @@ dg_RandoOTHER_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
 dg_RandoOTHER_Options[#_idx,2] = 1;        // 2: state
 dg_RandoOTHER_Options[#_idx,3] = "START MAGIC LEVEL";  // 3: text
 dg_RandoOTHER_Options[#_idx,4] = "WHAT MAGIC LEVEL TO START AT";
+dg_RandoOTHER_Options[#_idx,5] = _HANDICAP_TEXT;
 //                                                          //
 RandoOTHER_MAIN_cursor_LIFE = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
@@ -762,6 +761,7 @@ dg_RandoOTHER_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
 dg_RandoOTHER_Options[#_idx,2] = 1;        // 2: state
 dg_RandoOTHER_Options[#_idx,3] = "START LIFE LEVEL";  // 3: text
 dg_RandoOTHER_Options[#_idx,4] = "WHAT LIFE LEVEL TO START AT";
+dg_RandoOTHER_Options[#_idx,5] = _HANDICAP_TEXT;
 //                                                          //
 RandoOTHER_MAIN_cursor_ITEMS = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
@@ -770,6 +770,7 @@ dg_RandoOTHER_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
 dg_RandoOTHER_Options[#_idx,2] = 0;        // 2: state
 dg_RandoOTHER_Options[#_idx,3] = "START ITEMS";  // 3: text
 dg_RandoOTHER_Options[#_idx,4] = "WHICH ITEMS TO START WITH";
+dg_RandoOTHER_Options[#_idx,5] = _HANDICAP_TEXT;
 //                                                          //
 RandoOTHER_MAIN_cursor_SPELLS = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
@@ -778,6 +779,7 @@ dg_RandoOTHER_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
 dg_RandoOTHER_Options[#_idx,2] = 0;        // 2: state
 dg_RandoOTHER_Options[#_idx,3] = "START SPELLS";  // 3: text
 dg_RandoOTHER_Options[#_idx,4] = "WHICH SPELLS TO START WITH";
+dg_RandoOTHER_Options[#_idx,5] = _HANDICAP_TEXT;
 //                                                          //
 RandoOTHER_MAIN_cursor_REQUIRE = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
@@ -786,14 +788,16 @@ dg_RandoOTHER_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
 dg_RandoOTHER_Options[#_idx,2] = 0;        // 2: state
 dg_RandoOTHER_Options[#_idx,3] = "ADJUST REQUIREMENTS";  // 3: text
 dg_RandoOTHER_Options[#_idx,4] = "ADJUST CERTAIN REQUIREMENTS";
+dg_RandoOTHER_Options[#_idx,5] = _HANDICAP_TEXT;
 //                                                          //
 RandoOTHER_MAIN_cursor_BACK = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
-dg_RandoOTHER_Options[#_idx,0] = _X;       // 0: x
-dg_RandoOTHER_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
-dg_RandoOTHER_Options[#_idx,2] = 0;        // 2: state
-dg_RandoOTHER_Options[#_idx,3] = "BACK";   // 3: text
-dg_RandoOTHER_Options[#_idx,4] = 0;
+dg_RandoOTHER_Options[#_idx,0]  = _X;       // 0: x
+dg_RandoOTHER_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
+dg_RandoOTHER_Options[#_idx,1] += BACK_PAD1;
+dg_RandoOTHER_Options[#_idx,2]  = 0;        // 2: state
+dg_RandoOTHER_Options[#_idx,3]  = "BACK";   // 3: text
+dg_RandoOTHER_Options[#_idx,4]  = 0;
 //                                                          //
 RandoOTHER_MAIN_cursor_COUNT   = _idx+1;
 RandoOTHER_MAIN_cursor         = 0;
@@ -816,7 +820,8 @@ RandoOTHER_ITEMS_cursor_BACK  = _i++;
 RandoOTHER_ITEMS_cursor_COUNT = _i;
 RandoOTHER_ITEMS_cursor       = RandoOTHER_ITEMS_cursor_ITEM;
 
-RandoOTHER_ITEMS_cursor_BACK_YOFF = $18;
+RandoOTHER_ITEMS_cursor_BACK_YOFF = $1C;
+//RandoOTHER_ITEMS_cursor_BACK_YOFF = $18;
 
                                        _i=0;
 RandoOTHER_ITEMS_item_cursor_CANDLE  = _i++;
@@ -835,14 +840,12 @@ RandoOTHER_ITEMS_item_cursor_MAGIC   = _i++; // magic containers
 RandoOTHER_ITEMS_item_cursor_COUNT   = _i;
 RandoOTHER_ITEMS_item_cursor         = RandoOTHER_ITEMS_item_cursor_CANDLE;
 
-//RandoOTHER_ITEMS_item_cursor
 
 _x=RandoOptions_X+4; // x center of left-most item
 _Y=RandoOptions_Y+$10;
 _dist1=$10; _dist2=_dist1+$08;
 //                                                          //
 dg_RandoOTHER_ITEMS = ds_grid_create(0,RandoGrid_H);
-//dg_RandoOTHER_ITEMS = ds_grid_create(RandoOTHER_ITEMS_item_cursor_COUNT,RandoGrid_H);
 //                                                          //
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_CANDLE,0] = _x; // 0: x
@@ -925,18 +928,6 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP2,4] = "START WITH THE EAST
 //                                                          //
 //                                                          //
 //                                                          //
-/*
-_x+=_dist1;
-ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,0] = _x; // 0: x
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,1] = _Y; // 1: y
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,2] = 0;  // 2: state
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,3] = STR_FEATHER;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,4] = "START WITH THE FEATHER";
-*/
-//                                                          //
-//                                                          //
-//                                                          //
 _x+=_dist1+4;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_DOLLS,0] = _x; // 0: x
@@ -961,6 +952,13 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,2] = f.CONT_MIN_MP; // 2
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,3] = STR_MAGIC;  // 3: text
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,4] = "HOW MANY MAGIC CONTAINERS TO START WITH";
 //                                                          //
+RandoContainerHP_MIN = 1;
+//RandoContainerHP_MIN = f.CONT_MIN_HP;
+RandoContainerHP_MAX = f.CONT_MAX_HP;
+
+RandoContainerMP_MIN = 1;
+//RandoContainerMP_MIN = f.CONT_MIN_MP;
+RandoContainerMP_MAX = f.CONT_MAX_MP;
 
 
 
@@ -995,7 +993,6 @@ _dist1 = _char_size<<1;
 
 //                                                          //
 dg_RandoOTHER_SPELLS = ds_grid_create(0,RandoGrid_H);
-//dg_RandoOTHER_SPELLS = ds_grid_create(RandoOTHER_SPELLS_cursor_COUNT,RandoGrid_H);
 //                                                          //
 ds_grid_resize(dg_RandoOTHER_SPELLS, ds_grid_width(dg_RandoOTHER_SPELLS)+1, ds_grid_height(dg_RandoOTHER_SPELLS));
 dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_PROTECT,0] = _x; // 0: x
@@ -1063,11 +1060,12 @@ dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_SUMMON,4] = "START WITH "+dg_Rand
 */
 //                                                          //
 ds_grid_resize(dg_RandoOTHER_SPELLS, ds_grid_width(dg_RandoOTHER_SPELLS)+1, ds_grid_height(dg_RandoOTHER_SPELLS));
-dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,0] = _x; // 0: x
-dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,1] = _Y+(RandoOTHER_SPELLS_cursor_BACK*_dist1); // 1: y
-dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,2] = 1;  // 2: state
-dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,3] = "BACK";  // 3: text
-dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,4] = "";
+dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,0]  = _x; // 0: x
+dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,1]  = _Y+(RandoOTHER_SPELLS_cursor_BACK*_dist1); // 1: y
+dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,1] += BACK_PAD1;
+dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,2]  = 1;  // 2: state
+dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,3]  = "BACK";  // 3: text
+dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,4]  = "";
 //                                                          //
 
 
@@ -1094,39 +1092,30 @@ _x=RandoOptions_X;
 _Y=RandoOptions_Y;
 _dist1=$10;
 //_dist1=RandoOptions_Y_DIST;
-_val = "NOTE: THIS IS LIKE A HANDICAP OR TIME SAVE. IT DOES NOT AFFECT HOW THE RANDOMIZATION HAPPENS.";
 //                                                          //
 dg_RandoOTHER_REQUIRE = ds_grid_create(0,RandoGrid_H);
 //                                                          //
 ds_grid_resize(dg_RandoOTHER_REQUIRE, ds_grid_width(dg_RandoOTHER_REQUIRE)+1, ds_grid_height(dg_RandoOTHER_REQUIRE));
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,0]  = _X+4; // 0: x
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,1]  = _Y+(RandoOTHER_REQUIRE_cursor_CRYSTALS*_dist1); // 1: y
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,2]  = f.CRYSTAL_MAX;  // 2: state
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,3]  = "";  // 3: text
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,4]  = "THE NUMBER OF CRYSTALS REQUIRED TO ENTER GREAT PALACE.";
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,5]  = _val;
-//dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,5]  = "NOTE: THIS WILL NOT INCREASE THE CHANCE OF RANDO PLACING PROGRESSION IN GREAT PALACE.";
-//dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,4]  = "THE NUMBER OF CRYSTALS REQUIRED TO ENTER GREAT PALACE."+g.CHAR_END_LINE3;
-//dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,4] += "(THIS WILL NOT INCREASE THE CHANCE OF RANDO PLACING PROGRESSION IN GREAT PALACE.)";
-//dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,5]  = "THIS WILL NOT INCREASE THE CHANCE OF RANDO PLACING PROGRESSION IN GREAT PALACE.";
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,0] = _x+4; // 0: x
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,1] = _Y+(RandoOTHER_REQUIRE_cursor_CRYSTALS*_dist1); // 1: y
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,2] = f.CRYSTAL_MAX;  // 2: state
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,3] = "";  // 3: text
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,4] = "THE NUMBER OF CRYSTALS REQUIRED TO ENTER GREAT PALACE.";
 //                                                          //
 ds_grid_resize(dg_RandoOTHER_REQUIRE, ds_grid_width(dg_RandoOTHER_REQUIRE)+1, ds_grid_height(dg_RandoOTHER_REQUIRE));
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,0]  = _X+8; // 0: x
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,1]  = _Y+(RandoOTHER_REQUIRE_cursor_KAKUSU*_dist1); // 1: y
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,2]  = val(g.dm_spawn[?STR_Kakusu+STR_Count]);  // 2: state
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,3]  = "";
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,4]  = "THE NUMBER OF GOLD SLIMES REQUIRED FOR THEIR REWARD.";  // 3: text
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,5]  = _val;
-//dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,4]  = "THE NUMBER OF GOLD SLIMES REQUIRED FOR THEIR REWARD."+g.CHAR_END_LINE3;  // 3: text
-//dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,4] += "(THIS WILL NOT INCREASE THE CHANCE OF RANDO PLACING PROGRESSION BEHIND THE REWARD.)";
-//dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,5]  = "THIS WILL NOT INCREASE THE CHANCE OF RANDO PLACING PROGRESSION BEHIND THE REWARD.";
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,0] = _x+8; // 0: x
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,1] = _Y+(RandoOTHER_REQUIRE_cursor_KAKUSU*_dist1); // 1: y
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,2] = val(g.dm_spawn[?STR_Kakusu+STR_Count]);  // 2: state
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,3] = "";
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,4] = "THE NUMBER OF GOLD SLIMES REQUIRED FOR THEIR REWARD.";  // 3: text
 //                                                          //
 ds_grid_resize(dg_RandoOTHER_REQUIRE, ds_grid_width(dg_RandoOTHER_REQUIRE)+1, ds_grid_height(dg_RandoOTHER_REQUIRE));
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,0] = _x; // 0: x
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,1] = _Y+(RandoOTHER_REQUIRE_cursor_BACK*_dist1); // 1: y
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,2] = 1;  // 2: state
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,3] = "BACK";  // 3: text
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,4] = "";
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,0]  = _x; // 0: x
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,1]  = _Y+(RandoOTHER_REQUIRE_cursor_BACK*_dist1); // 1: y
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,1] += BACK_PAD1;
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,2]  = 1;  // 2: state
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,3]  = "BACK";  // 3: text
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,4]  = "";
 //                                                          //
 
 
@@ -1181,11 +1170,12 @@ dg_RandoSEED_Options[#RandoSEED_NEW,3] = "NEW SEED";  // 3: text
 dg_RandoSEED_Options[#RandoSEED_NEW,4] = "GENERATE A NEW RANDOMIZATION SEED";
 //                                                          //
 ds_grid_resize(dg_RandoSEED_Options, ds_grid_width(dg_RandoSEED_Options)+1, ds_grid_height(dg_RandoSEED_Options));
-dg_RandoSEED_Options[#RandoSEED_BACK,0] = _X;       // 0: x
-dg_RandoSEED_Options[#RandoSEED_BACK,1] = _Y+(RandoSEED_BACK*_dist1); // 1: y
-dg_RandoSEED_Options[#RandoSEED_BACK,2] = 0;        // 2: state
-dg_RandoSEED_Options[#RandoSEED_BACK,3] = "BACK";   // 3: text
-dg_RandoSEED_Options[#RandoSEED_BACK,4] = 0;
+dg_RandoSEED_Options[#RandoSEED_BACK,0]  = _X;       // 0: x
+dg_RandoSEED_Options[#RandoSEED_BACK,1]  = _Y+(RandoSEED_BACK*_dist1); // 1: y
+dg_RandoSEED_Options[#RandoSEED_BACK,1] += BACK_PAD1;
+dg_RandoSEED_Options[#RandoSEED_BACK,2]  = 0;        // 2: state
+dg_RandoSEED_Options[#RandoSEED_BACK,3]  = "BACK";   // 3: text
+dg_RandoSEED_Options[#RandoSEED_BACK,4]  = 0;
 //                                                          //
 FileSelect_Rando_cursor_reset(RandoState_SEED);
 
@@ -1208,7 +1198,6 @@ SeedSprites_XL +=  $13<<3; // XR of seed sprites
 SeedSprites_XL -= ($04+$08) * g.RandoSeedChar_COUNT;
 SeedSprites_XL +=  $04;    // XL of seed sprites
 RandoSeedY_ADJ1 =  $03;
-//RandoSeedY_ADJ1 =  $05;
 //                                                                              //
 RandoSeedChar_cursor = 0;
 //                                                                              //
@@ -1223,7 +1212,6 @@ FileRandoData_CLM  =  FileRandoData_CLM>>3;
 FileRandoData_CLMS = (viewW()>>3) - FileRandoData_CLM;
 
 FileRandoData_ROW  = $03;
-//FileRandoData_ROW  = $04;
 
 FileRandoData_YPAD = -$02;
 

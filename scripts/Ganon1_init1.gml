@@ -26,12 +26,20 @@ projectile     = projectile_OBJ;
 projectile_ver = projectile_VER;
 
 
-Background_COLOR_IDX1 = p.CI_BLK1;
+Background_COLOR01 = p.C_BLK1;
 //solid_type  = TID_SOLID1;
 
 pc_is_inside = false;
-pc_x_min     = 0;
-pc_x_max     = 0;
+pc_x_min  = 0;
+pc_x_max  = 0;
+
+PC_HB1_XLOFF = g.pc.csLft1_xoff;
+PC_HB1_YTOFF = g.pc.csLft1_yoff;
+//PC_HB1_YTOFF = g.pc.csTop1_yoff;
+PC_HB1_W  = g.pc.csRgt1_xoff-g.pc.csLft1_xoff;
+PC_HB1_H  = g.pc.csBtm1_yoff-PC_HB1_YTOFF;
+PC_HB1_xl = g.pc.xl+PC_HB1_XLOFF;
+PC_HB1_yt = g.pc.yt+PC_HB1_YTOFF;
 
 Fought_DATAKEY = STR_Battle+STR_Count+STR_Quest+hex_str(f.quest_num);
 

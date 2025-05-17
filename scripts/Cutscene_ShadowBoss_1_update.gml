@@ -129,7 +129,7 @@ switch(g.cutscene_part)
         p.SpellFlash_PC_timer = _DURATION;
         
         g.cutscene_timer = $FF;
-        p.background_color_index   = p.CI_MGN3; // 0751 = $14; // room bg color
+        global.BackgroundColor_scene = p.C_MGN3; // 0751 = $14; // room bg color
         aud_play_sound(get_audio_theme_track(STR_Cast+STR_Spell))
         
         with(TK_OBJ) sub_state = 0; // Make sure TK doesn't update.
@@ -151,19 +151,36 @@ switch(g.cutscene_part)
         break;
     }
     
-    var            _PI_DEF = PI_MOB_RED;
+    var _i, _pos, _pal;
+    var            _PI_DEF = global.PI_MOB_PUR;
+    //var            _PI_DEF = global.PI_MOB_RED;
     with(BOSS_OBJ) _PI_DEF = palidx_def;
     
+    
+    
+    // Change ShadowBoss and background palettes to black
+    _pal = build_pal(p.C_BLK1,p.C_BLK1,p.C_BLK1,p.C_BLK1,p.C_BLK1,p.C_BLK1,p.C_BLK1,p.C_BLK1);
+    change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(_PI_DEF), string_length(_pal), _pal));
+    
+    for(_i=val(global.dm_pi[?"BGR"+STR_Count],1)-1; _i>=0; _i--)
+    {
+        _pos = get_pal_pos(val(global.dm_pi[?"BGR"+string(_i+1)+STR_Palette+STR_Index], global.PI_BGR1+_i));
+        change_pal(strReplaceAt(p.pal_rm_new, _pos, string_length(_pal), _pal));
+    }
+    /*
     // 0725 = $0D; // Change BG palettes to black. bg col "14" + "0D" + "0D0D"
-    var _pal  = hex_str(p.background_color_index); // bg col idx $14
-        _pal += string_repeat(hex_str(p.CI_BLK1), COL_PER_PAL-(string_length(_pal)>>1)); // "14" + "0D0D0D"
+    var _pal  = color_str(p.dl_COLOR[|p.background_color_index]);
+        _pal += string_repeat(color_str(p.C_BLK1), global.COLORS_PER_PALETTE-(string_length(_pal) div global.PAL_CHAR_PER_COLOR)); // "14" + "0D0D0D"
+    //var _pal  = hex_str(p.background_color_index); // bg col idx $14
+    //    _pal += string_repeat(p.CI_BLK1_, global.COLORS_PER_PALETTE-(string_length(_pal) div global.PAL_CHAR_PER_COLOR)); // "14" + "0D0D0D"
+    
     var _pos  = val(p.dm_pal_data[?hex_str(_PI_DEF)+STR_Palette+STR_Position]);
     change_pal(strReplaceAt(p.pal_rm_new, _pos, string_length(_pal), _pal));
     
-        _pal  = string_repeat(_pal, p.BGR_PAL_COUNT); // "140D0D0D" + "140D0D0D" + "140D0D0D" + "140D0D0D"
-        _pos  = val(p.dm_pal_data[?hex_str(PI_BGR_1)+STR_Palette+STR_Position]);
+    _pal = string_repeat(_pal, val(global.dm_pi[?"BGR"+STR_Count])); // "140D0D0D" + "140D0D0D" + "140D0D0D" + "140D0D0D"
+    _pos = val(p.dm_pal_data[?hex_str(global.PI_BGR1)+STR_Palette+STR_Position]);
     change_pal(strReplaceAt(p.pal_rm_new, _pos, string_length(_pal), _pal));
-    
+    */
     
     //audio_group_stop_all(audiogroup_snd);
     aud_play_sound(get_audio_theme_track(STR_Cast+STR_Spell))

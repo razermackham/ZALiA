@@ -5,7 +5,7 @@
 //if (fullscreen_toggled) draw_clear(c_black);
 
 
-var _i;
+var _i,_j, _count1,_count2;
 
 
 g_create_sprites();
@@ -15,8 +15,8 @@ for(_i=ds_list_size(StarSky_dl_surfaces)-1; _i>=0; _i--)
 {
     if(!surface_exists(StarSky_dl_surfaces[|_i]))
     {
-        var _j, _idx, _x,_y, _color;
-        var _COUNT1 = ds_grid_height(p.dg_color_seq);
+        var _idx, _x,_y, _color;
+        _count1 = ds_grid_height(p.dg_color_seq);
         StarSky_dl_surfaces[|_i] = surface_create($100,$100);
         surface_set_target(StarSky_dl_surfaces[|_i]);
         draw_clear_alpha(c_black,0);
@@ -26,12 +26,58 @@ for(_i=ds_list_size(StarSky_dl_surfaces)-1; _i>=0; _i--)
             _y    = dg_StarSky_data[#_j,2];
             _idx  = dg_StarSky_data[#_j,0];
             _idx += _i;
-            _idx  = _idx mod _COUNT1;
+            _idx  = _idx mod _count1;
             _color = p.dg_color_seq[#1,_idx];
             draw_point_colour(_x,_y,_color);
         }
         surface_reset_target();
     }
+}
+
+
+
+
+if(!surface_exists(global.Rain1_srf))
+{
+    var _k, _xl,_yt, _x0,_y0, _w,_h;
+    var _ts_xl,_ts_yt;
+    var _ts_XL = $0<<3;
+        _ts_yt = $C<<3;
+    //
+    global.Rain1_srf = surface_create(global.Rain1_srf_W,global.Rain1_srf_H);
+    surface_set_target(global.Rain1_srf);
+    draw_clear_alpha(c_black,0);
+    _count1 = global.Rain1_srf_W div global.Rain1_LOOP_SIZE; // number of $20x$20 squares, horizontally
+    _count2 = global.Rain1_srf_H div global.Rain1_LOOP_SIZE; // number of $20x$20 squares, vertically
+    for(_i=0; _i<_count1; _i++)
+    {
+        for(_j=0; _j<_count2; _j++)
+        {
+            _x0 = global.Rain1_LOOP_SIZE * _i;
+            _y0 = global.Rain1_LOOP_SIZE * _j;
+            for(_k=0; _k<4; _k++)
+            {
+                _ts_xl = _ts_XL;
+                _xl = _x0;
+                _yt = _y0;
+                if (_k==$1 || _k==$2) _ts_xl += global.Rain1_TILE_SIZE;
+                if (_k&$1)            _xl    += global.Rain1_TILE_SIZE;
+                if (_k>$1)            _yt    += global.Rain1_TILE_SIZE;
+                draw_background_part(global.Rain1_TS, _ts_xl,_ts_yt, global.Rain1_TILE_SIZE,global.Rain1_TILE_SIZE, _xl,_yt);
+            }
+        }
+    }
+    surface_reset_target();
+}
+
+
+
+
+if (global.Rain_is_active)
+{
+    pal_swap_set(global.palette_image, global.Rain_pi);
+    draw_surface(global.Rain1_srf, global.Rain_xl,global.Rain_yt);
+    pal_swap_reset();
 }
 
 

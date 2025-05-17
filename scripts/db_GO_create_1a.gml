@@ -3,9 +3,9 @@
 
 with(argument0)
 {
-    sdm(""); //sdm("db_GOB_create_1a()-----------------------------------------");
+    show_debug_message("");
     var _str;
-    _str  = obj_name(object_index) + " ver $" + hex_str(ver);
+    _str  = object_get_name(object_index) + " ver $" + hex_str(ver);
     _str += " created. ";
     if(!is_undefined(dk_spawn)) _str += dk_spawn+", ";
     _str += "xl $" + hex_str(xl) + " yt $" + hex_str(yt) + ", ";
@@ -17,17 +17,10 @@ with(argument0)
     }
     
     
-    if (0 && spawn_idx != -1)
-    {
-        var _x = g.dm_spawn[?get_spawn_datakey(g.rm_name,STR_PRXM,spawn_idx) + "_x"];
-        _str += ".   _x $" + hex_str(_x);
-    }
+    show_debug_message(_str);
     
     
-    sdm(_str);
-    
-    
-    if (1 && is_ancestor(object_index,GOB1))
+    if (is_ancestor(object_index,GOB1))
     {
         var _i, _val, _gob;
             _str = "g.go_mgr.dl_gob1:  ";
@@ -43,11 +36,13 @@ with(argument0)
             _str += "[" + string(_val) + "] ";
         }
         
-        sdm(_str);
+        show_debug_message(_str);
     }
 }
 
 
-sdm("");
+show_debug_message("");
+
+
 
 

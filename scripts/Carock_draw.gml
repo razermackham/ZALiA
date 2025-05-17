@@ -17,7 +17,7 @@ if (ver==2
             if (dg_Attack3[#_i,1]<=$20 
             ||  dg_Attack3[#_i,1]&$1 )
             {
-                draw_sprite_(FlameSmall_SPRITE,0, dg_Attack3[#_i,0],FlameSmall_SPRITE_Y, PI_MOB_ORG, sign_(dg_Attack3[#_i,1]&$4));
+                draw_sprite_(FlameSmall_SPRITE,0, dg_Attack3[#_i,0],FlameSmall_SPRITE_Y, global.PI_MOB_ORG, sign_(dg_Attack3[#_i,1]&$4));
             }
         }
     }

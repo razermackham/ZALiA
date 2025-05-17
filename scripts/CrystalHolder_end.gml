@@ -37,11 +37,11 @@ var _exists = false;
 
 
 
-    _exists = variable_instance_exists(id,  "dl_COLOR_IDX");
-if (_exists) _exists =      !is_undefined(   dl_COLOR_IDX);
-if (_exists) _exists =       ds_exists(      dl_COLOR_IDX,ds_type_list);
-if (_exists)                 ds_list_destroy(dl_COLOR_IDX);
-if (_exists)                                 dl_COLOR_IDX=undefined;
+    _exists = variable_instance_exists(id,  "dl_COLOR_ID");
+if (_exists) _exists =      !is_undefined(   dl_COLOR_ID);
+if (_exists) _exists =       ds_exists(      dl_COLOR_ID,ds_type_list);
+if (_exists)                 ds_list_destroy(dl_COLOR_ID);
+if (_exists)                                 dl_COLOR_ID=undefined;
 
 
 

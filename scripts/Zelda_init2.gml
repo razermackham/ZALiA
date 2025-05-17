@@ -25,7 +25,7 @@ SPR_WAKE  = spr_Zelda_Awake_1a;
 SPR_TALK  = spr_Zelda_Talk_1a;
 SPR_POSE1 = spr_Zelda_Pose_3a;
 GO_set_sprite(id,SPR_SLEP);
-GO_init_palidx(PI_BGR_3);
+GO_init_palidx(global.PI_BGR3);
 
 DRAW_YOFF = 0;
 xScale    = 1;
@@ -50,6 +50,7 @@ NPC_catch_item(); // catch the BOTTLE item
 
 
 if (f.quest_num==1 
+&&  global.RandoHints_enabled 
 &&  val(f.dm_rando[?STR_Zelda+STR_Hint]) )
 {
     with(GameObject_create(x-8,y-4, NPC_0,$1))

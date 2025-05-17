@@ -169,7 +169,7 @@ else
 
 
 // Set a default for the rm's background color.
-g.dm_rm[?_RM_NAME+STR_Background_color] = p.CI_BLK1;
+g.dm_rm[?_RM_NAME+STR_Background_color] = p.C_BLK1;
 
 // Set a default for view lock. Most rms do not scroll vertically
 g.dm_rm[?_RM_NAME+STR_View+STR_Data]    = $1; // $1 lock vertical scrolling

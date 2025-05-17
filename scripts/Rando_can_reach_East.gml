@@ -26,7 +26,8 @@ if (Rando_can_traverse_RauruPass()
     }
     
     // Go through Death Mtn from Saria
-    if (Rando_can_cross_SariaBridge() 
+    if (Rando_can_traverse_Saria_town()  // in case Saria is Old Kasuto and don't have CROSS
+    &&  Rando_can_cross_SariaBridge() 
     &&  Rando_can_traverse_DeathMtn() )
     {
         if (Rando_is_attainable(STR_RAFT))

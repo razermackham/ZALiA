@@ -28,7 +28,7 @@ scr_draw = Skull1_draw;
 
 GO_sprite_init(spr_Skull04);
 //GO_sprite_init(spr_Skull_2a_WRB);
-GO_init_palidx(PI_MOB_ORG);
+GO_init_palidx(global.PI_MOB_ORG);
 GO_depth_init(DEPTH_BG3-1);
 
 if(!is_undefined(dk_spawn))

@@ -3,7 +3,7 @@
 
 var _i;
 var _xl,_yt;
-var _ts, _ts_x,_ts_y, _tile_w,_tile_h;
+var _ts, _ts_xl,_ts_yt, _tile_w,_tile_h;
 
 
 var          _TILE_COUNT = ds_grid_width(dg_terrain_draw);
@@ -17,17 +17,17 @@ for(_i=0; _i<_TILE_COUNT; _i++)
         _tile_h = dg_terrain_draw[#_i,$3];
         
         
-        _ts   = dg_terrain_draw[#_i,$5];
-        _ts_x = dg_terrain_draw[#_i,$6];
-        _ts_y = dg_terrain_draw[#_i,$7];
-        draw_background_part(_ts, _ts_x,_ts_y, _tile_w,_tile_h, _xl,_yt);
+        _ts    = dg_terrain_draw[#_i,$5];
+        _ts_xl = dg_terrain_draw[#_i,$6];
+        _ts_yt = dg_terrain_draw[#_i,$7];
+        draw_background_part(_ts, _ts_xl,_ts_yt, _tile_w,_tile_h, _xl,_yt);
         
         if (dg_terrain_draw[#_i,$8]) // can draw
         {
-            _ts   = dg_terrain_draw[#_i,$9];
-            _ts_x = dg_terrain_draw[#_i,$A];
-            _ts_y = dg_terrain_draw[#_i,$B];
-            draw_background_part(_ts, _ts_x,_ts_y, _tile_w,_tile_h, _xl,_yt);
+            _ts    = dg_terrain_draw[#_i,$9];
+            _ts_xl = dg_terrain_draw[#_i,$A];
+            _ts_yt = dg_terrain_draw[#_i,$B];
+            draw_background_part(_ts, _ts_xl,_ts_yt, _tile_w,_tile_h, _xl,_yt);
         }
     }
 }

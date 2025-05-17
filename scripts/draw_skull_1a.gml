@@ -12,7 +12,7 @@ var                      _YSCALE     = 1;
 if (argument_count>_arg) _YSCALE     = sign_(argument[_arg++]);
 
 
-var                      _PALIDX     = PI_MOB_RED;
+var                      _PALIDX     = global.PI_MOB_RED;
 if (argument_count>_arg) _PALIDX     = argument[_arg++];
 
 var                      _PRESET     = 0; // 1,2,3,
@@ -128,7 +128,7 @@ case 3:{_yoff_mouth=2; _yoff_skull=-1; break;} // 3: skull yoff -1, mouth yoff +
 
 
 
-pal_swap_set(p.palette_image,_PALIDX);
+pal_swap_set(global.palette_image,_PALIDX);
 draw_sprite_(_mouth,0,  _X, _Y+_yoff_mouth, -1, _XSCALE,_YSCALE);
 draw_sprite_(_horns,0,  _X, _Y+_yoff_skull, -1, _XSCALE,_YSCALE);
 draw_sprite_(_skull,0,  _X, _Y+_yoff_skull, -1, _XSCALE,_YSCALE);

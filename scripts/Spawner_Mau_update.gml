@@ -25,8 +25,8 @@ switch(g.mod_Mau_SPAWN_FREQ)
         if (is_ancestor(object_index,Mau_A)) _count1++;
         else                                 _count2++;
     }
-    var _LIMIT  = max(3, 6-(_count2 div 2)); // 3-6
-    if (_LIMIT <= _count1) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    var _LIMIT = max(3, 6-(_count2 div 2)); // 3-6
+    if (_LIMIT<=_count1) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     break;}
     
     

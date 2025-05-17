@@ -14,8 +14,10 @@ depth = 0;
 
 
 
-    HOME_X = viewXC() - VIEW_W_OG_; // centered
-    HOME_Y = viewYB() - VIEW_H_OG;  // aligned to bottom
+HOME_X  = viewXC() - VIEW_W_OG_; // centered
+HOME_Y  = viewYB() - VIEW_H_OG;  // aligned to bottom
+HOME_Y += $10; // Because VIEW_H_OG used to erronously be 224 instead of 240
+
 x = HOME_X;
 y = HOME_Y;
 //x  = viewXC() - VIEW_W_OG_; // centered
@@ -58,148 +60,148 @@ var _G = _a++; // Grey
 
 dg_STAR_SKY = ds_grid_create(25,3);
              _a = 0;
-dg_STAR_SKY[#_a,1] = $00<<3; // y $00
 dg_STAR_SKY[#_a,0] = $0A<<3; // x $50
+dg_STAR_SKY[#_a,1] = $00<<3; // y $00
 dg_STAR_SKY[#_a,2] = _b;  // 
 //                          // 
              _a++;
+dg_STAR_SKY[#_a,0] = $14<<3; // x $A0
 dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $00
-dg_STAR_SKY[#_a,0] = $14<<3; // x $A0
 dg_STAR_SKY[#_a,2] = _B;  // 
 //                          // 
 //                          // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $08
 dg_STAR_SKY[#_a,0] = $04<<3; // x $20
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $08
 dg_STAR_SKY[#_a,2] = _G;  // 
 //                          // 
              _a++;
+dg_STAR_SKY[#_a,0] = $0F<<3; // x $78
 dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $08
-dg_STAR_SKY[#_a,0] = $0F<<3; // x $78
 dg_STAR_SKY[#_a,2] = _W;  // 
 //                          // 
 //                          // 
 //                          // 
              _a++;
+dg_STAR_SKY[#_a,0] = $1C<<3; // x $E0
 dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $10
-dg_STAR_SKY[#_a,0] = $1C<<3; // x $E0
 dg_STAR_SKY[#_a,2] = _B;  // 
 //                          // 
 //                          // 
 //                          // 
              _a++;
+dg_STAR_SKY[#_a,0] = $02<<3; // x $10
 dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $18
-dg_STAR_SKY[#_a,0] = $02<<3; // x $10
 dg_STAR_SKY[#_a,2] = _G;  // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $18
 dg_STAR_SKY[#_a,0] = $08<<3; // x $40
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $18
 dg_STAR_SKY[#_a,2] = _W;  // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $18
 dg_STAR_SKY[#_a,0] = $14<<3; // x $A0
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $18
 dg_STAR_SKY[#_a,2] = _B;  // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $18
 dg_STAR_SKY[#_a,0] = $1C<<3; // x $E0
-dg_STAR_SKY[#_a,2] = _W;  // 
-//                          // 
-             _a++;
 dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $18
+dg_STAR_SKY[#_a,2] = _W;  // 
+//                          // 
+             _a++;
 dg_STAR_SKY[#_a,0] = $1D<<3; // x $E8
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $18
 dg_STAR_SKY[#_a,2] = _b;  // 
 //                          // 
 //                          // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $20
 dg_STAR_SKY[#_a,0] = $0F<<3; // x $78
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $20
 dg_STAR_SKY[#_a,2] = _B;  // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $20
 dg_STAR_SKY[#_a,0] = $19<<3; // x $C8  0001 1001 -> 1100 1000
-dg_STAR_SKY[#_a,2] = _G;  // 
-//                          // 
-             _a++;
 dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $20
+dg_STAR_SKY[#_a,2] = _G;  // 
+//                          // 
+             _a++;
 dg_STAR_SKY[#_a,0] = $1D<<3; // x $E8
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $20
 dg_STAR_SKY[#_a,2] = _W;  // 
 //                          // 
 //                          // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $28
 dg_STAR_SKY[#_a,0] = $05<<3; // x $28
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $28
 dg_STAR_SKY[#_a,2] = _b;  // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $28
 dg_STAR_SKY[#_a,0] = $1B<<3; // x $D8
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $28
 dg_STAR_SKY[#_a,2] = _B;  // 
 //                          // 
 //                          // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $30
 dg_STAR_SKY[#_a,0] = $02<<3; // x $10
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $30
 dg_STAR_SKY[#_a,2] = _G;  // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $30
 dg_STAR_SKY[#_a,0] = $19<<3; // x $C8
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $30
 dg_STAR_SKY[#_a,2] = _W;  // 
 //                          // 
 //                          // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $38
 dg_STAR_SKY[#_a,0] = $03<<3; // x $18
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $38
 dg_STAR_SKY[#_a,2] = _B;  // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $38
 dg_STAR_SKY[#_a,0] = $15<<3; // x $A8
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $38
 dg_STAR_SKY[#_a,2] = _b;  // 
 //                          // 
 //                          // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $40
 dg_STAR_SKY[#_a,0] = $01<<3; // x $08
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $40
 dg_STAR_SKY[#_a,2] = _G;  // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $40
 dg_STAR_SKY[#_a,0] = $09<<3; // x $48
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $40
 dg_STAR_SKY[#_a,2] = _W;  // 
 //                          // 
 //                          // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $48
 dg_STAR_SKY[#_a,0] = $10<<3; // x $80
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $48
 dg_STAR_SKY[#_a,2] = _G;  // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $48
 dg_STAR_SKY[#_a,0] = $14<<3; // x $A0
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $48
 dg_STAR_SKY[#_a,2] = _b;  // 
 //                          // 
 //                          // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $50
 dg_STAR_SKY[#_a,0] = $08<<3; // x $40
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1] + 8; // y $50
 dg_STAR_SKY[#_a,2] = _b;  // 
 //                          // 
              _a++;
-dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $50
 dg_STAR_SKY[#_a,0] = $0C<<3; // x $60
+dg_STAR_SKY[#_a,1] = dg_STAR_SKY[#_a-1,1]; // y $50
 dg_STAR_SKY[#_a,2] = _b;  // 
 //                          // 
 
@@ -273,7 +275,6 @@ Story_H   = $E0;
 
 STORY_YOFF = HOME_Y + $90; // HOME_Y: $18 + $90 = $A8
 story_y    = TITLE_Y_START + STORY_YOFF; // $78 + $A8 = $120
-story2_y   = story_y;
 
 
 
@@ -392,7 +393,7 @@ if(!is_undefined(_DATA))
             _pi  = string_copy(_layer_name, _pos+string_length(_name), 2); // bg palette num ('01', '02', '03', '04')
             _pi  = str_hex(_pi);
             _pi -= _pi>5;
-            _pi  = PI_BGR_1 + (_pi-1);
+            _pi  = global.PI_BGR1 + (_pi-1);
             
             _idx = ds_grid_width(dg_terrain);
             ds_grid_resize(dg_terrain,_idx+1,dg_terrain_H);
@@ -410,8 +411,8 @@ _y = g.rm_h - viewH() - 3;
 rm_set_cam_1a(g.rm_w_, _y);
 set_camera_xy(g.rm_w_-viewW_(), _y);
 
-
-if (0 && !(g.counter1&$7F)){
+/*
+if(!(g.counter1&$7F)){
 var _str  =   'viewXL() '+string(viewXL()) + ', viewYT() '+string(viewYT());
     _str += ', viewW() ' +string(viewW())  + ', viewH() ' +string(viewH());
     _str += ', room_width ' +string(room_width) + ', room_height '+string(room_height);
@@ -419,6 +420,7 @@ var _str  =   'viewXL() '+string(viewXL()) + ', viewYT() '+string(viewYT());
     _str += ', x '+string(x)+', y '+string(y);
 sdm(_str);
 }
+*/
 
 
 

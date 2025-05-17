@@ -1,6 +1,15 @@
 /// HUD_Step()
 
 
+var _x,_y, _xl,_yt;
+var _X_BASE = viewXL();
+var _Y1     = viewYT() + Y_LINE1;
+var _Y2     = viewYT() + Y_LINE2;
+
+
+can_draw_self = g.ChangeRoom_timer<=0 && global.HUD_state;
+
+
 XP_text  = get_xp_str(f.xp);     // XP current
 XP_text += "/";                  // XP Forward slash
 XP_text += get_xp_str(f.xpNext); // XP next
@@ -13,7 +22,7 @@ if (0
 &&  f.level_lif>=STAT_LEVEL_MAX )
 {
     NextLevel_sprite = spr_Lives_icon;
-    NextLevel_sprite_xscale = -1;
+    NextLevel_xscale = -1;
 }
 else
 {
@@ -22,7 +31,7 @@ else
     else if (get_xp_next(STAT_LIF)==f.xpNext) NextLevel_sprite = global.SPR_ICON_LIF;
     else                                      NextLevel_sprite = 0;
     //else                                      NextLevel_sprite = spr_Text_WrongChar;
-    NextLevel_sprite_xscale = 1;
+    NextLevel_xscale = 1;
 }
 
 
@@ -57,35 +66,35 @@ if (_SPELL==SPL_FARY
 &&  g.CuccoSpell2_Acquired 
 &&  g.CuccoSpell2_Option )
 {
-    SpellReady_text = "CUCCO";
+    SpellQueued_text = "CUCCO";
 }
 else
 {
-    SpellReady_text = val(g.dm_Spell[?hex_str(_SPELL)+STR_Name], SpellReady_NONE);
+    SpellQueued_text = val(g.dm_Spell[?hex_str(_SPELL)+STR_Name], SpellQueued_NONE);
 }
 
-if (SpellReady_text!=SpellReady_NONE)
+if (SpellQueued_text!=SpellQueued_NONE)
 {
-    SpellReady_text = string_letters(SpellReady_text);
+    SpellQueued_text = string_letters(SpellQueued_text);
 }
 
 
-SpellReady_palidx = PI_MENU;
-if (SpellReady_text!=SpellReady_NONE)
+SpellQueued_palidx = PI_MENU1;
+if (SpellQueued_text!=SpellQueued_NONE)
 {
     if (p.SpellReady_flash_timer)
     {
-        SpellReady_palidx = p.dg_PI_SEQ[#$04,(p.SpellReady_flash_timer-1)&$3];
+        SpellQueued_palidx = p.dg_PI_SEQ[#$04,(p.SpellReady_flash_timer-1)&$3];
     }
     else if (g.mod_IndicateSpellUnaffordable 
          &&  f.mp-get_spell_cost(g.spell_ready) < 0 )
     {
-        SpellReady_palidx = p.PI_SPELL_UNAFFORDABLE;
+        SpellQueued_palidx = global.spell_unaffordable_pi;
     }
     else if (g.mod_IndicateSpellActive 
          &&  g.spells_active & g.spell_ready )
     {
-        SpellReady_palidx  = p.PI_SPELL_FUTILE;
+        SpellQueued_palidx  = global.spell_futile_pi;
     }
 }
 
@@ -98,6 +107,22 @@ MeterContainer_count_MP = cont_cnt_mp();
 MeterContainer_count_HP = cont_cnt_hp();
 
 
+
+
+MeterHead_xl_HP = _X_BASE + HP_X;
+MeterHead_yt_HP = _Y2;
+
+MeterHead_xl_MP = _X_BASE + MP_X;
+MeterHead_yt_MP = _Y2;
+
+
+MeterCont_xl_HP = MeterHead_xl_HP + 8;
+MeterCont_yt_HP = MeterHead_yt_HP;
+
+MeterCont_xl_MP = MeterHead_xl_MP + 8;
+MeterCont_yt_MP = MeterHead_yt_MP;
+
+
 MeterFill_can_draw_MP = f.mp!=0;
 MeterFill_can_draw_HP = f.hp!=0;
 
@@ -105,10 +130,57 @@ MeterFill_w_MP = ceil(f.mp / MeterFill_AMOUNT_PER_PIXEL); // _w will be AT LEAST
 MeterFill_w_HP = ceil(f.hp / MeterFill_AMOUNT_PER_PIXEL); // _w will be AT LEAST 1. ceil() rounds UP to nearest int
 
 
+MeterFill_xl_HP = MeterCont_xl_HP;
+MeterFill_yt_HP = MeterCont_yt_HP;
+
+MeterFill_xl_MP = MeterCont_xl_MP;
+MeterFill_yt_MP = MeterCont_yt_MP;
 
 
 
-can_draw_self = g.ChangeRoom_timer<=0 && g.HUD_state;
+
+Levels_xl = _X_BASE;
+Levels_yt = _Y1;
+
+Level_ATK_xl = Levels_xl + Level_ATK_XL;
+Level_MAG_xl = Levels_xl + Level_MAG_XL;
+Level_LIF_xl = Levels_xl + Level_LIF_XL;
+
+
+
+
+XP_xl = _X_BASE + XP_X;
+XP_yt = _Y2;
+
+
+
+
+NextLevel_can_draw = can_draw_self && global.HUD_state>=2 && NextLevel_sprite;
+NextLevel_x        = _X_BASE + NextLevel_X;
+NextLevel_y        = _Y2;
+NextLevel_y       += sprite_get_height(NextLevel_sprite)>>1;
+
+
+
+
+Lives_can_draw = global.HUD_state>=2;
+Lives_xl = _X_BASE + HP_X;
+Lives_yt = _Y1;
+
+Keys_xl  = Lives_xl;
+Keys_xl += $02<<3; // lives text + lives sprite
+Keys_xl += $03<<3; // padding
+Keys_yt  = _Y1;
+Keys_can_draw  = global.HUD_state>=2 && g.dungeon_num;
+
+
+
+
+SpellQueued_can_draw = global.HUD_state>=2 && g.mod_HUD_SPELL_READY;
+SpellQueuedIcon_xl = _X_BASE + SpellQueued_ICON_X;
+SpellQueuedIcon_yt = _Y1;
+SpellQueued_xl     = _X_BASE + SpellQueued_TEXT_X;
+SpellQueued_yt     = _Y1;
 
 
 

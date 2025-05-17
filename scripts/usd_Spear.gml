@@ -11,7 +11,7 @@ palIdx_R = palidx_def; //
 if (isProjSprAdjFrame())
 {
     xScale_L *= -1;       // 
-    palIdx_L  = PI_PC_1; // 
+    palIdx_L  = global.PI_PC1; // 
 }
 
 // sprites[0]: tip, sprites[1]: pole

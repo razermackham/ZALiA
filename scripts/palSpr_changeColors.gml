@@ -2,91 +2,82 @@
 
 
 if (is_undefined(pal_rm_def)) exit; // !!!!!!!!!!!!!!!!!!!!!!!!
-if (pal_rm_new==pal_rm_curr)  exit; // !!!!!!!!!!!!!!!!!!!!!!!!
+
+if (pal_rm_new==pal_rm_curr)
+{
+    if(!global.palette_image_IS_SURFACE 
+    ||  surface_exists(global.palette_image) )
+    {
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!
+    }
+}
 
 
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
-var _i,_j, _idx;
+var _i,_j, _idx, _val;
+var _color;
+
+
+if (is_undefined(pal_rm_new) 
+||  pal_rm_new=="" )
+{
+    pal_rm_new = pal_rm_DEFAULT;
+}
 
 
 pal_rm_curr = pal_rm_new;
 
-var _W = (string_length(pal_rm_curr)>>1) div COL_PER_PAL;
-    _W = max(_W,1);
-var _SURF = surface_create(_W,global.palette_image_H);
-surface_set_target(_SURF);
 
-for(_i=0; _i<_W; _i++) // each pal & permut
+var _W = string_length(pal_rm_curr) div global.PAL_CHAR_PER_PAL;
+var _SURF = surface_create(_W,global.COLORS_PER_PALETTE);
+surface_set_target(_SURF);
+draw_clear_alpha(c_black,0);
+
+for(_i=0; _i<_W; _i++) // each palette index
 {
-    for(_j=0; _j<global.palette_image_H; _j++) // each color in one pal (4)
+    for(_j=0; _j<global.COLORS_PER_PALETTE; _j++) // each color of this palette index
     {
-            _idx  = (_i*global.palette_image_H) + _j; // pal-colors index
-            _idx  = (_idx<<1) + 1;     // bc string
-        //
-            _idx  = str_hex(string_copy(pal_rm_curr, _idx, 2)); // p.dl_COLOR index
-        if (_idx == $FF)
-        {   _idx  = background_color_index;  } // Needs to be the room's bg color
+        _idx  =  global.COLORS_PER_PALETTE*_i;
+        _idx += _j; // pal-colors index
+        _idx *=  global.PAL_CHAR_PER_COLOR;
+        
+        _val = string_copy(pal_rm_curr, _idx+1, global.PAL_CHAR_PER_COLOR);
+        _val = str_hex(_val);
+        
+        _color = _val;
         
         // drawing top to bottom vs left to right
-        draw_point_colour(_i,_j, dl_COLOR[|_idx]);
+        draw_point_colour(_i,_j, _color);
     }
 }
 
 
 if (global.palette_image_IS_SURFACE)
 {
-    if (surface_exists(palette_image))
-    {   surface_free(  palette_image);  }
+    if (surface_exists(global.palette_image))
+    {   surface_free(  global.palette_image);  }
     
-    palette_image = surface_create(_W,global.palette_image_H);
-    surface_copy(palette_image, 0,0, _SURF);
+    global.palette_image   = surface_create(_W,global.COLORS_PER_PALETTE);
+    surface_copy(global.palette_image, 0,0, _SURF);
+    global.palette_image_w = surface_get_width( global.palette_image);
+    global.palette_image_h = surface_get_height(global.palette_image);
+    
 }
 else
 {
-    if (sprite_exists(palette_image)) 
-    {   sprite_delete(palette_image);  }
+    if (sprite_exists(global.palette_image)) 
+    {   sprite_delete(global.palette_image);  }
     
-    palette_image = sprite_create_from_surface(_SURF, 0,0, _W,global.palette_image_H, 0,0, 0,0);
+    global.palette_image   = sprite_create_from_surface(_SURF, 0,0, _W,global.COLORS_PER_PALETTE, 0,0, 0,0);
+    global.palette_image_w = sprite_get_width( global.palette_image);
+    global.palette_image_h = sprite_get_height(global.palette_image);
 }
 
 
 surface_reset_target();
 surface_free(_SURF);
-
-
-/*
-/// @desc Returns the color of the specified pixel
-/// @param spriteId
-/// @param x
-/// @param y
-
-var spriteId = argument[0];
-var xx = argument[1];
-var yy = argument[2];
-
-var surf = surface_create(1,1);
-surface_set_target(surf);
-draw_sprite_part(spriteId,0,xx,yy,1,1,0,0);
-var color = surface_getpixel(surf,0,0);
-surface_reset_target();
-surface_free(surf);
-
-return color;
-*/
-
-
-/*
-    if (0)
-    {
-        show_debug_message("dl_color[| " + hex_str(_col_idx) + "]: " + string(dl_color[| _col_idx]));
-        if (_i & $03 == $03) show_debug_message("");
-        if (_i & $0F == $0F) show_debug_message("");
-        if (_i & $1F == $1F) show_debug_message("");
-    }
-*/
-
 
 
 

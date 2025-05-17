@@ -50,9 +50,11 @@ Waterfall_SPEED = 0; // 0,1,3,7,15..
 Waterfall_TS    = g.ts_Natural1_HMS;
 Waterfall_TSRC1 = $F8; // water body
 Waterfall_TSRC2 = $F0; // water head
-Waterfall_PI    = PI_BGR_3;
 Waterfall_DEPTH_IDX = ds_list_find_index(g.dl_TILE_DEPTHS,Waterfall_DEPTH);
 //Waterfall_PI        = p.dg_depth_pi[#Waterfall_DEPTH_IDX,1];
+WaterfallPI_LIT  = global.PI_BGR3 + p.PI_LIT1;
+WaterfallPI_DARK = global.PI_BGR3 + p.PI_DRK1;
+//Waterfall_PI = global.PI_BGR3;
 
 
 AquiferWater_DEPTH      = DEPTH_FG2;

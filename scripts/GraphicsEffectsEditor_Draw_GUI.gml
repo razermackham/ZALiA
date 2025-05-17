@@ -45,15 +45,15 @@ for (_i=0; _i<_Main_COUNT; _i++)
         ||  _i==Main_ENABLE 
         ||  _i==Main_DEFAULT )
         {
-            _pi = PI_MENU; // 4: option available
+            _pi = PI_MENU1; // 4: option available
         }
     }
     draw_text_(_x,_y, _text, _font_sprite, _pi);
     
     if (_i==Main_cursor)
     {
-        if (menu_focus 
-        &&  menu_focus==dg_Main[#_i,$9] )
+        if (menu_state 
+        &&  menu_state==dg_Main[#_i,$9] )
         {
             _sprite = spr_arrow_6_dwn;
             _pi = PI_DARK1;
@@ -61,7 +61,7 @@ for (_i=0; _i<_Main_COUNT; _i++)
         else
         {
             _sprite = spr_arrow_6_rgt;
-            _pi = PI_MENU;
+            _pi = PI_MENU1;
         }
         
         _x += _cursor_XOFF;
@@ -82,14 +82,14 @@ for (_i=0; _i<_Main_COUNT; _i++)
     }
     */
     if (is_string(_text) 
-    &&  (menu_focus==menu_focus_Main || !menu_focus || menu_focus!=dg_Main[#_i,$9]) )
+    &&  (menu_state==menu_focus_Main || !menu_state || menu_state!=dg_Main[#_i,$9]) )
     {
         _x = Values_XR - (string_length(_text)*_char_w);
         
         if (dg_Main[#Main_ENABLE,$5]  // dg_Main[#$0,$5]: if filters are enabled
         &&  dg_Main[#_i,$4]   // 4: option available
         &&  dg_Main[#_i,$5] ) // if this option is enabled
-        {    _pi = PI_MENU;  }
+        {    _pi = PI_MENU1;  }
         else _pi = PI_DARK1;
         /*
         _pi = PI_DARK1;
@@ -99,7 +99,7 @@ for (_i=0; _i<_Main_COUNT; _i++)
             if (string_length(string_digits(_text))  // if the data is numbers as opposed to "YES/NO,ON/OFF"
             ||  dg_Main[#_i,$5] ) // if this option is enabled
             {
-                _pi = PI_MENU; // 4: option available
+                _pi = PI_MENU1; // 4: option available
             }
         }
         */
@@ -111,8 +111,8 @@ for (_i=0; _i<_Main_COUNT; _i++)
     
     
     
-    if (menu_focus 
-    &&  menu_focus==dg_Main[#_i,$9] )
+    if (menu_state 
+    &&  menu_state==dg_Main[#_i,$9] )
     {
         //_dg[#$0,$0] = -1;
         _cursor = -1;
@@ -141,14 +141,14 @@ for (_i=0; _i<_Main_COUNT; _i++)
                 &&   _dg[#$0,$5]      // _dg[#$0,$5]: if this filter is enabled
                 &&   _dg[#_j,$4];     // _dg[#_j,$4]: option available
                 
-                if (_c1) _pi = PI_MENU;
+                if (_c1) _pi = PI_MENU1;
                 else     _pi = PI_DARK1;
                 draw_text_(_x,_y, _text, _font_sprite, _pi);
                 
                 if (_j==_cursor)
                 {
                     _x += _cursor_XOFF;
-                    draw_sprite_(spr_arrow_6_rgt,0, _x,_y+(_char_h>>1), PI_MENU);
+                    draw_sprite_(spr_arrow_6_rgt,0, _x,_y+(_char_h>>1), PI_MENU1);
                 }
                 
                 
@@ -156,7 +156,7 @@ for (_i=0; _i<_Main_COUNT; _i++)
                 if (is_string(_text))
                 {
                     _x = Values_XR - (string_length(_text)*_char_w);
-                    if (_c1) _pi = PI_MENU;
+                    if (_c1) _pi = PI_MENU1;
                     else     _pi = PI_DARK1;
                     draw_text_(_x,_y, _text, _font_sprite, _pi);
                 }

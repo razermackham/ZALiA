@@ -12,11 +12,13 @@ var _pi, _pi_permut;
 Boss_init_2();
 
 
-GO_init_palidx(PI_MOB_BLU);
+GO_init_palidx(global.PI_MOB_BLU);
 if (ver==2) // dark knight
 {
-    GO_init_palidx(PI_MOB_PUR);
+    GO_init_palidx(global.PI_MOB_PUR);
     
+    var _PAL = build_pal(p.C_WHT1,p.C_BLK1,p.C_VLT4,p.C_BLK1,-2,-2,-2,-2);
+    /*
     //var _PAL = p.CI_BLK1_ + p.CI_WHT2_ + p.CI_BLK1_ + p.CI_VLT4_;
     //var _PAL = p.CI_BLK1_ + p.CI_WHT2_ + p.CI_VLT4_ + p.CI_BLK1_;
     //var _PAL = p.CI_BLK1_ + p.CI_WHT2_ + p.CI_BLK1_ + p.CI_RED4_;
@@ -24,6 +26,8 @@ if (ver==2) // dark knight
     //var _PAL = p.CI_BLK1_ + p.CI_WHT1_ + p.CI_BLK1_ + p.CI_PUR4_;
     var _PAL = p.CI_BLK1_ + p.CI_WHT1_ + p.CI_BLK1_ + p.CI_VLT4_;
     //var _PAL = p.CI_BLK1_ + p.CI_WHT1_ + p.CI_BLK1_ + p.CI_GRY4_;
+    */
+    
     change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(palidx_def), string_length(_PAL), _PAL));
 }
 

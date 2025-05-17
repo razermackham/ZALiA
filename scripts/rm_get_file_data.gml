@@ -22,8 +22,6 @@ if (is_undefined(_file_name))
 
 
 
-
-
 var _FILE  = "rm_tile_data";
 if (argument_count>_arg) _FILE = argument[_arg++];
     _FILE += "/";

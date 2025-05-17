@@ -3,6 +3,46 @@
 
 update_body_hb_1a();
 if(!pc_is_inside 
+&&  g.pc.csRgt2Y>yt )
+{
+    if (rectInRect(xl,yt,ww,hh, PC_HB1_xl,PC_HB1_yt,PC_HB1_W,PC_HB1_H) )
+    {
+        var _qual = false;
+        if (((arena_w>>1)-abs(x-arena_x))-ww_ < PC_HB1_W  // distance between ganon edge and arena edge < pc hb w
+        &&  hINh(yt,hh, g.pc.csLft1Y,g.pc.csLft2Y-g.pc.csLft1Y) 
+        &&  (PC_HB1_xl<arena_xl || PC_HB1_xl+PC_HB1_W>arena_xr) )
+        {   // crush pc against arena wall
+            _qual = true;
+        }
+        else
+        {
+            if (vspd 
+            &&  vspd<$80  // if moving downward
+            &&  y>y_prev )
+            //&& !g.pc.ogr 
+            //&&  yb+(y_prev-y)<=PC_HB1_yt+(g.pc.y_prev-g.pc.y) ) // if ganon prev yb <= pc prev hb yt
+            {   // fall onto pc
+                _qual = true;
+            }
+        }
+        
+        if (_qual)
+        {
+            PC_take_damage(id);
+            pc_is_inside = true;
+        }
+    }
+}
+
+
+
+
+/*
+/// Ganon1_update_battle_2a()
+
+
+update_body_hb_1a();
+if(!pc_is_inside 
 &&  GO_can_collide_this_frame(update_idx) 
 //&& !stun_timer 
 //&& !g.pc.iframes_timer 
@@ -51,6 +91,7 @@ if(!pc_is_inside
         }
     }
 }
+*/
 
 
 

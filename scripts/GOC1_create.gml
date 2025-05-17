@@ -28,7 +28,7 @@ with(instance_create(_XL,_YT, _OBJ))
     GameObject_create_1a();
     
     var _OBJ_NAME = object_get_name(object_index);
-    if (_VER) ver=_VER;
+    if (_VER) ver = _VER;
     var _OBJVER = _OBJ_NAME+hex_str(ver);
     
     
@@ -37,8 +37,8 @@ with(instance_create(_XL,_YT, _OBJ))
     if (_SRC_INST)      source_inst=_SRC_INST;
     if(!is_undefined(   source_inst) 
     &&  instance_exists(source_inst) 
-    &&                  source_inst.state == source_inst.state_NORMAL )
-    {    source_object =source_inst.object_index;  }
+    &&                  source_inst.state==source_inst.state_NORMAL )
+    {   source_object = source_inst.object_index;  }
     
     
     
@@ -90,6 +90,15 @@ with(instance_create(_XL,_YT, _OBJ))
     setCSOffsets();
     update_draw_xy();
     update_body_hb_1a();
+    
+    
+    
+    // --------------------------------------------------------------------------------------
+    // Final initializations -----------------------------------------
+    if(!is_undefined(  scr_init3))
+    {   script_execute(scr_init3);  }
+    
+    
     
     
     

@@ -6,46 +6,45 @@ var _HBW = 4;
 var _HBH = 4;
 var _x     = CLM_BASE<<3;
 var _X_INC =(CLM_OFF <<3); // x increment
-// var _Y     =(g.pc.yt >>3)<<3;
-//     _Y    += PC_H;
-var _Y     =(g.pc.yt >>3)<<3;
+//var _Y     =(g.pc.yt >>3)<<3;
+//    _Y    += PC_H;
+var _Y     = (g.pc.yt>>3)<<3;
     _Y     = get_ground_y(g.pc.x,_Y, 1, _Y+PC_H);
     _Y    += -PC_H;
     _Y    += 8;
-// var _Y     = (ROW_BASE<<3) + 6;
+//var _Y     = (ROW_BASE<<3) + 6;
 
 for(_i=0; _i<OPTION_CNT; _i++)
 {
-    ar_hb[_i,0] = _x + 2;
-    ar_hb[_i,1] = _Y;
-    // ar_hb[_i,1] = (ROW_BASE<<3) + 6;
-    ar_hb[_i,2] = _HBW;
-    ar_hb[_i,3] = _HBH;
+    dg_hb[#_i,0] = _x + 2;
+    dg_hb[#_i,1] = _Y;
+    dg_hb[#_i,2] = _HBW;
+    dg_hb[#_i,3] = _HBH;
     
     if (inRange(_i,  0, 7) 
     ||  inRange(_i, 10,17) )
     { // items & spells
         _i++;
-        ar_hb[_i,0] = ar_hb[_i-1,0];
-        ar_hb[_i,1] = ar_hb[_i-1,1] + $10;
-        ar_hb[_i,2] = ar_hb[_i-1,2];
-        ar_hb[_i,3] = ar_hb[_i-1,3];
+        dg_hb[#_i,0] = dg_hb[#_i-1,0];
+        dg_hb[#_i,1] = dg_hb[#_i-1,1] + $10;
+        dg_hb[#_i,2] = dg_hb[#_i-1,2];
+        dg_hb[#_i,3] = dg_hb[#_i-1,3];
     }
     else if (inRange(_i, 23,25))
     { // decrease level
-        ar_hb[_i,0] = ar_hb[_i-3,0];
-        ar_hb[_i,1] = ar_hb[_i-3,1] + $10;
-        ar_hb[_i,2] = ar_hb[_i-3,2];
-        ar_hb[_i,3] = ar_hb[_i-3,3];
+        dg_hb[#_i,0] = dg_hb[#_i-3,0];
+        dg_hb[#_i,1] = dg_hb[#_i-3,1] + $10;
+        dg_hb[#_i,2] = dg_hb[#_i-3,2];
+        dg_hb[#_i,3] = dg_hb[#_i-3,3];
     }
     else if (inRange(_i, 26,30))
     { // Magic Refill Jar[26], P-Bags[27-30]
-        ar_hb[_i,0] -= ($0C<<3);
-        ar_hb[_i,1] = _Y + ((_i&1)<<4);
-        ar_hb[_i,2] = _HBW;
-        ar_hb[_i,3] = _HBH;
+        dg_hb[#_i,0] -= ($0C<<3);
+        dg_hb[#_i,1] = _Y + ((_i&$1)<<4);
+        dg_hb[#_i,2] = _HBW;
+        dg_hb[#_i,3] = _HBH;
         
-        if!(_i&1) _x -= _X_INC;
+        if!(_i&$1) _x -= _X_INC;
     }
     else
     {
@@ -54,7 +53,7 @@ for(_i=0; _i<OPTION_CNT; _i++)
     
     _x += _X_INC;
 }
-// ar_hb[$0, ] = ; // 
+// dg_hb[#$0, ] = ; // 
 
 
 /*
@@ -106,10 +105,6 @@ ar_spr[30] = ar_spr[27];
 // Suicide
 ar_spr[31] = spr_Link_damage_WRB; // For suicide.
 */
-
-
-
-
 
 
 

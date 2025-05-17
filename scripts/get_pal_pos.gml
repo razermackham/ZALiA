@@ -1,11 +1,7 @@
-/// get_pal_pos(pal idx)
+/// get_pal_pos(palette index)
 
 
-argument0  = clamp(argument0, 1,global.palette_image_W-1);
-argument0 *= COL_PER_PAL;
-argument0  = (argument0<<1)+p.PAL_POS_BASE;
-
-return argument0;
+return (argument0*global.PAL_CHAR_PER_PAL) + 1; // +1 because string
 
 
 

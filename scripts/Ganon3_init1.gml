@@ -7,7 +7,7 @@ var _i, _a, _idx, _val, _count;
 Ganon_init_1();
 
 GO_sprite_init(g.Ganon3_SPRITE1);
-GO_init_palidx(PI_MOB_PUR);
+GO_init_palidx(global.PI_MOB_PUR);
 
 
 GROUND_Y = get_ground_y(g.rm_w_, (g.rm_row0+PAGE_ROWS_)<<3,1, (g.rm_row0+$1B)<<3);
@@ -205,30 +205,30 @@ vspd_grav = VSPD_GRAV;
 
 STUN_DURATION2  = STUN_DURATION1 - (STUN_DURATION1 div 3);
 
-StunMovement_DURATION1  = $100;
-StunMovement_timer      = 0;
+StunMovement_DURATION1 = $100;
+StunMovement_timer     = 0;
 
 
-DURATION1   = $28;
-DURATION2   = $28;
-DURATION3   = DURATION2+$40;
-DURATION4   = $40;
+DURATION1 = $28;
+DURATION2 = $28;
+DURATION3 = DURATION2+$40;
+DURATION4 = $40;
 
 
 
-//BackgroundColor_
-COLOR_IDX0 = val(g.dm_rm[?g.rm_name+STR_Background_color], p.CI_BLK1);
-COLOR_IDX1 = p.CI_RED4;
-COLOR_IDX2 = p.CI_ORG4;
+
+COLOR0 = val(g.dm_rm[?g.rm_name+STR_Background_color], p.C_BLK1);
+COLOR1 = p.C_RED4;
+COLOR2 = p.C_ORG4;
 
 
 Oil_HP = $08;
 Oil_hp = Oil_HP;
 
 
-Fire_DURATION1  = $40;
-Fire_DURATION2  = $0C;
-Fire_DURATION3  = $0C;
+Fire_DURATION1 = $40;
+Fire_DURATION2 = $0C;
+Fire_DURATION3 = $0C;
 
 dg_fire=ds_grid_create((ww>>3)*(hh>>3),6);
 for(_i=ds_grid_width(dg_fire)-1; _i>=0; _i--)
@@ -264,17 +264,14 @@ dg_SPRITES_H = ds_grid_height(dg_SPRITES);
 SPRITES_idx = 0;
 GO_sprite_init(dg_SPRITES[#SPRITES_idx,0]);
 
-Slime_W_        = sprite_get_width( sprite)>>1;
-Slime_H_        = sprite_get_height(sprite)>>1;
-Slime_CLMS      = (Slime_W_<<1)<<3;
-Slime_ROWS      = (Slime_H_<<1)<<3;
-Slime_PI1       = PI_BGR_1;
-//Slime_PI1       = get_pi(Slime_PI1,1);
-Slime_PI2       = PI_MOB_PUR;
-//Slime_PI2_BASE  = PI_MOB_PUR;
-//Slime_PI2       = get_pi(Slime_PI2_BASE,1);
-Slime_HP1       = $A;
-Slime_hp        = Slime_HP1;
+Slime_W_   = sprite_get_width( sprite)>>1;
+Slime_H_   = sprite_get_height(sprite)>>1;
+Slime_CLMS = (Slime_W_<<1)<<3;
+Slime_ROWS = (Slime_H_<<1)<<3;
+Slime_PI1  = global.PI_BGR1;    // Scene before battle scene
+Slime_PI2  = global.PI_MOB_PUR; // During battle
+Slime_HP1  = $A;
+Slime_hp   = Slime_HP1;
 
 //SlimeChange_dir     = !SPRITES_idx;
 SlimeChange_DUR1    = $8;
@@ -299,7 +296,7 @@ RoarCooldown_timer  = 0;
 
 
 
-Skull_PI            = PI_MOB_RED;
+Skull_PI            = global.PI_MOB_RED;
 Skull_DURATION1     = $40;
 Skull_DURATION2     = $20;
 Skull_can_draw      = false;
@@ -321,7 +318,7 @@ SkullClingState_CLING   = _a++;
 SkullClingState_FREE    = _a++;
 SkullClingState         = SkullClingState_CLING;
 
-SkullAura_PI        = PI_MOB_ORG;
+SkullAura_PI        = global.PI_MOB_ORG;
 SkullAura_pi        = SkullAura_PI;
 SkullAura_SPRITE    = spr_Aura_3a_1;
 SkullAura_W_        = sprite_get_width( SkullAura_SPRITE)>>1;
@@ -393,7 +390,8 @@ Explosion_timer = 0;
 
 
 
-ProjRain_PI         = get_pi(PI_MOB_RED,0);
+ProjRain_PI         = global.PI_MOB_RED;
+//ProjRain_PI         = get_pi(global.PI_MOB_RED,0);
 ProjRain_DURATION1  = $100;
 ProjRain_DURATION2  = $200;
 ProjRain_timer      = 0;

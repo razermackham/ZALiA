@@ -30,7 +30,7 @@ if(!ogr
 
 
 
-if (use_disguise)
+if (Disguise_enabled)
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }

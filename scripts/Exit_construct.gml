@@ -114,7 +114,7 @@ with(instance_create(0,0,Exit))
     if ((exit_type&g.EXIT_TYPE_DOOR)==g.EXIT_TYPE_DOOR 
     &&  open 
     &&  g.town_name==STR_Bulblin 
-    && !g.pc.use_disguise )
+    && !g.pc.Disguise_enabled )
     //&& !(f.items&ITM_MASK) )
     {
         open = false;

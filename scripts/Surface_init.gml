@@ -28,9 +28,31 @@ y = 0;
 
 timer = 0;
 
+can_update_frame_ = false;
 
-srf_frame_curr = 0;
-srf_frame_prev = 0;
+ScreenShake_surf_xl = 0;
+ScreenShake_surf_yt = 0;
+
+application_surface_w = surface_get_width( application_surface);
+application_surface_h = surface_get_height(application_surface);
+
+srf_app_paused_frame = 0;
+
+
+
+
+can_draw_hints = false;
+can_draw_keys  = false;
+
+AppVersion_can_draw = false;
+AppVersion_TEXT     = "V-"+GM_version;;
+AppVersion_xl       = 0;
+AppVersion_yt       = 0;
+AppVersion_PAD      = 1;
+
+
+Window_w = window_get_width();
+Window_h = window_get_height();
 
 
 
@@ -40,7 +62,7 @@ srf_frame_prev = 0;
 // Must be set every frame as it will set itself to -1 
 // after clearing the screen.
 // -1 means will NOT call draw_clear()
-draw_clear_color = p.C_BLK1; // First frame draw clear black
+draw_clear_color = p.C_BLK1; // First frame clear the screen with black
 
 
 g.surf = id;
@@ -66,6 +88,30 @@ if (RoomPreview_VER)
 
 
 //global.application_surface_draw_enable_STATE = true;
+RetroShaders_CAN_USE  = false;
+RetroShaders_can_draw = false;
+RetroShaders_u_dist_x = 0.00;
+RetroShaders_u_dist_y = 0.00;
+RetroShaders_u_pixel_scale_x = 0.00;
+RetroShaders_u_pixel_scale_y = 0.00;
+
+RetroShaders_SaturationBrightness_can_draw = false;
+RetroShaders_Saturation_amount = 0;
+RetroShaders_Brightness_amount = 0;
+
+RetroShaders_Scanlines_can_draw = false;
+RetroShaders_Scanlines_line_height = 0;
+
+RetroShaders_Bloom_can_draw = false;
+
+RetroShaders_Blur_can_draw = false;
+RetroShaders_Blur_VER = 2;
+
+shd_SaturationBrightness_IS_COMPILED = false;
+shd_ScanLines01_IS_COMPILED          = false;
+shd_Bloom01_IS_COMPILED              = false;
+shd_Blur01_IS_COMPILED               = false;
+shd_Blur02_IS_COMPILED               = false;
 
 if (global.RetroShaders_IS_LIVE 
 &&  shaders_are_supported() )
@@ -82,11 +128,8 @@ if (global.RetroShaders_IS_LIVE
     ||  shd_Blur01_IS_COMPILED 
     ||  shd_Blur02_IS_COMPILED )
     {
+        RetroShaders_CAN_USE = true;
         GEE = instance_create(0,0,GraphicsEffectsEditor);
-    }
-    else
-    {
-        //global.RetroShaders_enabled = false;
     }
 }
 

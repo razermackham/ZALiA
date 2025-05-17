@@ -1,606 +1,362 @@
 /// p_init_palette_data()
 
 
-
-// ***********************  _WestA_  ***********************
-// -------------------------------------------------------------
+var _dm = ds_map_create();
 
 
+
+
+//                  [                                      BGR1                                      ]  +  [                                      BGR2                                      ]  +  [                                      BGR3                                      ]  +  [                                      BGR4                                      ]
+// ***********************  _Title_  ***********************
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'WestA_000'] = '0D301000'+'0D23030D'+'0D361607'+'0D302C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
+_dm[?'Title_000'+dk_BGR] = build_pal('BCE89E','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCBC3C','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3E3E3E','888000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 
+
+
+
+
+
+
+//                  [                                      BGR1                                      ]  +  [                                      BGR2                                      ]  +  [                                      BGR3                                      ]  +  [                                      BGR4                                      ]
+// ***********************  _WestA_  ***********************
+//  ----------------------------  000  ----------------------------
+_dm[?'WestA_000'+dk_BGR] = build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'WestA_001'] = '0D37170D'+'0D37180D'+'0D301202'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_001'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'WestA_002'] = '0D303627'+'0D37180D'+'0D32000D'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_002'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'WestA_003'] = '0D372708'+'0D37180D'+'0D301112'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_003'+dk_BGR] = build_pal('A8D8FC','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'WestA_004'] = '0D3C1C0D'+'0D37180D'+'0D29190B'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_004'+dk_BGR] = build_pal('F0FC9C','888000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'WestA_005'] = '0D000C0D'+'0D291909'+'0D301122'+'0D203D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_005'+dk_BGR] = build_pal('747474','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'WestA_006'] = '0D37180D'+'0D301202'+'0D302717'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_006'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'WestA_007'] = '0D372706'+'0D27160D'+'0D301000'+'0D302C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_007'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-dm_scene_palette[?'WestA_008'] = '0D372706'+'0D27160D'+'0D26060D'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_008'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'WestA_009'] = '0D372706'+'0D27160D'+'0D301000'+'0D302C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_009'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-dm_scene_palette[?'WestA_010'] = '0D2A1B0D'+'0D32000D'+'0D17070D'+'0D2D200D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_010'+dk_BGR] = build_pal('48DC4C','2A7B00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','F1F2F1','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  011  ----------------------------
-dm_scene_palette[?'WestA_011'] = '0D372706'+'0D27160D'+'0D301000'+'0D302C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_011'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'WestA_012'] = '0D372706'+'0D27160D'+'0D301000'+'0D302C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_012'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-
 //  ----------------------------  014  ----------------------------
-dm_scene_palette[?'WestA_014'] = '0D372706'+'0D371808'+'0D301202'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_014'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  015  ----------------------------
-
 //  ----------------------------  016  ----------------------------
-
 //  ----------------------------  017  ----------------------------
-dm_scene_palette[?'WestA_017'] = '0D303627'+'0D37180D'+'0D29170B'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_017'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  018  ----------------------------
-
 //  ----------------------------  019  ----------------------------
-dm_scene_palette[?'WestA_019'] = '0D371808'+'0D301000'+'0D301202'+'0D11010D'+'0D302716'+'0D301607'+'0D302C0C'+'0D3D002D';
-
+_dm[?'WestA_019'+dk_BGR] = build_pal('A8D8FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','8C1824','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  020  ----------------------------
-dm_scene_palette[?'WestA_020'] = '0D291909'+'0D170708'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_020'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  021  ----------------------------
-dm_scene_palette[?'WestA_021'] = '0D291909'+'0D170708'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_021'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  022  ----------------------------
-dm_scene_palette[?'WestA_022'] = '0D37272D'+'0D28080D'+'0D301202'+'0D301027'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_022'+dk_BGR] = build_pal('A8D8FC','3898FC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  023  ----------------------------
-dm_scene_palette[?'WestA_023'] = '0D37170B'+'0D28080D'+'0D301202'+'0D301027'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_023'+dk_BGR] = build_pal('A8D8FC','0C4CC8','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  024  ----------------------------
-dm_scene_palette[?'WestA_024'] = '0D372708'+'0D30100D'+'0D301122'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_024'+dk_BGR] = build_pal('A8D8FC','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  025  ----------------------------
-dm_scene_palette[?'WestA_025'] = '0D203D0D'+'0D372708'+'0D301122'+'0D203D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_025'+dk_BGR] = build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  026  ----------------------------
-
 //  ----------------------------  027  ----------------------------
-dm_scene_palette[?'WestA_027'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_027'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  028  ----------------------------
-dm_scene_palette[?'WestA_028'] = '0D18080D'+'0D381B0B'+'0D391C08'+'0D39100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_028'+dk_BGR] = build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','2A7B00','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','888000','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  029  ----------------------------
-dm_scene_palette[?'WestA_029'] = '0D303627'+'0D291709'+'0D302111'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_029'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  030  ----------------------------
-dm_scene_palette[?'WestA_030'] = '0D303627'+'0D291709'+'0D302111'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_030'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  031  ----------------------------
-dm_scene_palette[?'WestA_031'] = '0D303627'+'0D30100D'+'0D301112'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_031'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  032  ----------------------------
-dm_scene_palette[?'WestA_032'] = '0D291909'+'0D170708'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_032'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  033  ----------------------------
-
 //  ----------------------------  034  ----------------------------
-dm_scene_palette[?'WestA_034'] = '0D291909'+'0D30000D'+'0D302111'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_034'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  035  ----------------------------
-dm_scene_palette[?'WestA_035'] = '0D372706'+'0D27160D'+'0D301202'+'0D301227'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_035'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  036  ----------------------------
-dm_scene_palette[?'WestA_036'] = '0D22290D'+'0D311C0D'+'0D391A0D'+'0D30100D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'WestA_036'+dk_BGR] = build_pal('FC945C','10D080','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','888000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  037  ----------------------------
-dm_scene_palette[?'WestA_037'] = '0D39290D'+'0D18080D'+'0D091B0D'+'0D1B180B'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'WestA_037'+dk_BGR] = build_pal('A0FCE0','10D080','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('004400','2A7B00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','007088','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  038  ----------------------------
-dm_scene_palette[?'WestA_038'] = '0D291909'+'0D30000D'+'0D361607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_038'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  039  ----------------------------
-dm_scene_palette[?'WestA_039'] = '0D291909'+'0D170708'+'0D0D0D0D'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_039'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  040  ----------------------------
-dm_scene_palette[?'WestA_040'] = '0D291909'+'0D170708'+'0D0D0D0D'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_040'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  041  ----------------------------
-dm_scene_palette[?'WestA_041'] = '0D302609'+'0D30100D'+'0D291909'+'0D301000'+'0D302716'+'0D301607'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_041'+dk_BGR] = build_pal('FCFCFC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  042  ----------------------------
-dm_scene_palette[?'WestA_042'] = '0D373301'+'0D37180D'+'0D150B0A'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_042'+dk_BGR] = build_pal('A8D8FC','F1BADC','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5800E4','003E00','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  043  ----------------------------
-dm_scene_palette[?'WestA_043'] = '0D291909'+'0D170708'+'0D0D0D0D'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_043'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  044  ----------------------------
-dm_scene_palette[?'WestA_044'] = '0D372706'+'0D301000'+'0D301202'+'0D303627'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_044'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  045  ----------------------------
-dm_scene_palette[?'WestA_045'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_045'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  046  ----------------------------
-dm_scene_palette[?'WestA_046'] = '0D303627'+'0D37180D'+'0D32000D'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_046'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  047  ----------------------------
-dm_scene_palette[?'WestA_047'] = '0D10000D'+'0D2D0D0D'+'0D002D0D'+'0D32130D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_047'+dk_BGR] = build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','F00080','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  048  ----------------------------
-dm_scene_palette[?'WestA_048'] = '0D291C0C'+'0D37180D'+'0D303627'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_048'+dk_BGR] = build_pal('10D080','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-dm_scene_palette[?'WestA_050'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_050'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  051  ----------------------------
-dm_scene_palette[?'WestA_051'] = '0D37180D'+'0D0C1C29'+'0D381A0B'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_051'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','10D080','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','00A800','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  052  ----------------------------
-dm_scene_palette[?'WestA_052'] = '0D37180D'+'0D291C0C'+'0D381A0B'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_052'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','00A800','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  053  ----------------------------
-dm_scene_palette[?'WestA_053'] = '0D19090D'+'0D30000D'+'0D27160D'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_053'+dk_BGR] = build_pal('009400','004400','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  054  ----------------------------
-dm_scene_palette[?'WestA_054'] = '0D372706'+'0D27160D'+'0D301627'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_054'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-dm_scene_palette[?'WestA_056'] = '0D19090D'+'0D27160D'+'0D28080D'+'0D30000D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_056'+dk_BGR] = build_pal('009400','004400','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  057  ----------------------------
-dm_scene_palette[?'WestA_057'] = '0D372708'+'0D30100D'+'0D301112'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_057'+dk_BGR] = build_pal('A8D8FC','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  058  ----------------------------
-dm_scene_palette[?'WestA_058'] = '0D372708'+'0D30100D'+'0D301112'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_058'+dk_BGR] = build_pal('A8D8FC','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  059  ----------------------------
-dm_scene_palette[?'WestA_059'] = '0D23030D'+'0D30102D'+'0D361607'+'0D302817'+'0D302716'+'0D361607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_059'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3CBCF0','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  060  ----------------------------
-dm_scene_palette[?'WestA_060'] = '0D37180D'+'0D39170D'+'0D301202'+'0D30102D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_060'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  061  ----------------------------
-dm_scene_palette[?'WestA_061'] = '0D372706'+'0D27160D'+'0D302010'+'0D10000C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_061'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','F1F2F1','BCBCBC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  062  ----------------------------
-dm_scene_palette[?'WestA_062'] = '0D37180D'+'0D303627'+'0D301112'+'0D30362D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_062'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  063  ----------------------------
-dm_scene_palette[?'WestA_063'] = '0D37180D'+'0D371B0B'+'0D301112'+'0D30102D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_063'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','2A7B00','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  064  ----------------------------
-dm_scene_palette[?'WestA_064'] = '0D302709'+'0D361608'+'0D29190B'+'0D301000'+'0D302716'+'0D301607'+'0D302C0D'+'0D30130D';
-
 //  ----------------------------  065  ----------------------------
-dm_scene_palette[?'WestA_065'] = '0D29190B'+'0D36160D'+'0D30110C'+'0D301000'+'0D302716'+'0D301607'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_065'+dk_BGR] = build_pal('10D080','009400','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-dm_scene_palette[?'WestA_070'] = '0D192D0D'+'0D26070D'+'0D130D0D'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_070'+dk_BGR] = build_pal('009400','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  071  ----------------------------
-dm_scene_palette[?'WestA_071'] = '0D372706'+'0D27160D'+'0D301202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_071'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  072  ----------------------------
-dm_scene_palette[?'WestA_072'] = '0D3D2D0D'+'0D2D0D0D'+'0D291909'+'0D203D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_072'+dk_BGR] = build_pal('A7A9A7','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  073  ----------------------------
-dm_scene_palette[?'WestA_073'] = '0D32130D'+'0D2D0D0D'+'0D291909'+'0D10000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_073'+dk_BGR] = build_pal('FCD4C4','F00080','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  074  ----------------------------
-dm_scene_palette[?'WestA_074'] = '0D372707'+'0D26060D'+'0D301202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_074'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-dm_scene_palette[?'WestA_076'] = '0D203D2D'+'0D371708'+'0D2D0D0D'+'0D37180D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_076'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-dm_scene_palette[?'WestA_078'] = '0D303627'+'0D291709'+'0D302111'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_078'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-dm_scene_palette[?'WestA_082'] = '0D182D0D'+'0D391A0A'+'0D311112'+'0D303D2D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_082'+dk_BGR] = build_pal('007088','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-dm_scene_palette[?'WestA_085'] = '0D371808'+'0D17080D'+'0D31010D'+'0D18080D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_085'+dk_BGR] = build_pal('A8D8FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','8C1824','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  086  ----------------------------
-dm_scene_palette[?'WestA_086'] = '0D18080D'+'0D1C0B0D'+'0D31110D'+'0D00070D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_086'+dk_BGR] = build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('888000','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC7000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  087  ----------------------------
-dm_scene_palette[?'WestA_087'] = '0D182D0D'+'0D391A0A'+'0D311112'+'0D303D2D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_087'+dk_BGR] = build_pal('007088','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  088  ----------------------------
-dm_scene_palette[?'WestA_088'] = '0D3C1C0D'+'0D37180D'+'0D29190B'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_088'+dk_BGR] = build_pal('F0FC9C','888000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-dm_scene_palette[?'WestA_093'] = '0D303627'+'0D371808'+'0D301112'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_093'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-
 //  ----------------------------  097  ----------------------------
-dm_scene_palette[?'WestA_097'] = '0D372706'+'0D27160D'+'0D372609'+'0D32002D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_097'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-dm_scene_palette[?'WestA_100'] = '0D260508'+'0D27160D'+'0D10000D'+'0D28080D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_100'+dk_BGR] = build_pal('6074FC','1000A8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  101  ----------------------------
-dm_scene_palette[?'WestA_101'] = '0D372717'+'0D303627'+'0D301122'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_101'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-dm_scene_palette[?'WestA_238'] = '0D372706'+'0D27160D'+'0D301000'+'0D302C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_238'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  239  ----------------------------
-dm_scene_palette[?'WestA_239'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_239'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  240  ----------------------------
-dm_scene_palette[?'WestA_240'] = '0D303627'+'0D37180D'+'0D302111'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_240'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  241  ----------------------------
-dm_scene_palette[?'WestA_241'] = '0D37180D'+'0D30280D'+'0D30260D'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_241'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3CBCF0','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','6074FC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-dm_scene_palette[?'WestA_243'] = '0D372706'+'0D27160D'+'0D301627'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_243'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-dm_scene_palette[?'WestA_245'] = '0D37270D'+'0D37180D'+'0D30100D'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_245'+dk_BGR] = build_pal('A8D8FC','3898FC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  246  ----------------------------
-dm_scene_palette[?'WestA_246'] = '0D37170B'+'0D38180D'+'0D30100D'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_246'+dk_BGR] = build_pal('A8D8FC','0C4CC8','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-dm_scene_palette[?'WestA_248'] = '0D372706'+'0D27160D'+'0D301202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'WestA_248'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-dm_scene_palette[?'WestA_254'] = '0D37170B'+'0D37180D'+'0D30100D'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'WestA_254'+dk_BGR] = build_pal('A8D8FC','0C4CC8','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  255  ----------------------------
-
 
 
 
@@ -610,551 +366,292 @@ dm_scene_palette[?'WestA_254'] = '0D37170B'+'0D37180D'+'0D30100D'+'0D301000'+'0D
 
 
 // ***********************  _DthMt_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'DthMt_000'] = '0D37180D'+'0D18080D'+'0D0A0D0D'+'0D30102D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_000'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('005000','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'DthMt_001'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_001'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'DthMt_002'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_002'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'DthMt_003'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_003'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'DthMt_004'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_004'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'DthMt_005'] = '0D372706'+'0D27160D'+'0D301202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_005'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'DthMt_006'] = '0D372706'+'0D27160D'+'0D301627'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_006'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'DthMt_007'] = '0D372706'+'0D27160D'+'0D301202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_007'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-dm_scene_palette[?'DthMt_008'] = '0D372706'+'0D27160D'+'0D301627'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_008'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'DthMt_009'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_009'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-
 //  ----------------------------  011  ----------------------------
-dm_scene_palette[?'DthMt_011'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_011'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'DthMt_012'] = '0D27160D'+'0D262D0D'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_012'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-dm_scene_palette[?'DthMt_013'] = '0D27160D'+'0D262D0D'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_013'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  014  ----------------------------
-dm_scene_palette[?'DthMt_014'] = '0D27160D'+'0D262D0D'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_014'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  015  ----------------------------
-dm_scene_palette[?'DthMt_015'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_015'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  016  ----------------------------
-dm_scene_palette[?'DthMt_016'] = '0D372706'+'0D27160D'+'0D301627'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_016'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  017  ----------------------------
-
 //  ----------------------------  018  ----------------------------
-
 //  ----------------------------  019  ----------------------------
-dm_scene_palette[?'DthMt_019'] = '0D372706'+'0D27160D'+'0D301627'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_019'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  020  ----------------------------
-dm_scene_palette[?'DthMt_020'] = '0D372706'+'0D27160D'+'0D301202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_020'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  021  ----------------------------
-dm_scene_palette[?'DthMt_021'] = '0D372706'+'0D0D1627'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_021'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','0028D8','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  022  ----------------------------
-dm_scene_palette[?'DthMt_022'] = '0D372706'+'0D27160D'+'0D301202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_022'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-
 //  ----------------------------  025  ----------------------------
-
 //  ----------------------------  026  ----------------------------
-dm_scene_palette[?'DthMt_026'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_026'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  027  ----------------------------
-dm_scene_palette[?'DthMt_027'] = '0D372706'+'0D302717'+'0D301202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_027'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  028  ----------------------------
-dm_scene_palette[?'DthMt_028'] = '0D2D2028'+'0D28170D'+'0D0D070D'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0C'+'0D30130D';
-
+_dm[?'DthMt_028'+dk_BGR] = build_pal('3E3E3E','F1F2F1','3CBCF0','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  029  ----------------------------
-dm_scene_palette[?'DthMt_029'] = '0D27160D'+'0D262D0D'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_029'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  030  ----------------------------
-dm_scene_palette[?'DthMt_030'] = '0D27160D'+'0D262D0D'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_030'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  031  ----------------------------
-dm_scene_palette[?'DthMt_031'] = '0D27160D'+'0D262D0D'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'DthMt_031'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  032  ----------------------------
-dm_scene_palette[?'DthMt_032'] = '0D27170D'+'0D373301'+'0D301122'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'DthMt_032'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','F1BADC','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  033  ----------------------------
-dm_scene_palette[?'DthMt_033'] = '0D37180D'+'0D303627'+'0D301202'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'DthMt_033'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-dm_scene_palette[?'DthMt_038'] = '0D37180D'+'0D28080D'+'0D301202'+'0D301027'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'DthMt_038'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-
 //  ----------------------------  041  ----------------------------
-dm_scene_palette[?'DthMt_041'] = '0D183630'+'0D30100D'+'0D301112'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'DthMt_041'+dk_BGR] = build_pal('007088','B0BCFC','FCFCFC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  042  ----------------------------
-
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-
 //  ----------------------------  061  ----------------------------
-
 //  ----------------------------  062  ----------------------------
-
 //  ----------------------------  063  ----------------------------
-
 //  ----------------------------  064  ----------------------------
-
 //  ----------------------------  065  ----------------------------
-
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-
 //  ----------------------------  071  ----------------------------
-
 //  ----------------------------  072  ----------------------------
-
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-
 //  ----------------------------  088  ----------------------------
-
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-
 //  ----------------------------  097  ----------------------------
-
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-
 //  ----------------------------  101  ----------------------------
-
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
-
 
 
 
@@ -1164,639 +661,381 @@ dm_scene_palette[?'DthMt_041'] = '0D183630'+'0D30100D'+'0D301112'+'0D301000'+'0D
 
 
 // ***********************  _EastA_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'EastA_000'] = '0D37170D'+'0D37180D'+'0D301202'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_000'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'EastA_002'] = '0D381837'+'0D170708'+'0D372609'+'0D2D162D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_002'+dk_BGR] = build_pal('7DDAD4','007088','A8D8FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'EastA_003'] = '0D303808'+'0D29190B'+'0D391C08'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_003'+dk_BGR] = build_pal('FCFCFC','7DDAD4','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','888000','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'EastA_004'] = '0D190B0D'+'0D372908'+'0D163708'+'0D30100B'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_004'+dk_BGR] = build_pal('009400','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','10D080','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0028D8','A8D8FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'EastA_005'] = '0D372717'+'0D303627'+'0D301122'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_005'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'EastA_006'] = '0D37180D'+'0D301202'+'0D302717'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_006'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'EastA_007'] = '0D37180D'+'0D301122'+'0D302717'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_007'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-dm_scene_palette[?'EastA_008'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_008'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'EastA_009'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_009'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-dm_scene_palette[?'EastA_010'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_010'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  011  ----------------------------
-dm_scene_palette[?'EastA_011'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_011'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'EastA_012'] = '0D37170D'+'0D08180D'+'0D17080D'+'0D0D0D0D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_012'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('002C40','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-dm_scene_palette[?'EastA_013'] = '0D372706'+'0D27160D'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_013'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  014  ----------------------------
-dm_scene_palette[?'EastA_014'] = '0D271708'+'0D32002D'+'0D311211'+'0D3D2D1D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_014'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A7A9A7','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  015  ----------------------------
-dm_scene_palette[?'EastA_015'] = '0D27160D'+'0D372707'+'0D301607'+'0D26050D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'EastA_015'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  016  ----------------------------
-
 //  ----------------------------  017  ----------------------------
-dm_scene_palette[?'EastA_017'] = '0D271708'+'0D27160D'+'0D311211'+'0D000C0D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_017'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  018  ----------------------------
-
 //  ----------------------------  019  ----------------------------
-
 //  ----------------------------  020  ----------------------------
-dm_scene_palette[?'EastA_020'] = '0D271708'+'0D27160D'+'0D311211'+'0D10000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_020'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  021  ----------------------------
-dm_scene_palette[?'EastA_021'] = '0D39290A'+'0D19090D'+'0D32000D'+'0D30102D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_021'+dk_BGR] = build_pal('A0FCE0','10D080','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('009400','004400','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  022  ----------------------------
-dm_scene_palette[?'EastA_022'] = '0D37180D'+'0D32002D'+'0D2C0211'+'0D26070D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_022'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','A80000','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  023  ----------------------------
-dm_scene_palette[?'EastA_023'] = '0D271708'+'0D32002D'+'0D311202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_023'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  024  ----------------------------
-dm_scene_palette[?'EastA_024'] = '0D27160D'+'0D262D0D'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_024'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  025  ----------------------------
-
 //  ----------------------------  026  ----------------------------
-dm_scene_palette[?'EastA_026'] = '0D271708'+'0D27160D'+'0D10000D'+'0D000C0D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_026'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  027  ----------------------------
-
 //  ----------------------------  028  ----------------------------
-
 //  ----------------------------  029  ----------------------------
-dm_scene_palette[?'EastA_029'] = '0D303627'+'0D291709'+'0D302111'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_029'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  030  ----------------------------
-
 //  ----------------------------  031  ----------------------------
-
 //  ----------------------------  032  ----------------------------
-
 //  ----------------------------  033  ----------------------------
-dm_scene_palette[?'EastA_033'] = '0D303627'+'0D291709'+'0D302111'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_033'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  034  ----------------------------
-dm_scene_palette[?'EastA_034'] = '0D291909'+'0D30000D'+'0D302111'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_034'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','010101','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  035  ----------------------------
-dm_scene_palette[?'EastA_035'] = '0D271708'+'0D27160D'+'0D311211'+'0D000C0D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_035'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-dm_scene_palette[?'EastA_037'] = '0D37180D'+'0D302717'+'0D301202'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_037'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  038  ----------------------------
-dm_scene_palette[?'EastA_038'] = '0D291909'+'0D30000D'+'0D302111'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_038'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  039  ----------------------------
-dm_scene_palette[?'EastA_039'] = '0D291909'+'0D170708'+'0D302202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_039'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  040  ----------------------------
-dm_scene_palette[?'EastA_040'] = '0D27160D'+'0D262D0D'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_040'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  041  ----------------------------
-dm_scene_palette[?'EastA_041'] = '0D18080D'+'0D1C0B0D'+'0D31020D'+'0D25070D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_041'+dk_BGR] = build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('888000','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','A80000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B474FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  042  ----------------------------
-
+_dm[?'EastA_042'+dk_BGR] = build_pal('A8D8FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','8C1824','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-dm_scene_palette[?'EastA_044'] = '0D291909'+'0D170708'+'0D30000D'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_044'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  045  ----------------------------
-dm_scene_palette[?'EastA_045'] = '0D291909'+'0D170708'+'0D372609'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_045'+dk_BGR] = build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-dm_scene_palette[?'EastA_047'] = '0D203728'+'0D32000D'+'0D303627'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_047'+dk_BGR] = build_pal('F1F2F1','A8D8FC','3CBCF0','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  048  ----------------------------
-dm_scene_palette[?'EastA_048'] = '0D291C0C'+'0D37180D'+'0D303627'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_048'+dk_BGR] = build_pal('10D080','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','010101','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  049  ----------------------------
-dm_scene_palette[?'EastA_049'] = '0D302818'+'0D32002D'+'0D303627'+'0D30100D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_049'+dk_BGR] = build_pal('FCFCFC','3CBCF0','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  050  ----------------------------
-dm_scene_palette[?'EastA_050'] = '0D17070D'+'0D2D0D0D'+'0D22020D'+'0D26070D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_050'+dk_BGR] = build_pal('0C4CC8','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC945C','A80000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-dm_scene_palette[?'EastA_052'] = '0D190B0D'+'0D1B0B0D'+'0D120D0D'+'0D26070D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_052'+dk_BGR] = build_pal('009400','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  053  ----------------------------
-dm_scene_palette[?'EastA_053'] = '0D19090D'+'0D30000D'+'0D27160D'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_053'+dk_BGR] = build_pal('009400','004400','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-dm_scene_palette[?'EastA_055'] = '0D331701'+'0D18080D'+'0D202818'+'0D10002D'+'0D302716'+'0D301607'+'0D302C0C'+'0D37130D';
-
+_dm[?'EastA_055'+dk_BGR] = build_pal('F1BADC','0C4CC8','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-dm_scene_palette[?'EastA_057'] = '0D303627'+'0D30100D'+'0D301112'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_057'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','0C4CC8','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  058  ----------------------------
-dm_scene_palette[?'EastA_058'] = '0D303627'+'0D30100D'+'0D301112'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_058'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  059  ----------------------------
-dm_scene_palette[?'EastA_059'] = '0D331701'+'0D18080D'+'0D202818'+'0D10002D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_059'+dk_BGR] = build_pal('F1BADC','0C4CC8','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  060  ----------------------------
-dm_scene_palette[?'EastA_060'] = '0D27160D'+'0D262D0D'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_060'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  061  ----------------------------
-dm_scene_palette[?'EastA_061'] = '0D303627'+'0D37180D'+'0D261608'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_061'+dk_BGR] = build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  062  ----------------------------
-dm_scene_palette[?'EastA_062'] = '0D27160D'+'0D262D0D'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_062'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  063  ----------------------------
-dm_scene_palette[?'EastA_063'] = '0D27160D'+'0D262D0D'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_063'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  064  ----------------------------
-
 //  ----------------------------  065  ----------------------------
-
 //  ----------------------------  066  ----------------------------
-dm_scene_palette[?'EastA_066'] = '0D37180D'+'0D301122'+'0D302717'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_066'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-dm_scene_palette[?'EastA_068'] = '0D37180D'+'0D301122'+'0D302717'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_068'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-dm_scene_palette[?'EastA_070'] = '0D18080D'+'0D290B0D'+'0D1B0B0D'+'0D0D2D0D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_070'+dk_BGR] = build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  071  ----------------------------
-dm_scene_palette[?'EastA_071'] = '0D27170D'+'0D372717'+'0D301122'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_071'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  072  ----------------------------
-dm_scene_palette[?'EastA_072'] = '0D0C0D0D'+'0D11010D'+'0D1C0C0D'+'0D0D0D0D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_072'+dk_BGR] = build_pal('5C3C18','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','8C1824','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('888000','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-dm_scene_palette[?'EastA_074'] = '0D37180D'+'0D302717'+'0D301112'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_074'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  075  ----------------------------
-dm_scene_palette[?'EastA_075'] = '0D37180D'+'0D371808'+'0D301112'+'0D32000D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_075'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  076  ----------------------------
-dm_scene_palette[?'EastA_076'] = '0D192D0D'+'0D26070D'+'0D130D0D'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_076'+dk_BGR] = build_pal('009400','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  077  ----------------------------
-dm_scene_palette[?'EastA_077'] = '0D192D0D'+'0D26070D'+'0D130D0D'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_077'+dk_BGR] = build_pal('009400','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  078  ----------------------------
-dm_scene_palette[?'EastA_078'] = '0D192D0D'+'0D26070D'+'0D130D0D'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_078'+dk_BGR] = build_pal('009400','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  079  ----------------------------
-dm_scene_palette[?'EastA_079'] = '0D37270D'+'0D373601'+'0D301122'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_079'+dk_BGR] = build_pal('A8D8FC','3898FC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','B0BCFC','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-dm_scene_palette[?'EastA_081'] = '0D371708'+'0D36160D'+'0D372708'+'0D0C002D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_081'+dk_BGR] = build_pal('A8D8FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  082  ----------------------------
-dm_scene_palette[?'EastA_082'] = '0D37270D'+'0D373601'+'0D301122'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_082'+dk_BGR] = build_pal('A8D8FC','3898FC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','B0BCFC','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-dm_scene_palette[?'EastA_084'] = '0D27160D'+'0D262D0D'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_084'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-dm_scene_palette[?'EastA_087'] = '0D200D0D'+'0D26060D'+'0D352309'+'0D080D14'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_087'+dk_BGR] = build_pal('F1F2F1','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('DCB6F1','FC88CC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('002C40','010101','AD15B8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  088  ----------------------------
-dm_scene_palette[?'EastA_088'] = '0D37170D'+'0D291B0D'+'0D301202'+'0D203D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_088'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','2A7B00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  089  ----------------------------
-dm_scene_palette[?'EastA_089'] = '0D29190B'+'0D281708'+'0D301202'+'0D32002D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'EastA_089'+dk_BGR] = build_pal('10D080','009400','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-dm_scene_palette[?'EastA_092'] = '0D29190B'+'0D281708'+'0D301112'+'0D30102D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_092'+dk_BGR] = build_pal('10D080','009400','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-dm_scene_palette[?'EastA_095'] = '0D27160D'+'0D262D0D'+'0D371607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_095'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  096  ----------------------------
-dm_scene_palette[?'EastA_096'] = '0D281A0C'+'0D18080D'+'0D1B0B0D'+'0D20000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_096'+dk_BGR] = build_pal('3CBCF0','00A800','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  097  ----------------------------
-dm_scene_palette[?'EastA_097'] = '0D26070D'+'0D320008'+'0D20112D'+'0D11030D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_097'+dk_BGR] = build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','EC7000','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  098  ----------------------------
-dm_scene_palette[?'EastA_098'] = '0D26070D'+'0D32000D'+'0D20112D'+'0D11030D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_098'+dk_BGR] = build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','EC7000','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  099  ----------------------------
-dm_scene_palette[?'EastA_099'] = '0D17080D'+'0D08180D'+'0D31110D'+'0D37170D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_099'+dk_BGR] = build_pal('0C4CC8','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('002C40','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC7000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  100  ----------------------------
-dm_scene_palette[?'EastA_100'] = '0D37172D'+'0D202708'+'0D3C1103'+'0D002D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D28182D';
-
+_dm[?'EastA_100'+dk_BGR] = build_pal('A8D8FC','0C4CC8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3898FC','002C40','010101','3CBCF0','007088','3E3E3E', C_CYN0_)  +  build_pal('F0FC9C','EC7000','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  101  ----------------------------
-dm_scene_palette[?'EastA_101'] = '0D37170D'+'0D38080D'+'0D3C1103'+'0D002D0D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_101'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','EC7000','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  102  ----------------------------
-dm_scene_palette[?'EastA_102'] = '0D37170D'+'0D2D0801'+'0D3C1103'+'0D0D2D00'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_102'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','002C40','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','EC7000','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  103  ----------------------------
-dm_scene_palette[?'EastA_103'] = '0D37170D'+'0D38080D'+'0D3C1103'+'0D0D2D00'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_103'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','EC7000','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  104  ----------------------------
-dm_scene_palette[?'EastA_104'] = '0D36170D'+'0D202708'+'0D28182D'+'0D303D17'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_104'+dk_BGR] = build_pal('B0BCFC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','007088','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A7A9A7','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  105  ----------------------------
-dm_scene_palette[?'EastA_105'] = '0D27170D'+'0D262D0D'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_105'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-dm_scene_palette[?'EastA_109'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_109'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-dm_scene_palette[?'EastA_112'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_112'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  113  ----------------------------
-dm_scene_palette[?'EastA_113'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_113'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  114  ----------------------------
-dm_scene_palette[?'EastA_114'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_114'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-dm_scene_palette[?'EastA_116'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_116'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  117  ----------------------------
-dm_scene_palette[?'EastA_117'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_117'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  118  ----------------------------
-dm_scene_palette[?'EastA_118'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_118'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  119  ----------------------------
-dm_scene_palette[?'EastA_119'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_119'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  120  ----------------------------
-dm_scene_palette[?'EastA_120'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_120'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  121  ----------------------------
-dm_scene_palette[?'EastA_121'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_121'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  122  ----------------------------
-dm_scene_palette[?'EastA_122'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_122'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  123  ----------------------------
-dm_scene_palette[?'EastA_123'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_123'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-dm_scene_palette[?'EastA_125'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_125'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  126  ----------------------------
-dm_scene_palette[?'EastA_126'] = '0D37180D'+'0D302717'+'0D301112'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_126'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  127  ----------------------------
-dm_scene_palette[?'EastA_127'] = '0D27160D'+'0D262D0D'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_127'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  128  ----------------------------
-dm_scene_palette[?'EastA_128'] = '0D27160D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_128'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  129  ----------------------------
-dm_scene_palette[?'EastA_129'] = '0D27160D'+'0D262D0D'+'0D301007'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_129'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  130  ----------------------------
-dm_scene_palette[?'EastA_130'] = '0D27160D'+'0D262D0D'+'0D301007'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_130'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  131  ----------------------------
-dm_scene_palette[?'EastA_131'] = '0D27160D'+'0D262D0D'+'0D301007'+'0D2A0A0D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_131'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-dm_scene_palette[?'EastA_133'] = '0D27160D'+'0D262D0D'+'0D301007'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_133'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-dm_scene_palette[?'EastA_135'] = '0D27160D'+'0D262D0D'+'0D301007'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_135'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  136  ----------------------------
-dm_scene_palette[?'EastA_136'] = '0D27160D'+'0D262D0D'+'0D301007'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_136'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-dm_scene_palette[?'EastA_138'] = '0D27160D'+'0D262D0D'+'0D302806'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_138'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3CBCF0','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  139  ----------------------------
-dm_scene_palette[?'EastA_139'] = '0D37170D'+'0D00070D'+'0D301202'+'0D30000D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_139'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  140  ----------------------------
-dm_scene_palette[?'EastA_140'] = '0D37170D'+'0D00070D'+'0D301202'+'0D30000D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_140'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  141  ----------------------------
-dm_scene_palette[?'EastA_141'] = '0D271708'+'0D27160D'+'0D10000D'+'0D000C0D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_141'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  142  ----------------------------
-dm_scene_palette[?'EastA_142'] = '0D271708'+'0D32002D'+'0D311211'+'0D2D1D1D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_142'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  143  ----------------------------
-dm_scene_palette[?'EastA_143'] = '0D271708'+'0D32002D'+'0D311211'+'0D3D2D1D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_143'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A7A9A7','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  144  ----------------------------
-dm_scene_palette[?'EastA_144'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_144'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  145  ----------------------------
-dm_scene_palette[?'EastA_145'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_145'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  146  ----------------------------
-dm_scene_palette[?'EastA_146'] = '0D36180D'+'0D262D0D'+'0D301608'+'0D301202'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_146'+dk_BGR] = build_pal('B0BCFC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  147  ----------------------------
-dm_scene_palette[?'EastA_147'] = '0D27170D'+'0D262D0D'+'0D301607'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_147'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-dm_scene_palette[?'EastA_160'] = '0D27170D'+'0D372707'+'0D371607'+'0D2C1C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_160'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  161  ----------------------------
-dm_scene_palette[?'EastA_161'] = '0D27170D'+'0D372707'+'0D371607'+'0D2C1C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D30130D';
-
+_dm[?'EastA_161'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  162  ----------------------------
-dm_scene_palette[?'EastA_162'] = '0D27170D'+'0D372707'+'0D371607'+'0D2C1C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_162'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-dm_scene_palette[?'EastA_164'] = '0D27170D'+'0D372707'+'0D371607'+'0D2C1C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_164'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-dm_scene_palette[?'EastA_166'] = '0D27170D'+'0D372707'+'0D371607'+'0D2C1C0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_166'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  167  ----------------------------
-dm_scene_palette[?'EastA_167'] = '0D101808'+'0D2D0D0D'+'0D22020D'+'0D17070D'+'0D302716'+'0D301607'+'0D302C0C'+'0D30130D';
-
+_dm[?'EastA_167'+dk_BGR] = build_pal('BCBCBC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC945C','A80000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  168  ----------------------------
-dm_scene_palette[?'EastA_168'] = '0D361808'+'0D22020D'+'0D2D0D0D'+'0D26070D'+'0D302716'+'0D301607'+'0D302C0C'+'0D30130D';
-
+_dm[?'EastA_168'+dk_BGR] = build_pal('B0BCFC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC945C','A80000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  169  ----------------------------
-dm_scene_palette[?'EastA_169'] = '0D372717'+'0D303627'+'0D301122'+'0D30100D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'EastA_169'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  170  ----------------------------
-dm_scene_palette[?'EastA_170'] = '0D361808'+'0D22020D'+'0D2D0D0D'+'0D26070D'+'0D302716'+'0D301607'+'0D302C0C'+'0D30130D';
-
+_dm[?'EastA_170'+dk_BGR] = build_pal('B0BCFC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC945C','A80000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
-dm_scene_palette[?'EastA_255'] = '0D372706'+'0D27160D'+'0D301202'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'EastA_255'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 
 
 
@@ -1806,555 +1045,345 @@ dm_scene_palette[?'EastA_255'] = '0D372706'+'0D27160D'+'0D301202'+'0D301000'+'0D
 
 
 // ***********************  _MazIs_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'MazIs_000'] = '0D37180D'+'0D301102'+'0D361607'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'MazIs_000'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'MazIs_001'] = '0D37180D'+'0D301101'+'0D361607'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'MazIs_001'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'MazIs_002'] = '0D372706'+'0D27160D'+'0D302111'+'0D301000'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_002'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'MazIs_003'] = '0D372706'+'0D27160D'+'0D302111'+'0D27160C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_003'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'MazIs_004'] = '0D37180D'+'0D301101'+'0D361607'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'MazIs_004'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'MazIs_006'] = '0D37180D'+'0D10000D'+'0D301112'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'MazIs_006'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-
 //  ----------------------------  008  ----------------------------
-
 //  ----------------------------  009  ----------------------------
-
 //  ----------------------------  010  ----------------------------
-
 //  ----------------------------  011  ----------------------------
-
 //  ----------------------------  012  ----------------------------
-
 //  ----------------------------  013  ----------------------------
-
 //  ----------------------------  014  ----------------------------
-
 //  ----------------------------  015  ----------------------------
-
 //  ----------------------------  016  ----------------------------
-
+_dm[?'MazIs_016'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  017  ----------------------------
-
 //  ----------------------------  018  ----------------------------
-
 //  ----------------------------  019  ----------------------------
-
 //  ----------------------------  020  ----------------------------
-
 //  ----------------------------  021  ----------------------------
-dm_scene_palette[?'MazIs_021'] = '0D27080D'+'0D27080D'+'0D21010D'+'0D30392D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'MazIs_021'+dk_BGR] = build_pal('3898FC','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCBC3C','8C1824','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A0FCE0','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  022  ----------------------------
-
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-
 //  ----------------------------  025  ----------------------------
-
 //  ----------------------------  026  ----------------------------
-
 //  ----------------------------  027  ----------------------------
-
 //  ----------------------------  028  ----------------------------
-
 //  ----------------------------  029  ----------------------------
-
 //  ----------------------------  030  ----------------------------
-
 //  ----------------------------  031  ----------------------------
-
 //  ----------------------------  032  ----------------------------
-
 //  ----------------------------  033  ----------------------------
-
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-
 //  ----------------------------  041  ----------------------------
-
 //  ----------------------------  042  ----------------------------
-
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-
 //  ----------------------------  061  ----------------------------
-
 //  ----------------------------  062  ----------------------------
-
 //  ----------------------------  063  ----------------------------
-
 //  ----------------------------  064  ----------------------------
-//dm_scene_palette[?'MazIs_064'] = '0D37180D'+'0D301122'+'0D302717'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'MazIs_064'+dk_BGR] = build_pal('FCFCFC','3898FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  065  ----------------------------
-
+_dm[?'MazIs_065'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  066  ----------------------------
-
+_dm[?'MazIs_066'+dk_BGR] = build_pal('10D080','009400','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  067  ----------------------------
-
+_dm[?'MazIs_067'+dk_BGR] = build_pal('A8D8FC','3898FC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B474FC','00A800','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0C4CC8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0000A4','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  068  ----------------------------
-
+_dm[?'MazIs_068'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC88CC','F00080','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','010101','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  069  ----------------------------
-
+_dm[?'MazIs_069'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  070  ----------------------------
-
+_dm[?'MazIs_070'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  071  ----------------------------
-
+_dm[?'MazIs_071'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  072  ----------------------------
-
+_dm[?'MazIs_072'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  073  ----------------------------
-
+_dm[?'MazIs_073'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  074  ----------------------------
-
+_dm[?'MazIs_074'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('888000','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  075  ----------------------------
-
+_dm[?'MazIs_075'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  076  ----------------------------
-
+_dm[?'MazIs_076'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  077  ----------------------------
-
+_dm[?'MazIs_077'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC88CC','F00080','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','003E00','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  078  ----------------------------
-
+_dm[?'MazIs_078'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  079  ----------------------------
-
+_dm[?'MazIs_079'+dk_BGR] = build_pal('A8D8FC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  080  ----------------------------
-
+_dm[?'MazIs_080'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  081  ----------------------------
-
+_dm[?'MazIs_081'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  082  ----------------------------
-
+_dm[?'MazIs_082'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  083  ----------------------------
-
+_dm[?'MazIs_083'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  084  ----------------------------
-
+_dm[?'MazIs_084'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  085  ----------------------------
-
+_dm[?'MazIs_085'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  086  ----------------------------
-
+_dm[?'MazIs_086'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  087  ----------------------------
-
+_dm[?'MazIs_087'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  088  ----------------------------
-
+_dm[?'MazIs_088'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  089  ----------------------------
-
+_dm[?'MazIs_089'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  090  ----------------------------
-
+_dm[?'MazIs_090'+dk_BGR] = build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  091  ----------------------------
-
+_dm[?'MazIs_091'+dk_BGR] = build_pal('F1BADC','0000A4','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  092  ----------------------------
-
+_dm[?'MazIs_092'+dk_BGR] = build_pal('B0BCFC','007088','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  093  ----------------------------
-
+_dm[?'MazIs_093'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  094  ----------------------------
-
+_dm[?'MazIs_094'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  095  ----------------------------
-
+_dm[?'MazIs_095'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','EC3820','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  096  ----------------------------
-
+_dm[?'MazIs_096'+dk_BGR] = build_pal('FCFCFC','6074FC','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  097  ----------------------------
-
+_dm[?'MazIs_097'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','A7A9A7','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A7A9A7','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  098  ----------------------------
-
+_dm[?'MazIs_098'+dk_BGR] = build_pal('10D080','009400','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  099  ----------------------------
-
+_dm[?'MazIs_099'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  100  ----------------------------
-
+_dm[?'MazIs_100'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  101  ----------------------------
-
+_dm[?'MazIs_101'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  102  ----------------------------
-
+_dm[?'MazIs_102'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  103  ----------------------------
-
+_dm[?'MazIs_103'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  104  ----------------------------
-
+_dm[?'MazIs_104'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','B0BCFC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  105  ----------------------------
-
+_dm[?'MazIs_105'+dk_BGR] = build_pal('A8D8FC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC7000','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  106  ----------------------------
-
+_dm[?'MazIs_106'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  107  ----------------------------
-
+_dm[?'MazIs_107'+dk_BGR] = build_pal('3898FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','EC7000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  108  ----------------------------
-
+_dm[?'MazIs_108'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  109  ----------------------------
-
+_dm[?'MazIs_109'+dk_BGR] = build_pal('3E3E3E','F1F2F1','3CBCF0','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  110  ----------------------------
-
+_dm[?'MazIs_110'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  111  ----------------------------
-
+_dm[?'MazIs_111'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
+_dm[?'MazIs_216'+dk_BGR] = build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  217  ----------------------------
-dm_scene_palette[?'MazIs_217'] = '0D33002D'+'0D271808'+'0D311222'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_217'+dk_BGR] = build_pal('F1BADC','747474','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  218  ----------------------------
-dm_scene_palette[?'MazIs_218'] = '0D203727'+'0D3D2D0D'+'0D301122'+'0D203D2D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'MazIs_218'+dk_BGR] = build_pal('F1F2F1','A8D8FC','3898FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A7A9A7','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC7000','FC945C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  219  ----------------------------
-dm_scene_palette[?'MazIs_219'] = '0D203D2D'+'0D3C1C0C'+'0D20122D'+'0D28080D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'MazIs_219'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','EC3820','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  220  ----------------------------
-dm_scene_palette[?'MazIs_220'] = '0D26060D'+'0D342404'+'0D371606'+'0D270D07'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'MazIs_220'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','010101','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  221  ----------------------------
-dm_scene_palette[?'MazIs_221'] = '0D203D2D'+'0D371708'+'0D201607'+'0D37180D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_221'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  222  ----------------------------
-dm_scene_palette[?'MazIs_222'] = '0D28170D'+'0D291B0D'+'0D291A0D'+'0D302C0D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_222'+dk_BGR] = build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','2A7B00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','00A800','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  223  ----------------------------
-dm_scene_palette[?'MazIs_223'] = '0D26060D'+'0D342404'+'0D371606'+'0D270D07'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'MazIs_223'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','010101','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  224  ----------------------------
-dm_scene_palette[?'MazIs_224'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'MazIs_224'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  225  ----------------------------
-dm_scene_palette[?'MazIs_225'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'MazIs_225'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  226  ----------------------------
-dm_scene_palette[?'MazIs_226'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'MazIs_226'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  227  ----------------------------
-dm_scene_palette[?'MazIs_227'] = '0D291B0B'+'0D120B0D'+'0D17070D'+'0D301008'+'0D302716'+'0D36160D'+'0D36120D'+'0D0D080D';
-
+_dm[?'MazIs_227'+dk_BGR] = build_pal('10D080','2A7B00','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  228  ----------------------------
-dm_scene_palette[?'MazIs_228'] = '0D301000'+'0D002D0D'+'0D2D2D0D'+'0D302716'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'MazIs_228'+dk_BGR] = build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0028D8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  229  ----------------------------
-dm_scene_palette[?'MazIs_229'] = '0D301000'+'0D002D0D'+'0D2D2D0D'+'0D302716'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'MazIs_229'+dk_BGR] = build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','0028D8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-dm_scene_palette[?'MazIs_232'] = '0D1C0C0D'+'0D262D0D'+'0D201008'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_232'+dk_BGR] = build_pal('888000','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  233  ----------------------------
-dm_scene_palette[?'MazIs_233'] = '0D27170D'+'0D262D07'+'0D20103D'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_233'+dk_BGR] = build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','A7A9A7','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  234  ----------------------------
-dm_scene_palette[?'MazIs_234'] = '0D0C0D0D'+'0D120902'+'0D010D0D'+'0D15120D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_234'+dk_BGR] = build_pal('5C3C18','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','004400','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('8C1824','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5800E4','EC3820','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  235  ----------------------------
-dm_scene_palette[?'MazIs_235'] = '0D27160D'+'0D262D0D'+'0D20102D'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_235'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-dm_scene_palette[?'MazIs_237'] = '0D27160D'+'0D262D0D'+'0D30102D'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_237'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  238  ----------------------------
-dm_scene_palette[?'MazIs_238'] = '0D27160D'+'0D262D0D'+'0D301007'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_238'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  239  ----------------------------
-dm_scene_palette[?'MazIs_239'] = '0D27160D'+'0D262D0D'+'0D20102D'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_239'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  240  ----------------------------
-dm_scene_palette[?'MazIs_240'] = '0D27160D'+'0D262D0D'+'0D30102D'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_240'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  241  ----------------------------
-dm_scene_palette[?'MazIs_241'] = '0D27160D'+'0D262D0D'+'0D20102D'+'0D32000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_241'+dk_BGR] = build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  242  ----------------------------
-dm_scene_palette[?'MazIs_242'] = '0D3B000C'+'0D301801'+'0D391A0B'+'0D250D0C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_242'+dk_BGR] = build_pal('BCE89E','747474','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','007088','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','00A800','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B474FC','010101','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  243  ----------------------------
-dm_scene_palette[?'MazIs_243'] = '0D0C0D0D'+'0D120902'+'0D010D0D'+'0D16120D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_243'+dk_BGR] = build_pal('5C3C18','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','004400','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('8C1824','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0028D8','EC3820','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-dm_scene_palette[?'MazIs_254'] = '0D1B080D'+'0D27080D'+'0D070D0D'+'0D10000D'+'0D302716'+'0D301607'+'0D302C0C'+'0D20060D';
-
+_dm[?'MazIs_254'+dk_BGR] = build_pal('2A7B00','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00087C','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  255  ----------------------------
-dm_scene_palette[?'MazIs_255'] = '0D39000B'+'0D372308'+'0D0D072D'+'0D16080D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'MazIs_255'+dk_BGR] = build_pal('A0FCE0','747474','003E00','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','FC88CC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','00087C','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0028D8','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 
 
 
@@ -2364,539 +1393,280 @@ dm_scene_palette[?'MazIs_255'] = '0D39000B'+'0D372308'+'0D0D072D'+'0D16080D'+'0D
 
 
 // ***********************  _PalcA_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'PalcA_000'] = '0D203D0D'+'0D3C1C0C'+'0D372718'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_000'+dk_BGR] = build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'PalcA_001'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_001'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'PalcA_002'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_002'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-
 //  ----------------------------  004  ----------------------------
-
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'PalcA_005'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_005'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'PalcA_006'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_006'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'PalcA_007'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D2D3D2D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_007'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3E3E3E','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'PalcA_009'] = '0D203D2D'+'0D3C1C0C'+'0D37162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_009'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-dm_scene_palette[?'PalcA_010'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_010'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  011  ----------------------------
-dm_scene_palette[?'PalcA_011'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_011'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'PalcA_012'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_012'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-dm_scene_palette[?'PalcA_013'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_013'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  014  ----------------------------
-
 //  ----------------------------  015  ----------------------------
-
 //  ----------------------------  016  ----------------------------
-
 //  ----------------------------  017  ----------------------------
-
 //  ----------------------------  018  ----------------------------
-
 //  ----------------------------  019  ----------------------------
-
 //  ----------------------------  020  ----------------------------
-
 //  ----------------------------  021  ----------------------------
-
 //  ----------------------------  022  ----------------------------
-
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-
 //  ----------------------------  025  ----------------------------
-
 //  ----------------------------  026  ----------------------------
-
 //  ----------------------------  027  ----------------------------
-
 //  ----------------------------  028  ----------------------------
-
 //  ----------------------------  029  ----------------------------
-
 //  ----------------------------  030  ----------------------------
-
 //  ----------------------------  031  ----------------------------
-
 //  ----------------------------  032  ----------------------------
-
 //  ----------------------------  033  ----------------------------
-
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-
 //  ----------------------------  041  ----------------------------
-dm_scene_palette[?'PalcA_041'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_041'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  042  ----------------------------
-dm_scene_palette[?'PalcA_042'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_042'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-
 //  ----------------------------  061  ----------------------------
-
 //  ----------------------------  062  ----------------------------
-
 //  ----------------------------  063  ----------------------------
-
 //  ----------------------------  064  ----------------------------
-
 //  ----------------------------  065  ----------------------------
-
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-
 //  ----------------------------  071  ----------------------------
-
 //  ----------------------------  072  ----------------------------
-
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-
 //  ----------------------------  088  ----------------------------
-
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-
 //  ----------------------------  097  ----------------------------
-
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-
 //  ----------------------------  101  ----------------------------
-
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-dm_scene_palette[?'PalcA_222'] = '0D203D2D'+'0D3C1C0C'+'0D20162D'+'0D371808'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_222'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-dm_scene_palette[?'PalcA_229'] = '0D203D2D'+'0D3C1C0C'+'0D000D2D'+'0D203D0D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_229'+dk_BGR] = build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','010101','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-dm_scene_palette[?'PalcA_253'] = '0D203D0D'+'0D3C1C0C'+'0D372718'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcA_253'+dk_BGR] = build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  254  ----------------------------
-dm_scene_palette[?'PalcA_254'] = '0D203D0D'+'0D3C1C0C'+'0D372718'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D30130D';
-
+_dm[?'PalcA_254'+dk_BGR] = build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  255  ----------------------------
-dm_scene_palette[?'PalcA_255'] = '0D203D0D'+'0D3C1C0C'+'0D372718'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D30130D';
-
+_dm[?'PalcA_255'+dk_BGR] = build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 
 
 
@@ -2906,544 +1676,285 @@ dm_scene_palette[?'PalcA_255'] = '0D203D0D'+'0D3C1C0C'+'0D372718'+'0D301000'+'0D
 
 
 // ***********************  _PalcB_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'PalcB_000'] = '0D3C1C0D'+'0D361607'+'0D29090C'+'0D200D18'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'PalcB_000'+dk_BGR] = build_pal('F0FC9C','888000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','004400','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','010101','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'PalcB_001'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_001'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'PalcB_002'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_002'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'PalcB_003'] = '0D3C1C0C'+'0D361606'+'0D37160C'+'0D0C1C28'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_003'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','3CBCF0','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'PalcB_004'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_004'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'PalcB_005'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_005'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'PalcB_006'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_006'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'PalcB_007'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_007'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-dm_scene_palette[?'PalcB_008'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_008'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'PalcB_009'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_009'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-dm_scene_palette[?'PalcB_010'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D0C1C28'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_010'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','3CBCF0','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  011  ----------------------------
-dm_scene_palette[?'PalcB_011'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_011'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'PalcB_012'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D0C1C28'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_012'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','3CBCF0','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-dm_scene_palette[?'PalcB_013'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D0C1C28'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_013'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','3CBCF0','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  014  ----------------------------
-dm_scene_palette[?'PalcB_014'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D0C1C28'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_014'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5C3C18','888000','3CBCF0','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  015  ----------------------------
-dm_scene_palette[?'PalcB_015'] = '0D3C1C0C'+'0D361606'+'0D32020D'+'0D3C1C0C'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_015'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','A80000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  016  ----------------------------
-dm_scene_palette[?'PalcB_016'] = '0D3C1C0C'+'0D361606'+'0D30160C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_016'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  017  ----------------------------
-dm_scene_palette[?'PalcB_017'] = '0D3C1C0D'+'0D361607'+'0D290900'+'0D370D18'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'PalcB_017'+dk_BGR] = build_pal('F0FC9C','888000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','004400','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','010101','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  018  ----------------------------
-dm_scene_palette[?'PalcB_018'] = '0D3C1C0C'+'0D361606'+'0D290900'+'0D2C110C'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'PalcB_018'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','004400','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','EC7000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  019  ----------------------------
-dm_scene_palette[?'PalcB_019'] = '0D3C1C0C'+'0D2B1B0D'+'0D390B0D'+'0D1B0B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_019'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('70D43A','2A7B00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('2A7B00','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  020  ----------------------------
-
 //  ----------------------------  021  ----------------------------
-
 //  ----------------------------  022  ----------------------------
-dm_scene_palette[?'PalcB_022'] = '0D3C1C0C'+'0D361606'+'0D32020D'+'0D3C1C0C'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_022'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','A80000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-
 //  ----------------------------  025  ----------------------------
-
 //  ----------------------------  026  ----------------------------
-dm_scene_palette[?'PalcB_026'] = '0D3C1C0C'+'0D231301'+'0D390B0C'+'0D301000'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_026'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC88CC','F00080','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','003E00','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  027  ----------------------------
-dm_scene_palette[?'PalcB_027'] = '0D3C1C0C'+'0D231301'+'0D390B0C'+'0D3C1C0C'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcB_027'+dk_BGR] = build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC88CC','F00080','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','003E00','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  028  ----------------------------
-
 //  ----------------------------  029  ----------------------------
-
 //  ----------------------------  030  ----------------------------
-
 //  ----------------------------  031  ----------------------------
-
 //  ----------------------------  032  ----------------------------
-
 //  ----------------------------  033  ----------------------------
-
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-
 //  ----------------------------  041  ----------------------------
-
 //  ----------------------------  042  ----------------------------
-
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-
 //  ----------------------------  061  ----------------------------
-
 //  ----------------------------  062  ----------------------------
-
 //  ----------------------------  063  ----------------------------
-
 //  ----------------------------  064  ----------------------------
-
 //  ----------------------------  065  ----------------------------
-
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-
 //  ----------------------------  071  ----------------------------
-
 //  ----------------------------  072  ----------------------------
-
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-
 //  ----------------------------  088  ----------------------------
-
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-
 //  ----------------------------  097  ----------------------------
-
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-
 //  ----------------------------  101  ----------------------------
-
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
-
 
 
 
@@ -3453,538 +1964,279 @@ dm_scene_palette[?'PalcB_027'] = '0D3C1C0C'+'0D231301'+'0D390B0C'+'0D3C1C0C'+'0D
 
 
 // ***********************  _PalcC_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'PalcC_000'] = '0D26060D'+'0D302404'+'0D28170D'+'0D203D00'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_000'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'PalcC_001'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_001'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'PalcC_002'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_002'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'PalcC_003'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_003'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'PalcC_004'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_004'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'PalcC_005'] = '0D26060D'+'0D342404'+'0D27170D'+'0D301007'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_005'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'PalcC_006'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_006'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'PalcC_007'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_007'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-dm_scene_palette[?'PalcC_008'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_008'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'PalcC_009'] = '0D26060D'+'0D342404'+'0D371606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_009'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-
 //  ----------------------------  011  ----------------------------
-dm_scene_palette[?'PalcC_011'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_011'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'PalcC_012'] = '0D26060D'+'0D342404'+'0D120D07'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_012'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','010101','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-
 //  ----------------------------  014  ----------------------------
-
 //  ----------------------------  015  ----------------------------
-
 //  ----------------------------  016  ----------------------------
-dm_scene_palette[?'PalcC_016'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_016'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  017  ----------------------------
-dm_scene_palette[?'PalcC_017'] = '0D26060D'+'0D342404'+'0D27170D'+'0D301007'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_017'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  018  ----------------------------
-dm_scene_palette[?'PalcC_018'] = '0D26060D'+'0D342404'+'0D27170D'+'0D301007'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_018'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  019  ----------------------------
-dm_scene_palette[?'PalcC_019'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_019'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  020  ----------------------------
-dm_scene_palette[?'PalcC_020'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcC_020'+dk_BGR] = build_pal('6074FC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCC4FC','FC78F4','74008C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  021  ----------------------------
-
 //  ----------------------------  022  ----------------------------
-
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-
 //  ----------------------------  025  ----------------------------
-
 //  ----------------------------  026  ----------------------------
-
 //  ----------------------------  027  ----------------------------
-
 //  ----------------------------  028  ----------------------------
-
 //  ----------------------------  029  ----------------------------
-
 //  ----------------------------  030  ----------------------------
-
 //  ----------------------------  031  ----------------------------
-
 //  ----------------------------  032  ----------------------------
-
 //  ----------------------------  033  ----------------------------
-
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-
 //  ----------------------------  041  ----------------------------
-
 //  ----------------------------  042  ----------------------------
-
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-
 //  ----------------------------  061  ----------------------------
-
 //  ----------------------------  062  ----------------------------
-
 //  ----------------------------  063  ----------------------------
-
 //  ----------------------------  064  ----------------------------
-
 //  ----------------------------  065  ----------------------------
-
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-
 //  ----------------------------  071  ----------------------------
-
 //  ----------------------------  072  ----------------------------
-
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-
 //  ----------------------------  088  ----------------------------
-
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-
 //  ----------------------------  097  ----------------------------
-
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-
 //  ----------------------------  101  ----------------------------
-
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
-
 
 
 
@@ -3994,539 +2246,280 @@ dm_scene_palette[?'PalcC_020'] = '0D26060D'+'0D342404'+'0D301606'+'0D27070D'+'0D
 
 
 // ***********************  _PalcD_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'PalcD_000'] = '0D23030D'+'0D302707'+'0D28170D'+'0D203D00'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_000'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'PalcD_001'] = '0D23030D'+'0D372707'+'0D28170D'+'0D200300'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_001'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'PalcD_002'] = '0D23030D'+'0D372707'+'0D28170D'+'0D200300'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_002'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'PalcD_003'] = '0D23030D'+'0D372707'+'0D301603'+'0D200300'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_003'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'PalcD_004'] = '0D23030D'+'0D372707'+'0D28170D'+'0D200300'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_004'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'PalcD_005'] = '0D23030D'+'0D372707'+'0D371603'+'0D20030D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_005'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'PalcD_006'] = '0D23030D'+'0D372707'+'0D371603'+'0D20030D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_006'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'PalcD_007'] = '0D23030D'+'0D372707'+'0D28170D'+'0D200300'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'PalcD_007'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'PalcD_009'] = '0D23030D'+'0D372707'+'0D28170D'+'0D200300'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_009'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-dm_scene_palette[?'PalcD_010'] = '0D23030D'+'0D372707'+'0D30160D'+'0D200300'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_010'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  011  ----------------------------
-
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'PalcD_012'] = '0D23030D'+'0D372707'+'0D371603'+'0D20030D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_012'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-dm_scene_palette[?'PalcD_013'] = '0D23030D'+'0D372707'+'0D28170D'+'0D200300'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_013'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  014  ----------------------------
-dm_scene_palette[?'PalcD_014'] = '0D23030D'+'0D372707'+'0D201603'+'0D200300'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_014'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0028D8','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  015  ----------------------------
-dm_scene_palette[?'PalcD_015'] = '0D23030D'+'0D372707'+'0D371603'+'0D20030D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_015'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  016  ----------------------------
-dm_scene_palette[?'PalcD_016'] = '0D23030D'+'0D372707'+'0D271606'+'0D20030D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_016'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  017  ----------------------------
-dm_scene_palette[?'PalcD_017'] = '0D23030D'+'0D372707'+'0D28170D'+'0D200300'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_017'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  018  ----------------------------
-
 //  ----------------------------  019  ----------------------------
-
 //  ----------------------------  020  ----------------------------
-
 //  ----------------------------  021  ----------------------------
-
 //  ----------------------------  022  ----------------------------
-
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-
 //  ----------------------------  025  ----------------------------
-dm_scene_palette[?'PalcD_025'] = '0D23030D'+'0D372707'+'0D371603'+'0D20030D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_025'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  026  ----------------------------
-dm_scene_palette[?'PalcD_026'] = '0D23030D'+'0D372707'+'0D371603'+'0D20030D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcD_026'+dk_BGR] = build_pal('FC88CC','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','9C0044','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','9C0044','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  027  ----------------------------
-
 //  ----------------------------  028  ----------------------------
-
 //  ----------------------------  029  ----------------------------
-
 //  ----------------------------  030  ----------------------------
-
 //  ----------------------------  031  ----------------------------
-
 //  ----------------------------  032  ----------------------------
-
 //  ----------------------------  033  ----------------------------
-
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-
 //  ----------------------------  041  ----------------------------
-
 //  ----------------------------  042  ----------------------------
-
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-
 //  ----------------------------  061  ----------------------------
-
 //  ----------------------------  062  ----------------------------
-
 //  ----------------------------  063  ----------------------------
-
 //  ----------------------------  064  ----------------------------
-
 //  ----------------------------  065  ----------------------------
-
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-
 //  ----------------------------  071  ----------------------------
-
 //  ----------------------------  072  ----------------------------
-
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-
 //  ----------------------------  088  ----------------------------
-
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-
 //  ----------------------------  097  ----------------------------
-
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-
 //  ----------------------------  101  ----------------------------
-
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
-
 
 
 
@@ -4536,546 +2529,287 @@ dm_scene_palette[?'PalcD_026'] = '0D23030D'+'0D372707'+'0D371603'+'0D20030D'+'0D
 
 
 // ***********************  _PalcE_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'PalcE_001'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_001'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'PalcE_003'] = '0D2A0A0D'+'0D322202'+'0D37160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_003'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'PalcE_004'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_004'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'PalcE_005'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_005'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'PalcE_006'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D200B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_006'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'PalcE_007'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_007'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-dm_scene_palette[?'PalcE_008'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_008'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'PalcE_009'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_009'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-dm_scene_palette[?'PalcE_010'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_010'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  011  ----------------------------
-dm_scene_palette[?'PalcE_011'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_011'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'PalcE_012'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_012'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-dm_scene_palette[?'PalcE_013'] = '0D2A0A0D'+'0D322202'+'0D37160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_013'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  014  ----------------------------
-dm_scene_palette[?'PalcE_014'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_014'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  015  ----------------------------
-dm_scene_palette[?'PalcE_015'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_015'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  016  ----------------------------
-dm_scene_palette[?'PalcE_016'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_016'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  017  ----------------------------
-
 //  ----------------------------  018  ----------------------------
-dm_scene_palette[?'PalcE_018'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_018'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  019  ----------------------------
-dm_scene_palette[?'PalcE_019'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_019'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  020  ----------------------------
-
 //  ----------------------------  021  ----------------------------
-
 //  ----------------------------  022  ----------------------------
-dm_scene_palette[?'PalcE_022'] = '0D2A0A0D'+'0D322202'+'0D301202'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_022'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  023  ----------------------------
-dm_scene_palette[?'PalcE_023'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_023'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  024  ----------------------------
-
 //  ----------------------------  025  ----------------------------
-dm_scene_palette[?'PalcE_025'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_025'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  026  ----------------------------
-dm_scene_palette[?'PalcE_026'] = '0D2A0A0D'+'0D322202'+'0D301010'+'0D200B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_026'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','BCBCBC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  027  ----------------------------
-dm_scene_palette[?'PalcE_027'] = '0D2A0A0D'+'0D302200'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_027'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FC945C','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  028  ----------------------------
-dm_scene_palette[?'PalcE_028'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_028'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  029  ----------------------------
-dm_scene_palette[?'PalcE_029'] = '0D2A0A0D'+'0D322202'+'0D30160A'+'0D270B0D'+'0D302716'+'0D301606'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_029'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','FC945C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','003E00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  030  ----------------------------
-
 //  ----------------------------  031  ----------------------------
-
 //  ----------------------------  032  ----------------------------
-
 //  ----------------------------  033  ----------------------------
-
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-dm_scene_palette[?'PalcE_040'] = '0D2A0A0D'+'0D302102'+'0D311102'+'0D201000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcE_040'+dk_BGR] = build_pal('48DC4C','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC7000','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  041  ----------------------------
-
 //  ----------------------------  042  ----------------------------
-
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-
 //  ----------------------------  061  ----------------------------
-
 //  ----------------------------  062  ----------------------------
-
 //  ----------------------------  063  ----------------------------
-
 //  ----------------------------  064  ----------------------------
-
 //  ----------------------------  065  ----------------------------
-
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-
 //  ----------------------------  071  ----------------------------
-
 //  ----------------------------  072  ----------------------------
-
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-
 //  ----------------------------  088  ----------------------------
-
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-
 //  ----------------------------  097  ----------------------------
-
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-
 //  ----------------------------  101  ----------------------------
-
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
-
 
 
 
@@ -5085,551 +2819,292 @@ dm_scene_palette[?'PalcE_040'] = '0D2A0A0D'+'0D302102'+'0D311102'+'0D201000'+'0D
 
 
 // ***********************  _PalcF_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'PalcF_000'] = '0D25050D'+'0D30102D'+'0D372718'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_000'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'PalcF_001'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_001'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'PalcF_002'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_002'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'PalcF_003'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_003'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'PalcF_004'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_004'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'PalcF_005'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_005'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'PalcF_006'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_006'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'PalcF_007'] = '0D25050D'+'0D301000'+'0D301607'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_007'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-dm_scene_palette[?'PalcF_008'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_008'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'PalcF_009'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_009'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-
 //  ----------------------------  011  ----------------------------
-dm_scene_palette[?'PalcF_011'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_011'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'PalcF_012'] = '0D25050D'+'0D301000'+'0D371605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_012'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-dm_scene_palette[?'PalcF_013'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_013'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  014  ----------------------------
-
 //  ----------------------------  015  ----------------------------
-dm_scene_palette[?'PalcF_015'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_015'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  016  ----------------------------
-dm_scene_palette[?'PalcF_016'] = '0D25050D'+'0D301000'+'0D301607'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_016'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  017  ----------------------------
-dm_scene_palette[?'PalcF_017'] = '0D25050D'+'0D301000'+'0D371605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_017'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  018  ----------------------------
-dm_scene_palette[?'PalcF_018'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_018'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  019  ----------------------------
-dm_scene_palette[?'PalcF_019'] = '0D25050D'+'0D301000'+'0D371605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_019'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  020  ----------------------------
-dm_scene_palette[?'PalcF_020'] = '0D25050D'+'0D301000'+'0D301607'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_020'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  021  ----------------------------
-dm_scene_palette[?'PalcF_021'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_021'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  022  ----------------------------
-dm_scene_palette[?'PalcF_022'] = '0D25050D'+'0D301000'+'0D371605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_022'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-dm_scene_palette[?'PalcF_024'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_024'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  025  ----------------------------
-dm_scene_palette[?'PalcF_025'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_025'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  026  ----------------------------
-dm_scene_palette[?'PalcF_026'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_026'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  027  ----------------------------
-
 //  ----------------------------  028  ----------------------------
-dm_scene_palette[?'PalcF_028'] = '0D25050D'+'0D30102D'+'0D372718'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_028'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','007088','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  029  ----------------------------
-dm_scene_palette[?'PalcF_029'] = '0D25050D'+'0D301000'+'0D301607'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_029'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  030  ----------------------------
-
 //  ----------------------------  031  ----------------------------
-
 //  ----------------------------  032  ----------------------------
-dm_scene_palette[?'PalcF_032'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_032'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  033  ----------------------------
-dm_scene_palette[?'PalcF_033'] = '0D25050D'+'0D301000'+'0D371605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_033'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  034  ----------------------------
-dm_scene_palette[?'PalcF_034'] = '0D25050D'+'0D32000D'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_034'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  035  ----------------------------
-dm_scene_palette[?'PalcF_035'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcF_035'+dk_BGR] = build_pal('B474FC','1000A8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','1000A8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-
 //  ----------------------------  041  ----------------------------
-
 //  ----------------------------  042  ----------------------------
-
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-
 //  ----------------------------  061  ----------------------------
-
 //  ----------------------------  062  ----------------------------
-
 //  ----------------------------  063  ----------------------------
-
 //  ----------------------------  064  ----------------------------
-
 //  ----------------------------  065  ----------------------------
-
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-
 //  ----------------------------  071  ----------------------------
-
 //  ----------------------------  072  ----------------------------
-
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-
 //  ----------------------------  088  ----------------------------
-
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-
 //  ----------------------------  097  ----------------------------
-
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-
 //  ----------------------------  101  ----------------------------
-
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
-
 
 
 
@@ -5639,584 +3114,324 @@ dm_scene_palette[?'PalcF_035'] = '0D25050D'+'0D301000'+'0D301605'+'0D20070D'+'0D
 
 
 // ***********************  _PalcG_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'PalcG_000'] = '0D372707'+'0D3C1C0C'+'0D071708'+'0D0D162D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_000'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00087C','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'PalcG_001'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_001'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'PalcG_002'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_002'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'PalcG_003'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_003'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'PalcG_004'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_004'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'PalcG_005'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_005'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'PalcG_006'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_006'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'PalcG_007'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_007'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-dm_scene_palette[?'PalcG_008'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_008'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'PalcG_009'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_009'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-dm_scene_palette[?'PalcG_010'] = '0D372707'+'0D3C1C0C'+'0D071708'+'0D261608'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_010'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00087C','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  011  ----------------------------
-dm_scene_palette[?'PalcG_011'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_011'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'PalcG_012'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_012'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-dm_scene_palette[?'PalcG_013'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_013'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  014  ----------------------------
-dm_scene_palette[?'PalcG_014'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_014'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  015  ----------------------------
-dm_scene_palette[?'PalcG_015'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_015'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  016  ----------------------------
-dm_scene_palette[?'PalcG_016'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_016'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  017  ----------------------------
-
 //  ----------------------------  018  ----------------------------
-dm_scene_palette[?'PalcG_018'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_018'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  019  ----------------------------
-dm_scene_palette[?'PalcG_019'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_019'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  020  ----------------------------
-dm_scene_palette[?'PalcG_020'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_020'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  021  ----------------------------
-dm_scene_palette[?'PalcG_021'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_021'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  022  ----------------------------
-
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-
 //  ----------------------------  025  ----------------------------
-dm_scene_palette[?'PalcG_025'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_025'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  026  ----------------------------
-
 //  ----------------------------  027  ----------------------------
-dm_scene_palette[?'PalcG_027'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_027'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  028  ----------------------------
-dm_scene_palette[?'PalcG_028'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_028'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  029  ----------------------------
-dm_scene_palette[?'PalcG_029'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_029'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  030  ----------------------------
-dm_scene_palette[?'PalcG_030'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_030'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  031  ----------------------------
-dm_scene_palette[?'PalcG_031'] = '0D372707'+'0D2C1C0C'+'0D130D07'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_031'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','010101','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  032  ----------------------------
-dm_scene_palette[?'PalcG_032'] = '0D372707'+'0D3C1C0C'+'0D071708'+'0D0D162D'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_032'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F0FC9C','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00087C','0C4CC8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','0028D8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  033  ----------------------------
-
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-dm_scene_palette[?'PalcG_035'] = '0D372707'+'0D2C1C0C'+'0D130D07'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_035'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F00080','010101','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  036  ----------------------------
-dm_scene_palette[?'PalcG_036'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_036'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  037  ----------------------------
-dm_scene_palette[?'PalcG_037'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_037'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  038  ----------------------------
-dm_scene_palette[?'PalcG_038'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_038'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  039  ----------------------------
-dm_scene_palette[?'PalcG_039'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_039'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  040  ----------------------------
-dm_scene_palette[?'PalcG_040'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_040'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  041  ----------------------------
-dm_scene_palette[?'PalcG_041'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_041'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  042  ----------------------------
-dm_scene_palette[?'PalcG_042'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_042'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  043  ----------------------------
-dm_scene_palette[?'PalcG_043'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_043'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  044  ----------------------------
-dm_scene_palette[?'PalcG_044'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_044'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  045  ----------------------------
-dm_scene_palette[?'PalcG_045'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_045'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  046  ----------------------------
-dm_scene_palette[?'PalcG_046'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_046'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  047  ----------------------------
-dm_scene_palette[?'PalcG_047'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_047'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  048  ----------------------------
-dm_scene_palette[?'PalcG_048'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_048'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  049  ----------------------------
-dm_scene_palette[?'PalcG_049'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_049'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  050  ----------------------------
-dm_scene_palette[?'PalcG_050'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_050'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  051  ----------------------------
-dm_scene_palette[?'PalcG_051'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_051'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  052  ----------------------------
-dm_scene_palette[?'PalcG_052'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_052'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  053  ----------------------------
-dm_scene_palette[?'PalcG_053'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_053'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  054  ----------------------------
-dm_scene_palette[?'PalcG_054'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_054'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  055  ----------------------------
-dm_scene_palette[?'PalcG_055'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_055'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  056  ----------------------------
-dm_scene_palette[?'PalcG_056'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_056'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  057  ----------------------------
-dm_scene_palette[?'PalcG_057'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_057'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  058  ----------------------------
-dm_scene_palette[?'PalcG_058'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_058'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  059  ----------------------------
-dm_scene_palette[?'PalcG_059'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_059'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  060  ----------------------------
-dm_scene_palette[?'PalcG_060'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_060'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  061  ----------------------------
-dm_scene_palette[?'PalcG_061'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_061'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  062  ----------------------------
-dm_scene_palette[?'PalcG_062'] = '0D372707'+'0D2C1C0C'+'0D371808'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_062'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  063  ----------------------------
-dm_scene_palette[?'PalcG_063'] = '0D372707'+'0D2C1C0C'+'0D371607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_063'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  064  ----------------------------
-dm_scene_palette[?'PalcG_064'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_064'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  065  ----------------------------
-dm_scene_palette[?'PalcG_065'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_065'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-dm_scene_palette[?'PalcG_067'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_067'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  068  ----------------------------
-dm_scene_palette[?'PalcG_068'] = '0D372707'+'0D3C1C0C'+'0D071708'+'0D261608'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
 //  ----------------------------  069  ----------------------------
-dm_scene_palette[?'PalcG_069'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_069'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  070  ----------------------------
-dm_scene_palette[?'PalcG_070'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D302716'+'0D301607'+'0D302102'+'0D301303';
-
+_dm[?'PalcG_070'+dk_BGR] = build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  071  ----------------------------
-
 //  ----------------------------  072  ----------------------------
-
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-
 //  ----------------------------  088  ----------------------------
-
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-
 //  ----------------------------  097  ----------------------------
-
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-
 //  ----------------------------  101  ----------------------------
-
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
-
 
 
 
@@ -6226,532 +3441,273 @@ dm_scene_palette[?'PalcG_070'] = '0D372707'+'0D2C1C0C'+'0D301607'+'0D301000'+'0D
 
 
 // ***********************  _PalcH_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'PalcH_000'] = '0D262D0D'+'0D310C0D'+'0D372706'+'0D203D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'PalcH_000'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'PalcH_001'] = '0D262D0D'+'0D172D0D'+'0D261608'+'0D372707'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'PalcH_001'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-
 //  ----------------------------  003  ----------------------------
-dm_scene_palette[?'PalcH_003'] = '0D262D0D'+'0D310C0D'+'0D372706'+'0D203D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'PalcH_003'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'PalcH_004'] = '0D262D0D'+'0D310C0D'+'0D372706'+'0D203D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'PalcH_004'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'PalcH_005'] = '0D262D0D'+'0D172D0D'+'0D372707'+'0D372707'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'PalcH_005'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'PalcH_006'] = '0D262D0D'+'0D172D0D'+'0D372707'+'0D203D2D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'PalcH_006'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'PalcH_007'] = '0D262D0D'+'0D172D0D'+'0D261608'+'0D372707'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'PalcH_007'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-
 //  ----------------------------  009  ----------------------------
-
 //  ----------------------------  010  ----------------------------
-
 //  ----------------------------  011  ----------------------------
-
 //  ----------------------------  012  ----------------------------
-
 //  ----------------------------  013  ----------------------------
-
 //  ----------------------------  014  ----------------------------
-
 //  ----------------------------  015  ----------------------------
-
 //  ----------------------------  016  ----------------------------
-
 //  ----------------------------  017  ----------------------------
-
 //  ----------------------------  018  ----------------------------
-
 //  ----------------------------  019  ----------------------------
-
 //  ----------------------------  020  ----------------------------
-
 //  ----------------------------  021  ----------------------------
-
 //  ----------------------------  022  ----------------------------
-
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-
 //  ----------------------------  025  ----------------------------
-
 //  ----------------------------  026  ----------------------------
-
 //  ----------------------------  027  ----------------------------
-
 //  ----------------------------  028  ----------------------------
-
 //  ----------------------------  029  ----------------------------
-
 //  ----------------------------  030  ----------------------------
-
 //  ----------------------------  031  ----------------------------
-
 //  ----------------------------  032  ----------------------------
-dm_scene_palette[?'PalcH_032'] = '0D262D0D'+'0D172D0D'+'0D372707'+'0D203D2D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'PalcH_032'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  033  ----------------------------
-dm_scene_palette[?'PalcH_033'] = '0D262D0D'+'0D172D0D'+'0D372707'+'0D203D2D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'PalcH_033'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-
 //  ----------------------------  041  ----------------------------
-
 //  ----------------------------  042  ----------------------------
-
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-
 //  ----------------------------  061  ----------------------------
-
 //  ----------------------------  062  ----------------------------
-
 //  ----------------------------  063  ----------------------------
-
 //  ----------------------------  064  ----------------------------
-dm_scene_palette[?'PalcH_064'] = '0D262D0D'+'0D150608'+'0D372706'+'0D203D2D'+'0D302716'+'0D201607'+'0D302C0C'+'0D301303';
-
+_dm[?'PalcH_064'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('5800E4','0000A4','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','0000A4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  065  ----------------------------
-
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-
 //  ----------------------------  071  ----------------------------
-
 //  ----------------------------  072  ----------------------------
-
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-
 //  ----------------------------  088  ----------------------------
-
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-
 //  ----------------------------  097  ----------------------------
-
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-
 //  ----------------------------  101  ----------------------------
-
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
-dm_scene_palette[?'PalcH_255'] = '0D262D0D'+'0D172D0D'+'0D372707'+'0D0D0715'+'0D302716'+'0D301607'+'0D302C0C'+'0D30130D';
-
+_dm[?'PalcH_255'+dk_BGR] = build_pal('6074FC','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('0C4CC8','3E3E3E','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','3898FC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','00087C','5800E4','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 
 
 
@@ -6761,585 +3717,326 @@ dm_scene_palette[?'PalcH_255'] = '0D262D0D'+'0D172D0D'+'0D372707'+'0D0D0715'+'0D
 
 
 // ***********************  _TownA_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'TownA_000'] = '0D30290D'+'0D27170D'+'0D291909'+'0D30100D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_000'+dk_BGR] = build_pal('FCFCFC','10D080','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'TownA_001'] = '0D30290D'+'0D27170D'+'0D291909'+'0D30100D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_001'+dk_BGR] = build_pal('FCFCFC','10D080','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('10D080','009400','004400','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'TownA_002'] = '0D30280D'+'0D28180D'+'0D30260D'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_002'+dk_BGR] = build_pal('FCFCFC','3CBCF0','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','6074FC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-
 //  ----------------------------  004  ----------------------------
-dm_scene_palette[?'TownA_004'] = '0D372A0D'+'0D37180D'+'0D27080D'+'0D301202'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_004'+dk_BGR] = build_pal('A8D8FC','48DC4C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  005  ----------------------------
-dm_scene_palette[?'TownA_005'] = '0D372A0D'+'0D301C0D'+'0D301A0D'+'0D301202'+'0D302716'+'0D36160D'+'0D302C0D'+'0D36130D';
-
+_dm[?'TownA_005'+dk_BGR] = build_pal('A8D8FC','48DC4C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','888000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','00A800','010101','010101','FCFCFC','D8E800','EC7000','010101')  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  006  ----------------------------
-dm_scene_palette[?'TownA_006'] = '0D372A0D'+'0D301C0D'+'0D301A0D'+'0D301202'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_006'+dk_BGR] = build_pal('A8D8FC','48DC4C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','888000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','00A800','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  007  ----------------------------
-dm_scene_palette[?'TownA_007'] = '0D223037'+'0D30270D'+'0D20280D'+'0D30100D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_007'+dk_BGR] = build_pal('FC945C','FCFCFC','A8D8FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  008  ----------------------------
-
 //  ----------------------------  009  ----------------------------
-dm_scene_palette[?'TownA_009'] = '0D223037'+'0D30270D'+'0D20280D'+'0D30100D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_009'+dk_BGR] = build_pal('FC945C','FCFCFC','A8D8FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  010  ----------------------------
-dm_scene_palette[?'TownA_010'] = '0D39290A'+'0D27170D'+'0D302C11'+'0D30100D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_010'+dk_BGR] = build_pal('A0FCE0','10D080','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','EC7000','010101','FCFCFC','D8E800','EC7000','010101')  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  011  ----------------------------
-dm_scene_palette[?'TownA_011'] = '0D39290A'+'0D27170D'+'0D302C11'+'0D30100D'+'0D302716'+'0D36160D'+'0D30120D'+'0D36130D';
-
+_dm[?'TownA_011'+dk_BGR] = build_pal('A0FCE0','10D080','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','EC7000','010101','FCFCFC','D8E800','EC7000','010101')  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  012  ----------------------------
-dm_scene_palette[?'TownA_012'] = '0D39290A'+'0D27170D'+'0D302C11'+'0D30100D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_012'+dk_BGR] = build_pal('A0FCE0','10D080','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','D8E800','EC7000','010101','FCFCFC','D8E800','EC7000','010101')  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  013  ----------------------------
-dm_scene_palette[?'TownA_013'] = '0D302708'+'0D39190D'+'0D20170D'+'0D00200D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_013'+dk_BGR] = build_pal('FCFCFC','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','009400','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','F1F2F1','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  014  ----------------------------
-dm_scene_palette[?'TownA_014'] = '0D302708'+'0D39190D'+'0D20170D'+'0D00200D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_014'+dk_BGR] = build_pal('FCFCFC','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','009400','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','F1F2F1','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  015  ----------------------------
-dm_scene_palette[?'TownA_015'] = '0D302708'+'0D39190D'+'0D20170D'+'0D00200D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_015'+dk_BGR] = build_pal('FCFCFC','3898FC','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A0FCE0','009400','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','F1F2F1','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  016  ----------------------------
-dm_scene_palette[?'TownA_016'] = '0D291B0D'+'0D1A0A0D'+'0D00080D'+'0D203D0D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_016'+dk_BGR] = build_pal('10D080','2A7B00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00A800','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  017  ----------------------------
-dm_scene_palette[?'TownA_017'] = '0D291B0D'+'0D1A0A0D'+'0D00080D'+'0D203D0D'+'0D302716'+'0D36160D'+'0D302C0D'+'0D36130D';
-
+_dm[?'TownA_017'+dk_BGR] = build_pal('10D080','2A7B00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00A800','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','002C40','010101','010101','FCFCFC','D8E800','EC7000','010101')  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  018  ----------------------------
-
 //  ----------------------------  019  ----------------------------
-dm_scene_palette[?'TownA_019'] = '0D01170D'+'0D10000D'+'0D30100D'+'0D30060D'+'0D302716'+'0D371607'+'0D302C11'+'0D36130D';
-
+_dm[?'TownA_019'+dk_BGR] = build_pal('8C1824','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  020  ----------------------------
-
 //  ----------------------------  021  ----------------------------
-dm_scene_palette[?'TownA_021'] = '0D01170D'+'0D10000D'+'0D30100D'+'0D30060D'+'0D302716'+'0D371607'+'0D302C11'+'0D36130D';
-
+_dm[?'TownA_021'+dk_BGR] = build_pal('8C1824','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  022  ----------------------------
-
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-dm_scene_palette[?'TownA_024'] = '0D30280D'+'0D28180D'+'0D3D0C0D'+'0D30102D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_024'+dk_BGR] = build_pal('FCFCFC','3CBCF0','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A7A9A7','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  025  ----------------------------
-dm_scene_palette[?'TownA_025'] = '0D39290A'+'0D10170D'+'0D32000D'+'0D30100D'+'0D302716'+'0D36160D'+'0D302C0D'+'0D36130D';
-
+_dm[?'TownA_025'+dk_BGR] = build_pal('A0FCE0','10D080','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  026  ----------------------------
-dm_scene_palette[?'TownA_026'] = '0D291B0D'+'0D1A0A0D'+'0D00080D'+'0D203D0D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_026'+dk_BGR] = build_pal('10D080','2A7B00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00A800','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  027  ----------------------------
-dm_scene_palette[?'TownA_027'] = '0D291B0D'+'0D1A0A0D'+'0D00080D'+'0D203D0D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_027'+dk_BGR] = build_pal('10D080','2A7B00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00A800','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  028  ----------------------------
-dm_scene_palette[?'TownA_028'] = '0D291B0D'+'0D1A0A0D'+'0D00080D'+'0D203D0D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_028'+dk_BGR] = build_pal('10D080','2A7B00','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('00A800','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('747474','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  029  ----------------------------
-dm_scene_palette[?'TownA_029'] = '0D30280D'+'0D28180D'+'0D30260D'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_029'+dk_BGR] = build_pal('FCFCFC','3CBCF0','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3CBCF0','007088','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','6074FC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  030  ----------------------------
-dm_scene_palette[?'TownA_030'] = '0D223037'+'0D30270D'+'0D20280D'+'0D30100D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_030'+dk_BGR] = build_pal('FC945C','FCFCFC','A8D8FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3898FC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','3CBCF0','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  031  ----------------------------
-dm_scene_palette[?'TownA_031'] = '0D01170D'+'0D10000D'+'0D30100D'+'0D30060D'+'0D302716'+'0D371607'+'0D302C11'+'0D36130D';
-
+_dm[?'TownA_031'+dk_BGR] = build_pal('8C1824','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('BCBCBC','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  032  ----------------------------
-
 //  ----------------------------  033  ----------------------------
-
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-
 //  ----------------------------  041  ----------------------------
-
 //  ----------------------------  042  ----------------------------
-
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-
 //  ----------------------------  061  ----------------------------
-
 //  ----------------------------  062  ----------------------------
-
 //  ----------------------------  063  ----------------------------
-dm_scene_palette[?'TownA_063'] = '0D26160D'+'0D302226'+'0D302917'+'0D36060D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_063'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FC945C','6074FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  064  ----------------------------
-dm_scene_palette[?'TownA_064'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_064'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  065  ----------------------------
-dm_scene_palette[?'TownA_065'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_065'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  066  ----------------------------
-dm_scene_palette[?'TownA_066'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_066'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  067  ----------------------------
-dm_scene_palette[?'TownA_067'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_067'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  068  ----------------------------
-dm_scene_palette[?'TownA_068'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_068'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  069  ----------------------------
-dm_scene_palette[?'TownA_069'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_069'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  070  ----------------------------
-dm_scene_palette[?'TownA_070'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_070'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  071  ----------------------------
-dm_scene_palette[?'TownA_071'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_071'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  072  ----------------------------
-dm_scene_palette[?'TownA_072'] = '0D26160D'+'0D302226'+'0D302917'+'0D36060D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_072'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FC945C','6074FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-dm_scene_palette[?'TownA_074'] = '0D26160D'+'0D30160D'+'0D302917'+'0D371101'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_074'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','EC7000','8C1824','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  075  ----------------------------
-dm_scene_palette[?'TownA_075'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D361607'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_075'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-dm_scene_palette[?'TownA_077'] = '0D26160D'+'0D301621'+'0D302917'+'0D301007'+'0D302716'+'0D301607'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_077'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  078  ----------------------------
-
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-dm_scene_palette[?'TownA_083'] = '0D26160D'+'0D302126'+'0D38182D'+'0D261608'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_083'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','6074FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','007088','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  084  ----------------------------
-dm_scene_palette[?'TownA_084'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_084'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  085  ----------------------------
-dm_scene_palette[?'TownA_085'] = '0D26160D'+'0D300621'+'0D302917'+'0D271808'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_085'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0000A4','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  086  ----------------------------
-dm_scene_palette[?'TownA_086'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_086'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  087  ----------------------------
-dm_scene_palette[?'TownA_087'] = '0D26160D'+'0D301621'+'0D302917'+'0D301007'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_087'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  088  ----------------------------
-dm_scene_palette[?'TownA_088'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_088'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  089  ----------------------------
-dm_scene_palette[?'TownA_089'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D301607'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_089'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-dm_scene_palette[?'TownA_092'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D301607'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_092'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-dm_scene_palette[?'TownA_095'] = '0D010D0D'+'0D22080D'+'0D02112D'+'0D0D0C0D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_095'+dk_BGR] = build_pal('8C1824','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FC945C','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A80000','EC7000','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','5C3C18','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  096  ----------------------------
-dm_scene_palette[?'TownA_096'] = '0D2C1C0C'+'0D301621'+'0D261607'+'0D30100D'+'0D302716'+'0D361606'+'0D362C0C'+'0D361003';
-
+_dm[?'TownA_096'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  097  ----------------------------
-dm_scene_palette[?'TownA_097'] = '0D2C1C0C'+'0D301621'+'0D261607'+'0D271808'+'0D302716'+'0D361606'+'0D362C0C'+'0D361003';
-
+_dm[?'TownA_097'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','007088','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  098  ----------------------------
-
 //  ----------------------------  099  ----------------------------
-dm_scene_palette[?'TownA_099'] = '0D2C1C0C'+'0D301621'+'0D311202'+'0D30100D'+'0D302716'+'0D361606'+'0D362C0C'+'0D361003';
-
+_dm[?'TownA_099'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  100  ----------------------------
-dm_scene_palette[?'TownA_100'] = '0D2C1C0C'+'0D301621'+'0D261607'+'0D30100D'+'0D302716'+'0D361606'+'0D362C0C'+'0D361003';
-
+_dm[?'TownA_100'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  101  ----------------------------
-dm_scene_palette[?'TownA_101'] = '0D200008'+'0D302126'+'0D38182D'+'0D26160D'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_101'+dk_BGR] = build_pal('F1F2F1','747474','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','FCBC3C','6074FC','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('7DDAD4','007088','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-dm_scene_palette[?'TownA_110'] = '0D2C1C0C'+'0D1C0C0D'+'0D28080D'+'0D20102D'+'0D302716'+'0D361608'+'0D361208'+'0D301808';
-
+_dm[?'TownA_110'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101','3CBCF0','002C40', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','010101','F1F2F1','BCBCBC','3E3E3E', C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','010101','F1F2F1','007088','002C40', C_CYN0_);
 //  ----------------------------  111  ----------------------------
-dm_scene_palette[?'TownA_111'] = '0D2C1C0C'+'0D371B08'+'0D11010D'+'0D27160D'+'0D302716'+'0D301607'+'0D302C0C'+'0D301303';
-
+_dm[?'TownA_111'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('A8D8FC','2A7B00','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC7000','8C1824','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-dm_scene_palette[?'TownA_117'] = '0D2C1C0C'+'0D361607'+'0D320008'+'0D30100D'+'0D302716'+'0D361606'+'0D362C0C'+'0D361003';
-
+_dm[?'TownA_117'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCD4C4','747474','002C40','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  118  ----------------------------
-dm_scene_palette[?'TownA_118'] = '0D26160D'+'0D301621'+'0D302917'+'0D301000'+'0D302716'+'0D36160D'+'0D36120D'+'0D36130D';
-
+_dm[?'TownA_118'+dk_BGR] = build_pal('6074FC','0028D8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-dm_scene_palette[?'TownA_121'] = '0D2C1C0C'+'0D1C0C0D'+'0D28080D'+'0D20102D'+'0D302716'+'0D361608'+'0D361208'+'0D301808';
-
+_dm[?'TownA_121'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101','3CBCF0','002C40', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','010101','F1F2F1','BCBCBC','3E3E3E', C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','010101','F1F2F1','007088','002C40', C_CYN0_);
 //  ----------------------------  122  ----------------------------
-dm_scene_palette[?'TownA_122'] = '0D2C1C0C'+'0D1C0C0D'+'0D28080D'+'0D20102D'+'0D302716'+'0D361608'+'0D361208'+'0D301808';
-
+_dm[?'TownA_122'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101','3CBCF0','002C40', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','010101','F1F2F1','BCBCBC','3E3E3E', C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','010101','F1F2F1','007088','002C40', C_CYN0_);
 //  ----------------------------  123  ----------------------------
-dm_scene_palette[?'TownA_123'] = '0D2C1C0C'+'0D1C0C0D'+'0D28080D'+'0D20102D'+'0D302716'+'0D361608'+'0D361208'+'0D301808';
-
+_dm[?'TownA_123'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101','3CBCF0','002C40', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','010101','F1F2F1','BCBCBC','3E3E3E', C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','010101','F1F2F1','007088','002C40', C_CYN0_);
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-dm_scene_palette[?'TownA_129'] = '0D2C1C0C'+'0D1C0C0D'+'0D31020D'+'0D37080D'+'0D302716'+'0D361608'+'0D361208'+'0D301808';
-
+_dm[?'TownA_129'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('A8D8FC','002C40','010101','010101','A8D8FC','002C40', C_BLK0_, C_CYN0_)  +  build_pal('FCE4A8','A80000','010101','010101','FCE4A8','A80000', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','010101','F1F2F1','007088','002C40', C_CYN0_);
 //  ----------------------------  130  ----------------------------
-dm_scene_palette[?'TownA_130'] = '0D2C1C0C'+'0D1C0C0D'+'0D28080D'+'0D20102D'+'0D302716'+'0D361608'+'0D361208'+'0D301808';
-
+_dm[?'TownA_130'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101','D8E800','888000','5C3C18', C_CYN0_)  +  build_pal('3CBCF0','002C40','010101','010101','3CBCF0','002C40', C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','BCBCBC','3E3E3E','010101','F1F2F1','BCBCBC','3E3E3E', C_CYN0_)  +  build_pal('F1F2F1','007088','002C40','010101','F1F2F1','007088','002C40', C_CYN0_);
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-dm_scene_palette[?'TownA_252'] = '0D1B080D'+'0D27080D'+'0D0D0D0D'+'0D0D060D'+'0D302716'+'0D301607'+'0D361208'+'0D202C0D';
-
+_dm[?'TownA_252'+dk_BGR] = build_pal('2A7B00','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('3898FC','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','010101','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','0000A4','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
-dm_scene_palette[?'TownA_255'] = '0D37170D'+'0D301202'+'0D20190A'+'0D200827'+'0D302716'+'0D301606'+'0D361308'+'0D070D0D';
-
+_dm[?'TownA_255'+dk_BGR] = build_pal('A8D8FC','0C4CC8','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','EC3820','A80000','010101','FCFCFC','A80000','EC3820', C_CYN0_)  +  build_pal('F1F2F1','009400','005000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','002C40','3898FC','010101','00087C','010101','010101', C_CYN0_);
 
 
 
@@ -7349,530 +4046,278 @@ dm_scene_palette[?'TownA_255'] = '0D37170D'+'0D301202'+'0D20190A'+'0D200827'+'0D
 
 
 // ***********************  _TownB_  ***********************
-// -------------------------------------------------------------
-
-
 //  ----------------------------  000  ----------------------------
-dm_scene_palette[?'TownB_000'] = '0D37172D'+'0D0D070D'+'0D18080D'+'0D203D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'TownB_000'+dk_BGR] = build_pal('A8D8FC','0C4CC8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  001  ----------------------------
-dm_scene_palette[?'TownB_001'] = '0D37172D'+'0D0D070D'+'0D18080D'+'0D203D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'TownB_001'+dk_BGR] = build_pal('A8D8FC','0C4CC8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  002  ----------------------------
-dm_scene_palette[?'TownB_002'] = '0D37172D'+'0D0D070D'+'0D18080D'+'0D203D0D'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'TownB_002'+dk_BGR] = build_pal('A8D8FC','0C4CC8','3E3E3E','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('010101','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('007088','002C40','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('F1F2F1','A7A9A7','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  003  ----------------------------
-
 //  ----------------------------  004  ----------------------------
-
 //  ----------------------------  005  ----------------------------
-
 //  ----------------------------  006  ----------------------------
-
 //  ----------------------------  007  ----------------------------
-
 //  ----------------------------  008  ----------------------------
-
 //  ----------------------------  009  ----------------------------
-
 //  ----------------------------  010  ----------------------------
-
 //  ----------------------------  011  ----------------------------
-
 //  ----------------------------  012  ----------------------------
-
 //  ----------------------------  013  ----------------------------
-
 //  ----------------------------  014  ----------------------------
-
 //  ----------------------------  015  ----------------------------
-
 //  ----------------------------  016  ----------------------------
-
 //  ----------------------------  017  ----------------------------
-
 //  ----------------------------  018  ----------------------------
-
 //  ----------------------------  019  ----------------------------
-
 //  ----------------------------  020  ----------------------------
-
 //  ----------------------------  021  ----------------------------
-
 //  ----------------------------  022  ----------------------------
-
 //  ----------------------------  023  ----------------------------
-
 //  ----------------------------  024  ----------------------------
-
 //  ----------------------------  025  ----------------------------
-
 //  ----------------------------  026  ----------------------------
-
 //  ----------------------------  027  ----------------------------
-
 //  ----------------------------  028  ----------------------------
-
 //  ----------------------------  029  ----------------------------
-
 //  ----------------------------  030  ----------------------------
-
 //  ----------------------------  031  ----------------------------
-
 //  ----------------------------  032  ----------------------------
-
 //  ----------------------------  033  ----------------------------
-
 //  ----------------------------  034  ----------------------------
-
 //  ----------------------------  035  ----------------------------
-
 //  ----------------------------  036  ----------------------------
-
 //  ----------------------------  037  ----------------------------
-
 //  ----------------------------  038  ----------------------------
-
 //  ----------------------------  039  ----------------------------
-
 //  ----------------------------  040  ----------------------------
-
 //  ----------------------------  041  ----------------------------
-
 //  ----------------------------  042  ----------------------------
-
 //  ----------------------------  043  ----------------------------
-
 //  ----------------------------  044  ----------------------------
-
 //  ----------------------------  045  ----------------------------
-
 //  ----------------------------  046  ----------------------------
-
 //  ----------------------------  047  ----------------------------
-
 //  ----------------------------  048  ----------------------------
-
 //  ----------------------------  049  ----------------------------
-
 //  ----------------------------  050  ----------------------------
-
 //  ----------------------------  051  ----------------------------
-
 //  ----------------------------  052  ----------------------------
-
 //  ----------------------------  053  ----------------------------
-
 //  ----------------------------  054  ----------------------------
-
 //  ----------------------------  055  ----------------------------
-
 //  ----------------------------  056  ----------------------------
-
 //  ----------------------------  057  ----------------------------
-
 //  ----------------------------  058  ----------------------------
-
 //  ----------------------------  059  ----------------------------
-
 //  ----------------------------  060  ----------------------------
-dm_scene_palette[?'TownB_060'] = '0D17070D'+'0D30160C'+'0D302917'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'TownB_060'+dk_BGR] = build_pal('0C4CC8','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  061  ----------------------------
-dm_scene_palette[?'TownB_061'] = '0D17070D'+'0D30160C'+'0D302917'+'0D362D16'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'TownB_061'+dk_BGR] = build_pal('0C4CC8','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('B0BCFC','3E3E3E','0028D8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  062  ----------------------------
-dm_scene_palette[?'TownB_062'] = '0D17070D'+'0D30160C'+'0D302917'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'TownB_062'+dk_BGR] = build_pal('0C4CC8','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  063  ----------------------------
-dm_scene_palette[?'TownB_063'] = '0D17070D'+'0D30160C'+'0D302917'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'TownB_063'+dk_BGR] = build_pal('0C4CC8','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  064  ----------------------------
-
 //  ----------------------------  065  ----------------------------
-
 //  ----------------------------  066  ----------------------------
-
 //  ----------------------------  067  ----------------------------
-
 //  ----------------------------  068  ----------------------------
-
 //  ----------------------------  069  ----------------------------
-
 //  ----------------------------  070  ----------------------------
-
 //  ----------------------------  071  ----------------------------
-
 //  ----------------------------  072  ----------------------------
-
 //  ----------------------------  073  ----------------------------
-
 //  ----------------------------  074  ----------------------------
-
 //  ----------------------------  075  ----------------------------
-
 //  ----------------------------  076  ----------------------------
-
 //  ----------------------------  077  ----------------------------
-
 //  ----------------------------  078  ----------------------------
-dm_scene_palette[?'TownB_078'] = '0D17070D'+'0D30160C'+'0D302917'+'0D301000'+'0D302716'+'0D30160D'+'0D302C0D'+'0D30130D';
-
+_dm[?'TownB_078'+dk_BGR] = build_pal('0C4CC8','00087C','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','10D080','0C4CC8','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','747474','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  079  ----------------------------
-
 //  ----------------------------  080  ----------------------------
-
 //  ----------------------------  081  ----------------------------
-
 //  ----------------------------  082  ----------------------------
-
 //  ----------------------------  083  ----------------------------
-
 //  ----------------------------  084  ----------------------------
-
 //  ----------------------------  085  ----------------------------
-
 //  ----------------------------  086  ----------------------------
-
 //  ----------------------------  087  ----------------------------
-
 //  ----------------------------  088  ----------------------------
-
 //  ----------------------------  089  ----------------------------
-
 //  ----------------------------  090  ----------------------------
-
 //  ----------------------------  091  ----------------------------
-
 //  ----------------------------  092  ----------------------------
-
 //  ----------------------------  093  ----------------------------
-
 //  ----------------------------  094  ----------------------------
-
 //  ----------------------------  095  ----------------------------
-
 //  ----------------------------  096  ----------------------------
-dm_scene_palette[?'TownB_096'] = '0D2C1C0C'+'0D301621'+'0D261607'+'0D30100D'+'0D302716'+'0D30160D'+'0D362C0C'+'0D2A130D';
-
+_dm[?'TownB_096'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  097  ----------------------------
-
 //  ----------------------------  098  ----------------------------
-dm_scene_palette[?'TownB_098'] = '0D2C1C0C'+'0D301621'+'0D261607'+'0D30100D'+'0D302716'+'0D361606'+'0D362C0C'+'0D361003';
-
+_dm[?'TownB_098'+dk_BGR] = build_pal('D8E800','888000','5C3C18','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','0028D8','FCBC3C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('6074FC','0028D8','00087C','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','BCBCBC','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
 //  ----------------------------  099  ----------------------------
-
 //  ----------------------------  100  ----------------------------
-
 //  ----------------------------  101  ----------------------------
-
 //  ----------------------------  102  ----------------------------
-
 //  ----------------------------  103  ----------------------------
-
 //  ----------------------------  104  ----------------------------
-
 //  ----------------------------  105  ----------------------------
-
 //  ----------------------------  106  ----------------------------
-
 //  ----------------------------  107  ----------------------------
-
 //  ----------------------------  108  ----------------------------
-
 //  ----------------------------  109  ----------------------------
-
 //  ----------------------------  110  ----------------------------
-
 //  ----------------------------  111  ----------------------------
-
 //  ----------------------------  112  ----------------------------
-
 //  ----------------------------  113  ----------------------------
-
 //  ----------------------------  114  ----------------------------
-
 //  ----------------------------  115  ----------------------------
-
 //  ----------------------------  116  ----------------------------
-
 //  ----------------------------  117  ----------------------------
-
 //  ----------------------------  118  ----------------------------
-
 //  ----------------------------  119  ----------------------------
-
 //  ----------------------------  120  ----------------------------
-
 //  ----------------------------  121  ----------------------------
-
 //  ----------------------------  122  ----------------------------
-
 //  ----------------------------  123  ----------------------------
-
 //  ----------------------------  124  ----------------------------
-
 //  ----------------------------  125  ----------------------------
-
 //  ----------------------------  126  ----------------------------
-
 //  ----------------------------  127  ----------------------------
-
 //  ----------------------------  128  ----------------------------
-
 //  ----------------------------  129  ----------------------------
-
 //  ----------------------------  130  ----------------------------
-
 //  ----------------------------  131  ----------------------------
-
 //  ----------------------------  132  ----------------------------
-
 //  ----------------------------  133  ----------------------------
-
 //  ----------------------------  134  ----------------------------
-
 //  ----------------------------  135  ----------------------------
-
 //  ----------------------------  136  ----------------------------
-
 //  ----------------------------  137  ----------------------------
-
 //  ----------------------------  138  ----------------------------
-
 //  ----------------------------  139  ----------------------------
-
 //  ----------------------------  140  ----------------------------
-
 //  ----------------------------  141  ----------------------------
-
 //  ----------------------------  142  ----------------------------
-
 //  ----------------------------  143  ----------------------------
-
 //  ----------------------------  144  ----------------------------
-
 //  ----------------------------  145  ----------------------------
-
 //  ----------------------------  146  ----------------------------
-
 //  ----------------------------  147  ----------------------------
-
 //  ----------------------------  148  ----------------------------
-
 //  ----------------------------  149  ----------------------------
-
 //  ----------------------------  150  ----------------------------
-
 //  ----------------------------  151  ----------------------------
-
 //  ----------------------------  152  ----------------------------
-
 //  ----------------------------  153  ----------------------------
-
 //  ----------------------------  154  ----------------------------
-
 //  ----------------------------  155  ----------------------------
-
 //  ----------------------------  156  ----------------------------
-
 //  ----------------------------  157  ----------------------------
-
 //  ----------------------------  158  ----------------------------
-
 //  ----------------------------  159  ----------------------------
-
 //  ----------------------------  160  ----------------------------
-
 //  ----------------------------  161  ----------------------------
-
 //  ----------------------------  162  ----------------------------
-
 //  ----------------------------  163  ----------------------------
-
 //  ----------------------------  164  ----------------------------
-
 //  ----------------------------  165  ----------------------------
-
 //  ----------------------------  166  ----------------------------
-
 //  ----------------------------  167  ----------------------------
-
 //  ----------------------------  168  ----------------------------
-
 //  ----------------------------  169  ----------------------------
-
 //  ----------------------------  170  ----------------------------
-
 //  ----------------------------  171  ----------------------------
-
 //  ----------------------------  172  ----------------------------
-
 //  ----------------------------  173  ----------------------------
-
 //  ----------------------------  174  ----------------------------
-
 //  ----------------------------  175  ----------------------------
-
 //  ----------------------------  176  ----------------------------
-
 //  ----------------------------  177  ----------------------------
-
 //  ----------------------------  178  ----------------------------
-
 //  ----------------------------  179  ----------------------------
-
 //  ----------------------------  180  ----------------------------
-
 //  ----------------------------  181  ----------------------------
-
 //  ----------------------------  182  ----------------------------
-
 //  ----------------------------  183  ----------------------------
-
 //  ----------------------------  184  ----------------------------
-
 //  ----------------------------  185  ----------------------------
-
 //  ----------------------------  186  ----------------------------
-
 //  ----------------------------  187  ----------------------------
-
 //  ----------------------------  188  ----------------------------
-
 //  ----------------------------  189  ----------------------------
-
 //  ----------------------------  190  ----------------------------
-
 //  ----------------------------  191  ----------------------------
-
 //  ----------------------------  192  ----------------------------
-
 //  ----------------------------  193  ----------------------------
-
 //  ----------------------------  194  ----------------------------
-
 //  ----------------------------  195  ----------------------------
-
 //  ----------------------------  196  ----------------------------
-
 //  ----------------------------  197  ----------------------------
-
 //  ----------------------------  198  ----------------------------
-
 //  ----------------------------  199  ----------------------------
-
 //  ----------------------------  200  ----------------------------
-
 //  ----------------------------  201  ----------------------------
-
 //  ----------------------------  202  ----------------------------
-
 //  ----------------------------  203  ----------------------------
-
 //  ----------------------------  204  ----------------------------
-
 //  ----------------------------  205  ----------------------------
-
 //  ----------------------------  206  ----------------------------
-
 //  ----------------------------  207  ----------------------------
-
 //  ----------------------------  208  ----------------------------
-
 //  ----------------------------  209  ----------------------------
-
 //  ----------------------------  210  ----------------------------
-
 //  ----------------------------  211  ----------------------------
-
 //  ----------------------------  212  ----------------------------
-
 //  ----------------------------  213  ----------------------------
-
 //  ----------------------------  214  ----------------------------
-
 //  ----------------------------  215  ----------------------------
-
 //  ----------------------------  216  ----------------------------
-
 //  ----------------------------  217  ----------------------------
-
 //  ----------------------------  218  ----------------------------
-
 //  ----------------------------  219  ----------------------------
-
 //  ----------------------------  220  ----------------------------
-
 //  ----------------------------  221  ----------------------------
-
 //  ----------------------------  222  ----------------------------
-
 //  ----------------------------  223  ----------------------------
-
 //  ----------------------------  224  ----------------------------
-
 //  ----------------------------  225  ----------------------------
-
 //  ----------------------------  226  ----------------------------
-
 //  ----------------------------  227  ----------------------------
-
 //  ----------------------------  228  ----------------------------
-
 //  ----------------------------  229  ----------------------------
-
 //  ----------------------------  230  ----------------------------
-
 //  ----------------------------  231  ----------------------------
-
 //  ----------------------------  232  ----------------------------
-
 //  ----------------------------  233  ----------------------------
-
 //  ----------------------------  234  ----------------------------
-
 //  ----------------------------  235  ----------------------------
-
 //  ----------------------------  236  ----------------------------
-
 //  ----------------------------  237  ----------------------------
-
 //  ----------------------------  238  ----------------------------
-
 //  ----------------------------  239  ----------------------------
-
 //  ----------------------------  240  ----------------------------
-
 //  ----------------------------  241  ----------------------------
-
 //  ----------------------------  242  ----------------------------
-
 //  ----------------------------  243  ----------------------------
-
 //  ----------------------------  244  ----------------------------
-
 //  ----------------------------  245  ----------------------------
-
 //  ----------------------------  246  ----------------------------
-
 //  ----------------------------  247  ----------------------------
-
 //  ----------------------------  248  ----------------------------
-
 //  ----------------------------  249  ----------------------------
-
 //  ----------------------------  250  ----------------------------
-
 //  ----------------------------  251  ----------------------------
-
 //  ----------------------------  252  ----------------------------
-
 //  ----------------------------  253  ----------------------------
-
 //  ----------------------------  254  ----------------------------
-
 //  ----------------------------  255  ----------------------------
+
+
+
+
+ds_map_copy(dm_scene_palette, _dm);
+ds_map_destroy(_dm); _dm=undefined;
 
 
 

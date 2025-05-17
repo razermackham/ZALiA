@@ -26,15 +26,18 @@ hp = HP;
 timer = 4;
 
 
-Crystal_x  = x+Crystal_xoff;
-Crystal_y  = y+Crystal_yoff;
-Crystal_Y1 = GROUND_Y-Slime_H_;
+Crystal_x  = x + Crystal_xoff;
+Crystal_y  = y + Crystal_yoff;
+// yoff from skull center y when attached to skull forehead
+Crystal_YOFF1 = -5;
+Crystal_Y1 = GROUND_Y - Slime_H_ + Crystal_YOFF1; // skull forhead
+//Crystal_Y1 = GROUND_Y-Slime_H_;
 
 
 
 // Energy Ball projectile
-EnergyBall_PI = PI_BGR_4;
-var _PAL = p.CI_BLK1_+p.CI_WHT1_+p.CI_ORG2_+p.CI_ORG1_; // "30"+"27"+"37"
+EnergyBall_PI = global.PI_BGR4;
+var _PAL = build_pal(p.C_WHT1,p.C_ORG2,p.C_ORG1,p.C_BLK1,-2,-2,-2,-2);
 var _LEN = string_length(_PAL);
 var _POS = get_pal_pos(EnergyBall_PI+1)-_LEN;
 change_pal(strReplaceAt(p.pal_rm_new, _POS,_LEN,_PAL));

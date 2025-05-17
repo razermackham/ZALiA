@@ -260,6 +260,16 @@ mus1          = 0;
 
 
 
+COLOR0_ = color_str(p.C_GRY4);
+COLOR1_ = color_str(p.C_BLK1);
+COLOR2_ = color_str(p.C_VLT2); // Violet/Blue. Town sky
+COLOR3_ = color_str(p.C_BLU2); // Blue.      Field encounter sky
+COLOR4_ = color_str(p.C_PUR3); // Purple.    Cemetary sky
+COLOR5_ = color_str(p.C_BLU4); // Dark blue. Old Kasuto sky
+COLOR6_ = color_str(p.C_MGN3);
+COLOR7_ = color_str(p.C_BLU3);
+//                              //
+/*
 COLOR0  = $2D;       // '2D' Dark Grey
 COLOR0_ = hex_str(COLOR0);
 //                              //
@@ -286,6 +296,7 @@ COLOR7_ = hex_str(COLOR7);
 //                              //
 color0  = COLOR0;
 color1  = COLOR1;
+*/
 
 
 
@@ -316,10 +327,16 @@ dungeon_map_tile_count = 0;
 
 MAP_TSRC_BLANK = $FF;
 // Single page rms
+MAP_TSRC_A0  = $30;               //          0: 0 exits,     1: 1 exit RGT,  2: 1 exit BTM
+MAP_TSRC_A1  = MAP_TSRC_A0 + $04; // 2 exits: 0: RGT-LFT,     1: BTM-TOP,     2: RGT-BTM
+MAP_TSRC_A2  = MAP_TSRC_A1 + $04; // 3 exits: 0: RGT-LFT-BTM, 1: RGT-BTM-T0P
+MAP_TSRC_A3  = MAP_TSRC_A2 + $04; // 4 exits: 0: 4 exits
+/*
 MAP_TSRC_A0  = $30;               //          0: 0 exits,     1: 4 exits,     2: 2 exits hor, 3: 2 exits ver
 MAP_TSRC_A1  = MAP_TSRC_A0 + $04; // 1 exits: 0: RGT,         1: LFT,         2: BTM,         3: TOP
 MAP_TSRC_A2  = MAP_TSRC_A1 + $04; // 2 exits: 0: RGT-BTM,     1: RGT-T0P,     2: LFT-BTM,     3: LFT-TOP
 MAP_TSRC_A3  = MAP_TSRC_A2 + $04; // 3 exits: 0: LFT-BTM-TOP, 1: RGT-BTM-TOP, 2: RGT-LFT-TOP, 3: RGT-LFT-BTM
+*/
 //                                // 
 // Hallway-Horizontal-End-RGT     // 
 MAP_TSRC_B0  = MAP_TSRC_A0 + $10; //          0: 0 exits
@@ -582,15 +599,15 @@ cont_piece_count_mp = cont_piece_cnt_mp();
 
 // --------------------------------------------------------------------------------------------
 // PI: Palette Index
-PIa = PI_MOB_ORG; // 7.  orange
-PIb = PI_MOB_RED; // 8.  red
-PIc = PI_MOB_BLU; // 9.  blue/purple
-PId = PI_MOB_PUR; // 10. purple/?
-PIe = PI_BGR_1; // 2.  
-PIf = PI_BGR_2; // 3.  
-PIg = PI_BGR_3; // 4.  
-PIh = PI_BGR_4; // 5.  
-Sign_PI = PI_BGR_3;
+PIa = global.PI_MOB_ORG; // 7.  orange
+PIb = global.PI_MOB_RED; // 8.  red
+PIc = global.PI_MOB_BLU; // 9.  blue/purple
+PId = global.PI_MOB_PUR; // 10. purple/?
+PIe = global.PI_BGR1; // 2.  
+PIf = global.PI_BGR2; // 3.  
+PIg = global.PI_BGR3; // 4.  
+PIh = global.PI_BGR4; // 5.  
+Sign_PI = global.PI_BGR3;
 
 
 
@@ -1247,8 +1264,8 @@ RoomData_Create_2a();
 // --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
 // Give FileSelect & ContinueSave scenes a bg color
-g.dm_rm[?Area_FileS+"00"+STR_Background_color] = p.CI_BLK1;
-g.dm_rm[?Area_ContS+"00"+STR_Background_color] = p.CI_BLK1;
+g.dm_rm[?Area_FileS+"00"+STR_Background_color] = p.C_BLK1;
+g.dm_rm[?Area_ContS+"00"+STR_Background_color] = p.C_BLK1;
 
 // TITLE SCREEN
 rm_name = RM_NAME_TITLSCR;

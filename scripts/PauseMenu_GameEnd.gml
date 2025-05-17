@@ -1,6 +1,15 @@
 // PauseMenu_GameEnd()
 
 
+if (variable_instance_exists(id,"MenuFrame_srf_SPELL") && surface_exists(MenuFrame_srf_SPELL)) surface_free(MenuFrame_srf_SPELL);
+if (variable_instance_exists(id,"MenuFrame_srf_ITEM")  && surface_exists(MenuFrame_srf_ITEM))  surface_free(MenuFrame_srf_ITEM);
+if (variable_instance_exists(id,"MenuFrame_srf_MAP")   && surface_exists(MenuFrame_srf_MAP))   surface_free(MenuFrame_srf_MAP);
+if (variable_instance_exists(id,"MapTears_srf")        && surface_exists(MapTears_srf))        surface_free(MapTears_srf);
+if (variable_instance_exists(id,"MenuMap_srf")         && surface_exists(MenuMap_srf))         surface_free(MenuMap_srf);
+
+
+
+
 /*
 var _exists = false;
 
@@ -40,6 +49,19 @@ var _exists = false;
 
 
 
+    _exists=variable_instance_exists(id,"dl_spell_str");
+if (_exists) _exists = !is_undefined(    dl_spell_str);
+if (_exists) _exists = ds_exists(        dl_spell_str,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_spell_str);
+if (_exists)                             dl_spell_str=undefined;
+
+    _exists=variable_instance_exists(id,"dl_map_anim_data");
+if (_exists) _exists = !is_undefined(    dl_map_anim_data);
+if (_exists) _exists = ds_exists(        dl_map_anim_data,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_map_anim_data);
+if (_exists)                             dl_map_anim_data=undefined;
+
+
 
 
     _exists=variable_instance_exists(id,"dm_terrain");
@@ -58,6 +80,24 @@ if (_exists)                                 dm_DungeonMap = undefined;
 
 
 
+
+    _exists=variable_instance_exists(id,"dg_win_tdata_spl");
+if (_exists) _exists = !is_undefined(    dg_win_tdata_spl);
+if (_exists) _exists = ds_exists(        dg_win_tdata_spl,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_win_tdata_spl);
+if (_exists)                             dg_win_tdata_spl=undefined;
+
+    _exists=variable_instance_exists(id,"dg_win_tdata_itm");
+if (_exists) _exists = !is_undefined(    dg_win_tdata_itm);
+if (_exists) _exists = ds_exists(        dg_win_tdata_itm,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_win_tdata_itm);
+if (_exists)                             dg_win_tdata_itm=undefined;
+
+    _exists=variable_instance_exists(id,"dg_win_tdata_map");
+if (_exists) _exists = !is_undefined(    dg_win_tdata_map);
+if (_exists) _exists = ds_exists(        dg_win_tdata_map,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_win_tdata_map);
+if (_exists)                             dg_win_tdata_map=undefined;
 
              _exists = variable_instance_exists(id,  "dg_map_edge");
 if (_exists) _exists =               !is_undefined(   dg_map_edge);
@@ -182,17 +222,5 @@ if (_exists)           ds_grid_destroy(  dg_terrain_draw);
 if (_exists)                             dg_terrain_draw=undefined;
 
 
-
-
-
-ar_spell_str = 0
-
-// sprData = 0;
-
-ar_map_anim_data = 0;
-
-ar_win_tdata_spl = 0;
-ar_win_tdata_itm = 0;
-ar_win_tdata_map = 0;
 
 

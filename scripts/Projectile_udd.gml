@@ -1,4 +1,4 @@
-
+/// Projectile_udd()
 
 
 GO_udp_1(); // drawX=x; drawY=y; xScale=facingDir;
@@ -20,7 +20,7 @@ else
     if(!(g.counter1&$3) 
     && !is_ancestor(object_index, RisingBubble) )
     {
-        palidx_base = PI_BGR_2; // extra visibility in dark rooms
+        palidx_base = global.PI_BGR2; // extra visibility in dark rooms
     }
     palidx_base += p.PI_DRK1;
 }
@@ -28,7 +28,7 @@ else
 
 if (isProjSprAdjFrame())
 {
-    palidx_base = PI_PC_1; // Lit, even in dark rm
+    palidx_base = global.PI_PC1; // Lit, even in dark rm
     
     if (1)
     {   // MOD
@@ -51,15 +51,14 @@ else
     && !(g.counter1&$2) )
   //&& !(g.counter1&$4) )
     {
-        palidx_base = PI_PC_1; // Lit, even in dark rm
+        palidx_base = global.PI_PC1; // Lit, even in dark rm
     }
 }
 
 
 
-    palidx = palidx_base;
-if (palidx_permut)
-{   palidx = get_pi(palidx_base,palidx_permut);  }
+palidx = palidx_base;
+//if (palidx_permut) palidx = get_pi(palidx_base,palidx_permut);
 
 
 

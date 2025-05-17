@@ -27,17 +27,17 @@ if (sub_state==SUB_STATE_CHLG_1A
     depth = PLATFORM_DEPTH;
     
     // Cover any bg graphic behind pillar head so you can't see any bg graphic behind it.
-    draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, $10,$10, p.dl_COLOR[|p.background_color_index]);
-    
+    draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, $10,$10, background_colour);
+    //draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, $10,$10, p.dl_COLOR[|p.background_color_index]);
     
     var  _pi  = PLATFORM_PI;
     if (rm_pal_qual_lit())
     {    _pi += p.PI_LIT1;  }
     else _pi += p.PI_DRK1;
-         _pi  = get_pi(_pi);
+         //_pi  = get_pi(_pi);
     if (USE_SURF)
     {
-        pal_swap_set(p.palette_image, _pi);
+        pal_swap_set(global.palette_image, _pi);
         draw_surface(dg_platform[#_idx,SURF_IDX], _x,_y);
         pal_swap_reset();
     }

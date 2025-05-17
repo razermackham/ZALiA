@@ -17,16 +17,11 @@ if (InputBack_pressed
     
     aud_play_sound(get_audio_theme_track(BACK_SOUND_THEME1));
     g.counter1 = 0;
-    state_previous   = state;
-    state_pending    = State_REGISTER;
-    state            = State_NULL;
+    state_previous = state;
+    state_pending  = State_REGISTER;
+    state          = State_NULL;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
-
-
-
-
-
 
 
 
@@ -50,6 +45,8 @@ if (input_select_pressed
 
 
 
+
+
 // -------------------------------------------------------------------------------
 switch(RandoMAIN_cursor)
 {
@@ -58,12 +55,11 @@ switch(RandoMAIN_cursor)
     case RandoMAIN_ITEMS:{
     if (InputConfirm_pressed)
     {
+        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
         RandoState = RandoState_ITEM;
         FileSelect_Rando_cursor_reset(RandoState);
-        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
     }
     break;}
-    
     
     
     // ============================================================================
@@ -71,12 +67,11 @@ switch(RandoMAIN_cursor)
     case RandoMAIN_SPELLS:{
     if (InputConfirm_pressed)
     {
+        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
         RandoState = RandoState_SPELL;
         FileSelect_Rando_cursor_reset(RandoState);
-        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
     }
     break;}
-    
     
     
     // ============================================================================
@@ -84,12 +79,11 @@ switch(RandoMAIN_cursor)
     case RandoMAIN_DUNGEONS:{
     if (InputConfirm_pressed)
     {
+        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
         RandoState = RandoState_DUNGEON;
         FileSelect_Rando_cursor_reset(RandoState);
-        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
     }
     break;}
-    
     
     
     // ============================================================================
@@ -97,12 +91,11 @@ switch(RandoMAIN_cursor)
     case RandoMAIN_ENEMIES:{
     if (InputConfirm_pressed)
     {
+        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
         RandoState = RandoState_ENEMY;
         FileSelect_Rando_cursor_reset(RandoState);
-        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
     }
     break;}
-    
     
     
     // ============================================================================
@@ -116,7 +109,6 @@ switch(RandoMAIN_cursor)
     break;}
     
     
-    
     // ============================================================================
     // -------------------------------------------------------------------
     case RandoMAIN_XP:{
@@ -126,32 +118,6 @@ switch(RandoMAIN_cursor)
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
     }
     break;}
-    
-    
-    /*
-    // ============================================================================
-    // -------------------------------------------------------------------
-    case RandoMAIN_UP_A_XP_PENALTY:{
-    if (_InputConfirm_pressed3)
-    {
-        dg_RandoMAIN_Options[#RandoMAIN_cursor,2] = !dg_RandoMAIN_Options[#RandoMAIN_cursor,2]; // 2: state
-        aud_play_sound(get_audio_theme_track(dk_ChooseChar));
-    }
-    break;}
-    */
-    
-    /*
-    // ============================================================================
-    // -------------------------------------------------------------------
-    case RandoMAIN_PALETTE:{
-    if (_InputConfirm_pressed3)
-    {
-        dg_RandoMAIN_Options[#RandoMAIN_cursor,2] = !dg_RandoMAIN_Options[#RandoMAIN_cursor,2]; // 2: state
-        aud_play_sound(get_audio_theme_track(dk_ChooseChar));
-    }
-    break;}
-    */
-    
     
     
     // ============================================================================
@@ -167,9 +133,9 @@ switch(RandoMAIN_cursor)
         RandoOTHER_REQUIRE_cursor    = 0;
         
         RandoState = RandoState_OTHER;
+        FileSelect_Rando_cursor_reset(RandoState);
     }
     break;}
-    
     
     
     // ============================================================================
@@ -177,12 +143,13 @@ switch(RandoMAIN_cursor)
     case RandoMAIN_SEED:{
     if (InputConfirm_pressed)
     {
-        FileSelect_Rando_cursor_reset(RandoState);
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
         RandoSEED_EDIT_state = 0;
         RandoSeedChar_cursor = 0;
         RandoSEED_cursor     = 0;
+        
         RandoState = RandoState_SEED;
+        FileSelect_Rando_cursor_reset(RandoState);
     }
     break;}
 }

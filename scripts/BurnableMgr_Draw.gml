@@ -8,7 +8,7 @@ if(!can_draw)  exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 var _x,_y, _spr;
 
-pal_swap_set(p.palette_image, FIRE_PI);
+pal_swap_set(global.palette_image, FIRE_PI);
 
 for(var _i=ds_grid_width(dg_Burnable)-1; _i>=0; _i--)
 {

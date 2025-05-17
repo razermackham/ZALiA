@@ -209,11 +209,11 @@ switch(g.menu_state)
         // Uptick xpnext value for stat chosen to level up
         if (g.level_up_idx != OPTION_CANCEL)
         {
-            var _DIFF = get_xp_next(g.level_up_idx) - statXPNext[g.level_up_idx];
+            var _DIFF = get_xp_next(g.level_up_idx) - dl_xp_next_stat[|g.level_up_idx];
             if (_DIFF)
             {
-                if (_DIFF >= 10) statXPNext[g.level_up_idx] += 10;
-                else             statXPNext[g.level_up_idx] +=  1;
+                if (_DIFF >= 10) dl_xp_next_stat[|g.level_up_idx] += 10;
+                else             dl_xp_next_stat[|g.level_up_idx] +=  1;
                 
                 if(!g.level_up_timer) g.level_up_timer = 1; // Keep menu open until uptick done
             }

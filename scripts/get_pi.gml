@@ -11,7 +11,7 @@ if (argument_count>1
     _palette_idx += argument[1] mod PI_PERMUTATIONS;
 }
 
-return min(_palette_idx, global.palette_image_W-1);
+return min(_palette_idx, global.palette_image_w-1);
 
 
 

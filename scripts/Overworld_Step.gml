@@ -8,22 +8,20 @@ var _clm,_row, _rm_clm,_rm_row, _pc_clm,_pc_row, _owrc,_owrc1, _ow_clm,_ow_row, 
 var _dir;
 var _tsrc,_tsrc1, _tid;
 var _str, _datakey, _data;
-var _RANDO_TSRC_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]) && global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
+
+var _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
+
+
 
 
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
-// -------------------------------------------------------------------
-// -------------------------------------------------------------------
+RandoTSRC_active = global.can_rando_ow_tsrc && ds_map_size(dm_Rando_TSRC);
+
 
 move_x = 0;
 move_y = 0;
 
-
-
-
-
-var _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
 
 if (_C1)
 {
@@ -83,79 +81,34 @@ if (_C1  // _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
                 mot       = MOT_WALK;
                 move_distance = 0;
                 
-                _tsrc = dg_tsrc[#_pc_clm,_pc_row] &$FF;
+                _tsrc  = dg_tsrc[#_pc_clm,_pc_row];
+                _tsrc1 = _tsrc&$FF;
                 
-                if (_RANDO_TSRC_ACTIVE)
+                if (_tsrc1==TSRC_SWAM01 
+                ||  _tsrc1==TSRC_SWAM02 
+                ||  _tsrc1==TSRC_SWAM03 
+                ||  _tsrc1==TSRC_SWAM04 )
                 {
-                    move_spd = MOVE_SPD_1;
-                    move_speed = move_SPEED1;
-                }
-                else
-                {
-                    if (_tsrc==TSRC_SWAM01 
-                    ||  _tsrc==TSRC_SWAM02 
-                    ||  _tsrc==TSRC_SWAM03 
-                    ||  _tsrc==TSRC_SWAM04 )
-                    {
-                        move_spd = MOVE_SPD_2;
-                        move_speed = move_SPEED2;
-                        if (f.items&ITM_BOOT 
-                        &&  val(f.dm_rando[?STR_Rando+STR_Active]) )
-                        {
-                            if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-                            ||  val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations]) 
-                            ||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Method]) )
-                            //||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawner])
-                            //||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_ENIGMA]) )
-                            {
-                                move_speed = move_SPEED3;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        move_spd = MOVE_SPD_1;
-                        move_speed = move_SPEED1;
-                    }
-                }
-                /*
-                if (_RANDO_TSRC_ACTIVE)
-                {
-                    _val1 = ((_tsrc&$FF)>>2)<<2;
-                    _val1 = val(dm_Rando_TSRC[?hex_str(_val1)]);
-                    if (_val1) _tsrc = _val1;
-                }
-                
-                if (_tsrc==TSRC_SWAM01 
-                ||  _tsrc==TSRC_SWAM02 
-                ||  _tsrc==TSRC_SWAM03 
-                ||  _tsrc==TSRC_SWAM04 )
-                {
-                    move_spd = MOVE_SPD_2;
+                    move_spd   = MOVE_SPD_2;
                     move_speed = move_SPEED2;
-                    if (f.items&ITM_BOOT 
-                    &&  val(f.dm_rando[?STR_Rando+STR_Active]) )
+                    
+                    if (RandoTSRC_active)
                     {
-                        if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-                        ||  val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations]) 
-                        ||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Method]) )
-                        //||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawner])
-                        //||  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_ENIGMA]) )
-                        {
-                            move_speed = move_SPEED3;
-                        }
+                        move_spd   = MOVE_SPD_1;
+                        move_speed = move_SPEED1;
+                        //move_speed = move_SPEED3;
                     }
                 }
                 else
                 {
-                    move_spd = MOVE_SPD_1;
+                    move_spd   = MOVE_SPD_1;
                     move_speed = move_SPEED1;
                 }
-                */
             }
         }
     }
 }
+
 
 
 
@@ -182,13 +135,11 @@ if(!dest_dist
             _rm_row = (DRAW_ROWS>>1)+_PC_DIR_SIGN_Y;
             
             _tsrc   = dg_tsrc[#_ow_clm,_ow_row];
-            if (_RANDO_TSRC_ACTIVE)
+            _tsrc1  = _tsrc&$FF;
+            if (RandoTSRC_active)
             {
-                _val1 = ((_tsrc&$FF)>>2)<<2;
-                _val1 = val(dm_Rando_TSRC[?hex_str(_val1)]);
-                if (_val1) _tsrc = _val1;
-                //dm_rando_biome
-                //dm_data[?STR_TSRC+_tsrc_+STR_Biome]
+                _val1 = dm_Rando_TSRC[?hex_str(_tsrc)];
+                if(!is_undefined(_val1)) _tsrc = (_val1>>2)<<2;
             }
             
             
@@ -197,13 +148,13 @@ if(!dest_dist
                 if(!val(dm_data[?hex_str(_owrc)+STR_Open]))
                 {
                         dm_data[?hex_str(_owrc)+STR_Open] = 1;
-                    _tsrc = TSRC_TOWN08; // $72: town w/ grass bg & green roofs
+                    _tsrc = (TILESET1_TS_IDX<<8)|TSRC_TOWN08; // $72: town w/ grass bg & green roofs
                     Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                     aud_play_sound(get_audio_theme_track(dk_BlockBreak));
                     aud_play_sound(get_audio_theme_track(dk_Fanfare), -1,false,-1, dk_Fanfare);
                     
                     if (g.anarkhyaOverworld_MAIN 
-                    &&  g.anarkhyaOverworld_use )
+                    &&  g.anarkhyaOverworld_enabled )
                     {
                         Overworld_tile_change_3(anarkhya_TSRC_NEWKAS, _rm_clm<<SHIFT,_rm_row<<SHIFT, anarkhya_TILE_DEPTH1, 0);
                         dg_anarkhya_tsrc[#_ow_clm,_ow_row] = anarkhya_TSRC_NEWKAS;
@@ -220,7 +171,7 @@ if(!dest_dist
                 switch(_data)
                 {
                     default:{
-                    _tsrc = TSRC_GRAS01; // $20: field
+                    _tsrc = (TILESET1_TS_IDX<<8)|TSRC_GRAS01; // $20: field
                     Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                     aud_play_sound(get_audio_theme_track(dk_BlockBreak));
                     break;}
@@ -229,7 +180,7 @@ if(!dest_dist
                     if(!val(dm_data[?hex_str(_owrc)+STR_Open]))
                     {
                             dm_data[?hex_str(_owrc)+STR_Open] = 1;
-                        _tsrc = TSRC_HOUSE04; // HOUSE04: Single house on grass
+                        _tsrc = (TILESET1_TS_IDX<<8)|TSRC_HOUSE04; // HOUSE04: Single house on grass
                         aud_play_sound(get_audio_theme_track(STR_Secret));
                         Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                         aud_play_sound(get_audio_theme_track(dk_BlockBreak));
@@ -237,20 +188,22 @@ if(!dest_dist
                     break;}
                 }
             }
-            else if (_tsrc==TSRC_TREE01) // Forest
+            else if (_tsrc1==TSRC_TREE01) // Forest
+            //else if (_tsrc==(TILESET1_TS_IDX<<8)|TSRC_TREE01) // Forest
             {
-                _tsrc = TSRC_GRAS01; // $20: field
+                _tsrc = (TILESET1_TS_IDX<<8)|TSRC_GRAS01; // $20: field
                 Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
             }
-            else if (inRange(_tsrc, TSRC_BOUL02,TSRC_BOUL02+6)) // Boulder
+            else if (inRange(_tsrc1, TSRC_BOUL02,TSRC_BOUL02+6)) // Boulder
+            //else if (inRange(_tsrc, TSRC_BOUL02,TSRC_BOUL02+6)) // Boulder
             {
-                _tsrc = val(dm_data[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_Boulder], TSRC_PATH03);
+                _tsrc = val(dm_data[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_Boulder], (TILESET1_TS_IDX<<8)|TSRC_PATH03);
                 Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
                 
                 if (g.anarkhyaOverworld_MAIN 
-                &&  g.anarkhyaOverworld_use )
+                &&  g.anarkhyaOverworld_enabled )
                 {
                     if (ds_list_find_index(dl_BoulderCircle_OWRC,_owrc)==-1)
                     {
@@ -304,7 +257,7 @@ if(!dest_dist
                                 aud_play_sound(get_audio_theme_track(STR_Secret));
                                 
                                 if (g.anarkhyaOverworld_MAIN 
-                                &&  g.anarkhyaOverworld_use )
+                                &&  g.anarkhyaOverworld_enabled )
                                 {
                                     Overworld_tile_change_3(anarkhya_TSRC_HOLE, _rm_clm<<SHIFT,_rm_row<<SHIFT, anarkhya_TILE_DEPTH1, 0);
                                     dg_anarkhya_tsrc[#_ow_clm,_ow_row] = anarkhya_TSRC_HOLE;
@@ -327,34 +280,33 @@ if(!dest_dist
             && (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) || val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations])) 
             &&  val(f.dm_quests[?STR_Warp+STR_Qualified]) ) // if any warp locations have been opened
             {
-                if(!exit_grid_xy 
-                &&  isVal(Warp_state,0,Warp_state_FLUTE,Warp_state_SPIN_UP) )
-                //&& !Warp_timer ) // change destination cooldown timer
+                if(!exit_grid_xy)
                 {
-                    if(!Warp_state)
+                    if(!Warp_state 
+                    ||  Warp_state==Warp_state_FLUTE 
+                    ||  Warp_state==Warp_state_SPIN_UP )
                     {
-                        var _INST = aud_play_sound(get_audio_theme_track(Warp_FLUTE_THEME));
-                        flute_timer = round(audio_sound_length(_INST)*room_speed) + 8;
-                        Warp_timer = flute_timer;
-                        Warp_owrc  = pcrc;
-                        Warp_state = Warp_state_FLUTE;
-                    }
-                    
-                    // change destination cooldown timer
-                    //Warp_timer = 2;
-                    //if(!Warp_destination_num) Warp_timer += 2;
-                    
-                    // change destination
-                    _count=ds_grid_width(dg_Warp_DESTINATIONS);
-                    for(_i=0; _i<_count; _i++)
-                    {
-                        Warp_destination_num++;
-                        if (Warp_destination_num>_count) Warp_destination_num=1;
-                        
-                        _val = dg_Warp_DESTINATIONS[#Warp_destination_num-1,0];
-                        if (val(f.dm_quests[?STR_Warp+STR_Qualified+_val]))
+                        if(!Warp_state)
                         {
-                            break;//_i
+                            var _INST = aud_play_sound(get_audio_theme_track(Warp_FLUTE_THEME));
+                            flute_timer = round(audio_sound_length(_INST)*room_speed) + 8;
+                            Warp_timer = flute_timer;
+                            Warp_owrc  = pcrc;
+                            Warp_state = Warp_state_FLUTE;
+                        }
+                        
+                        // change destination
+                        _count = ds_grid_width(Warp_dg_DESTINATIONS);
+                        for(_i=0; _i<_count; _i++)
+                        {
+                            Warp_destination_num++;
+                            if (Warp_destination_num>_count) Warp_destination_num=1;
+                            
+                            _val = Warp_dg_DESTINATIONS[#Warp_destination_num-1,0];
+                            if (val(f.dm_quests[?STR_Warp+STR_Qualified+_val]))
+                            {
+                                break;//_i
+                            }
                         }
                     }
                 }
@@ -380,43 +332,28 @@ if(!dest_dist
 
 
 
+
 // --------------------------------------------------------------------------------
 if(!flute_timer)
 {
-    pc_sprite_idx = bitNum(pc_dir)-1;
-    if (mot==MOT_RAFT) pc_sprite_idx += 4;
+    // For using spritesheets
+    pc_sprite_idx  = bitNum(pc_dir)-1;
+    pc_sprite_idx += 4 * (mot==MOT_RAFT);
     pc_sprite_idx  = pc_sprite_idx<<1;
-    if (dest_dist && dest_dist<(T_SIZE>>1)) pc_sprite_idx++;
-}
-
-if(!flute_timer)
-{
+    pc_sprite_idx += dest_dist && dest_dist<(T_SIZE>>1);
+    
+    
     //  mot: Mode Of Transportation
     if (mot==MOT_RAFT)
     {
-        //pc_spr = dg_RAFT_SPR[#bitNum(pc_dir)-1, 0];
         if (pc_dir&$3) pc_x_scale = _PC_DIR_SIGN_X;
         else           pc_x_scale = 1;
     }
     else
     {
-        //_idx = dest_dist && dest_dist<(T_SIZE>>1);
-        //pc_spr = dg_pc_spr[#bitNum(pc_dir)-1, _idx];
         pc_x_scale = 1;
     }
-    
-    
-    // For using spritesheets
-    pc_sprite_idx = bitNum(pc_dir)-1;
-    if (mot==MOT_RAFT) pc_sprite_idx += 4;
-    pc_sprite_idx = pc_sprite_idx<<1;
-    if (dest_dist && dest_dist<(T_SIZE>>1)) pc_sprite_idx++;
 }
-
-
-
-
-
 
 
 
@@ -464,10 +401,17 @@ if (_IS_MOVE_FRAME)
 
 
 
+
+
+
+
+
 // --------------------------------------------------------------------------------
 // UPDATE ENCOUNTER OBJS --------------------------------------------------
 Overworld_enc_spawn_update();
 Overworld_enc_inst_update();
+
+
 
 
 
@@ -544,9 +488,6 @@ if (_IS_MOVE_FRAME)
 
 
 
-
-
-
 // --------------------------------------------------------------------------------
 if (flute_timer)
 {
@@ -576,16 +517,16 @@ if (flute_timer)
             if (_tsrc==-1)
             {
                 switch(val(dm_data[?hex_str(_owrc)+STR_River_Devil])){
-                default:{_tsrc=TSRC_PATH02; break;}
-                case  1:{_tsrc=TSRC_BRDG1B; break;} // $B3. Vertically aligned bridge
-                //case 2:{_tsrc=TSRC_TREE01+1; break;} // Orange colored trees tile
+                default:{_tsrc=(TILESET1_TS_IDX<<8)|TSRC_PATH02; break;}
+                case  1:{_tsrc=(TILESET1_TS_IDX<<8)|TSRC_BRDG1B; break;} // $B3. Vertically aligned bridge
+                //case 2:{_tsrc=(TILESET1_TS_IDX<<8)|(TSRC_TREE01+1); break;} // Orange colored trees tile
                 }
             }
             
             Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
             
             if (g.anarkhyaOverworld_MAIN 
-            &&  g.anarkhyaOverworld_use )
+            &&  g.anarkhyaOverworld_enabled )
             {
                 Overworld_tile_change_3(0, _rm_clm<<SHIFT,_rm_row<<SHIFT, anarkhya_TILE_DEPTH2, -1);
                 dg_anarkhya_tsrc_detail[#_ow_clm,_ow_row]=0;
@@ -598,7 +539,7 @@ if (flute_timer)
             _ow_row = _pc_row + 2;
             _owrc   = (_ow_row<<8) | _ow_clm;
             
-            if (_owrc == val(dm_data[?MK_OWRC_PAL_THRE1]) 
+            if (_owrc==val(dm_data[?MK_OWRC_PAL_THRE1]) 
             && !val(dm_data[?hex_str(_owrc)+STR_Open]) )
             {
                 aud_play_sound(get_audio_theme_track(dk_Fanfare), -1,false,-1, dk_Fanfare);
@@ -607,12 +548,12 @@ if (flute_timer)
                 
                 _rm_clm = (DRAW_CLMS>>1);
                 _rm_row = (DRAW_ROWS>>1) + 2;
-                _tsrc   = TSRC_PALA02+1; // TSRC_PALA02: $90-95: Palace w/ biom bg's
-                //_tsrc   = TSRC_PALA01; // $E0: Palace
+                _tsrc   = (TILESET1_TS_IDX<<8)|(TSRC_PALA02+1); // TSRC_PALA02: $90-95: Palace w/ biom bg's
+                //_tsrc   = (TILESET1_TS_IDX<<8)|TSRC_PALA01; // $E0: Palace
                 Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                 
                 if (g.anarkhyaOverworld_MAIN 
-                &&  g.anarkhyaOverworld_use )
+                &&  g.anarkhyaOverworld_enabled )
                 {
                     Overworld_tile_change_3(anarkhya_TSRC_PALACE, _rm_clm<<SHIFT,_rm_row<<SHIFT, anarkhya_TILE_DEPTH2, 0);
                     dg_anarkhya_tsrc_detail[#_ow_clm,_ow_row]=anarkhya_TSRC_PALACE;
@@ -621,6 +562,9 @@ if (flute_timer)
         }
     }
 }
+
+
+
 
 
 
@@ -675,8 +619,8 @@ switch(Warp_state)
     case Warp_state_OWRC_CHANGE:{
     g.surf.draw_clear_color = p.C_BLK1;
     if (Warp_timer) break; // solid black screen during this time
-    _idx = clamp(Warp_destination_num-1,0,ds_grid_width(dg_Warp_DESTINATIONS)-1);
-    pcrc = dg_Warp_DESTINATIONS[#_idx,1];
+    _idx = clamp(Warp_destination_num-1,0,ds_grid_width(Warp_dg_DESTINATIONS)-1);
+    pcrc = Warp_dg_DESTINATIONS[#_idx,1];
     var _OW_X  = ((pcrc>>0)&$FF)<<SHIFT;
     var _OW_Y  = ((pcrc>>8)&$FF)<<SHIFT;
         _OW_X += T_SIZE>>1;
@@ -685,10 +629,10 @@ switch(Warp_state)
         _OW_Y -= DRAW_H_;
     Overworld_refresh_tiles(_OW_X,_OW_Y);
     
-    MEAT_timer = 0;
-    MEAT_owrc  = $0000;
-    MEAT_ow_x  = 0;
-    MEAT_ow_y  = 0;
+    BAIT_timer = 0;
+    BAIT_owrc  = $0000;
+    BAIT_ow_x  = 0;
+    BAIT_ow_y  = 0;
     
     // enc_spawn_timer decrements every $14 frames when g.timer_b reaches -1 in update_game_timers()
     enc_spawn_timer     = 8;
@@ -727,6 +671,7 @@ switch(Warp_state)
 
 
 
+
 if(!flute_timer)
 {
     if (WaterSparkle_timer)
@@ -734,7 +679,7 @@ if(!flute_timer)
         WaterSparkle_timer--;
         if(!WaterSparkle_timer)
         {
-            WaterSparkle_timer=WaterSparkle_DURATION0;
+            WaterSparkle_timer = WaterSparkle_DURATION0;
             WaterSparkle_refresh(pcrc);
         }
     }
@@ -875,69 +820,12 @@ if (exit_grid_xy)
 
 
 // -------------------------------------------------------------------
-if (g.counter0&$40) background_assign(ts_Overworld_1,ts_Overworld_1_2);
-else                background_assign(ts_Overworld_1,ts_Overworld_1_1_2);
-
-
-if (g.anarkhyaOverworld_MAIN 
-&&  g.anarkhyaOverworld_use )
-{
-    switch(2)
-    {
-        case 1:{
-        if!(g.counter0&$40)
-        {
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_00);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_00);
-        }
-        else if!(g.counter0&$20)
-        {
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_01);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_01);
-        }
-        else if!(g.counter0&$10)
-        {
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_02);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_02);
-        }
-        else
-        {
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_03);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_03);
-        }
-        break;}
-        
-        
-        case 2:{
-        switch((g.counter0&$7F)>>5)
-        {
-            case 0:{
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_00);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_00);
-            break;}
-            case 1:{
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_01);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_01);
-            break;}
-            case 2:{
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_02);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_02);
-            break;}
-            case 3:{
-            background_assign(ts_Overworld_anark01, ts_Overworld_anark01_03);
-            background_assign(ts_Overworld_anark02, ts_Overworld_anark02_03);
-            break;}
-        }
-        break;}
-    }
+switch((g.counter0&$7F)>>5){
+case 0:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_00); break;}
+case 1:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_01); break;}
+case 2:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_02); break;}
+case 3:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_03); break;}
 }
-
-
-
-
-
-
-
 
 
 
@@ -964,7 +852,7 @@ if (g.room_type=="C"
     tile_layer_shift(Tile_DEPTH1, move_x,move_y);
     
     if (g.anarkhyaOverworld_MAIN 
-    &&  g.anarkhyaOverworld_use )
+    &&  g.anarkhyaOverworld_enabled )
     {
         tile_layer_shift(anarkhya_TILE_DEPTH1, move_x,move_y);
         tile_layer_shift(anarkhya_TILE_DEPTH2, move_x,move_y);
@@ -973,8 +861,11 @@ if (g.room_type=="C"
     // if lined up with the grid this frame after moving, relative to T_SIZE
     if!(dest_dist&_OFF) Overworld_refresh_tiles(_ow_x,_ow_y);
 }
-// -------------------------------------------------------------------
-// -------------------------------------------------------------------
+
+
+
+
+Overworld_udp();
 
 
 

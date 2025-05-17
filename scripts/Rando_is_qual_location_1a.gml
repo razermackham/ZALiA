@@ -83,6 +83,7 @@ if (Rando_is_qual_location(val(dm_save_data[?STR_Dungeon+STR_Rando+STR_Island_Pa
 
 // KAKUSU07: Darunia
 if (Rando_is_qual_location(val(dm_save_data[?STR_Town+STR_Rando+STR_Darunia+"A"], STR_Darunia)) 
+&&  Rando_can_traverse_Darunia_town()  // in case Darunia is Old Kasuto and don't have CROSS
 &&  Rando_is_attainable(STR_STABDOWN) 
 &&  Rando_is_attainable(STR_STABUP) 
 &&  Rando_is_attainable(STR_GLOVE) 
@@ -131,7 +132,7 @@ if (Rando_is_qual_location(val(dm_save_data[?STR_Dungeon+STR_Rando+STR_Three_Eye
 if (Rando_can_reach_KasutoArea() 
 &&  Rando_is_attainable(STR_CROSS) 
 &&  Rando_is_attainable(STR_BOOK) )
-//&&  Rando_is_attainable(STR_ENIGMA) )
+//&&  Rando_is_attainable(STR_ENIGMA) ) // use ENIGMA to take care of invisible Moas
 {
     var _dk = STR_Spell+STR_Sequence+"03";
     var _spell_seq = f.dm_quests[?_dk];

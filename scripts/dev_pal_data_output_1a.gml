@@ -35,7 +35,7 @@ for (i = 0; i <= ds_list_size(g.dl_AREA_NAME) - 1; i++) // each area
                 _str1 = "";
                 _str2 = "";
                 _str3 = "";
-                _count = string_length(_data) div (COL_PER_PAL_ << 1);
+                _count = string_length(_data) div global.PAL_CHAR_PER_PAL;
                 for (k = 0; k < _count; k++)
                 {
                                                _str0  = "";

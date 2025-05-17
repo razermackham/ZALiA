@@ -116,7 +116,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $22<<3,y4,  STR_Lit); // v1: Light w/ CANDLE 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $5D<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $62<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
-data_spawn(rm+STR_PRXM,SpWoA,$1,  $00,$00); // WosuSpawner  1
+data_spawn(rm+STR_PRIO,SpWoA,$1,  $00,$00); // WosuSpawner  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $30<<3,y3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $36<<3,y3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $42<<3,y3); // Myu  1
@@ -628,7 +628,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x4,$39<<3,  STR_Lit); // v1: Light w/ CANDLE 
 
 var _OBJ = Myu_A;
 var _DUR = 4; // SpTrC revolution duration
-var _PI1 = PI_MOB_BLU; // For spinning spike trap to contrast w/ red walls of palace 3
+var _PI1 = global.PI_MOB_BLU; // For spinning spike trap to contrast w/ red walls of palace 3
 _val=$06;
 x3=(clm1-_val)<<3;  x4=(clm1+_val)<<3;  x5=(clm1-$C)<<3;  x6=(clm1+$E)<<3;
 

@@ -64,21 +64,23 @@ state       = STATE_IDLE;
 timer = 0;
 
 
-area_idx    = 0;
-AREA_COUNT  = ds_list_size(g.dl_AREA_NAME);
-                                  ar_area[AREA_COUNT] = Area_Title;
-for(_i=AREA_COUNT-1; _i>=0; _i--) ar_area[_i]         = g.dl_AREA_NAME[|_i];
-AREA_COUNT = array_length_1d(     ar_area); // For warping to Title Screen
+area_idx   = 0;
+AREA_COUNT = ds_list_size(g.dl_AREA_NAME);
+
+dl_area = ds_list_create();
+for(_i=0; _i<AREA_COUNT; _i++) ds_list_add(dl_area,g.dl_AREA_NAME[|_i]);
+ds_list_add(dl_area,Area_Title);
+AREA_COUNT = ds_list_size(dl_area);
 
 
-rm_id        =  $00;
-RmID_COUNT   = $100;
+rm_id      =  $00;
+RmID_COUNT = $100;
 
 
-ExitType_COUNT  =  $05;
-ExitID_COUNT    =  ExitType_COUNT<<4;
-ExitID          =  0;
-exit_idx        =  0;
+ExitType_COUNT = $05;
+ExitID_COUNT   = ExitType_COUNT<<4;
+ExitID         = 0;
+exit_idx       = 0;
 
 dl_ExitID = ds_list_create();
 for(_i=ExitID_COUNT-1; _i>=0; _i--)

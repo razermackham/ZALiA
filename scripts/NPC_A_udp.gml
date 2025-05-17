@@ -5,6 +5,9 @@
 
 can_draw_self = true;
 
+
+NPC_udp_2(); // update `RandoHint_hint_num`
+
 xScale = sign_(x<g.pc.x);
 
 

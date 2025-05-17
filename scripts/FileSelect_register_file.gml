@@ -2,27 +2,26 @@
 
 
 var _FILE_NUM  = argument0;
-var _FILE_NAME = f.ar_FILE_NAMES[_FILE_NUM-1];
+var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
 
 
 var _i,_j, _val;
 var _datakey;
 
-var _SAVE_NAME = f.ar_save_names[_FILE_NUM-1];
-
-
-
+var _SAVE_NAME = f.dl_save_names[|_FILE_NUM-1];
 
 var _RANDO_ON = FileSelect_Rando_is_on(-1);
+
 
 _val = 1;
 if (_RANDO_ON)
 {
     _val = dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_QUEST,2];
 }
-else if (string_pos("ZELDA",_SAVE_NAME))
+else
 {
-    if (string_count(" ",_SAVE_NAME)==string_length(_SAVE_NAME)-5)
+    if (string_pos("ZELDA",_SAVE_NAME) 
+    &&  string_count(" ",_SAVE_NAME)==string_length(_SAVE_NAME)-5 )
     {
         _val = 2;
     }
@@ -110,6 +109,31 @@ if (file_exists(_FILE_NAME))
         
         
         var _START_CONT_HP = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,2];
+        _val="";
+        for(_i=1; _i<=_START_CONT_HP; _i++)
+        {
+            for(_j=1; _j<=f.CONT_PIECE_PER_HP; _j++)
+            {
+                _val += hex_str(_i)+hex_str(_j);
+            }
+        }
+        _dm_save_data[?f.SDNAME_cont_pieces_hp] = _val;
+        _dm_save_data[?STR_File+STR_Start+STR_Container+STR_HP] = _START_CONT_HP;
+        
+        
+        var _START_CONT_MP = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,2];
+        _val="";
+        for(_i=1; _i<=_START_CONT_MP; _i++)
+        {
+            for(_j=1; _j<=f.CONT_PIECE_PER_MP; _j++)
+            {
+                _val += hex_str(_i)+hex_str(_j);
+            }
+        }
+        _dm_save_data[?f.SDNAME_cont_pieces_mp] = _val;
+        _dm_save_data[?STR_File+STR_Start+STR_Container+STR_MP] = _START_CONT_MP;
+        /*
+        var _START_CONT_HP = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,2];
         if (_START_CONT_HP>cont_cnt_hp())
         {
             _val="";
@@ -141,6 +165,7 @@ if (file_exists(_FILE_NAME))
             _dm_save_data[?f.SDNAME_cont_pieces_mp] = _val;
         }
         _dm_save_data[?STR_File+STR_Start+STR_Container+STR_MP] = _START_CONT_MP;
+        */
         
         
         
@@ -217,23 +242,12 @@ if (file_exists(_FILE_NAME))
     
     
     
+    var _SEED = FileSelect_get_file_seed(_FILE_NUM,_QUEST_NUM);
+    var _settings = "";
     if (_RANDO_ON)
     {
-        var _settings = FileSelect_Rando_get_rando_settings();
+        _settings = FileSelect_Rando_get_rando_settings();
         var _dm_SETTINGS = json_decode(_settings);
-        /*
-        RandoOTHER_ITEMS_item_cursor_CANDLE  = _i++;
-        RandoOTHER_ITEMS_item_cursor_SHIELD  = _i++;
-        RandoOTHER_ITEMS_item_cursor_RING    = _i++;
-        RandoOTHER_ITEMS_item_cursor_PENDANT = _i++;
-        RandoOTHER_ITEMS_item_cursor_SWORD   = _i++;
-        RandoOTHER_ITEMS_item_cursor_NOTE    = _i++;
-        RandoOTHER_ITEMS_item_cursor_MAP1    = _i++;
-        RandoOTHER_ITEMS_item_cursor_MAP2    = _i++;
-        RandoOTHER_ITEMS_item_cursor_DOLLS   = _i++;
-        RandoOTHER_ITEMS_item_cursor_HEART   = _i++; // heart containers
-        RandoOTHER_ITEMS_item_cursor_MAGIC   = _i++; // magic containers
-        */
         
         _dm_SETTINGS[?STR_File      +STR_Start+STR_Level+STR_Attack] = _LEVEL_ATK;
         _dm_SETTINGS[?STR_Quest+"01"+STR_Start+STR_Level+STR_Attack] = _LEVEL_ATK;
@@ -273,39 +287,16 @@ if (file_exists(_FILE_NAME))
         
         _settings = json_encode(_dm_SETTINGS);
         ds_map_destroy(_dm_SETTINGS); _dm_SETTINGS=undefined;
-        
-        
-        var _SEED = FileSelect_get_file_seed(_FILE_NUM,_QUEST_NUM);
-        with(instance_create(0,0,Rando))
-        {
-            Rando_randomize_file(_FILE_NUM, _QUEST_NUM, _SEED, _settings);
-            instance_destroy();
-        }
+    }
+    
+    
+    // Putting this outside of `if (_RANDO_ON)` so stuff like palette rando, dungeon tileset rando will still run
+    with(instance_create(0,0,Rando))
+    {
+        Rando_randomize_file(_FILE_NUM, _QUEST_NUM, _SEED, _settings);
+        instance_destroy();
     }
 }
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-
-/*
-var _SEED1 = RUN_RANDOMIZATION_SEED;
-var _SEED2 = _SEED1;
-if (_RANDO_ON)
-{
-    _SEED1 = FileSelect_get_file_seed(_FILE_NUM,1,_SEED1);
-    _SEED2 = FileSelect_get_file_seed(_FILE_NUM,2,_SEED2);
-}
-set_saved_value(_FILE_NUM, get_file_seed_dk(_FILE_NUM,1), _SEED1);
-set_saved_value(_FILE_NUM, get_file_seed_dk(_FILE_NUM,2), _SEED2);
-
-if (_RANDO_ON)
-{
-    Rando_NewSaveFile(_FILE_NUM,1,_SEED1);
-    Rando_NewSaveFile(_FILE_NUM,2,_SEED2);
-}
-*/
 
 
 

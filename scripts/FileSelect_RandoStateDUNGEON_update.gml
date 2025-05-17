@@ -27,13 +27,6 @@ if (input_select_pressed
     {
         RandoDUNGEON_cursor = (RandoDUNGEON_cursor+_DIR+RandoDUNGEON_COUNT) mod RandoDUNGEON_COUNT;
         if (dg_RandoDUNGEON_Options[#RandoDUNGEON_cursor,2]>=0) break; // option is available
-        /*
-        if (RandoDUNGEON_cursor!=RandoDUNGEON_LOCATION 
-        ||  dg_RandoITEM_Options[#RandoITEM_LOCS,2] )
-        {
-            if (dg_RandoDUNGEON_Options[#RandoDUNGEON_cursor,2]>=0) break; // option is available
-        }
-        */
     }
     aud_play_sound(get_audio_theme_track(CURSOR_SOUND_THEME2));
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -48,6 +41,7 @@ if (input_select_pressed
 // -------------------------------------------------------------------------------
 switch(RandoDUNGEON_cursor)
 {
+    /*
     // ============================================================================
     // -------------------------------------------------------------------
     case RandoDUNGEON_TILESET:{
@@ -57,13 +51,13 @@ switch(RandoDUNGEON_cursor)
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
     }
     break;}
-    
+    */
     
     // ============================================================================
     // -------------------------------------------------------------------
     case RandoDUNGEON_LOCATION:{
-    if (_InputConfirm_pressed2 
-    &&  dg_RandoITEM_Options[#RandoITEM_LOCS,2] )
+    if (_InputConfirm_pressed2)
+    //&&  dg_RandoDUNGEON_Options[#RandoDUNGEON_cursor,2] )
     {
         dg_RandoDUNGEON_Options[#RandoDUNGEON_cursor,2] = !dg_RandoDUNGEON_Options[#RandoDUNGEON_cursor,2]; // 2: state
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));

@@ -13,6 +13,10 @@ var _SEARCH_DIR = sign_(argument[_arg++]);
 var                      _DEFAULT =              (viewYC()>>3)            <<3; // 
 if (argument_count>_arg) _DEFAULT = clamp(argument[_arg++]>>3, 0,_ROWS-1) <<3;
 
+if (_ROWS < 1) {
+    return _DEFAULT;
+}
+
 var                                          _SOLID_BITS =     TID_SOLID1;
 if (argument_count>_arg && argument[_arg++]) _SOLID_BITS = max(TID_SOLID1,argument[_arg-1]);
 

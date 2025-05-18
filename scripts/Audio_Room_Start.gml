@@ -205,11 +205,11 @@ var _IS_DIFF_BODY = mus_rm_body != mus_rm_body_prev;
 if (_IS_DIFF_THEME 
 &&  _IS_DIFF_BODY )
 {
-    mus_rm_intr = val(dm[?audio_get_name(mus_rm_body)+STR_Intro]);
+    mus_rm_intr = val(dm[?audio_get_name(mus_rm_body)+STR_Intro], -1);
 }
 else
 {
-    mus_rm_intr = 0;
+    mus_rm_intr = -1;
     if(!is_undefined(dm[?rm_music_theme+dk_Intro_CanPlay]))
     {                dm[?rm_music_theme+dk_Intro_CanPlay] = false;  }
 }
@@ -284,7 +284,7 @@ else if (0)
 // ----------------------------------------------------------------
 audio_stop_sound(snd_Default_Title_Intro_no_volume);
 audio_stop_sound(snd_Default_Title_no_volume);
-timing_sound_inst = 0;
+timing_sound_asset = undefined;
 timing_sound_position_prev = 0;
 timing_sound_position_curr = 0;
 

@@ -141,7 +141,7 @@ pal_swap_reset();
 
 /*
 // Body Fire ------------------------------------------
-pal_swap_set(p.palette_image, PI_MOB_ORG, false);
+pal_swap_set(p.palette_image, PI_MOB_ORG);
 for(_i=ds_grid_width(dg_fire)-1; _i>=0; _i--)
 {
     if(!dg_fire[#_i,$3])

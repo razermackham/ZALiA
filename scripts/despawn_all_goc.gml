@@ -3,7 +3,7 @@
 
 for(var _i=ds_list_size(g.go_mgr.dl_goc1)-1; _i>=0; _i--)
 {
-    if!(g.go_mgr.dl_goc1[|_i]+1)
+    if(!ds_list_has_element(g.go_mgr.dl_goc1, _i))
     //if(!instance_exists(g.go_mgr.dl_goc1[|_i]))
     {
         continue;

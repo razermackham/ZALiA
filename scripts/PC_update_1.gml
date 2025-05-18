@@ -338,10 +338,10 @@ if (f.items&ITM_FRY1)
                     _row  = csBtm1Y>>3;
                 var _clm2 = csBtm2X>>3;
                 var _row2 = csBtm2Y>>3;
-                if(!isVal(g.dg_RmTile_Break_def[#_clm ,_row ]&$FF, TID_BREAK1,TID_BREAK2,TID_BREAK3,TID_BREAK4) 
-                && !isVal(g.dg_RmTile_Break_def[#_clm2,_row2]&$FF, TID_BREAK1,TID_BREAK2,TID_BREAK3,TID_BREAK4) 
-                &&       !g.dg_RmTile_TempSolid[#_clm ,_row ]&$FF 
-                &&       !g.dg_RmTile_TempSolid[#_clm2,_row2]&$FF )
+                if(!isVal(ds_grid_get_compat(g.dg_RmTile_Break_def, _clm, _row)&$FF, TID_BREAK1,TID_BREAK2,TID_BREAK3,TID_BREAK4) 
+                && !isVal(ds_grid_get_compat(g.dg_RmTile_Break_def, _clm2,_row2)&$FF, TID_BREAK1,TID_BREAK2,TID_BREAK3,TID_BREAK4) 
+                &&       !(ds_grid_get_compat(g.dg_RmTile_TempSolid, _clm ,_row )&$FF) 
+                &&       !(ds_grid_get_compat(g.dg_RmTile_TempSolid, _clm2,_row2)&$FF) )
                 {
                          if (_C1 && _C2) _clm =       x>>3;
                     else if (_C1)        _clm = csBtm1X>>3;

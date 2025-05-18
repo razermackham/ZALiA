@@ -102,7 +102,7 @@ else
             }
             
             _ts = g.dl_tileset[|(_tile_data>>8)&$FF];
-            _tid = tile_change_2a(T_SIZE, _ts,_tsrc0, _x,_y, Tile_DEPTH1, 0);
+            _tid = tile_change_2a(T_SIZE, _ts,_tsrc0, _x,_y, Tile_DEPTH1, 1);
             dg_tid[#_j,_i] = _tid;
             
             if (tile_exists(_tid)) tile_set_scale(_tid, _scale_x,_scale_y);

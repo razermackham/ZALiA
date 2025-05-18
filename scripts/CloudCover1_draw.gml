@@ -4,7 +4,7 @@
 var _i,_j, _x0,_x,_y;
 //var _W1 = 
 
-//pal_swap_set(p.palette_image, palidx, false);
+//pal_swap_set(p.palette_image, palidx);
 
 for(_i=CloudLayers_COUNT-1; _i>=0; _i--)
 {

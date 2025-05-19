@@ -76,6 +76,7 @@ global.dm_save_file_data = ds_map_create();
 for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
 {
     _file_name = dl_file_names[|_i];
+    if !file_exists(_file_name) continue;
     _file      = file_text_open_read(working_directory+_file_name);
     _file_data = file_text_read_string(_file);
                  file_text_close(      _file);
